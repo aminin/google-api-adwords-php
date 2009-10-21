@@ -1,0 +1,520 @@
+<html>
+<head>
+<title>Docs For Class Logger</title>
+<link rel="stylesheet" type="text/css" href="../../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">GoogleApiAdsCommon</td>
+  </tr>
+  <tr><td class="header_line"><img src="../../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                        
+                              		  [ <a href="../../classtrees_GoogleApiAdsCommon.html" class="menu">class tree: GoogleApiAdsCommon</a> ]
+		  [ <a href="../../elementindex_GoogleApiAdsCommon.html" class="menu">index: GoogleApiAdsCommon</a> ]
+		  	    [ <a href="../../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../../li_GoogleApiAdsAdWords.html">GoogleApiAdsAdWords</a><br />
+              <a href="../../li_GoogleApiAdsCommon.html">GoogleApiAdsCommon</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	subpackage <b>Lib</b><br>  <div class="package">
+			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---AdsUser.php.html">		AdsUser.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---SoapClientFactory.php.html">		SoapClientFactory.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---ValidationException.php.html">		ValidationException.php
+		</a><br>
+	  </div><br />
+	subpackage <b>Util</b><br>  <div class="package">
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---AuthToken.php.html">		AuthToken.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
+		</a><br>
+	  </div><br />
+	subpackage <b>v200812</b><br>  <div class="package">
+			<a href="../../GoogleApiAdsCommon/v200812/_Common---Lib---AdsSoapClient.php.html">		AdsSoapClient.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+	v200812<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html">AdsSoapClient</a><br />
+	  </div>
+  <div class="package">
+	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/ValidationException.html">ValidationException</a><br />
+	  </div>
+  <div class="package">
+	Util<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: Logger</h1>
+Source Location: /Common/Util/Logger.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">A logger class which registers appenders (any writable handle location  which can be fopen'ed) with a unique name for that log. The library will  write all incoming/outgoing SOAP XML to <var>SOAP_XML_LOG</var> and  all records of requests to <var>REQUEST_INFO_LOG</var>.</div><br /><br />
+
+
+
+
+
+
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$DEBUG">$DEBUG</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$ERROR">$ERROR</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$FATAL">$FATAL</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$INFO">$INFO</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$REQUEST_INFO_LOG">$REQUEST_INFO_LOG</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$SOAP_XML_LOG">$SOAP_XML_LOG</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$STD_ERR_STREAM">$STD_ERR_STREAM</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$STD_OUT_STREAM">$STD_OUT_STREAM</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#methodLog">Log</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#methodLogToFile">LogToFile</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/Logger.html#methodLogToStream">LogToStream</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line 42]<br />
+A logger class which registers appenders (any writable handle location  which can be fopen'ed) with a unique name for that log. The library will  write all incoming/outgoing SOAP XML to <var>SOAP_XML_LOG</var> and  all records of requests to <var>REQUEST_INFO_LOG</var>.<br /><br /><p>Currently, levels are only used as indicators (there is no filtering  mechanism as of yet).</p><p>A list of supported appenders (file handles) can be found here:  <a href="http://us2.php.net/manual/en/wrappers.php">http://us2.php.net/manual/en/wrappers.php</a></p><br /></div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$DEBUG"></a>
+	<p></p>
+	<h4>static $DEBUG = <span class="value">&nbsp;'DEBUG'</span></h4>
+	<p>[line 79]</p>
+  DEBUG level.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>the debug level</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$ERROR"></a>
+	<p></p>
+	<h4>static $ERROR = <span class="value">&nbsp;'ERROR'</span></h4>
+	<p>[line 85]</p>
+  ERROR level.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>the error level</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$FATAL"></a>
+	<p></p>
+	<h4>static $FATAL = <span class="value">&nbsp;'FATAL'</span></h4>
+	<p>[line 91]</p>
+  FATAL level.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>the fatal level</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$INFO"></a>
+	<p></p>
+	<h4>static $INFO = <span class="value">&nbsp;'INFO'</span></h4>
+	<p>[line 73]</p>
+  INFO level.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>the info level</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$REQUEST_INFO_LOG"></a>
+	<p></p>
+	<h4>static $REQUEST_INFO_LOG = <span class="value">&nbsp;'request_info'</span></h4>
+	<p>[line 53]</p>
+  Logs all information about requests.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>log for all information about requests</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$SOAP_XML_LOG"></a>
+	<p></p>
+	<h4>static $SOAP_XML_LOG = <span class="value">&nbsp;'soap_xml'</span></h4>
+	<p>[line 47]</p>
+  Logs all incomming and outgoing SOAP XML.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>log for all incomming and outgoing SOAP XML</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$STD_ERR_STREAM"></a>
+	<p></p>
+	<h4>static $STD_ERR_STREAM = <span class="value">&nbsp;'php://stderr'</span></h4>
+	<p>[line 67]</p>
+  Standard error stream for use with the LogToStream method.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>stream for stderr</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../../GoogleApiAdsCommon/Util/Logger.html#methodLogToStream">Logger::LogToStream()</a></td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$STD_OUT_STREAM"></a>
+	<p></p>
+	<h4>static $STD_OUT_STREAM = <span class="value">&nbsp;'php://stdout'</span></h4>
+	<p>[line 60]</p>
+  Standard out stream for use with the LogToStream method.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>stream for stdout</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../../GoogleApiAdsCommon/Util/Logger.html#methodLogToStream">Logger::LogToStream()</a></td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+  <hr />
+	<a name="methodLog"></a>
+	<h3>static method Log <span class="smalllinenumber">[line 154]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static void Log(
+string
+$log, string
+$message, [string
+$level = NULL])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Logs a message to the log at a specific level.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$log</b>&nbsp;&nbsp;</td>
+        <td>the unique name of the log</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$message</b>&nbsp;&nbsp;</td>
+        <td>the message to write</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$level</b>&nbsp;&nbsp;</td>
+        <td>the level at which to write the message</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodLogToFile"></a>
+	<h3>static method LogToFile <span class="smalllinenumber">[line 107]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static void LogToFile(
+string
+$log, string
+$filePath)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Logs the given log to a file at the file path.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$log</b>&nbsp;&nbsp;</td>
+        <td>the unique name of the log</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$filePath</b>&nbsp;&nbsp;</td>
+        <td>the location of the file to append the log to</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodLogToStream"></a>
+	<h3>static method LogToStream <span class="smalllinenumber">[line 124]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static void LogToStream(
+string
+$log, string
+$phpIoStream)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Logs the given log to a stream represented by <var>$phpIoStream</var>. The  availble streams are listed here:<br /><br /><p><a href="http://us3.php.net/manual/en/wrappers.php.php">http://us3.php.net/manual/en/wrappers.php.php</a></p><p>The variables <var>$STD_OUT_STREAM</var> and <var>$STD_ERR_STREAM</var> are  provided for your convenience.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$STD_OUT_STREAM">Logger::$STD_OUT_STREAM</a></td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../../GoogleApiAdsCommon/Util/Logger.html#var$STD_ERR_STREAM">Logger::$STD_ERR_STREAM</a></td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$log</b>&nbsp;&nbsp;</td>
+        <td>the unique name of the log</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$phpIoStream</b>&nbsp;&nbsp;</td>
+        <td>the php I/O stream of the form php://*</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Wed, 21 Oct 2009 15:25:26 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

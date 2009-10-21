@@ -1,0 +1,788 @@
+code,country,region
+AU-ACT,Australia,Australian Capital Territory
+AU-NSW,Australia,New South Wales
+AU-NT,Australia,Northern Territory
+AU-QLD,Australia,Queensland
+AU-SA,Australia,South Australia
+AU-TAS,Australia,Tasmania
+AU-VIC,Australia,Victoria
+AU-WA,Australia,Western Australia
+AT-1,Austria,Burgenland
+AT-2,Austria,Carinthia
+AT-3,Austria,Lower Austria
+AT-4,Austria,Upper Austria
+AT-5,Austria,Salzburg
+AT-6,Austria,Styria
+AT-7,Austria,Tyrol
+AT-8,Austria,Vorarlberg
+AT-9,Austria,Vienna
+BE-BRX,Belgium,Brussels
+BE-VAN,Belgium,Antwerp
+BE-VBR,Belgium,Flemish Brabant
+BE-VLI,Belgium,Limburg
+BE-VOV,Belgium,East Flanders
+BE-VWV,Belgium,West Flanders
+BE-WBR,Belgium,Walloon Brabant
+BE-WHT,Belgium,Hainaut
+BE-WLG,Belgium,Liege
+BE-WLX,Belgium,Luxembourg
+BE-WNA,Belgium,Namur
+BR-AC,Brazil,Acre
+BR-AL,Brazil,Alagoas
+BR-AM,Brazil,Amazonas
+BR-AP,Brazil,Amapa
+BR-BA,Brazil,Bahia
+BR-CE,Brazil,Ceara
+BR-DF,Brazil,Federal District
+BR-ES,Brazil,Espirito Santo
+BR-GO,Brazil,Goias
+BR-MA,Brazil,Maranhao
+BR-MG,Brazil,Minas Gerais
+BR-MS,Brazil,Mato Grosso do Sul
+BR-MT,Brazil,Mato Grosso
+BR-PA,Brazil,Para
+BR-PB,Brazil,Paraiba
+BR-PE,Brazil,Pernambuco
+BR-PI,Brazil,Piaui
+BR-PR,Brazil,Parana
+BR-RJ,Brazil,Rio de Janeiro
+BR-RN,Brazil,Rio Grande do Norte
+BR-RO,Brazil,Rondonia
+BR-RR,Brazil,Roraima
+BR-RS,Brazil,Rio Grande do Sul
+BR-SC,Brazil,Santa Catarina
+BR-SE,Brazil,Sergipe
+BR-SP,Brazil,Sao Paulo
+BR-TO,Brazil,Tocantins
+CA-AB,Canada,Alberta
+CA-BC,Canada,British Columbia
+CA-MB,Canada,Manitoba
+CA-NB,Canada,New Brunswick
+CA-NF,Canada,Newfoundland
+CA-NS,Canada,Nova Scotia
+CA-NT,Canada,Northwest Territories
+CA-NU,Canada,Nunavut
+CA-ON,Canada,Ontario
+CA-PE,Canada,Prince Edward Island
+CA-QC,Canada,Quebec
+CA-SK,Canada,Saskatchewan
+CA-YT,Canada,Yukon Territory
+CN-11,China,Beijing
+CN-12,China,Tianjin
+CN-13,China,Hebei
+CN-14,China,Shanxi
+CN-15,China,Nei Monggol
+CN-21,China,Liaoning
+CN-22,China,Jilin
+CN-23,China,Heilongjiang
+CN-31,China,Shanghai
+CN-32,China,Jiangsu
+CN-33,China,Zhejiang
+CN-34,China,Anhui
+CN-35,China,Fujian
+CN-36,China,Jiangxi
+CN-37,China,Shandong
+CN-41,China,Henan
+CN-42,China,Hubei
+CN-43,China,Hunan
+CN-44,China,Guangdong
+CN-45,China,Guangxi
+CN-46,China,Hainan
+CN-50,China,Chongqing
+CN-51,China,Sichuan
+CN-52,China,Guizhou
+CN-53,China,Yunnan
+CN-54,China,Xizang
+CN-61,China,Shaanxi
+CN-62,China,Gansu
+CN-63,China,Qinghai
+CN-64,China,Ningxia
+CN-65,China,Xinjiang
+DK-015,Denmark,Copenhagen
+DK-020,Denmark,Frederiksborg
+DK-025,Denmark,Roskilde
+DK-030,Denmark,Vestsjaelland
+DK-035,Denmark,Storstroem
+DK-040,Denmark,Bornholm
+DK-042,Denmark,Fyn
+DK-050,Denmark,Soenderjylland
+DK-055,Denmark,Ribe
+DK-060,Denmark,Vejle
+DK-065,Denmark,Ringkoebing
+DK-070,Denmark,Aarhus
+DK-076,Denmark,Viborg
+DK-080,Denmark,Nordjylland
+DK-147,Denmark,Frederiksberg
+FI-AL,Finland,The Province of Åland
+FI-ES,Finland,The Province of Southern Finland
+FI-IS,Finland,The Province of Eastern Finland
+FI-LL,Finland,The Province of Lapland
+FI-LS,Finland,The Province of Western Finland
+FI-OL,Finland,The Province of Oulu
+FR-A,France,Alsace
+FR-B,France,Aquitaine
+FR-C,France,Auvergne
+FR-D,France,Burgundy
+FR-E,France,Brittany
+FR-F,France,Centre
+FR-G,France,Champagne-Ardenne
+FR-H,France,Corsica
+FR-I,France,Franche-Comte
+FR-J,France,Ile-de-France
+FR-K,France,Languedoc-Roussillon
+FR-L,France,Limousin
+FR-M,France,Lorraine
+FR-N,France,Midi-Pyrenees
+FR-O,France,Nord-Pas-de-Calais
+FR-P,France,Normandy - Lower
+FR-Q,France,Normandy - Upper
+FR-R,France,Pays de la Loire
+FR-S,France,Picardie
+FR-T,France,Poitou-Charentes
+FR-U,France,Provence-Alpes-Cote d'Azur
+FR-V,France,Rhône-Alpes
+DE-BE,Germany,Berlin
+DE-BR,Germany,Brandenburg
+DE-BW,Germany,Baden-Württemberg
+DE-BY,Germany,Bayern
+DE-HB,Germany,Bremen
+DE-HE,Germany,Hessen
+DE-HH,Germany,Hamburg
+DE-MV,Germany,Mecklenburg-Vorpommern
+DE-NI,Germany,Niedersachsen
+DE-NW,Germany,Nordrhein-Westfalen
+DE-RP,Germany,Rheinland-Pfalz
+DE-SH,Germany,Schleswig-Holstein
+DE-SL,Germany,Saarland
+DE-SN,Germany,Sachsen
+DE-ST,Germany,Sachsen-Anhalt
+DE-TH,Germany,Thüringen
+IN-AN,India,Andaman and Nicobar Islands
+IN-AP,India,Andhra Pradesh
+IN-AR,India,Arunachal Pradesh
+IN-AS,India,Assam
+IN-BR,India,Bihar
+IN-CH,India,Chandigarh
+IN-CT,India,Chhattisgarh
+IN-DD,India,Daman and Diu
+IN-DL,India,Delhi
+IN-DN,India,Dadar and Nagar Haveli
+IN-GA,India,Goa
+IN-GJ,India,Gujarat
+IN-HP,India,Himachal Pradesh
+IN-HR,India,Haryana
+IN-JH,India,Jharkhand
+IN-JK,India,Jammu and Kashmir
+IN-KA,India,Karnataka
+IN-KL,India,Kerala
+IN-LD,India,Lakshadweep
+IN-MH,India,Maharashtra
+IN-ML,India,Meghalaya
+IN-MN,India,Manipur
+IN-MP,India,Madhya Pradesh
+IN-MZ,India,Mizoram
+IN-NL,India,Nagaland
+IN-OR,India,Orissa
+IN-PB,India,Punjab
+IN-PY,India,Pondicherry
+IN-RJ,India,Rajasthan
+IN-SK,India,Sikkim
+IN-TN,India,Tamil Nadu
+IN-TR,India,Tripura
+IN-UL,India,Uttaranchal
+IN-UP,India,Uttar Pradesh
+IN-WB,India,West Bengal
+IE-C,Ireland,Cork
+IE-CE,Ireland,Clare
+IE-CN,Ireland,Cavan
+IE-CW,Ireland,Carlow
+IE-D,Ireland,Dublin
+IE-DL,Ireland,Donegal
+IE-G,Ireland,Galway
+IE-KE,Ireland,Kildare
+IE-KK,Ireland,Kilkenny
+IE-KY,Ireland,Kerry
+IE-LD,Ireland,Longford
+IE-LH,Ireland,Louth
+IE-LK,Ireland,Limerick
+IE-LM,Ireland,Leitrim
+IE-LS,Ireland,Laois
+IE-MH,Ireland,Meath
+IE-MN,Ireland,Monaghan
+IE-MO,Ireland,Mayo
+IE-OY,Ireland,Offaly
+IE-RN,Ireland,Roscommon
+IE-SO,Ireland,Sligo
+IE-TA,Ireland,Tipperary
+IE-WD,Ireland,Waterford
+IE-WH,Ireland,Westmeath
+IE-WW,Ireland,Wicklow
+IE-WX,Ireland,Wexford
+IT-AG,Italy,Agrigento
+IT-AL,Italy,Alessandria
+IT-AN,Italy,Ancona
+IT-AO,Italy,Aosta
+IT-AP,Italy,Ascoli Piceno
+IT-AQ,Italy,L'Aquila
+IT-AR,Italy,Arezzo
+IT-AT,Italy,Asti
+IT-AV,Italy,Avellino
+IT-BA,Italy,Bari
+IT-BG,Italy,Bergamo
+IT-BI,Italy,Biella
+IT-BL,Italy,Belluno
+IT-BN,Italy,Benevento
+IT-BO,Italy,Bologna
+IT-BR,Italy,Brindisi
+IT-BS,Italy,Brescia
+IT-BZ,Italy,Bolzano
+IT-CA,Italy,Cagliari
+IT-CB,Italy,Campobasso
+IT-CE,Italy,Caserta
+IT-CH,Italy,Chieti
+IT-CL,Italy,Caltanissetta
+IT-CN,Italy,Cuneo
+IT-CO,Italy,Como
+IT-CR,Italy,Cremona
+IT-CS,Italy,Cosenza
+IT-CT,Italy,Catania
+IT-CZ,Italy,Catanzaro
+IT-EN,Italy,Enna
+IT-FE,Italy,Ferrara
+IT-FG,Italy,Foggia
+IT-FI,Italy,Florence
+IT-FO,Italy,Forlì-Cesena
+IT-FR,Italy,Frosinone
+IT-GE,Italy,Genoa
+IT-GO,Italy,Gorizia
+IT-GR,Italy,Grosseto
+IT-IM,Italy,Imperia
+IT-IS,Italy,Isernia
+IT-KR,Italy,Crotone
+IT-LC,Italy,Lecco
+IT-LE,Italy,Lecce
+IT-LI,Italy,Livorno
+IT-LO,Italy,Lodi
+IT-LT,Italy,Latina
+IT-LU,Italy,Lucca
+IT-MC,Italy,Macerata
+IT-ME,Italy,Messina
+IT-MI,Italy,Milan
+IT-MN,Italy,Mantua
+IT-MO,Italy,Modena
+IT-MS,Italy,Massa
+IT-MT,Italy,Matera
+IT-NA,Italy,Naples
+IT-NO,Italy,Novara
+IT-NU,Italy,Nuoro
+IT-OR,Italy,Oristano
+IT-PA,Italy,Palermo
+IT-PC,Italy,Piacenza
+IT-PD,Italy,Padua
+IT-PE,Italy,Pescara
+IT-PG,Italy,Perugia
+IT-PI,Italy,Pisa
+IT-PN,Italy,Pordenone
+IT-PO,Italy,Prato
+IT-PR,Italy,Parma
+IT-PS,Italy,Pesaro
+IT-PT,Italy,Pistoia
+IT-PV,Italy,Pavia
+IT-PZ,Italy,Potenza
+IT-RA,Italy,Ravenna
+IT-RC,Italy,Reggio Calabria
+IT-RE,Italy,Reggio Emilia
+IT-RG,Italy,Ragusa
+IT-RI,Italy,Rieti
+IT-RM,Italy,Rome
+IT-RN,Italy,Rimini
+IT-RO,Italy,Rovigo
+IT-SA,Italy,Salerno
+IT-SI,Italy,Siena
+IT-SO,Italy,Sondrio
+IT-SP,Italy,La Spezia
+IT-SR,Italy,Siracusa
+IT-SS,Italy,Sassari
+IT-SV,Italy,Savona
+IT-TA,Italy,Taranto
+IT-TE,Italy,Teramo
+IT-TN,Italy,Trento
+IT-TO,Italy,Torino
+IT-TP,Italy,Trapani
+IT-TR,Italy,Terni
+IT-TS,Italy,Trieste
+IT-TV,Italy,Treviso
+IT-UD,Italy,Udine
+IT-VA,Italy,Varese
+IT-VB,Italy,Verbano-Cusio-Ossola
+IT-VC,Italy,Vercelli
+IT-VE,Italy,Venice
+IT-VI,Italy,Vicenza
+IT-VR,Italy,Verona
+IT-VT,Italy,Viterbo
+IT-VV,Italy,Vibo Valentia
+JP-01,Japan,Hokkaido
+JP-02,Japan,Aomori
+JP-03,Japan,Iwate
+JP-04,Japan,Miyagi
+JP-05,Japan,Akita
+JP-06,Japan,Yamagata
+JP-07,Japan,Fukushima
+JP-08,Japan,Ibaraki
+JP-09,Japan,Tochigi
+JP-10,Japan,Gunma
+JP-11,Japan,Saitama
+JP-12,Japan,Chiba
+JP-13,Japan,Tokyo
+JP-14,Japan,Kanagawa
+JP-15,Japan,Niigata
+JP-16,Japan,Toyama
+JP-17,Japan,Ishikawa
+JP-18,Japan,Fukui
+JP-19,Japan,Yamanashi
+JP-20,Japan,Nagano
+JP-21,Japan,Gifu
+JP-22,Japan,Shizuoka
+JP-23,Japan,Aichi
+JP-24,Japan,Mie
+JP-25,Japan,Shiga
+JP-26,Japan,Kyoto
+JP-27,Japan,Osaka
+JP-28,Japan,Hyogo
+JP-29,Japan,Nara
+JP-30,Japan,Wakayama
+JP-31,Japan,Tottori
+JP-32,Japan,Shimane
+JP-33,Japan,Okayama
+JP-34,Japan,Hiroshima
+JP-35,Japan,Yamaguchi
+JP-36,Japan,Tokushima
+JP-37,Japan,Kagawa
+JP-38,Japan,Ehime
+JP-39,Japan,Kochi
+JP-40,Japan,Fukuoka
+JP-41,Japan,Saga
+JP-42,Japan,Nagasaki
+JP-43,Japan,Kumamoto
+JP-44,Japan,Oita
+JP-45,Japan,Miyazaki
+JP-46,Japan,Kagoshima
+JP-47,Japan,Okinawa
+MX-AGU,Mexico,Aguascalientes
+MX-BCN,Mexico,Baja California
+MX-BCS,Mexico,Baja California Sur
+MX-CAM,Mexico,Campeche
+MX-CHH,Mexico,Chihuahua
+MX-CHP,Mexico,Chiapas
+MX-COA,Mexico,Coahuila
+MX-COL,Mexico,Colima
+MX-DF,Mexico,Distrito Federal
+MX-DUR,Mexico,Durango
+MX-GRO,Mexico,Guerrero
+MX-GUA,Mexico,Guanajuato
+MX-HID,Mexico,Hidalgo
+MX-JAL,Mexico,Jalisco
+MX-MEX,Mexico,Estado de México
+MX-MIC,Mexico,Michoacán
+MX-MOR,Mexico,Morelos  
+MX-NAY,Mexico,Nayarit
+MX-NLE,Mexico,Nuevo León
+MX-OAX,Mexico,Oaxaca
+MX-PUE,Mexico,Puebla
+MX-QUE,Mexico,Querétaro 
+MX-ROO,Mexico,Quintana Roo
+MX-SIN,Mexico,Sinaloa
+MX-SLP,Mexico,San Luis Potosí
+MX-SON,Mexico,Sonora
+MX-TAB,Mexico,Tabasco
+MX-TAM,Mexico,Tamaulipas
+MX-TLA,Mexico,Tlaxcala
+MX-VER,Mexico,Veracruz
+MX-YUC,Mexico,Yucatán
+MX-ZAC,Mexico,Zacatecas
+NL-DR,Netherlands,Drenthe
+NL-FL,Netherlands,Flevopolder
+NL-FR,Netherlands,Friesland
+NL-GE,Netherlands,Gelderland
+NL-GR,Netherlands,Groningen
+NL-LI,Netherlands,Limburg
+NL-NB,Netherlands,Noord-Brabant
+NL-NH,Netherlands,Noord-Holland
+NL-OV,Netherlands,Overijssel
+NL-UT,Netherlands,Utrecht
+NL-ZE,Netherlands,Zeeland
+NL-ZH,Netherlands,Zuid-Holland
+NZ-AUK,New Zealand,Auckland
+NZ-BOP,New Zealand,Bay of Plenty
+NZ-CAN,New Zealand,Canterbury
+NZ-GIS,New Zealand,Gisborne
+NZ-HKB,New Zealand,Hawke's Bay
+NZ-MBH,New Zealand,Marlborough
+NZ-MWT,New Zealand,Manawatu-Wanganui
+NZ-NSN,New Zealand,Nelson
+NZ-NTL,New Zealand,Northland
+NZ-OTA,New Zealand,Otago
+NZ-STL,New Zealand,Southland
+NZ-TAS,New Zealand,Tasman
+NZ-TKI,New Zealand,Taranaki
+NZ-WGN,New Zealand,Wellington
+NZ-WKO,New Zealand,Waikato
+NZ-WTC,New Zealand,West Coast
+NO-01,Norway,Oestfold
+NO-02,Norway,Akershus
+NO-03,Norway,Oslo
+NO-04,Norway,Hedmark
+NO-05,Norway,Oppland
+NO-06,Norway,Buskerud
+NO-07,Norway,Vestfold
+NO-08,Norway,Telemark
+NO-09,Norway,Aust-Agder
+NO-10,Norway,Vest-Agder
+NO-11,Norway,Rogaland
+NO-12,Norway,Hordaland
+NO-14,Norway,Sogn og Fjordane
+NO-15,Norway,Moere og Romsdal
+NO-16,Norway,Soer-Troendelag
+NO-17,Norway,Nord-Troendelag
+NO-18,Norway,Nordland
+NO-19,Norway,Troms
+NO-20,Norway,Finnmark
+PL-DS,Poland,Dolnoslaskie
+PL-KP,Poland,Kujawsko-Pomorskie
+PL-LB,Poland,Lubuskie
+PL-LD,Poland,Lodzkie
+PL-LU,Poland,Lubelskie
+PL-MA,Poland,Malopolskie
+PL-MZ,Poland,Mazowieckie
+PL-OP,Poland,Opolskie
+PL-PD,Poland,Podlaskie
+PL-PK,Poland,Podkarpackie
+PL-PM,Poland,Pomorskie
+PL-SK,Poland,Swietokrzyskie
+PL-SL,Poland,Slaskie
+PL-WN,Poland,Warminsko-Mazurskie
+PL-WP,Poland,Wielkopolskie
+PL-ZP,Poland,Zachodnio-Pomorskie,,
+RU-AD,Russian Federation,Adygeya,, Republic
+RU-AGB,Russian Federation,Aginskiy Buryatskiy avtonomnyy okrug,,
+RU-AL,Russian Federation,Altay,, Republic
+RU-ALT,Russian Federation,Altayskiy kray,,
+RU-AMU,Russian Federation,Amurskaya oblast,,
+RU-ARK,Russian Federation,Arkhangel'skaya oblast,,
+RU-AST,Russian Federation,Astrakhanskaya oblast,,
+RU-BA,Russian Federation,Bashkortostan,, Republic
+RU-BEL,Russian Federation,Belgorodskaya oblast,,
+RU-BRY,Russian Federation,Bryanskaya oblast,,
+RU-BU,Russian Federation,Buryatiya,, Republic
+RU-CE,Russian Federation,Chechnya,, Republic
+RU-CHE,Russian Federation,Chelyabinskaya oblast,,
+RU-CHI,Russian Federation,Chitinskaya oblast,,
+RU-CHU,Russian Federation,Chukotskiy avtonomnyy okrug,,
+RU-CU,Russian Federation,Chuvashiya,, Republic
+RU-DA,Russian Federation,Dagestan,, Republic
+RU-EVE,Russian Federation,Evenkiyskiy avtonomniy okrug,,
+RU-IN,Russian Federation,Ingushetiya,, Republic
+RU-IRK,Russian Federation,Irkutskaya oblast,,
+RU-IVA,Russian Federation,Ivanovskaya oblast,,
+RU-KAM,Russian Federation,Kamchatskaya oblast,,
+RU-KB,Russian Federation,Kabardino-Balkariya,, Republic
+RU-KC,Russian Federation,Karachayevo-Cherkessiya,, Republic
+RU-KDA,Russian Federation,Krasnodarskiy kray,,
+RU-KEM,Russian Federation,Kemerovskaya oblast,,
+RU-KGD,Russian Federation,Kaliningradskaya oblast,,
+RU-KGN,Russian Federation,Kurganskaya oblast,,
+RU-KHA,Russian Federation,Khabarovskiy kray,,
+RU-KHM,Russian Federation,Khanty-Mansiyskiy avtonomnyy okrug,,
+RU-KIR,Russian Federation,Kirovskaya oblast,,
+RU-KK,Russian Federation,Khakasiya,, Republic
+RU-KL,Russian Federation,Kalmykiya,, Republic
+RU-KLU,Russian Federation,Kaluzhskaya oblast,,
+RU-KO,Russian Federation,Komi,, Republic
+RU-KOR,Russian Federation,Koryakskiy avtonomniy okrug,,
+RU-KOS,Russian Federation,Kostromskaya oblast,,
+RU-KR,Russian Federation,Kareliya,, Republic
+RU-KRS,Russian Federation,Kurskaya oblast,,
+RU-KYA,Russian Federation,Krasnoyarskiy kray,,
+RU-LEN,Russian Federation,Leningradskaya oblast,,
+RU-LIP,Russian Federation,Lipetskaya oblast,,
+RU-MAG,Russian Federation,Magadanskaya oblast,,
+RU-ME,Russian Federation,Mariy El,, Republic
+RU-MO,Russian Federation,Mordoviya,, Republic
+RU-MOS,Russian Federation,Moskovskaya oblast,,
+RU-MOW,Russian Federation,Moscow,,
+RU-MUR,Russian Federation,Murmanskaya oblast,,
+RU-NEN,Russian Federation,Nenetskiy avtonomniy okrug,,
+RU-NGR,Russian Federation,Novgorodskaya oblast,,
+RU-NIZ,Russian Federation,Nizhegorodskaya oblast,,
+RU-NVS,Russian Federation,Novosibirskaya oblast,,
+RU-OMS,Russian Federation,Omskaya oblast,,
+RU-ORE,Russian Federation,Orenburgskaya oblast,,
+RU-ORL,Russian Federation,Orlovskaya oblast,,
+RU-PER,Russian Federation,Permskaya oblast,,
+RU-PNZ,Russian Federation,Penzenskaya oblast,,
+RU-PRI,Russian Federation,Primorskiy kray,,
+RU-PSK,Russian Federation,Pskovskaya oblast,,
+RU-ROS,Russian Federation,Rostovskaya oblast,,
+RU-RYA,Russian Federation,Ryazanskaya oblast,,
+RU-SA,Russian Federation,Sakha,, Republic
+RU-SAK,Russian Federation,Sakhalinskaya oblast,,
+RU-SAM,Russian Federation,Samarskaya oblast,,
+RU-SAR,Russian Federation,Saratovskaya oblast,,
+RU-SE,Russian Federation,Severnaya Osetiya,, Republic
+RU-SMO,Russian Federation,Smolenskaya oblast,,
+RU-SPE,Russian Federation,Sankt-Petersburg,,
+RU-STA,Russian Federation,Stavropol'skiy kray,,
+RU-SVE,Russian Federation,Sverdlovskaya oblast,,
+RU-TA,Russian Federation,Tatarstan,, Republic
+RU-TAM,Russian Federation,Tambovskaya oblast,,
+RU-TAY,Russian Federation,Taymyrskiy (Dolgano-Nenetskiy) avtonomnyy okrug,,
+RU-TOM,Russian Federation,Tomskaya oblast,,
+RU-TUL,Russian Federation,Tul'skaya oblast,,
+RU-TVE,Russian Federation,Tverskaya oblast,,
+RU-TY,Russian Federation,Tyva,, Republic
+RU-TYU,Russian Federation,Tyumenskaya oblast,,
+RU-UD,Russian Federation,Udmurtiya,, Republic
+RU-ULY,Russian Federation,Ulyanovskaya oblast
+RU-UOB,Russian Federation,Ust'-Ordyniskiy Buryatskiy avtonomnyy okrug
+RU-VGG,Russian Federation,Volgogradskaya oblast
+RU-VLA,Russian Federation,Vladimirskaya oblast
+RU-VLG,Russian Federation,Vologodskaya oblast
+RU-VOR,Russian Federation,Voronezhskaya oblast
+RU-YAN,Russian Federation,Yamalo-Nenetskiy avtonomnyy okrug
+RU-YAR,Russian Federation,Yaroslavskaya oblast
+RU-YEV,Russian Federation,Yevreyskaya avtonomnaya oblast
+KR-11,South Korea,Seoul City
+KR-26,South Korea,Busan Metropolitan City
+KR-27,South Korea,Daegu Metropolitan City
+KR-28,South Korea,Incheon Metropolitan City
+KR-29,South Korea,Gwangju Metropolitan City
+KR-30,South Korea,Daejeon Metropolitan City
+KR-31,South Korea,Ulsan Metropolitan City
+KR-41,South Korea,Gyeonggi-do
+KR-42,South Korea,Gangwon-do
+KR-43,South Korea,Chungcheongbuk-do
+KR-44,South Korea,Chungcheongnam-do
+KR-45,South Korea,Jeollabuk-do
+KR-46,South Korea,Jeollanam-do
+KR-47,South Korea,Gyeongsangbuk-do
+KR-48,South Korea,Gyeongsangnam-do
+KR-49,South Korea,Jeju-do
+ES-A,Spain,Alicante
+ES-AL,Spain,Almería
+ES-AN,Spain,Andalucía
+ES-AR,Spain,Aragón
+ES-B,Spain,Barcelona
+ES-BI,Spain,Vizcaya
+ES-C,Spain,La Coruna
+ES-CA,Spain,Cadiz
+ES-CE,Spain,Ceuta
+ES-CL,Spain,Castilla y León
+ES-CM,Spain,Castilla-La Mancha
+ES-CN,Spain,Canary Islands
+ES-CT,Spain,Cataluña
+ES-EX,Spain,Extremadura
+ES-GA,Spain,Galicia
+ES-IB,Spain,Illes Balears
+ES-LO,Spain,La Rioja
+ES-M,Spain,Madrid
+ES-ML,Spain,Melilla
+ES-MU,Spain,Murcia
+ES-NA,Spain,Navarra
+ES-O,Spain,Asturias
+ES-PM,Spain,Balearic Islands
+ES-PO,Spain,Pontevedra,,
+ES-PV,Spain,País Vasco (Basque Country),,
+ES-S,Spain,Cantabria,,
+ES-SA,Spain,Salamanca,,
+ES-SG,Spain,Segovia,,
+ES-SS,Spain,Guipuzcoa,,
+ES-T,Spain,Tarragona,,
+ES-TF,Spain,Santa Cruz De Tenerife,,
+ES-TO,Spain,Toledo,,
+ES-V,Spain,Valencia,,
+ES-VA,Spain,Valladolid,,
+ES-VC,Spain,Valenciana,, Comunidad
+ES-VI,Spain,Álava,,
+ES-Z,Spain,Zaragoza,,
+SE-AB,Sweden,Stockholms lan,,
+SE-AC,Sweden,Vasterbottens lan,,
+SE-BD,Sweden,Norrbottens lan
+SE-C,Sweden,Uppsala lan
+SE-D,Sweden,Sodermanlands lan
+SE-E,Sweden,Ostergotlands lan
+SE-F,Sweden,Jonkopings lan
+SE-G,Sweden,Kronobergs lan
+SE-H,Sweden,Kalmar lan
+SE-I,Sweden,Gotlands lan
+SE-K,Sweden,Blekinge lan
+SE-M,Sweden,Skane lan
+SE-N,Sweden,Hallands lan
+SE-O,Sweden,Vastra Gotalands lan
+SE-S,Sweden,Varmlands lan
+SE-T,Sweden,Orebro lan
+SE-U,Sweden,Vastmanlands lan
+SE-W,Sweden,Dalarnas lan
+SE-X,Sweden,Gavleborgs lan
+SE-Y,Sweden,Vasternorrlands lan
+SE-Z,Sweden,Jamtlands lan
+CH-AG,Switzerland,Aargau
+CH-AI,Switzerland,Appenzell Inner Rhodes
+CH-AR,Switzerland,Appenzell Outer Rhodes
+CH-BE,Switzerland,Bern
+CH-BL,Switzerland,Basel-Country
+CH-BS,Switzerland,Basel-City
+CH-FR,Switzerland,Fribourg
+CH-GE,Switzerland,Geneva
+CH-GL,Switzerland,Glarus
+CH-GR,Switzerland,Grisons
+CH-JU,Switzerland,Jura
+CH-LU,Switzerland,Lucerne
+CH-NE,Switzerland,Neuchatel
+CH-NW,Switzerland,Nidwalden
+CH-OW,Switzerland,Obwalden
+CH-SG,Switzerland,St. Gallen
+CH-SH,Switzerland,Schaffhausen
+CH-SO,Switzerland,Solothurn
+CH-SZ,Switzerland,Schwyz
+CH-TG,Switzerland,Thurgau
+CH-TI,Switzerland,Ticino
+CH-UR,Switzerland,Uri
+CH-VD,Switzerland,Vaud
+CH-VS,Switzerland,Valais
+CH-ZG,Switzerland,Zug
+CH-ZH,Switzerland,Zurich
+TR-01,Turkey,Adana
+TR-02,Turkey,Adıyaman
+TR-03,Turkey,Afyon
+TR-04,Turkey,Ağrı
+TR-05,Turkey,Amasya
+TR-06,Turkey,Ankara
+TR-07,Turkey,Antalya
+TR-08,Turkey,Artvin
+TR-09,Turkey,Aydın
+TR-10,Turkey,Balıkesir
+TR-11,Turkey,Bilecik
+TR-12,Turkey,Bingöl
+TR-13,Turkey,Bitlis
+TR-14,Turkey,Bolu
+TR-15,Turkey,Burdur
+TR-16,Turkey,Bursa
+TR-17,Turkey,Çanakkale
+TR-18,Turkey,Çankırı
+TR-19,Turkey,Çorum
+TR-20,Turkey,Denizli
+TR-21,Turkey,Diyarbakır
+TR-22,Turkey,Edirne
+TR-23,Turkey,Elazığ
+TR-24,Turkey,Erzincan
+TR-25,Turkey,Erzurum
+TR-26,Turkey,Eskişehir
+TR-27,Turkey,Gaziantep
+TR-28,Turkey,Giresun
+TR-29,Turkey,Gümüşhane
+TR-30,Turkey,Hakkari
+TR-31,Turkey,Hatay
+TR-32,Turkey,Isparta
+TR-33,Turkey,Içel
+TR-34,Turkey,Istanbul
+TR-35,Turkey,Izmir
+TR-36,Turkey,Kars
+TR-37,Turkey,Kastamonu
+TR-38,Turkey,Kayseri
+TR-39,Turkey,Kırklareli
+TR-40,Turkey,Kırşehir
+TR-41,Turkey,Kocaeli
+TR-42,Turkey,Konya
+TR-43,Turkey,Kütahya
+TR-44,Turkey,Malatya
+TR-45,Turkey,Manisa
+TR-46,Turkey,Kahramanmaraş
+TR-47,Turkey,Mardin
+TR-48,Turkey,Muğla
+TR-49,Turkey,Muş
+TR-50,Turkey,Nevşehir
+TR-51,Turkey,Niğde
+TR-52,Turkey,Ordu
+TR-53,Turkey,Rize
+TR-54,Turkey,Sakarya
+TR-55,Turkey,Samsun
+TR-56,Turkey,Şiirt
+TR-57,Turkey,Sinop
+TR-58,Turkey,Sivas
+TR-59,Turkey,Tekirdağ
+TR-60,Turkey,Tokat
+TR-61,Turkey,Trabzon
+TR-62,Turkey,Tunceli
+TR-63,Turkey,Şanlıurfa
+TR-64,Turkey,Uşak
+TR-65,Turkey,Van
+TR-66,Turkey,Yozgat
+TR-67,Turkey,Zonguldak
+TR-68,Turkey,Aksaray
+TR-69,Turkey,Bayburt
+TR-70,Turkey,Karaman
+TR-71,Turkey,Kırıkkale
+TR-72,Turkey,Batman
+TR-73,Turkey,Şırnak
+TR-74,Turkey,Bartın
+TR-75,Turkey,Ardahan
+TR-76,Turkey,Iğdır
+TR-77,Turkey,Yalova
+TR-80,Turkey,Osmaniye
+GB-CHA,United Kingdom,Channel Islands
+GB-ENG,United Kingdom,England
+GB-IOM,United Kingdom,Isle Of Man
+GB-NIR,United Kingdom,Northern Ireland
+GB-SCT,United Kingdom,Scotland
+GB-WLS,United Kingdom,Wales
+US-AK,United States,Alaska
+US-AL,United States,Alabama
+US-AR,United States,Arkansas
+US-AZ,United States,Arizona
+US-CA,United States,California
+US-CO,United States,Colorado
+US-CT,United States,Connecticut
+US-DC,United States,District of Columbia
+US-DE,United States,Delaware
+US-FL,United States,Florida
+US-GA,United States,Georgia
+US-HI,United States,Hawaii
+US-IA,United States,Iowa
+US-ID,United States,Idaho
+US-IL,United States,Illinois
+US-IN,United States,Indiana
+US-KS,United States,Kansas
+US-KY,United States,Kentucky
+US-LA,United States,Louisiana
+US-MA,United States,Massachusetts
+US-MD,United States,Maryland
+US-ME,United States,Maine
+US-MI,United States,Michigan
+US-MN,United States,Minnesota
+US-MO,United States,Missouri
+US-MS,United States,Mississippi
+US-MT,United States,Montana
+US-NC,United States,North Carolina
+US-ND,United States,North Dakota
+US-NE,United States,Nebraska
+US-NH,United States,New Hampshire
+US-NJ,United States,New Jersey
+US-NM,United States,New Mexico
+US-NV,United States,Nevada
+US-NY,United States,New York
+US-OH,United States,Ohio
+US-OK,United States,Oklahoma
+US-OR,United States,Oregon
+US-PA,United States,Pennsylvania
+US-RI,United States,Rhode Island
+US-SC,United States,South Carolina
+US-SD,United States,South Dakota
+US-TN,United States,Tennessee
+US-TX,United States,Texas
+US-UT,United States,Utah
+US-VA,United States,Virginia
+US-VT,United States,Vermont
+US-WA,United States,Washington
+US-WI,United States,Wisconsin
+US-WV,United States,West Virginia
+US-WY,United States,Wyoming

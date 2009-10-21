@@ -1,0 +1,291 @@
+
+AdWords API PHP Client Library
+==============================
+
+Google's AdWords API service lets developers design computer programs that
+interact directly with the AdWords platform. With these applications,
+advertisers and third parties can more efficiently -- and creatively -- manage
+their large or complex AdWords accounts and campaigns.
+
+The AdWords API PHP Client Library makes it easy to write PHP
+clients to programmatically access AdWords accounts. All client
+library classes and utilities are in the directory or sub-directory of
+"src/Google/Api/Ads/AdWords/".
+
+The client library is built against PHP 5.2.9 but any PHP 5.2.x version can
+be used. The library uses the native SoapClient class
+[http://us3.php.net/manual/en/book.soap.php], which needs to be enabled
+with the --enable-soap flag if building PHP from source.
+
+The complete documentation for AdWords API is available from
+http://www.google.com/apis/adwords/developer/index.html.
+
+What's in the client library?
+-----------------------------
+
+The client library provides full access to all the functionality of the
+AdWords API web services plus more. It includes:
+
+  - Data classes: The client library provides all the necessary data classes.
+    For example, it provides the Campaign data class for encapsulating campaign
+    data. These classes are generated automatically from WSDLs.
+
+  - AdWordsUser class: The AdWordsUser class provides methods for setting
+    credentials for accessing AdWords accounts as well as for creating
+    instances of the AdWords Service classes.
+
+  - Helpful utilities: The utilities located under
+    "src/Google/Api/Ads/Common/Util" help you manage XML and import
+    images into the client library.
+
+  - Logger class: This class provides simple methods for logging the SOAP XML
+    messages of all requests and responses.
+
+  - Examples: The PHP client library comes with code examples in the
+    "examples/" directory. We encourage you to use code examples to get started
+    writing your own application. All the code examples are runnable out of the
+    box, but you will have to set your credentials in
+    "src/Google/Api/Ads/AdWords/auth.ini" and you may be required to
+    insert object IDs in where you see "INSERT_***_HERE".
+
+
+Basic usage
+-----------
+
+For those of you who have already built PHP clients without
+using the client library, the AdWords class has methods for
+setting username, password, client ID (clientEmail or clientCustomerId),
+application token, developer token, and useragent so that you
+don't have to write the code to set the request headers. The methods for
+creating new instances of service classes takes the place of the code
+for instantiating the stubs that connect to the web services.
+
+In the following example, for using the default constructor,
+
+  $user = new AdWordsUser();
+
+the credentials are loaded from the "src/Google/Api/Ads/AdWords/auth.ini" file.
+
+The credentials can also be loaded in one of two ways: supplying an alternative
+authentication INI file or supplying credentials via the constructor's
+parameters.
+
+If an authentication INI file is provided and successfully loaded, those
+values will be used unless a corresponding parameter overwrites it.
+If the authentication INI file is not provided (e.g. it is null)
+the class will attempt to load the default authentication file at the path
+of "../auth.ini" relative to this file's directory. Any corresponding parameter,
+which is not null will however, overwrite any parameter loaded from the default
+INI.
+
+  $user = new AdWordsUser(NULL, $email, $password, $developerToken,
+      $applicationToken, $userAgent, $clientId);
+
+  or
+
+  // Used if the account is not using the MCC to log in.
+  $user = new AdWordsUser(NULL, $email, $password, $developerToken,
+      $applicationToken, $userAgent);
+
+
+How do I start?
+---------------
+
+Depending on your PHP setup, you will need to extract this library into a
+directory on your system which is secure and has read/execute permissions to the
+user executing this library.
+
+There is no need to worry about accessing the WSDLs for the web services;
+the classes in the client library do it for you. Demo programs in "examples/"
+directory can be used to get started writing your own client. They should work
+out of the box if you provide the right credentials; the default behavior is to
+use credentials from "../auth.ini" relative to the
+AdWordsUser.php file's directory.
+
+To write a program that accesses AdWords accounts using the client library, do
+the following:
+
+  1) Set the include path and the require the folowing PHP file:
+
+     // You can set the include path to src directory or reference
+     // AdWordsUser.php directly via require_once.
+     // $path = '/path/to/pda_api_php_lib/src';
+     $path = dirname(__FILE__) . '/../../../src';
+     set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+
+     require_once 'Google/Api/Ads/AdWordsUser/Lib/AdWordsUser.php';
+
+  2) Create an AdWordsUser instance, specifying the credentials at
+     creation time. Or, you can use the default constructor after completing
+     the INI file as described above.
+
+     $user = new AdWordsUser(NULL, $email, $password, $developerToken,
+         $applicationToken, $userAgent, $clientId);
+
+  3) Optionally, enable logging to capture the content of the requests and
+     responses. This example sends the information to a file:
+
+     $user->LogDefaults();
+
+  4) Instantiate the desired service class by calling the getXService method on
+     the AdWordsUser instance. Getting the service will "require"
+     the proper PHP file, so that all classes needed for that service
+     will be loaded.
+
+     $campaignService =
+         $user->getCampaignService('v200909', 'https://adwords.google.com');
+
+     or
+
+     // Defaults to parameters above.
+     $campaignService = $user->GetCampaignService();
+
+     or
+
+     // Uses the sandbox environment.
+     $campaignService =
+         $user->GetCampaignService('v200909',
+             'https://adwords-sandbox.google.com');
+
+  5) Create data objects and invoke methods on the service class instance. The
+     data objects and methods map directly to the data objects and requests for
+     the corresponding web service.
+
+     // Create new campaign structure.
+     $campaign = new Campaign();
+     $campaign->name = 'Campaign #' . time();
+     $campaign->status = 'ACTIVE';
+     $campaign->biddingStrategy = new ManualCPC();
+     $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
+
+     $operation = new CampaignOperation();
+     $operation->operand = $campaign;
+     $operation->operator = 'ADD';
+     $operations[] = $operation;
+
+     // Add campaign.
+     $campaignReturnValue = $campaignService->mutate($operations);
+
+
+Running the examples
+---------------------
+
+Examples can be run by executing the following on command line
+from a sub-directory of the "examples/" directory,
+
+  $ php Example.php
+
+
+Running in the sandbox environment
+----------------------------------
+
+It is recommended that during development of your library, you use the sandbox
+envinroment:
+
+  http://code.google.com/apis/adwords/docs/developer/adwords_api_sandbox.html
+
+To run in this enviroment, you can make one of two changes to your library:
+
+  1) Change the default server (DEFAULT_SERVER) in the settings.ini file,
+     located at "src/Google/Api/Ads/AdWords/settings.ini", to
+     "https://adwords-sandbox.google.com" and then instantiate all service
+     clients with no parameters i.e.
+
+     // Defaults to parameters set in the settings INI file.
+     $campaignService = $user->GetCampaignService();
+
+  2) Include the sandbox server in all service client instantiations i.e.
+
+     // Uses the sandbox environment.
+     $campaignService =
+         $user->GetCampaignService('v200909',
+             'https://adwords-sandbox.google.com');
+
+
+How do I enable logging?
+------------------------
+
+The client library uses a custom class for all logging purposes and is exposed
+through the Logger.php file. There are two loggers within this class described
+below. To quickly begin logging, simply insert this line into your code:
+
+  // Enable default logging behavior.
+  $user->LogDefaults();
+
+This invokes the default behavior as described below:
+
+  - SOAP_XML_LOG: Logs all incoming and outgoing SOAP requests/responses. The
+    default behavior is to log this information to "logs/soap_xml.log" relative
+    to your project's home directory. Sensitive information, such as
+    authentication tokens, will be stripped.
+
+  - REQUEST_INFO_LOG: Logs all requests from the client library along
+    with information such as the timestamp, email, service, method,
+    request Id, response time and which server was used. The default
+    behavior is to log this information to "logs/request_info.log" relative to
+    your project's home directory.
+
+
+Error messages about Timezones
+------------------------------
+
+If you are getting warnings about setting your default timezone, you will
+need to do so in your php.ini file setting the field:
+
+  date.timezone=America/Los_Angeles
+
+More information is available here: http://www.php.net/manual/en/timezones.php
+
+
+Already defined classes
+-----------------------
+
+Since PHP 5.2.x does not have namespaces, you may find that some classes
+are already defined in the service files. Some classes have been renamed already
+to prevent conflicts with the native PHP library, those have been prepended
+with AdWords*, such as AdWordsDateTime.
+
+You may run into two separate problems:
+
+  1) You discover that a class used by the API is not being defined correctly,
+     i.e. you are receiving errors while performing SOAP requests. In this case,
+     you may have defined a class with a similar name already. To remedy this,
+     navigate the correct *Service.php file depending on the version and service
+     name to find a class that you may have defined previously. You can then
+     rename the class and modify the classmap array as well. Alternatively, you
+     can modify the build.xml file (particularly the "service.classmap"
+     property), to avoid using this class name.
+
+  2) You are getting errors that a class cannot be declared more than once. In
+     this case, you may be declaring a class after instantiating the service.
+     Your options are to rename the problematic API class, as shown above, or to
+     rename your local class in your software.
+
+Below is a list of API changes for this library:
+
+  'DateTime' => 'AdWordsDateTime',
+  'Target' => 'AdWordsTarget',
+
+
+External dependencies:
+----------------------
+
+  - PHP SoapClient [http://us3.php.net/manual/en/book.soap.php]
+  - PHPUnit [http://www.phpunit.de/]
+  - Phing [http://phing.info/trac/]
+  - wsdl2php-interpreter [http://code.google.com/p/wsdl2php-interpreter/]
+
+
+Where do I submit bug reports and feature requests?
+---------------------------------------------------
+
+Bug reports and feature requests can be submitted at
+http://code.google.com/p/google-api-adwords-php/issues/list.
+
+Authors:
+  api.arogal@gmail.com (Adam Rogal)
+  api.ekoleda@gmail.com (Eric Koleda)
+
+Maintainers:
+  api.arogal@gmail.com (Adam Rogal)
+  api.ekoleda@gmail.com (Eric Koleda)
