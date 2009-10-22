@@ -267,6 +267,35 @@ Below is a list of API changes for this library:
   'Target' => 'AdWordsTarget',
 
 
+PHP Suhosin Patch
+-----------------
+
+With some PHP installations, it has been found that the Suhosin patch prevents
+correct usage of the AdWords API PHP Client Library. It is believed that the
+patch is catching memory leaks caused by an underlying library, but we are
+still investigating the root cause. Errors caught by the Suhosin patch may
+look like the following:
+
+  ALERT - canary mismatch on efree() - heap overflow detected
+  (attacker 'REMOTE_ADDR not set', file '...', line ...)
+
+At this time we recommend using versions of PHP that do not have the Suhosin
+patch applied. More information about the Suhosin patch can be found here:
+
+  http://www.hardened-php.net/suhosin/index.html
+
+
+Ubuntu PHP Compatiblity
+-----------------------
+
+As of this writing, Ubuntu's latest php5 distribution (5.2.4-2ubuntu5.7) is not
+compatible with the AdWords API PHP Client Library. Aside from having the
+Suhosin patch applied (see above), there is also an issue with the SoapClient
+incorrectly marshalling certain classes. We are still looking into the root
+cause of this issue, but at this time we recommend against using this version
+of PHP.
+
+
 External dependencies:
 ----------------------
 
@@ -281,6 +310,9 @@ Where do I submit bug reports and feature requests?
 
 Bug reports and feature requests can be submitted at
 http://code.google.com/p/google-api-adwords-php/issues/list.
+
+Questions can be posted to the AdWords API forum:
+http://groups.google.com/group/adwords-api/
 
 Authors:
   api.arogal@gmail.com (Adam Rogal)
