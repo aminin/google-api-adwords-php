@@ -38,31 +38,37 @@ class Ad {
 	 * @var integer
 	 */
 	public $id;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $url;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $displayUrl;
+
 	/**
 	 * @access public
 	 * @var tnsAdApprovalStatus
 	 */
 	public $approvalStatus;
+
 	/**
 	 * @access public
 	 * @var string[]
 	 */
 	public $disapprovalReasons;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $AdType;
+
 	private $_parameterMap = array (
 		"Ad.Type" => "AdType",
 	);
@@ -93,6 +99,22 @@ class Ad {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Ad";
 	}
 
 	public function __construct($id = NULL, $url = NULL, $displayUrl = NULL, $approvalStatus = NULL, $disapprovalReasons = NULL, $AdType = NULL) {
@@ -119,11 +141,13 @@ class AdExtension {
 	 * @var integer
 	 */
 	public $id;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $AdExtensionType;
+
 	private $_parameterMap = array (
 		"AdExtension.Type" => "AdExtensionType",
 	);
@@ -154,6 +178,22 @@ class AdExtension {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdExtension";
 	}
 
 	public function __construct($id = NULL, $AdExtensionType = NULL) {
@@ -175,31 +215,52 @@ class AdExtensionOverride {
 	 * @var integer
 	 */
 	public $adId;
+
 	/**
 	 * @access public
 	 * @var AdExtension
 	 */
 	public $adExtension;
+
 	/**
 	 * @access public
 	 * @var OverrideInfo
 	 */
 	public $overrideInfo;
+
 	/**
 	 * @access public
 	 * @var tnsAdExtensionOverrideStatus
 	 */
 	public $status;
+
 	/**
 	 * @access public
 	 * @var tnsAdExtensionOverrideApprovalStatus
 	 */
 	public $approvalStatus;
+
 	/**
 	 * @access public
 	 * @var AdExtensionOverrideStats
 	 */
 	public $stats;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdExtensionOverride";
+	}
 
 	public function __construct($adId = NULL, $adExtension = NULL, $overrideInfo = NULL, $status = NULL, $approvalStatus = NULL, $stats = NULL) {
 		if(get_parent_class('AdExtensionOverride')) parent::__construct();
@@ -223,36 +284,58 @@ class AdGroup {
 	 * @var integer
 	 */
 	public $id;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $campaignId;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $campaignName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $name;
+
 	/**
 	 * @access public
 	 * @var tnsAdGroupStatus
 	 */
 	public $status;
+
 	/**
 	 * @access public
 	 * @var AdGroupBids
 	 */
 	public $bids;
+
 	/**
 	 * @access public
 	 * @var Stats
 	 */
 	public $stats;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroup";
+	}
 
 	public function __construct($id = NULL, $campaignId = NULL, $campaignName = NULL, $name = NULL, $status = NULL, $bids = NULL, $stats = NULL) {
 		if(get_parent_class('AdGroup')) parent::__construct();
@@ -276,21 +359,40 @@ class AdGroupAd {
 	 * @var integer
 	 */
 	public $adGroupId;
+
 	/**
 	 * @access public
 	 * @var Ad
 	 */
 	public $ad;
+
 	/**
 	 * @access public
 	 * @var tnsAdGroupAdStatus
 	 */
 	public $status;
+
 	/**
 	 * @access public
 	 * @var AdStats
 	 */
 	public $stats;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupAd";
+	}
 
 	public function __construct($adGroupId = NULL, $ad = NULL, $status = NULL, $stats = NULL) {
 		if(get_parent_class('AdGroupAd')) parent::__construct();
@@ -312,6 +414,7 @@ class AdGroupBids {
 	 * @var string
 	 */
 	public $AdGroupBidsType;
+
 	private $_parameterMap = array (
 		"AdGroupBids.Type" => "AdGroupBidsType",
 	);
@@ -342,6 +445,22 @@ class AdGroupBids {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupBids";
 	}
 
 	public function __construct($AdGroupBidsType = NULL) {
@@ -362,16 +481,19 @@ class AdGroupCriterion {
 	 * @var integer
 	 */
 	public $adGroupId;
+
 	/**
 	 * @access public
 	 * @var Criterion
 	 */
 	public $criterion;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $AdGroupCriterionType;
+
 	private $_parameterMap = array (
 		"AdGroupCriterion.Type" => "AdGroupCriterionType",
 	);
@@ -402,6 +524,22 @@ class AdGroupCriterion {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupCriterion";
 	}
 
 	public function __construct($adGroupId = NULL, $criterion = NULL, $AdGroupCriterionType = NULL) {
@@ -422,6 +560,7 @@ class AdGroupCriterionBids {
 	 * @var string
 	 */
 	public $AdGroupCriterionBidsType;
+
 	private $_parameterMap = array (
 		"AdGroupCriterionBids.Type" => "AdGroupCriterionBidsType",
 	);
@@ -452,6 +591,22 @@ class AdGroupCriterionBids {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupCriterionBids";
 	}
 
 	public function __construct($AdGroupCriterionBidsType = NULL) {
@@ -470,11 +625,13 @@ class AdUnionId {
 	 * @var integer
 	 */
 	public $id;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $AdUnionIdType;
+
 	private $_parameterMap = array (
 		"AdUnionId.Type" => "AdUnionIdType",
 	);
@@ -505,6 +662,22 @@ class AdUnionId {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdUnionId";
 	}
 
 	public function __construct($id = NULL, $AdUnionIdType = NULL) {
@@ -524,36 +697,58 @@ class Address {
 	 * @var string
 	 */
 	public $streetAddress;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $streetAddress2;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $cityName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $provinceCode;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $provinceName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $postalCode;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $countryCode;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Address";
+	}
 
 	public function __construct($streetAddress = NULL, $streetAddress2 = NULL, $cityName = NULL, $provinceCode = NULL, $provinceName = NULL, $postalCode = NULL, $countryCode = NULL) {
 		if(get_parent_class('Address')) parent::__construct();
@@ -579,16 +774,19 @@ class ApiError {
 	 * @var string
 	 */
 	public $fieldPath;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $trigger;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $ApiErrorType;
+
 	private $_parameterMap = array (
 		"ApiError.Type" => "ApiErrorType",
 	);
@@ -619,6 +817,22 @@ class ApiError {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ApiError";
 	}
 
 	public function __construct($fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
@@ -639,216 +853,274 @@ class ApiErrorReason {
 	 * @var tnsAdErrorReason
 	 */
 	public $AdErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsAdGroupAdErrorReason
 	 */
 	public $AdGroupAdErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsAdGroupCriterionErrorReason
 	 */
 	public $AdGroupCriterionErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsAdGroupServiceErrorReason
 	 */
 	public $AdGroupServiceErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsAuthenticationErrorReason
 	 */
 	public $AuthenticationErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsAuthorizationErrorReason
 	 */
 	public $AuthorizationErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsBiddingErrorReason
 	 */
 	public $BiddingErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsBiddingTransitionErrorReason
 	 */
 	public $BiddingTransitionErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsBudgetErrorReason
 	 */
 	public $BudgetErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsBulkMutateJobErrorReason
 	 */
 	public $BulkMutateJobErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsCampaignErrorReason
 	 */
 	public $CampaignErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsClientTermsErrorReason
 	 */
 	public $ClientTermsErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsDatabaseErrorReason
 	 */
 	public $DatabaseErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsDateErrorReason
 	 */
 	public $DateErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsDistinctErrorReason
 	 */
 	public $DistinctErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsEntityAccessDeniedReason
 	 */
 	public $EntityAccessDeniedReason;
+
 	/**
 	 * @access public
 	 * @var tnsEntityCountLimitExceededReason
 	 */
 	public $EntityCountLimitExceededReason;
+
 	/**
 	 * @access public
 	 * @var tnsEntityNotFoundReason
 	 */
 	public $EntityNotFoundReason;
+
 	/**
 	 * @access public
 	 * @var tnsIdErrorReason
 	 */
 	public $IdErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsImageErrorReason
 	 */
 	public $ImageErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsInternalApiErrorReason
 	 */
 	public $InternalApiErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsJobErrorReason
 	 */
 	public $JobErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsLoasAuthenticationErrorReason
 	 */
 	public $LoasAuthenticationErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsMediaErrorReason
 	 */
 	public $MediaErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsNewEntityCreationErrorReason
 	 */
 	public $NewEntityCreationErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsNotEmptyErrorReason
 	 */
 	public $NotEmptyErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsNotWhitelistedErrorReason
 	 */
 	public $NotWhitelistedErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsNullErrorReason
 	 */
 	public $NullErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsOperationAccessDeniedReason
 	 */
 	public $OperationAccessDeniedReason;
+
 	/**
 	 * @access public
 	 * @var tnsOperatorErrorReason
 	 */
 	public $OperatorErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsPagingErrorReason
 	 */
 	public $PagingErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsPolicyViolationErrorReason
 	 */
 	public $PolicyViolationErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsQuotaCheckErrorReason
 	 */
 	public $QuotaCheckErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsQuotaErrorReason
 	 */
 	public $QuotaErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsQuotaExceededErrorReason
 	 */
 	public $QuotaExceededErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsRangeErrorReason
 	 */
 	public $RangeErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsReadOnlyErrorReason
 	 */
 	public $ReadOnlyErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsRegionCodeErrorReason
 	 */
 	public $RegionCodeErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsRequiredErrorReason
 	 */
 	public $RequiredErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsSizeLimitErrorReason
 	 */
 	public $SizeLimitErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsStatsQueryErrorReason
 	 */
 	public $StatsQueryErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsStringLengthErrorReason
 	 */
 	public $StringLengthErrorReason;
+
 	/**
 	 * @access public
 	 * @var tnsTargetErrorReason
 	 */
 	public $TargetErrorReason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ApiErrorReason";
+	}
 
 	public function __construct($AdErrorReason = NULL, $AdGroupAdErrorReason = NULL, $AdGroupCriterionErrorReason = NULL, $AdGroupServiceErrorReason = NULL, $AuthenticationErrorReason = NULL, $AuthorizationErrorReason = NULL, $BiddingErrorReason = NULL, $BiddingTransitionErrorReason = NULL, $BudgetErrorReason = NULL, $BulkMutateJobErrorReason = NULL, $CampaignErrorReason = NULL, $ClientTermsErrorReason = NULL, $DatabaseErrorReason = NULL, $DateErrorReason = NULL, $DistinctErrorReason = NULL, $EntityAccessDeniedReason = NULL, $EntityCountLimitExceededReason = NULL, $EntityNotFoundReason = NULL, $IdErrorReason = NULL, $ImageErrorReason = NULL, $InternalApiErrorReason = NULL, $JobErrorReason = NULL, $LoasAuthenticationErrorReason = NULL, $MediaErrorReason = NULL, $NewEntityCreationErrorReason = NULL, $NotEmptyErrorReason = NULL, $NotWhitelistedErrorReason = NULL, $NullErrorReason = NULL, $OperationAccessDeniedReason = NULL, $OperatorErrorReason = NULL, $PagingErrorReason = NULL, $PolicyViolationErrorReason = NULL, $QuotaCheckErrorReason = NULL, $QuotaErrorReason = NULL, $QuotaExceededErrorReason = NULL, $RangeErrorReason = NULL, $ReadOnlyErrorReason = NULL, $RegionCodeErrorReason = NULL, $RequiredErrorReason = NULL, $SizeLimitErrorReason = NULL, $StatsQueryErrorReason = NULL, $StringLengthErrorReason = NULL, $TargetErrorReason = NULL) {
 		if(get_parent_class('ApiErrorReason')) parent::__construct();
@@ -908,11 +1180,13 @@ class ApplicationException {
 	 * @var string
 	 */
 	public $message;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $ApplicationExceptionType;
+
 	private $_parameterMap = array (
 		"ApplicationException.Type" => "ApplicationExceptionType",
 	);
@@ -943,6 +1217,22 @@ class ApplicationException {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ApplicationException";
 	}
 
 	public function __construct($message = NULL, $ApplicationExceptionType = NULL) {
@@ -962,6 +1252,22 @@ class AuthenticationError extends ApiError {
 	 * @var tnsAuthenticationErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AuthenticationError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('AuthenticationError')) parent::__construct();
@@ -983,6 +1289,22 @@ class AuthorizationError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AuthorizationError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('AuthorizationError')) parent::__construct();
 		$this->reason = $reason;
@@ -1003,6 +1325,22 @@ class Bid {
 	 */
 	public $amount;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Bid";
+	}
+
 	public function __construct($amount = NULL) {
 		if(get_parent_class('Bid')) parent::__construct();
 		$this->amount = $amount;
@@ -1019,41 +1357,64 @@ class BiddableAdGroupCriterion extends AdGroupCriterion {
 	 * @var tnsUserStatus
 	 */
 	public $userStatus;
+
 	/**
 	 * @access public
 	 * @var tnsSystemServingStatus
 	 */
 	public $systemServingStatus;
+
 	/**
 	 * @access public
 	 * @var tnsApprovalStatus
 	 */
 	public $approvalStatus;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $destinationUrl;
+
 	/**
 	 * @access public
 	 * @var AdGroupCriterionBids
 	 */
 	public $bids;
+
 	/**
 	 * @access public
 	 * @var Bid
 	 */
 	public $firstPageCpc;
+
 	/**
 	 * @access public
 	 * @var QualityInfo
 	 */
 	public $qualityInfo;
+
 	/**
 	 * @access public
 	 * @var Stats
 	 */
 	public $stats;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BiddableAdGroupCriterion";
+	}
 
 	public function __construct($userStatus = NULL, $systemServingStatus = NULL, $approvalStatus = NULL, $destinationUrl = NULL, $bids = NULL, $firstPageCpc = NULL, $qualityInfo = NULL, $stats = NULL, $adGroupId = NULL, $criterion = NULL, $AdGroupCriterionType = NULL) {
 		if(get_parent_class('BiddableAdGroupCriterion')) parent::__construct();
@@ -1082,6 +1443,22 @@ class BiddingError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BiddingError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('BiddingError')) parent::__construct();
 		$this->reason = $reason;
@@ -1102,6 +1479,7 @@ class BiddingStrategy {
 	 * @var string
 	 */
 	public $BiddingStrategyType;
+
 	private $_parameterMap = array (
 		"BiddingStrategy.Type" => "BiddingStrategyType",
 	);
@@ -1132,6 +1510,22 @@ class BiddingStrategy {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BiddingStrategy";
 	}
 
 	public function __construct($BiddingStrategyType = NULL) {
@@ -1150,16 +1544,19 @@ class BiddingTransition {
 	 * @var BiddingStrategy
 	 */
 	public $targetBiddingStrategy;
+
 	/**
 	 * @access public
 	 * @var AdGroupBids
 	 */
 	public $explicitAdGroupBids;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $BiddingTransitionType;
+
 	private $_parameterMap = array (
 		"BiddingTransition.Type" => "BiddingTransitionType",
 	);
@@ -1190,6 +1587,22 @@ class BiddingTransition {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BiddingTransition";
 	}
 
 	public function __construct($targetBiddingStrategy = NULL, $explicitAdGroupBids = NULL, $BiddingTransitionType = NULL) {
@@ -1211,6 +1624,22 @@ class BiddingTransitionError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BiddingTransitionError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('BiddingTransitionError')) parent::__construct();
 		$this->reason = $reason;
@@ -1231,11 +1660,28 @@ class BillingSummary {
 	 * @var integer
 	 */
 	public $numOperations;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $numUnits;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BillingSummary";
+	}
 
 	public function __construct($numOperations = NULL, $numUnits = NULL) {
 		if(get_parent_class('BillingSummary')) parent::__construct();
@@ -1254,16 +1700,34 @@ class Budget {
 	 * @var tnsBudgetBudgetPeriod
 	 */
 	public $period;
+
 	/**
 	 * @access public
 	 * @var Money
 	 */
 	public $amount;
+
 	/**
 	 * @access public
 	 * @var tnsBudgetBudgetDeliveryMethod
 	 */
 	public $deliveryMethod;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Budget";
+	}
 
 	public function __construct($period = NULL, $amount = NULL, $deliveryMethod = NULL) {
 		if(get_parent_class('Budget')) parent::__construct();
@@ -1283,6 +1747,22 @@ class BudgetError extends ApiError {
 	 * @var tnsBudgetErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BudgetError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('BudgetError')) parent::__construct();
@@ -1305,6 +1785,22 @@ class BudgetOptimizer extends BiddingStrategy {
 	 */
 	public $bidCeiling;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BudgetOptimizer";
+	}
+
 	public function __construct($bidCeiling = NULL, $BiddingStrategyType = NULL) {
 		if(get_parent_class('BudgetOptimizer')) parent::__construct();
 		$this->bidCeiling = $bidCeiling;
@@ -1322,11 +1818,28 @@ class BudgetOptimizerAdGroupBids extends AdGroupBids {
 	 * @var Bid
 	 */
 	public $proxyKeywordMaxCpc;
+
 	/**
 	 * @access public
 	 * @var Bid
 	 */
 	public $proxySiteMaxCpc;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BudgetOptimizerAdGroupBids";
+	}
 
 	public function __construct($proxyKeywordMaxCpc = NULL, $proxySiteMaxCpc = NULL, $AdGroupBidsType = NULL) {
 		if(get_parent_class('BudgetOptimizerAdGroupBids')) parent::__construct();
@@ -1347,6 +1860,22 @@ class BudgetOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
 	 */
 	public $proxyBid;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BudgetOptimizerAdGroupCriterionBids";
+	}
+
 	public function __construct($proxyBid = NULL, $AdGroupCriterionBidsType = NULL) {
 		if(get_parent_class('BudgetOptimizerAdGroupCriterionBids')) parent::__construct();
 		$this->proxyBid = $proxyBid;
@@ -1364,6 +1893,22 @@ class BulkMutateJobError extends ApiError {
 	 * @var tnsBulkMutateJobErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BulkMutateJobError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('BulkMutateJobError')) parent::__construct();
@@ -1385,6 +1930,22 @@ class BulkMutateJobPolicy {
 	 */
 	public $prerequisiteJobIds;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BulkMutateJobPolicy";
+	}
+
 	public function __construct($prerequisiteJobIds = NULL) {
 		if(get_parent_class('BulkMutateJobPolicy')) parent::__construct();
 		$this->prerequisiteJobIds = $prerequisiteJobIds;
@@ -1401,11 +1962,28 @@ class BulkMutateRequest {
 	 * @var integer
 	 */
 	public $partIndex;
+
 	/**
 	 * @access public
 	 * @var OperationStream[]
 	 */
 	public $operationStreams;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BulkMutateRequest";
+	}
 
 	public function __construct($partIndex = NULL, $operationStreams = NULL) {
 		if(get_parent_class('BulkMutateRequest')) parent::__construct();
@@ -1424,11 +2002,28 @@ class BulkMutateResult {
 	 * @var integer
 	 */
 	public $partIndex;
+
 	/**
 	 * @access public
 	 * @var OperationStreamResult[]
 	 */
 	public $operationStreamResults;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BulkMutateResult";
+	}
 
 	public function __construct($partIndex = NULL, $operationStreamResults = NULL) {
 		if(get_parent_class('BulkMutateResult')) parent::__construct();
@@ -1448,61 +2043,88 @@ class Campaign {
 	 * @var integer
 	 */
 	public $id;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $name;
+
 	/**
 	 * @access public
 	 * @var tnsCampaignStatus
 	 */
 	public $status;
+
 	/**
 	 * @access public
 	 * @var tnsServingStatus
 	 */
 	public $servingStatus;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $startDate;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $endDate;
+
 	/**
 	 * @access public
 	 * @var Budget
 	 */
 	public $budget;
+
 	/**
 	 * @access public
 	 * @var BiddingStrategy
 	 */
 	public $biddingStrategy;
+
 	/**
 	 * @access public
 	 * @var tnsAutoKeywordMatchingStatus
 	 */
 	public $autoKeywordMatchingStatus;
+
 	/**
 	 * @access public
 	 * @var Stats
 	 */
 	public $stats;
+
 	/**
 	 * @access public
 	 * @var tnsAdServingOptimizationStatus
 	 */
 	public $adServingOptimizationStatus;
+
 	/**
 	 * @access public
 	 * @var FrequencyCap
 	 */
 	public $frequencyCap;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Campaign";
+	}
 
 	public function __construct($id = NULL, $name = NULL, $status = NULL, $servingStatus = NULL, $startDate = NULL, $endDate = NULL, $budget = NULL, $biddingStrategy = NULL, $autoKeywordMatchingStatus = NULL, $stats = NULL, $adServingOptimizationStatus = NULL, $frequencyCap = NULL) {
 		if(get_parent_class('Campaign')) parent::__construct();
@@ -1532,6 +2154,22 @@ class CampaignError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "CampaignError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('CampaignError')) parent::__construct();
 		$this->reason = $reason;
@@ -1552,6 +2190,22 @@ class ClientTermsError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ClientTermsError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('ClientTermsError')) parent::__construct();
 		$this->reason = $reason;
@@ -1571,6 +2225,7 @@ class ComparableValue {
 	 * @var string
 	 */
 	public $ComparableValueType;
+
 	private $_parameterMap = array (
 		"ComparableValue.Type" => "ComparableValueType",
 	);
@@ -1601,6 +2256,22 @@ class ComparableValue {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ComparableValue";
 	}
 
 	public function __construct($ComparableValueType = NULL) {
@@ -1620,6 +2291,22 @@ class ConversionOptimizer extends BiddingStrategy {
 	 */
 	public $pricingModel;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ConversionOptimizer";
+	}
+
 	public function __construct($pricingModel = NULL, $BiddingStrategyType = NULL) {
 		if(get_parent_class('ConversionOptimizer')) parent::__construct();
 		$this->pricingModel = $pricingModel;
@@ -1638,6 +2325,22 @@ class ConversionOptimizerAdGroupBids extends AdGroupBids {
 	 */
 	public $targetCpa;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ConversionOptimizerAdGroupBids";
+	}
+
 	public function __construct($targetCpa = NULL, $AdGroupBidsType = NULL) {
 		if(get_parent_class('ConversionOptimizerAdGroupBids')) parent::__construct();
 		$this->targetCpa = $targetCpa;
@@ -1652,6 +2355,21 @@ if (!class_exists("ConversionOptimizerAdGroupCriterionBids")) {
  * AGC level.
  */
 class ConversionOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ConversionOptimizerAdGroupCriterionBids";
+	}
 
 	public function __construct($AdGroupCriterionBidsType = NULL) {
 		if(get_parent_class('ConversionOptimizerAdGroupCriterionBids')) parent::__construct();
@@ -1669,6 +2387,22 @@ class ConversionOptimizerBiddingTransition extends BiddingTransition {
 	 * @var boolean
 	 */
 	public $useSavedBids;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ConversionOptimizerBiddingTransition";
+	}
 
 	public function __construct($useSavedBids = NULL, $targetBiddingStrategy = NULL, $explicitAdGroupBids = NULL, $BiddingTransitionType = NULL) {
 		if(get_parent_class('ConversionOptimizerBiddingTransition')) parent::__construct();
@@ -1690,11 +2424,13 @@ class Criterion {
 	 * @var integer
 	 */
 	public $id;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $CriterionType;
+
 	private $_parameterMap = array (
 		"Criterion.Type" => "CriterionType",
 	);
@@ -1725,6 +2461,22 @@ class Criterion {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Criterion";
 	}
 
 	public function __construct($id = NULL, $CriterionType = NULL) {
@@ -1745,6 +2497,22 @@ class DatabaseError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DatabaseError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('DatabaseError')) parent::__construct();
 		$this->reason = $reason;
@@ -1764,6 +2532,22 @@ class DateError extends ApiError {
 	 * @var tnsDateErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DateError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('DateError')) parent::__construct();
@@ -1786,11 +2570,28 @@ class DeprecatedAd extends Ad {
 	 * @var string
 	 */
 	public $name;
+
 	/**
 	 * @access public
 	 * @var tnsDeprecatedAdType
 	 */
 	public $type;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DeprecatedAd";
+	}
 
 	public function __construct($name = NULL, $type = NULL, $id = NULL, $url = NULL, $displayUrl = NULL, $approvalStatus = NULL, $disapprovalReasons = NULL, $AdType = NULL) {
 		if(get_parent_class('DeprecatedAd')) parent::__construct();
@@ -1815,11 +2616,28 @@ class Dimensions {
 	 * @var integer
 	 */
 	public $width;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $height;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Dimensions";
+	}
 
 	public function __construct($width = NULL, $height = NULL) {
 		if(get_parent_class('Dimensions')) parent::__construct();
@@ -1838,6 +2656,22 @@ class DistinctError extends ApiError {
 	 * @var tnsDistinctErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DistinctError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('DistinctError')) parent::__construct();
@@ -1859,6 +2693,22 @@ class EntityAccessDenied extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "EntityAccessDenied";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('EntityAccessDenied')) parent::__construct();
 		$this->reason = $reason;
@@ -1879,16 +2729,34 @@ class EntityCountLimitExceeded extends ApiError {
 	 * @var tnsEntityCountLimitExceededReason
 	 */
 	public $reason;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $enclosingId;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $limit;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "EntityCountLimitExceeded";
+	}
 
 	public function __construct($reason = NULL, $enclosingId = NULL, $limit = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('EntityCountLimitExceeded')) parent::__construct();
@@ -1912,11 +2780,28 @@ class EntityId {
 	 * @var tnsEntityIdType
 	 */
 	public $type;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $value;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "EntityId";
+	}
 
 	public function __construct($type = NULL, $value = NULL) {
 		if(get_parent_class('EntityId')) parent::__construct();
@@ -1936,6 +2821,22 @@ class EntityNotFound extends ApiError {
 	 * @var tnsEntityNotFoundReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "EntityNotFound";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('EntityNotFound')) parent::__construct();
@@ -1957,6 +2858,22 @@ class ExemptionRequest {
 	 */
 	public $key;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ExemptionRequest";
+	}
+
 	public function __construct($key = NULL) {
 		if(get_parent_class('ExemptionRequest')) parent::__construct();
 		$this->key = $key;
@@ -1974,16 +2891,34 @@ class FrequencyCap {
 	 * @var integer
 	 */
 	public $impressions;
+
 	/**
 	 * @access public
 	 * @var tnsTimeUnit
 	 */
 	public $timeUnit;
+
 	/**
 	 * @access public
 	 * @var tnsLevel
 	 */
 	public $level;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "FrequencyCap";
+	}
 
 	public function __construct($impressions = NULL, $timeUnit = NULL, $level = NULL) {
 		if(get_parent_class('FrequencyCap')) parent::__construct();
@@ -2003,11 +2938,28 @@ class GeoPoint {
 	 * @var integer
 	 */
 	public $latitudeInMicroDegrees;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $longitudeInMicroDegrees;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "GeoPoint";
+	}
 
 	public function __construct($latitudeInMicroDegrees = NULL, $longitudeInMicroDegrees = NULL) {
 		if(get_parent_class('GeoPoint')) parent::__construct();
@@ -2026,6 +2978,22 @@ class IdError extends ApiError {
 	 * @var tnsIdErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "IdError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('IdError')) parent::__construct();
@@ -2046,11 +3014,28 @@ class ImageAd extends Ad {
 	 * @var Image
 	 */
 	public $image;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $name;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ImageAd";
+	}
 
 	public function __construct($image = NULL, $name = NULL, $id = NULL, $url = NULL, $displayUrl = NULL, $approvalStatus = NULL, $disapprovalReasons = NULL, $AdType = NULL) {
 		if(get_parent_class('ImageAd')) parent::__construct();
@@ -2076,6 +3061,22 @@ class ImageError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ImageError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('ImageError')) parent::__construct();
 		$this->reason = $reason;
@@ -2098,6 +3099,22 @@ class InternalApiError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "InternalApiError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('InternalApiError')) parent::__construct();
 		$this->reason = $reason;
@@ -2117,31 +3134,37 @@ class Job {
 	 * @var string
 	 */
 	public $customerJobKey;
+
 	/**
 	 * @access public
 	 * @var JobContext
 	 */
 	public $context;
+
 	/**
 	 * @access public
 	 * @var ApiErrorReason
 	 */
 	public $failureReason;
+
 	/**
 	 * @access public
 	 * @var JobStats
 	 */
 	public $stats;
+
 	/**
 	 * @access public
 	 * @var BillingSummary
 	 */
 	public $billingSummary;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $JobType;
+
 	private $_parameterMap = array (
 		"Job.Type" => "JobType",
 	);
@@ -2172,6 +3195,22 @@ class Job {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Job";
 	}
 
 	public function __construct($customerJobKey = NULL, $context = NULL, $failureReason = NULL, $stats = NULL, $billingSummary = NULL, $JobType = NULL) {
@@ -2195,11 +3234,28 @@ class JobContext {
 	 * @var string
 	 */
 	public $authenticatedUserEmail;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $effectiveCustomerId;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "JobContext";
+	}
 
 	public function __construct($authenticatedUserEmail = NULL, $effectiveCustomerId = NULL) {
 		if(get_parent_class('JobContext')) parent::__construct();
@@ -2218,6 +3274,22 @@ class JobError extends ApiError {
 	 * @var tnsJobErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "JobError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('JobError')) parent::__construct();
@@ -2238,11 +3310,13 @@ class JobEvent {
 	 * @var string
 	 */
 	public $dateTime;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $JobEventType;
+
 	private $_parameterMap = array (
 		"JobEvent.Type" => "JobEventType",
 	);
@@ -2273,6 +3347,22 @@ class JobEvent {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "JobEvent";
 	}
 
 	public function __construct($dateTime = NULL, $JobEventType = NULL) {
@@ -2295,21 +3385,25 @@ class JobSelector {
 	 * @var string[]
 	 */
 	public $customerJobKeys;
+
 	/**
 	 * @access public
 	 * @var boolean
 	 */
 	public $includeHistory;
+
 	/**
 	 * @access public
 	 * @var boolean
 	 */
 	public $includeStats;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $JobSelectorType;
+
 	private $_parameterMap = array (
 		"JobSelector.Type" => "JobSelectorType",
 	);
@@ -2340,6 +3434,22 @@ class JobSelector {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "JobSelector";
 	}
 
 	public function __construct($customerJobKeys = NULL, $includeHistory = NULL, $includeStats = NULL, $JobSelectorType = NULL) {
@@ -2361,21 +3471,25 @@ class JobStats {
 	 * @var integer
 	 */
 	public $progressPercent;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $pendingTimeMillis;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $processingTimeMillis;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $JobStatsType;
+
 	private $_parameterMap = array (
 		"JobStats.Type" => "JobStatsType",
 	);
@@ -2406,6 +3520,22 @@ class JobStats {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "JobStats";
 	}
 
 	public function __construct($progressPercent = NULL, $pendingTimeMillis = NULL, $processingTimeMillis = NULL, $JobStatsType = NULL) {
@@ -2427,11 +3557,28 @@ class Keyword extends Criterion {
 	 * @var string
 	 */
 	public $text;
+
 	/**
 	 * @access public
 	 * @var tnsKeywordMatchType
 	 */
 	public $matchType;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Keyword";
+	}
 
 	public function __construct($text = NULL, $matchType = NULL, $id = NULL, $CriterionType = NULL) {
 		if(get_parent_class('Keyword')) parent::__construct();
@@ -2454,71 +3601,100 @@ class LocalBusinessAd extends Ad {
 	 * @var string
 	 */
 	public $fullBusinessName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $phoneNumber;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $streetAddress;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $city;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $region;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $regionCode;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $postalCode;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $countryCode;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $businessName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $description1;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $description2;
+
 	/**
 	 * @access public
 	 * @var ProximityTarget
 	 */
 	public $target;
+
 	/**
 	 * @access public
 	 * @var Image
 	 */
 	public $businessImage;
+
 	/**
 	 * @access public
 	 * @var Image
 	 */
 	public $icon;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LocalBusinessAd";
+	}
 
 	public function __construct($fullBusinessName = NULL, $phoneNumber = NULL, $streetAddress = NULL, $city = NULL, $region = NULL, $regionCode = NULL, $postalCode = NULL, $countryCode = NULL, $businessName = NULL, $description1 = NULL, $description2 = NULL, $target = NULL, $businessImage = NULL, $icon = NULL, $id = NULL, $url = NULL, $displayUrl = NULL, $approvalStatus = NULL, $disapprovalReasons = NULL, $AdType = NULL) {
 		if(get_parent_class('LocalBusinessAd')) parent::__construct();
@@ -2555,41 +3731,64 @@ class LocationExtension extends AdExtension {
 	 * @var Address
 	 */
 	public $address;
+
 	/**
 	 * @access public
 	 * @var GeoPoint
 	 */
 	public $geoPoint;
+
 	/**
 	 * @access public
 	 * @var base64Binary
 	 */
 	public $encodedLocation;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $companyName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $phoneNumber;
+
 	/**
 	 * @access public
 	 * @var tnsLocationExtensionSource
 	 */
 	public $source;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $iconMediaId;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $imageMediaId;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LocationExtension";
+	}
 
 	public function __construct($address = NULL, $geoPoint = NULL, $encodedLocation = NULL, $companyName = NULL, $phoneNumber = NULL, $source = NULL, $iconMediaId = NULL, $imageMediaId = NULL, $id = NULL, $AdExtensionType = NULL) {
 		if(get_parent_class('LocationExtension')) parent::__construct();
@@ -2616,11 +3815,28 @@ class LocationOverrideInfo {
 	 * @var integer
 	 */
 	public $radius;
+
 	/**
 	 * @access public
 	 * @var tnsLocationOverrideInfoRadiusUnits
 	 */
 	public $radiusUnits;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LocationOverrideInfo";
+	}
 
 	public function __construct($radius = NULL, $radiusUnits = NULL) {
 		if(get_parent_class('LocationOverrideInfo')) parent::__construct();
@@ -2634,6 +3850,21 @@ if (!class_exists("ManualCPC")) {
  * Manual click based bidding where user pays per click.
  */
 class ManualCPC extends BiddingStrategy {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ManualCPC";
+	}
 
 	public function __construct($BiddingStrategyType = NULL) {
 		if(get_parent_class('ManualCPC')) parent::__construct();
@@ -2651,16 +3882,34 @@ class ManualCPCAdGroupBids extends AdGroupBids {
 	 * @var Bid
 	 */
 	public $keywordMaxCpc;
+
 	/**
 	 * @access public
 	 * @var Bid
 	 */
 	public $keywordContentMaxCpc;
+
 	/**
 	 * @access public
 	 * @var Bid
 	 */
 	public $siteMaxCpc;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ManualCPCAdGroupBids";
+	}
 
 	public function __construct($keywordMaxCpc = NULL, $keywordContentMaxCpc = NULL, $siteMaxCpc = NULL, $AdGroupBidsType = NULL) {
 		if(get_parent_class('ManualCPCAdGroupBids')) parent::__construct();
@@ -2681,16 +3930,34 @@ class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
 	 * @var Bid
 	 */
 	public $maxCpc;
+
 	/**
 	 * @access public
 	 * @var tnsBidSource
 	 */
 	public $bidSource;
+
 	/**
 	 * @access public
 	 * @var PositionPreferenceAdGroupCriterionBids
 	 */
 	public $positionPreferenceBids;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ManualCPCAdGroupCriterionBids";
+	}
 
 	public function __construct($maxCpc = NULL, $bidSource = NULL, $positionPreferenceBids = NULL, $AdGroupCriterionBidsType = NULL) {
 		if(get_parent_class('ManualCPCAdGroupCriterionBids')) parent::__construct();
@@ -2706,6 +3973,21 @@ if (!class_exists("ManualCPM")) {
  * Manual impression based bidding where user pays per thousand impressions.
  */
 class ManualCPM extends BiddingStrategy {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ManualCPM";
+	}
 
 	public function __construct($BiddingStrategyType = NULL) {
 		if(get_parent_class('ManualCPM')) parent::__construct();
@@ -2724,6 +4006,22 @@ class ManualCPMAdGroupBids extends AdGroupBids {
 	 */
 	public $maxCpm;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ManualCPMAdGroupBids";
+	}
+
 	public function __construct($maxCpm = NULL, $AdGroupBidsType = NULL) {
 		if(get_parent_class('ManualCPMAdGroupBids')) parent::__construct();
 		$this->maxCpm = $maxCpm;
@@ -2741,11 +4039,28 @@ class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
 	 * @var Bid
 	 */
 	public $maxCpm;
+
 	/**
 	 * @access public
 	 * @var tnsBidSource
 	 */
 	public $bidSource;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ManualCPMAdGroupCriterionBids";
+	}
 
 	public function __construct($maxCpm = NULL, $bidSource = NULL, $AdGroupCriterionBidsType = NULL) {
 		if(get_parent_class('ManualCPMAdGroupCriterionBids')) parent::__construct();
@@ -2765,66 +4080,79 @@ class Media {
 	 * @var integer
 	 */
 	public $mediaId;
+
 	/**
 	 * @access public
 	 * @var tnsMediaMediaType
 	 */
 	public $mediaTypeDb;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $referenceId;
+
 	/**
 	 * @access public
 	 * @var Media_Size_DimensionsMapEntry[]
 	 */
 	public $dimensions;
+
 	/**
 	 * @access public
 	 * @var Media_Size_StringMapEntry[]
 	 */
 	public $urls;
+
 	/**
 	 * @access public
 	 * @var tnsMediaMimeType
 	 */
 	public $mimeType;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $sourceUrl;
+
 	/**
 	 * @access public
 	 * @var tnsMediaMediaSubType
 	 */
 	public $mediaSubType;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $name;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $fileSize;
+
 	/**
 	 * @access public
 	 * @var Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry[]
 	 */
 	public $extendedCapabilities;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $creationTime;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $MediaType;
+
 	private $_parameterMap = array (
 		"Media.Type" => "MediaType",
 	);
@@ -2855,6 +4183,22 @@ class Media {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media";
 	}
 
 	public function __construct($mediaId = NULL, $mediaTypeDb = NULL, $referenceId = NULL, $dimensions = NULL, $urls = NULL, $mimeType = NULL, $sourceUrl = NULL, $mediaSubType = NULL, $name = NULL, $fileSize = NULL, $extendedCapabilities = NULL, $creationTime = NULL, $MediaType = NULL) {
@@ -2886,6 +4230,22 @@ class MediaError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "MediaError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('MediaError')) parent::__construct();
 		$this->reason = $reason;
@@ -2906,11 +4266,28 @@ class Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEnt
 	 * @var tnsMediaMediaExtendedCapabilityType
 	 */
 	public $key;
+
 	/**
 	 * @access public
 	 * @var tnsMediaMediaExtendedCapabilityState
 	 */
 	public $value;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry";
+	}
 
 	public function __construct($key = NULL, $value = NULL) {
 		if(get_parent_class('Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry')) parent::__construct();
@@ -2930,11 +4307,28 @@ class Media_Size_DimensionsMapEntry {
 	 * @var tnsMediaSize
 	 */
 	public $key;
+
 	/**
 	 * @access public
 	 * @var Dimensions
 	 */
 	public $value;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media_Size_DimensionsMapEntry";
+	}
 
 	public function __construct($key = NULL, $value = NULL) {
 		if(get_parent_class('Media_Size_DimensionsMapEntry')) parent::__construct();
@@ -2954,11 +4348,28 @@ class Media_Size_StringMapEntry {
 	 * @var tnsMediaSize
 	 */
 	public $key;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $value;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media_Size_StringMapEntry";
+	}
 
 	public function __construct($key = NULL, $value = NULL) {
 		if(get_parent_class('Media_Size_StringMapEntry')) parent::__construct();
@@ -3029,36 +4440,58 @@ class MobileAd extends Ad {
 	 * @var string
 	 */
 	public $headline;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $description;
+
 	/**
 	 * @access public
 	 * @var tnsMarkupLanguageType[]
 	 */
 	public $markupLanguages;
+
 	/**
 	 * @access public
 	 * @var string[]
 	 */
 	public $mobileCarriers;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $businessName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $countryCode;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $phoneNumber;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "MobileAd";
+	}
 
 	public function __construct($headline = NULL, $description = NULL, $markupLanguages = NULL, $mobileCarriers = NULL, $businessName = NULL, $countryCode = NULL, $phoneNumber = NULL, $id = NULL, $url = NULL, $displayUrl = NULL, $approvalStatus = NULL, $disapprovalReasons = NULL, $AdType = NULL) {
 		if(get_parent_class('MobileAd')) parent::__construct();
@@ -3098,16 +4531,34 @@ class MobileImageAd extends Ad {
 	 * @var tnsMarkupLanguageType[]
 	 */
 	public $markupLanguages;
+
 	/**
 	 * @access public
 	 * @var string[]
 	 */
 	public $mobileCarriers;
+
 	/**
 	 * @access public
 	 * @var Image
 	 */
 	public $image;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "MobileImageAd";
+	}
 
 	public function __construct($markupLanguages = NULL, $mobileCarriers = NULL, $image = NULL, $id = NULL, $url = NULL, $displayUrl = NULL, $approvalStatus = NULL, $disapprovalReasons = NULL, $AdType = NULL) {
 		if(get_parent_class('MobileImageAd')) parent::__construct();
@@ -3134,6 +4585,22 @@ class Money extends ComparableValue {
 	 */
 	public $microAmount;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Money";
+	}
+
 	public function __construct($microAmount = NULL, $ComparableValueType = NULL) {
 		if(get_parent_class('Money')) parent::__construct();
 		$this->microAmount = $microAmount;
@@ -3146,6 +4613,21 @@ if (!class_exists("NegativeAdGroupCriterion")) {
  * A negative criterion in an adgroup.
  */
 class NegativeAdGroupCriterion extends AdGroupCriterion {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NegativeAdGroupCriterion";
+	}
 
 	public function __construct($adGroupId = NULL, $criterion = NULL, $AdGroupCriterionType = NULL) {
 		if(get_parent_class('NegativeAdGroupCriterion')) parent::__construct();
@@ -3165,6 +4647,22 @@ class NewEntityCreationError extends ApiError {
 	 * @var tnsNewEntityCreationErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NewEntityCreationError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('NewEntityCreationError')) parent::__construct();
@@ -3186,6 +4684,22 @@ class NotEmptyError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NotEmptyError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('NotEmptyError')) parent::__construct();
 		$this->reason = $reason;
@@ -3205,6 +4719,22 @@ class NotWhitelistedError extends ApiError {
 	 * @var tnsNotWhitelistedErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NotWhitelistedError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('NotWhitelistedError')) parent::__construct();
@@ -3226,6 +4756,22 @@ class NullError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NullError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('NullError')) parent::__construct();
 		$this->reason = $reason;
@@ -3240,6 +4786,21 @@ if (!class_exists("NumberValue")) {
  * Number value types for constructing number valued ranges.
  */
 class NumberValue extends ComparableValue {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NumberValue";
+	}
 
 	public function __construct($ComparableValueType = NULL) {
 		if(get_parent_class('NumberValue')) parent::__construct();
@@ -3258,51 +4819,76 @@ class Operand {
 	 * @var AdExtensionOverride
 	 */
 	public $AdExtensionOverride;
+
 	/**
 	 * @access public
 	 * @var AdGroupAd
 	 */
 	public $AdGroupAd;
+
 	/**
 	 * @access public
 	 * @var AdGroupCriterion
 	 */
 	public $AdGroupCriterion;
+
 	/**
 	 * @access public
 	 * @var AdGroup
 	 */
 	public $AdGroup;
+
 	/**
 	 * @access public
 	 * @var Ad
 	 */
 	public $Ad;
+
 	/**
 	 * @access public
 	 * @var Campaign
 	 */
 	public $Campaign;
+
 	/**
 	 * @access public
 	 * @var Job
 	 */
 	public $Job;
+
 	/**
 	 * @access public
 	 * @var Media
 	 */
 	public $Media;
+
 	/**
 	 * @access public
 	 * @var TargetList
 	 */
 	public $TargetList;
+
 	/**
 	 * @access public
 	 * @var Target
 	 */
 	public $Target;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Operand";
+	}
 
 	public function __construct($AdExtensionOverride = NULL, $AdGroupAd = NULL, $AdGroupCriterion = NULL, $AdGroup = NULL, $Ad = NULL, $Campaign = NULL, $Job = NULL, $Media = NULL, $TargetList = NULL, $Target = NULL) {
 		if(get_parent_class('Operand')) parent::__construct();
@@ -3330,11 +4916,13 @@ class Operation {
 	 * @var tnsOperator
 	 */
 	public $operator;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $OperationType;
+
 	private $_parameterMap = array (
 		"Operation.Type" => "OperationType",
 	);
@@ -3365,6 +4953,22 @@ class Operation {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Operation";
 	}
 
 	public function __construct($operator = NULL, $OperationType = NULL) {
@@ -3386,6 +4990,22 @@ class OperationAccessDenied extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "OperationAccessDenied";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('OperationAccessDenied')) parent::__construct();
 		$this->reason = $reason;
@@ -3405,6 +5025,7 @@ class OperationResult {
 	 * @var string
 	 */
 	public $OperationResultType;
+
 	private $_parameterMap = array (
 		"OperationResult.Type" => "OperationResultType",
 	);
@@ -3435,6 +5056,22 @@ class OperationResult {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "OperationResult";
 	}
 
 	public function __construct($OperationResultType = NULL) {
@@ -3456,11 +5093,28 @@ class OperationStream {
 	 * @var EntityId
 	 */
 	public $scopingEntityId;
+
 	/**
 	 * @access public
 	 * @var Operation[]
 	 */
 	public $operations;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "OperationStream";
+	}
 
 	public function __construct($scopingEntityId = NULL, $operations = NULL) {
 		if(get_parent_class('OperationStream')) parent::__construct();
@@ -3480,6 +5134,22 @@ class OperationStreamResult {
 	 */
 	public $operationResults;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "OperationStreamResult";
+	}
+
 	public function __construct($operationResults = NULL) {
 		if(get_parent_class('OperationStreamResult')) parent::__construct();
 		$this->operationResults = $operationResults;
@@ -3496,6 +5166,22 @@ class OperatorError extends ApiError {
 	 * @var tnsOperatorErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "OperatorError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('OperatorError')) parent::__construct();
@@ -3518,6 +5204,22 @@ class OverrideInfo {
 	 */
 	public $LocationOverrideInfo;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "OverrideInfo";
+	}
+
 	public function __construct($LocationOverrideInfo = NULL) {
 		if(get_parent_class('OverrideInfo')) parent::__construct();
 		$this->LocationOverrideInfo = $LocationOverrideInfo;
@@ -3535,6 +5237,22 @@ class PagingError extends ApiError {
 	 * @var tnsPagingErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PagingError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('PagingError')) parent::__construct();
@@ -3556,6 +5274,22 @@ class Placement extends Criterion {
 	 * @var string
 	 */
 	public $url;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Placement";
+	}
 
 	public function __construct($url = NULL, $id = NULL, $CriterionType = NULL) {
 		if(get_parent_class('Placement')) parent::__construct();
@@ -3586,31 +5320,52 @@ class PolicyViolationError extends ApiError {
 	 * @var PolicyViolationKey
 	 */
 	public $key;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $externalPolicyName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $externalPolicyUrl;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $externalPolicyDescription;
+
 	/**
 	 * @access public
 	 * @var boolean
 	 */
 	public $isExemptable;
+
 	/**
 	 * @access public
 	 * @var PolicyViolationErrorPart[]
 	 */
 	public $violatingParts;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PolicyViolationError";
+	}
 
 	public function __construct($key = NULL, $externalPolicyName = NULL, $externalPolicyUrl = NULL, $externalPolicyDescription = NULL, $isExemptable = NULL, $violatingParts = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('PolicyViolationError')) parent::__construct();
@@ -3636,11 +5391,28 @@ class PolicyViolationErrorPart {
 	 * @var integer
 	 */
 	public $index;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $length;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PolicyViolationError.Part";
+	}
 
 	public function __construct($index = NULL, $length = NULL) {
 		if(get_parent_class('PolicyViolationErrorPart')) parent::__construct();
@@ -3660,11 +5432,28 @@ class PolicyViolationKey {
 	 * @var string
 	 */
 	public $policyName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $violatingText;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PolicyViolationKey";
+	}
 
 	public function __construct($policyName = NULL, $violatingText = NULL) {
 		if(get_parent_class('PolicyViolationKey')) parent::__construct();
@@ -3684,16 +5473,34 @@ class PositionPreferenceAdGroupCriterionBids {
 	 * @var Bid
 	 */
 	public $proxyMaxCpc;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $preferredPosition;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $bottomPosition;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PositionPreferenceAdGroupCriterionBids";
+	}
 
 	public function __construct($proxyMaxCpc = NULL, $preferredPosition = NULL, $bottomPosition = NULL) {
 		if(get_parent_class('PositionPreferenceAdGroupCriterionBids')) parent::__construct();
@@ -3713,21 +5520,40 @@ class QualityInfo {
 	 * @var boolean
 	 */
 	public $isKeywordAdRelevanceAcceptable;
+
 	/**
 	 * @access public
 	 * @var boolean
 	 */
 	public $isLandingPageQualityAcceptable;
+
 	/**
 	 * @access public
 	 * @var boolean
 	 */
 	public $isLandingPageLatencyAcceptable;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $qualityScore;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "QualityInfo";
+	}
 
 	public function __construct($isKeywordAdRelevanceAcceptable = NULL, $isLandingPageQualityAcceptable = NULL, $isLandingPageLatencyAcceptable = NULL, $qualityScore = NULL) {
 		if(get_parent_class('QualityInfo')) parent::__construct();
@@ -3750,6 +5576,22 @@ class QuotaCheckError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "QuotaCheckError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('QuotaCheckError')) parent::__construct();
 		$this->reason = $reason;
@@ -3769,11 +5611,28 @@ class QuotaError extends ApiError {
 	 * @var tnsQuotaErrorReason
 	 */
 	public $reason;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $limit;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "QuotaError";
+	}
 
 	public function __construct($reason = NULL, $limit = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('QuotaError')) parent::__construct();
@@ -3796,6 +5655,22 @@ class QuotaExceededError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "QuotaExceededError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('QuotaExceededError')) parent::__construct();
 		$this->reason = $reason;
@@ -3815,6 +5690,22 @@ class RangeError extends ApiError {
 	 * @var tnsRangeErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "RangeError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('RangeError')) parent::__construct();
@@ -3836,6 +5727,22 @@ class ReadOnlyError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ReadOnlyError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('ReadOnlyError')) parent::__construct();
 		$this->reason = $reason;
@@ -3856,6 +5763,22 @@ class RegionCodeError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "RegionCodeError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('RegionCodeError')) parent::__construct();
 		$this->reason = $reason;
@@ -3875,6 +5798,22 @@ class RequiredError extends ApiError {
 	 * @var tnsRequiredErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "RequiredError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('RequiredError')) parent::__construct();
@@ -3897,6 +5836,22 @@ class ReturnValueResult extends OperationResult {
 	 */
 	public $returnValue;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ReturnValueResult";
+	}
+
 	public function __construct($returnValue = NULL, $OperationResultType = NULL) {
 		if(get_parent_class('ReturnValueResult')) parent::__construct();
 		$this->returnValue = $returnValue;
@@ -3914,6 +5869,22 @@ class SizeLimitError extends ApiError {
 	 * @var tnsSizeLimitErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "SizeLimitError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('SizeLimitError')) parent::__construct();
@@ -3934,36 +5905,58 @@ class SoapRequestHeader {
 	 * @var string
 	 */
 	public $applicationToken;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $authToken;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $clientCustomerId;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $clientEmail;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $developerToken;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $userAgent;
+
 	/**
 	 * @access public
 	 * @var boolean
 	 */
 	public $validateOnly;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "SoapHeader";
+	}
 
 	public function __construct($applicationToken = NULL, $authToken = NULL, $clientCustomerId = NULL, $clientEmail = NULL, $developerToken = NULL, $userAgent = NULL, $validateOnly = NULL) {
 		if(get_parent_class('SoapRequestHeader')) parent::__construct();
@@ -3987,21 +5980,40 @@ class SoapResponseHeader {
 	 * @var string
 	 */
 	public $requestId;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $operations;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $responseTime;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $units;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "SoapResponseHeader";
+	}
 
 	public function __construct($requestId = NULL, $operations = NULL, $responseTime = NULL, $units = NULL) {
 		if(get_parent_class('SoapResponseHeader')) parent::__construct();
@@ -4022,86 +6034,103 @@ class Stats {
 	 * @var string
 	 */
 	public $startDate;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $endDate;
+
 	/**
 	 * @access public
 	 * @var tnsStatsNetwork
 	 */
 	public $network;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $clicks;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $impressions;
+
 	/**
 	 * @access public
 	 * @var Money
 	 */
 	public $cost;
+
 	/**
 	 * @access public
 	 * @var double
 	 */
 	public $averagePosition;
+
 	/**
 	 * @access public
 	 * @var Money
 	 */
 	public $averageCpc;
+
 	/**
 	 * @access public
 	 * @var Money
 	 */
 	public $averageCpm;
+
 	/**
 	 * @access public
 	 * @var double
 	 */
 	public $ctr;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $conversions;
+
 	/**
 	 * @access public
 	 * @var double
 	 */
 	public $conversionRate;
+
 	/**
 	 * @access public
 	 * @var Money
 	 */
 	public $costPerConversion;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $conversionsManyPerClick;
+
 	/**
 	 * @access public
 	 * @var double
 	 */
 	public $conversionRateManyPerClick;
+
 	/**
 	 * @access public
 	 * @var Money
 	 */
 	public $costPerConversionManyPerClick;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $StatsType;
+
 	private $_parameterMap = array (
 		"Stats.Type" => "StatsType",
 	);
@@ -4132,6 +6161,22 @@ class Stats {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Stats";
 	}
 
 	public function __construct($startDate = NULL, $endDate = NULL, $network = NULL, $clicks = NULL, $impressions = NULL, $cost = NULL, $averagePosition = NULL, $averageCpc = NULL, $averageCpm = NULL, $ctr = NULL, $conversions = NULL, $conversionRate = NULL, $costPerConversion = NULL, $conversionsManyPerClick = NULL, $conversionRateManyPerClick = NULL, $costPerConversionManyPerClick = NULL, $StatsType = NULL) {
@@ -4167,6 +6212,22 @@ class StatsQueryError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "StatsQueryError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('StatsQueryError')) parent::__construct();
 		$this->reason = $reason;
@@ -4187,6 +6248,22 @@ class StringLengthError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "StringLengthError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('StringLengthError')) parent::__construct();
 		$this->reason = $reason;
@@ -4206,6 +6283,7 @@ class AdWordsTarget {
 	 * @var string
 	 */
 	public $TargetType;
+
 	private $_parameterMap = array (
 		"Target.Type" => "TargetType",
 	);
@@ -4236,6 +6314,22 @@ class AdWordsTarget {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Target";
 	}
 
 	public function __construct($TargetType = NULL) {
@@ -4254,6 +6348,22 @@ class TargetError extends ApiError {
 	 * @var tnsTargetErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TargetError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('TargetError')) parent::__construct();
@@ -4274,11 +6384,13 @@ class TargetList {
 	 * @var integer
 	 */
 	public $campaignId;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $TargetListType;
+
 	private $_parameterMap = array (
 		"TargetList.Type" => "TargetListType",
 	);
@@ -4309,6 +6421,22 @@ class TargetList {
 	 */
 	protected function getParameterMap() {
 		return $this->_parameterMap;
+		}
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TargetList";
 	}
 
 	public function __construct($campaignId = NULL, $TargetListType = NULL) {
@@ -4324,6 +6452,21 @@ if (!class_exists("TempAdUnionId")) {
  * The temporary id can be used to group ads together during ad creation.
  */
 class TempAdUnionId extends AdUnionId {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TempAdUnionId";
+	}
 
 	public function __construct($id = NULL, $AdUnionIdType = NULL) {
 		if(get_parent_class('TempAdUnionId')) parent::__construct();
@@ -4344,31 +6487,52 @@ class TemplateAd extends Ad {
 	 * @var integer
 	 */
 	public $templateId;
+
 	/**
 	 * @access public
 	 * @var AdUnionId
 	 */
 	public $adUnionId;
+
 	/**
 	 * @access public
 	 * @var TemplateElement[]
 	 */
 	public $templateElements;
+
 	/**
 	 * @access public
 	 * @var Dimensions
 	 */
 	public $dimensions;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $name;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $duration;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TemplateAd";
+	}
 
 	public function __construct($templateId = NULL, $adUnionId = NULL, $templateElements = NULL, $dimensions = NULL, $name = NULL, $duration = NULL, $id = NULL, $url = NULL, $displayUrl = NULL, $approvalStatus = NULL, $disapprovalReasons = NULL, $AdType = NULL) {
 		if(get_parent_class('TemplateAd')) parent::__construct();
@@ -4398,11 +6562,28 @@ class TemplateElement {
 	 * @var string
 	 */
 	public $uniqueName;
+
 	/**
 	 * @access public
 	 * @var TemplateElementField[]
 	 */
 	public $fields;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TemplateElement";
+	}
 
 	public function __construct($uniqueName = NULL, $fields = NULL) {
 		if(get_parent_class('TemplateElement')) parent::__construct();
@@ -4421,21 +6602,40 @@ class TemplateElementField {
 	 * @var string
 	 */
 	public $name;
+
 	/**
 	 * @access public
 	 * @var tnsTemplateElementFieldType
 	 */
 	public $type;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $fieldText;
+
 	/**
 	 * @access public
 	 * @var Media
 	 */
 	public $fieldMedia;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TemplateElementField";
+	}
 
 	public function __construct($name = NULL, $type = NULL, $fieldText = NULL, $fieldMedia = NULL) {
 		if(get_parent_class('TemplateElementField')) parent::__construct();
@@ -4456,16 +6656,34 @@ class TextAd extends Ad {
 	 * @var string
 	 */
 	public $headline;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $description1;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $description2;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TextAd";
+	}
 
 	public function __construct($headline = NULL, $description1 = NULL, $description2 = NULL, $id = NULL, $url = NULL, $displayUrl = NULL, $approvalStatus = NULL, $disapprovalReasons = NULL, $AdType = NULL) {
 		if(get_parent_class('TextAd')) parent::__construct();
@@ -4489,6 +6707,21 @@ if (!class_exists("UnprocessedResult")) {
  * being processed. See the job status to see which of these is relevant.
  */
 class UnprocessedResult extends OperationResult {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "UnprocessedResult";
+	}
 
 	public function __construct($OperationResultType = NULL) {
 		if(get_parent_class('UnprocessedResult')) parent::__construct();
@@ -4506,26 +6739,46 @@ class Video extends Media {
 	 * @var integer
 	 */
 	public $durationMillis;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $streamingUrl;
+
 	/**
 	 * @access public
 	 * @var boolean
 	 */
 	public $readyToPlayOnTheWeb;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $industryStandardCommercialIdentifier;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $advertisingId;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Video";
+	}
 
 	public function __construct($durationMillis = NULL, $streamingUrl = NULL, $readyToPlayOnTheWeb = NULL, $industryStandardCommercialIdentifier = NULL, $advertisingId = NULL, $mediaId = NULL, $mediaTypeDb = NULL, $referenceId = NULL, $dimensions = NULL, $urls = NULL, $mimeType = NULL, $sourceUrl = NULL, $mediaSubType = NULL, $name = NULL, $fileSize = NULL, $extendedCapabilities = NULL, $creationTime = NULL, $MediaType = NULL) {
 		if(get_parent_class('Video')) parent::__construct();
@@ -4555,6 +6808,21 @@ if (!class_exists("AdApprovalStatus")) {
  * Approval status for Creatives.
  */
 class AdApprovalStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Ad.ApprovalStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdApprovalStatus')) parent::__construct();
@@ -4566,6 +6834,21 @@ if (!class_exists("AdErrorReason")) {
  * The reasons for the target error.
  */
 class AdErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdErrorReason')) parent::__construct();
@@ -4577,6 +6860,21 @@ if (!class_exists("AdExtensionOverrideApprovalStatus")) {
  * Approval status for the AdExtensionOverride
  */
 class AdExtensionOverrideApprovalStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdExtensionOverride.ApprovalStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdExtensionOverrideApprovalStatus')) parent::__construct();
@@ -4588,6 +6886,21 @@ if (!class_exists("AdExtensionOverrideStatus")) {
  * Status of the AdExtensionOverride
  */
 class AdExtensionOverrideStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdExtensionOverride.Status";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdExtensionOverrideStatus')) parent::__construct();
@@ -4599,6 +6912,21 @@ if (!class_exists("AdGroupStatus")) {
  * The status of the AdGroup.
  */
 class AdGroupStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroup.Status";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdGroupStatus')) parent::__construct();
@@ -4610,6 +6938,21 @@ if (!class_exists("AdGroupAdStatus")) {
  * The current status of an Ad.
  */
 class AdGroupAdStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupAd.Status";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdGroupAdStatus')) parent::__construct();
@@ -4621,6 +6964,21 @@ if (!class_exists("AdGroupAdErrorReason")) {
  * The reasons for the target error.
  */
 class AdGroupAdErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupAdError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdGroupAdErrorReason')) parent::__construct();
@@ -4632,6 +6990,21 @@ if (!class_exists("AdGroupCriterionErrorReason")) {
  * The reasons for the target error.
  */
 class AdGroupCriterionErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupCriterionError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdGroupCriterionErrorReason')) parent::__construct();
@@ -4643,6 +7016,21 @@ if (!class_exists("AdGroupCriterionLimitExceededCriteriaLimitType")) {
  * The entity type that exceeded the limit.
  */
 class AdGroupCriterionLimitExceededCriteriaLimitType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupCriterionLimitExceeded.CriteriaLimitType";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdGroupCriterionLimitExceededCriteriaLimitType')) parent::__construct();
@@ -4654,6 +7042,21 @@ if (!class_exists("AdGroupServiceErrorReason")) {
  * The reasons for the adgroup service error.
  */
 class AdGroupServiceErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupServiceError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdGroupServiceErrorReason')) parent::__construct();
@@ -4665,6 +7068,21 @@ if (!class_exists("AdServingOptimizationStatus")) {
  * Ad serving status of campaign.
  */
 class AdServingOptimizationStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdServingOptimizationStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AdServingOptimizationStatus')) parent::__construct();
@@ -4676,6 +7094,21 @@ if (!class_exists("AgeTargetAge")) {
  * Age segments.
  */
 class AgeTargetAge {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AgeTarget.Age";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AgeTargetAge')) parent::__construct();
@@ -4688,6 +7121,21 @@ if (!class_exists("ApprovalStatus")) {
  * Note: there are more states involved but we only expose two to users.
  */
 class ApprovalStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ApprovalStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('ApprovalStatus')) parent::__construct();
@@ -4699,6 +7147,21 @@ if (!class_exists("AuthenticationErrorReason")) {
  * The single reason for the authentication failure.
  */
 class AuthenticationErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AuthenticationError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AuthenticationErrorReason')) parent::__construct();
@@ -4710,6 +7173,21 @@ if (!class_exists("AuthorizationErrorReason")) {
  * The reasons for the database error.
  */
 class AuthorizationErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AuthorizationError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AuthorizationErrorReason')) parent::__construct();
@@ -4721,6 +7199,21 @@ if (!class_exists("AutoKeywordMatchingStatus")) {
  * Automatic Keyword matching (AutoPilot) status for the campaign.
  */
 class AutoKeywordMatchingStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AutoKeywordMatchingStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('AutoKeywordMatchingStatus')) parent::__construct();
@@ -4732,6 +7225,21 @@ if (!class_exists("BasicJobStatus")) {
  * A basic set of job statuses.
  */
 class BasicJobStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BasicJobStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('BasicJobStatus')) parent::__construct();
@@ -4744,6 +7252,21 @@ if (!class_exists("BidSource")) {
  * belongs to.
  */
 class BidSource {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BidSource";
+	}
 
 	public function __construct() {
 		if(get_parent_class('BidSource')) parent::__construct();
@@ -4755,6 +7278,21 @@ if (!class_exists("BiddingErrorReason")) {
  * Reason for bidding error.
  */
 class BiddingErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BiddingError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('BiddingErrorReason')) parent::__construct();
@@ -4768,6 +7306,21 @@ if (!class_exists("BiddingTransitionErrorReason")) {
  * capability.
  */
 class BiddingTransitionErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BiddingTransitionError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('BiddingTransitionErrorReason')) parent::__construct();
@@ -4779,6 +7332,21 @@ if (!class_exists("BudgetBudgetDeliveryMethod")) {
  * Budget delivery methods.
  */
 class BudgetBudgetDeliveryMethod {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Budget.BudgetDeliveryMethod";
+	}
 
 	public function __construct() {
 		if(get_parent_class('BudgetBudgetDeliveryMethod')) parent::__construct();
@@ -4790,6 +7358,21 @@ if (!class_exists("BudgetBudgetPeriod")) {
  * Budget periods.
  */
 class BudgetBudgetPeriod {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Budget.BudgetPeriod";
+	}
 
 	public function __construct() {
 		if(get_parent_class('BudgetBudgetPeriod')) parent::__construct();
@@ -4801,6 +7384,21 @@ if (!class_exists("BudgetErrorReason")) {
  * The reasons for the budget error.
  */
 class BudgetErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BudgetError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('BudgetErrorReason')) parent::__construct();
@@ -4812,6 +7410,21 @@ if (!class_exists("BulkMutateJobErrorReason")) {
  * The reasons for the bulk mutate job handling error.
  */
 class BulkMutateJobErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BulkMutateJobError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('BulkMutateJobErrorReason')) parent::__construct();
@@ -4823,6 +7436,21 @@ if (!class_exists("CampaignErrorReason")) {
  * The reasons for the target error.
  */
 class CampaignErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "CampaignError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('CampaignErrorReason')) parent::__construct();
@@ -4834,6 +7462,21 @@ if (!class_exists("CampaignStatus")) {
  * Campaign status.
  */
 class CampaignStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "CampaignStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('CampaignStatus')) parent::__construct();
@@ -4846,6 +7489,21 @@ if (!class_exists("ClientTermsErrorReason")) {
  * ClientTerms violation.
  */
 class ClientTermsErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ClientTermsError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('ClientTermsErrorReason')) parent::__construct();
@@ -4857,6 +7515,21 @@ if (!class_exists("DatabaseErrorReason")) {
  * The reasons for the database error.
  */
 class DatabaseErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DatabaseError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('DatabaseErrorReason')) parent::__construct();
@@ -4868,6 +7541,21 @@ if (!class_exists("DateErrorReason")) {
  * The reasons for the target error.
  */
 class DateErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DateError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('DateErrorReason')) parent::__construct();
@@ -4879,6 +7567,21 @@ if (!class_exists("DayOfWeek")) {
  * Days of the week.
  */
 class DayOfWeek {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DayOfWeek";
+	}
 
 	public function __construct() {
 		if(get_parent_class('DayOfWeek')) parent::__construct();
@@ -4890,6 +7593,21 @@ if (!class_exists("DeprecatedAdType")) {
  * 
  */
 class DeprecatedAdType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DeprecatedAd.Type";
+	}
 
 	public function __construct() {
 		if(get_parent_class('DeprecatedAdType')) parent::__construct();
@@ -4901,6 +7619,21 @@ if (!class_exists("DistinctErrorReason")) {
  * The reasons for the validation error.
  */
 class DistinctErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DistinctError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('DistinctErrorReason')) parent::__construct();
@@ -4912,6 +7645,21 @@ if (!class_exists("EntityAccessDeniedReason")) {
  * User did not have read access.
  */
 class EntityAccessDeniedReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "EntityAccessDenied.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('EntityAccessDeniedReason')) parent::__construct();
@@ -4923,6 +7671,21 @@ if (!class_exists("EntityCountLimitExceededReason")) {
  * Limits at various levels of the account.
  */
 class EntityCountLimitExceededReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "EntityCountLimitExceeded.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('EntityCountLimitExceededReason')) parent::__construct();
@@ -4934,6 +7697,21 @@ if (!class_exists("EntityIdType")) {
  * Type of entity identity.
  */
 class EntityIdType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "EntityId.Type";
+	}
 
 	public function __construct() {
 		if(get_parent_class('EntityIdType')) parent::__construct();
@@ -4946,6 +7724,21 @@ if (!class_exists("EntityNotFoundReason")) {
  * customer. e.g. campaign belongs to another customer.
  */
 class EntityNotFoundReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "EntityNotFound.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('EntityNotFoundReason')) parent::__construct();
@@ -4957,6 +7750,21 @@ if (!class_exists("GenderTargetGender")) {
  * Gender segments.
  */
 class GenderTargetGender {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "GenderTarget.Gender";
+	}
 
 	public function __construct() {
 		if(get_parent_class('GenderTargetGender')) parent::__construct();
@@ -4968,6 +7776,21 @@ if (!class_exists("IdErrorReason")) {
  * The reasons for the target error.
  */
 class IdErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "IdError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('IdErrorReason')) parent::__construct();
@@ -4979,6 +7802,21 @@ if (!class_exists("ImageErrorReason")) {
  * 
  */
 class ImageErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ImageError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('ImageErrorReason')) parent::__construct();
@@ -4990,6 +7828,21 @@ if (!class_exists("InternalApiErrorReason")) {
  * The single reason for the internal API error.
  */
 class InternalApiErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "InternalApiError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('InternalApiErrorReason')) parent::__construct();
@@ -5001,6 +7854,21 @@ if (!class_exists("JobErrorReason")) {
  * The reasons for the job handling error.
  */
 class JobErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "JobError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('JobErrorReason')) parent::__construct();
@@ -5013,6 +7881,21 @@ if (!class_exists("KeywordMatchType")) {
  * search queries.
  */
 class KeywordMatchType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "KeywordMatchType";
+	}
 
 	public function __construct() {
 		if(get_parent_class('KeywordMatchType')) parent::__construct();
@@ -5024,6 +7907,21 @@ if (!class_exists("Level")) {
  * The level on which the cap is to be applied (creative/adgroup).
  */
 class Level {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Level";
+	}
 
 	public function __construct() {
 		if(get_parent_class('Level')) parent::__construct();
@@ -5035,6 +7933,21 @@ if (!class_exists("LoasAuthenticationErrorReason")) {
  * The reasons for the loas authentication error.
  */
 class LoasAuthenticationErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LoasAuthenticationError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('LoasAuthenticationErrorReason')) parent::__construct();
@@ -5046,6 +7959,21 @@ if (!class_exists("LocationExtensionSource")) {
  * From manual entry in adwords frontend
  */
 class LocationExtensionSource {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LocationExtension.Source";
+	}
 
 	public function __construct() {
 		if(get_parent_class('LocationExtensionSource')) parent::__construct();
@@ -5057,6 +7985,21 @@ if (!class_exists("LocationOverrideInfoRadiusUnits")) {
  * Radius units
  */
 class LocationOverrideInfoRadiusUnits {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LocationOverrideInfo.RadiusUnits";
+	}
 
 	public function __construct() {
 		if(get_parent_class('LocationOverrideInfoRadiusUnits')) parent::__construct();
@@ -5068,6 +8011,21 @@ if (!class_exists("MarkupLanguageType")) {
  * Markup languages to use for mobile ads.
  */
 class MarkupLanguageType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "MarkupLanguageType";
+	}
 
 	public function __construct() {
 		if(get_parent_class('MarkupLanguageType')) parent::__construct();
@@ -5079,6 +8037,21 @@ if (!class_exists("MediaMediaExtendedCapabilityState")) {
  * 
  */
 class MediaMediaExtendedCapabilityState {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media.MediaExtendedCapabilityState";
+	}
 
 	public function __construct() {
 		if(get_parent_class('MediaMediaExtendedCapabilityState')) parent::__construct();
@@ -5090,6 +8063,21 @@ if (!class_exists("MediaMediaExtendedCapabilityType")) {
  * 
  */
 class MediaMediaExtendedCapabilityType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media.MediaExtendedCapabilityType";
+	}
 
 	public function __construct() {
 		if(get_parent_class('MediaMediaExtendedCapabilityType')) parent::__construct();
@@ -5101,6 +8089,21 @@ if (!class_exists("MediaMediaSubType")) {
  * 
  */
 class MediaMediaSubType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media.MediaSubType";
+	}
 
 	public function __construct() {
 		if(get_parent_class('MediaMediaSubType')) parent::__construct();
@@ -5112,6 +8115,21 @@ if (!class_exists("MediaMediaType")) {
  * Media types
  */
 class MediaMediaType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media.MediaType";
+	}
 
 	public function __construct() {
 		if(get_parent_class('MediaMediaType')) parent::__construct();
@@ -5123,6 +8141,21 @@ if (!class_exists("MediaMimeType")) {
  * Mime types
  */
 class MediaMimeType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media.MimeType";
+	}
 
 	public function __construct() {
 		if(get_parent_class('MediaMimeType')) parent::__construct();
@@ -5134,6 +8167,21 @@ if (!class_exists("MediaSize")) {
  * Sizes for retrieving the original media
  */
 class MediaSize {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Media.Size";
+	}
 
 	public function __construct() {
 		if(get_parent_class('MediaSize')) parent::__construct();
@@ -5145,6 +8193,21 @@ if (!class_exists("MediaErrorReason")) {
  * The reasons for the target error.
  */
 class MediaErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "MediaError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('MediaErrorReason')) parent::__construct();
@@ -5156,6 +8219,21 @@ if (!class_exists("MinuteOfHour")) {
  * Minutes in an hour.  Currently only 0, 15, 30, and 45 are supported
  */
 class MinuteOfHour {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "MinuteOfHour";
+	}
 
 	public function __construct() {
 		if(get_parent_class('MinuteOfHour')) parent::__construct();
@@ -5167,6 +8245,21 @@ if (!class_exists("NetworkCoverageType")) {
  * Network coverage types.
  */
 class NetworkCoverageType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NetworkCoverageType";
+	}
 
 	public function __construct() {
 		if(get_parent_class('NetworkCoverageType')) parent::__construct();
@@ -5178,6 +8271,21 @@ if (!class_exists("NewEntityCreationErrorReason")) {
  * Do not set the id field while creating new entities.
  */
 class NewEntityCreationErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NewEntityCreationError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('NewEntityCreationErrorReason')) parent::__construct();
@@ -5189,6 +8297,21 @@ if (!class_exists("NotEmptyErrorReason")) {
  * The reasons for the validation error.
  */
 class NotEmptyErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NotEmptyError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('NotEmptyErrorReason')) parent::__construct();
@@ -5200,6 +8323,21 @@ if (!class_exists("NotWhitelistedErrorReason")) {
  * The single reason for the whitelist error.
  */
 class NotWhitelistedErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NotWhitelistedError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('NotWhitelistedErrorReason')) parent::__construct();
@@ -5211,6 +8349,21 @@ if (!class_exists("NullErrorReason")) {
  * The reasons for the validation error.
  */
 class NullErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NullError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('NullErrorReason')) parent::__construct();
@@ -5222,6 +8375,21 @@ if (!class_exists("OperationAccessDeniedReason")) {
  * The reasons for the operation access error.
  */
 class OperationAccessDeniedReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "OperationAccessDenied.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('OperationAccessDeniedReason')) parent::__construct();
@@ -5233,6 +8401,21 @@ if (!class_exists("Operator")) {
  * This represents an operator that may be presented to an adsapi service.
  */
 class Operator {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Operator";
+	}
 
 	public function __construct() {
 		if(get_parent_class('Operator')) parent::__construct();
@@ -5244,6 +8427,21 @@ if (!class_exists("OperatorErrorReason")) {
  * The reasons for the validation error.
  */
 class OperatorErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "OperatorError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('OperatorErrorReason')) parent::__construct();
@@ -5255,6 +8453,21 @@ if (!class_exists("PagingErrorReason")) {
  * The reasons for errors when using pagination.
  */
 class PagingErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PagingError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('PagingErrorReason')) parent::__construct();
@@ -5266,6 +8479,21 @@ if (!class_exists("PlatformType")) {
  * Platform types.
  */
 class PlatformType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PlatformType";
+	}
 
 	public function __construct() {
 		if(get_parent_class('PlatformType')) parent::__construct();
@@ -5277,6 +8505,21 @@ if (!class_exists("PolicyViolationErrorReason")) {
  * 
  */
 class PolicyViolationErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PolicyViolationError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('PolicyViolationErrorReason')) parent::__construct();
@@ -5289,6 +8532,21 @@ if (!class_exists("PricingModel")) {
  * pay per impressions, or play per conversions campaign.
  */
 class PricingModel {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PricingModel";
+	}
 
 	public function __construct() {
 		if(get_parent_class('PricingModel')) parent::__construct();
@@ -5300,6 +8558,21 @@ if (!class_exists("ProximityTargetDistanceUnits")) {
  * The radius distance is expressed in either kilometers or miles.
  */
 class ProximityTargetDistanceUnits {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ProximityTarget.DistanceUnits";
+	}
 
 	public function __construct() {
 		if(get_parent_class('ProximityTargetDistanceUnits')) parent::__construct();
@@ -5312,6 +8585,21 @@ if (!class_exists("QuotaCheckErrorReason")) {
  * billing quota checks.
  */
 class QuotaCheckErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "QuotaCheckError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('QuotaCheckErrorReason')) parent::__construct();
@@ -5323,6 +8611,21 @@ if (!class_exists("QuotaErrorReason")) {
  * The reasons for the quota error.
  */
 class QuotaErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "QuotaError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('QuotaErrorReason')) parent::__construct();
@@ -5334,6 +8637,21 @@ if (!class_exists("QuotaExceededErrorReason")) {
  * The single reason for the quota error.
  */
 class QuotaExceededErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "QuotaExceededError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('QuotaExceededErrorReason')) parent::__construct();
@@ -5345,6 +8663,21 @@ if (!class_exists("RangeErrorReason")) {
  * The reasons for the target error.
  */
 class RangeErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "RangeError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('RangeErrorReason')) parent::__construct();
@@ -5356,6 +8689,21 @@ if (!class_exists("ReadOnlyErrorReason")) {
  * The reasons for the target error.
  */
 class ReadOnlyErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ReadOnlyError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('ReadOnlyErrorReason')) parent::__construct();
@@ -5367,6 +8715,21 @@ if (!class_exists("RegionCodeErrorReason")) {
  * The reasons for the validation error.
  */
 class RegionCodeErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "RegionCodeError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('RegionCodeErrorReason')) parent::__construct();
@@ -5378,6 +8741,21 @@ if (!class_exists("RequiredErrorReason")) {
  * The reasons for the target error.
  */
 class RequiredErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "RequiredError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('RequiredErrorReason')) parent::__construct();
@@ -5389,6 +8767,21 @@ if (!class_exists("ServingStatus")) {
  * Campaign serving status.
  */
 class ServingStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ServingStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('ServingStatus')) parent::__construct();
@@ -5400,6 +8793,21 @@ if (!class_exists("SizeLimitErrorReason")) {
  * The reasons for Ad Scheduling errors.
  */
 class SizeLimitErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "SizeLimitError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('SizeLimitErrorReason')) parent::__construct();
@@ -5411,6 +8819,21 @@ if (!class_exists("StatsNetwork")) {
  * Ad network.
  */
 class StatsNetwork {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Stats.Network";
+	}
 
 	public function __construct() {
 		if(get_parent_class('StatsNetwork')) parent::__construct();
@@ -5422,6 +8845,21 @@ if (!class_exists("StatsQueryErrorReason")) {
  * The reasons for errors when querying for stats.
  */
 class StatsQueryErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "StatsQueryError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('StatsQueryErrorReason')) parent::__construct();
@@ -5433,6 +8871,21 @@ if (!class_exists("StringLengthErrorReason")) {
  * The reasons for the target error.
  */
 class StringLengthErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "StringLengthError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('StringLengthErrorReason')) parent::__construct();
@@ -5444,6 +8897,21 @@ if (!class_exists("SystemServingStatus")) {
  * Reported by system to reflect the criterion's serving status.
  */
 class SystemServingStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "SystemServingStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('SystemServingStatus')) parent::__construct();
@@ -5455,6 +8923,21 @@ if (!class_exists("TargetErrorReason")) {
  * The reasons for the target error.
  */
 class TargetErrorReason {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TargetError.Reason";
+	}
 
 	public function __construct() {
 		if(get_parent_class('TargetErrorReason')) parent::__construct();
@@ -5466,6 +8949,21 @@ if (!class_exists("TemplateElementFieldType")) {
  * Field types
  */
 class TemplateElementFieldType {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TemplateElementField.Type";
+	}
 
 	public function __construct() {
 		if(get_parent_class('TemplateElementFieldType')) parent::__construct();
@@ -5477,6 +8975,21 @@ if (!class_exists("TimeUnit")) {
  * Unit of time the cap is defined at.
  */
 class TimeUnit {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "TimeUnit";
+	}
 
 	public function __construct() {
 		if(get_parent_class('TimeUnit')) parent::__construct();
@@ -5488,6 +9001,21 @@ if (!class_exists("UserStatus")) {
  * Specified by user to pause or unpause a criterion.
  */
 class UserStatus {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "UserStatus";
+	}
 
 	public function __construct() {
 		if(get_parent_class('UserStatus')) parent::__construct();
@@ -5515,6 +9043,22 @@ class BulkMutateJobServiceGet {
 	 */
 	public $selector;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "get";
+	}
+
 	public function __construct($selector = NULL) {
 		if(get_parent_class('BulkMutateJobServiceGet')) parent::__construct();
 		$this->selector = $selector;
@@ -5531,6 +9075,22 @@ class BulkMutateJobServiceGetResponse {
 	 * @var BulkMutateJob[]
 	 */
 	public $rval;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "getResponse";
+	}
 
 	public function __construct($rval = NULL) {
 		if(get_parent_class('BulkMutateJobServiceGetResponse')) parent::__construct();
@@ -5566,6 +9126,22 @@ class BulkMutateJobServiceMutate {
 	 */
 	public $operation;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "mutate";
+	}
+
 	public function __construct($operation = NULL) {
 		if(get_parent_class('BulkMutateJobServiceMutate')) parent::__construct();
 		$this->operation = $operation;
@@ -5582,6 +9158,22 @@ class BulkMutateJobServiceMutateResponse {
 	 * @var BulkMutateJob
 	 */
 	public $rval;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "mutateResponse";
+	}
 
 	public function __construct($rval = NULL) {
 		if(get_parent_class('BulkMutateJobServiceMutateResponse')) parent::__construct();
@@ -5600,6 +9192,22 @@ class AdError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('AdError')) parent::__construct();
 		$this->reason = $reason;
@@ -5614,6 +9222,21 @@ if (!class_exists("AdExtensionOverrideStats")) {
  * Represents stats specific to AdExtensionOverrides.
  */
 class AdExtensionOverrideStats extends Stats {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdExtensionOverrideStats";
+	}
 
 	public function __construct($startDate = NULL, $endDate = NULL, $network = NULL, $clicks = NULL, $impressions = NULL, $cost = NULL, $averagePosition = NULL, $averageCpc = NULL, $averageCpm = NULL, $ctr = NULL, $conversions = NULL, $conversionRate = NULL, $costPerConversion = NULL, $conversionsManyPerClick = NULL, $conversionRateManyPerClick = NULL, $costPerConversionManyPerClick = NULL, $StatsType = NULL) {
 		if(get_parent_class('AdExtensionOverrideStats')) parent::__construct();
@@ -5642,6 +9265,21 @@ if (!class_exists("AdGroupAdCountLimitExceeded")) {
  * Indicates too many ads were added/enabled under the specified adgroup.
  */
 class AdGroupAdCountLimitExceeded extends EntityCountLimitExceeded {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupAdCountLimitExceeded";
+	}
 
 	public function __construct($reason = NULL, $enclosingId = NULL, $limit = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('AdGroupAdCountLimitExceeded')) parent::__construct();
@@ -5665,6 +9303,22 @@ class AdGroupAdError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupAdError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('AdGroupAdError')) parent::__construct();
 		$this->reason = $reason;
@@ -5684,11 +9338,28 @@ class AdGroupAdOperation extends Operation {
 	 * @var AdGroupAd
 	 */
 	public $operand;
+
 	/**
 	 * @access public
 	 * @var ExemptionRequest[]
 	 */
 	public $exemptionRequests;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupAdOperation";
+	}
 
 	public function __construct($operand = NULL, $exemptionRequests = NULL, $operator = NULL, $OperationType = NULL) {
 		if(get_parent_class('AdGroupAdOperation')) parent::__construct();
@@ -5710,6 +9381,22 @@ class AdGroupCriterionError extends ApiError {
 	 */
 	public $reason;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupCriterionError";
+	}
+
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('AdGroupCriterionError')) parent::__construct();
 		$this->reason = $reason;
@@ -5729,6 +9416,22 @@ class AdGroupCriterionLimitExceeded extends EntityCountLimitExceeded {
 	 * @var tnsAdGroupCriterionLimitExceededCriteriaLimitType
 	 */
 	public $limitType;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupCriterionLimitExceeded";
+	}
 
 	public function __construct($limitType = NULL, $reason = NULL, $enclosingId = NULL, $limit = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('AdGroupCriterionLimitExceeded')) parent::__construct();
@@ -5752,11 +9455,28 @@ class AdGroupCriterionOperation extends Operation {
 	 * @var AdGroupCriterion
 	 */
 	public $operand;
+
 	/**
 	 * @access public
 	 * @var ExemptionRequest[]
 	 */
 	public $exemptionRequests;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupCriterionOperation";
+	}
 
 	public function __construct($operand = NULL, $exemptionRequests = NULL, $operator = NULL, $OperationType = NULL) {
 		if(get_parent_class('AdGroupCriterionOperation')) parent::__construct();
@@ -5778,6 +9498,22 @@ class AdGroupOperation extends Operation {
 	 */
 	public $operand;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupOperation";
+	}
+
 	public function __construct($operand = NULL, $operator = NULL, $OperationType = NULL) {
 		if(get_parent_class('AdGroupOperation')) parent::__construct();
 		$this->operand = $operand;
@@ -5796,6 +9532,22 @@ class AdGroupServiceError extends ApiError {
 	 * @var tnsAdGroupServiceErrorReason
 	 */
 	public $reason;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdGroupServiceError";
+	}
 
 	public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('AdGroupServiceError')) parent::__construct();
@@ -5816,31 +9568,52 @@ class AdScheduleTarget extends AdWordsTarget {
 	 * @var tnsDayOfWeek
 	 */
 	public $dayOfWeek;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $startHour;
+
 	/**
 	 * @access public
 	 * @var tnsMinuteOfHour
 	 */
 	public $startMinute;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $endHour;
+
 	/**
 	 * @access public
 	 * @var tnsMinuteOfHour
 	 */
 	public $endMinute;
+
 	/**
 	 * @access public
 	 * @var double
 	 */
 	public $bidMultiplier;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdScheduleTarget";
+	}
 
 	public function __construct($dayOfWeek = NULL, $startHour = NULL, $startMinute = NULL, $endHour = NULL, $endMinute = NULL, $bidMultiplier = NULL, $TargetType = NULL) {
 		if(get_parent_class('AdScheduleTarget')) parent::__construct();
@@ -5865,6 +9638,22 @@ class AdScheduleTargetList extends TargetList {
 	 */
 	public $targets;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdScheduleTargetList";
+	}
+
 	public function __construct($targets = NULL, $campaignId = NULL, $TargetListType = NULL) {
 		if(get_parent_class('AdScheduleTargetList')) parent::__construct();
 		$this->targets = $targets;
@@ -5883,6 +9672,22 @@ class AdStats extends Stats {
 	 * @var double
 	 */
 	public $percentServed;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AdStats";
+	}
 
 	public function __construct($percentServed = NULL, $startDate = NULL, $endDate = NULL, $network = NULL, $clicks = NULL, $impressions = NULL, $cost = NULL, $averagePosition = NULL, $averageCpc = NULL, $averageCpm = NULL, $ctr = NULL, $conversions = NULL, $conversionRate = NULL, $costPerConversion = NULL, $conversionsManyPerClick = NULL, $conversionRateManyPerClick = NULL, $costPerConversionManyPerClick = NULL, $StatsType = NULL) {
 		if(get_parent_class('AdStats')) parent::__construct();
@@ -5918,6 +9723,22 @@ class ApiException extends ApplicationException {
 	 */
 	public $errors;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ApiException";
+	}
+
 	public function __construct($errors = NULL, $message = NULL, $ApplicationExceptionType = NULL) {
 		if(get_parent_class('ApiException')) parent::__construct();
 		$this->errors = $errors;
@@ -5936,16 +9757,34 @@ class Audio extends Media {
 	 * @var integer
 	 */
 	public $durationMillis;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $streamingUrl;
+
 	/**
 	 * @access public
 	 * @var boolean
 	 */
 	public $readyToPlayOnTheWeb;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Audio";
+	}
 
 	public function __construct($durationMillis = NULL, $streamingUrl = NULL, $readyToPlayOnTheWeb = NULL, $mediaId = NULL, $mediaTypeDb = NULL, $referenceId = NULL, $dimensions = NULL, $urls = NULL, $mimeType = NULL, $sourceUrl = NULL, $mediaSubType = NULL, $name = NULL, $fileSize = NULL, $extendedCapabilities = NULL, $creationTime = NULL, $MediaType = NULL) {
 		if(get_parent_class('Audio')) parent::__construct();
@@ -5982,6 +9821,22 @@ class BatchFailureResult extends OperationResult {
 	 */
 	public $operationIndexInBatch;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BatchFailureResult";
+	}
+
 	public function __construct($operationIndexInBatch = NULL, $OperationResultType = NULL) {
 		if(get_parent_class('BatchFailureResult')) parent::__construct();
 		$this->operationIndexInBatch = $operationIndexInBatch;
@@ -5999,41 +9854,64 @@ class BulkMutateJob extends Job {
 	 * @var integer
 	 */
 	public $id;
+
 	/**
 	 * @access public
 	 * @var BulkMutateJobPolicy
 	 */
 	public $policy;
+
 	/**
 	 * @access public
 	 * @var BulkMutateRequest
 	 */
 	public $request;
+
 	/**
 	 * @access public
 	 * @var tnsBasicJobStatus
 	 */
 	public $status;
+
 	/**
 	 * @access public
 	 * @var BulkMutateJobEvent[]
 	 */
 	public $history;
+
 	/**
 	 * @access public
 	 * @var BulkMutateResult
 	 */
 	public $result;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $numRequestParts;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $numRequestPartsReceived;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BulkMutateJob";
+	}
 
 	public function __construct($id = NULL, $policy = NULL, $request = NULL, $status = NULL, $history = NULL, $result = NULL, $numRequestParts = NULL, $numRequestPartsReceived = NULL, $customerJobKey = NULL, $context = NULL, $failureReason = NULL, $stats = NULL, $billingSummary = NULL, $JobType = NULL) {
 		if(get_parent_class('BulkMutateJob')) parent::__construct();
@@ -6065,6 +9943,22 @@ class BulkMutateJobEvent extends JobEvent {
 	 */
 	public $status;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BulkMutateJobEvent";
+	}
+
 	public function __construct($status = NULL, $dateTime = NULL, $JobEventType = NULL) {
 		if(get_parent_class('BulkMutateJobEvent')) parent::__construct();
 		$this->status = $status;
@@ -6083,16 +9977,34 @@ class BulkMutateJobSelector extends JobSelector {
 	 * @var integer[]
 	 */
 	public $jobIds;
+
 	/**
 	 * @access public
 	 * @var tnsBasicJobStatus[]
 	 */
 	public $jobStatuses;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $resultPartIndex;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BulkMutateJobSelector";
+	}
 
 	public function __construct($jobIds = NULL, $jobStatuses = NULL, $resultPartIndex = NULL, $customerJobKeys = NULL, $includeHistory = NULL, $includeStats = NULL, $JobSelectorType = NULL) {
 		if(get_parent_class('BulkMutateJobSelector')) parent::__construct();
@@ -6116,16 +10028,34 @@ class BulkMutateJobStats extends JobStats {
 	 * @var integer
 	 */
 	public $numOperations;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $numFailedOperations;
+
 	/**
 	 * @access public
 	 * @var integer
 	 */
 	public $numUnprocessedOperations;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "BulkMutateJobStats";
+	}
 
 	public function __construct($numOperations = NULL, $numFailedOperations = NULL, $numUnprocessedOperations = NULL, $progressPercent = NULL, $pendingTimeMillis = NULL, $processingTimeMillis = NULL, $JobStatsType = NULL) {
 		if(get_parent_class('BulkMutateJobStats')) parent::__construct();
@@ -6149,11 +10079,28 @@ class CampaignOperation extends Operation {
 	 * @var BiddingTransition
 	 */
 	public $biddingTransition;
+
 	/**
 	 * @access public
 	 * @var Campaign
 	 */
 	public $operand;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "CampaignOperation";
+	}
 
 	public function __construct($biddingTransition = NULL, $operand = NULL, $operator = NULL, $OperationType = NULL) {
 		if(get_parent_class('CampaignOperation')) parent::__construct();
@@ -6175,6 +10122,22 @@ class CampaignTargetOperation extends Operation {
 	 */
 	public $operand;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "CampaignTargetOperation";
+	}
+
 	public function __construct($operand = NULL, $operator = NULL, $OperationType = NULL) {
 		if(get_parent_class('CampaignTargetOperation')) parent::__construct();
 		$this->operand = $operand;
@@ -6188,6 +10151,21 @@ if (!class_exists("CriterionPolicyError")) {
  * Contains the policy violations for a single BiddableAdGroupCriterion.
  */
 class CriterionPolicyError extends PolicyViolationError {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "CriterionPolicyError";
+	}
 
 	public function __construct($key = NULL, $externalPolicyName = NULL, $externalPolicyUrl = NULL, $externalPolicyDescription = NULL, $isExemptable = NULL, $violatingParts = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
 		if(get_parent_class('CriterionPolicyError')) parent::__construct();
@@ -6214,6 +10192,22 @@ class DemographicTarget extends AdWordsTarget {
 	 */
 	public $bidModifier;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DemographicTarget";
+	}
+
 	public function __construct($bidModifier = NULL, $TargetType = NULL) {
 		if(get_parent_class('DemographicTarget')) parent::__construct();
 		$this->bidModifier = $bidModifier;
@@ -6231,6 +10225,22 @@ class DemographicTargetList extends TargetList {
 	 * @var DemographicTarget[]
 	 */
 	public $targets;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DemographicTargetList";
+	}
 
 	public function __construct($targets = NULL, $campaignId = NULL, $TargetListType = NULL) {
 		if(get_parent_class('DemographicTargetList')) parent::__construct();
@@ -6250,6 +10260,22 @@ class DoubleValue extends NumberValue {
 	 * @var double
 	 */
 	public $number;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "DoubleValue";
+	}
 
 	public function __construct($number = NULL, $ComparableValueType = NULL) {
 		if(get_parent_class('DoubleValue')) parent::__construct();
@@ -6277,6 +10303,22 @@ class FailureResult extends OperationResult {
 	 */
 	public $cause;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "FailureResult";
+	}
+
 	public function __construct($cause = NULL, $OperationResultType = NULL) {
 		if(get_parent_class('FailureResult')) parent::__construct();
 		$this->cause = $cause;
@@ -6294,6 +10336,22 @@ class GenderTarget extends DemographicTarget {
 	 * @var tnsGenderTargetGender
 	 */
 	public $gender;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "GenderTarget";
+	}
 
 	public function __construct($gender = NULL, $bidModifier = NULL, $TargetType = NULL) {
 		if(get_parent_class('GenderTarget')) parent::__construct();
@@ -6314,6 +10372,22 @@ class GeoTarget extends AdWordsTarget {
 	 */
 	public $excluded;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "GeoTarget";
+	}
+
 	public function __construct($excluded = NULL, $TargetType = NULL) {
 		if(get_parent_class('GeoTarget')) parent::__construct();
 		$this->excluded = $excluded;
@@ -6331,6 +10405,22 @@ class GeoTargetList extends TargetList {
 	 * @var GeoTarget[]
 	 */
 	public $targets;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "GeoTargetList";
+	}
 
 	public function __construct($targets = NULL, $campaignId = NULL, $TargetListType = NULL) {
 		if(get_parent_class('GeoTargetList')) parent::__construct();
@@ -6350,6 +10440,22 @@ class Image extends Media {
 	 * @var base64Binary
 	 */
 	public $data;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "Image";
+	}
 
 	public function __construct($data = NULL, $mediaId = NULL, $mediaTypeDb = NULL, $referenceId = NULL, $dimensions = NULL, $urls = NULL, $mimeType = NULL, $sourceUrl = NULL, $mediaSubType = NULL, $name = NULL, $fileSize = NULL, $extendedCapabilities = NULL, $creationTime = NULL, $MediaType = NULL) {
 		if(get_parent_class('Image')) parent::__construct();
@@ -6385,6 +10491,22 @@ class JobOperation extends Operation {
 	 */
 	public $operand;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "JobOperation";
+	}
+
 	public function __construct($operand = NULL, $operator = NULL, $OperationType = NULL) {
 		if(get_parent_class('JobOperation')) parent::__construct();
 		$this->operand = $operand;
@@ -6405,6 +10527,22 @@ class LanguageTarget extends AdWordsTarget {
 	 */
 	public $languageCode;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LanguageTarget";
+	}
+
 	public function __construct($languageCode = NULL, $TargetType = NULL) {
 		if(get_parent_class('LanguageTarget')) parent::__construct();
 		$this->languageCode = $languageCode;
@@ -6422,6 +10560,22 @@ class LanguageTargetList extends TargetList {
 	 * @var LanguageTarget[]
 	 */
 	public $targets;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LanguageTargetList";
+	}
 
 	public function __construct($targets = NULL, $campaignId = NULL, $TargetListType = NULL) {
 		if(get_parent_class('LanguageTargetList')) parent::__construct();
@@ -6442,6 +10596,22 @@ class LongValue extends NumberValue {
 	 */
 	public $number;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LongValue";
+	}
+
 	public function __construct($number = NULL, $ComparableValueType = NULL) {
 		if(get_parent_class('LongValue')) parent::__construct();
 		$this->number = $number;
@@ -6459,6 +10629,21 @@ if (!class_exists("LostResult")) {
  * cannot be retried without the risk of doing duplicate work.
  */
 class LostResult extends OperationResult {
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "LostResult";
+	}
 
 	public function __construct($OperationResultType = NULL) {
 		if(get_parent_class('LostResult')) parent::__construct();
@@ -6477,6 +10662,22 @@ class MetroTarget extends GeoTarget {
 	 * @var string
 	 */
 	public $metroCode;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "MetroTarget";
+	}
 
 	public function __construct($metroCode = NULL, $excluded = NULL, $TargetType = NULL) {
 		if(get_parent_class('MetroTarget')) parent::__construct();
@@ -6497,6 +10698,22 @@ class NetworkTarget extends AdWordsTarget {
 	 */
 	public $networkCoverageType;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NetworkTarget";
+	}
+
 	public function __construct($networkCoverageType = NULL, $TargetType = NULL) {
 		if(get_parent_class('NetworkTarget')) parent::__construct();
 		$this->networkCoverageType = $networkCoverageType;
@@ -6514,6 +10731,22 @@ class NetworkTargetList extends TargetList {
 	 * @var NetworkTarget[]
 	 */
 	public $targets;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "NetworkTargetList";
+	}
 
 	public function __construct($targets = NULL, $campaignId = NULL, $TargetListType = NULL) {
 		if(get_parent_class('NetworkTargetList')) parent::__construct();
@@ -6534,6 +10767,22 @@ class PlatformTarget extends AdWordsTarget {
 	 */
 	public $platformType;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PlatformTarget";
+	}
+
 	public function __construct($platformType = NULL, $TargetType = NULL) {
 		if(get_parent_class('PlatformTarget')) parent::__construct();
 		$this->platformType = $platformType;
@@ -6551,6 +10800,22 @@ class PlatformTargetList extends TargetList {
 	 * @var PlatformTarget[]
 	 */
 	public $targets;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PlatformTargetList";
+	}
 
 	public function __construct($targets = NULL, $campaignId = NULL, $TargetListType = NULL) {
 		if(get_parent_class('PlatformTargetList')) parent::__construct();
@@ -6574,6 +10839,22 @@ class PolygonTarget extends GeoTarget {
 	 */
 	public $vertices;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "PolygonTarget";
+	}
+
 	public function __construct($vertices = NULL, $excluded = NULL, $TargetType = NULL) {
 		if(get_parent_class('PolygonTarget')) parent::__construct();
 		$this->vertices = $vertices;
@@ -6593,6 +10874,22 @@ class ProvinceTarget extends GeoTarget {
 	 * @var string
 	 */
 	public $provinceCode;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ProvinceTarget";
+	}
 
 	public function __construct($provinceCode = NULL, $excluded = NULL, $TargetType = NULL) {
 		if(get_parent_class('ProvinceTarget')) parent::__construct();
@@ -6616,26 +10913,46 @@ class ProximityTarget extends GeoTarget {
 	 * @var GeoPoint
 	 */
 	public $geoPoint;
+
 	/**
 	 * @access public
 	 * @var tnsProximityTargetDistanceUnits
 	 */
 	public $radiusDistanceUnits;
+
 	/**
 	 * @access public
 	 * @var double
 	 */
 	public $radiusInUnits;
+
 	/**
 	 * @access public
 	 * @var Address
 	 */
 	public $address;
+
 	/**
 	 * @access public
 	 * @var boolean
 	 */
 	public $allowServiceOfAddress;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "ProximityTarget";
+	}
 
 	public function __construct($geoPoint = NULL, $radiusDistanceUnits = NULL, $radiusInUnits = NULL, $address = NULL, $allowServiceOfAddress = NULL, $excluded = NULL, $TargetType = NULL) {
 		if(get_parent_class('ProximityTarget')) parent::__construct();
@@ -6660,6 +10977,22 @@ class AgeTarget extends DemographicTarget {
 	 */
 	public $age;
 
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "AgeTarget";
+	}
+
 	public function __construct($age = NULL, $bidModifier = NULL, $TargetType = NULL) {
 		if(get_parent_class('AgeTarget')) parent::__construct();
 		$this->age = $age;
@@ -6679,16 +11012,34 @@ class CityTarget extends GeoTarget {
 	 * @var string
 	 */
 	public $cityName;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $provinceCode;
+
 	/**
 	 * @access public
 	 * @var string
 	 */
 	public $countryCode;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "CityTarget";
+	}
 
 	public function __construct($cityName = NULL, $provinceCode = NULL, $countryCode = NULL, $excluded = NULL, $TargetType = NULL) {
 		if(get_parent_class('CityTarget')) parent::__construct();
@@ -6710,6 +11061,22 @@ class CountryTarget extends GeoTarget {
 	 * @var string
 	 */
 	public $countryCode;
+
+	/**
+	 * Gets the namesapce of this class
+	 * @return the namespace of this class
+	 */
+	public function getNamespace() {
+		return "https://adwords.google.com/api/adwords/cm/v200909";
+	}
+
+	/**
+	 * Gets the xsi:type name of this class
+	 * @return the xsi:type name of this class
+	 */
+	public function getXsiTypeName() {
+		return "CountryTarget";
+	}
 
 	public function __construct($countryCode = NULL, $excluded = NULL, $TargetType = NULL) {
 		if(get_parent_class('CountryTarget')) parent::__construct();

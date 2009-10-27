@@ -45,6 +45,10 @@
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---XmlUtils.php.html">		XmlUtils.php
+		</a><br>
 	  </div><br />
 	subpackage <b>v200812</b><br>  <div class="package">
 			<a href="../../GoogleApiAdsCommon/v200812/_Common---Lib---AdsSoapClient.php.html">		AdsSoapClient.php
@@ -65,6 +69,8 @@
 	Util<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
 	  </div>
                 </td>
     <td>
@@ -103,61 +109,16 @@ An extension of the SoapClient class intended to prepare  the XML before making 
 <div class="tags">
 require_once(<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---AdsUser.php.html">'AdsUser.php'</a>) [line 31]<br />
 require_once(dirname(__FILE__).'/../Util/Logger.php') [line 32]<br />
+require_once(dirname(__FILE__).'/../Util/SoapRequestXmlFixer.php') [line 33]<br />
+require_once(dirname(__FILE__).'/../Util/XmlUtils.php') [line 34]<br />
 </div>
 <br /><br />
 <br /><br />
 <br />
-  <hr />
-	<a name="functionHandleXmlError"></a>
-	<h3>HandleXmlError <span class="smalllinenumber">[line 420]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>boolean HandleXmlError(
-string $errno, string $errstr, string $errfile, integer $errline)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-
-		Caputures the warnings thrown by the loadXML function to create a proper  DOMException.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td><var>FALSE</var> if the normal error handler should continue</td>
-  </tr>
-</table>
-</div>
-    <br /><br />
-	
-    		<h4>Parameters</h4>
-    <table border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$errno</b>&nbsp;&nbsp;</td>
-        <td>contains the level of the error raised, as an integer</td>
-      </tr>
-		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$errstr</b>&nbsp;&nbsp;</td>
-        <td>contains the error message, as a string</td>
-      </tr>
-		      <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$errfile</b>&nbsp;&nbsp;</td>
-        <td>contains the filename that the error was raised in,      as a string</td>
-      </tr>
-		      <tr>
-        <td class="type">integer&nbsp;&nbsp;</td>
-        <td><b>$errline</b>&nbsp;&nbsp;</td>
-        <td>contains the line number the error was raised at, as      an integer</td>
-      </tr>
-				</table>
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 21 Oct 2009 15:24:43 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Mon, 26 Oct 2009 18:16:40 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
 	      </div>
       </td></tr></table>
     </td>

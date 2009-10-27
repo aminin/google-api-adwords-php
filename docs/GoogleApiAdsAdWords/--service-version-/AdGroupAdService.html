@@ -37,13 +37,13 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupAdService.php.html">		AdGroupAdService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupService.php.html">		AdGroupService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---BulkMutateJobService.php.html">		BulkMutateJobService.php
 		</a><br>
@@ -57,9 +57,9 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignService.php.html">		CampaignService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignTargetService.php.html">		CampaignTargetService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---GeoLocationService.php.html">		GeoLocationService.php
 		</a><br>
@@ -526,7 +526,7 @@
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
 <h1>Class: AdGroupAdService</h1>
-Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
+Source Location: /AdWords/v200906/cm/AdGroupAdService.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -584,6 +584,12 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <div class="tags">
 <h4>Class: <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html">AdsSoapClient</a></h4>
 <dl>
+<dt>
+  <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a>
+  </dt>
+<dd>
+   
+</dd>
 <dt>
   <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a>
   </dt>
@@ -664,12 +670,6 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
   </dt>
   <dd>
     Gets the last number of units.
-  </dd>
-    <dt>
-    <a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodPrepareRequest">AdWordsSoapClient::PrepareRequest()</a>
-  </dt>
-  <dd>
-    The request does not need to be altered for AdWords API.
   </dd>
     <dt>
     <a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodRemoveSensitiveInfo">AdWordsSoapClient::RemoveSensitiveInfo()</a>
@@ -762,13 +762,7 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
     <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodPrepareRequest">AdsSoapClient::PrepareRequest()</a>
   </dt>
   <dd>
-    Prepares the request to fix for any incompatabilities with the SOAP server.
-  </dd>
-    <dt>
-    <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodPrettyPrint">AdsSoapClient::PrettyPrint()</a>
-  </dt>
-  <dd>
-    Returns a pretty printed XML. If the XML cannot be loaded a string  stripped of any newlines is returned.
+    Depending on the version of PHP, the xsi:types need to be added and empty  tags may need to be removed. The SoapRequestXmlFixer class can facilitate  these changes.
   </dd>
     <dt>
     <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a>
@@ -879,7 +873,7 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 3698]<br />
+[line 5638]<br />
 AdGroupAdService<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -920,8 +914,6 @@ AdGroupAdService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Address&quot;&nbsp;=&gt;&nbsp;&quot;Address&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;AgeTarget&quot;&nbsp;=&gt;&nbsp;&quot;AgeTarget&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DemographicTarget&quot;&nbsp;=&gt;&nbsp;&quot;DemographicTarget&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Audio&quot;&nbsp;=&gt;&nbsp;&quot;Audio&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Media&quot;&nbsp;=&gt;&nbsp;&quot;Media&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;AuthenticationError&quot;&nbsp;=&gt;&nbsp;&quot;AuthenticationError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;AuthorizationError&quot;&nbsp;=&gt;&nbsp;&quot;AuthorizationError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;CityTarget&quot;&nbsp;=&gt;&nbsp;&quot;CityTarget&quot;,<br>
@@ -931,8 +923,6 @@ AdGroupAdService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DatabaseError&quot;&nbsp;=&gt;&nbsp;&quot;DatabaseError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DateError&quot;&nbsp;=&gt;&nbsp;&quot;DateError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DateRange&quot;&nbsp;=&gt;&nbsp;&quot;DateRange&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DeprecatedAd&quot;&nbsp;=&gt;&nbsp;&quot;DeprecatedAd&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Ad&quot;&nbsp;=&gt;&nbsp;&quot;Ad&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Dimensions&quot;&nbsp;=&gt;&nbsp;&quot;Dimensions&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DistinctError&quot;&nbsp;=&gt;&nbsp;&quot;DistinctError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DoubleValue&quot;&nbsp;=&gt;&nbsp;&quot;DoubleValue&quot;,<br>
@@ -942,6 +932,7 @@ AdGroupAdService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;GeoPoint&quot;&nbsp;=&gt;&nbsp;&quot;GeoPoint&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;IdError&quot;&nbsp;=&gt;&nbsp;&quot;IdError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Image&quot;&nbsp;=&gt;&nbsp;&quot;Image&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Media&quot;&nbsp;=&gt;&nbsp;&quot;Media&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ImageError&quot;&nbsp;=&gt;&nbsp;&quot;ImageError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;InternalApiError&quot;&nbsp;=&gt;&nbsp;&quot;InternalApiError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;LanguageTarget&quot;&nbsp;=&gt;&nbsp;&quot;LanguageTarget&quot;,<br>
@@ -952,6 +943,7 @@ AdGroupAdService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Media_Size_StringMapEntry&quot;&nbsp;=&gt;&nbsp;&quot;Media_Size_StringMapEntry&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;MetroTarget&quot;&nbsp;=&gt;&nbsp;&quot;MetroTarget&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;MobileAd&quot;&nbsp;=&gt;&nbsp;&quot;MobileAd&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Ad&quot;&nbsp;=&gt;&nbsp;&quot;Ad&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Money&quot;&nbsp;=&gt;&nbsp;&quot;Money&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ComparableValue&quot;&nbsp;=&gt;&nbsp;&quot;ComparableValue&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;NetworkTarget&quot;&nbsp;=&gt;&nbsp;&quot;NetworkTarget&quot;,<br>
@@ -975,21 +967,16 @@ AdGroupAdService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;SizeLimitError&quot;&nbsp;=&gt;&nbsp;&quot;SizeLimitError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;SoapResponseHeader&quot;&nbsp;=&gt;&nbsp;&quot;SoapResponseHeader&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;StatsQueryError&quot;&nbsp;=&gt;&nbsp;&quot;StatsQueryError&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;TempAdUnionId&quot;&nbsp;=&gt;&nbsp;&quot;TempAdUnionId&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;AdUnionId&quot;&nbsp;=&gt;&nbsp;&quot;AdUnionId&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;TextAd&quot;&nbsp;=&gt;&nbsp;&quot;TextAd&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Video&quot;&nbsp;=&gt;&nbsp;&quot;Video&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ExemptionRequest&quot;&nbsp;=&gt;&nbsp;&quot;ExemptionRequest&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;MobileImageAd&quot;&nbsp;=&gt;&nbsp;&quot;MobileImageAd&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;PolicyViolationError&quot;&nbsp;=&gt;&nbsp;&quot;PolicyViolationError&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;TemplateElementField&quot;&nbsp;=&gt;&nbsp;&quot;TemplateElementField&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ApiException&quot;&nbsp;=&gt;&nbsp;&quot;ApiException&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ApplicationException&quot;&nbsp;=&gt;&nbsp;&quot;ApplicationException&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ImageAd&quot;&nbsp;=&gt;&nbsp;&quot;ImageAd&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;LocalBusinessAd&quot;&nbsp;=&gt;&nbsp;&quot;LocalBusinessAd&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;TemplateElement&quot;&nbsp;=&gt;&nbsp;&quot;TemplateElement&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;AdGroupAdSelector&quot;&nbsp;=&gt;&nbsp;&quot;AdGroupAdSelector&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;TemplateAd&quot;&nbsp;=&gt;&nbsp;&quot;TemplateAd&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;AdGroupAd&quot;&nbsp;=&gt;&nbsp;&quot;AdGroupAd&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;AdGroupAdOperation&quot;&nbsp;=&gt;&nbsp;&quot;AdGroupAdOperation&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Operation&quot;&nbsp;=&gt;&nbsp;&quot;Operation&quot;,<br>
@@ -1008,7 +995,6 @@ AdGroupAdService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DatabaseError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;DatabaseErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DateError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;DateErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DayOfWeek&quot;&nbsp;=&gt;&nbsp;&quot;DayOfWeek&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DeprecatedAd.Type&quot;&nbsp;=&gt;&nbsp;&quot;DeprecatedAdType&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;DistinctError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;DistinctErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;EntityCountLimitExceeded.Reason&quot;&nbsp;=&gt;&nbsp;&quot;EntityCountLimitExceededReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;EntityNotFound.Reason&quot;&nbsp;=&gt;&nbsp;&quot;EntityNotFoundReason&quot;,<br>
@@ -1042,9 +1028,8 @@ AdGroupAdService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;SizeLimitError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;SizeLimitErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Stats.Network&quot;&nbsp;=&gt;&nbsp;&quot;StatsNetwork&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;StatsQueryError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;StatsQueryErrorReason&quot;,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;TemplateElementField.Type&quot;&nbsp;=&gt;&nbsp;&quot;TemplateElementFieldType&quot;,<br>
 &nbsp;&nbsp;&nbsp;)</span></h4>
-	<p>[line 3704]</p>
+	<p>[line 5644]</p>
   Default class map for wsdl=&gt;php<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1074,7 +1059,7 @@ AdGroupAdService<br /><br /><br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 3856]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 5787]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1122,7 +1107,7 @@ $user)</code>
   </div>
   <hr />
 	<a name="methodget"></a>
-	<h3>method get <span class="smalllinenumber">[line 3873]</span></h3>
+	<h3>method get <span class="smalllinenumber">[line 5804]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1161,7 +1146,7 @@ $selector)</code>
   </div>
   <hr />
 	<a name="methodmutate"></a>
-	<h3>method mutate <span class="smalllinenumber">[line 3910]</span></h3>
+	<h3>method mutate <span class="smalllinenumber">[line 5841]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1203,7 +1188,7 @@ $operations)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 21 Oct 2009 15:24:14 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Mon, 26 Oct 2009 18:15:44 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
 	      </div>
       </td></tr></table>
     </td>

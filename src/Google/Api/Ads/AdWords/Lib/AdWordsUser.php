@@ -38,7 +38,7 @@ require_once 'AdWordsSoapClientFactory.php';
  * services.
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = 'v1.0.0';
+  private static $LIB_VERSION = 'v1.1.0';
   private static $LIB_NAME = 'AdWords API PHP Client LIbrary';
 
   /**
@@ -57,23 +57,20 @@ class AdWordsUser extends AdsUser {
   private $password;
 
   /**
-   * The AdWordsUser class can be configured in one of two ways:
-   * <ol>
-   * <li>Using an authenitcation INI file</li>
-   * <li>Using supplied credentials</li>
-   * </ol>
-   * <p>
-   * If an authentication INI file is provided and successfully loaded, those
+   * The AdWordsUser constructor.
+   * <p>The AdWordsUser class can be configured in one of two ways:
+   * <ol><li>Using an authenitcation INI file</li>
+   * <li>Using supplied credentials</li></ol></p>
+   * <p>If an authentication INI file is provided and successfully loaded, those
    * values will be used unless a corresponding parameter overwrites it.
    * If the authentication INI file is not provided (e.g. it is <var>NULL</var>)
    * the class will attempt to load the default authentication file at the path
    * of "../auth.ini" relative to this file's directory. Any corresponding
-   * parameter, which is not <var>NULL</var> will however, overwrite any
-   * parameter loaded from the default INI.
-   * <p>
-   * Likewise, if a custom settings INI file is not provided, the default
+   * parameter, which is not <var>NULL</var>, will, however, overwrite any
+   * parameter loaded from the default INI.</p>
+   * <p>Likewise, if a custom settings INI file is not provided, the default
    * settings INI file will be loaded from the path of "../settings.ini"
-   * relative to this file's directory.
+   * relative to this file's directory.</p>
    * @param string $authenticationIniPath the absolute path to the
    *     authentication INI or relative to the current directory (cwd). If
    *     <var>NULL</var>, the default authentication INI file will attempt to be

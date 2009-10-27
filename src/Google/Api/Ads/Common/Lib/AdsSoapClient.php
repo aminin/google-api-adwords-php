@@ -30,6 +30,8 @@
 
 require_once 'AdsUser.php';
 require_once dirname(__FILE__) . '/../Util/Logger.php';
+require_once dirname(__FILE__) . '/../Util/SoapRequestXmlFixer.php';
+require_once dirname(__FILE__) . '/../Util/XmlUtils.php';
 
 /**
  * An extension of the {@link SoapClient} class intended to prepare
@@ -102,6 +104,12 @@ abstract class AdsSoapClient extends SoapClient {
   protected $lastMethodName;
 
   /**
+   * The last arguments passed to the called SOAP method
+   * @var array the last arguments passed to the called SOAP method
+   */
+  protected $lastArguments;
+
+  /**
    * The constructor intended to be called by all sub-classes.
    * @param string $wsdl URI of the WSDL file or NULL if working in non-WSDL
    *     mode
@@ -128,7 +136,7 @@ abstract class AdsSoapClient extends SoapClient {
    * @return string the XML SOAP response
    */
   function __doRequest($request, $location, $action, $version) {
-    $this->lastRequest = $this->PrepareRequest($request);
+    $this->lastRequest = $this->PrepareRequest($request, $this->lastArguments);
     return parent::__doRequest($this->lastRequest,
         $location, $action, $version);
   }
@@ -147,6 +155,7 @@ abstract class AdsSoapClient extends SoapClient {
   function __soapCall($function_name, $arguments, $options = NULL,
       $input_headers = NULL, &$output_headers = NULL) {
     try {
+      $this->lastArguments = $arguments;
       $response = parent::__soapCall($function_name, $arguments, $options,
           $input_headers, $output_headers);
       $this->ProcessResponse($this->lastRequest,
@@ -193,24 +202,6 @@ abstract class AdsSoapClient extends SoapClient {
   }
 
   /**
-   * Returns a pretty printed XML. If the XML cannot be loaded a string
-   * stripped of any newlines is returned.
-   * @param string $xml the XML to pretty print
-   * @return string a pretty printed string
-   * @access private
-   */
-  protected function PrettyPrint($xml) {
-    try {
-      $dom = $this->GetDomFromXml($xml);
-      $dom->formatOutput = true;
-      return $dom->saveXML();
-    } catch (DOMException $e) {
-      restore_error_handler();
-      return str_replace(array("\r\n", "\n", "\r"), ' ', $xml);
-    }
-  }
-
-  /**
    * Logs the SOAP XML to the Logger::$SOAP_XML_LOG log after the request has
    * transformed by PrepareRequest() and both the request and response have
    * been sanitized by RemoveSensitiveInfo().
@@ -220,9 +211,9 @@ abstract class AdsSoapClient extends SoapClient {
    */
   private function LogSoapXml() {
     Logger::log(Logger::$SOAP_XML_LOG, $this->__getLastRequestHeaders()
-        . $this->PrettyPrint($this->lastRequest) . "\n\n"
+        . XmlUtils::PrettyPrint($this->lastRequest) . "\n\n"
         . $this->__getLastResponseHeaders() . "\n"
-        . $this->PrettyPrint($this->lastResponse));
+        . XmlUtils::PrettyPrint($this->lastResponse));
   }
 
   /**
@@ -335,13 +326,34 @@ abstract class AdsSoapClient extends SoapClient {
   }
 
   /**
-   * Prepares the request to fix for any incompatabilities with the SOAP server.
-   * This method is called before the request is sent to the server.
-   * @param string $request the raw request produced by the SOAP client
-   * @return string the prepared request ready to be sent to the server
+   * Depending on the version of PHP, the xsi:types need to be added and empty
+   * tags may need to be removed. The SoapRequestXmlFixer class can facilitate
+   * these changes.
+   * @param string $request the request to be modified
+   * @param array $arguments the arguments passed to the SOAP method
+   * @return string the XML request ready to be sent to the server
    * @access protected
    */
-  protected abstract function PrepareRequest($request);
+  protected function PrepareRequest($request, array $arguments) {
+    if (PHP_VERSION < '5.2.7') {
+      $fixer = NULL;
+      if (PHP_VERSION < '5.2.3') {
+        if (PHP_VERSION < '5.2.0') {
+          trigger_error('The minimum required version of this client library'
+              . ' is 5.2.0.', E_USER_ERROR);
+        } else {
+          $fixer = new SoapRequestXmlFixer(TRUE, TRUE);
+        }
+      } else {
+        $fixer = new SoapRequestXmlFixer(TRUE, FALSE);
+      }
+
+      return $fixer->FixXml($request, $arguments);
+    } else {
+      // Empty string is appended to "save" the XML from being deleted.
+      return $request . '';
+    }
+  }
 
   /**
    * Removes any sensitive information from the request XML. This method is
@@ -370,7 +382,7 @@ abstract class AdsSoapClient extends SoapClient {
    */
   public function GetLastResponseDom() {
     if (!isset($this->lastResponseDom)) {
-      $this->lastResponseDom = $this->GetDomFromXml($this->lastResponse);
+      $this->lastResponseDom = XmlUtils::GetDomFromXml($this->lastResponse);
     }
 
     return $this->lastResponseDom;
@@ -383,45 +395,9 @@ abstract class AdsSoapClient extends SoapClient {
    */
   public function GetLastRequestDom() {
     if (!isset($this->lastRequestDom)) {
-      $this->lastRequestDom = $this->GetDomFromXml($this->lastRequest);
+      $this->lastRequestDom = XmlUtils::GetDomFromXml($this->lastRequest);
     }
 
     return $this->lastRequestDom;
-  }
-
-  /**
-   * Gets the DOMDocument of the <var>$xml</var>.
-   * @param string $xml the XML to create a DOMDocument from
-   * @return DOMDocument the DOMDocument of the XML
-   * @throws DOMException if the DOM could not be loaded
-   * @access private
-   */
-  private function GetDomFromXml($xml) {
-    set_error_handler('HandleXmlError');
-    $dom = new DOMDocument();
-    $dom->loadXML($xml,
-        LIBXML_DTDLOAD | LIBXML_DTDATTR | LIBXML_NOENT | LIBXML_XINCLUDE);
-    restore_error_handler();
-    return $dom;
-  }
-}
-
-/**
- * Caputures the warnings thrown by the loadXML function to create a proper
- * DOMException.
- * @param string $errno contains the level of the error raised, as an integer
- * @param string $errstr contains the error message, as a string
- * @param string $errfile contains the filename that the error was raised in,
- *     as a string
- * @param integer $errline contains the line number the error was raised at, as
- *     an integer
- * @return boolean <var>FALSE</var> if the normal error handler should continue
- */
-function HandleXmlError($errno, $errstr, $errfile, $errline) {
-  if ($errno == E_WARNING
-      && substr_count($errstr, 'DOMDocument::loadXML()') > 0) {
-    throw new DOMException($errstr);
-  } else {
-    return false;
   }
 }

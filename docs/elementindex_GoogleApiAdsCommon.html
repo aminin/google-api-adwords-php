@@ -13,8 +13,8 @@
   <tr>
     <td class="header_menu">
         
-                                    
-                                                  		  [ <a href="classtrees_GoogleApiAdsCommon.html" class="menu">class tree: GoogleApiAdsCommon</a> ]
+                                                        
+                              		  [ <a href="classtrees_GoogleApiAdsCommon.html" class="menu">class tree: GoogleApiAdsCommon</a> ]
 		  [ <a href="elementindex_GoogleApiAdsCommon.html" class="menu">index: GoogleApiAdsCommon</a> ]
 		  	    [ <a href="elementindex.html" class="menu">all elements</a> ]
     </td>
@@ -26,8 +26,8 @@
   <tr valign="top">
     <td width="200" class="menu">
       <b>Packages:</b><br />
-              <a href="li_GoogleApiAdsCommon.html">GoogleApiAdsCommon</a><br />
               <a href="li_GoogleApiAdsAdWords.html">GoogleApiAdsAdWords</a><br />
+              <a href="li_GoogleApiAdsCommon.html">GoogleApiAdsCommon</a><br />
             <br /><br />
                         <b>Files:</b><br />
       	subpackage <b>Lib</b><br>  <div class="package">
@@ -44,6 +44,10 @@
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
 		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
+		</a><br>
+			<a href="GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
+		</a><br>
+			<a href="GoogleApiAdsCommon/Util/_Common---Util---XmlUtils.php.html">		XmlUtils.php
 		</a><br>
 	  </div><br />
 	subpackage <b>v200812</b><br>  <div class="package">
@@ -65,6 +69,8 @@
 	Util<br />	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
+	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
+	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
 	  </div>
                 </td>
     <td>
@@ -87,6 +93,7 @@
 	[ <a href="elementindex_GoogleApiAdsCommon.html#s">s</a> ]
 	[ <a href="elementindex_GoogleApiAdsCommon.html#u">u</a> ]
 	[ <a href="elementindex_GoogleApiAdsCommon.html#v">v</a> ]
+	[ <a href="elementindex_GoogleApiAdsCommon.html#x">x</a> ]
 	[ <a href="elementindex_GoogleApiAdsCommon.html#_">_</a> ]
 
   <hr />
@@ -100,6 +107,8 @@
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#method__construct">SoapClientFactory::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The constructor called by any sub-class.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#method__construct">AdsUser::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for AdsUser.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file SoapRequestXmlFixer.php, method <a href="GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html#method__construct">SoapRequestXmlFixer::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor to determine how the XML should be fixed.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file AuthToken.php, method <a href="GoogleApiAdsCommon/Util/AuthToken.html#method__construct">AuthToken::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for the authentication token.</dd>
 							<dt><b>__construct</b></dt>
@@ -170,6 +179,8 @@
 		<dl>
 							<dt><b>$FATAL</b></dt>
 				<dd>in file Logger.php, variable <a href="GoogleApiAdsCommon/Util/Logger.html#var$FATAL">Logger::$FATAL</a><br>&nbsp;&nbsp;&nbsp;&nbsp;FATAL level.</dd>
+							<dt><b>FixXml</b></dt>
+				<dd>in file SoapRequestXmlFixer.php, method <a href="GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html#methodFixXml">SoapRequestXmlFixer::FixXml()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Fixes the XML based on the parameters specified in the constructor.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -212,6 +223,8 @@
 				<dd>in file AuthToken.php, method <a href="GoogleApiAdsCommon/Util/AuthToken.html#methodGetAuthToken">AuthToken::GetAuthToken()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Peforms a POST to get the auth token and then parses the result.</dd>
 							<dt><b>GetBase64Data</b></dt>
 				<dd>in file MediaUtils.php, method <a href="GoogleApiAdsCommon/Util/MediaUtils.html#methodGetBase64Data">MediaUtils::GetBase64Data()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the base64 encoded data from an asset located at <var>path</var> for  use with the API where &lt;x&gt;Data is needed.</dd>
+							<dt><b>GetDomFromXml</b></dt>
+				<dd>in file XmlUtils.php, method <a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodGetDomFromXml">XmlUtils::GetDomFromXml()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the DOMDocument of the <var>$xml</var>.</dd>
 							<dt><b>GenerateRequestInfoMessage</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGenerateRequestInfoMessage">AdsSoapClient::GenerateRequestInfoMessage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the request information using the request and response. This  method is called after the request has been made and RemoveSensitiveInfo()  has been called as well.</dd>
 							<dt><b>GetEmail</b></dt>
@@ -243,7 +256,7 @@
 		<h2>h</h2>
 		<dl>
 							<dt><b>HandleXmlError</b></dt>
-				<dd>in file AdsSoapClient.php, function <a href="GoogleApiAdsCommon/v200812/_Common---Lib---AdsSoapClient.php.html#functionHandleXmlError">HandleXmlError()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Caputures the warnings thrown by the loadXML function to create a proper  DOMException.</dd>
+				<dd>in file XmlUtils.php, function <a href="GoogleApiAdsCommon/Util/_Common---Util---XmlUtils.php.html#functionHandleXmlError">HandleXmlError()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Caputures the warnings thrown by the loadXML function to create a proper  DOMException.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -278,6 +291,8 @@
 				<dd>in file Logger.php, method <a href="GoogleApiAdsCommon/Util/Logger.html#methodLogToFile">Logger::LogToFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Logs the given log to a file at the file path.</dd>
 							<dt><b>LogToStream</b></dt>
 				<dd>in file Logger.php, method <a href="GoogleApiAdsCommon/Util/Logger.html#methodLogToStream">Logger::LogToStream()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Logs the given log to a stream represented by <var>$phpIoStream</var>. The  availble streams are listed here:</dd>
+							<dt><b>$lastArguments</b></dt>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The last arguments passed to the called SOAP method</dd>
 							<dt><b>$lastMethodName</b></dt>
 				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The name of the last method called from this client.</dd>
 							<dt><b>$lastRequest</b></dt>
@@ -306,10 +321,10 @@
 	<div>
 		<h2>p</h2>
 		<dl>
-							<dt><b>PrepareRequest</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodPrepareRequest">AdsSoapClient::PrepareRequest()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Prepares the request to fix for any incompatabilities with the SOAP server.</dd>
 							<dt><b>PrettyPrint</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodPrettyPrint">AdsSoapClient::PrettyPrint()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns a pretty printed XML. If the XML cannot be loaded a string  stripped of any newlines is returned.</dd>
+				<dd>in file XmlUtils.php, method <a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodPrettyPrint">XmlUtils::PrettyPrint()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns a pretty printed XML. If the XML cannot be loaded a string  stripped of any newlines is returned.</dd>
+							<dt><b>PrepareRequest</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodPrepareRequest">AdsSoapClient::PrepareRequest()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Depending on the version of PHP, the xsi:types need to be added and empty  tags may need to be removed. The SoapRequestXmlFixer class can facilitate  these changes.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -342,6 +357,10 @@
 				<dd>in file Logger.php, variable <a href="GoogleApiAdsCommon/Util/Logger.html#var$STD_ERR_STREAM">Logger::$STD_ERR_STREAM</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Standard error stream for use with the LogToStream method.</dd>
 							<dt><b>$STD_OUT_STREAM</b></dt>
 				<dd>in file Logger.php, variable <a href="GoogleApiAdsCommon/Util/Logger.html#var$STD_OUT_STREAM">Logger::$STD_OUT_STREAM</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Standard out stream for use with the LogToStream method.</dd>
+							<dt><b>SoapRequestXmlFixer.php</b></dt>
+				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">SoapRequestXmlFixer.php</a></dd>
+							<dt><b>SoapRequestXmlFixer</b></dt>
+				<dd>in file SoapRequestXmlFixer.php, class <a href="GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The SOAP XML request fixer used to fix some inconsistencies among the  different versions of the PHP SoapClient.</dd>
 							<dt><b>$serviceName</b></dt>
 				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$serviceName">AdsSoapClient::$serviceName</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The name of the service this client is accessing.</dd>
 					</dl>
@@ -369,9 +388,21 @@
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
+  <hr />
+	<a name="x"></a>
+	<div>
+		<h2>x</h2>
+		<dl>
+							<dt><b>XmlUtils.php</b></dt>
+				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---XmlUtils.php.html">XmlUtils.php</a></dd>
+							<dt><b>XmlUtils</b></dt>
+				<dd>in file XmlUtils.php, class <a href="GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br>&nbsp;&nbsp;&nbsp;&nbsp;A collection of utility methods for working with XML.</dd>
+					</dl>
+	</div>
+	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 21 Oct 2009 15:24:05 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Mon, 26 Oct 2009 18:15:32 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
 	      </div>
       </td></tr></table>
     </td>

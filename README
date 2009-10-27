@@ -12,13 +12,15 @@ clients to programmatically access AdWords accounts. All client
 library classes and utilities are in the directory or sub-directory of
 "src/Google/Api/Ads/AdWords/".
 
-The client library is built against PHP 5.2.9 but any PHP 5.2.x version can
-be used. The library uses the native SoapClient class
-[http://us3.php.net/manual/en/book.soap.php], which needs to be enabled
-with the --enable-soap flag if building PHP from source.
+The client library is compatible with all standard PHP 5.2.x distributions. The
+library uses the native SoapClient class
+[http://us3.php.net/manual/en/book.soap.php], which needs to be enabled with the
+--enable-soap flag if building PHP from source. More information about
+compatibility can be found in the PHP Compatibility section of thise README.
 
 The complete documentation for AdWords API is available from
 http://www.google.com/apis/adwords/developer/index.html.
+
 
 What's in the client library?
 -----------------------------
@@ -284,22 +286,27 @@ patch applied. More information about the Suhosin patch can be found here:
 
   http://www.hardened-php.net/suhosin/index.html
 
+Note: this patch is applied by default to many standard distributions, including
+the current Ubuntu distribution - 5.2.4-2ubuntu5.7.
 
-Ubuntu PHP Compatiblity
------------------------
 
-As of this writing, Ubuntu's latest php5 distribution (5.2.4-2ubuntu5.7) is not
-compatible with the AdWords API PHP Client Library. Aside from having the
-Suhosin patch applied (see above), there is also an issue with the SoapClient
-incorrectly marshalling certain classes. We are still looking into the root
-cause of this issue, but at this time we recommend against using this version
-of PHP.
+PHP Compatiblity
+-----------------
+
+The PHP client library supports most 5.2.x distributions. If you find the
+library is not compatible with your setup, please let us know here:
+
+http://code.google.com/p/google-api-adwords-php/wiki/PhpCompatibility
 
 
 External dependencies:
 ----------------------
 
-  - PHP SoapClient [http://us3.php.net/manual/en/book.soap.php]
+  - PHP 5.2.x [http://php.net]
+  - Minimum required PHP extensions:
+    - SoapClient [http://us3.php.net/manual/en/book.soap.php] (--enable-soap)
+    - OpenSSL [http://php.net/manual/en/book.openssl.php] (--with-ssl)
+    - cURL [http://php.net/manual/en/book.curl.php] (--with-curl)
   - PHPUnit [http://www.phpunit.de/]
   - Phing [http://phing.info/trac/]
   - wsdl2php-interpreter [http://code.google.com/p/wsdl2php-interpreter/]

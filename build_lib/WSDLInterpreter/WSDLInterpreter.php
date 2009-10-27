@@ -166,6 +166,11 @@ class WSDLInterpreter
   private $_soapClientClassPath = NULL;
 
   /**
+   * Map of complexType name to namespace
+   */
+  private $_namespaceMap = NULL;
+
+  /**
    * Parses the target wsdl and loads the interpretation into object members
    *
    * @param string $wsdl the URI of the wsdl to interpret
@@ -242,6 +247,7 @@ class WSDLInterpreter
         }
       }
 
+      $this->_loadNamespaces($xpath);
 
       $this->_dom->formatOutput = true;
     } catch (Exception $e) {
@@ -358,6 +364,29 @@ class WSDLInterpreter
   }
 
   /**
+   * Loads a map of complexType to namespace.
+   * @param $xpath the DOMXPath representing the wsdl
+   * @access private
+   */
+  private function _loadNamespaces(DOMXPath $wsdlXPath) {
+    $wsdlXPath->registerNamespace('wsdl', 'http://schemas.xmlsoap.org/wsdl/');
+    $wsdlXPath->registerNamespace('xmlns', 'http://www.w3.org/2001/XMLSchema');
+    $schemas = $wsdlXPath->document->getElementsByTagName('schema');
+    $i = 1;
+    foreach ($schemas as $schema) {
+      $namespace = $schema->getAttribute('targetNamespace');
+      $types = $wsdlXPath->query('//wsdl:definitions/wsdl:types/xmlns:schema['
+          . $i . ']/xmlns:complexType'
+          . ' | //wsdl:definitions/wsdl:types/xmlns:schema[' . $i
+          . ']/xmlns:simpleType');
+      foreach ($types as $type) {
+        $this->_namespaceMap[$type->getAttribute('name')] = $namespace;
+      }
+      $i++;
+    }
+  }
+
+  /**
    * Loads the names for all of the classes and functions.
    *
    * @access private
@@ -464,7 +493,7 @@ class WSDLInterpreter
       . "\t * @access public\n"
       . "\t * @var ".$property->getAttribute("type")."\n"
       . "\t */\n"
-      . "\t".'public $'.$property->getAttribute("validatedName").";\n";
+      . "\t".'public $'.$property->getAttribute("validatedName").";\n\n";
     }
 
     $extraParams = false;
@@ -503,15 +532,30 @@ class WSDLInterpreter
     $paramMapReturn .= "\t".' * @return array parameter map'."\n";
     $paramMapReturn .= "\t".' */'."\n";
     $paramMapReturn .= "\t".'protected function getParameterMap() {'."\n";
-    $paramMapReturn .= "\t\t".'return $this->_parameterMap;'."\n\t}\n";
+    $paramMapReturn .= "\t\t".'return $this->_parameterMap;'."\n\t\t}\n\n";
 
     if ($extraParams) {
       $return .= $paramMapReturn;
     }
 
+    $return .= "\t/**\n"
+        . "\t * Gets the namesapce of this class\n"
+        . "\t * @return the namespace of this class\n"
+        . "\t */\n"
+        . "\tpublic function getNamespace() {\n"
+        . "\t\treturn \"" . $this->_namespaceMap[$class->getAttribute('name')]
+        . "\";\n\t}\n\n";
+
+    $return .= "\t/**\n"
+        . "\t * Gets the xsi:type name of this class\n"
+        . "\t * @return the xsi:type name of this class\n"
+        . "\t */\n"
+        . "\tpublic function getXsiTypeName() {\n"
+        . "\t\treturn \"" . $class->getAttribute('name') . "\";\n\t}\n\n";
+
     $params = $this->_getTopDownConstructorArguments($class);
 
-    $constructor = "\n\t".'public function __construct(';
+    $constructor = "\t".'public function __construct(';
 
     if (sizeof($params) > 0) {
       $constructor .= "$";

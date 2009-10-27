@@ -1,6 +1,6 @@
 <?php
 /**
- * This example adds a new campaign. To determine which campaigns
+ * This example adds two new campaigns. To determine which campaigns
  * exist, run GetAllCampaignsExample.php.
  *
  * PHP version 5
@@ -38,10 +38,10 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
 /**
- * This example adds a new campaign. To determine which campaigns
+ * This example adds two new campaigns. To determine which campaigns
  * exist, run GetAllCampaignsExample.php.
  */
-class AddCampaignExample {
+class AddCampaignsExample {
   static function main() {
     try {
       // Get AdWordsUser from credentials in "../auth.ini"
@@ -55,15 +55,23 @@ class AddCampaignExample {
       $campaignService = $user->GetCampaignService();
 
       // Create new campaign structure.
-      $campaign = new Campaign();
-      $campaign->name = 'Campaign #' . time();
-      $campaign->status = 'PAUSED';
-      $campaign->biddingStrategy = new ManualCPC();
-      $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
+      $campaign1 = new Campaign();
+      $campaign1->name = 'Campaign #' . time();
+      $campaign1->status = 'PAUSED';
+      $campaign1->biddingStrategy = new ManualCPC();
+      $campaign1->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
 
-      $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
+      // Create new campaign structure.
+      $campaign2 = new Campaign();
+      $campaign2->name = 'Campaign #' . (time() + 1);
+      $campaign2->status = 'PAUSED';
+      $campaign2->biddingStrategy = new ManualCPC();
+      $campaign2->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
 
-      // Add campaign.
+      $operations = array(new CampaignOperation(NULL, $campaign1, 'ADD'),
+          new CampaignOperation(NULL, $campaign2, 'ADD'));
+
+      // Add campaigns.
       $campaignReturnValue = $campaignService->mutate($operations);
 
       // Display new campaigns.
@@ -77,4 +85,4 @@ class AddCampaignExample {
   }
 }
 
-AddCampaignExample::main();
+AddCampaignsExample::main();

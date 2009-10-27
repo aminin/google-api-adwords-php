@@ -37,13 +37,13 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupAdService.php.html">		AdGroupAdService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupService.php.html">		AdGroupService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---BulkMutateJobService.php.html">		BulkMutateJobService.php
 		</a><br>
@@ -57,9 +57,9 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignService.php.html">		CampaignService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignTargetService.php.html">		CampaignTargetService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---GeoLocationService.php.html">		GeoLocationService.php
 		</a><br>
@@ -556,7 +556,9 @@ Source Location: /AdWords/v200909/o/TargetingIdeaService.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html#method__construct">__construct</a></li>
+    <li><a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html#methodgetNamespace">getNamespace</a></li>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html#methodgetParameterMap">getParameterMap</a></li>
+    <li><a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html#methodgetXsiTypeName">getXsiTypeName</a></li>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html#method__get">__get</a></li>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html#method__set">__set</a></li>
   </ul>
@@ -647,7 +649,7 @@ Source Location: /AdWords/v200909/o/TargetingIdeaService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 1495]<br />
+[line 2447]<br />
 A set of <a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html">SearchParameter</a>s are supplied to the  com.google.ads.api.services.targetingideas.TargetingIdeaSelector  to specify how the user wants to filter the set of all possible  <a href="../../GoogleApiAdsAdWords/--service-version-/TargetingIdea.html">TargetingIdea</a>s.<br /><br /><p>There is a <a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html">SearchParameter</a> for all types of inputs.  <a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html">SearchParameter</a>s can conceptually be broken down into two types.  <ul><li>Input <a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.html">SearchParameter</a>s provide the seed information from which
  ideas should be generated or statistic information is desired
  (eg. <a href="../../GoogleApiAdsAdWords/--service-version-/RelatedToKeywordSearchParameter.html">RelatedToKeywordSearchParameter</a>,
@@ -669,7 +671,7 @@ A set of <a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.h
 	<a name="var$SearchParameterType"></a>
 	<p></p>
 	<h4>$SearchParameterType = <span class="value"></span></h4>
-	<p>[line 1500]</p>
+	<p>[line 2452]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -699,7 +701,7 @@ A set of <a href="../../GoogleApiAdsAdWords/--service-version-/SearchParameter.h
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 1533]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 2502]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -800,8 +802,102 @@ $SearchParameterType = NULL])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetNamespace"></a>
+	<h3>method getNamespace <span class="smalllinenumber">[line 2490]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>the getNamespace(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the namesapce of this class<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>namespace of this class</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/SeedAdGroupIdSearchParameter.html#methodgetNamespace">SeedAdGroupIdSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdTypeSearchParameter.html#methodgetNamespace">AdTypeSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AverageTargetedMonthlySearchesSearchParameter.html#methodgetNamespace">AverageTargetedMonthlySearchesSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/CompetitionSearchParameter.html#methodgetNamespace">CompetitionSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/CountryTargetSearchParameter.html#methodgetNamespace">CountryTargetSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/ExcludedKeywordSearchParameter.html#methodgetNamespace">ExcludedKeywordSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/GlobalMonthlySearchesSearchParameter.html#methodgetNamespace">GlobalMonthlySearchesSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/IncludeAdultContentSearchParameter.html#methodgetNamespace">IncludeAdultContentSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/KeywordCategoryIdSearchParameter.html#methodgetNamespace">KeywordCategoryIdSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/KeywordMatchTypeSearchParameter.html#methodgetNamespace">KeywordMatchTypeSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/LanguageTargetSearchParameter.html#methodgetNamespace">LanguageTargetSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/MobileSearchParameter.html#methodgetNamespace">MobileSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/NgramGroupsSearchParameter.html#methodgetNamespace">NgramGroupsSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/PlacementTypeSearchParameter.html#methodgetNamespace">PlacementTypeSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/RelatedToKeywordSearchParameter.html#methodgetNamespace">RelatedToKeywordSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/RelatedToUrlSearchParameter.html#methodgetNamespace">RelatedToUrlSearchParameter::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetParameterMap"></a>
-	<h3>method getParameterMap <span class="smalllinenumber">[line 1529]</span></h3>
+	<h3>method getParameterMap <span class="smalllinenumber">[line 2482]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -828,8 +924,102 @@ $SearchParameterType = NULL])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetXsiTypeName"></a>
+	<h3>method getXsiTypeName <span class="smalllinenumber">[line 2498]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>the getXsiTypeName(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the xsi:type name of this class<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>xsi:type name of this class</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/SeedAdGroupIdSearchParameter.html#methodgetXsiTypeName">SeedAdGroupIdSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdTypeSearchParameter.html#methodgetXsiTypeName">AdTypeSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AverageTargetedMonthlySearchesSearchParameter.html#methodgetXsiTypeName">AverageTargetedMonthlySearchesSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/CompetitionSearchParameter.html#methodgetXsiTypeName">CompetitionSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/CountryTargetSearchParameter.html#methodgetXsiTypeName">CountryTargetSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/ExcludedKeywordSearchParameter.html#methodgetXsiTypeName">ExcludedKeywordSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/GlobalMonthlySearchesSearchParameter.html#methodgetXsiTypeName">GlobalMonthlySearchesSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/IncludeAdultContentSearchParameter.html#methodgetXsiTypeName">IncludeAdultContentSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/KeywordCategoryIdSearchParameter.html#methodgetXsiTypeName">KeywordCategoryIdSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/KeywordMatchTypeSearchParameter.html#methodgetXsiTypeName">KeywordMatchTypeSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/LanguageTargetSearchParameter.html#methodgetXsiTypeName">LanguageTargetSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/MobileSearchParameter.html#methodgetXsiTypeName">MobileSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/NgramGroupsSearchParameter.html#methodgetXsiTypeName">NgramGroupsSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/PlacementTypeSearchParameter.html#methodgetXsiTypeName">PlacementTypeSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/RelatedToKeywordSearchParameter.html#methodgetXsiTypeName">RelatedToKeywordSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/RelatedToUrlSearchParameter.html#methodgetXsiTypeName">RelatedToUrlSearchParameter::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="method__get"></a>
-	<h3>method __get <span class="smalllinenumber">[line 1517]</span></h3>
+	<h3>method __get <span class="smalllinenumber">[line 2470]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -868,7 +1058,7 @@ $var)</code>
   </div>
   <hr />
 	<a name="method__set"></a>
-	<h3>method __set <span class="smalllinenumber">[line 1510]</span></h3>
+	<h3>method __set <span class="smalllinenumber">[line 2463]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -913,7 +1103,7 @@ $value)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 21 Oct 2009 15:25:54 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Mon, 26 Oct 2009 18:17:42 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -37,13 +37,13 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupAdService.php.html">		AdGroupAdService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupService.php.html">		AdGroupService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---BulkMutateJobService.php.html">		BulkMutateJobService.php
 		</a><br>
@@ -57,9 +57,9 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignService.php.html">		CampaignService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignTargetService.php.html">		CampaignTargetService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---GeoLocationService.php.html">		GeoLocationService.php
 		</a><br>
@@ -526,7 +526,7 @@
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
 <h1>Class: TargetList</h1>
-Source Location: /AdWords/v200909/cm/CampaignTargetService.php<br /><br />
+Source Location: /AdWords/v200906/cm/CampaignTargetService.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -557,7 +557,9 @@ Source Location: /AdWords/v200909/cm/CampaignTargetService.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/TargetList.html#method__construct">__construct</a></li>
+    <li><a href="../../GoogleApiAdsAdWords/--service-version-/TargetList.html#methodgetNamespace">getNamespace</a></li>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/TargetList.html#methodgetParameterMap">getParameterMap</a></li>
+    <li><a href="../../GoogleApiAdsAdWords/--service-version-/TargetList.html#methodgetXsiTypeName">getXsiTypeName</a></li>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/TargetList.html#method__get">__get</a></li>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/TargetList.html#method__set">__set</a></li>
   </ul>
@@ -608,7 +610,7 @@ Source Location: /AdWords/v200909/cm/CampaignTargetService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 381]<br />
+[line 524]<br />
 Targets list abstract class (a list of a given type of targets along with their campaign ID).<br /><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -619,7 +621,7 @@ Targets list abstract class (a list of a given type of targets along with their 
 	<a name="var$campaignId"></a>
 	<p></p>
 	<h4>$campaignId = <span class="value"></span></h4>
-	<p>[line 386]</p>
+	<p>[line 529]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -643,7 +645,7 @@ Targets list abstract class (a list of a given type of targets along with their 
 	<a name="var$TargetListType"></a>
 	<p></p>
 	<h4>$TargetListType = <span class="value"></span></h4>
-	<p>[line 391]</p>
+	<p>[line 535]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -673,7 +675,7 @@ Targets list abstract class (a list of a given type of targets along with their 
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 424]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 585]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -740,8 +742,62 @@ $TargetListType = NULL])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetNamespace"></a>
+	<h3>method getNamespace <span class="smalllinenumber">[line 573]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>the getNamespace(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the namesapce of this class<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>namespace of this class</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdScheduleTargetList.html#methodgetNamespace">AdScheduleTargetList::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/DemographicTargetList.html#methodgetNamespace">DemographicTargetList::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/GeoTargetList.html#methodgetNamespace">GeoTargetList::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/LanguageTargetList.html#methodgetNamespace">LanguageTargetList::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/NetworkTargetList.html#methodgetNamespace">NetworkTargetList::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/PlatformTargetList.html#methodgetNamespace">PlatformTargetList::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetParameterMap"></a>
-	<h3>method getParameterMap <span class="smalllinenumber">[line 420]</span></h3>
+	<h3>method getParameterMap <span class="smalllinenumber">[line 565]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -768,8 +824,62 @@ $TargetListType = NULL])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetXsiTypeName"></a>
+	<h3>method getXsiTypeName <span class="smalllinenumber">[line 581]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>the getXsiTypeName(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the xsi:type name of this class<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>xsi:type name of this class</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdScheduleTargetList.html#methodgetXsiTypeName">AdScheduleTargetList::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/DemographicTargetList.html#methodgetXsiTypeName">DemographicTargetList::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/GeoTargetList.html#methodgetXsiTypeName">GeoTargetList::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/LanguageTargetList.html#methodgetXsiTypeName">LanguageTargetList::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/NetworkTargetList.html#methodgetXsiTypeName">NetworkTargetList::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/PlatformTargetList.html#methodgetXsiTypeName">PlatformTargetList::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="method__get"></a>
-	<h3>method __get <span class="smalllinenumber">[line 408]</span></h3>
+	<h3>method __get <span class="smalllinenumber">[line 553]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -808,7 +918,7 @@ $var)</code>
   </div>
   <hr />
 	<a name="method__set"></a>
-	<h3>method __set <span class="smalllinenumber">[line 401]</span></h3>
+	<h3>method __set <span class="smalllinenumber">[line 546]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -853,7 +963,7 @@ $value)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 21 Oct 2009 15:25:20 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Mon, 26 Oct 2009 18:17:23 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
 	      </div>
       </td></tr></table>
     </td>

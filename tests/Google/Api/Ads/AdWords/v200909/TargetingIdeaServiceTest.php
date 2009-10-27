@@ -53,7 +53,8 @@ class TargetingIdeaServiceTest extends PHPUnit_Framework_TestCase {
         $this->user->GetTargetingIdeaService($this->version, $this->server);
 
     if (!isset(TargetingIdeaServiceTest::$adGroupId)) {
-      $campaignService = $this->user->GetCampaignService($version, $server);
+      $campaignService =
+          $this->user->GetCampaignService($this->version, $this->server);
       $campaign = new Campaign();
       $campaign->name = 'Campaign #' . time();
       $campaign->status = 'PAUSED';
@@ -63,7 +64,8 @@ class TargetingIdeaServiceTest extends PHPUnit_Framework_TestCase {
       $campaignId = $campaignService->mutate(
           array(new CampaignOperation(NULL, $campaign, 'ADD')))->value[0]->id;
 
-      $adGroupService = $this->user->GetAdGroupService($version, $server);
+      $adGroupService =
+          $this->user->GetAdGroupService($this->version, $this->server);
 
       $adGroup = new AdGroup();
       $adGroup->name = 'AdGroup #' . time();

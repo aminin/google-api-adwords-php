@@ -37,13 +37,13 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupAdService.php.html">		AdGroupAdService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupService.php.html">		AdGroupService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---BulkMutateJobService.php.html">		BulkMutateJobService.php
 		</a><br>
@@ -57,9 +57,9 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignService.php.html">		CampaignService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignTargetService.php.html">		CampaignTargetService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---GeoLocationService.php.html">		GeoLocationService.php
 		</a><br>
@@ -526,7 +526,7 @@
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
 <h1>Class: Page</h1>
-Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
+Source Location: /AdWords/v200906/cm/AdGroupAdService.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -557,7 +557,9 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/Page.html#method__construct">__construct</a></li>
+    <li><a href="../../GoogleApiAdsAdWords/--service-version-/Page.html#methodgetNamespace">getNamespace</a></li>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/Page.html#methodgetParameterMap">getParameterMap</a></li>
+    <li><a href="../../GoogleApiAdsAdWords/--service-version-/Page.html#methodgetXsiTypeName">getXsiTypeName</a></li>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/Page.html#method__get">__get</a></li>
     <li><a href="../../GoogleApiAdsAdWords/--service-version-/Page.html#method__set">__set</a></li>
   </ul>
@@ -573,8 +575,8 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 <h3>Child classes:</h3>
 <div class="tags">
 <dl>
-<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupPage.html">AdGroupPage</a></dt>
-	<dd>Contains a subset of adgroup resulting from the filtering and paging of the</dd>
+<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupAdPage.html">AdGroupAdPage</a></dt>
+	<dd>Represents a page of <a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupAd.html">AdGroupAd</a>s resulting from the query done by  <a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupAdService.html">AdGroupAdService</a>.</dd>
 </dl>
 </div>
 </td>
@@ -588,7 +590,7 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 789]<br />
+[line 1663]<br />
 Contains the results from a get call.<br /><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -599,7 +601,7 @@ Contains the results from a get call.<br /><br /></div><br /><br />
 	<a name="var$PageType"></a>
 	<p></p>
 	<h4>$PageType = <span class="value"></span></h4>
-	<p>[line 799]</p>
+	<p>[line 1674]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -623,7 +625,7 @@ Contains the results from a get call.<br /><br /></div><br /><br />
 	<a name="var$totalNumEntries"></a>
 	<p></p>
 	<h4>$totalNumEntries = <span class="value"></span></h4>
-	<p>[line 794]</p>
+	<p>[line 1668]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -653,7 +655,7 @@ Contains the results from a get call.<br /><br /></div><br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 832]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 1724]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -677,7 +679,7 @@ $PageType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupPage.html#method__construct">AdGroupPage::__construct()</a></dt>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupAdPage.html#method__construct">AdGroupAdPage::__construct()</a></dt>
 		<dd></dd>
 	</dl>
 	</p>
@@ -700,8 +702,42 @@ $PageType = NULL])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetNamespace"></a>
+	<h3>method getNamespace <span class="smalllinenumber">[line 1712]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>the getNamespace(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the namesapce of this class<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>namespace of this class</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupAdPage.html#methodgetNamespace">AdGroupAdPage::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodgetParameterMap"></a>
-	<h3>method getParameterMap <span class="smalllinenumber">[line 828]</span></h3>
+	<h3>method getParameterMap <span class="smalllinenumber">[line 1704]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -728,8 +764,42 @@ $PageType = NULL])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodgetXsiTypeName"></a>
+	<h3>method getXsiTypeName <span class="smalllinenumber">[line 1720]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>the getXsiTypeName(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the xsi:type name of this class<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>xsi:type name of this class</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupAdPage.html#methodgetXsiTypeName">AdGroupAdPage::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="method__get"></a>
-	<h3>method __get <span class="smalllinenumber">[line 816]</span></h3>
+	<h3>method __get <span class="smalllinenumber">[line 1692]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -768,7 +838,7 @@ $var)</code>
   </div>
   <hr />
 	<a name="method__set"></a>
-	<h3>method __set <span class="smalllinenumber">[line 809]</span></h3>
+	<h3>method __set <span class="smalllinenumber">[line 1685]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -813,7 +883,7 @@ $value)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 21 Oct 2009 15:24:41 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Mon, 26 Oct 2009 18:16:09 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
 	      </div>
       </td></tr></table>
     </td>

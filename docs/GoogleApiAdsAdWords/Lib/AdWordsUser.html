@@ -37,13 +37,13 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupAdService.php.html">		AdGroupAdService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupService.php.html">		AdGroupService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---BulkMutateJobService.php.html">		BulkMutateJobService.php
 		</a><br>
@@ -57,9 +57,9 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignService.php.html">		CampaignService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignTargetService.php.html">		CampaignTargetService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---GeoLocationService.php.html">		GeoLocationService.php
 		</a><br>
@@ -684,7 +684,7 @@ User class for the AdWords API to create SOAP clients to the available API  serv
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 98]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 95]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -701,9 +701,7 @@ $settingsIniPath = NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
-		The AdWordsUser class can be configured in one of two ways:<br /><br /><p><ol><li>Using an authenitcation INI file</li><li>Using supplied credentials</li></ol>  &lt;p&gt;
- If an authentication INI file is provided and successfully loaded, those  values will be used unless a corresponding parameter overwrites it.  If the authentication INI file is not provided (e.g. it is <var>NULL</var>)  the class will attempt to load the default authentication file at the path  of &quot;../auth.ini&quot; relative to this file's directory. Any corresponding  parameter, which is not <var>NULL</var> will however, overwrite any  parameter loaded from the default INI.  &lt;p&gt;
- Likewise, if a custom settings INI file is not provided, the default  settings INI file will be loaded from the path of &quot;../settings.ini&quot;  relative to this file's directory.</p><br /><br /><br />
+		The AdWordsUser constructor.<br /><br /><p>The AdWordsUser class can be configured in one of two ways:  <ol><li>Using an authenitcation INI file</li><li>Using supplied credentials</li></ol></p><p>If an authentication INI file is provided and successfully loaded, those  values will be used unless a corresponding parameter overwrites it.  If the authentication INI file is not provided (e.g. it is <var>NULL</var>)  the class will attempt to load the default authentication file at the path  of &quot;../auth.ini&quot; relative to this file's directory. Any corresponding  parameter, which is not <var>NULL</var>, will, however, overwrite any  parameter loaded from the default INI.</p><p>Likewise, if a custom settings INI file is not provided, the default  settings INI file will be loaded from the path of &quot;../settings.ini&quot;  relative to this file's directory.</p><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -764,7 +762,7 @@ $settingsIniPath = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetAdExtensionService"></a>
-	<h3>method GetAdExtensionService <span class="smalllinenumber">[line 157]</span></h3>
+	<h3>method GetAdExtensionService <span class="smalllinenumber">[line 154]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -815,7 +813,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetAdGroupAdService"></a>
-	<h3>method GetAdGroupAdService <span class="smalllinenumber">[line 173]</span></h3>
+	<h3>method GetAdGroupAdService <span class="smalllinenumber">[line 170]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -866,7 +864,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetAdGroupCriterionService"></a>
-	<h3>method GetAdGroupCriterionService <span class="smalllinenumber">[line 189]</span></h3>
+	<h3>method GetAdGroupCriterionService <span class="smalllinenumber">[line 186]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -917,7 +915,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetAdGroupService"></a>
-	<h3>method GetAdGroupService <span class="smalllinenumber">[line 205]</span></h3>
+	<h3>method GetAdGroupService <span class="smalllinenumber">[line 202]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -968,7 +966,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetApplicationToken"></a>
-	<h3>method GetApplicationToken <span class="smalllinenumber">[line 419]</span></h3>
+	<h3>method GetApplicationToken <span class="smalllinenumber">[line 416]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -996,7 +994,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetBulkMutateJobService"></a>
-	<h3>method GetBulkMutateJobService <span class="smalllinenumber">[line 221]</span></h3>
+	<h3>method GetBulkMutateJobService <span class="smalllinenumber">[line 218]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1047,7 +1045,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetCampaignAdExtensionService"></a>
-	<h3>method GetCampaignAdExtensionService <span class="smalllinenumber">[line 238]</span></h3>
+	<h3>method GetCampaignAdExtensionService <span class="smalllinenumber">[line 235]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1098,7 +1096,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetCampaignCriterionService"></a>
-	<h3>method GetCampaignCriterionService <span class="smalllinenumber">[line 255]</span></h3>
+	<h3>method GetCampaignCriterionService <span class="smalllinenumber">[line 252]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1149,7 +1147,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetCampaignService"></a>
-	<h3>method GetCampaignService <span class="smalllinenumber">[line 271]</span></h3>
+	<h3>method GetCampaignService <span class="smalllinenumber">[line 268]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1200,7 +1198,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetCampaignTargetService"></a>
-	<h3>method GetCampaignTargetService <span class="smalllinenumber">[line 287]</span></h3>
+	<h3>method GetCampaignTargetService <span class="smalllinenumber">[line 284]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1251,7 +1249,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetClientId"></a>
-	<h3>method GetClientId <span class="smalllinenumber">[line 436]</span></h3>
+	<h3>method GetClientId <span class="smalllinenumber">[line 433]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1279,7 +1277,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetClientLibraryIdentifier"></a>
-	<h3>method GetClientLibraryIdentifier <span class="smalllinenumber">[line 517]</span></h3>
+	<h3>method GetClientLibraryIdentifier <span class="smalllinenumber">[line 514]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1307,7 +1305,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetDeveloperToken"></a>
-	<h3>method GetDeveloperToken <span class="smalllinenumber">[line 403]</span></h3>
+	<h3>method GetDeveloperToken <span class="smalllinenumber">[line 400]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1335,7 +1333,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetEmail"></a>
-	<h3>method GetEmail <span class="smalllinenumber">[line 485]</span></h3>
+	<h3>method GetEmail <span class="smalllinenumber">[line 482]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1363,7 +1361,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetGeoLocationService"></a>
-	<h3>method GetGeoLocationService <span class="smalllinenumber">[line 303]</span></h3>
+	<h3>method GetGeoLocationService <span class="smalllinenumber">[line 300]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1414,7 +1412,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetInfoService"></a>
-	<h3>method GetInfoService <span class="smalllinenumber">[line 319]</span></h3>
+	<h3>method GetInfoService <span class="smalllinenumber">[line 316]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1465,7 +1463,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetPassword"></a>
-	<h3>method GetPassword <span class="smalllinenumber">[line 501]</span></h3>
+	<h3>method GetPassword <span class="smalllinenumber">[line 498]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1493,7 +1491,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetTargetingIdeaService"></a>
-	<h3>method GetTargetingIdeaService <span class="smalllinenumber">[line 335]</span></h3>
+	<h3>method GetTargetingIdeaService <span class="smalllinenumber">[line 332]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1544,7 +1542,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetUserAgent"></a>
-	<h3>method GetUserAgent <span class="smalllinenumber">[line 465]</span></h3>
+	<h3>method GetUserAgent <span class="smalllinenumber">[line 462]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1572,7 +1570,7 @@ $serviceFactory = NULL])</code>
   </div>
   <hr />
 	<a name="methodRegenerateAuthToken"></a>
-	<h3>method RegenerateAuthToken <span class="smalllinenumber">[line 385]</span></h3>
+	<h3>method RegenerateAuthToken <span class="smalllinenumber">[line 382]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1611,7 +1609,7 @@ $server = NULL])</code>
   </div>
   <hr />
 	<a name="methodSetApplicationToken"></a>
-	<h3>method SetApplicationToken <span class="smalllinenumber">[line 427]</span></h3>
+	<h3>method SetApplicationToken <span class="smalllinenumber">[line 424]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1647,7 +1645,7 @@ $applicationToken)</code>
   </div>
   <hr />
 	<a name="methodSetAuthToken"></a>
-	<h3>method SetAuthToken <span class="smalllinenumber">[line 395]</span></h3>
+	<h3>method SetAuthToken <span class="smalllinenumber">[line 392]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1683,7 +1681,7 @@ $authToken)</code>
   </div>
   <hr />
 	<a name="methodSetClientId"></a>
-	<h3>method SetClientId <span class="smalllinenumber">[line 450]</span></h3>
+	<h3>method SetClientId <span class="smalllinenumber">[line 447]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1719,7 +1717,7 @@ $clientId)</code>
   </div>
   <hr />
 	<a name="methodSetClientLibraryUserAgent"></a>
-	<h3>method SetClientLibraryUserAgent <span class="smalllinenumber">[line 474]</span></h3>
+	<h3>method SetClientLibraryUserAgent <span class="smalllinenumber">[line 471]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1755,7 +1753,7 @@ $userAgent)</code>
   </div>
   <hr />
 	<a name="methodSetDeveloperToken"></a>
-	<h3>method SetDeveloperToken <span class="smalllinenumber">[line 411]</span></h3>
+	<h3>method SetDeveloperToken <span class="smalllinenumber">[line 408]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1791,7 +1789,7 @@ $developerToken)</code>
   </div>
   <hr />
 	<a name="methodSetEmail"></a>
-	<h3>method SetEmail <span class="smalllinenumber">[line 493]</span></h3>
+	<h3>method SetEmail <span class="smalllinenumber">[line 490]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1827,7 +1825,7 @@ $email)</code>
   </div>
   <hr />
 	<a name="methodSetPassword"></a>
-	<h3>method SetPassword <span class="smalllinenumber">[line 509]</span></h3>
+	<h3>method SetPassword <span class="smalllinenumber">[line 506]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1866,7 +1864,7 @@ $password)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 21 Oct 2009 15:24:46 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Mon, 26 Oct 2009 18:16:43 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
 	      </div>
       </td></tr></table>
     </td>

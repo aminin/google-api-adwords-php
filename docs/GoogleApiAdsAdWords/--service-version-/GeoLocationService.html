@@ -37,13 +37,13 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupAdService.php.html">		AdGroupAdService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupService.php.html">		AdGroupService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---BulkMutateJobService.php.html">		BulkMutateJobService.php
 		</a><br>
@@ -57,9 +57,9 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignService.php.html">		CampaignService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
-		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---CampaignTargetService.php.html">		CampaignTargetService.php
+		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---CampaignTargetService.php.html">		CampaignTargetService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---GeoLocationService.php.html">		GeoLocationService.php
 		</a><br>
@@ -584,6 +584,12 @@ Source Location: /AdWords/v200909/cm/GeoLocationService.php<br /><br />
 <h4>Class: <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html">AdsSoapClient</a></h4>
 <dl>
 <dt>
+  <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
   <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a>
   </dt>
 <dd>
@@ -663,12 +669,6 @@ Source Location: /AdWords/v200909/cm/GeoLocationService.php<br /><br />
   </dt>
   <dd>
     Gets the last number of units.
-  </dd>
-    <dt>
-    <a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodPrepareRequest">AdWordsSoapClient::PrepareRequest()</a>
-  </dt>
-  <dd>
-    The request does not need to be altered for AdWords API.
   </dd>
     <dt>
     <a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodRemoveSensitiveInfo">AdWordsSoapClient::RemoveSensitiveInfo()</a>
@@ -761,13 +761,7 @@ Source Location: /AdWords/v200909/cm/GeoLocationService.php<br /><br />
     <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodPrepareRequest">AdsSoapClient::PrepareRequest()</a>
   </dt>
   <dd>
-    Prepares the request to fix for any incompatabilities with the SOAP server.
-  </dd>
-    <dt>
-    <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodPrettyPrint">AdsSoapClient::PrettyPrint()</a>
-  </dt>
-  <dd>
-    Returns a pretty printed XML. If the XML cannot be loaded a string  stripped of any newlines is returned.
+    Depending on the version of PHP, the xsi:types need to be added and empty  tags may need to be removed. The SoapRequestXmlFixer class can facilitate  these changes.
   </dd>
     <dt>
     <a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a>
@@ -878,7 +872,7 @@ Source Location: /AdWords/v200909/cm/GeoLocationService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 915]<br />
+[line 1565]<br />
 GeoLocationService<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -943,7 +937,7 @@ GeoLocationService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;SizeLimitError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;SizeLimitErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;StringLengthError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;StringLengthErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;)</span></h4>
-	<p>[line 921]</p>
+	<p>[line 1571]</p>
   Default class map for wsdl=&gt;php<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -973,7 +967,7 @@ GeoLocationService<br /><br /><br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 973]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 1623]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1021,7 +1015,7 @@ $user)</code>
   </div>
   <hr />
 	<a name="methodget"></a>
-	<h3>method get <span class="smalllinenumber">[line 990]</span></h3>
+	<h3>method get <span class="smalllinenumber">[line 1640]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1066,7 +1060,7 @@ $selector)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 21 Oct 2009 15:25:22 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Mon, 26 Oct 2009 18:17:25 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
 	      </div>
       </td></tr></table>
     </td>
