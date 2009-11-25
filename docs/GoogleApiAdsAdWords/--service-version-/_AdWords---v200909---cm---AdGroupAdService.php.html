@@ -37,13 +37,15 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupAdService.php.html">		AdGroupAdService.php
 		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
+		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdParamService.php.html">		AdParamService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---BulkMutateJobService.php.html">		BulkMutateJobService.php
 		</a><br>
@@ -149,6 +151,18 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupServiceMutate.html">AdGroupServiceMutate</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupServiceMutateResponse.html">AdGroupServiceMutateResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupStatus.html">AdGroupStatus</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParam.html">AdParam</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamError.html">AdParamError</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamErrorReason.html">AdParamErrorReason</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamOperation.html">AdParamOperation</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamPage.html">AdParamPage</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamPolicyError.html">AdParamPolicyError</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamSelector.html">AdParamSelector</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamService.html">AdParamService</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceGet.html">AdParamServiceGet</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceGetResponse.html">AdParamServiceGetResponse</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceMutate.html">AdParamServiceMutate</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceMutateResponse.html">AdParamServiceMutateResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdScheduleTarget.html">AdScheduleTarget</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdScheduleTargetList.html">AdScheduleTargetList</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdServingOptimizationStatus.html">AdServingOptimizationStatus</a><br />
@@ -227,6 +241,7 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionServiceGetResponse.html">CampaignAdExtensionServiceGetResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionServiceMutate.html">CampaignAdExtensionServiceMutate</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionServiceMutateResponse.html">CampaignAdExtensionServiceMutateResponse</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionStatsSelector.html">CampaignAdExtensionStatsSelector</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionStatus.html">CampaignAdExtensionStatus</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignCriterion.html">CampaignCriterion</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignCriterionError.html">CampaignCriterionError</a><br />
@@ -534,7 +549,7 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <div class="contents">
 <h2>Classes:</h2>
 <dt></dt>
-	<dd>&lt;span class=&quot;constraint StringLength&quot;&gt;This string must not be empty.&lt;/span&gt;</dd>
+	<dd>Structure to specify an address location.</dd>
 <dt></dt>
 	<dd>Represents a range of dates that has either an upper or a lower bound.</dd>
 <dt></dt>
@@ -582,7 +597,7 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <dt></dt>
 	<dd>Specifies criteria for selecting a set of AdGroupAds for the account.</dd>
 <dt></dt>
-	<dd>&lt;span class=&quot;constraint ReadOnly&quot;&gt;This field is read only and should not be set for following <a href="../../GoogleApiAdsAdWords/--service-version-/Operator.html">Operator</a>s : ADD.&lt;/span&gt;</dd>
+	<dd>The base class of all Ad types.  Not abstract since it is conceivable for  the base attributes of an Ad to be updated without reference to its concrete  type.</dd>
 <dt></dt>
 	<dd>Represents an ad in an ad group.</dd>
 <dt></dt>
@@ -692,11 +707,11 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <dt></dt>
 	<dd></dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Base error class for Ad Service.</dd>
 <dt></dt>
 	<dd>Represents stats specific to AdExtensionOverrides.</dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Error information for AdGroupAdService.</dd>
 <dt></dt>
 	<dd>Immutable structure to hold an ad schedule target.</dd>
 <dt></dt>
@@ -706,15 +721,15 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <dt><a href="../../GoogleApiAdsAdWords/--service-version-/Audio.html">Audio</a></dt>
 	<dd>Encapsulates an Audio media identified by a MediaId.</dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Errors returned when Authentication failed.</dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Errors that are thrown due to an authorization problem.</dd>
 <dt></dt>
 	<dd>Encapsulates the errors thrown during client terms checks for adwords.</dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Errors that are thrown due to a database access problem.</dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Errors associated with invalid dates and date ranges.</dd>
 <dt><a href="../../GoogleApiAdsAdWords/--service-version-/DeprecatedAd.html">DeprecatedAd</a></dt>
 	<dd>Represents a deprecated ad.</dd>
 <dt></dt>
@@ -732,17 +747,17 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <dt></dt>
 	<dd>Indicates that a server-side error has occured. {@code InternalApiError}s  are generally not the result of an invalid request or message sent by the  client.</dd>
 <dt></dt>
-	<dd>&lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;</dd>
+	<dd>Immutable structure to hold a language target.</dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Error class for media related errors.</dd>
 <dt></dt>
 	<dd>Represents a MobileAd.</dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Represents a money amount.</dd>
 <dt></dt>
 	<dd>Immutable structure to hold a network coverage target.</dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Error associated with creation of new entities using  com.google.ads.api.services.common.id.TempIds.</dd>
 <dt></dt>
 	<dd>A list of all errors associated with the @NotEmpty constraints.</dd>
 <dt></dt>
@@ -760,7 +775,7 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <dt></dt>
 	<dd>Encapsulates the errors thrown during developer quota checks for webapi  calls.</dd>
 <dt></dt>
-	<dd></dd>
+	<dd>Used by WebAPI to convert QuotaExceededExceptions to ApiExceptions, which are  more suitable for user errors.</dd>
 <dt></dt>
 	<dd>A list of all errors associated with the @ReadOnly constraint.</dd>
 <dt></dt>
@@ -802,7 +817,7 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <dt></dt>
 	<dd>Immutable structure to hold an age target.</dd>
 <dt></dt>
-	<dd>&lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;</dd>
+	<dd>Immutable structure to specify a geographic target for a city.</dd>
 <dt></dt>
 	<dd>Immutable structure to specify a geographic target for a country.</dd>
 <dt></dt>
@@ -812,11 +827,11 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <dt></dt>
 	<dd>Number value type for constructing long valued ranges.</dd>
 <dt></dt>
-	<dd>&lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;</dd>
+	<dd>Immutable structure to specify a geographic target for a metro.</dd>
 <dt></dt>
 	<dd>Structure to specify a geographic target for a polygon location.</dd>
 <dt></dt>
-	<dd>&lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;</dd>
+	<dd>Immutable structure to specify a geographic target for a province or state.</dd>
 <dt></dt>
 	<dd>Structure to specify a geographic target for a proximity location.</dd>
 <dt></dt>
@@ -850,7 +865,7 @@ require_once(dirname(__FILE__)."/../../Lib/AdWordsSoapClient.php") [line 29]<br 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 26 Oct 2009 18:16:18 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Wed, 25 Nov 2009 14:10:28 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

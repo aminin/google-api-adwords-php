@@ -16,7 +16,7 @@ The client library is compatible with all standard PHP 5.2.x distributions. The
 library uses the native SoapClient class
 [http://us3.php.net/manual/en/book.soap.php], which needs to be enabled with the
 --enable-soap flag if building PHP from source. More information about
-compatibility can be found in the PHP Compatibility section of thise README.
+compatibility can be found in the PHP Compatibility section of this README.
 
 The complete documentation for AdWords API is available from
 http://www.google.com/apis/adwords/developer/index.html.
@@ -299,18 +299,24 @@ library is not compatible with your setup, please let us know here:
 http://code.google.com/p/google-api-adwords-php/wiki/PhpCompatibility
 
 
-External dependencies:
-----------------------
+External dependencies
+---------------------
 
+Run environment:
   - PHP 5.2.x [http://php.net]
-  - Minimum required PHP extensions:
+  - Required PHP extensions:
     - SoapClient [http://us3.php.net/manual/en/book.soap.php] (--enable-soap)
     - OpenSSL [http://php.net/manual/en/book.openssl.php] (--with-ssl)
     - cURL [http://php.net/manual/en/book.curl.php] (--with-curl)
+
+Build environment:
   - PHPUnit [http://www.phpunit.de/]
   - Phing [http://phing.info/trac/]
-  - wsdl2php-interpreter [http://code.google.com/p/wsdl2php-interpreter/]
-
+  - Modified wsdl2php-interpreter [included in this project]
+    - Original: [http://code.google.com/p/wsdl2php-interpreter/]
+  - Required PHP extensions:
+    - XSLTProcessor [http://php.net/manual/en/class.xsltprocessor.php]
+        (--with-xsl)
 
 Where do I submit bug reports and feature requests?
 ---------------------------------------------------
