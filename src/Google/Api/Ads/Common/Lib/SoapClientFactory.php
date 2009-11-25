@@ -37,6 +37,7 @@ abstract class SoapClientFactory {
   private $version;
   private $server;
   private $productName;
+  private $headerOverrides;
 
   /**
    * The constructor called by any sub-class.
@@ -47,11 +48,12 @@ abstract class SoapClientFactory {
    * @access protected
    */
   protected function __construct(AdsUser $user, $version, $server,
-      $productName) {
+      $productName, $headerOverrides = NULL) {
     $this->user = $user;
     $this->version = $version;
     $this->server = $server;
     $this->productName = $productName;
+    $this->headerOverrides = $headerOverrides;
   }
 
   /**
@@ -90,7 +92,7 @@ abstract class SoapClientFactory {
         if (isset($serviceGroupHeaderNamespaceOverride)) {
           $namespaceGroup = $serviceGroupHeaderNamespaceOverride . '/';
         } else {
-          $namespaceGroup = 'cm/';
+          $namespaceGroup = $serviceGroup. '/';
         }
       }
 
@@ -121,7 +123,6 @@ abstract class SoapClientFactory {
         'compression' => true,
         'encoding' => 'utf-8',
         'connection_timeout' => 0,
-        'user_agent' => $this->GetUser()->GetClientLibraryIdentifier(),
         'features' => SOAP_SINGLE_ELEMENT_ARRAYS);
 
     // TODO(api.arogal): Implement HTTP proxy.
@@ -138,7 +139,7 @@ abstract class SoapClientFactory {
       $options['proxy_password'] = HTTP_PROXY_PASSWORD;
     }*/
 
-    $soapClient = new $serviceName($wsdl, $options, $this->GetUser());
+    $soapClient = new $serviceName($wsdl, $options, $this->GetAdsUser());
     $soapClient->__setLocation($location);
     return $soapClient;
   }
@@ -171,7 +172,12 @@ abstract class SoapClientFactory {
     $requestHeader = new $soapHeaderClassName();
 
     foreach (get_class_vars($soapHeaderClassName) as $classVar => $value) {
-      $requestHeader->$classVar = $this->user->getHeaderValue($classVar);
+      if (isset($this->headerOverrides)
+          && array_key_exists($classVar, $this->headerOverrides)) {
+        $requestHeader->$classVar = $this->headerOverrides[$classVar];
+      } else {
+        $requestHeader->$classVar = $this->user->getHeaderValue($classVar);
+      }
     }
 
     $soapRequestHeader =
@@ -200,7 +206,7 @@ abstract class SoapClientFactory {
    * Gets the user associated with this factory.
    * @return AdsUser the user associated with this factory
    */
-  public function GetUser() {
+  public function GetAdsUser() {
     return $this->user;
   }
 

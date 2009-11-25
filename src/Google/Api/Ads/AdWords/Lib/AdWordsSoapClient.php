@@ -64,9 +64,9 @@ class AdWordsSoapClient extends AdsSoapClient {
    * @return string the effective user the request was made against
    */
   public function GetEffectiveUser() {
-    return $this->GetUser()->GetClientId()
-        ? $this->GetUser()->GetClientId()
-        : $this->GetUser()->GetEmail();
+    return $this->GetAdsUser()->GetClientId()
+        ? $this->GetAdsUser()->GetClientId()
+        : $this->GetAdsUser()->GetEmail();
   }
 
   /**

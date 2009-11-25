@@ -37,13 +37,15 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupAdService.php.html">		AdGroupAdService.php
 		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
+		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdParamService.php.html">		AdParamService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---BulkMutateJobService.php.html">		BulkMutateJobService.php
 		</a><br>
@@ -149,6 +151,18 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupServiceMutate.html">AdGroupServiceMutate</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupServiceMutateResponse.html">AdGroupServiceMutateResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupStatus.html">AdGroupStatus</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParam.html">AdParam</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamError.html">AdParamError</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamErrorReason.html">AdParamErrorReason</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamOperation.html">AdParamOperation</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamPage.html">AdParamPage</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamPolicyError.html">AdParamPolicyError</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamSelector.html">AdParamSelector</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamService.html">AdParamService</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceGet.html">AdParamServiceGet</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceGetResponse.html">AdParamServiceGetResponse</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceMutate.html">AdParamServiceMutate</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceMutateResponse.html">AdParamServiceMutateResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdScheduleTarget.html">AdScheduleTarget</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdScheduleTargetList.html">AdScheduleTargetList</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdServingOptimizationStatus.html">AdServingOptimizationStatus</a><br />
@@ -227,6 +241,7 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionServiceGetResponse.html">CampaignAdExtensionServiceGetResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionServiceMutate.html">CampaignAdExtensionServiceMutate</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionServiceMutateResponse.html">CampaignAdExtensionServiceMutateResponse</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionStatsSelector.html">CampaignAdExtensionStatsSelector</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionStatus.html">CampaignAdExtensionStatus</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignCriterion.html">CampaignCriterion</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignCriterionError.html">CampaignCriterionError</a><br />
@@ -536,7 +551,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 <pre><a href="../../GoogleApiAdsAdWords/--service-version-/Job.html">Job</a>
    |
    --BulkMutateJob</pre><br />
-<div class="description">&lt;span class=&quot;constraint ReadOnly&quot;&gt;This field is read only and should not be set for following <a href="../../GoogleApiAdsAdWords/--service-version-/Operator.html">Operator</a>s : ADD.&lt;/span&gt;</div><br /><br />
+<div class="description">A {@code BulkMutateJob} is essentially a mixed collection of mutate</div><br /><br />
 
 
 
@@ -674,8 +689,11 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 9851]<br />
-&lt;span class=&quot;constraint ReadOnly&quot;&gt;This field is read only and should not be set for following <a href="../../GoogleApiAdsAdWords/--service-version-/Operator.html">Operator</a>s : ADD.&lt;/span&gt;<br /><br /></div><br /><br />
+[line 10172]<br />
+A {@code BulkMutateJob} is essentially a mixed collection of mutate<br /><br /><p>operations from the following AdWords API campaign management services:  <ul><li><a href="../../GoogleApiAdsAdWords/--service-version-/CampaignService.html">CampaignService</a></li><li><a href="../../GoogleApiAdsAdWords/--service-version-/CampaignTargetService.html">CampaignTargetService</a></li><li><a href="../../GoogleApiAdsAdWords/--service-version-/CampaignCriterionService.html">CampaignCriterionService</a></li><li><a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupService.html">AdGroupService</a></li><li><a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupAdService.html">AdGroupAdService</a></li><li><a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupCriterionService.html">AdGroupCriterionService</a></li></ul></p><p>&lt;p&gt;The mutate operations in a job's request are constructed in exactly the  same way as they are for synchronous calls to these services.&lt;/p&gt;</p><p>&lt;p&gt;The mutate operations are grouped by their scoping entity in the  AdWords customer tree. Currently, mutate operations can be grouped either  by the customer or by their parent campaign. However, they cannot be  grouped both ways - some by customer and others by campaigns - in the same  job.</p><p><em>Note: A job may have no more than 500,000 mutate operations in total,
+ and no more than 10 different scoping campaigns.</em>&lt;/p&gt;</p><p>&lt;p&gt;The mutate operations must be packaged into containers called  {@code Operation Streams}, each tagged with the id of the scoping entity of  its operations.</p><p>&lt;p&gt;To facilitate the building of very large bulk mutate jobs, the operation  streams of a job can be submitted using multiple request parts. A job is  queued for processing as soon as it can be determined that all of its  request parts have been received.&lt;/p&gt;</p><p><em>Note: A job may have no more than 100 request parts. Each part may
+ have no more than 25 operation streams and no more than 10,000 operations
+ in total.</em>&lt;/p&gt;</p><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
 <hr />
@@ -685,7 +703,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 	<a name="var$history"></a>
 	<p></p>
 	<h4>$history = <span class="value"></span></h4>
-	<p>[line 9880]</p>
+	<p>[line 10201]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -709,7 +727,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 	<a name="var$id"></a>
 	<p></p>
 	<h4>$id = <span class="value"></span></h4>
-	<p>[line 9856]</p>
+	<p>[line 10177]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -733,7 +751,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 	<a name="var$numRequestParts"></a>
 	<p></p>
 	<h4>$numRequestParts = <span class="value"></span></h4>
-	<p>[line 9892]</p>
+	<p>[line 10213]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -757,7 +775,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 	<a name="var$numRequestPartsReceived"></a>
 	<p></p>
 	<h4>$numRequestPartsReceived = <span class="value"></span></h4>
-	<p>[line 9898]</p>
+	<p>[line 10219]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -781,7 +799,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 	<a name="var$policy"></a>
 	<p></p>
 	<h4>$policy = <span class="value"></span></h4>
-	<p>[line 9862]</p>
+	<p>[line 10183]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -805,7 +823,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 	<a name="var$request"></a>
 	<p></p>
 	<h4>$request = <span class="value"></span></h4>
-	<p>[line 9868]</p>
+	<p>[line 10189]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -829,7 +847,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 	<a name="var$result"></a>
 	<p></p>
 	<h4>$result = <span class="value"></span></h4>
-	<p>[line 9886]</p>
+	<p>[line 10207]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -853,7 +871,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 	<a name="var$status"></a>
 	<p></p>
 	<h4>$status = <span class="value"></span></h4>
-	<p>[line 9874]</p>
+	<p>[line 10195]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -883,7 +901,7 @@ Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 9916]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 10237]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -997,7 +1015,7 @@ $JobType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetNamespace"></a>
-	<h3>method getNamespace <span class="smalllinenumber">[line 9904]</span></h3>
+	<h3>method getNamespace <span class="smalllinenumber">[line 10225]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1025,7 +1043,7 @@ $JobType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetXsiTypeName"></a>
-	<h3>method getXsiTypeName <span class="smalllinenumber">[line 9912]</span></h3>
+	<h3>method getXsiTypeName <span class="smalllinenumber">[line 10233]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1056,7 +1074,7 @@ $JobType = NULL])</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 26 Oct 2009 18:16:46 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Wed, 25 Nov 2009 14:10:43 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -39,9 +39,15 @@ class AdWordsSoapClientFactory extends SoapClientFactory {
    * @param AdsUser $user the user which the client will use for credentials
    * @param string $version the version to generate clients for
    * @param string $server the server to generate clients for
+   * @param bool $validateOnly if the clients should be created in validateOnly
+   *     mode
    */
-  public function __construct(AdsUser $user, $version, $server) {
-    parent::__construct($user, $version, $server, 'adwords');
+  public function __construct(AdsUser $user, $version, $server, $validateOnly) {
+    $headerOverrides = array();
+    if (isset($validateOnly)) {
+      $headerOverrides['validateOnly'] = $validateOnly;
+    }
+    parent::__construct($user, $version, $server, 'adwords', $headerOverrides);
   }
 
   /**

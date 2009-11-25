@@ -37,13 +37,15 @@
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupAdService.php.html">		AdGroupAdService.php
 		</a><br>
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
+		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupCriterionService.php.html">		AdGroupCriterionService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200906---cm---AdGroupService.php.html">		AdGroupService.php
 		</a><br>
-			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdGroupService.php.html">		AdGroupService.php
+			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---AdParamService.php.html">		AdParamService.php
 		</a><br>
 			<a href="../../GoogleApiAdsAdWords/--service-version-/_AdWords---v200909---cm---BulkMutateJobService.php.html">		BulkMutateJobService.php
 		</a><br>
@@ -149,6 +151,18 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupServiceMutate.html">AdGroupServiceMutate</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupServiceMutateResponse.html">AdGroupServiceMutateResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdGroupStatus.html">AdGroupStatus</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParam.html">AdParam</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamError.html">AdParamError</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamErrorReason.html">AdParamErrorReason</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamOperation.html">AdParamOperation</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamPage.html">AdParamPage</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamPolicyError.html">AdParamPolicyError</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamSelector.html">AdParamSelector</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamService.html">AdParamService</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceGet.html">AdParamServiceGet</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceGetResponse.html">AdParamServiceGetResponse</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceMutate.html">AdParamServiceMutate</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdParamServiceMutateResponse.html">AdParamServiceMutateResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdScheduleTarget.html">AdScheduleTarget</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdScheduleTargetList.html">AdScheduleTargetList</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/AdServingOptimizationStatus.html">AdServingOptimizationStatus</a><br />
@@ -227,6 +241,7 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionServiceGetResponse.html">CampaignAdExtensionServiceGetResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionServiceMutate.html">CampaignAdExtensionServiceMutate</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionServiceMutateResponse.html">CampaignAdExtensionServiceMutateResponse</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionStatsSelector.html">CampaignAdExtensionStatsSelector</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignAdExtensionStatus.html">CampaignAdExtensionStatus</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignCriterion.html">CampaignCriterion</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/--service-version-/CampaignCriterionError.html">CampaignCriterionError</a><br />
@@ -607,6 +622,12 @@ Source Location: /AdWords/Lib/AdWordsSoapClientFactory.php<br /><br />
     Generates the SOAP header for the client.
   </dd>
     <dt>
+    <a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetAdsUser">SoapClientFactory::GetAdsUser()</a>
+  </dt>
+  <dd>
+    Gets the user associated with this factory.
+  </dd>
+    <dt>
     <a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetProductName">SoapClientFactory::GetProductName()</a>
   </dt>
   <dd>
@@ -623,12 +644,6 @@ Source Location: /AdWords/Lib/AdWordsSoapClientFactory.php<br /><br />
   </dt>
   <dd>
     Gets the end-point location of the service.
-  </dd>
-    <dt>
-    <a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetUser">SoapClientFactory::GetUser()</a>
-  </dt>
-  <dd>
-    Gets the user associated with this factory.
   </dd>
     <dt>
     <a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetVersion">SoapClientFactory::GetVersion()</a>
@@ -658,7 +673,7 @@ Factory class for SOAP clients for the AdWords API.<br /><br /></div><br /><br /
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 43]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 45]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -666,7 +681,8 @@ Factory class for SOAP clients for the AdWords API.<br /><br /></div><br /><br /
 
 $user, string
 $version, string
-$server)</code>
+$server, bool
+$validateOnly)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -700,13 +716,18 @@ $server)</code>
         <td><b>$server</b>&nbsp;&nbsp;</td>
         <td>the server to generate clients for</td>
       </tr>
+          <tr>
+        <td class="type">bool&nbsp;&nbsp;</td>
+        <td><b>$validateOnly</b>&nbsp;&nbsp;</td>
+        <td>if the clients should be created in validateOnly      mode</td>
+      </tr>
         </table>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
 	<a name="methodDoRequireOnce"></a>
-	<h3>method DoRequireOnce <span class="smalllinenumber">[line 54]</span></h3>
+	<h3>method DoRequireOnce <span class="smalllinenumber">[line 60]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -751,7 +772,7 @@ $serviceGroup = NULL])</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 26 Oct 2009 18:16:42 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Wed, 25 Nov 2009 14:10:40 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

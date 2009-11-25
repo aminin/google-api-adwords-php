@@ -1,7 +1,7 @@
 <?php
 /**
  * This example gets all campaigns. To add campaigns, run
- * AddCampaignExample.php.
+ * AddCampaignsExample.php.
  *
  * PHP version 5
  *
@@ -39,7 +39,7 @@ require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
 /**
  * This example gets all campaigns. To add campaigns, run
- * AddCampaignExample.php.
+ * AddCampaignsExample.php.
  */
 class GetAllCampaignsExample {
   static function main() {

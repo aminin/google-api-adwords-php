@@ -36,6 +36,7 @@ require_once 'XmlUtils.php';
 class SoapRequestXmlFixer {
   private $addXsiTypes;
   private $removeEmptyElements;
+  private $replaceReferences;
 
   /**
    * Constructor to determine how the XML should be fixed.
@@ -44,9 +45,11 @@ class SoapRequestXmlFixer {
    * @param boolean $removeEmptyElements <var>TRUE</var> if all empty elements
    *     should be removed from the XML request
    */
-  public function __construct($addXsiTypes, $removeEmptyElements) {
+  public function __construct($addXsiTypes, $removeEmptyElements,
+      $replaceReferences) {
     $this->addXsiTypes = $addXsiTypes;
     $this->removeEmptyElements = $removeEmptyElements;
+    $this->replaceReferences = $replaceReferences;
   }
 
   /**
@@ -56,25 +59,21 @@ class SoapRequestXmlFixer {
    * @return string the prepared request ready to be sent to the server
    */
   public function FixXml($request, array $arguments) {
-    if (!$this->addXsiTypes && !$this->removeEmptyElements) {
-      return $request;
-    } else {
-      $requestDom = XmlUtils::GetDomFromXml($request);
-      $xpath = new DOMXPath($requestDom);
+    $requestDom = XmlUtils::GetDomFromXml($request);
+    $xpath = new DOMXPath($requestDom);
 
-      $bodyDom = $xpath->query(
-          "//*[local-name()='Envelope']/*[local-name()='Body']")->item(0);
-      $argumentsDomNode = $bodyDom->firstChild;
+    $argumentsDomNode = $xpath->query(
+        "//*[local-name()='Envelope']/*[local-name()='Body']/*")->item(0);
 
-      // The first argument is taken - the wrapper object of the request.
-      $this->FixXmlNode($argumentsDomNode, $arguments[0], $xpath);
+    // Recrusivly fix all xml nodes, starting with the request wrapper.
+    $this->FixXmlNode($argumentsDomNode, $arguments[0], $xpath);
 
-      if ($this->removeEmptyElements) {
-        $this->RemoveEmptyHeaderElements($requestDom, $xpath);
-      }
-
-      return $requestDom->saveXML();
+    // Remove empty headers.
+    if ($this->removeEmptyElements) {
+      $this->RemoveEmptyHeaderElements($xpath);
     }
+
+    return $requestDom->saveXML();
   }
 
   /**
@@ -101,11 +100,21 @@ class SoapRequestXmlFixer {
    * @param DOMXPath $xpath the xpath object representing the DOM
    */
   private function FixXmlNode(DOMNode $node, $object, DOMXPath $xpath) {
-    if (is_object($object)) {
-      if ($this->addXsiTypes) {
-        $this->AddXsiType($node, $object);
-      }
+    if ($this->addXsiTypes && is_object($object)) {
+      $this->AddXsiType($node, $object);
+    }
 
+    // Remove empty elements.
+    if ($this->removeEmptyElements && !isset($object)) {
+      $node->parentNode->removeChild($node);
+    }
+
+    // Replace element references.
+    if ($this->replaceReferences && $node->hasAttribute('href')) {
+      $this->ReplaceElementReference($node, $xpath);
+    }
+
+    if (is_object($object)) {
       foreach (get_object_vars($object) as $varName => $varValue) {
         $nodeList =
             $xpath->query("*[local-name() = '" . $varName . "']", $node);
@@ -116,8 +125,6 @@ class SoapRequestXmlFixer {
           $this->FixXmlNode($nodeList->item(0), $varValue, $xpath);
         }
       }
-    } else if (!isset($object) && $this->removeEmptyElements) {
-      $node->parentNode->removeChild($node);
     }
   }
 
@@ -134,12 +141,37 @@ class SoapRequestXmlFixer {
   }
 
   /**
-   * Removes empty header elements from the supplied request.
-   * @param DOMDocument $requestDom the DOM docudment containing the header
+   * Replaces a element reference with a copy of the element it references.
+   * @param DOMElement $elementReference the element reference to replace
+   * @param DOMXPath $xpath the xpath object representing the DOM
    * @access private
    */
-  private function RemoveEmptyHeaderElements(DOMDocument $requestDom,
+  private function ReplaceElementReference(DOMElement $elementReference,
       DOMXPath $xpath) {
+    $href = $elementReference->getAttribute('href');
+    if (version_compare(PHP_VERSION, '5.2.2', '>=')
+        && version_compare(PHP_VERSION, '5.2.4', '<')) {
+      // These versions have a bug where href is generated without the # symbol.
+      $href = '#' . $href;
+    }
+    $id = substr($href, 1);
+    $referencedElements = $xpath->query('//*[@id="' . $id . '"]');
+    if ($referencedElements->length > 0) {
+      $referencedElement = $referencedElements->item(0);
+      for ($i = 0; $i < $referencedElement->childNodes->length; $i++) {
+        $childNode = $referencedElement->childNodes->item($i);
+        $elementReference->appendChild($childNode->cloneNode(true));
+      }
+      $elementReference->removeAttribute('href');
+    }
+  }
+
+  /**
+   * Removes empty header elements from the request.
+   * @param DOMXPath $xpath the xpath object representing the DOM
+   * @access private
+   */
+  private function RemoveEmptyHeaderElements(DOMXPath $xpath) {
     $requestHeaderDom = $xpath->query(
         "//*[local-name()='Envelope']/*[local-name()='Header']"
             . "/*[local-name()='RequestHeader']")->item(0);

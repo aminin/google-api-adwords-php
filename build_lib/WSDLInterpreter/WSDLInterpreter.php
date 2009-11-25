@@ -365,7 +365,7 @@ class WSDLInterpreter
 
   /**
    * Loads a map of complexType to namespace.
-   * @param $xpath the DOMXPath representing the wsdl
+   * @param DOMXPath $xpath the DOMXPath representing the wsdl
    * @access private
    */
   private function _loadNamespaces(DOMXPath $wsdlXPath) {
@@ -489,73 +489,73 @@ class WSDLInterpreter
 
     $properties = $class->getElementsByTagName("entry");
     foreach ($properties as $property) {
-      $return .= "\t/**\n"
-      . "\t * @access public\n"
-      . "\t * @var ".$property->getAttribute("type")."\n"
-      . "\t */\n"
-      . "\t".'public $'.$property->getAttribute("validatedName").";\n\n";
+      $return .= "  /**\n"
+      . "   * @access public\n"
+      . "   * @var ".$property->getAttribute("type")."\n"
+      . "   */\n"
+      . "  ".'public $'.$property->getAttribute("validatedName").";\n\n";
     }
 
     $extraParams = false;
-    $paramMapReturn = "\t".'private $_parameterMap = array ('."\n";
+    $paramMapReturn = "  ".'private $_parameterMap = array ('."\n";
     $properties = $class->getElementsByTagName("entry");
     foreach ($properties as $property) {
       if ($property->getAttribute("name") != $property->getAttribute("validatedName")) {
         $extraParams = true;
-        $paramMapReturn .= "\t\t".'"'.$property->getAttribute("name").
+        $paramMapReturn .= "    ".'"'.$property->getAttribute("name").
                     '" => "'.$property->getAttribute("validatedName").'",'."\n";
       }
     }
-    $paramMapReturn .= "\t".');'."\n\n";
-    $paramMapReturn .= "\t".'/**'."\n";
-    $paramMapReturn .= "\t".' * Provided for setting non-php-standard named variables'."\n";
-    $paramMapReturn .= "\t".' * @param $var Variable name to set'."\n";
-    $paramMapReturn .= "\t".' * @param $value Value to set'."\n";
-    $paramMapReturn .= "\t".' */'."\n";
-    $paramMapReturn .= "\t".'public function __set($var, $value) '.
+    $paramMapReturn .= "  ".');'."\n\n";
+    $paramMapReturn .= "  ".'/**'."\n";
+    $paramMapReturn .= "  ".' * Provided for setting non-php-standard named variables'."\n";
+    $paramMapReturn .= "  ".' * @param $var Variable name to set'."\n";
+    $paramMapReturn .= "  ".' * @param $value Value to set'."\n";
+    $paramMapReturn .= "  ".' */'."\n";
+    $paramMapReturn .= "  ".'public function __set($var, $value) '.
             '{ $this->{$this->_parameterMap[$var]} = $value; }'."\n\n";
-    $paramMapReturn .= "\t".'/**'."\n";
-    $paramMapReturn .= "\t".' * Provided for getting non-php-standard named variables'."\n";
-    $paramMapReturn .= "\t".' * @param $var Variable name to get.'."\n";
-    $paramMapReturn .= "\t".' * @return mixed Variable value'."\n";
-    $paramMapReturn .= "\t".' */'."\n";
-    $paramMapReturn .= "\t".'public function __get($var) {'."\n";
-    $paramMapReturn .= "\t\t".'if (!array_key_exists($var, $this->_parameterMap)) {'."\n";
-    $paramMapReturn .= "\t\t\t".'return NULL;'."\n";
-    $paramMapReturn .= "\t\t".'} else {'."\n";
-    $paramMapReturn .= "\t\t\t".'return $this->{$this->_parameterMap[$var]};'."\n";
-    $paramMapReturn .= "\t\t".'}'."\n";
-    $paramMapReturn .= "\t".'}'."\n\n";
+    $paramMapReturn .= "  ".'/**'."\n";
+    $paramMapReturn .= "  ".' * Provided for getting non-php-standard named variables'."\n";
+    $paramMapReturn .= "  ".' * @param $var Variable name to get.'."\n";
+    $paramMapReturn .= "  ".' * @return mixed Variable value'."\n";
+    $paramMapReturn .= "  ".' */'."\n";
+    $paramMapReturn .= "  ".'public function __get($var) {'."\n";
+    $paramMapReturn .= "    ".'if (!array_key_exists($var, $this->_parameterMap)) {'."\n";
+    $paramMapReturn .= "      ".'return NULL;'."\n";
+    $paramMapReturn .= "    ".'} else {'."\n";
+    $paramMapReturn .= "      ".'return $this->{$this->_parameterMap[$var]};'."\n";
+    $paramMapReturn .= "    ".'}'."\n";
+    $paramMapReturn .= "  ".'}'."\n\n";
 
-    $paramMapReturn .= "\t".'/**'."\n";
-    $paramMapReturn .= "\t".' * Provided for getting non-php-standard named variables'."\n";
-    $paramMapReturn .= "\t".' * @return array parameter map'."\n";
-    $paramMapReturn .= "\t".' */'."\n";
-    $paramMapReturn .= "\t".'protected function getParameterMap() {'."\n";
-    $paramMapReturn .= "\t\t".'return $this->_parameterMap;'."\n\t\t}\n\n";
+    $paramMapReturn .= "  ".'/**'."\n";
+    $paramMapReturn .= "  ".' * Provided for getting non-php-standard named variables'."\n";
+    $paramMapReturn .= "  ".' * @return array parameter map'."\n";
+    $paramMapReturn .= "  ".' */'."\n";
+    $paramMapReturn .= "  ".'protected function getParameterMap() {'."\n";
+    $paramMapReturn .= "    ".'return $this->_parameterMap;'."\n    }\n\n";
 
     if ($extraParams) {
       $return .= $paramMapReturn;
     }
 
-    $return .= "\t/**\n"
-        . "\t * Gets the namesapce of this class\n"
-        . "\t * @return the namespace of this class\n"
-        . "\t */\n"
-        . "\tpublic function getNamespace() {\n"
-        . "\t\treturn \"" . $this->_namespaceMap[$class->getAttribute('name')]
-        . "\";\n\t}\n\n";
+    $return .= "  /**\n"
+        . "   * Gets the namesapce of this class\n"
+        . "   * @return the namespace of this class\n"
+        . "   */\n"
+        . "  public function getNamespace() {\n"
+        . "    return \"" . $this->_namespaceMap[$class->getAttribute('name')]
+        . "\";\n  }\n\n";
 
-    $return .= "\t/**\n"
-        . "\t * Gets the xsi:type name of this class\n"
-        . "\t * @return the xsi:type name of this class\n"
-        . "\t */\n"
-        . "\tpublic function getXsiTypeName() {\n"
-        . "\t\treturn \"" . $class->getAttribute('name') . "\";\n\t}\n\n";
+    $return .= "  /**\n"
+        . "   * Gets the xsi:type name of this class\n"
+        . "   * @return the xsi:type name of this class\n"
+        . "   */\n"
+        . "  public function getXsiTypeName() {\n"
+        . "    return \"" . $class->getAttribute('name') . "\";\n  }\n\n";
 
     $params = $this->_getTopDownConstructorArguments($class);
 
-    $constructor = "\t".'public function __construct(';
+    $constructor = "  ".'public function __construct(';
 
     if (sizeof($params) > 0) {
       $constructor .= "$";
@@ -565,12 +565,12 @@ class WSDLInterpreter
       $constructor .= " = NULL";
     }
     $constructor .= ") {\n";
-    $constructor .= "\t\t"."if(get_parent_class('"
+    $constructor .= "    "."if(get_parent_class('"
         .$class->getAttribute("validatedName")."')) parent::__construct();"."\n";
     foreach($params as $param) {
-      $constructor .= "\t\t" . '$this->' . $param . " = $" . $param . ";\n";
+      $constructor .= "    " . '$this->' . $param . " = $" . $param . ";\n";
     }
-    $constructor .= "\t}\n";
+    $constructor .= "  }\n";
     $return .= $constructor;
     $return .= "}}";
     return $return;
@@ -632,27 +632,27 @@ class WSDLInterpreter
     $this->_soapClientClassName . " {\n";
 
     if (sizeof($this->_classmap) > 0) {
-      $return .= "\t".'/**'."\n";
-      $return .= "\t".' * Default class map for wsdl=>php'."\n";
-      $return .= "\t".' * @access private'."\n";
-      $return .= "\t".' * @var array'."\n";
-      $return .= "\t".' */'."\n";
-      $return .= "\t".'public static $classmap = array('."\n";
+      $return .= "  ".'/**'."\n";
+      $return .= "  ".' * Default class map for wsdl=>php'."\n";
+      $return .= "  ".' * @access private'."\n";
+      $return .= "  ".' * @var array'."\n";
+      $return .= "  ".' */'."\n";
+      $return .= "  ".'public static $classmap = array('."\n";
       foreach ($this->_classmap as $className => $validClassName)    {
-        $return .= "\t\t".'"'.$className.'" => "'.$validClassName.'",'."\n";
+        $return .= "    ".'"'.$className.'" => "'.$validClassName.'",'."\n";
       }
-      $return .= "\t);\n\n";
+      $return .= "  );\n\n";
     }
 
-    $return .= "\t".'/**'."\n";
-    $return .= "\t".' * Constructor using wsdl location and options array'."\n";
-    $return .= "\t".' * @param string $wsdl WSDL location for this service'."\n";
-    $return .= "\t".' * @param array $options Options for the SoapClient'."\n";
-    $return .= "\t".' */'."\n";
-    $return .= "\t".'public function __construct($wsdl=null, $options, $user) {'."\n";
-    $return .= "\t\t".'$options["classmap"] = ' . $service->getAttribute("validatedName") . '::$classmap;' . "\n";
-    $return .= "\t\t".'parent::__construct($wsdl, $options, $user, '. "'" . $service->getAttribute("validatedName") . "');"."\n";
-    $return .= "\t}\n\n";
+    $return .= "  ".'/**'."\n";
+    $return .= "  ".' * Constructor using wsdl location and options array'."\n";
+    $return .= "  ".' * @param string $wsdl WSDL location for this service'."\n";
+    $return .= "  ".' * @param array $options Options for the SoapClient'."\n";
+    $return .= "  ".' */'."\n";
+    $return .= "  ".'public function __construct($wsdl=null, $options, $user) {'."\n";
+    $return .= "    ".'$options["classmap"] = ' . $service->getAttribute("validatedName") . '::$classmap;' . "\n";
+    $return .= "    ".'parent::__construct($wsdl, $options, $user, '. "'" . $service->getAttribute("validatedName") . "');"."\n";
+    $return .= "  }\n\n";
 
     $functionMap = array();
     $functions = $service->getElementsByTagName("function");
@@ -686,18 +686,18 @@ class WSDLInterpreter
    */
   private function _generateServiceFunctionPHP($functionName, $functionNodeList = null) {
     $return = "";
-    $return .= "\t".'/**'."\n";
+    $return .= "  ".'/**'."\n";
 
     $documentation =
     $this->_classes[$functionName]->getElementsByTagName("documentation")->item(0)->nodeValue;
-    $return .= $this->_generateInnerDoc($documentation, "\t");
+    $return .= $this->_generateInnerDoc($documentation, "  ");
 
-    $return .= "\t".' */'."\n";
-    $return .= "\t".'public function '.$functionName . "(" . $this->_getFunctionArgs($functionName) . ") {\n";
-    $return .= "\t\t".'$arg = new ' . $this->_classmap[$functionName] . "(" . $this->_getFunctionArgs($functionName) . ");\n";
-    $return .= "\t\t".'$result = $this->__soapCall("'.$functionName.'", array($arg));'."\n";
-    $return .= "\t\t".'return $result->rval;'."\n";
-    $return .= "\t".'}'."\n";
+    $return .= "  ".' */'."\n";
+    $return .= "  ".'public function '.$functionName . "(" . $this->_getFunctionArgs($functionName) . ") {\n";
+    $return .= "    ".'$arg = new ' . $this->_classmap[$functionName] . "(" . $this->_getFunctionArgs($functionName) . ");\n";
+    $return .= "    ".'$result = $this->__soapCall("'.$functionName.'", array($arg));'."\n";
+    $return .= "    ".'return $result->rval;'."\n";
+    $return .= "  ".'}'."\n";
 
     return $return;
   }

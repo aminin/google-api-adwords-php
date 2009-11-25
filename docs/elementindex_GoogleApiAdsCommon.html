@@ -195,6 +195,8 @@
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGenerateSoapClient">SoapClientFactory::GenerateSoapClient()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates a SOAP client for the given service name. Generates a user level  error if this instalation of PHP does not have the extension for SOAP  installed.</dd>
 							<dt><b>GenerateSoapHeader</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGenerateSoapHeader">SoapClientFactory::GenerateSoapHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the SOAP header for the client.</dd>
+							<dt><b>GetAdsUser</b></dt>
+				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetAdsUser">SoapClientFactory::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user associated with this factory.</dd>
 							<dt><b>GetAuthVarValue</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthVarValue">AdsUser::GetAuthVarValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the authenticaiton value for the <var>$authVar</var> supplied. If  the <var>$authVar</var> is set, it is is used. Otherwirse, the supplied  <var>$authenticationIni</var> is queired for the variable. If none is found  <var>NULL</var> is returned.</dd>
 							<dt><b>GetClientLibraryIdentifier</b></dt>
@@ -215,8 +217,6 @@
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServiceLocation">SoapClientFactory::GetServiceLocation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the end-point location of the service.</dd>
 							<dt><b>GetServiceSoapClient</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetServiceSoapClient">AdsUser::GetServiceSoapClient()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the service by its service name.</dd>
-							<dt><b>GetUser</b></dt>
-				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetUser">SoapClientFactory::GetUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user associated with this factory.</dd>
 							<dt><b>GetVersion</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetVersion">SoapClientFactory::GetVersion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the version associated with this factory.</dd>
 							<dt><b>GetAuthToken</b></dt>
@@ -227,6 +227,8 @@
 				<dd>in file XmlUtils.php, method <a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodGetDomFromXml">XmlUtils::GetDomFromXml()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the DOMDocument of the <var>$xml</var>.</dd>
 							<dt><b>GenerateRequestInfoMessage</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGenerateRequestInfoMessage">AdsSoapClient::GenerateRequestInfoMessage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the request information using the request and response. This  method is called after the request has been made and RemoveSensitiveInfo()  has been called as well.</dd>
+							<dt><b>GetAdsUser</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user for this client.</dd>
 							<dt><b>GetEmail</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetEmail">AdsSoapClient::GetEmail()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the email of the user making the request.</dd>
 							<dt><b>GetLastFaultMessage</b></dt>
@@ -245,8 +247,6 @@
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server that the request was made to.</dd>
 							<dt><b>GetServiceName</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetServiceName">AdsSoapClient::GetServiceName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the service name for this client.</dd>
-							<dt><b>GetUser</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetUser">AdsSoapClient::GetUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user for this client.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -402,7 +402,7 @@
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 26 Oct 2009 18:15:32 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Wed, 25 Nov 2009 14:10:04 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

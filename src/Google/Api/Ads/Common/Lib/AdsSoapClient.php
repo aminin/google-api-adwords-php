@@ -234,7 +234,7 @@ abstract class AdsSoapClient extends SoapClient {
    * Gets the user for this client.
    * @return AdsUser the user for this client.
    */
-  public function GetUser() {
+  public function GetAdsUser() {
     return $this->user;
   }
 
@@ -335,19 +335,21 @@ abstract class AdsSoapClient extends SoapClient {
    * @access protected
    */
   protected function PrepareRequest($request, array $arguments) {
-    if (PHP_VERSION < '5.2.7') {
-      $fixer = NULL;
-      if (PHP_VERSION < '5.2.3') {
-        if (PHP_VERSION < '5.2.0') {
-          trigger_error('The minimum required version of this client library'
-              . ' is 5.2.0.', E_USER_ERROR);
-        } else {
-          $fixer = new SoapRequestXmlFixer(TRUE, TRUE);
-        }
-      } else {
-        $fixer = new SoapRequestXmlFixer(TRUE, FALSE);
-      }
+    $addXsiTypes = false;
+    $removeEmptyElements = false;
+    $replaceReferences = false;
 
+    if (version_compare(PHP_VERSION, '5.2.0', '<')) {
+      trigger_error('The minimum required version of this client library'
+          . ' is 5.2.0.', E_USER_ERROR);
+    }
+    $addXsiTypes = version_compare(PHP_VERSION, '5.2.7', '<');
+    $removeEmptyElements = version_compare(PHP_VERSION, '5.2.3', '<');
+    $replaceReferences = version_compare(PHP_VERSION, '5.2.2', '>=');
+
+    if ($addXsiTypes || $removeEmptyElements || $replaceReferences) {
+      $fixer = new SoapRequestXmlFixer($addXsiTypes, $removeEmptyElements,
+          $replaceReferences);
       return $fixer->FixXml($request, $arguments);
     } else {
       // Empty string is appended to "save" the XML from being deleted.

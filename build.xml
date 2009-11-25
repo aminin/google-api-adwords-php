@@ -3,7 +3,7 @@
 <!-- See README file for requirements                                        -->
 <!-- ======================================================================= -->
 <project basedir="." default="generate_php" name="aw_api_php_lib">
-  <property name="version" value="1.1.0"/>
+  <property name="version" value="1.2.0"/>
   <property name="package" value="GoogleApiAdsAdWords"/>
   <property name="author" value="Adam Rogal &lt;api.arogal@gmail.com&gt;"/>
 
@@ -11,12 +11,12 @@
   <property name="api.version.v200906.cm.services" value="AdGroupService,CampaignCriterionService,AdGroupCriterionService,CampaignService,AdGroupAdService,CampaignTargetService"/>
 
   <property name="api.version.v200909" value="v200909"/>
+  <property name="api.version.v200909.account.services" value="AccountService"/>
   <property name="api.version.v200909.cm.services"
-      value="AdGroupService,CampaignAdExtensionService,AdExtensionOverrideService,CampaignTargetService,CampaignService,AdGroupCriterionService,CampaignCriterionService,GeoLocationService,AdGroupAdService"/>
-  <property name="api.version.v200909.o.services" value="TargetingIdeaService"/>
+      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,GeoLocationService"/>
   <property name="api.version.v200909.info.services" value="InfoService"/>
-  <property name="api.version.v200909.job.services"
-      value="BulkMutateJobService"/>
+  <property name="api.version.v200909.job.services" value="BulkMutateJobService"/>
+  <property name="api.version.v200909.o.services" value="TargetingIdeaService"/>
 
   <property name="src.dir" value="${project.basedir}/src"/>
   <property name="examples.dir" value="${project.basedir}/examples"/>
@@ -97,8 +97,8 @@
   <!-- Target: generates all php for v200909                               -->
   <!-- =================================================================== -->
   <target name="generate_v200909">
-    <property name="server" value="http://adwords.google.com"/>
-    <!-- v200909 -->
+    <property name="server" value="https://adwords.google.com"/>
+
     <!-- cm -->
     <phingcall target="generate_version_group">
       <property name="services.group" value="cm"/>
@@ -153,7 +153,7 @@
   <!-- =================================================================== -->
   <target name="generate_v200906">
     <property name="server" value="https://adwords.google.com"/>
-    <!-- v200906 -->
+
     <!-- cm -->
     <phingcall target="generate_version_group">
       <property name="services.group" value="cm"/>
@@ -226,7 +226,7 @@
     <property name="prefix" value="aw_api_php_lib_${version}_src"/>
     <property name="package.dir" value="${build.dir}/${prefix}"/>
     <mkdir dir="${package.dir}"/>
-    <copy todir="${package.dir}/src">
+    <copy todir="${package.dir}/${prefix}/src">
       <fileset dir="${src.dir}">
         <include name="**/*.php"/>
         <include name="**/*.ini"/>
@@ -235,7 +235,7 @@
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/examples">
+    <copy todir="${package.dir}/${prefix}/examples">
       <fileset dir="${examples.dir}">
         <include name="**/*.php"/>
         <include name="**/*.ini"/>
@@ -244,7 +244,7 @@
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/tests">
+    <copy todir="${package.dir}/${prefix}/tests">
       <fileset dir="${tests.dir}">
         <include name="**/*.php"/>
         <include name="README"/>
@@ -252,35 +252,44 @@
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/test_data">
+    <copy todir="${package.dir}/${prefix}/test_data">
       <fileset dir="${test_data.dir}">
         <include name="*"/>
         <exclude name="**/.svn"/>
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/logs">
+    <copy todir="${package.dir}/${prefix}/logs">
       <fileset dir="${logs.dir}">
         <include name="README"/>
         <exclude name="**/.svn"/>
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/data">
+    <copy todir="${package.dir}/${prefix}/data">
       <fileset dir="${data.dir}">
         <include name="*"/>
         <exclude name="**/.svn"/>
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/docs">
+    <copy todir="${package.dir}/${prefix}/docs">
       <fileset dir="${docs.dir}">
         <include name="**/*"/>
         <exclude name="**/.svn"/>
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}">
+    <copy todir="${package.dir}/${prefix}/build_lib">
+      <fileset dir="${build_lib.dir}">
+        <include name="**/*.php"/>
+        <include name="**/*.xsl"/>
+        <include name="**/*.tmpl"/>
+        <exclude name="**/.svn"/>
+        <exclude name="**/.svn/**"/>
+      </fileset>
+    </copy>
+    <copy todir="${package.dir}/${prefix}">
       <fileset dir=".">
         <include name="build.xml"/>
         <include name="README"/>
@@ -314,7 +323,7 @@
     <property name="prefix" value="aw_api_php_lib_${version}"/>
     <property name="package.dir" value="${build.dir}/${prefix}"/>
     <mkdir dir="${package.dir}"/>
-    <copy todir="${package.dir}/src">
+    <copy todir="${package.dir}/${prefix}/src">
       <fileset dir="${src.dir}">
         <include name="**/*.php"/>
         <include name="**/*.ini"/>
@@ -323,7 +332,7 @@
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/examples">
+    <copy todir="${package.dir}/${prefix}/examples">
       <fileset dir="${examples.dir}">
         <include name="**/*.php"/>
         <include name="**/*.ini"/>
@@ -332,28 +341,28 @@
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/logs">
+    <copy todir="${package.dir}/${prefix}/logs">
       <fileset dir="${logs.dir}">
         <include name="README"/>
         <exclude name="**/.svn"/>
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/data">
+    <copy todir="${package.dir}/${prefix}/data">
       <fileset dir="${data.dir}">
         <include name="*"/>
         <exclude name="**/.svn"/>
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}/docs">
+    <copy todir="${package.dir}/${prefix}/docs">
       <fileset dir="${docs.dir}">
         <include name="**/*"/>
         <exclude name="**/.svn"/>
         <exclude name="**/.svn/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dir}">
+    <copy todir="${package.dir}/${prefix}">
       <fileset dir=".">
         <include name="README"/>
         <include name="ChangeLog"/>

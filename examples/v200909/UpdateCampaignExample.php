@@ -2,7 +2,7 @@
 /**
  * This example updates a campaign by setting the budget delivery method to
  * accelerated. To determine which campaigns exist, run
- * GetAllCampaignsExample.php. To add a campaign, run AddCampaignExample.php.
+ * GetAllCampaignsExample.php. To add a campaign, run AddCampaignsExample.php.
  *
  * PHP version 5
  *
@@ -41,7 +41,7 @@ require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 /**
  * This example updates a campaign by setting the budget delivery method to
  * accelerated. To determine which campaigns exist, run
-* GetAllCampaignsExample.php. To add a campaign, run AddCampaignExample.php.
+* GetAllCampaignsExample.php. To add a campaign, run AddCampaignsExample.php.
  */
 class UpdateCampaignExample {
   static function main() {

@@ -133,14 +133,15 @@ The SOAP XML request fixer used to fix some inconsistencies among the  different
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 47]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 48]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>SoapRequestXmlFixer __construct(
 boolean
 $addXsiTypes, boolean
-$removeEmptyElements)</code>
+$removeEmptyElements, 
+$replaceReferences)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -169,13 +170,18 @@ $removeEmptyElements)</code>
         <td><b>$removeEmptyElements</b>&nbsp;&nbsp;</td>
         <td><var>TRUE</var> if all empty elements      should be removed from the XML request</td>
       </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$replaceReferences</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
         </table>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
 	<a name="methodFixXml"></a>
-	<h3>method FixXml <span class="smalllinenumber">[line 58]</span></h3>
+	<h3>method FixXml <span class="smalllinenumber">[line 61]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -223,7 +229,7 @@ $arguments)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 26 Oct 2009 18:17:30 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Wed, 25 Nov 2009 14:11:05 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

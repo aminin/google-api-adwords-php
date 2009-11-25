@@ -119,6 +119,7 @@ Source Location: /Common/Lib/AdsSoapClient.php<br /><br />
 <ul>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#method__construct">__construct</a></li>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGenerateRequestInfoMessage">GenerateRequestInfoMessage</a></li>
+    <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetAdsUser">GetAdsUser</a></li>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetEmail">GetEmail</a></li>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetLastFaultMessage">GetLastFaultMessage</a></li>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetLastMethodName">GetLastMethodName</a></li>
@@ -128,7 +129,6 @@ Source Location: /Common/Lib/AdsSoapClient.php<br /><br />
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetLastResponseTime">GetLastResponseTime</a></li>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetServer">GetServer</a></li>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetServiceName">GetServiceName</a></li>
-    <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetUser">GetUser</a></li>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodIsFault">IsFault</a></li>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodPrepareRequest">PrepareRequest</a></li>
     <li><a href="../../GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodRemoveSensitiveInfo">RemoveSensitiveInfo</a></li>
@@ -527,6 +527,10 @@ $serviceName)</code>
 		<dd>Constructor using wsdl location and options array</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/AdParamService.html#method__construct">AdParamService::__construct()</a></dt>
+		<dd>Constructor using wsdl location and options array</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/--service-version-/BulkMutateJobService.html#method__construct">BulkMutateJobService::__construct()</a></dt>
 		<dd>Constructor using wsdl location and options array</dd>
 	</dl>
@@ -577,7 +581,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGenerateRequestInfoMessage"></a>
-	<h3>method GenerateRequestInfoMessage <span class="smalllinenumber">[line 376]</span></h3>
+	<h3>method GenerateRequestInfoMessage <span class="smalllinenumber">[line 378]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -612,6 +616,34 @@ $serviceName)</code>
 		<dd>Generates the request info message containing:</dd>
 	</dl>
 	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodGetAdsUser"></a>
+	<h3>method GetAdsUser <span class="smalllinenumber">[line 237]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a> GetAdsUser(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the user for this client.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the user for this client.</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
@@ -701,7 +733,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetLastRequestDom"></a>
-	<h3>method GetLastRequestDom <span class="smalllinenumber">[line 396]</span></h3>
+	<h3>method GetLastRequestDom <span class="smalllinenumber">[line 398]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -760,7 +792,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetLastResponseDom"></a>
-	<h3>method GetLastResponseDom <span class="smalllinenumber">[line 383]</span></h3>
+	<h3>method GetLastResponseDom <span class="smalllinenumber">[line 385]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -874,34 +906,6 @@ $serviceName)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
-	<a name="methodGetUser"></a>
-	<h3>method GetUser <span class="smalllinenumber">[line 237]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a> GetUser(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the user for this client.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the user for this client.</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
 	<a name="methodIsFault"></a>
 	<h3>method IsFault <span class="smalllinenumber">[line 315]</span></h3>
 	<div class="function">
@@ -976,7 +980,7 @@ $arguments)</code>
   </div>
   <hr />
 	<a name="methodRemoveSensitiveInfo"></a>
-	<h3>method RemoveSensitiveInfo <span class="smalllinenumber">[line 366]</span></h3>
+	<h3>method RemoveSensitiveInfo <span class="smalllinenumber">[line 368]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1150,7 +1154,7 @@ $output_headers)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 26 Oct 2009 18:16:40 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.2</a>
+		    Documentation generated on Wed, 25 Nov 2009 14:10:39 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
