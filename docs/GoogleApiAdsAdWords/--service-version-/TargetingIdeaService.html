@@ -888,7 +888,7 @@ Source Location: /AdWords/v200909/o/TargetingIdeaService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 5998]<br />
+[line 6156]<br />
 TargetingIdeaService<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -917,6 +917,8 @@ TargetingIdeaService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;SoapHeader&quot;&nbsp;=&gt;&nbsp;&quot;SoapRequestHeader&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AdGroupCriterionError&quot;&nbsp;=&gt;&nbsp;&quot;AdGroupCriterionError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;ApiError&quot;&nbsp;=&gt;&nbsp;&quot;ApiError&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;AdGroupCriterionLimitExceeded&quot;&nbsp;=&gt;&nbsp;&quot;AdGroupCriterionLimitExceeded&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;EntityCountLimitExceeded&quot;&nbsp;=&gt;&nbsp;&quot;EntityCountLimitExceeded&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AdScheduleTarget&quot;&nbsp;=&gt;&nbsp;&quot;AdScheduleTarget&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;Address&quot;&nbsp;=&gt;&nbsp;&quot;Address&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AgeTarget&quot;&nbsp;=&gt;&nbsp;&quot;AgeTarget&quot;,<br>
@@ -971,6 +973,7 @@ TargetingIdeaService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;ApiException&quot;&nbsp;=&gt;&nbsp;&quot;ApiException&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;ApplicationException&quot;&nbsp;=&gt;&nbsp;&quot;ApplicationException&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AdGroupCriterionError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;AdGroupCriterionErrorReason&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;AdGroupCriterionLimitExceeded.CriteriaLimitType&quot;&nbsp;=&gt;&nbsp;&quot;AdGroupCriterionLimitExceededCriteriaLimitType&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AgeTarget.Age&quot;&nbsp;=&gt;&nbsp;&quot;AgeTargetAge&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AuthenticationError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;AuthenticationErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AuthorizationError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;AuthorizationErrorReason&quot;,<br>
@@ -981,6 +984,7 @@ TargetingIdeaService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;DateError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;DateErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;DayOfWeek&quot;&nbsp;=&gt;&nbsp;&quot;DayOfWeek&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;DistinctError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;DistinctErrorReason&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;EntityCountLimitExceeded.Reason&quot;&nbsp;=&gt;&nbsp;&quot;EntityCountLimitExceededReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;EntityNotFound.Reason&quot;&nbsp;=&gt;&nbsp;&quot;EntityNotFoundReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;GenderTarget.Gender&quot;&nbsp;=&gt;&nbsp;&quot;GenderTargetGender&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;InternalApiError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;InternalApiErrorReason&quot;,<br>
@@ -1058,7 +1062,7 @@ TargetingIdeaService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;getBulkKeywordIdeas&quot;&nbsp;=&gt;&nbsp;&quot;getBulkKeywordIdeas&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;getBulkKeywordIdeasResponse&quot;&nbsp;=&gt;&nbsp;&quot;getBulkKeywordIdeasResponse&quot;,<br>
 &nbsp;&nbsp;)</span></h4>
-	<p>[line 6004]</p>
+	<p>[line 6162]</p>
   Default class map for wsdl=&gt;php<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1088,7 +1092,7 @@ TargetingIdeaService<br /><br /><br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 6161]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 6323]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1136,7 +1140,7 @@ $user)</code>
   </div>
   <hr />
 	<a name="methodget"></a>
-	<h3>method get <span class="smalllinenumber">[line 6183]</span></h3>
+	<h3>method get <span class="smalllinenumber">[line 6345]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1178,7 +1182,7 @@ $selector)</code>
   </div>
   <hr />
 	<a name="methodgetBulkKeywordIdeas"></a>
-	<h3>method getBulkKeywordIdeas <span class="smalllinenumber">[line 6220]</span></h3>
+	<h3>method getBulkKeywordIdeas <span class="smalllinenumber">[line 6382]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1225,7 +1229,7 @@ $selector)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 25 Nov 2009 14:11:13 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Thu, 10 Dec 2009 09:38:27 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

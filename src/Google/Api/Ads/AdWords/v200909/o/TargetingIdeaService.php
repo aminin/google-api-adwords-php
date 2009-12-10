@@ -826,6 +826,36 @@ class AdGroupCriterionErrorReason {
   }
 }}
 
+if (!class_exists("AdGroupCriterionLimitExceededCriteriaLimitType")) {
+/**
+ * The entity type that exceeded the limit.
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class AdGroupCriterionLimitExceededCriteriaLimitType {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "AdGroupCriterionLimitExceeded.CriteriaLimitType";
+  }
+
+  public function __construct() {
+    if(get_parent_class('AdGroupCriterionLimitExceededCriteriaLimitType')) parent::__construct();
+  }
+}}
+
 if (!class_exists("AgeTargetAge")) {
 /**
  * Age segments.
@@ -1126,6 +1156,36 @@ class DistinctErrorReason {
 
   public function __construct() {
     if(get_parent_class('DistinctErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("EntityCountLimitExceededReason")) {
+/**
+ * Limits at various levels of the account.
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class EntityCountLimitExceededReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "EntityCountLimitExceeded.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('EntityCountLimitExceededReason')) parent::__construct();
   }
 }}
 
@@ -3313,6 +3373,61 @@ class DistinctError extends ApiError {
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('DistinctError')) parent::__construct();
     $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("EntityCountLimitExceeded")) {
+/**
+ * Signals that an entity count limit was exceeded for some level.
+ * For example, too many criteria for a campaign.
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class EntityCountLimitExceeded extends ApiError {
+  /**
+   * @access public
+   * @var tnsEntityCountLimitExceededReason
+   */
+  public $reason;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $enclosingId;
+
+  /**
+   * @access public
+   * @var integer
+   */
+  public $limit;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "EntityCountLimitExceeded";
+  }
+
+  public function __construct($reason = NULL, $enclosingId = NULL, $limit = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('EntityCountLimitExceeded')) parent::__construct();
+    $this->reason = $reason;
+    $this->enclosingId = $enclosingId;
+    $this->limit = $limit;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
     $this->ApiErrorType = $ApiErrorType;
@@ -5514,6 +5629,49 @@ class LongRangeAttribute extends Attribute {
   }
 }}
 
+if (!class_exists("AdGroupCriterionLimitExceeded")) {
+/**
+ * Signals that too many criteria were added to some ad group.
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class AdGroupCriterionLimitExceeded extends EntityCountLimitExceeded {
+  /**
+   * @access public
+   * @var tnsAdGroupCriterionLimitExceededCriteriaLimitType
+   */
+  public $limitType;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "AdGroupCriterionLimitExceeded";
+  }
+
+  public function __construct($limitType = NULL, $reason = NULL, $enclosingId = NULL, $limit = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('AdGroupCriterionLimitExceeded')) parent::__construct();
+    $this->limitType = $limitType;
+    $this->reason = $reason;
+    $this->enclosingId = $enclosingId;
+    $this->limit = $limit;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("AgeTarget")) {
 /**
  * Immutable structure to hold an age target.
@@ -6011,6 +6169,8 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "SoapHeader" => "SoapRequestHeader",
     "AdGroupCriterionError" => "AdGroupCriterionError",
     "ApiError" => "ApiError",
+    "AdGroupCriterionLimitExceeded" => "AdGroupCriterionLimitExceeded",
+    "EntityCountLimitExceeded" => "EntityCountLimitExceeded",
     "AdScheduleTarget" => "AdScheduleTarget",
     "Address" => "Address",
     "AgeTarget" => "AgeTarget",
@@ -6065,6 +6225,7 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
     "AdGroupCriterionError.Reason" => "AdGroupCriterionErrorReason",
+    "AdGroupCriterionLimitExceeded.CriteriaLimitType" => "AdGroupCriterionLimitExceededCriteriaLimitType",
     "AgeTarget.Age" => "AgeTargetAge",
     "AuthenticationError.Reason" => "AuthenticationErrorReason",
     "AuthorizationError.Reason" => "AuthorizationErrorReason",
@@ -6075,6 +6236,7 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "DateError.Reason" => "DateErrorReason",
     "DayOfWeek" => "DayOfWeek",
     "DistinctError.Reason" => "DistinctErrorReason",
+    "EntityCountLimitExceeded.Reason" => "EntityCountLimitExceededReason",
     "EntityNotFound.Reason" => "EntityNotFoundReason",
     "GenderTarget.Gender" => "GenderTargetGender",
     "InternalApiError.Reason" => "InternalApiErrorReason",

@@ -1,6 +1,6 @@
 <?php
 /**
- * This example get geo location information for addresses.
+ * This example gets geo location information for addresses.
  *
  * PHP version 5
  *
@@ -37,58 +37,60 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-/**
- * This example get geo location information for addresses.
- */
-class GetGeoLocationInfo {
-  static function main() {
-    try {
-      // Get AdWordsUser from credentials in "../auth.ini"
-      // relative to the AdWordsUser.php file's directory.
-      $user = new AdWordsUser();
+try {
+  // Get AdWordsUser from credentials in "../auth.ini"
+  // relative to the AdWordsUser.php file's directory.
+  $user = new AdWordsUser();
 
-      // Log SOAP XML request and response.
-      $user->LogDefaults();
+  // Log SOAP XML request and response.
+  $user->LogDefaults();
 
-      // Get the GeoLocationService.
-      $getLocationService = $user->GetGeoLocationService('v200909');
+  // Get the GeoLocationService.
+  $getLocationService = $user->GetGeoLocationService('v200909');
 
-      // Create addresses.
-      $addresses = array(
-          new Address('1600 Amphitheatre Parkway', NULL, 'Mountain View',
-              'US-CA', 'California', '94043', 'US'),
-          new Address('76 Ninth Avenue', NULL, 'New York', 'US-NY', 'New York',
-              '10011', 'US'),
-          new Address('五四大街1号, Beijing东城区', NULL, NULL, NULL, NULL,
-              NULL, 'CN'));
+  // Create addresses.
+  $address1 = new Address();
+  $address1->streetAddress = '1600 Amphitheatre Parkway';
+  $address1->cityName = 'Mountain View';
+  $address1->provinceCode = 'US-CA';
+  $address1->postalCode = '94043';
+  $address1->countryCode = 'US';
 
-      // Create selector.
-      $selector = new GeoLocationSelector($addresses);
+  $address2 = new Address();
+  $address2->streetAddress = '76 Ninth Avenue';
+  $address2->cityName = 'New York';
+  $address2->provinceCode = 'US-NY';
+  $address2->postalCode = '10011';
+  $address2->countryCode = 'US';
 
-      // Get geo locations.
-      $geoLocations = $getLocationService->get($selector);
+  $address3 = new Address();
+  $address3->streetAddress = '五四大街1号, Beijing东城区';
+  $address3->countryCode = 'CN';
 
-      // Display geo locations.
-      if (isset($geoLocations)) {
-        foreach ($geoLocations as $geoLocation) {
-          if (!$geoLocation instanceof InvalidGeoLocation) {
-            print 'Address "' . $geoLocation->address->streetAddress
-                . '" has latitude "'
-                . $geoLocation->geoPoint->latitudeInMicroDegrees
-                . '" and longitude "'
-                . $geoLocation->geoPoint->longitudeInMicroDegrees
-                . "\".\n";
-          } else {
-            print "Invalid geo location returned.\n";
-          }
-        }
+  // Create selector.
+  $selector = new GeoLocationSelector();
+  $selector->addresses = array($address1, $address2, $address3);
+
+  // Get geo locations.
+  $geoLocations = $getLocationService->get($selector);
+
+  // Display geo locations.
+  if (isset($geoLocations)) {
+    foreach ($geoLocations as $geoLocation) {
+      if ($geoLocation instanceof InvalidGeoLocation) {
+        print "Invalid geo location was found.\n";
       } else {
-        print "No geo locations were returned.\n";
+        print 'Geo location with street address "'
+            . $geoLocation->address->streetAddress . '", latitude "'
+            . $geoLocation->geoPoint->latitudeInMicroDegrees
+            . '", and longitude "'
+            . $geoLocation->geoPoint->longitudeInMicroDegrees
+            . "\" was found.\n";
       }
-    } catch (Exception $e) {
-      print_r($e);
     }
+  } else {
+    print "No geo locations were found.\n";
   }
+} catch (Exception $e) {
+  print_r($e);
 }
-
-GetGeoLocationInfo::main();

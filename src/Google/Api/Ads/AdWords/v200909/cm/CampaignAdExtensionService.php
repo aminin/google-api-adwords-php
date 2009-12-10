@@ -713,6 +713,60 @@ class ApplicationException {
   }
 }}
 
+if (!class_exists("CampaignAdExtensionSelector")) {
+/**
+ * Specifies criteria for selecting a set of CampaignAdExtensions.
+ */
+class CampaignAdExtensionSelector {
+  /**
+   * @access public
+   * @var CampaignAdExtensionStatsSelector
+   */
+  public $statsSelector;
+
+  /**
+   * @access public
+   * @var integer[]
+   */
+  public $campaignIds;
+
+  /**
+   * @access public
+   * @var tnsCampaignAdExtensionStatus[]
+   */
+  public $statuses;
+
+  /**
+   * @access public
+   * @var Paging
+   */
+  public $paging;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "CampaignAdExtensionSelector";
+  }
+
+  public function __construct($statsSelector = NULL, $campaignIds = NULL, $statuses = NULL, $paging = NULL) {
+    if(get_parent_class('CampaignAdExtensionSelector')) parent::__construct();
+    $this->statsSelector = $statsSelector;
+    $this->campaignIds = $campaignIds;
+    $this->statuses = $statuses;
+    $this->paging = $paging;
+  }
+}}
+
 if (!class_exists("CampaignAdExtension")) {
 /**
  * Represents a campaign level ad extension. A campaign ad extension specifies
@@ -765,60 +819,6 @@ class CampaignAdExtension {
     $this->adExtension = $adExtension;
     $this->status = $status;
     $this->approvalStatus = $approvalStatus;
-  }
-}}
-
-if (!class_exists("CampaignAdExtensionSelector")) {
-/**
- * Specifies criteria for selecting a set of CampaignAdExtensions.
- */
-class CampaignAdExtensionSelector {
-  /**
-   * @access public
-   * @var CampaignAdExtensionStatsSelector
-   */
-  public $statsSelector;
-
-  /**
-   * @access public
-   * @var integer[]
-   */
-  public $campaignIds;
-
-  /**
-   * @access public
-   * @var tnsCampaignAdExtensionStatus[]
-   */
-  public $statuses;
-
-  /**
-   * @access public
-   * @var Paging
-   */
-  public $paging;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "CampaignAdExtensionSelector";
-  }
-
-  public function __construct($statsSelector = NULL, $campaignIds = NULL, $statuses = NULL, $paging = NULL) {
-    if(get_parent_class('CampaignAdExtensionSelector')) parent::__construct();
-    $this->statsSelector = $statsSelector;
-    $this->campaignIds = $campaignIds;
-    $this->statuses = $statuses;
-    $this->paging = $paging;
   }
 }}
 
@@ -2903,13 +2903,13 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "StringLengthError" => "StringLengthError",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
+    "CampaignAdExtensionSelector" => "CampaignAdExtensionSelector",
     "CampaignAdExtension" => "CampaignAdExtension",
     "CampaignAdExtensionOperation" => "CampaignAdExtensionOperation",
     "CampaignAdExtensionPage" => "CampaignAdExtensionPage",
     "Page" => "Page",
     "CampaignAdExtensionReturnValue" => "CampaignAdExtensionReturnValue",
     "ListReturnValue" => "ListReturnValue",
-    "CampaignAdExtensionSelector" => "CampaignAdExtensionSelector",
     "AdExtensionError.Reason" => "AdExtensionErrorReason",
     "AuthenticationError.Reason" => "AuthenticationErrorReason",
     "AuthorizationError.Reason" => "AuthorizationErrorReason",

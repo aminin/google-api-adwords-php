@@ -1,3 +1,8 @@
+1.2.1:
+- Added new examples and rewrote existing ones for consistency.
+- Fixed incorrect method and service name for GetAdExtensionOverrideService in
+  class AdWordsUser.
+
 1.2.0:
 - Added support AdParamService.
 - Added support for validateOnly header.
