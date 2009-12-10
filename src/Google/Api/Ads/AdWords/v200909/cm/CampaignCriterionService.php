@@ -1212,6 +1212,32 @@ class NullErrorReason {
   }
 }}
 
+if (!class_exists("OperationAccessDeniedReason")) {
+/**
+ * The reasons for the operation access error.
+ */
+class OperationAccessDeniedReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OperationAccessDenied.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('OperationAccessDeniedReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("Operator")) {
 /**
  * This represents an operator that may be presented to an adsapi service.
@@ -2164,6 +2190,43 @@ class NullError extends ApiError {
   }
 }}
 
+if (!class_exists("OperationAccessDenied")) {
+/**
+ * Unauthorized access errors as determined by the invoked service's
+ * access policy.
+ */
+class OperationAccessDenied extends ApiError {
+  /**
+   * @access public
+   * @var tnsOperationAccessDeniedReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OperationAccessDenied";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('OperationAccessDenied')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("OperatorError")) {
 /**
  * A list of all errors associated with the @SupportedOperators constraints.
@@ -2674,6 +2737,7 @@ class CampaignCriterionService extends AdWordsSoapClient {
     "NotEmptyError" => "NotEmptyError",
     "NotWhitelistedError" => "NotWhitelistedError",
     "NullError" => "NullError",
+    "OperationAccessDenied" => "OperationAccessDenied",
     "OperatorError" => "OperatorError",
     "Paging" => "Paging",
     "PagingError" => "PagingError",
@@ -2709,6 +2773,7 @@ class CampaignCriterionService extends AdWordsSoapClient {
     "NotEmptyError.Reason" => "NotEmptyErrorReason",
     "NotWhitelistedError.Reason" => "NotWhitelistedErrorReason",
     "NullError.Reason" => "NullErrorReason",
+    "OperationAccessDenied.Reason" => "OperationAccessDeniedReason",
     "Operator" => "Operator",
     "OperatorError.Reason" => "OperatorErrorReason",
     "PagingError.Reason" => "PagingErrorReason",

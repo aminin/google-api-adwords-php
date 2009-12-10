@@ -1,6 +1,6 @@
 <?php
 /**
- * This example shows how to use the validateOnly header to check for errors.
+ * This example shows how to use the validate only header to check for errors.
  * No objects will be created, but exceptions will still be thrown.
  *
  * PHP version 5
@@ -38,77 +38,76 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-/**
- * This example shows how to use the validateOnly header to check for errors.
- * No objects will be created, but exceptions will still be thrown.
- */
-class CheckCampaignsExample {
-  static function main() {
-    try {
-      // Get AdWordsUser from credentials in "../auth.ini"
-      // relative to the AdWordsUser.php file's directory.
-      $user = new AdWordsUser();
+try {
+  // Get AdWordsUser from credentials in "../auth.ini"
+  // relative to the AdWordsUser.php file's directory.
+  $user = new AdWordsUser();
 
-      // Log SOAP XML request and response.
-      $user->LogDefaults();
+  // Log SOAP XML request and response.
+  $user->LogDefaults();
 
-      // Get the validation CampaignService by passing 'true' for the parameter
-      // $validateOnly.
-      $campaignValidationService = $user->GetCampaignService('v200909', NULL,
-          NULL, true);
+  // Get the validation CampaignService by passing 'true' for the parameter
+  // $validateOnly.
+  $campaignValidationService = $user->GetCampaignService('v200909', NULL,
+      NULL, true);
 
-      // Create new campaign
-      $goodCampaign = new Campaign();
-      $goodCampaign->name = 'Campaign #' + time();
-      $goodCampaign->status = 'PAUSED';
-      $goodCampaign->biddingStrategy = new ManualCPC();
-      $goodCampaign->budget =
-          new Budget('DAILY', new Money(50000000), 'STANDARD');
+  // Create campaign.
+  $goodCampaign = new Campaign();
+  $goodCampaign->name = 'Campaign #' + time();
+  $goodCampaign->status = 'PAUSED';
+  $goodCampaign->biddingStrategy = new ManualCPC();
 
-      $operation = new CampaignOperation();
-      $operation->operand = $goodCampaign;
-      $operation->operator = 'ADD';
+  // Create budget.
+  $budget = new Budget();
+  $budget->period = 'DAILY';
+  $budget->amount = new Money(50000000);
+  $budget->deliveryMethod = 'STANDARD';
+  $goodCampaign->budget = $budget;
 
-      // Validate campaign add operation.
-      $result = $campaignValidationService->mutate(array($operation));
+  // Create operations.
+  $operation = new CampaignOperation();
+  $operation->operand = $goodCampaign;
+  $operation->operator = 'ADD';
 
-      // Display new campaigns, which should be none if the service was a
-      // validation service.
-      if (isset($result->value)) {
-        foreach ($result->value as $campaign) {
-          print 'New campaign with name "' . $campaign->name
-              . '" and id "' . $campaign->id . "\" was created.\n";
-        }
-      } else {
-        print "No campaigns were created.\n";
-      }
+  $operations = array($operation);
 
-      // Provide an invalid bidding strategy that will cause an exception
-      // durning validation.
-      $badCampaign = new Campaign();
-      $badCampaign->name = 'Campaign #' + time();
-      $badCampaign->status = 'PAUSED';
-      $badCampaign->budget =
-          new Budget('DAILY', new Money(50000000), 'STANDARD');
+  // Validate campaign operation.
+  $result = $campaignValidationService->mutate($operations);
 
-      // Throws RequiredError.REQUIRED @ operations[0].operand.biddingStrategy.
-      $badCampaign->biddingStrategy = NULL;
-
-      $operation = new CampaignOperation();
-      $operation->operand = $badCampaign;
-      $operation->operator = 'ADD';
-
-      try {
-        // Validate campaign add operation.
-        $result = $campaignValidationService->mutate(array($operation));
-      } catch (ApiException $e) {
-        print "Validation failed for reason:\n";
-        print_r($e);
-      }
-    } catch (Exception $e) {
-      print_r($e);
+  // Display new campaigns, which should be none if the service was a
+  // validation service.
+  if (isset($result->value)) {
+    foreach ($result->value as $campaign) {
+      print 'New campaign with name "' . $campaign->name
+          . '" and id "' . $campaign->id . "\" was created.\n";
     }
+  } else {
+    print "No campaigns were created.\n";
   }
-}
 
-CheckCampaignsExample::main();
+  // Provide an invalid bidding strategy that will cause an exception
+  // durning validation.
+  $badCampaign = new Campaign();
+  $badCampaign->name = 'Campaign #' + time();
+  $badCampaign->status = 'PAUSED';
+  $badCampaign->budget = $budget;
+
+  // Throws RequiredError.REQUIRED @ operations[0].operand.biddingStrategy.
+  $badCampaign->biddingStrategy = NULL;
+
+  // Create operations.
+  $operation = new CampaignOperation();
+  $operation->operand = $badCampaign;
+  $operation->operator = 'ADD';
+
+  $operations = array($operation);
+
+  try {
+    // Validate campaign operation.
+    $result = $campaignValidationService->mutate($operations);
+  } catch (Exception $e) {
+    print 'Validation failed for reason "' . $e->getMessage() . "\".\n";
+  }
+} catch (Exception $e) {
+  print_r($e);
+}

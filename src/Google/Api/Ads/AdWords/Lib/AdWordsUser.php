@@ -38,7 +38,7 @@ require_once 'AdWordsSoapClientFactory.php';
  * services.
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = 'v1.2.0';
+  private static $LIB_VERSION = 'v1.2.1';
   private static $LIB_NAME = 'AdWords API PHP Client Library';
 
   /**
@@ -142,7 +142,7 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
-   * Gets the AdExtensionService SOAP client.
+   * Gets the AdExtensionOverrideService SOAP client.
    * @param string $version the version of the service to get. If
    *     <var>NULL</var>, then the default version will be used
    * @param string $server the server to make the request to. If
@@ -151,12 +151,13 @@ class AdWordsUser extends AdsUser {
    *     If <var>NULL</var>, then the built-in SOAP client factory will be used
    * @param bool $validateOnly if the service should be created in validateOnly
    *     mode
-   * @return AdExtensionService the instantiated ad extension service
+   * @return AdExtensionOverrideService the instantiated ad extension override
+   *     service
    */
-  public function GetAdExtensionService($version = NULL,
+  public function GetAdExtensionOverrideService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('AdExtensionService', 'cm', $version, $server,
+    return $this->GetService('AdExtensionOverrideService', 'cm', $version, $server,
         $serviceFactory, NULL, NULL, $validateOnly);
   }
 

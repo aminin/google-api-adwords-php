@@ -1,7 +1,6 @@
 <?php
 /**
- * This example gets all campaigns. To add campaigns, run
- * AddCampaignsExample.php.
+ * This example gets all campaigns. To add a campaign, run AddCampaign.php.
  *
  * PHP version 5
  *
@@ -25,6 +24,8 @@
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @link       http://code.google.com/apis/adwords/v2009/docs/reference/CampaignService.html
  */
 
 error_reporting(E_STRICT | E_ALL);
@@ -37,39 +38,32 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-/**
- * This example gets all campaigns. To add campaigns, run
- * AddCampaignsExample.php.
- */
-class GetAllCampaignsExample {
-  static function main() {
-    try {
-      // Get AdWordsUser from credentials in "../auth.ini"
-      // relative to the AdWordsUser.php file's directory.
-      $user = new AdWordsUser();
+try {
+  // Get AdWordsUser from credentials in "../auth.ini"
+  // relative to the AdWordsUser.php file's directory.
+  $user = new AdWordsUser();
 
-      // Log SOAP XML request and response.
-      $user->LogDefaults();
+  // Log SOAP XML request and response.
+  $user->LogDefaults();
 
-      // Get the CampaignService.
-      $campaignService = $user->GetCampaignService();
+  // Get the CampaignService.
+  $campaignService = $user->GetCampaignService('v200909');
 
-      // Get all campaigns.
-      $campaignPage = $campaignService->get(new CampaignSelector());
+  // Create selector.
+  $selector = new CampaignSelector();
 
-      // Display campaigns.
-      if (isset($campaignPage->entries)) {
-        foreach ($campaignPage->entries as $campaign) {
-          print 'Campaign with name "' . $campaign->name . '" and id "'
-              . $campaign->id . "\" was found.\n";
-        }
-      } else {
-        print "No campaigns found.\n";
-      }
-    } catch (Exception $e) {
-      print_r($e);
+  // Get all campaigns.
+  $page = $campaignService->get($selector);
+
+  // Display campaigns.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $campaign) {
+      print 'Campaign with name "' . $campaign->name . '" and id "'
+          . $campaign->id . "\" was found.\n";
     }
+  } else {
+    print "No campaigns were found.\n";
   }
+} catch (Exception $e) {
+  print_r($e);
 }
-
-GetAllCampaignsExample::main();
