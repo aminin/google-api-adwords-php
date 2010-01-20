@@ -38,26 +38,29 @@ require_once 'PHPUnit/Framework.php';
  */
 class InfoServiceTest extends PHPUnit_Framework_TestCase {
   private $version = 'v200909';
-  private $server = 'http://adwords-sandbox.google.com';
   private $user;
   private $service;
 
   private static $clientId;
 
   protected function setUp() {
-    $this->user = new AdWordsUser(dirname(__FILE__)
-        . '/../../../../../../test_data/test_auth.ini');
+    $authFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
+    $settingsFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
+    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
+        NULL, NULL, NULL, $settingsFile);
     InfoServiceTest::$clientId = $this->user->GetClientId();
     $this->user->SetClientId(NULL);
     $this->user->LogDefaults();
     $this->service =
-        $this->user->GetInfoService($this->version, $this->server);
+        $this->user->GetInfoService($this->version);
   }
 
   /**
    * Test whether we can get free usage units per month using v200909.
    */
-  public function testGetFreeUsageUnitsPerMonthV200909() {
+  public function testGetFreeUsageUnitsPerMonth() {
     $selector = new InfoSelector(NULL, NULL, NULL,
         NULL, NULL, 'FREE_USAGE_API_UNITS_PER_MONTH');
     $apiUsageInfo = $this->service->get($selector);
@@ -69,7 +72,7 @@ class InfoServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can get total usage units per month using v200909.
    */
-  public function testGetTotalUsageUnitsPerMonthV200909() {
+  public function testGetTotalUsageUnitsPerMonth() {
     $selector = new InfoSelector(NULL, NULL, NULL,
         NULL, NULL, 'TOTAL_USAGE_API_UNITS_PER_MONTH');
     $apiUsageInfo = $this->service->get($selector);
@@ -81,7 +84,7 @@ class InfoServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can get operation count using v200909.
    */
-  public function testGetOperationCountV200909() {
+  public function testGetOperationCount() {
     $selector = new InfoSelector('CampaignService', 'get', NULL,
         new DateRange('20090601', '20090831'), NULL, 'OPERATION_COUNT');
     $apiUsageInfo = $this->service->get($selector);
@@ -93,7 +96,7 @@ class InfoServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can get unit count using v200909.
    */
-  public function testGetUnitCountV200909() {
+  public function testGetUnitCount() {
     $selector = new InfoSelector('CampaignService', 'get', NULL,
         new DateRange('20090601', '20090831'), NULL, 'UNIT_COUNT');
     $apiUsageInfo = $this->service->get($selector);
@@ -105,7 +108,7 @@ class InfoServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can get unit count for clients using v200909.
    */
-  public function testGetUnitCountForClientsV200909() {
+  public function testGetUnitCountForClients() {
     $selector = new InfoSelector('CampaignService', 'get', NULL,
         new DateRange('20090601', '20090831'),
         array(InfoServiceTest::$clientId), 'UNIT_COUNT_FOR_CLIENTS');
@@ -120,7 +123,7 @@ class InfoServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can get method cost using v200909.
    */
-  public function testGetMethodCostV200909() {
+  public function testGetMethodCost() {
     $selector = new InfoSelector('CampaignService', 'get', NULL,
         new DateRange('20090601', '20090601'),
         array(InfoServiceTest::$clientId), 'METHOD_COST');

@@ -473,7 +473,7 @@ class WSDLInterpreter
    */
   private function _generateClassPHP($class) {
     $return = "";
-    $return .= 'if (!class_exists("'.$class->getAttribute("validatedName").'")) {'."\n";
+    $return .= 'if (!class_exists("'.$class->getAttribute("validatedName").'", FALSE)) {'."\n";
     $return .= '/**'."\n";
     $return .= $this->_generateInnerDoc(
     $class->getElementsByTagName("documentation")->item(0)->nodeValue);

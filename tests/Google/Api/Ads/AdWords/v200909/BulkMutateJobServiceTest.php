@@ -38,7 +38,6 @@ require_once 'PHPUnit/Framework.php';
  */
 class BulkMutateJobServiceTest extends PHPUnit_Framework_TestCase {
   private $version = 'v200909';
-  private $server = 'https://adwords-sandbox.google.com';
   private $user;
   private $service;
 
@@ -47,14 +46,18 @@ class BulkMutateJobServiceTest extends PHPUnit_Framework_TestCase {
   private static $adGroupId2;
 
   protected function setUp() {
-    $this->user = new AdWordsUser(dirname(__FILE__)
-        . '/../../../../../../test_data/test_auth.ini');
+    $authFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
+    $settingsFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
+    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
+        NULL, NULL, NULL, $settingsFile);
     $this->user->LogDefaults();
     $this->service =
-        $this->user->GetBulkMutateJobService($this->version, $this->server);
+        $this->user->GetBulkMutateJobService($this->version);
 
     if (!isset(BulkMutateJobServiceTest::$campaignId)) {
-      $service = $this->user->GetCampaignService($this->version, $this->server);
+      $service = $this->user->GetCampaignService($this->version);
 
       $campaign = new Campaign();
       $campaign->name = 'Campaign #' . time();
@@ -70,7 +73,7 @@ class BulkMutateJobServiceTest extends PHPUnit_Framework_TestCase {
 
     if (!isset(BulkMutateJobServiceTest::$adGroupId1)
         || !isset(BulkMutateJobServiceTest::$adGroupId1)) {
-      $service = $this->user->GetAdGroupService($this->version, $this->server);
+      $service = $this->user->GetAdGroupService($this->version);
 
       $adGroup1 = new AdGroup();
       $adGroup1->campaignId = BulkMutateJobServiceTest::$campaignId;
@@ -99,14 +102,14 @@ class BulkMutateJobServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can fetch all jobs currently in the queue using v200909.
    */
-  public function testGetAllJobsV200909() {
+  public function testGetAllJobs() {
     $jobs = $this->service->get(new BulkMutateJobSelector());
   }
 
   /**
    * Test whether we can fetch all COMPLETED jobs using v200909.
    */
-  public function testGetAllCompletedJobsV200909() {
+  public function testGetAllCompletedJobs() {
     $jobs = $this->service->get(
         new BulkMutateJobSelector(NULL, array('COMPLETED')));
   }
@@ -115,7 +118,7 @@ class BulkMutateJobServiceTest extends PHPUnit_Framework_TestCase {
    * Test whether we can set campaign targets using single part job with
    * single stream and multiple operations using v200909.
    */
-  public function testSinglePartSingleStreamMultipleOperationsV200909() {
+  public function testSinglePartSingleStreamMultipleOperations() {
     $scopingEntityId =
         new EntityId('CAMPAIGN_ID', BulkMutateJobServiceTest::$campaignId);
 

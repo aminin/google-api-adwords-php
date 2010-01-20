@@ -138,7 +138,7 @@ class Logger {
 
     $appenders = Logger::$logToMap[$log];
 
-    if (!array_search($handleLocation, $appenders)) {
+    if (array_search($handleLocation, $appenders) === FALSE) {
       array_push($appenders, $handleLocation);
     }
 

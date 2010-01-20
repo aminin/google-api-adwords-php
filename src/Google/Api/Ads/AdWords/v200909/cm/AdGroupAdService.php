@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage ${service.version}
+ * @subpackage v200909
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -28,7 +28,7 @@
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("Address")) {
+if (!class_exists("Address", FALSE)) {
 /**
  * Structure to specify an address location.
  */
@@ -103,7 +103,7 @@ class Address {
   }
 }}
 
-if (!class_exists("DateRange")) {
+if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
  */
@@ -143,7 +143,7 @@ class DateRange {
   }
 }}
 
-if (!class_exists("Dimensions")) {
+if (!class_exists("Dimensions", FALSE)) {
 /**
  * Represents a simple height-width dimension.
  */
@@ -183,7 +183,7 @@ class Dimensions {
   }
 }}
 
-if (!class_exists("GeoPoint")) {
+if (!class_exists("GeoPoint", FALSE)) {
 /**
  * Specifies a geo location with the supplied lat/long.
  */
@@ -223,7 +223,7 @@ class GeoPoint {
   }
 }}
 
-if (!class_exists("Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry")) {
+if (!class_exists("Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type MediaExtendedCapabilityType
  * and value of type MediaExtendedCapabilityState.
@@ -264,7 +264,7 @@ class Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEnt
   }
 }}
 
-if (!class_exists("Media_Size_DimensionsMapEntry")) {
+if (!class_exists("Media_Size_DimensionsMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Size
  * and value of type Dimensions.
@@ -305,7 +305,7 @@ class Media_Size_DimensionsMapEntry {
   }
 }}
 
-if (!class_exists("Media_Size_StringMapEntry")) {
+if (!class_exists("Media_Size_StringMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Size
  * and value of type String.
@@ -346,7 +346,7 @@ class Media_Size_StringMapEntry {
   }
 }}
 
-if (!class_exists("Paging")) {
+if (!class_exists("Paging", FALSE)) {
 /**
  * Specifies what kind of paging wanted for the result of a get.
  */
@@ -386,7 +386,7 @@ class Paging {
   }
 }}
 
-if (!class_exists("PolicyViolationErrorPart")) {
+if (!class_exists("PolicyViolationErrorPart", FALSE)) {
 /**
  * Points to a substring within an ad field or criterion.
  */
@@ -426,7 +426,7 @@ class PolicyViolationErrorPart {
   }
 }}
 
-if (!class_exists("PolicyViolationKey")) {
+if (!class_exists("PolicyViolationKey", FALSE)) {
 /**
  * Key of the violation. The key is used for referring to a violation when
  * filing an exemption request.
@@ -467,7 +467,7 @@ class PolicyViolationKey {
   }
 }}
 
-if (!class_exists("SoapRequestHeader")) {
+if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
  */
@@ -542,7 +542,7 @@ class SoapRequestHeader {
   }
 }}
 
-if (!class_exists("SoapResponseHeader")) {
+if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
  */
@@ -596,7 +596,7 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("StatsSelector")) {
+if (!class_exists("StatsSelector", FALSE)) {
 /**
  * Selects statistics for date range.
  */
@@ -668,7 +668,7 @@ class StatsSelector {
   }
 }}
 
-if (!class_exists("AdUnionId")) {
+if (!class_exists("AdUnionId", FALSE)) {
 /**
  * Represents an id indicating a grouping of Ads under some heuristic.
  */
@@ -740,7 +740,7 @@ class AdUnionId {
   }
 }}
 
-if (!class_exists("ComparableValue")) {
+if (!class_exists("ComparableValue", FALSE)) {
 /**
  * Comparable types for constructing ranges with.
  */
@@ -805,7 +805,7 @@ class ComparableValue {
   }
 }}
 
-if (!class_exists("ExemptionRequest")) {
+if (!class_exists("ExemptionRequest", FALSE)) {
 /**
  * A request to be exempted from a {@link PolicyViolationError}.
  */
@@ -838,7 +838,7 @@ class ExemptionRequest {
   }
 }}
 
-if (!class_exists("Media")) {
+if (!class_exists("Media", FALSE)) {
 /**
  * Represents any media (e.g., image).
  */
@@ -987,7 +987,7 @@ class Media {
   }
 }}
 
-if (!class_exists("Stats")) {
+if (!class_exists("Stats", FALSE)) {
 /**
  * Statistics about an ad or criterion within an adgroup or campaign.
  */
@@ -1164,7 +1164,7 @@ class Stats {
   }
 }}
 
-if (!class_exists("AdWordsTarget")) {
+if (!class_exists("AdWordsTarget", FALSE)) {
 /**
  * Target abstract class.
  */
@@ -1229,7 +1229,7 @@ class AdWordsTarget {
   }
 }}
 
-if (!class_exists("TemplateElementField")) {
+if (!class_exists("TemplateElementField", FALSE)) {
 /**
  * Represents a field in a template element.
  */
@@ -1283,7 +1283,7 @@ class TemplateElementField {
   }
 }}
 
-if (!class_exists("ApiError")) {
+if (!class_exists("ApiError", FALSE)) {
 /**
  * A service api error base class that provides error details.
  * 1) the OGNL field path is provided for parsers.
@@ -1364,7 +1364,7 @@ class ApiError {
   }
 }}
 
-if (!class_exists("ApplicationException")) {
+if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
  */
@@ -1436,7 +1436,7 @@ class ApplicationException {
   }
 }}
 
-if (!class_exists("TemplateElement")) {
+if (!class_exists("TemplateElement", FALSE)) {
 /**
  * Represents an element in a template. Each template element is composed
  * of a list of fields (actual value data).
@@ -1477,7 +1477,7 @@ class TemplateElement {
   }
 }}
 
-if (!class_exists("AdGroupAdSelector")) {
+if (!class_exists("AdGroupAdSelector", FALSE)) {
 /**
  * Specifies criteria for selecting a set of AdGroupAds for the account.
  */
@@ -1538,7 +1538,7 @@ class AdGroupAdSelector {
   }
 }}
 
-if (!class_exists("Ad")) {
+if (!class_exists("Ad", FALSE)) {
 /**
  * The base class of all Ad types.  Not abstract since it is conceivable for
  * the base attributes of an Ad to be updated without reference to its concrete
@@ -1640,7 +1640,7 @@ class Ad {
   }
 }}
 
-if (!class_exists("AdGroupAd")) {
+if (!class_exists("AdGroupAd", FALSE)) {
 /**
  * Represents an ad in an ad group.
  */
@@ -1694,7 +1694,7 @@ class AdGroupAd {
   }
 }}
 
-if (!class_exists("ListReturnValue")) {
+if (!class_exists("ListReturnValue", FALSE)) {
 /**
  * Base list return value type.
  */
@@ -1759,7 +1759,7 @@ class ListReturnValue {
   }
 }}
 
-if (!class_exists("Operation")) {
+if (!class_exists("Operation", FALSE)) {
 /**
  * This represents an operation that includes an operator and an operand
  * specified type.
@@ -1832,7 +1832,7 @@ class Operation {
   }
 }}
 
-if (!class_exists("Page")) {
+if (!class_exists("Page", FALSE)) {
 /**
  * Contains the results from a get call.
  */
@@ -1904,7 +1904,7 @@ class Page {
   }
 }}
 
-if (!class_exists("AdApprovalStatus")) {
+if (!class_exists("AdApprovalStatus", FALSE)) {
 /**
  * Approval status for Creatives.
  */
@@ -1930,7 +1930,7 @@ class AdApprovalStatus {
   }
 }}
 
-if (!class_exists("AdErrorReason")) {
+if (!class_exists("AdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -1956,7 +1956,7 @@ class AdErrorReason {
   }
 }}
 
-if (!class_exists("AdGroupAdStatus")) {
+if (!class_exists("AdGroupAdStatus", FALSE)) {
 /**
  * The current status of an Ad.
  */
@@ -1982,7 +1982,7 @@ class AdGroupAdStatus {
   }
 }}
 
-if (!class_exists("AdGroupAdErrorReason")) {
+if (!class_exists("AdGroupAdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -2008,7 +2008,7 @@ class AdGroupAdErrorReason {
   }
 }}
 
-if (!class_exists("AgeTargetAge")) {
+if (!class_exists("AgeTargetAge", FALSE)) {
 /**
  * Age segments.
  */
@@ -2034,7 +2034,7 @@ class AgeTargetAge {
   }
 }}
 
-if (!class_exists("AuthenticationErrorReason")) {
+if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
  */
@@ -2060,7 +2060,7 @@ class AuthenticationErrorReason {
   }
 }}
 
-if (!class_exists("AuthorizationErrorReason")) {
+if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
  */
@@ -2086,7 +2086,7 @@ class AuthorizationErrorReason {
   }
 }}
 
-if (!class_exists("ClientTermsErrorReason")) {
+if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
@@ -2113,7 +2113,7 @@ class ClientTermsErrorReason {
   }
 }}
 
-if (!class_exists("DatabaseErrorReason")) {
+if (!class_exists("DatabaseErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
  */
@@ -2139,7 +2139,7 @@ class DatabaseErrorReason {
   }
 }}
 
-if (!class_exists("DateErrorReason")) {
+if (!class_exists("DateErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -2165,7 +2165,7 @@ class DateErrorReason {
   }
 }}
 
-if (!class_exists("DayOfWeek")) {
+if (!class_exists("DayOfWeek", FALSE)) {
 /**
  * Days of the week.
  */
@@ -2191,7 +2191,7 @@ class DayOfWeek {
   }
 }}
 
-if (!class_exists("DeprecatedAdType")) {
+if (!class_exists("DeprecatedAdType", FALSE)) {
 /**
  * 
  */
@@ -2217,7 +2217,7 @@ class DeprecatedAdType {
   }
 }}
 
-if (!class_exists("DistinctErrorReason")) {
+if (!class_exists("DistinctErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -2243,7 +2243,7 @@ class DistinctErrorReason {
   }
 }}
 
-if (!class_exists("EntityCountLimitExceededReason")) {
+if (!class_exists("EntityCountLimitExceededReason", FALSE)) {
 /**
  * Limits at various levels of the account.
  */
@@ -2269,7 +2269,7 @@ class EntityCountLimitExceededReason {
   }
 }}
 
-if (!class_exists("EntityNotFoundReason")) {
+if (!class_exists("EntityNotFoundReason", FALSE)) {
 /**
  * The specified id refered to an entity which either doesn't exist or is not accessible to the
  * customer. e.g. campaign belongs to another customer.
@@ -2296,7 +2296,7 @@ class EntityNotFoundReason {
   }
 }}
 
-if (!class_exists("GenderTargetGender")) {
+if (!class_exists("GenderTargetGender", FALSE)) {
 /**
  * Gender segments.
  */
@@ -2322,7 +2322,7 @@ class GenderTargetGender {
   }
 }}
 
-if (!class_exists("IdErrorReason")) {
+if (!class_exists("IdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -2348,7 +2348,7 @@ class IdErrorReason {
   }
 }}
 
-if (!class_exists("ImageErrorReason")) {
+if (!class_exists("ImageErrorReason", FALSE)) {
 /**
  * 
  */
@@ -2374,7 +2374,7 @@ class ImageErrorReason {
   }
 }}
 
-if (!class_exists("InternalApiErrorReason")) {
+if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
  */
@@ -2400,7 +2400,7 @@ class InternalApiErrorReason {
   }
 }}
 
-if (!class_exists("MarkupLanguageType")) {
+if (!class_exists("MarkupLanguageType", FALSE)) {
 /**
  * Markup languages to use for mobile ads.
  */
@@ -2426,7 +2426,7 @@ class MarkupLanguageType {
   }
 }}
 
-if (!class_exists("MediaMediaExtendedCapabilityState")) {
+if (!class_exists("MediaMediaExtendedCapabilityState", FALSE)) {
 /**
  * 
  */
@@ -2452,7 +2452,7 @@ class MediaMediaExtendedCapabilityState {
   }
 }}
 
-if (!class_exists("MediaMediaExtendedCapabilityType")) {
+if (!class_exists("MediaMediaExtendedCapabilityType", FALSE)) {
 /**
  * 
  */
@@ -2478,7 +2478,7 @@ class MediaMediaExtendedCapabilityType {
   }
 }}
 
-if (!class_exists("MediaMediaSubType")) {
+if (!class_exists("MediaMediaSubType", FALSE)) {
 /**
  * 
  */
@@ -2504,7 +2504,7 @@ class MediaMediaSubType {
   }
 }}
 
-if (!class_exists("MediaMediaType")) {
+if (!class_exists("MediaMediaType", FALSE)) {
 /**
  * Media types
  */
@@ -2530,7 +2530,7 @@ class MediaMediaType {
   }
 }}
 
-if (!class_exists("MediaMimeType")) {
+if (!class_exists("MediaMimeType", FALSE)) {
 /**
  * Mime types
  */
@@ -2556,7 +2556,7 @@ class MediaMimeType {
   }
 }}
 
-if (!class_exists("MediaSize")) {
+if (!class_exists("MediaSize", FALSE)) {
 /**
  * Sizes for retrieving the original media
  */
@@ -2582,7 +2582,7 @@ class MediaSize {
   }
 }}
 
-if (!class_exists("MediaErrorReason")) {
+if (!class_exists("MediaErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -2608,7 +2608,7 @@ class MediaErrorReason {
   }
 }}
 
-if (!class_exists("MinuteOfHour")) {
+if (!class_exists("MinuteOfHour", FALSE)) {
 /**
  * Minutes in an hour.  Currently only 0, 15, 30, and 45 are supported
  */
@@ -2634,7 +2634,7 @@ class MinuteOfHour {
   }
 }}
 
-if (!class_exists("NetworkCoverageType")) {
+if (!class_exists("NetworkCoverageType", FALSE)) {
 /**
  * Network coverage types.
  */
@@ -2660,7 +2660,7 @@ class NetworkCoverageType {
   }
 }}
 
-if (!class_exists("NewEntityCreationErrorReason")) {
+if (!class_exists("NewEntityCreationErrorReason", FALSE)) {
 /**
  * Do not set the id field while creating new entities.
  */
@@ -2686,7 +2686,7 @@ class NewEntityCreationErrorReason {
   }
 }}
 
-if (!class_exists("NotEmptyErrorReason")) {
+if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -2712,7 +2712,7 @@ class NotEmptyErrorReason {
   }
 }}
 
-if (!class_exists("NotWhitelistedErrorReason")) {
+if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
  */
@@ -2738,7 +2738,7 @@ class NotWhitelistedErrorReason {
   }
 }}
 
-if (!class_exists("NullErrorReason")) {
+if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -2764,7 +2764,7 @@ class NullErrorReason {
   }
 }}
 
-if (!class_exists("OperationAccessDeniedReason")) {
+if (!class_exists("OperationAccessDeniedReason", FALSE)) {
 /**
  * The reasons for the operation access error.
  */
@@ -2790,7 +2790,7 @@ class OperationAccessDeniedReason {
   }
 }}
 
-if (!class_exists("Operator")) {
+if (!class_exists("Operator", FALSE)) {
 /**
  * This represents an operator that may be presented to an adsapi service.
  */
@@ -2816,7 +2816,7 @@ class Operator {
   }
 }}
 
-if (!class_exists("PagingErrorReason")) {
+if (!class_exists("PagingErrorReason", FALSE)) {
 /**
  * The reasons for errors when using pagination.
  */
@@ -2842,7 +2842,7 @@ class PagingErrorReason {
   }
 }}
 
-if (!class_exists("PlatformType")) {
+if (!class_exists("PlatformType", FALSE)) {
 /**
  * Platform types.
  */
@@ -2868,7 +2868,7 @@ class PlatformType {
   }
 }}
 
-if (!class_exists("ProximityTargetDistanceUnits")) {
+if (!class_exists("ProximityTargetDistanceUnits", FALSE)) {
 /**
  * The radius distance is expressed in either kilometers or miles.
  */
@@ -2894,7 +2894,7 @@ class ProximityTargetDistanceUnits {
   }
 }}
 
-if (!class_exists("QuotaCheckErrorReason")) {
+if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
@@ -2921,7 +2921,7 @@ class QuotaCheckErrorReason {
   }
 }}
 
-if (!class_exists("QuotaExceededErrorReason")) {
+if (!class_exists("QuotaExceededErrorReason", FALSE)) {
 /**
  * The single reason for the quota error.
  */
@@ -2947,7 +2947,33 @@ class QuotaExceededErrorReason {
   }
 }}
 
-if (!class_exists("ReadOnlyErrorReason")) {
+if (!class_exists("RangeErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ */
+class RangeErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RangeError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RangeErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -2973,7 +2999,7 @@ class ReadOnlyErrorReason {
   }
 }}
 
-if (!class_exists("RequiredErrorReason")) {
+if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -2999,7 +3025,7 @@ class RequiredErrorReason {
   }
 }}
 
-if (!class_exists("SizeLimitErrorReason")) {
+if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
  */
@@ -3025,7 +3051,7 @@ class SizeLimitErrorReason {
   }
 }}
 
-if (!class_exists("StatsNetwork")) {
+if (!class_exists("StatsNetwork", FALSE)) {
 /**
  * Ad network.
  */
@@ -3051,7 +3077,7 @@ class StatsNetwork {
   }
 }}
 
-if (!class_exists("StatsQueryErrorReason")) {
+if (!class_exists("StatsQueryErrorReason", FALSE)) {
 /**
  * The reasons for errors when querying for stats.
  */
@@ -3077,7 +3103,7 @@ class StatsQueryErrorReason {
   }
 }}
 
-if (!class_exists("TemplateElementFieldType")) {
+if (!class_exists("TemplateElementFieldType", FALSE)) {
 /**
  * Field types
  */
@@ -3103,7 +3129,7 @@ class TemplateElementFieldType {
   }
 }}
 
-if (!class_exists("AdGroupAdServiceGet")) {
+if (!class_exists("AdGroupAdServiceGet", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
  * 
@@ -3145,7 +3171,7 @@ class AdGroupAdServiceGet {
   }
 }}
 
-if (!class_exists("AdGroupAdServiceGetResponse")) {
+if (!class_exists("AdGroupAdServiceGetResponse", FALSE)) {
 /**
  * 
  */
@@ -3178,7 +3204,7 @@ class AdGroupAdServiceGetResponse {
   }
 }}
 
-if (!class_exists("AdGroupAdServiceMutate")) {
+if (!class_exists("AdGroupAdServiceMutate", FALSE)) {
 /**
  * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
  * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
@@ -3238,7 +3264,7 @@ class AdGroupAdServiceMutate {
   }
 }}
 
-if (!class_exists("AdGroupAdServiceMutateResponse")) {
+if (!class_exists("AdGroupAdServiceMutateResponse", FALSE)) {
 /**
  * 
  */
@@ -3271,7 +3297,7 @@ class AdGroupAdServiceMutateResponse {
   }
 }}
 
-if (!class_exists("AdError")) {
+if (!class_exists("AdError", FALSE)) {
 /**
  * Base error class for Ad Service.
  */
@@ -3307,7 +3333,7 @@ class AdError extends ApiError {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideStats")) {
+if (!class_exists("AdExtensionOverrideStats", FALSE)) {
 /**
  * Represents stats specific to AdExtensionOverrides.
  */
@@ -3350,7 +3376,7 @@ class AdExtensionOverrideStats extends Stats {
   }
 }}
 
-if (!class_exists("AdGroupAdError")) {
+if (!class_exists("AdGroupAdError", FALSE)) {
 /**
  * Error information for AdGroupAdService.
  */
@@ -3386,7 +3412,7 @@ class AdGroupAdError extends ApiError {
   }
 }}
 
-if (!class_exists("AdScheduleTarget")) {
+if (!class_exists("AdScheduleTarget", FALSE)) {
 /**
  * Immutable structure to hold an ad schedule target.
  */
@@ -3455,7 +3481,7 @@ class AdScheduleTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("AdStats")) {
+if (!class_exists("AdStats", FALSE)) {
 /**
  * Represents stats specific to Ads
  */
@@ -3505,7 +3531,7 @@ class AdStats extends Stats {
   }
 }}
 
-if (!class_exists("AdStatsSelector")) {
+if (!class_exists("AdStatsSelector", FALSE)) {
 /**
  * Ad specific stats selector.
  */
@@ -3533,7 +3559,7 @@ class AdStatsSelector extends StatsSelector {
   }
 }}
 
-if (!class_exists("Audio")) {
+if (!class_exists("Audio", FALSE)) {
 /**
  * Encapsulates an Audio media identified by a MediaId.
  */
@@ -3593,7 +3619,7 @@ class Audio extends Media {
   }
 }}
 
-if (!class_exists("AuthenticationError")) {
+if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
  */
@@ -3629,7 +3655,7 @@ class AuthenticationError extends ApiError {
   }
 }}
 
-if (!class_exists("AuthorizationError")) {
+if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
  */
@@ -3665,7 +3691,7 @@ class AuthorizationError extends ApiError {
   }
 }}
 
-if (!class_exists("ClientTermsError")) {
+if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
  */
@@ -3701,7 +3727,7 @@ class ClientTermsError extends ApiError {
   }
 }}
 
-if (!class_exists("DatabaseError")) {
+if (!class_exists("DatabaseError", FALSE)) {
 /**
  * Errors that are thrown due to a database access problem.
  */
@@ -3737,7 +3763,7 @@ class DatabaseError extends ApiError {
   }
 }}
 
-if (!class_exists("DateError")) {
+if (!class_exists("DateError", FALSE)) {
 /**
  * Errors associated with invalid dates and date ranges.
  */
@@ -3773,7 +3799,7 @@ class DateError extends ApiError {
   }
 }}
 
-if (!class_exists("DeprecatedAd")) {
+if (!class_exists("DeprecatedAd", FALSE)) {
 /**
  * Represents a deprecated ad.
  * 
@@ -3821,7 +3847,7 @@ class DeprecatedAd extends Ad {
   }
 }}
 
-if (!class_exists("DistinctError")) {
+if (!class_exists("DistinctError", FALSE)) {
 /**
  * Errors related to distinct ids or content.
  */
@@ -3857,7 +3883,7 @@ class DistinctError extends ApiError {
   }
 }}
 
-if (!class_exists("EntityCountLimitExceeded")) {
+if (!class_exists("EntityCountLimitExceeded", FALSE)) {
 /**
  * Signals that an entity count limit was exceeded for some level.
  * For example, too many criteria for a campaign.
@@ -3908,7 +3934,7 @@ class EntityCountLimitExceeded extends ApiError {
   }
 }}
 
-if (!class_exists("EntityNotFound")) {
+if (!class_exists("EntityNotFound", FALSE)) {
 /**
  * An id did not correspond to an entity, or it referred to an entity which does not belong to the
  * customer.
@@ -3945,7 +3971,7 @@ class EntityNotFound extends ApiError {
   }
 }}
 
-if (!class_exists("IdError")) {
+if (!class_exists("IdError", FALSE)) {
 /**
  * Errors associated with the ids.
  */
@@ -3981,7 +4007,7 @@ class IdError extends ApiError {
   }
 }}
 
-if (!class_exists("Image")) {
+if (!class_exists("Image", FALSE)) {
 /**
  * 
  */
@@ -4027,7 +4053,7 @@ class Image extends Media {
   }
 }}
 
-if (!class_exists("ImageError")) {
+if (!class_exists("ImageError", FALSE)) {
 /**
  * Error class for errors associated with parsing image data.
  */
@@ -4063,7 +4089,7 @@ class ImageError extends ApiError {
   }
 }}
 
-if (!class_exists("InternalApiError")) {
+if (!class_exists("InternalApiError", FALSE)) {
 /**
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
@@ -4101,7 +4127,7 @@ class InternalApiError extends ApiError {
   }
 }}
 
-if (!class_exists("LanguageTarget")) {
+if (!class_exists("LanguageTarget", FALSE)) {
 /**
  * Immutable structure to hold a language target.
  */
@@ -4135,7 +4161,7 @@ class LanguageTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("MediaError")) {
+if (!class_exists("MediaError", FALSE)) {
 /**
  * Error class for media related errors.
  */
@@ -4171,7 +4197,7 @@ class MediaError extends ApiError {
   }
 }}
 
-if (!class_exists("MobileAd")) {
+if (!class_exists("MobileAd", FALSE)) {
 /**
  * Represents a MobileAd.
  * 
@@ -4304,7 +4330,7 @@ class MobileAd extends Ad {
   }
 }}
 
-if (!class_exists("Money")) {
+if (!class_exists("Money", FALSE)) {
 /**
  * Represents a money amount.
  */
@@ -4338,7 +4364,7 @@ class Money extends ComparableValue {
   }
 }}
 
-if (!class_exists("NetworkTarget")) {
+if (!class_exists("NetworkTarget", FALSE)) {
 /**
  * Immutable structure to hold a network coverage target.
  */
@@ -4372,7 +4398,7 @@ class NetworkTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("NewEntityCreationError")) {
+if (!class_exists("NewEntityCreationError", FALSE)) {
 /**
  * Error associated with creation of new entities using
  * {@link com.google.ads.api.services.common.id.TempId}s.
@@ -4409,7 +4435,7 @@ class NewEntityCreationError extends ApiError {
   }
 }}
 
-if (!class_exists("NotEmptyError")) {
+if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
  */
@@ -4445,7 +4471,7 @@ class NotEmptyError extends ApiError {
   }
 }}
 
-if (!class_exists("NotWhitelistedError")) {
+if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
  */
@@ -4481,7 +4507,7 @@ class NotWhitelistedError extends ApiError {
   }
 }}
 
-if (!class_exists("NullError")) {
+if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
  */
@@ -4517,7 +4543,7 @@ class NullError extends ApiError {
   }
 }}
 
-if (!class_exists("NumberValue")) {
+if (!class_exists("NumberValue", FALSE)) {
 /**
  * Number value types for constructing number valued ranges.
  */
@@ -4544,7 +4570,7 @@ class NumberValue extends ComparableValue {
   }
 }}
 
-if (!class_exists("OperationAccessDenied")) {
+if (!class_exists("OperationAccessDenied", FALSE)) {
 /**
  * Unauthorized access errors as determined by the invoked service's
  * access policy.
@@ -4581,7 +4607,7 @@ class OperationAccessDenied extends ApiError {
   }
 }}
 
-if (!class_exists("PagingError")) {
+if (!class_exists("PagingError", FALSE)) {
 /**
  * Error codes for pagination.
  * See {@link com.google.ads.api.services.common.pagination.Paging}.
@@ -4618,7 +4644,7 @@ class PagingError extends ApiError {
   }
 }}
 
-if (!class_exists("PlatformTarget")) {
+if (!class_exists("PlatformTarget", FALSE)) {
 /**
  * Immutable structure to hold a platform target.
  */
@@ -4652,10 +4678,9 @@ class PlatformTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("QuotaCheckError")) {
+if (!class_exists("QuotaCheckError", FALSE)) {
 /**
- * Encapsulates the errors thrown during developer quota checks for webapi
- * calls.
+ * Encapsulates the errors thrown during developer quota checks.
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -4689,10 +4714,9 @@ class QuotaCheckError extends ApiError {
   }
 }}
 
-if (!class_exists("QuotaExceededError")) {
+if (!class_exists("QuotaExceededError", FALSE)) {
 /**
- * Used by WebAPI to convert QuotaExceededExceptions to ApiExceptions, which are
- * more suitable for user errors.
+ * Represents Quota Exceeded Error.
  */
 class QuotaExceededError extends ApiError {
   /**
@@ -4726,7 +4750,43 @@ class QuotaExceededError extends ApiError {
   }
 }}
 
-if (!class_exists("ReadOnlyError")) {
+if (!class_exists("RangeError", FALSE)) {
+/**
+ * A list of all errors associated with the Range constraint.
+ */
+class RangeError extends ApiError {
+  /**
+   * @access public
+   * @var tnsRangeErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RangeError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('RangeError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
  */
@@ -4762,7 +4822,7 @@ class ReadOnlyError extends ApiError {
   }
 }}
 
-if (!class_exists("RequiredError")) {
+if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
  */
@@ -4798,7 +4858,7 @@ class RequiredError extends ApiError {
   }
 }}
 
-if (!class_exists("SizeLimitError")) {
+if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
  */
@@ -4834,7 +4894,7 @@ class SizeLimitError extends ApiError {
   }
 }}
 
-if (!class_exists("StatsQueryError")) {
+if (!class_exists("StatsQueryError", FALSE)) {
 /**
  * Represents possible error codes when querying for stats.
  */
@@ -4870,7 +4930,7 @@ class StatsQueryError extends ApiError {
   }
 }}
 
-if (!class_exists("TempAdUnionId")) {
+if (!class_exists("TempAdUnionId", FALSE)) {
 /**
  * Represents the temporary id for an ad union id, which the user can specify.
  * The temporary id can be used to group ads together during ad creation.
@@ -4899,7 +4959,7 @@ class TempAdUnionId extends AdUnionId {
   }
 }}
 
-if (!class_exists("TextAd")) {
+if (!class_exists("TextAd", FALSE)) {
 /**
  * Represents a TextAd.
  */
@@ -4952,7 +5012,7 @@ class TextAd extends Ad {
   }
 }}
 
-if (!class_exists("Video")) {
+if (!class_exists("Video", FALSE)) {
 /**
  * Encapsulates a Video media identified by a MediaId
  */
@@ -5026,7 +5086,7 @@ class Video extends Media {
   }
 }}
 
-if (!class_exists("DemographicTarget")) {
+if (!class_exists("DemographicTarget", FALSE)) {
 /**
  * Abstract class to identify a demographic target.
  */
@@ -5060,7 +5120,7 @@ class DemographicTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("GeoTarget")) {
+if (!class_exists("GeoTarget", FALSE)) {
 /**
  * Abstract class to identify a geographic target.
  */
@@ -5094,7 +5154,7 @@ class GeoTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("MobileImageAd")) {
+if (!class_exists("MobileImageAd", FALSE)) {
 /**
  * Data associated with a mobile image ad.
  * 
@@ -5157,7 +5217,7 @@ class MobileImageAd extends Ad {
   }
 }}
 
-if (!class_exists("PolicyViolationError")) {
+if (!class_exists("PolicyViolationError", FALSE)) {
 /**
  * Represents violations of a single policy by some text in a field.
  * 
@@ -5239,7 +5299,7 @@ class PolicyViolationError extends ApiError {
   }
 }}
 
-if (!class_exists("ApiException")) {
+if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
  */
@@ -5274,7 +5334,7 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("ImageAd")) {
+if (!class_exists("ImageAd", FALSE)) {
 /**
  * Represents an ImageAd.
  */
@@ -5320,7 +5380,7 @@ class ImageAd extends Ad {
   }
 }}
 
-if (!class_exists("LocalBusinessAd")) {
+if (!class_exists("LocalBusinessAd", FALSE)) {
 /**
  * Represents Legacy Local Business Ad
  * 
@@ -5452,7 +5512,7 @@ class LocalBusinessAd extends Ad {
   }
 }}
 
-if (!class_exists("TemplateAd")) {
+if (!class_exists("TemplateAd", FALSE)) {
 /**
  * Represents a TemplateAd. A template ad is composed of a template (specified
  * by it's template id) along with all the elements to populate the
@@ -5528,7 +5588,7 @@ class TemplateAd extends Ad {
   }
 }}
 
-if (!class_exists("AdGroupAdOperation")) {
+if (!class_exists("AdGroupAdOperation", FALSE)) {
 /**
  * AdGroupAd service operations.
  */
@@ -5570,7 +5630,7 @@ class AdGroupAdOperation extends Operation {
   }
 }}
 
-if (!class_exists("AdGroupAdPage")) {
+if (!class_exists("AdGroupAdPage", FALSE)) {
 /**
  * Represents a page of {@link AdGroupAd}s resulting from the query done by
  * {@link AdGroupAdService}.
@@ -5606,7 +5666,7 @@ class AdGroupAdPage extends Page {
   }
 }}
 
-if (!class_exists("AdGroupAdReturnValue")) {
+if (!class_exists("AdGroupAdReturnValue", FALSE)) {
 /**
  * A container for return values from the AdGroupAdService.
  */
@@ -5640,7 +5700,7 @@ class AdGroupAdReturnValue extends ListReturnValue {
   }
 }}
 
-if (!class_exists("AdGroupAdCountLimitExceeded")) {
+if (!class_exists("AdGroupAdCountLimitExceeded", FALSE)) {
 /**
  * Indicates too many ads were added/enabled under the specified adgroup.
  */
@@ -5672,7 +5732,7 @@ class AdGroupAdCountLimitExceeded extends EntityCountLimitExceeded {
   }
 }}
 
-if (!class_exists("AgeTarget")) {
+if (!class_exists("AgeTarget", FALSE)) {
 /**
  * Immutable structure to hold an age target.
  */
@@ -5707,7 +5767,7 @@ class AgeTarget extends DemographicTarget {
   }
 }}
 
-if (!class_exists("CityTarget")) {
+if (!class_exists("CityTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a city.
  */
@@ -5756,7 +5816,7 @@ class CityTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("CountryTarget")) {
+if (!class_exists("CountryTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a country.
  */
@@ -5791,7 +5851,7 @@ class CountryTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("DoubleValue")) {
+if (!class_exists("DoubleValue", FALSE)) {
 /**
  * Number value type for constructing double valued ranges.
  */
@@ -5825,7 +5885,7 @@ class DoubleValue extends NumberValue {
   }
 }}
 
-if (!class_exists("GenderTarget")) {
+if (!class_exists("GenderTarget", FALSE)) {
 /**
  * Immutable structure to hold a gender target.
  */
@@ -5860,7 +5920,7 @@ class GenderTarget extends DemographicTarget {
   }
 }}
 
-if (!class_exists("LongValue")) {
+if (!class_exists("LongValue", FALSE)) {
 /**
  * Number value type for constructing long valued ranges.
  */
@@ -5894,7 +5954,7 @@ class LongValue extends NumberValue {
   }
 }}
 
-if (!class_exists("MetroTarget")) {
+if (!class_exists("MetroTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a metro.
  */
@@ -5929,7 +5989,7 @@ class MetroTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("PolygonTarget")) {
+if (!class_exists("PolygonTarget", FALSE)) {
 /**
  * Structure to specify a geographic target for a polygon location.
  * 
@@ -5967,7 +6027,7 @@ class PolygonTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("ProvinceTarget")) {
+if (!class_exists("ProvinceTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a province or state.
  */
@@ -6002,7 +6062,7 @@ class ProvinceTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("ProximityTarget")) {
+if (!class_exists("ProximityTarget", FALSE)) {
 /**
  * Structure to specify a geographic target for a proximity location.
  * 
@@ -6152,6 +6212,7 @@ class AdGroupAdService extends AdWordsSoapClient {
     "ProximityTarget" => "ProximityTarget",
     "QuotaCheckError" => "QuotaCheckError",
     "QuotaExceededError" => "QuotaExceededError",
+    "RangeError" => "RangeError",
     "ReadOnlyError" => "ReadOnlyError",
     "RequiredError" => "RequiredError",
     "SizeLimitError" => "SizeLimitError",
@@ -6219,6 +6280,7 @@ class AdGroupAdService extends AdWordsSoapClient {
     "ProximityTarget.DistanceUnits" => "ProximityTargetDistanceUnits",
     "QuotaCheckError.Reason" => "QuotaCheckErrorReason",
     "QuotaExceededError.Reason" => "QuotaExceededErrorReason",
+    "RangeError.Reason" => "RangeErrorReason",
     "ReadOnlyError.Reason" => "ReadOnlyErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
     "SizeLimitError.Reason" => "SizeLimitErrorReason",

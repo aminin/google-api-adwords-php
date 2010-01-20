@@ -21,7 +21,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsCommon
- * @subpackage v200812
+ * @subpackage Lib
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -338,6 +338,8 @@ abstract class AdsSoapClient extends SoapClient {
     $addXsiTypes = false;
     $removeEmptyElements = false;
     $replaceReferences = false;
+    // Needed for AdWords API XML validation.
+    $redeclareXsiTypeNamespaceDefinitions = true;
 
     if (version_compare(PHP_VERSION, '5.2.0', '<')) {
       trigger_error('The minimum required version of this client library'
@@ -347,9 +349,10 @@ abstract class AdsSoapClient extends SoapClient {
     $removeEmptyElements = version_compare(PHP_VERSION, '5.2.3', '<');
     $replaceReferences = version_compare(PHP_VERSION, '5.2.2', '>=');
 
-    if ($addXsiTypes || $removeEmptyElements || $replaceReferences) {
+    if ($addXsiTypes || $removeEmptyElements || $replaceReferences
+        || $redeclareXsiTypeNamespaceDefinitions) {
       $fixer = new SoapRequestXmlFixer($addXsiTypes, $removeEmptyElements,
-          $replaceReferences);
+          $replaceReferences, $redeclareXsiTypeNamespaceDefinitions);
       return $fixer->FixXml($request, $arguments);
     } else {
       // Empty string is appended to "save" the XML from being deleted.

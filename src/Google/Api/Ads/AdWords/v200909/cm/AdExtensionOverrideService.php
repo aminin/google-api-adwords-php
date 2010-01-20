@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage ${service.version}
+ * @subpackage v200909
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -28,7 +28,7 @@
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("Address")) {
+if (!class_exists("Address", FALSE)) {
 /**
  * Structure to specify an address location.
  */
@@ -103,7 +103,7 @@ class Address {
   }
 }}
 
-if (!class_exists("GeoPoint")) {
+if (!class_exists("GeoPoint", FALSE)) {
 /**
  * Specifies a geo location with the supplied lat/long.
  */
@@ -143,7 +143,7 @@ class GeoPoint {
   }
 }}
 
-if (!class_exists("LocationOverrideInfo")) {
+if (!class_exists("LocationOverrideInfo", FALSE)) {
 /**
  * Represents override info for ad level LocationExtension overrides.
  */
@@ -183,7 +183,7 @@ class LocationOverrideInfo {
   }
 }}
 
-if (!class_exists("OverrideInfo")) {
+if (!class_exists("OverrideInfo", FALSE)) {
 /**
  * Represents additional override info with which to augment the override
  * extension.
@@ -217,7 +217,7 @@ class OverrideInfo {
   }
 }}
 
-if (!class_exists("Paging")) {
+if (!class_exists("Paging", FALSE)) {
 /**
  * Specifies what kind of paging wanted for the result of a get.
  */
@@ -257,7 +257,7 @@ class Paging {
   }
 }}
 
-if (!class_exists("SoapRequestHeader")) {
+if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
  */
@@ -332,7 +332,7 @@ class SoapRequestHeader {
   }
 }}
 
-if (!class_exists("SoapResponseHeader")) {
+if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
  */
@@ -386,7 +386,7 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("AdExtension")) {
+if (!class_exists("AdExtension", FALSE)) {
 /**
  * Base class for AdExtension objects. An AdExtension is an extension to
  * an existing ad or metadata that will process into an extension.
@@ -461,7 +461,7 @@ class AdExtension {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideSelector")) {
+if (!class_exists("AdExtensionOverrideSelector", FALSE)) {
 /**
  * Specifies criteria for selecting a set of AdExtensionOverrides.
  */
@@ -522,7 +522,7 @@ class AdExtensionOverrideSelector {
   }
 }}
 
-if (!class_exists("ComparableValue")) {
+if (!class_exists("ComparableValue", FALSE)) {
 /**
  * Comparable types for constructing ranges with.
  */
@@ -587,7 +587,7 @@ class ComparableValue {
   }
 }}
 
-if (!class_exists("Stats")) {
+if (!class_exists("Stats", FALSE)) {
 /**
  * Statistics about an ad or criterion within an adgroup or campaign.
  */
@@ -764,7 +764,7 @@ class Stats {
   }
 }}
 
-if (!class_exists("AdExtensionOverride")) {
+if (!class_exists("AdExtensionOverride", FALSE)) {
 /**
  * Represents an ad level ad extension override. An ad extension override
  * specifies the ad extension that must be used if the ad is served with
@@ -834,7 +834,7 @@ class AdExtensionOverride {
   }
 }}
 
-if (!class_exists("ApiError")) {
+if (!class_exists("ApiError", FALSE)) {
 /**
  * A service api error base class that provides error details.
  * 1) the OGNL field path is provided for parsers.
@@ -915,7 +915,7 @@ class ApiError {
   }
 }}
 
-if (!class_exists("ApplicationException")) {
+if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
  */
@@ -987,7 +987,7 @@ class ApplicationException {
   }
 }}
 
-if (!class_exists("ListReturnValue")) {
+if (!class_exists("ListReturnValue", FALSE)) {
 /**
  * Base list return value type.
  */
@@ -1052,7 +1052,7 @@ class ListReturnValue {
   }
 }}
 
-if (!class_exists("Operation")) {
+if (!class_exists("Operation", FALSE)) {
 /**
  * This represents an operation that includes an operator and an operand
  * specified type.
@@ -1125,7 +1125,7 @@ class Operation {
   }
 }}
 
-if (!class_exists("Page")) {
+if (!class_exists("Page", FALSE)) {
 /**
  * Contains the results from a get call.
  */
@@ -1197,7 +1197,7 @@ class Page {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideApprovalStatus")) {
+if (!class_exists("AdExtensionOverrideApprovalStatus", FALSE)) {
 /**
  * Approval status for the AdExtensionOverride
  */
@@ -1223,7 +1223,7 @@ class AdExtensionOverrideApprovalStatus {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideStatus")) {
+if (!class_exists("AdExtensionOverrideStatus", FALSE)) {
 /**
  * Status of the AdExtensionOverride
  */
@@ -1249,7 +1249,7 @@ class AdExtensionOverrideStatus {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideErrorReason")) {
+if (!class_exists("AdExtensionOverrideErrorReason", FALSE)) {
 /**
  * Cannot override an ad that is already overriden with an adextension
  */
@@ -1275,7 +1275,7 @@ class AdExtensionOverrideErrorReason {
   }
 }}
 
-if (!class_exists("AuthenticationErrorReason")) {
+if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
  */
@@ -1301,7 +1301,7 @@ class AuthenticationErrorReason {
   }
 }}
 
-if (!class_exists("AuthorizationErrorReason")) {
+if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
  */
@@ -1327,7 +1327,7 @@ class AuthorizationErrorReason {
   }
 }}
 
-if (!class_exists("ClientTermsErrorReason")) {
+if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
@@ -1354,7 +1354,7 @@ class ClientTermsErrorReason {
   }
 }}
 
-if (!class_exists("DistinctErrorReason")) {
+if (!class_exists("DistinctErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -1380,7 +1380,34 @@ class DistinctErrorReason {
   }
 }}
 
-if (!class_exists("InternalApiErrorReason")) {
+if (!class_exists("EntityNotFoundReason", FALSE)) {
+/**
+ * The specified id refered to an entity which either doesn't exist or is not accessible to the
+ * customer. e.g. campaign belongs to another customer.
+ */
+class EntityNotFoundReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "EntityNotFound.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('EntityNotFoundReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
  */
@@ -1406,7 +1433,7 @@ class InternalApiErrorReason {
   }
 }}
 
-if (!class_exists("LocationExtensionSource")) {
+if (!class_exists("LocationExtensionSource", FALSE)) {
 /**
  * From manual entry in adwords frontend
  */
@@ -1432,7 +1459,7 @@ class LocationExtensionSource {
   }
 }}
 
-if (!class_exists("LocationOverrideInfoRadiusUnits")) {
+if (!class_exists("LocationOverrideInfoRadiusUnits", FALSE)) {
 /**
  * Radius units
  */
@@ -1458,7 +1485,7 @@ class LocationOverrideInfoRadiusUnits {
   }
 }}
 
-if (!class_exists("NotEmptyErrorReason")) {
+if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -1484,7 +1511,7 @@ class NotEmptyErrorReason {
   }
 }}
 
-if (!class_exists("NotWhitelistedErrorReason")) {
+if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
  */
@@ -1510,7 +1537,7 @@ class NotWhitelistedErrorReason {
   }
 }}
 
-if (!class_exists("NullErrorReason")) {
+if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -1536,7 +1563,7 @@ class NullErrorReason {
   }
 }}
 
-if (!class_exists("Operator")) {
+if (!class_exists("Operator", FALSE)) {
 /**
  * This represents an operator that may be presented to an adsapi service.
  */
@@ -1562,7 +1589,33 @@ class Operator {
   }
 }}
 
-if (!class_exists("QuotaCheckErrorReason")) {
+if (!class_exists("OperatorErrorReason", FALSE)) {
+/**
+ * The reasons for the validation error.
+ */
+class OperatorErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OperatorError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('OperatorErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
@@ -1589,7 +1642,7 @@ class QuotaCheckErrorReason {
   }
 }}
 
-if (!class_exists("QuotaExceededErrorReason")) {
+if (!class_exists("QuotaExceededErrorReason", FALSE)) {
 /**
  * The single reason for the quota error.
  */
@@ -1615,7 +1668,7 @@ class QuotaExceededErrorReason {
   }
 }}
 
-if (!class_exists("ReadOnlyErrorReason")) {
+if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -1641,7 +1694,7 @@ class ReadOnlyErrorReason {
   }
 }}
 
-if (!class_exists("RequiredErrorReason")) {
+if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -1667,7 +1720,7 @@ class RequiredErrorReason {
   }
 }}
 
-if (!class_exists("SizeLimitErrorReason")) {
+if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
  */
@@ -1693,7 +1746,7 @@ class SizeLimitErrorReason {
   }
 }}
 
-if (!class_exists("StatsNetwork")) {
+if (!class_exists("StatsNetwork", FALSE)) {
 /**
  * Ad network.
  */
@@ -1719,7 +1772,7 @@ class StatsNetwork {
   }
 }}
 
-if (!class_exists("StringLengthErrorReason")) {
+if (!class_exists("StringLengthErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -1745,7 +1798,7 @@ class StringLengthErrorReason {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideServiceGet")) {
+if (!class_exists("AdExtensionOverrideServiceGet", FALSE)) {
 /**
  * Returns a list of AdExtensionOverrides based on an
  * AdExtensionOverrideSelector.
@@ -1782,7 +1835,7 @@ class AdExtensionOverrideServiceGet {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideServiceGetResponse")) {
+if (!class_exists("AdExtensionOverrideServiceGetResponse", FALSE)) {
 /**
  * 
  */
@@ -1815,7 +1868,7 @@ class AdExtensionOverrideServiceGetResponse {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideServiceMutate")) {
+if (!class_exists("AdExtensionOverrideServiceMutate", FALSE)) {
 /**
  * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
  * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
@@ -1868,7 +1921,7 @@ class AdExtensionOverrideServiceMutate {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideServiceMutateResponse")) {
+if (!class_exists("AdExtensionOverrideServiceMutateResponse", FALSE)) {
 /**
  * 
  */
@@ -1901,7 +1954,7 @@ class AdExtensionOverrideServiceMutateResponse {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideError")) {
+if (!class_exists("AdExtensionOverrideError", FALSE)) {
 /**
  * AdExtensionOverride errors.
  */
@@ -1937,7 +1990,7 @@ class AdExtensionOverrideError extends ApiError {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideStats")) {
+if (!class_exists("AdExtensionOverrideStats", FALSE)) {
 /**
  * Represents stats specific to AdExtensionOverrides.
  */
@@ -1980,7 +2033,7 @@ class AdExtensionOverrideStats extends Stats {
   }
 }}
 
-if (!class_exists("AuthenticationError")) {
+if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
  */
@@ -2016,7 +2069,7 @@ class AuthenticationError extends ApiError {
   }
 }}
 
-if (!class_exists("AuthorizationError")) {
+if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
  */
@@ -2052,7 +2105,7 @@ class AuthorizationError extends ApiError {
   }
 }}
 
-if (!class_exists("ClientTermsError")) {
+if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
  */
@@ -2088,7 +2141,7 @@ class ClientTermsError extends ApiError {
   }
 }}
 
-if (!class_exists("DistinctError")) {
+if (!class_exists("DistinctError", FALSE)) {
 /**
  * Errors related to distinct ids or content.
  */
@@ -2124,7 +2177,44 @@ class DistinctError extends ApiError {
   }
 }}
 
-if (!class_exists("InternalApiError")) {
+if (!class_exists("EntityNotFound", FALSE)) {
+/**
+ * An id did not correspond to an entity, or it referred to an entity which does not belong to the
+ * customer.
+ */
+class EntityNotFound extends ApiError {
+  /**
+   * @access public
+   * @var tnsEntityNotFoundReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "EntityNotFound";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('EntityNotFound')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("InternalApiError", FALSE)) {
 /**
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
@@ -2162,7 +2252,7 @@ class InternalApiError extends ApiError {
   }
 }}
 
-if (!class_exists("LocationExtension")) {
+if (!class_exists("LocationExtension", FALSE)) {
 /**
  * Location based ad extension.
  */
@@ -2246,7 +2336,7 @@ class LocationExtension extends AdExtension {
   }
 }}
 
-if (!class_exists("Money")) {
+if (!class_exists("Money", FALSE)) {
 /**
  * Represents a money amount.
  */
@@ -2280,7 +2370,7 @@ class Money extends ComparableValue {
   }
 }}
 
-if (!class_exists("NotEmptyError")) {
+if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
  */
@@ -2316,7 +2406,7 @@ class NotEmptyError extends ApiError {
   }
 }}
 
-if (!class_exists("NotWhitelistedError")) {
+if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
  */
@@ -2352,7 +2442,7 @@ class NotWhitelistedError extends ApiError {
   }
 }}
 
-if (!class_exists("NullError")) {
+if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
  */
@@ -2388,7 +2478,7 @@ class NullError extends ApiError {
   }
 }}
 
-if (!class_exists("NumberValue")) {
+if (!class_exists("NumberValue", FALSE)) {
 /**
  * Number value types for constructing number valued ranges.
  */
@@ -2415,10 +2505,45 @@ class NumberValue extends ComparableValue {
   }
 }}
 
-if (!class_exists("QuotaCheckError")) {
+if (!class_exists("OperatorError", FALSE)) {
 /**
- * Encapsulates the errors thrown during developer quota checks for webapi
- * calls.
+ * A list of all errors associated with the @SupportedOperators constraints.
+ */
+class OperatorError extends ApiError {
+  /**
+   * @access public
+   * @var tnsOperatorErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OperatorError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('OperatorError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("QuotaCheckError", FALSE)) {
+/**
+ * Encapsulates the errors thrown during developer quota checks.
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -2452,10 +2577,9 @@ class QuotaCheckError extends ApiError {
   }
 }}
 
-if (!class_exists("QuotaExceededError")) {
+if (!class_exists("QuotaExceededError", FALSE)) {
 /**
- * Used by WebAPI to convert QuotaExceededExceptions to ApiExceptions, which are
- * more suitable for user errors.
+ * Represents Quota Exceeded Error.
  */
 class QuotaExceededError extends ApiError {
   /**
@@ -2489,7 +2613,7 @@ class QuotaExceededError extends ApiError {
   }
 }}
 
-if (!class_exists("ReadOnlyError")) {
+if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
  */
@@ -2525,7 +2649,7 @@ class ReadOnlyError extends ApiError {
   }
 }}
 
-if (!class_exists("RequiredError")) {
+if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
  */
@@ -2561,7 +2685,7 @@ class RequiredError extends ApiError {
   }
 }}
 
-if (!class_exists("SizeLimitError")) {
+if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
  */
@@ -2597,7 +2721,7 @@ class SizeLimitError extends ApiError {
   }
 }}
 
-if (!class_exists("StringLengthError")) {
+if (!class_exists("StringLengthError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsString constraint.
  */
@@ -2633,7 +2757,7 @@ class StringLengthError extends ApiError {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideOperation")) {
+if (!class_exists("AdExtensionOverrideOperation", FALSE)) {
 /**
  * AdExtensionOverride service operation.
  */
@@ -2668,7 +2792,7 @@ class AdExtensionOverrideOperation extends Operation {
   }
 }}
 
-if (!class_exists("AdExtensionOverridePage")) {
+if (!class_exists("AdExtensionOverridePage", FALSE)) {
 /**
  * Represents a page of {@link AdExtensionOverride}s resulting from the query
  * done by {@link AdExtensionOverrideService}.
@@ -2704,7 +2828,7 @@ class AdExtensionOverridePage extends Page {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideReturnValue")) {
+if (!class_exists("AdExtensionOverrideReturnValue", FALSE)) {
 /**
  * A container for return values from AdExtensionOverrideService.mutate().
  */
@@ -2738,7 +2862,7 @@ class AdExtensionOverrideReturnValue extends ListReturnValue {
   }
 }}
 
-if (!class_exists("ApiException")) {
+if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
  */
@@ -2773,7 +2897,7 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("DoubleValue")) {
+if (!class_exists("DoubleValue", FALSE)) {
 /**
  * Number value type for constructing double valued ranges.
  */
@@ -2807,7 +2931,7 @@ class DoubleValue extends NumberValue {
   }
 }}
 
-if (!class_exists("LongValue")) {
+if (!class_exists("LongValue", FALSE)) {
 /**
  * Number value type for constructing long valued ranges.
  */
@@ -2871,6 +2995,7 @@ class AdExtensionOverrideService extends AdWordsSoapClient {
     "DistinctError" => "DistinctError",
     "DoubleValue" => "DoubleValue",
     "NumberValue" => "NumberValue",
+    "EntityNotFound" => "EntityNotFound",
     "GeoPoint" => "GeoPoint",
     "InternalApiError" => "InternalApiError",
     "LocationExtension" => "LocationExtension",
@@ -2882,6 +3007,7 @@ class AdExtensionOverrideService extends AdWordsSoapClient {
     "NotEmptyError" => "NotEmptyError",
     "NotWhitelistedError" => "NotWhitelistedError",
     "NullError" => "NullError",
+    "OperatorError" => "OperatorError",
     "OverrideInfo" => "OverrideInfo",
     "Paging" => "Paging",
     "QuotaCheckError" => "QuotaCheckError",
@@ -2908,6 +3034,7 @@ class AdExtensionOverrideService extends AdWordsSoapClient {
     "AuthorizationError.Reason" => "AuthorizationErrorReason",
     "ClientTermsError.Reason" => "ClientTermsErrorReason",
     "DistinctError.Reason" => "DistinctErrorReason",
+    "EntityNotFound.Reason" => "EntityNotFoundReason",
     "InternalApiError.Reason" => "InternalApiErrorReason",
     "LocationExtension.Source" => "LocationExtensionSource",
     "LocationOverrideInfo.RadiusUnits" => "LocationOverrideInfoRadiusUnits",
@@ -2915,6 +3042,7 @@ class AdExtensionOverrideService extends AdWordsSoapClient {
     "NotWhitelistedError.Reason" => "NotWhitelistedErrorReason",
     "NullError.Reason" => "NullErrorReason",
     "Operator" => "Operator",
+    "OperatorError.Reason" => "OperatorErrorReason",
     "QuotaCheckError.Reason" => "QuotaCheckErrorReason",
     "QuotaExceededError.Reason" => "QuotaExceededErrorReason",
     "ReadOnlyError.Reason" => "ReadOnlyErrorReason",

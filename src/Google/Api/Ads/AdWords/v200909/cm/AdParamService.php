@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage ${service.version}
+ * @subpackage v200909
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -28,7 +28,7 @@
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("AdParam")) {
+if (!class_exists("AdParam", FALSE)) {
 /**
  * <p>Represents an ad parameter.  Use ad parameters to insert parameterized
  * numeric values into text ads.  An <code>AdParam</code> object is
@@ -90,7 +90,7 @@ class AdParam {
   }
 }}
 
-if (!class_exists("AdParamPage")) {
+if (!class_exists("AdParamPage", FALSE)) {
 /**
  * Represents a page of AdParams returned by the {@link AdParamService}.
  */
@@ -130,7 +130,7 @@ class AdParamPage {
   }
 }}
 
-if (!class_exists("Operation")) {
+if (!class_exists("Operation", FALSE)) {
 /**
  * This represents an operation that includes an operator and an operand
  * specified type.
@@ -203,7 +203,7 @@ class Operation {
   }
 }}
 
-if (!class_exists("Paging")) {
+if (!class_exists("Paging", FALSE)) {
 /**
  * Specifies what kind of paging wanted for the result of a get.
  */
@@ -243,7 +243,7 @@ class Paging {
   }
 }}
 
-if (!class_exists("PolicyViolationErrorPart")) {
+if (!class_exists("PolicyViolationErrorPart", FALSE)) {
 /**
  * Points to a substring within an ad field or criterion.
  */
@@ -283,7 +283,7 @@ class PolicyViolationErrorPart {
   }
 }}
 
-if (!class_exists("PolicyViolationKey")) {
+if (!class_exists("PolicyViolationKey", FALSE)) {
 /**
  * Key of the violation. The key is used for referring to a violation when
  * filing an exemption request.
@@ -324,7 +324,7 @@ class PolicyViolationKey {
   }
 }}
 
-if (!class_exists("SoapRequestHeader")) {
+if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
  */
@@ -399,7 +399,7 @@ class SoapRequestHeader {
   }
 }}
 
-if (!class_exists("SoapResponseHeader")) {
+if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
  */
@@ -453,7 +453,7 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("AdParamSelector")) {
+if (!class_exists("AdParamSelector", FALSE)) {
 /**
  * A selector used to specify what AdParams should be returned.
  */
@@ -500,7 +500,7 @@ class AdParamSelector {
   }
 }}
 
-if (!class_exists("ApiError")) {
+if (!class_exists("ApiError", FALSE)) {
 /**
  * A service api error base class that provides error details.
  * 1) the OGNL field path is provided for parsers.
@@ -581,7 +581,7 @@ class ApiError {
   }
 }}
 
-if (!class_exists("ApplicationException")) {
+if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
  */
@@ -653,7 +653,7 @@ class ApplicationException {
   }
 }}
 
-if (!class_exists("AdParamErrorReason")) {
+if (!class_exists("AdParamErrorReason", FALSE)) {
 /**
  * The same ad param cannot be specified in multiple operations
  */
@@ -679,7 +679,7 @@ class AdParamErrorReason {
   }
 }}
 
-if (!class_exists("AuthenticationErrorReason")) {
+if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
  */
@@ -705,7 +705,7 @@ class AuthenticationErrorReason {
   }
 }}
 
-if (!class_exists("AuthorizationErrorReason")) {
+if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
  */
@@ -731,7 +731,7 @@ class AuthorizationErrorReason {
   }
 }}
 
-if (!class_exists("ClientTermsErrorReason")) {
+if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
@@ -758,7 +758,7 @@ class ClientTermsErrorReason {
   }
 }}
 
-if (!class_exists("InternalApiErrorReason")) {
+if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
  */
@@ -784,7 +784,7 @@ class InternalApiErrorReason {
   }
 }}
 
-if (!class_exists("NotEmptyErrorReason")) {
+if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -810,7 +810,7 @@ class NotEmptyErrorReason {
   }
 }}
 
-if (!class_exists("NotWhitelistedErrorReason")) {
+if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
  */
@@ -836,7 +836,7 @@ class NotWhitelistedErrorReason {
   }
 }}
 
-if (!class_exists("NullErrorReason")) {
+if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -862,7 +862,7 @@ class NullErrorReason {
   }
 }}
 
-if (!class_exists("Operator")) {
+if (!class_exists("Operator", FALSE)) {
 /**
  * This represents an operator that may be presented to an adsapi service.
  */
@@ -888,7 +888,7 @@ class Operator {
   }
 }}
 
-if (!class_exists("OperatorErrorReason")) {
+if (!class_exists("OperatorErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -914,7 +914,7 @@ class OperatorErrorReason {
   }
 }}
 
-if (!class_exists("QuotaCheckErrorReason")) {
+if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
@@ -941,7 +941,7 @@ class QuotaCheckErrorReason {
   }
 }}
 
-if (!class_exists("QuotaExceededErrorReason")) {
+if (!class_exists("QuotaExceededErrorReason", FALSE)) {
 /**
  * The single reason for the quota error.
  */
@@ -967,7 +967,7 @@ class QuotaExceededErrorReason {
   }
 }}
 
-if (!class_exists("RangeErrorReason")) {
+if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -993,7 +993,7 @@ class RangeErrorReason {
   }
 }}
 
-if (!class_exists("RequiredErrorReason")) {
+if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -1019,7 +1019,7 @@ class RequiredErrorReason {
   }
 }}
 
-if (!class_exists("SizeLimitErrorReason")) {
+if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
  */
@@ -1045,7 +1045,7 @@ class SizeLimitErrorReason {
   }
 }}
 
-if (!class_exists("StringLengthErrorReason")) {
+if (!class_exists("StringLengthErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -1071,7 +1071,7 @@ class StringLengthErrorReason {
   }
 }}
 
-if (!class_exists("AdParamServiceGet")) {
+if (!class_exists("AdParamServiceGet", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
  * 
@@ -1113,7 +1113,7 @@ class AdParamServiceGet {
   }
 }}
 
-if (!class_exists("AdParamServiceGetResponse")) {
+if (!class_exists("AdParamServiceGetResponse", FALSE)) {
 /**
  * 
  */
@@ -1146,7 +1146,7 @@ class AdParamServiceGetResponse {
   }
 }}
 
-if (!class_exists("AdParamServiceMutate")) {
+if (!class_exists("AdParamServiceMutate", FALSE)) {
 /**
  * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
  * <span class="constraint NotEmpty">This field must contain at least one element.</span>
@@ -1201,7 +1201,7 @@ class AdParamServiceMutate {
   }
 }}
 
-if (!class_exists("AdParamServiceMutateResponse")) {
+if (!class_exists("AdParamServiceMutateResponse", FALSE)) {
 /**
  * 
  */
@@ -1234,7 +1234,7 @@ class AdParamServiceMutateResponse {
   }
 }}
 
-if (!class_exists("AdParamError")) {
+if (!class_exists("AdParamError", FALSE)) {
 /**
  * Errors for AdParamService.
  */
@@ -1270,7 +1270,7 @@ class AdParamError extends ApiError {
   }
 }}
 
-if (!class_exists("AdParamOperation")) {
+if (!class_exists("AdParamOperation", FALSE)) {
 /**
  * AdParam service operation.
  */
@@ -1305,7 +1305,7 @@ class AdParamOperation extends Operation {
   }
 }}
 
-if (!class_exists("AuthenticationError")) {
+if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
  */
@@ -1341,7 +1341,7 @@ class AuthenticationError extends ApiError {
   }
 }}
 
-if (!class_exists("AuthorizationError")) {
+if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
  */
@@ -1377,7 +1377,7 @@ class AuthorizationError extends ApiError {
   }
 }}
 
-if (!class_exists("ClientTermsError")) {
+if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
  */
@@ -1413,7 +1413,7 @@ class ClientTermsError extends ApiError {
   }
 }}
 
-if (!class_exists("InternalApiError")) {
+if (!class_exists("InternalApiError", FALSE)) {
 /**
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
@@ -1451,7 +1451,7 @@ class InternalApiError extends ApiError {
   }
 }}
 
-if (!class_exists("NotEmptyError")) {
+if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
  */
@@ -1487,7 +1487,7 @@ class NotEmptyError extends ApiError {
   }
 }}
 
-if (!class_exists("NotWhitelistedError")) {
+if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
  */
@@ -1523,7 +1523,7 @@ class NotWhitelistedError extends ApiError {
   }
 }}
 
-if (!class_exists("NullError")) {
+if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
  */
@@ -1559,7 +1559,7 @@ class NullError extends ApiError {
   }
 }}
 
-if (!class_exists("OperatorError")) {
+if (!class_exists("OperatorError", FALSE)) {
 /**
  * A list of all errors associated with the @SupportedOperators constraints.
  */
@@ -1595,10 +1595,9 @@ class OperatorError extends ApiError {
   }
 }}
 
-if (!class_exists("QuotaCheckError")) {
+if (!class_exists("QuotaCheckError", FALSE)) {
 /**
- * Encapsulates the errors thrown during developer quota checks for webapi
- * calls.
+ * Encapsulates the errors thrown during developer quota checks.
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1632,10 +1631,9 @@ class QuotaCheckError extends ApiError {
   }
 }}
 
-if (!class_exists("QuotaExceededError")) {
+if (!class_exists("QuotaExceededError", FALSE)) {
 /**
- * Used by WebAPI to convert QuotaExceededExceptions to ApiExceptions, which are
- * more suitable for user errors.
+ * Represents Quota Exceeded Error.
  */
 class QuotaExceededError extends ApiError {
   /**
@@ -1669,7 +1667,7 @@ class QuotaExceededError extends ApiError {
   }
 }}
 
-if (!class_exists("RangeError")) {
+if (!class_exists("RangeError", FALSE)) {
 /**
  * A list of all errors associated with the Range constraint.
  */
@@ -1705,7 +1703,7 @@ class RangeError extends ApiError {
   }
 }}
 
-if (!class_exists("RequiredError")) {
+if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
  */
@@ -1741,7 +1739,7 @@ class RequiredError extends ApiError {
   }
 }}
 
-if (!class_exists("SizeLimitError")) {
+if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
  */
@@ -1777,7 +1775,7 @@ class SizeLimitError extends ApiError {
   }
 }}
 
-if (!class_exists("StringLengthError")) {
+if (!class_exists("StringLengthError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsString constraint.
  */
@@ -1813,7 +1811,7 @@ class StringLengthError extends ApiError {
   }
 }}
 
-if (!class_exists("PolicyViolationError")) {
+if (!class_exists("PolicyViolationError", FALSE)) {
 /**
  * Represents violations of a single policy by some text in a field.
  * 
@@ -1895,7 +1893,7 @@ class PolicyViolationError extends ApiError {
   }
 }}
 
-if (!class_exists("ApiException")) {
+if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
  */
@@ -1930,7 +1928,7 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("AdParamPolicyError")) {
+if (!class_exists("AdParamPolicyError", FALSE)) {
 /**
  * Policy violation for an AdParam.
  */

@@ -38,7 +38,6 @@ require_once 'PHPUnit/Framework.php';
  */
 class CampaignServiceTest extends PHPUnit_Framework_TestCase {
   private $version = 'v200909';
-  private $server = 'https://adwords-sandbox.google.com';
   private $user;
   private $service;
 
@@ -46,17 +45,21 @@ class CampaignServiceTest extends PHPUnit_Framework_TestCase {
   private static $campaign2;
 
   protected function setUp() {
-    $this->user = new AdWordsUser(dirname(__FILE__)
-        . '/../../../../../../test_data/test_auth.ini');
+    $authFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
+    $settingsFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
+    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
+        NULL, NULL, NULL, $settingsFile);
     $this->user->LogDefaults();
     $this->service =
-        $this->user->GetCampaignService($this->version, $this->server);
+        $this->user->GetCampaignService($this->version);
   }
 
   /**
    * Test whether we can create a campaign using v200909.
    */
-  public function testCreateCampaignV200909() {
+  public function testCreateCampaign() {
     $campaign = new Campaign();
     $campaign->name = 'Campaign #' . time();
     $campaign->status = 'PAUSED';
@@ -91,7 +94,7 @@ class CampaignServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can create a campaign using v200909.
    */
-  public function testCreateCampaignsV200909() {
+  public function testCreateCampaigns() {
     $campaign1 = new Campaign();
     $campaign1->name = 'Campaign #' . time();
     $campaign1->status = 'PAUSED';
@@ -150,9 +153,9 @@ class CampaignServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can fetch an existing campaign using v200909.
    */
-  public function testGetCampaignV200909() {
+  public function testGetCampaign() {
     if (!isset(CampaignServiceTest::$campaign1)) {
-      $this->testCreateCampaignV200909();
+      $this->testCreateCampaign();
     }
 
     $selector = new CampaignSelector();
@@ -174,10 +177,10 @@ class CampaignServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can fetch an existing campaign using v200909.
    */
-  public function testGetAllCampaignsV200909() {
+  public function testGetAllCampaigns() {
     if (!isset(CampaignServiceTest::$campaign1)
         || !isset(CampaignServiceTest::$campaign2)) {
-      $this->testCreateCampaignsV200909();
+      $this->testCreateCampaigns();
     }
 
     $selector = new CampaignSelector();
@@ -220,9 +223,9 @@ class CampaignServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can update a campaign using v200909.
    */
-  public function testUpdateCampaignV200909() {
+  public function testUpdateCampaign() {
     if (!isset(CampaignServiceTest::$campaign1)) {
-      $this->testCreateCampaignV200909();
+      $this->testCreateCampaign();
     }
 
     $campaign = new Campaign();
@@ -254,10 +257,10 @@ class CampaignServiceTest extends PHPUnit_Framework_TestCase {
   /**
    * Test whether we can update campaigns using v200909.
    */
-  public function testUpdateCampaignsV200909() {
+  public function testUpdateCampaigns() {
     if (!isset(CampaignServiceTest::$campaign1)
         || !isset(CampaignServiceTest::$campaign2)) {
-      $this->testCreateCampaignsV200909();
+      $this->testCreateCampaigns();
     }
     $campaign1 = new Campaign();
     $campaign1->id = CampaignServiceTest::$campaign1->id;

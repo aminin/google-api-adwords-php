@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage ${service.version}
+ * @subpackage v200909
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -28,7 +28,7 @@
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("Ad")) {
+if (!class_exists("Ad", FALSE)) {
 /**
  * The base class of all Ad types.  Not abstract since it is conceivable for
  * the base attributes of an Ad to be updated without reference to its concrete
@@ -130,7 +130,7 @@ class Ad {
   }
 }}
 
-if (!class_exists("AdExtension")) {
+if (!class_exists("AdExtension", FALSE)) {
 /**
  * Base class for AdExtension objects. An AdExtension is an extension to
  * an existing ad or metadata that will process into an extension.
@@ -205,7 +205,7 @@ class AdExtension {
   }
 }}
 
-if (!class_exists("AdExtensionOverride")) {
+if (!class_exists("AdExtensionOverride", FALSE)) {
 /**
  * Represents an ad level ad extension override. An ad extension override
  * specifies the ad extension that must be used if the ad is served with
@@ -275,7 +275,7 @@ class AdExtensionOverride {
   }
 }}
 
-if (!class_exists("AdGroup")) {
+if (!class_exists("AdGroup", FALSE)) {
 /**
  * Represents the AdGroup object that is sent over the wire.
  */
@@ -350,7 +350,7 @@ class AdGroup {
   }
 }}
 
-if (!class_exists("AdGroupAd")) {
+if (!class_exists("AdGroupAd", FALSE)) {
 /**
  * Represents an ad in an ad group.
  */
@@ -404,7 +404,7 @@ class AdGroupAd {
   }
 }}
 
-if (!class_exists("AdGroupBids")) {
+if (!class_exists("AdGroupBids", FALSE)) {
 /**
  * Represents bids at the adgroup level, which could be of different subtypes based on
  * campaign's bidding strategy.
@@ -470,7 +470,7 @@ class AdGroupBids {
   }
 }}
 
-if (!class_exists("AdGroupCriterion")) {
+if (!class_exists("AdGroupCriterion", FALSE)) {
 /**
  * Represents a crterion in an ad group.
  * 
@@ -551,7 +551,7 @@ class AdGroupCriterion {
   }
 }}
 
-if (!class_exists("AdGroupCriterionBids")) {
+if (!class_exists("AdGroupCriterionBids", FALSE)) {
 /**
  * Represents criterion level bids.
  */
@@ -616,7 +616,7 @@ class AdGroupCriterionBids {
   }
 }}
 
-if (!class_exists("AdUnionId")) {
+if (!class_exists("AdUnionId", FALSE)) {
 /**
  * Represents an id indicating a grouping of Ads under some heuristic.
  */
@@ -688,7 +688,7 @@ class AdUnionId {
   }
 }}
 
-if (!class_exists("Address")) {
+if (!class_exists("Address", FALSE)) {
 /**
  * Structure to specify an address location.
  */
@@ -763,7 +763,7 @@ class Address {
   }
 }}
 
-if (!class_exists("ApiError")) {
+if (!class_exists("ApiError", FALSE)) {
 /**
  * A service api error base class that provides error details.
  * 1) the OGNL field path is provided for parsers.
@@ -844,7 +844,7 @@ class ApiError {
   }
 }}
 
-if (!class_exists("ApiErrorReason")) {
+if (!class_exists("ApiErrorReason", FALSE)) {
 /**
  * Interface that has a reason return an associated service error.
  */
@@ -1178,7 +1178,7 @@ class ApiErrorReason {
   }
 }}
 
-if (!class_exists("ApplicationException")) {
+if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
  */
@@ -1250,7 +1250,7 @@ class ApplicationException {
   }
 }}
 
-if (!class_exists("AuthenticationError")) {
+if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
  */
@@ -1286,7 +1286,7 @@ class AuthenticationError extends ApiError {
   }
 }}
 
-if (!class_exists("AuthorizationError")) {
+if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
  */
@@ -1322,7 +1322,7 @@ class AuthorizationError extends ApiError {
   }
 }}
 
-if (!class_exists("Bid")) {
+if (!class_exists("Bid", FALSE)) {
 /**
  * Represents a bid on a criterion.
  */
@@ -1355,7 +1355,7 @@ class Bid {
   }
 }}
 
-if (!class_exists("BiddableAdGroupCriterion")) {
+if (!class_exists("BiddableAdGroupCriterion", FALSE)) {
 /**
  * A biddable (positive) criterion in an adgroup.
  */
@@ -1440,7 +1440,7 @@ class BiddableAdGroupCriterion extends AdGroupCriterion {
   }
 }}
 
-if (!class_exists("BiddingError")) {
+if (!class_exists("BiddingError", FALSE)) {
 /**
  * Represents bidding errors.
  */
@@ -1476,7 +1476,7 @@ class BiddingError extends ApiError {
   }
 }}
 
-if (!class_exists("BiddingStrategy")) {
+if (!class_exists("BiddingStrategy", FALSE)) {
 /**
  * A campaign's bidding strategy, such as manual CPC, manual CPM, budget optimizer, etc.
  */
@@ -1541,7 +1541,7 @@ class BiddingStrategy {
   }
 }}
 
-if (!class_exists("BiddingTransition")) {
+if (!class_exists("BiddingTransition", FALSE)) {
 /**
  * Used to switch a campaign's bidding strategy.
  */
@@ -1620,7 +1620,7 @@ class BiddingTransition {
   }
 }}
 
-if (!class_exists("BiddingTransitionError")) {
+if (!class_exists("BiddingTransitionError", FALSE)) {
 /**
  * Bidding transition errors.
  */
@@ -1656,7 +1656,7 @@ class BiddingTransitionError extends ApiError {
   }
 }}
 
-if (!class_exists("BillingSummary")) {
+if (!class_exists("BillingSummary", FALSE)) {
 /**
  * Represents the billing summary of the job that provides the overall cost of
  * the job.
@@ -1697,7 +1697,7 @@ class BillingSummary {
   }
 }}
 
-if (!class_exists("Budget")) {
+if (!class_exists("Budget", FALSE)) {
 /**
  * Class representing budget for the campaign.
  */
@@ -1744,7 +1744,7 @@ class Budget {
   }
 }}
 
-if (!class_exists("BudgetError")) {
+if (!class_exists("BudgetError", FALSE)) {
 /**
  * A list of all the error codes being used by the common budget domain package.
  */
@@ -1780,7 +1780,7 @@ class BudgetError extends ApiError {
   }
 }}
 
-if (!class_exists("BudgetOptimizer")) {
+if (!class_exists("BudgetOptimizer", FALSE)) {
 /**
  * In budget optimizer, Google automatically places bids for the user
  * based on their daily/monthly budget.
@@ -1815,7 +1815,7 @@ class BudgetOptimizer extends BiddingStrategy {
   }
 }}
 
-if (!class_exists("BudgetOptimizerAdGroupBids")) {
+if (!class_exists("BudgetOptimizerAdGroupBids", FALSE)) {
 /**
  * Adgroup level bids used in budget optimizer bidding strategy.
  */
@@ -1856,7 +1856,7 @@ class BudgetOptimizerAdGroupBids extends AdGroupBids {
   }
 }}
 
-if (!class_exists("BudgetOptimizerAdGroupCriterionBids")) {
+if (!class_exists("BudgetOptimizerAdGroupCriterionBids", FALSE)) {
 /**
  * AdGroupCriterion level bids used in budget optimizer bidding strategy.
  */
@@ -1890,7 +1890,7 @@ class BudgetOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
   }
 }}
 
-if (!class_exists("BulkMutateJobError")) {
+if (!class_exists("BulkMutateJobError", FALSE)) {
 /**
  * Bulk mutate job handling errors.
  */
@@ -1926,7 +1926,7 @@ class BulkMutateJobError extends ApiError {
   }
 }}
 
-if (!class_exists("BulkMutateJobPolicy")) {
+if (!class_exists("BulkMutateJobPolicy", FALSE)) {
 /**
  * A basic job policy.
  */
@@ -1959,7 +1959,7 @@ class BulkMutateJobPolicy {
   }
 }}
 
-if (!class_exists("BulkMutateRequest")) {
+if (!class_exists("BulkMutateRequest", FALSE)) {
 /**
  * A request part of a {@link BulkMutateJob}.
  */
@@ -1999,7 +1999,7 @@ class BulkMutateRequest {
   }
 }}
 
-if (!class_exists("BulkMutateResult")) {
+if (!class_exists("BulkMutateResult", FALSE)) {
 /**
  * Represents a result part of a {@link BulkMutateJob}.
  * 
@@ -2088,7 +2088,7 @@ class BulkMutateResult {
   }
 }}
 
-if (!class_exists("Campaign")) {
+if (!class_exists("Campaign", FALSE)) {
 /**
  * Class representing a campaign for the CampaignService.
  */
@@ -2198,7 +2198,7 @@ class Campaign {
   }
 }}
 
-if (!class_exists("CampaignCriterion")) {
+if (!class_exists("CampaignCriterion", FALSE)) {
 /**
  * Represents a campaign level criterion (either keyword or placement).
  * 
@@ -2279,7 +2279,7 @@ class CampaignCriterion {
   }
 }}
 
-if (!class_exists("CampaignCriterionError")) {
+if (!class_exists("CampaignCriterionError", FALSE)) {
 /**
  * Base error class for Campaign Criterion Service.
  */
@@ -2315,7 +2315,7 @@ class CampaignCriterionError extends ApiError {
   }
 }}
 
-if (!class_exists("CampaignError")) {
+if (!class_exists("CampaignError", FALSE)) {
 /**
  * Base error class for Campaign Service.
  */
@@ -2351,7 +2351,7 @@ class CampaignError extends ApiError {
   }
 }}
 
-if (!class_exists("ClientTermsError")) {
+if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
  */
@@ -2387,7 +2387,7 @@ class ClientTermsError extends ApiError {
   }
 }}
 
-if (!class_exists("ComparableValue")) {
+if (!class_exists("ComparableValue", FALSE)) {
 /**
  * Comparable types for constructing ranges with.
  */
@@ -2452,7 +2452,7 @@ class ComparableValue {
   }
 }}
 
-if (!class_exists("ConversionOptimizer")) {
+if (!class_exists("ConversionOptimizer", FALSE)) {
 /**
  * Conversion optimizer bidding strategy.
  */
@@ -2486,7 +2486,7 @@ class ConversionOptimizer extends BiddingStrategy {
   }
 }}
 
-if (!class_exists("ConversionOptimizerAdGroupBids")) {
+if (!class_exists("ConversionOptimizerAdGroupBids", FALSE)) {
 /**
  * Adgroup level bids used in conversion optimizer bidding strategy.
  */
@@ -2520,7 +2520,7 @@ class ConversionOptimizerAdGroupBids extends AdGroupBids {
   }
 }}
 
-if (!class_exists("ConversionOptimizerAdGroupCriterionBids")) {
+if (!class_exists("ConversionOptimizerAdGroupCriterionBids", FALSE)) {
 /**
  * AdGroupCriterion level bids used in conversion optimizer bidding strategy.
  * This bidding strategy does not contain any bid information at the
@@ -2549,7 +2549,7 @@ class ConversionOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
   }
 }}
 
-if (!class_exists("ConversionOptimizerBiddingTransition")) {
+if (!class_exists("ConversionOptimizerBiddingTransition", FALSE)) {
 /**
  * Used to switch a campaign's bidding strategy to conversion optimizer.
  */
@@ -2585,7 +2585,7 @@ class ConversionOptimizerBiddingTransition extends BiddingTransition {
   }
 }}
 
-if (!class_exists("Criterion")) {
+if (!class_exists("Criterion", FALSE)) {
 /**
  * Represents any criterion (e.g. keyword, placement).
  */
@@ -2657,7 +2657,7 @@ class Criterion {
   }
 }}
 
-if (!class_exists("DatabaseError")) {
+if (!class_exists("DatabaseError", FALSE)) {
 /**
  * Errors that are thrown due to a database access problem.
  */
@@ -2693,7 +2693,7 @@ class DatabaseError extends ApiError {
   }
 }}
 
-if (!class_exists("DateError")) {
+if (!class_exists("DateError", FALSE)) {
 /**
  * Errors associated with invalid dates and date ranges.
  */
@@ -2729,7 +2729,7 @@ class DateError extends ApiError {
   }
 }}
 
-if (!class_exists("DeprecatedAd")) {
+if (!class_exists("DeprecatedAd", FALSE)) {
 /**
  * Represents a deprecated ad.
  * 
@@ -2777,7 +2777,7 @@ class DeprecatedAd extends Ad {
   }
 }}
 
-if (!class_exists("Dimensions")) {
+if (!class_exists("Dimensions", FALSE)) {
 /**
  * Represents a simple height-width dimension.
  */
@@ -2817,7 +2817,7 @@ class Dimensions {
   }
 }}
 
-if (!class_exists("DistinctError")) {
+if (!class_exists("DistinctError", FALSE)) {
 /**
  * Errors related to distinct ids or content.
  */
@@ -2853,7 +2853,7 @@ class DistinctError extends ApiError {
   }
 }}
 
-if (!class_exists("EntityAccessDenied")) {
+if (!class_exists("EntityAccessDenied", FALSE)) {
 /**
  * Reports permission problems trying to access an entity.
  */
@@ -2889,7 +2889,7 @@ class EntityAccessDenied extends ApiError {
   }
 }}
 
-if (!class_exists("EntityCountLimitExceeded")) {
+if (!class_exists("EntityCountLimitExceeded", FALSE)) {
 /**
  * Signals that an entity count limit was exceeded for some level.
  * For example, too many criteria for a campaign.
@@ -2940,7 +2940,7 @@ class EntityCountLimitExceeded extends ApiError {
   }
 }}
 
-if (!class_exists("EntityId")) {
+if (!class_exists("EntityId", FALSE)) {
 /**
  * A qualified long-valued identity that can identify different types of
  * AdWords entities such as campaigns and ad-groups.
@@ -2981,7 +2981,7 @@ class EntityId {
   }
 }}
 
-if (!class_exists("EntityNotFound")) {
+if (!class_exists("EntityNotFound", FALSE)) {
 /**
  * An id did not correspond to an entity, or it referred to an entity which does not belong to the
  * customer.
@@ -3018,7 +3018,7 @@ class EntityNotFound extends ApiError {
   }
 }}
 
-if (!class_exists("ExemptionRequest")) {
+if (!class_exists("ExemptionRequest", FALSE)) {
 /**
  * A request to be exempted from a {@link PolicyViolationError}.
  */
@@ -3051,7 +3051,7 @@ class ExemptionRequest {
   }
 }}
 
-if (!class_exists("FrequencyCap")) {
+if (!class_exists("FrequencyCap", FALSE)) {
 /**
  * A frequency cap is the maximum number of times an ad (or some set of ads) can
  * be shown to a user over a particular time period.
@@ -3099,7 +3099,7 @@ class FrequencyCap {
   }
 }}
 
-if (!class_exists("GeoPoint")) {
+if (!class_exists("GeoPoint", FALSE)) {
 /**
  * Specifies a geo location with the supplied lat/long.
  */
@@ -3139,7 +3139,7 @@ class GeoPoint {
   }
 }}
 
-if (!class_exists("IdError")) {
+if (!class_exists("IdError", FALSE)) {
 /**
  * Errors associated with the ids.
  */
@@ -3175,7 +3175,7 @@ class IdError extends ApiError {
   }
 }}
 
-if (!class_exists("ImageAd")) {
+if (!class_exists("ImageAd", FALSE)) {
 /**
  * Represents an ImageAd.
  */
@@ -3221,7 +3221,7 @@ class ImageAd extends Ad {
   }
 }}
 
-if (!class_exists("ImageError")) {
+if (!class_exists("ImageError", FALSE)) {
 /**
  * Error class for errors associated with parsing image data.
  */
@@ -3257,7 +3257,7 @@ class ImageError extends ApiError {
   }
 }}
 
-if (!class_exists("InternalApiError")) {
+if (!class_exists("InternalApiError", FALSE)) {
 /**
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
@@ -3295,7 +3295,7 @@ class InternalApiError extends ApiError {
   }
 }}
 
-if (!class_exists("Job")) {
+if (!class_exists("Job", FALSE)) {
 /**
  * Represents an asynchronous macro unit of work.
  */
@@ -3395,7 +3395,7 @@ class Job {
   }
 }}
 
-if (!class_exists("JobContext")) {
+if (!class_exists("JobContext", FALSE)) {
 /**
  * Represents the request and processing context information of a job.
  */
@@ -3435,7 +3435,7 @@ class JobContext {
   }
 }}
 
-if (!class_exists("JobError")) {
+if (!class_exists("JobError", FALSE)) {
 /**
  * Job handling errors.
  */
@@ -3471,7 +3471,7 @@ class JobError extends ApiError {
   }
 }}
 
-if (!class_exists("JobEvent")) {
+if (!class_exists("JobEvent", FALSE)) {
 /**
  * An event defined by a status change of a job.
  */
@@ -3543,7 +3543,7 @@ class JobEvent {
   }
 }}
 
-if (!class_exists("JobSelector")) {
+if (!class_exists("JobSelector", FALSE)) {
 /**
  * For selecting jobs whose information will be returned from a get method call
  * of a job service.
@@ -3632,7 +3632,7 @@ class JobSelector {
   }
 }}
 
-if (!class_exists("JobStats")) {
+if (!class_exists("JobStats", FALSE)) {
 /**
  * Job-handling statistics.
  */
@@ -3718,7 +3718,7 @@ class JobStats {
   }
 }}
 
-if (!class_exists("Keyword")) {
+if (!class_exists("Keyword", FALSE)) {
 /**
  * A keyword.
  */
@@ -3760,7 +3760,7 @@ class Keyword extends Criterion {
   }
 }}
 
-if (!class_exists("LocalBusinessAd")) {
+if (!class_exists("LocalBusinessAd", FALSE)) {
 /**
  * Represents Legacy Local Business Ad
  * 
@@ -3892,7 +3892,7 @@ class LocalBusinessAd extends Ad {
   }
 }}
 
-if (!class_exists("LocationExtension")) {
+if (!class_exists("LocationExtension", FALSE)) {
 /**
  * Location based ad extension.
  */
@@ -3976,7 +3976,7 @@ class LocationExtension extends AdExtension {
   }
 }}
 
-if (!class_exists("LocationOverrideInfo")) {
+if (!class_exists("LocationOverrideInfo", FALSE)) {
 /**
  * Represents override info for ad level LocationExtension overrides.
  */
@@ -4016,7 +4016,7 @@ class LocationOverrideInfo {
   }
 }}
 
-if (!class_exists("ManualCPC")) {
+if (!class_exists("ManualCPC", FALSE)) {
 /**
  * Manual click based bidding where user pays per click.
  */
@@ -4043,7 +4043,7 @@ class ManualCPC extends BiddingStrategy {
   }
 }}
 
-if (!class_exists("ManualCPCAdGroupBids")) {
+if (!class_exists("ManualCPCAdGroupBids", FALSE)) {
 /**
  * Adgroup level bids used in manual CPC bidding strategy.
  */
@@ -4091,7 +4091,7 @@ class ManualCPCAdGroupBids extends AdGroupBids {
   }
 }}
 
-if (!class_exists("ManualCPCAdGroupCriterionBids")) {
+if (!class_exists("ManualCPCAdGroupCriterionBids", FALSE)) {
 /**
  * AdGroupCriterion level bids used in manual cpc bidding strategy.
  */
@@ -4139,7 +4139,7 @@ class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
   }
 }}
 
-if (!class_exists("ManualCPM")) {
+if (!class_exists("ManualCPM", FALSE)) {
 /**
  * Manual impression based bidding where user pays per thousand impressions.
  */
@@ -4166,7 +4166,7 @@ class ManualCPM extends BiddingStrategy {
   }
 }}
 
-if (!class_exists("ManualCPMAdGroupBids")) {
+if (!class_exists("ManualCPMAdGroupBids", FALSE)) {
 /**
  * Adgroup level bids used in manual CPM bidding strategy.
  */
@@ -4200,7 +4200,7 @@ class ManualCPMAdGroupBids extends AdGroupBids {
   }
 }}
 
-if (!class_exists("ManualCPMAdGroupCriterionBids")) {
+if (!class_exists("ManualCPMAdGroupCriterionBids", FALSE)) {
 /**
  * AdGroupCriterion level bids used in manual CPM bidding strategy.
  */
@@ -4241,7 +4241,7 @@ class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
   }
 }}
 
-if (!class_exists("Media")) {
+if (!class_exists("Media", FALSE)) {
 /**
  * Represents any media (e.g., image).
  */
@@ -4390,7 +4390,7 @@ class Media {
   }
 }}
 
-if (!class_exists("MediaError")) {
+if (!class_exists("MediaError", FALSE)) {
 /**
  * Error class for media related errors.
  */
@@ -4426,7 +4426,7 @@ class MediaError extends ApiError {
   }
 }}
 
-if (!class_exists("Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry")) {
+if (!class_exists("Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type MediaExtendedCapabilityType
  * and value of type MediaExtendedCapabilityState.
@@ -4467,7 +4467,7 @@ class Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEnt
   }
 }}
 
-if (!class_exists("Media_Size_DimensionsMapEntry")) {
+if (!class_exists("Media_Size_DimensionsMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Size
  * and value of type Dimensions.
@@ -4508,7 +4508,7 @@ class Media_Size_DimensionsMapEntry {
   }
 }}
 
-if (!class_exists("Media_Size_StringMapEntry")) {
+if (!class_exists("Media_Size_StringMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Size
  * and value of type String.
@@ -4549,7 +4549,7 @@ class Media_Size_StringMapEntry {
   }
 }}
 
-if (!class_exists("MobileAd")) {
+if (!class_exists("MobileAd", FALSE)) {
 /**
  * Represents a MobileAd.
  * 
@@ -4682,7 +4682,7 @@ class MobileAd extends Ad {
   }
 }}
 
-if (!class_exists("MobileImageAd")) {
+if (!class_exists("MobileImageAd", FALSE)) {
 /**
  * Data associated with a mobile image ad.
  * 
@@ -4745,7 +4745,7 @@ class MobileImageAd extends Ad {
   }
 }}
 
-if (!class_exists("Money")) {
+if (!class_exists("Money", FALSE)) {
 /**
  * Represents a money amount.
  */
@@ -4779,7 +4779,7 @@ class Money extends ComparableValue {
   }
 }}
 
-if (!class_exists("NegativeAdGroupCriterion")) {
+if (!class_exists("NegativeAdGroupCriterion", FALSE)) {
 /**
  * A negative criterion in an adgroup.
  */
@@ -4808,7 +4808,7 @@ class NegativeAdGroupCriterion extends AdGroupCriterion {
   }
 }}
 
-if (!class_exists("NegativeCampaignCriterion")) {
+if (!class_exists("NegativeCampaignCriterion", FALSE)) {
 /**
  * A negative campaign criterion.
  */
@@ -4837,7 +4837,7 @@ class NegativeCampaignCriterion extends CampaignCriterion {
   }
 }}
 
-if (!class_exists("NewEntityCreationError")) {
+if (!class_exists("NewEntityCreationError", FALSE)) {
 /**
  * Error associated with creation of new entities using
  * {@link com.google.ads.api.services.common.id.TempId}s.
@@ -4874,7 +4874,7 @@ class NewEntityCreationError extends ApiError {
   }
 }}
 
-if (!class_exists("NotEmptyError")) {
+if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
  */
@@ -4910,7 +4910,7 @@ class NotEmptyError extends ApiError {
   }
 }}
 
-if (!class_exists("NotWhitelistedError")) {
+if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
  */
@@ -4946,7 +4946,7 @@ class NotWhitelistedError extends ApiError {
   }
 }}
 
-if (!class_exists("NullError")) {
+if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
  */
@@ -4982,7 +4982,7 @@ class NullError extends ApiError {
   }
 }}
 
-if (!class_exists("NumberValue")) {
+if (!class_exists("NumberValue", FALSE)) {
 /**
  * Number value types for constructing number valued ranges.
  */
@@ -5009,7 +5009,7 @@ class NumberValue extends ComparableValue {
   }
 }}
 
-if (!class_exists("Operand")) {
+if (!class_exists("Operand", FALSE)) {
 /**
  * A marker interface for entities that can be operated upon in mutate
  * operations.
@@ -5113,7 +5113,7 @@ class Operand {
   }
 }}
 
-if (!class_exists("Operation")) {
+if (!class_exists("Operation", FALSE)) {
 /**
  * This represents an operation that includes an operator and an operand
  * specified type.
@@ -5186,7 +5186,7 @@ class Operation {
   }
 }}
 
-if (!class_exists("OperationAccessDenied")) {
+if (!class_exists("OperationAccessDenied", FALSE)) {
 /**
  * Unauthorized access errors as determined by the invoked service's
  * access policy.
@@ -5223,7 +5223,7 @@ class OperationAccessDenied extends ApiError {
   }
 }}
 
-if (!class_exists("OperationResult")) {
+if (!class_exists("OperationResult", FALSE)) {
 /**
  * Represents the result of an individual mutate operation.
  */
@@ -5288,7 +5288,7 @@ class OperationResult {
   }
 }}
 
-if (!class_exists("OperationStream")) {
+if (!class_exists("OperationStream", FALSE)) {
 /**
  * A stream of AdWords API mutate operations that must be performed serially.
  * Further, this operation stream must be processed serially with all other
@@ -5331,7 +5331,7 @@ class OperationStream {
   }
 }}
 
-if (!class_exists("OperationStreamResult")) {
+if (!class_exists("OperationStreamResult", FALSE)) {
 /**
  * The result of processing an {@link OperationStream}.
  */
@@ -5364,7 +5364,7 @@ class OperationStreamResult {
   }
 }}
 
-if (!class_exists("OperatorError")) {
+if (!class_exists("OperatorError", FALSE)) {
 /**
  * A list of all errors associated with the @SupportedOperators constraints.
  */
@@ -5400,7 +5400,7 @@ class OperatorError extends ApiError {
   }
 }}
 
-if (!class_exists("OverrideInfo")) {
+if (!class_exists("OverrideInfo", FALSE)) {
 /**
  * Represents additional override info with which to augment the override
  * extension.
@@ -5434,7 +5434,7 @@ class OverrideInfo {
   }
 }}
 
-if (!class_exists("PagingError")) {
+if (!class_exists("PagingError", FALSE)) {
 /**
  * Error codes for pagination.
  * See {@link com.google.ads.api.services.common.pagination.Paging}.
@@ -5471,7 +5471,7 @@ class PagingError extends ApiError {
   }
 }}
 
-if (!class_exists("Placement")) {
+if (!class_exists("Placement", FALSE)) {
 /**
  * A placement used for modifying bids for sites when targeting the content
  * network.
@@ -5507,7 +5507,7 @@ class Placement extends Criterion {
   }
 }}
 
-if (!class_exists("PolicyViolationError")) {
+if (!class_exists("PolicyViolationError", FALSE)) {
 /**
  * Represents violations of a single policy by some text in a field.
  * 
@@ -5589,7 +5589,7 @@ class PolicyViolationError extends ApiError {
   }
 }}
 
-if (!class_exists("PolicyViolationErrorPart")) {
+if (!class_exists("PolicyViolationErrorPart", FALSE)) {
 /**
  * Points to a substring within an ad field or criterion.
  */
@@ -5629,7 +5629,7 @@ class PolicyViolationErrorPart {
   }
 }}
 
-if (!class_exists("PolicyViolationKey")) {
+if (!class_exists("PolicyViolationKey", FALSE)) {
 /**
  * Key of the violation. The key is used for referring to a violation when
  * filing an exemption request.
@@ -5670,7 +5670,7 @@ class PolicyViolationKey {
   }
 }}
 
-if (!class_exists("PositionPreferenceAdGroupCriterionBids")) {
+if (!class_exists("PositionPreferenceAdGroupCriterionBids", FALSE)) {
 /**
  * AdGroupCriterion level bids used in manual cpc bidding strategy
  * when position preference is turned on.
@@ -5718,7 +5718,7 @@ class PositionPreferenceAdGroupCriterionBids {
   }
 }}
 
-if (!class_exists("QualityInfo")) {
+if (!class_exists("QualityInfo", FALSE)) {
 /**
  * Container for criterion quality information.
  */
@@ -5772,10 +5772,9 @@ class QualityInfo {
   }
 }}
 
-if (!class_exists("QuotaCheckError")) {
+if (!class_exists("QuotaCheckError", FALSE)) {
 /**
- * Encapsulates the errors thrown during developer quota checks for webapi
- * calls.
+ * Encapsulates the errors thrown during developer quota checks.
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -5809,7 +5808,7 @@ class QuotaCheckError extends ApiError {
   }
 }}
 
-if (!class_exists("QuotaError")) {
+if (!class_exists("QuotaError", FALSE)) {
 /**
  * Errors that are thrown if a quota limit is exceeded.
  */
@@ -5852,10 +5851,9 @@ class QuotaError extends ApiError {
   }
 }}
 
-if (!class_exists("QuotaExceededError")) {
+if (!class_exists("QuotaExceededError", FALSE)) {
 /**
- * Used by WebAPI to convert QuotaExceededExceptions to ApiExceptions, which are
- * more suitable for user errors.
+ * Represents Quota Exceeded Error.
  */
 class QuotaExceededError extends ApiError {
   /**
@@ -5889,7 +5887,7 @@ class QuotaExceededError extends ApiError {
   }
 }}
 
-if (!class_exists("RangeError")) {
+if (!class_exists("RangeError", FALSE)) {
 /**
  * A list of all errors associated with the Range constraint.
  */
@@ -5925,7 +5923,7 @@ class RangeError extends ApiError {
   }
 }}
 
-if (!class_exists("ReadOnlyError")) {
+if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
  */
@@ -5961,7 +5959,7 @@ class ReadOnlyError extends ApiError {
   }
 }}
 
-if (!class_exists("RegionCodeError")) {
+if (!class_exists("RegionCodeError", FALSE)) {
 /**
  * A list of all errors associated with the @RegionCode constraints.
  */
@@ -5997,7 +5995,7 @@ class RegionCodeError extends ApiError {
   }
 }}
 
-if (!class_exists("RequiredError")) {
+if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
  */
@@ -6033,7 +6031,7 @@ class RequiredError extends ApiError {
   }
 }}
 
-if (!class_exists("ReturnValueResult")) {
+if (!class_exists("ReturnValueResult", FALSE)) {
 /**
  * Represents a success result of processing a mutate operation that returned
  * a value.
@@ -6068,7 +6066,7 @@ class ReturnValueResult extends OperationResult {
   }
 }}
 
-if (!class_exists("SizeLimitError")) {
+if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
  */
@@ -6104,7 +6102,7 @@ class SizeLimitError extends ApiError {
   }
 }}
 
-if (!class_exists("SoapRequestHeader")) {
+if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
  */
@@ -6179,7 +6177,7 @@ class SoapRequestHeader {
   }
 }}
 
-if (!class_exists("SoapResponseHeader")) {
+if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
  */
@@ -6233,7 +6231,7 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("Stats")) {
+if (!class_exists("Stats", FALSE)) {
 /**
  * Statistics about an ad or criterion within an adgroup or campaign.
  */
@@ -6410,7 +6408,7 @@ class Stats {
   }
 }}
 
-if (!class_exists("StatsQueryError")) {
+if (!class_exists("StatsQueryError", FALSE)) {
 /**
  * Represents possible error codes when querying for stats.
  */
@@ -6446,7 +6444,7 @@ class StatsQueryError extends ApiError {
   }
 }}
 
-if (!class_exists("StringLengthError")) {
+if (!class_exists("StringLengthError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsString constraint.
  */
@@ -6482,7 +6480,7 @@ class StringLengthError extends ApiError {
   }
 }}
 
-if (!class_exists("AdWordsTarget")) {
+if (!class_exists("AdWordsTarget", FALSE)) {
 /**
  * Target abstract class.
  */
@@ -6547,7 +6545,7 @@ class AdWordsTarget {
   }
 }}
 
-if (!class_exists("TargetError")) {
+if (!class_exists("TargetError", FALSE)) {
 /**
  * A list of all the error codes being used by the common targeting package.
  */
@@ -6583,7 +6581,7 @@ class TargetError extends ApiError {
   }
 }}
 
-if (!class_exists("TargetList")) {
+if (!class_exists("TargetList", FALSE)) {
 /**
  * Targets list abstract class (a list of a given type of targets along with their campaign ID).
  */
@@ -6655,7 +6653,7 @@ class TargetList {
   }
 }}
 
-if (!class_exists("TempAdUnionId")) {
+if (!class_exists("TempAdUnionId", FALSE)) {
 /**
  * Represents the temporary id for an ad union id, which the user can specify.
  * The temporary id can be used to group ads together during ad creation.
@@ -6684,7 +6682,7 @@ class TempAdUnionId extends AdUnionId {
   }
 }}
 
-if (!class_exists("TemplateAd")) {
+if (!class_exists("TemplateAd", FALSE)) {
 /**
  * Represents a TemplateAd. A template ad is composed of a template (specified
  * by it's template id) along with all the elements to populate the
@@ -6760,7 +6758,7 @@ class TemplateAd extends Ad {
   }
 }}
 
-if (!class_exists("TemplateElement")) {
+if (!class_exists("TemplateElement", FALSE)) {
 /**
  * Represents an element in a template. Each template element is composed
  * of a list of fields (actual value data).
@@ -6801,7 +6799,7 @@ class TemplateElement {
   }
 }}
 
-if (!class_exists("TemplateElementField")) {
+if (!class_exists("TemplateElementField", FALSE)) {
 /**
  * Represents a field in a template element.
  */
@@ -6855,7 +6853,7 @@ class TemplateElementField {
   }
 }}
 
-if (!class_exists("TextAd")) {
+if (!class_exists("TextAd", FALSE)) {
 /**
  * Represents a TextAd.
  */
@@ -6908,7 +6906,7 @@ class TextAd extends Ad {
   }
 }}
 
-if (!class_exists("UnprocessedResult")) {
+if (!class_exists("UnprocessedResult", FALSE)) {
 /**
  * Indicates that the mutate operation was not processed. This could result
  * either because the operation has not yet been scheduled for processing,
@@ -6938,7 +6936,7 @@ class UnprocessedResult extends OperationResult {
   }
 }}
 
-if (!class_exists("Video")) {
+if (!class_exists("Video", FALSE)) {
 /**
  * Encapsulates a Video media identified by a MediaId
  */
@@ -7012,7 +7010,7 @@ class Video extends Media {
   }
 }}
 
-if (!class_exists("AdApprovalStatus")) {
+if (!class_exists("AdApprovalStatus", FALSE)) {
 /**
  * Approval status for Creatives.
  */
@@ -7038,7 +7036,7 @@ class AdApprovalStatus {
   }
 }}
 
-if (!class_exists("AdErrorReason")) {
+if (!class_exists("AdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -7064,7 +7062,7 @@ class AdErrorReason {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideApprovalStatus")) {
+if (!class_exists("AdExtensionOverrideApprovalStatus", FALSE)) {
 /**
  * Approval status for the AdExtensionOverride
  */
@@ -7090,7 +7088,7 @@ class AdExtensionOverrideApprovalStatus {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideStatus")) {
+if (!class_exists("AdExtensionOverrideStatus", FALSE)) {
 /**
  * Status of the AdExtensionOverride
  */
@@ -7116,7 +7114,7 @@ class AdExtensionOverrideStatus {
   }
 }}
 
-if (!class_exists("AdGroupStatus")) {
+if (!class_exists("AdGroupStatus", FALSE)) {
 /**
  * The status of the AdGroup.
  */
@@ -7142,7 +7140,7 @@ class AdGroupStatus {
   }
 }}
 
-if (!class_exists("AdGroupAdStatus")) {
+if (!class_exists("AdGroupAdStatus", FALSE)) {
 /**
  * The current status of an Ad.
  */
@@ -7168,7 +7166,7 @@ class AdGroupAdStatus {
   }
 }}
 
-if (!class_exists("AdGroupAdErrorReason")) {
+if (!class_exists("AdGroupAdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -7194,7 +7192,7 @@ class AdGroupAdErrorReason {
   }
 }}
 
-if (!class_exists("AdGroupCriterionErrorReason")) {
+if (!class_exists("AdGroupCriterionErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -7220,7 +7218,7 @@ class AdGroupCriterionErrorReason {
   }
 }}
 
-if (!class_exists("AdGroupCriterionLimitExceededCriteriaLimitType")) {
+if (!class_exists("AdGroupCriterionLimitExceededCriteriaLimitType", FALSE)) {
 /**
  * The entity type that exceeded the limit.
  */
@@ -7246,7 +7244,7 @@ class AdGroupCriterionLimitExceededCriteriaLimitType {
   }
 }}
 
-if (!class_exists("AdGroupServiceErrorReason")) {
+if (!class_exists("AdGroupServiceErrorReason", FALSE)) {
 /**
  * The reasons for the adgroup service error.
  */
@@ -7272,7 +7270,7 @@ class AdGroupServiceErrorReason {
   }
 }}
 
-if (!class_exists("AdServingOptimizationStatus")) {
+if (!class_exists("AdServingOptimizationStatus", FALSE)) {
 /**
  * Ad serving status of campaign.
  */
@@ -7298,7 +7296,7 @@ class AdServingOptimizationStatus {
   }
 }}
 
-if (!class_exists("AgeTargetAge")) {
+if (!class_exists("AgeTargetAge", FALSE)) {
 /**
  * Age segments.
  */
@@ -7324,7 +7322,7 @@ class AgeTargetAge {
   }
 }}
 
-if (!class_exists("ApprovalStatus")) {
+if (!class_exists("ApprovalStatus", FALSE)) {
 /**
  * Approval status for the criterion.
  * Note: there are more states involved but we only expose two to users.
@@ -7351,7 +7349,7 @@ class ApprovalStatus {
   }
 }}
 
-if (!class_exists("AuthenticationErrorReason")) {
+if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
  */
@@ -7377,7 +7375,7 @@ class AuthenticationErrorReason {
   }
 }}
 
-if (!class_exists("AuthorizationErrorReason")) {
+if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
  */
@@ -7403,7 +7401,7 @@ class AuthorizationErrorReason {
   }
 }}
 
-if (!class_exists("AutoKeywordMatchingStatus")) {
+if (!class_exists("AutoKeywordMatchingStatus", FALSE)) {
 /**
  * Automatic Keyword matching (AutoPilot) status for the campaign.
  */
@@ -7429,7 +7427,7 @@ class AutoKeywordMatchingStatus {
   }
 }}
 
-if (!class_exists("BasicJobStatus")) {
+if (!class_exists("BasicJobStatus", FALSE)) {
 /**
  * A basic set of job statuses.
  */
@@ -7455,7 +7453,7 @@ class BasicJobStatus {
   }
 }}
 
-if (!class_exists("BidSource")) {
+if (!class_exists("BidSource", FALSE)) {
 /**
  * Indicate where a criterion's bid came from: criterion or the adgroup it
  * belongs to.
@@ -7482,7 +7480,7 @@ class BidSource {
   }
 }}
 
-if (!class_exists("BiddingErrorReason")) {
+if (!class_exists("BiddingErrorReason", FALSE)) {
 /**
  * Reason for bidding error.
  */
@@ -7508,7 +7506,7 @@ class BiddingErrorReason {
   }
 }}
 
-if (!class_exists("BiddingTransitionErrorReason")) {
+if (!class_exists("BiddingTransitionErrorReason", FALSE)) {
 /**
  * Reason for bidding transition error.
  * It is used by capability service as denial reasons, for bidding transition
@@ -7536,7 +7534,7 @@ class BiddingTransitionErrorReason {
   }
 }}
 
-if (!class_exists("BudgetBudgetDeliveryMethod")) {
+if (!class_exists("BudgetBudgetDeliveryMethod", FALSE)) {
 /**
  * Budget delivery methods.
  */
@@ -7562,7 +7560,7 @@ class BudgetBudgetDeliveryMethod {
   }
 }}
 
-if (!class_exists("BudgetBudgetPeriod")) {
+if (!class_exists("BudgetBudgetPeriod", FALSE)) {
 /**
  * Budget periods.
  */
@@ -7588,7 +7586,7 @@ class BudgetBudgetPeriod {
   }
 }}
 
-if (!class_exists("BudgetErrorReason")) {
+if (!class_exists("BudgetErrorReason", FALSE)) {
 /**
  * The reasons for the budget error.
  */
@@ -7614,7 +7612,7 @@ class BudgetErrorReason {
   }
 }}
 
-if (!class_exists("BulkMutateJobErrorReason")) {
+if (!class_exists("BulkMutateJobErrorReason", FALSE)) {
 /**
  * The reasons for the bulk mutate job handling error.
  */
@@ -7640,7 +7638,7 @@ class BulkMutateJobErrorReason {
   }
 }}
 
-if (!class_exists("CampaignCriterionErrorReason")) {
+if (!class_exists("CampaignCriterionErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -7666,7 +7664,7 @@ class CampaignCriterionErrorReason {
   }
 }}
 
-if (!class_exists("CampaignCriterionLimitExceededCriteriaLimitType")) {
+if (!class_exists("CampaignCriterionLimitExceededCriteriaLimitType", FALSE)) {
 /**
  * 
  */
@@ -7692,7 +7690,7 @@ class CampaignCriterionLimitExceededCriteriaLimitType {
   }
 }}
 
-if (!class_exists("CampaignErrorReason")) {
+if (!class_exists("CampaignErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -7718,7 +7716,7 @@ class CampaignErrorReason {
   }
 }}
 
-if (!class_exists("CampaignStatus")) {
+if (!class_exists("CampaignStatus", FALSE)) {
 /**
  * Campaign status.
  */
@@ -7744,7 +7742,7 @@ class CampaignStatus {
   }
 }}
 
-if (!class_exists("ClientTermsErrorReason")) {
+if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
@@ -7771,7 +7769,7 @@ class ClientTermsErrorReason {
   }
 }}
 
-if (!class_exists("ContentLabelType")) {
+if (!class_exists("ContentLabelType", FALSE)) {
 /**
  * Content label type.
  */
@@ -7797,7 +7795,7 @@ class ContentLabelType {
   }
 }}
 
-if (!class_exists("DatabaseErrorReason")) {
+if (!class_exists("DatabaseErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
  */
@@ -7823,7 +7821,7 @@ class DatabaseErrorReason {
   }
 }}
 
-if (!class_exists("DateErrorReason")) {
+if (!class_exists("DateErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -7849,7 +7847,7 @@ class DateErrorReason {
   }
 }}
 
-if (!class_exists("DayOfWeek")) {
+if (!class_exists("DayOfWeek", FALSE)) {
 /**
  * Days of the week.
  */
@@ -7875,7 +7873,7 @@ class DayOfWeek {
   }
 }}
 
-if (!class_exists("DeprecatedAdType")) {
+if (!class_exists("DeprecatedAdType", FALSE)) {
 /**
  * 
  */
@@ -7901,7 +7899,7 @@ class DeprecatedAdType {
   }
 }}
 
-if (!class_exists("DistinctErrorReason")) {
+if (!class_exists("DistinctErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -7927,7 +7925,7 @@ class DistinctErrorReason {
   }
 }}
 
-if (!class_exists("EntityAccessDeniedReason")) {
+if (!class_exists("EntityAccessDeniedReason", FALSE)) {
 /**
  * User did not have read access.
  */
@@ -7953,7 +7951,7 @@ class EntityAccessDeniedReason {
   }
 }}
 
-if (!class_exists("EntityCountLimitExceededReason")) {
+if (!class_exists("EntityCountLimitExceededReason", FALSE)) {
 /**
  * Limits at various levels of the account.
  */
@@ -7979,7 +7977,7 @@ class EntityCountLimitExceededReason {
   }
 }}
 
-if (!class_exists("EntityIdType")) {
+if (!class_exists("EntityIdType", FALSE)) {
 /**
  * Type of entity identity.
  */
@@ -8005,7 +8003,7 @@ class EntityIdType {
   }
 }}
 
-if (!class_exists("EntityNotFoundReason")) {
+if (!class_exists("EntityNotFoundReason", FALSE)) {
 /**
  * The specified id refered to an entity which either doesn't exist or is not accessible to the
  * customer. e.g. campaign belongs to another customer.
@@ -8032,7 +8030,7 @@ class EntityNotFoundReason {
   }
 }}
 
-if (!class_exists("GenderTargetGender")) {
+if (!class_exists("GenderTargetGender", FALSE)) {
 /**
  * Gender segments.
  */
@@ -8058,7 +8056,7 @@ class GenderTargetGender {
   }
 }}
 
-if (!class_exists("IdErrorReason")) {
+if (!class_exists("IdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -8084,7 +8082,7 @@ class IdErrorReason {
   }
 }}
 
-if (!class_exists("ImageErrorReason")) {
+if (!class_exists("ImageErrorReason", FALSE)) {
 /**
  * 
  */
@@ -8110,7 +8108,7 @@ class ImageErrorReason {
   }
 }}
 
-if (!class_exists("InternalApiErrorReason")) {
+if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
  */
@@ -8136,7 +8134,7 @@ class InternalApiErrorReason {
   }
 }}
 
-if (!class_exists("JobErrorReason")) {
+if (!class_exists("JobErrorReason", FALSE)) {
 /**
  * The reasons for the job handling error.
  */
@@ -8162,7 +8160,7 @@ class JobErrorReason {
   }
 }}
 
-if (!class_exists("KeywordMatchType")) {
+if (!class_exists("KeywordMatchType", FALSE)) {
 /**
  * Match type of a keyword. i.e. the way we match a keyword string with
  * search queries.
@@ -8189,9 +8187,9 @@ class KeywordMatchType {
   }
 }}
 
-if (!class_exists("Level")) {
+if (!class_exists("Level", FALSE)) {
 /**
- * The level on which the cap is to be applied (creative/adgroup).
+ * The level on which the cap is to be applied.
  */
 class Level {
   /**
@@ -8215,7 +8213,7 @@ class Level {
   }
 }}
 
-if (!class_exists("LoasAuthenticationErrorReason")) {
+if (!class_exists("LoasAuthenticationErrorReason", FALSE)) {
 /**
  * The reasons for the loas authentication error.
  */
@@ -8241,7 +8239,7 @@ class LoasAuthenticationErrorReason {
   }
 }}
 
-if (!class_exists("LocationExtensionSource")) {
+if (!class_exists("LocationExtensionSource", FALSE)) {
 /**
  * From manual entry in adwords frontend
  */
@@ -8267,7 +8265,7 @@ class LocationExtensionSource {
   }
 }}
 
-if (!class_exists("LocationOverrideInfoRadiusUnits")) {
+if (!class_exists("LocationOverrideInfoRadiusUnits", FALSE)) {
 /**
  * Radius units
  */
@@ -8293,7 +8291,7 @@ class LocationOverrideInfoRadiusUnits {
   }
 }}
 
-if (!class_exists("MarkupLanguageType")) {
+if (!class_exists("MarkupLanguageType", FALSE)) {
 /**
  * Markup languages to use for mobile ads.
  */
@@ -8319,7 +8317,7 @@ class MarkupLanguageType {
   }
 }}
 
-if (!class_exists("MediaMediaExtendedCapabilityState")) {
+if (!class_exists("MediaMediaExtendedCapabilityState", FALSE)) {
 /**
  * 
  */
@@ -8345,7 +8343,7 @@ class MediaMediaExtendedCapabilityState {
   }
 }}
 
-if (!class_exists("MediaMediaExtendedCapabilityType")) {
+if (!class_exists("MediaMediaExtendedCapabilityType", FALSE)) {
 /**
  * 
  */
@@ -8371,7 +8369,7 @@ class MediaMediaExtendedCapabilityType {
   }
 }}
 
-if (!class_exists("MediaMediaSubType")) {
+if (!class_exists("MediaMediaSubType", FALSE)) {
 /**
  * 
  */
@@ -8397,7 +8395,7 @@ class MediaMediaSubType {
   }
 }}
 
-if (!class_exists("MediaMediaType")) {
+if (!class_exists("MediaMediaType", FALSE)) {
 /**
  * Media types
  */
@@ -8423,7 +8421,7 @@ class MediaMediaType {
   }
 }}
 
-if (!class_exists("MediaMimeType")) {
+if (!class_exists("MediaMimeType", FALSE)) {
 /**
  * Mime types
  */
@@ -8449,7 +8447,7 @@ class MediaMimeType {
   }
 }}
 
-if (!class_exists("MediaSize")) {
+if (!class_exists("MediaSize", FALSE)) {
 /**
  * Sizes for retrieving the original media
  */
@@ -8475,7 +8473,7 @@ class MediaSize {
   }
 }}
 
-if (!class_exists("MediaErrorReason")) {
+if (!class_exists("MediaErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -8501,7 +8499,7 @@ class MediaErrorReason {
   }
 }}
 
-if (!class_exists("MinuteOfHour")) {
+if (!class_exists("MinuteOfHour", FALSE)) {
 /**
  * Minutes in an hour.  Currently only 0, 15, 30, and 45 are supported
  */
@@ -8527,7 +8525,7 @@ class MinuteOfHour {
   }
 }}
 
-if (!class_exists("NetworkCoverageType")) {
+if (!class_exists("NetworkCoverageType", FALSE)) {
 /**
  * Network coverage types.
  */
@@ -8553,7 +8551,7 @@ class NetworkCoverageType {
   }
 }}
 
-if (!class_exists("NewEntityCreationErrorReason")) {
+if (!class_exists("NewEntityCreationErrorReason", FALSE)) {
 /**
  * Do not set the id field while creating new entities.
  */
@@ -8579,7 +8577,7 @@ class NewEntityCreationErrorReason {
   }
 }}
 
-if (!class_exists("NotEmptyErrorReason")) {
+if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -8605,7 +8603,7 @@ class NotEmptyErrorReason {
   }
 }}
 
-if (!class_exists("NotWhitelistedErrorReason")) {
+if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
  */
@@ -8631,7 +8629,7 @@ class NotWhitelistedErrorReason {
   }
 }}
 
-if (!class_exists("NullErrorReason")) {
+if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -8657,7 +8655,7 @@ class NullErrorReason {
   }
 }}
 
-if (!class_exists("OperationAccessDeniedReason")) {
+if (!class_exists("OperationAccessDeniedReason", FALSE)) {
 /**
  * The reasons for the operation access error.
  */
@@ -8683,7 +8681,7 @@ class OperationAccessDeniedReason {
   }
 }}
 
-if (!class_exists("Operator")) {
+if (!class_exists("Operator", FALSE)) {
 /**
  * This represents an operator that may be presented to an adsapi service.
  */
@@ -8709,7 +8707,7 @@ class Operator {
   }
 }}
 
-if (!class_exists("OperatorErrorReason")) {
+if (!class_exists("OperatorErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -8735,7 +8733,7 @@ class OperatorErrorReason {
   }
 }}
 
-if (!class_exists("PagingErrorReason")) {
+if (!class_exists("PagingErrorReason", FALSE)) {
 /**
  * The reasons for errors when using pagination.
  */
@@ -8761,7 +8759,7 @@ class PagingErrorReason {
   }
 }}
 
-if (!class_exists("PlatformType")) {
+if (!class_exists("PlatformType", FALSE)) {
 /**
  * Platform types.
  */
@@ -8787,7 +8785,7 @@ class PlatformType {
   }
 }}
 
-if (!class_exists("PolicyViolationErrorReason")) {
+if (!class_exists("PolicyViolationErrorReason", FALSE)) {
 /**
  * 
  */
@@ -8813,7 +8811,7 @@ class PolicyViolationErrorReason {
   }
 }}
 
-if (!class_exists("PricingModel")) {
+if (!class_exists("PricingModel", FALSE)) {
 /**
  * Campaign's pricing model indicates whether it is a pay per clicks,
  * pay per impressions, or play per conversions campaign.
@@ -8840,7 +8838,7 @@ class PricingModel {
   }
 }}
 
-if (!class_exists("ProximityTargetDistanceUnits")) {
+if (!class_exists("ProximityTargetDistanceUnits", FALSE)) {
 /**
  * The radius distance is expressed in either kilometers or miles.
  */
@@ -8866,7 +8864,7 @@ class ProximityTargetDistanceUnits {
   }
 }}
 
-if (!class_exists("QuotaCheckErrorReason")) {
+if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
@@ -8893,7 +8891,7 @@ class QuotaCheckErrorReason {
   }
 }}
 
-if (!class_exists("QuotaErrorReason")) {
+if (!class_exists("QuotaErrorReason", FALSE)) {
 /**
  * The reasons for the quota error.
  */
@@ -8919,7 +8917,7 @@ class QuotaErrorReason {
   }
 }}
 
-if (!class_exists("QuotaExceededErrorReason")) {
+if (!class_exists("QuotaExceededErrorReason", FALSE)) {
 /**
  * The single reason for the quota error.
  */
@@ -8945,7 +8943,7 @@ class QuotaExceededErrorReason {
   }
 }}
 
-if (!class_exists("RangeErrorReason")) {
+if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -8971,7 +8969,7 @@ class RangeErrorReason {
   }
 }}
 
-if (!class_exists("ReadOnlyErrorReason")) {
+if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -8997,7 +8995,7 @@ class ReadOnlyErrorReason {
   }
 }}
 
-if (!class_exists("RegionCodeErrorReason")) {
+if (!class_exists("RegionCodeErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  */
@@ -9023,7 +9021,7 @@ class RegionCodeErrorReason {
   }
 }}
 
-if (!class_exists("RequiredErrorReason")) {
+if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -9049,7 +9047,7 @@ class RequiredErrorReason {
   }
 }}
 
-if (!class_exists("ServingStatus")) {
+if (!class_exists("ServingStatus", FALSE)) {
 /**
  * Campaign serving status.
  */
@@ -9075,7 +9073,7 @@ class ServingStatus {
   }
 }}
 
-if (!class_exists("SizeLimitErrorReason")) {
+if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
  */
@@ -9101,7 +9099,7 @@ class SizeLimitErrorReason {
   }
 }}
 
-if (!class_exists("StatsNetwork")) {
+if (!class_exists("StatsNetwork", FALSE)) {
 /**
  * Ad network.
  */
@@ -9127,7 +9125,7 @@ class StatsNetwork {
   }
 }}
 
-if (!class_exists("StatsQueryErrorReason")) {
+if (!class_exists("StatsQueryErrorReason", FALSE)) {
 /**
  * The reasons for errors when querying for stats.
  */
@@ -9153,7 +9151,7 @@ class StatsQueryErrorReason {
   }
 }}
 
-if (!class_exists("StringLengthErrorReason")) {
+if (!class_exists("StringLengthErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -9179,7 +9177,7 @@ class StringLengthErrorReason {
   }
 }}
 
-if (!class_exists("SystemServingStatus")) {
+if (!class_exists("SystemServingStatus", FALSE)) {
 /**
  * Reported by system to reflect the criterion's serving status.
  */
@@ -9205,7 +9203,7 @@ class SystemServingStatus {
   }
 }}
 
-if (!class_exists("TargetErrorReason")) {
+if (!class_exists("TargetErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -9231,7 +9229,7 @@ class TargetErrorReason {
   }
 }}
 
-if (!class_exists("TemplateElementFieldType")) {
+if (!class_exists("TemplateElementFieldType", FALSE)) {
 /**
  * Field types
  */
@@ -9257,7 +9255,7 @@ class TemplateElementFieldType {
   }
 }}
 
-if (!class_exists("TimeUnit")) {
+if (!class_exists("TimeUnit", FALSE)) {
 /**
  * Unit of time the cap is defined at.
  */
@@ -9283,7 +9281,7 @@ class TimeUnit {
   }
 }}
 
-if (!class_exists("UserStatus")) {
+if (!class_exists("UserStatus", FALSE)) {
 /**
  * Specified by user to pause or unpause a criterion.
  */
@@ -9309,7 +9307,7 @@ class UserStatus {
   }
 }}
 
-if (!class_exists("BulkMutateJobServiceGet")) {
+if (!class_exists("BulkMutateJobServiceGet", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
  * 
@@ -9351,7 +9349,7 @@ class BulkMutateJobServiceGet {
   }
 }}
 
-if (!class_exists("BulkMutateJobServiceGetResponse")) {
+if (!class_exists("BulkMutateJobServiceGetResponse", FALSE)) {
 /**
  * 
  */
@@ -9384,7 +9382,7 @@ class BulkMutateJobServiceGetResponse {
   }
 }}
 
-if (!class_exists("BulkMutateJobServiceMutate")) {
+if (!class_exists("BulkMutateJobServiceMutate", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
  * 
@@ -9435,7 +9433,7 @@ class BulkMutateJobServiceMutate {
   }
 }}
 
-if (!class_exists("BulkMutateJobServiceMutateResponse")) {
+if (!class_exists("BulkMutateJobServiceMutateResponse", FALSE)) {
 /**
  * 
  */
@@ -9468,7 +9466,7 @@ class BulkMutateJobServiceMutateResponse {
   }
 }}
 
-if (!class_exists("AdError")) {
+if (!class_exists("AdError", FALSE)) {
 /**
  * Base error class for Ad Service.
  */
@@ -9504,7 +9502,7 @@ class AdError extends ApiError {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideStats")) {
+if (!class_exists("AdExtensionOverrideStats", FALSE)) {
 /**
  * Represents stats specific to AdExtensionOverrides.
  */
@@ -9547,7 +9545,7 @@ class AdExtensionOverrideStats extends Stats {
   }
 }}
 
-if (!class_exists("AdGroupAdCountLimitExceeded")) {
+if (!class_exists("AdGroupAdCountLimitExceeded", FALSE)) {
 /**
  * Indicates too many ads were added/enabled under the specified adgroup.
  */
@@ -9579,7 +9577,7 @@ class AdGroupAdCountLimitExceeded extends EntityCountLimitExceeded {
   }
 }}
 
-if (!class_exists("AdGroupAdError")) {
+if (!class_exists("AdGroupAdError", FALSE)) {
 /**
  * Error information for AdGroupAdService.
  */
@@ -9615,7 +9613,7 @@ class AdGroupAdError extends ApiError {
   }
 }}
 
-if (!class_exists("AdGroupAdOperation")) {
+if (!class_exists("AdGroupAdOperation", FALSE)) {
 /**
  * AdGroupAd service operations.
  */
@@ -9657,7 +9655,7 @@ class AdGroupAdOperation extends Operation {
   }
 }}
 
-if (!class_exists("AdGroupCriterionError")) {
+if (!class_exists("AdGroupCriterionError", FALSE)) {
 /**
  * Base error class for Ad Group Criterion Service.
  */
@@ -9693,7 +9691,7 @@ class AdGroupCriterionError extends ApiError {
   }
 }}
 
-if (!class_exists("AdGroupCriterionLimitExceeded")) {
+if (!class_exists("AdGroupCriterionLimitExceeded", FALSE)) {
 /**
  * Signals that too many criteria were added to some ad group.
  */
@@ -9732,7 +9730,7 @@ class AdGroupCriterionLimitExceeded extends EntityCountLimitExceeded {
   }
 }}
 
-if (!class_exists("AdGroupCriterionOperation")) {
+if (!class_exists("AdGroupCriterionOperation", FALSE)) {
 /**
  * Operation (add, remove and set) on adgroup criteria.
  */
@@ -9774,7 +9772,7 @@ class AdGroupCriterionOperation extends Operation {
   }
 }}
 
-if (!class_exists("AdGroupOperation")) {
+if (!class_exists("AdGroupOperation", FALSE)) {
 /**
  * AdGroup operations for adding/updating/removing adgroups.
  */
@@ -9809,7 +9807,7 @@ class AdGroupOperation extends Operation {
   }
 }}
 
-if (!class_exists("AdGroupServiceError")) {
+if (!class_exists("AdGroupServiceError", FALSE)) {
 /**
  * Represents possible error codes in AdGroupService.
  */
@@ -9845,7 +9843,7 @@ class AdGroupServiceError extends ApiError {
   }
 }}
 
-if (!class_exists("AdScheduleTarget")) {
+if (!class_exists("AdScheduleTarget", FALSE)) {
 /**
  * Immutable structure to hold an ad schedule target.
  */
@@ -9914,7 +9912,7 @@ class AdScheduleTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("AdScheduleTargetList")) {
+if (!class_exists("AdScheduleTargetList", FALSE)) {
 /**
  * List of ad schedule targets.
  */
@@ -9949,7 +9947,7 @@ class AdScheduleTargetList extends TargetList {
   }
 }}
 
-if (!class_exists("AdStats")) {
+if (!class_exists("AdStats", FALSE)) {
 /**
  * Represents stats specific to Ads
  */
@@ -9999,7 +9997,7 @@ class AdStats extends Stats {
   }
 }}
 
-if (!class_exists("ApiException")) {
+if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
  */
@@ -10034,7 +10032,7 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("Audio")) {
+if (!class_exists("Audio", FALSE)) {
 /**
  * Encapsulates an Audio media identified by a MediaId.
  */
@@ -10094,7 +10092,7 @@ class Audio extends Media {
   }
 }}
 
-if (!class_exists("BatchFailureResult")) {
+if (!class_exists("BatchFailureResult", FALSE)) {
 /**
  * Represents a failure result for a mutate operation that was applied in a
  * transactional batch. It does not imply that the corresponding operation
@@ -10131,7 +10129,7 @@ class BatchFailureResult extends OperationResult {
   }
 }}
 
-if (!class_exists("BulkMutateJob")) {
+if (!class_exists("BulkMutateJob", FALSE)) {
 /**
  * A {@code BulkMutateJob} is essentially a mixed collection of mutate
  * operations from the following AdWords API campaign management services:
@@ -10253,7 +10251,7 @@ class BulkMutateJob extends Job {
   }
 }}
 
-if (!class_exists("BulkMutateJobEvent")) {
+if (!class_exists("BulkMutateJobEvent", FALSE)) {
 /**
  * An event defined by a status change of a bulk mutate job.
  */
@@ -10288,7 +10286,7 @@ class BulkMutateJobEvent extends JobEvent {
   }
 }}
 
-if (!class_exists("BulkMutateJobSelector")) {
+if (!class_exists("BulkMutateJobSelector", FALSE)) {
 /**
  * Specifies additional criteria for selecting bulk mutate jobs.
  */
@@ -10339,7 +10337,7 @@ class BulkMutateJobSelector extends JobSelector {
   }
 }}
 
-if (!class_exists("BulkMutateJobStats")) {
+if (!class_exists("BulkMutateJobStats", FALSE)) {
 /**
  * Bulk mutate job-handling statistics.
  */
@@ -10390,7 +10388,7 @@ class BulkMutateJobStats extends JobStats {
   }
 }}
 
-if (!class_exists("CampaignCriterionLimitExceeded")) {
+if (!class_exists("CampaignCriterionLimitExceeded", FALSE)) {
 /**
  * Error to indicate that too many negative criteria added to some campaign.
  */
@@ -10429,7 +10427,7 @@ class CampaignCriterionLimitExceeded extends EntityCountLimitExceeded {
   }
 }}
 
-if (!class_exists("CampaignCriterionOperation")) {
+if (!class_exists("CampaignCriterionOperation", FALSE)) {
 /**
  * Generic operation (add, remove and set) for campaign criteria.
  */
@@ -10464,7 +10462,7 @@ class CampaignCriterionOperation extends Operation {
   }
 }}
 
-if (!class_exists("CampaignOperation")) {
+if (!class_exists("CampaignOperation", FALSE)) {
 /**
  * Operations (add, update, remove) class for campaigns.
  */
@@ -10506,7 +10504,7 @@ class CampaignOperation extends Operation {
   }
 }}
 
-if (!class_exists("CampaignTargetOperation")) {
+if (!class_exists("CampaignTargetOperation", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
  */
@@ -10541,7 +10539,7 @@ class CampaignTargetOperation extends Operation {
   }
 }}
 
-if (!class_exists("ContentLabel")) {
+if (!class_exists("ContentLabel", FALSE)) {
 /**
  * Content Label for category exclusion.
  */
@@ -10576,7 +10574,7 @@ class ContentLabel extends Criterion {
   }
 }}
 
-if (!class_exists("CriterionPolicyError")) {
+if (!class_exists("CriterionPolicyError", FALSE)) {
 /**
  * Contains the policy violations for a single BiddableAdGroupCriterion.
  */
@@ -10611,7 +10609,7 @@ class CriterionPolicyError extends PolicyViolationError {
   }
 }}
 
-if (!class_exists("DemographicTarget")) {
+if (!class_exists("DemographicTarget", FALSE)) {
 /**
  * Abstract class to identify a demographic target.
  */
@@ -10645,7 +10643,7 @@ class DemographicTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("DemographicTargetList")) {
+if (!class_exists("DemographicTargetList", FALSE)) {
 /**
  * List of demographic targets.
  */
@@ -10680,7 +10678,7 @@ class DemographicTargetList extends TargetList {
   }
 }}
 
-if (!class_exists("DoubleValue")) {
+if (!class_exists("DoubleValue", FALSE)) {
 /**
  * Number value type for constructing double valued ranges.
  */
@@ -10714,7 +10712,7 @@ class DoubleValue extends NumberValue {
   }
 }}
 
-if (!class_exists("FailureResult")) {
+if (!class_exists("FailureResult", FALSE)) {
 /**
  * Represents a failure result for an individual mutate operation.
  * 
@@ -10756,7 +10754,7 @@ class FailureResult extends OperationResult {
   }
 }}
 
-if (!class_exists("GenderTarget")) {
+if (!class_exists("GenderTarget", FALSE)) {
 /**
  * Immutable structure to hold a gender target.
  */
@@ -10791,7 +10789,7 @@ class GenderTarget extends DemographicTarget {
   }
 }}
 
-if (!class_exists("GeoTarget")) {
+if (!class_exists("GeoTarget", FALSE)) {
 /**
  * Abstract class to identify a geographic target.
  */
@@ -10825,7 +10823,7 @@ class GeoTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("GeoTargetList")) {
+if (!class_exists("GeoTargetList", FALSE)) {
 /**
  * List of geographic targets.
  */
@@ -10860,7 +10858,7 @@ class GeoTargetList extends TargetList {
   }
 }}
 
-if (!class_exists("Image")) {
+if (!class_exists("Image", FALSE)) {
 /**
  * 
  */
@@ -10906,7 +10904,7 @@ class Image extends Media {
   }
 }}
 
-if (!class_exists("JobOperation")) {
+if (!class_exists("JobOperation", FALSE)) {
 /**
  * Mutate operations of a job service:
  * <ul>
@@ -10945,7 +10943,7 @@ class JobOperation extends Operation {
   }
 }}
 
-if (!class_exists("LanguageTarget")) {
+if (!class_exists("LanguageTarget", FALSE)) {
 /**
  * Immutable structure to hold a language target.
  */
@@ -10979,7 +10977,7 @@ class LanguageTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("LanguageTargetList")) {
+if (!class_exists("LanguageTargetList", FALSE)) {
 /**
  * List of language targets.
  */
@@ -11014,7 +11012,7 @@ class LanguageTargetList extends TargetList {
   }
 }}
 
-if (!class_exists("LongValue")) {
+if (!class_exists("LongValue", FALSE)) {
 /**
  * Number value type for constructing long valued ranges.
  */
@@ -11048,7 +11046,7 @@ class LongValue extends NumberValue {
   }
 }}
 
-if (!class_exists("LostResult")) {
+if (!class_exists("LostResult", FALSE)) {
 /**
  * Represents the result of processing an individual mutate operation that
  * however failed to get durably saved despite the service's best efforts.
@@ -11080,7 +11078,7 @@ class LostResult extends OperationResult {
   }
 }}
 
-if (!class_exists("MetroTarget")) {
+if (!class_exists("MetroTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a metro.
  */
@@ -11115,7 +11113,7 @@ class MetroTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("NetworkTarget")) {
+if (!class_exists("NetworkTarget", FALSE)) {
 /**
  * Immutable structure to hold a network coverage target.
  */
@@ -11149,7 +11147,7 @@ class NetworkTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("NetworkTargetList")) {
+if (!class_exists("NetworkTargetList", FALSE)) {
 /**
  * List of network targets.
  */
@@ -11184,7 +11182,7 @@ class NetworkTargetList extends TargetList {
   }
 }}
 
-if (!class_exists("PlatformTarget")) {
+if (!class_exists("PlatformTarget", FALSE)) {
 /**
  * Immutable structure to hold a platform target.
  */
@@ -11218,7 +11216,7 @@ class PlatformTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("PlatformTargetList")) {
+if (!class_exists("PlatformTargetList", FALSE)) {
 /**
  * List of platform targets.
  */
@@ -11253,7 +11251,7 @@ class PlatformTargetList extends TargetList {
   }
 }}
 
-if (!class_exists("PolygonTarget")) {
+if (!class_exists("PolygonTarget", FALSE)) {
 /**
  * Structure to specify a geographic target for a polygon location.
  * 
@@ -11291,7 +11289,7 @@ class PolygonTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("ProvinceTarget")) {
+if (!class_exists("ProvinceTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a province or state.
  */
@@ -11326,7 +11324,7 @@ class ProvinceTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("ProximityTarget")) {
+if (!class_exists("ProximityTarget", FALSE)) {
 /**
  * Structure to specify a geographic target for a proximity location.
  * 
@@ -11393,7 +11391,7 @@ class ProximityTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("AgeTarget")) {
+if (!class_exists("AgeTarget", FALSE)) {
 /**
  * Immutable structure to hold an age target.
  */
@@ -11428,7 +11426,7 @@ class AgeTarget extends DemographicTarget {
   }
 }}
 
-if (!class_exists("CityTarget")) {
+if (!class_exists("CityTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a city.
  */
@@ -11477,7 +11475,7 @@ class CityTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("CountryTarget")) {
+if (!class_exists("CountryTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a country.
  */

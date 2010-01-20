@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage ${service.version}
+ * @subpackage v200909
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -28,7 +28,7 @@
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("Address")) {
+if (!class_exists("Address", FALSE)) {
 /**
  * Structure to specify an address location.
  * 
@@ -107,7 +107,7 @@ class Address {
   }
 }}
 
-if (!class_exists("GeoPoint")) {
+if (!class_exists("GeoPoint", FALSE)) {
 /**
  * Specifies a geo location with the supplied lat/long.
  * 
@@ -151,7 +151,7 @@ class GeoPoint {
   }
 }}
 
-if (!class_exists("Paging")) {
+if (!class_exists("Paging", FALSE)) {
 /**
  * Specifies what kind of paging wanted for the result of a get.
  * 
@@ -195,7 +195,7 @@ class Paging {
   }
 }}
 
-if (!class_exists("PolicyViolationErrorPart")) {
+if (!class_exists("PolicyViolationErrorPart", FALSE)) {
 /**
  * Points to a substring within an ad field or criterion.
  * 
@@ -239,7 +239,7 @@ class PolicyViolationErrorPart {
   }
 }}
 
-if (!class_exists("PolicyViolationKey")) {
+if (!class_exists("PolicyViolationKey", FALSE)) {
 /**
  * Key of the violation. The key is used for referring to a violation when
  * filing an exemption request.
@@ -284,7 +284,7 @@ class PolicyViolationKey {
   }
 }}
 
-if (!class_exists("SoapRequestHeader")) {
+if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
  * 
@@ -363,7 +363,7 @@ class SoapRequestHeader {
   }
 }}
 
-if (!class_exists("SoapResponseHeader")) {
+if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
  * 
@@ -421,7 +421,7 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("ComparableValue")) {
+if (!class_exists("ComparableValue", FALSE)) {
 /**
  * Comparable types for constructing ranges with.
  * 
@@ -490,7 +490,7 @@ class ComparableValue {
   }
 }}
 
-if (!class_exists("Criterion")) {
+if (!class_exists("Criterion", FALSE)) {
 /**
  * Represents any criterion (e.g. keyword, placement).
  * 
@@ -566,7 +566,7 @@ class Criterion {
   }
 }}
 
-if (!class_exists("AdWordsTarget")) {
+if (!class_exists("AdWordsTarget", FALSE)) {
 /**
  * Target abstract class.
  * 
@@ -635,7 +635,7 @@ class AdWordsTarget {
   }
 }}
 
-if (!class_exists("ApiError")) {
+if (!class_exists("ApiError", FALSE)) {
 /**
  * A service api error base class that provides error details.
  * 1) the OGNL field path is provided for parsers.
@@ -720,7 +720,7 @@ class ApiError {
   }
 }}
 
-if (!class_exists("ApplicationException")) {
+if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
  * 
@@ -796,7 +796,7 @@ class ApplicationException {
   }
 }}
 
-if (!class_exists("AdGroupCriterionErrorReason")) {
+if (!class_exists("AdGroupCriterionErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  * 
@@ -826,7 +826,7 @@ class AdGroupCriterionErrorReason {
   }
 }}
 
-if (!class_exists("AdGroupCriterionLimitExceededCriteriaLimitType")) {
+if (!class_exists("AdGroupCriterionLimitExceededCriteriaLimitType", FALSE)) {
 /**
  * The entity type that exceeded the limit.
  * 
@@ -856,7 +856,7 @@ class AdGroupCriterionLimitExceededCriteriaLimitType {
   }
 }}
 
-if (!class_exists("AgeTargetAge")) {
+if (!class_exists("AgeTargetAge", FALSE)) {
 /**
  * Age segments.
  * 
@@ -886,7 +886,7 @@ class AgeTargetAge {
   }
 }}
 
-if (!class_exists("AuthenticationErrorReason")) {
+if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
  * 
@@ -916,7 +916,7 @@ class AuthenticationErrorReason {
   }
 }}
 
-if (!class_exists("AuthorizationErrorReason")) {
+if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
  * 
@@ -946,7 +946,7 @@ class AuthorizationErrorReason {
   }
 }}
 
-if (!class_exists("BiddingErrorReason")) {
+if (!class_exists("BiddingErrorReason", FALSE)) {
 /**
  * Reason for bidding error.
  * 
@@ -976,7 +976,7 @@ class BiddingErrorReason {
   }
 }}
 
-if (!class_exists("BudgetErrorReason")) {
+if (!class_exists("BudgetErrorReason", FALSE)) {
 /**
  * The reasons for the budget error.
  * 
@@ -1006,7 +1006,7 @@ class BudgetErrorReason {
   }
 }}
 
-if (!class_exists("ClientTermsErrorReason")) {
+if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
@@ -1037,7 +1037,7 @@ class ClientTermsErrorReason {
   }
 }}
 
-if (!class_exists("DatabaseErrorReason")) {
+if (!class_exists("DatabaseErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
  * 
@@ -1067,7 +1067,7 @@ class DatabaseErrorReason {
   }
 }}
 
-if (!class_exists("DateErrorReason")) {
+if (!class_exists("DateErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  * 
@@ -1097,7 +1097,7 @@ class DateErrorReason {
   }
 }}
 
-if (!class_exists("DayOfWeek")) {
+if (!class_exists("DayOfWeek", FALSE)) {
 /**
  * Days of the week.
  * 
@@ -1129,7 +1129,7 @@ class DayOfWeek {
   }
 }}
 
-if (!class_exists("DistinctErrorReason")) {
+if (!class_exists("DistinctErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  * 
@@ -1159,7 +1159,7 @@ class DistinctErrorReason {
   }
 }}
 
-if (!class_exists("EntityCountLimitExceededReason")) {
+if (!class_exists("EntityCountLimitExceededReason", FALSE)) {
 /**
  * Limits at various levels of the account.
  * 
@@ -1189,7 +1189,7 @@ class EntityCountLimitExceededReason {
   }
 }}
 
-if (!class_exists("EntityNotFoundReason")) {
+if (!class_exists("EntityNotFoundReason", FALSE)) {
 /**
  * The specified id refered to an entity which either doesn't exist or is not accessible to the
  * customer. e.g. campaign belongs to another customer.
@@ -1220,7 +1220,7 @@ class EntityNotFoundReason {
   }
 }}
 
-if (!class_exists("GenderTargetGender")) {
+if (!class_exists("GenderTargetGender", FALSE)) {
 /**
  * Gender segments.
  * 
@@ -1250,7 +1250,7 @@ class GenderTargetGender {
   }
 }}
 
-if (!class_exists("InternalApiErrorReason")) {
+if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
  * 
@@ -1280,7 +1280,7 @@ class InternalApiErrorReason {
   }
 }}
 
-if (!class_exists("KeywordMatchType")) {
+if (!class_exists("KeywordMatchType", FALSE)) {
 /**
  * Match type of a keyword. i.e. the way we match a keyword string with
  * search queries.
@@ -1312,7 +1312,7 @@ class KeywordMatchType {
   }
 }}
 
-if (!class_exists("MinuteOfHour")) {
+if (!class_exists("MinuteOfHour", FALSE)) {
 /**
  * Minutes in an hour.  Currently only 0, 15, 30, and 45 are supported
  * 
@@ -1343,7 +1343,7 @@ class MinuteOfHour {
   }
 }}
 
-if (!class_exists("NetworkCoverageType")) {
+if (!class_exists("NetworkCoverageType", FALSE)) {
 /**
  * Network coverage types.
  * 
@@ -1376,7 +1376,7 @@ class NetworkCoverageType {
   }
 }}
 
-if (!class_exists("NotEmptyErrorReason")) {
+if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  * 
@@ -1406,7 +1406,7 @@ class NotEmptyErrorReason {
   }
 }}
 
-if (!class_exists("NotWhitelistedErrorReason")) {
+if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
  * 
@@ -1436,7 +1436,7 @@ class NotWhitelistedErrorReason {
   }
 }}
 
-if (!class_exists("NullErrorReason")) {
+if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  * 
@@ -1466,7 +1466,7 @@ class NullErrorReason {
   }
 }}
 
-if (!class_exists("PlatformType")) {
+if (!class_exists("PlatformType", FALSE)) {
 /**
  * Platform types.
  * 
@@ -1499,7 +1499,7 @@ class PlatformType {
   }
 }}
 
-if (!class_exists("ProximityTargetDistanceUnits")) {
+if (!class_exists("ProximityTargetDistanceUnits", FALSE)) {
 /**
  * The radius distance is expressed in either kilometers or miles.
  * 
@@ -1529,7 +1529,7 @@ class ProximityTargetDistanceUnits {
   }
 }}
 
-if (!class_exists("QuotaCheckErrorReason")) {
+if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
@@ -1560,7 +1560,7 @@ class QuotaCheckErrorReason {
   }
 }}
 
-if (!class_exists("QuotaExceededErrorReason")) {
+if (!class_exists("QuotaExceededErrorReason", FALSE)) {
 /**
  * The single reason for the quota error.
  * 
@@ -1590,7 +1590,7 @@ class QuotaExceededErrorReason {
   }
 }}
 
-if (!class_exists("RangeErrorReason")) {
+if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  * 
@@ -1620,7 +1620,7 @@ class RangeErrorReason {
   }
 }}
 
-if (!class_exists("ReadOnlyErrorReason")) {
+if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  * 
@@ -1650,7 +1650,7 @@ class ReadOnlyErrorReason {
   }
 }}
 
-if (!class_exists("RequiredErrorReason")) {
+if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  * 
@@ -1680,7 +1680,7 @@ class RequiredErrorReason {
   }
 }}
 
-if (!class_exists("SizeLimitErrorReason")) {
+if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
  * 
@@ -1710,7 +1710,7 @@ class SizeLimitErrorReason {
   }
 }}
 
-if (!class_exists("StatsQueryErrorReason")) {
+if (!class_exists("StatsQueryErrorReason", FALSE)) {
 /**
  * The reasons for errors when querying for stats.
  * 
@@ -1740,7 +1740,7 @@ class StatsQueryErrorReason {
   }
 }}
 
-if (!class_exists("StringLengthErrorReason")) {
+if (!class_exists("StringLengthErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  * 
@@ -1770,7 +1770,7 @@ class StringLengthErrorReason {
   }
 }}
 
-if (!class_exists("AdFormatSpec")) {
+if (!class_exists("AdFormatSpec", FALSE)) {
 /**
  * A placement response object which provides information about one of the ad formats
  * supported by a placement.
@@ -1804,7 +1804,7 @@ class AdFormatSpec {
   }
 }}
 
-if (!class_exists("CollectionSizeError")) {
+if (!class_exists("CollectionSizeError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsSize constraint.
  */
@@ -1840,7 +1840,7 @@ class CollectionSizeError extends ApiError {
   }
 }}
 
-if (!class_exists("InStreamAdInfo")) {
+if (!class_exists("InStreamAdInfo", FALSE)) {
 /**
  * Information specific to the instream ad format. Instream ads are video ads
  * which play as part of the delivery of video content, either before, during,
@@ -1910,7 +1910,7 @@ class InStreamAdInfo {
   }
 }}
 
-if (!class_exists("LongComparisonOperation")) {
+if (!class_exists("LongComparisonOperation", FALSE)) {
 /**
  * Pojo representing integer comparison operations. This is usually used within
  * a particular
@@ -1961,7 +1961,7 @@ class LongComparisonOperation {
   }
 }}
 
-if (!class_exists("MonthlySearchVolume")) {
+if (!class_exists("MonthlySearchVolume", FALSE)) {
 /**
  * A keyword response value representing search volume for a single month. An
  * instance with a {@code null} count is valid, indicating that the information
@@ -2010,7 +2010,7 @@ class MonthlySearchVolume {
   }
 }}
 
-if (!class_exists("TargetingIdeaError")) {
+if (!class_exists("TargetingIdeaError", FALSE)) {
 /**
  * Base error class for the
  * {@link com.google.ads.api.services.targetingideas.TargetingIdeaService}.
@@ -2047,7 +2047,7 @@ class TargetingIdeaError extends ApiError {
   }
 }}
 
-if (!class_exists("WebpageDescriptor")) {
+if (!class_exists("WebpageDescriptor", FALSE)) {
 /**
  * Basic information about a webpage.
  */
@@ -2087,7 +2087,7 @@ class WebpageDescriptor {
   }
 }}
 
-if (!class_exists("Range")) {
+if (!class_exists("Range", FALSE)) {
 /**
  * Represents a range of values that has either an upper or a lower bound.
  */
@@ -2127,7 +2127,7 @@ class Range {
   }
 }}
 
-if (!class_exists("SearchParameter")) {
+if (!class_exists("SearchParameter", FALSE)) {
 /**
  * A set of {@link SearchParameter}s are supplied to the
  * {@link com.google.ads.api.services.targetingideas.TargetingIdeaSelector}
@@ -2242,7 +2242,7 @@ class SearchParameter {
   }
 }}
 
-if (!class_exists("TargetingIdeaSelector")) {
+if (!class_exists("TargetingIdeaSelector", FALSE)) {
 /**
  * A descriptor for finding {@link TargetingIdea}s that match the specified
  * criteria.
@@ -2318,7 +2318,7 @@ class TargetingIdeaSelector {
   }
 }}
 
-if (!class_exists("Attribute")) {
+if (!class_exists("Attribute", FALSE)) {
 /**
  * {@link Attribute}s encompass the core information about a particular
  * {@link com.google.ads.api.services.targetingideas.TargetingIdea}. Some
@@ -2390,7 +2390,7 @@ class Attribute {
   }
 }}
 
-if (!class_exists("Type_AttributeMapEntry")) {
+if (!class_exists("Type_AttributeMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Type
  * and value of type Attribute.
@@ -2431,7 +2431,7 @@ class Type_AttributeMapEntry {
   }
 }}
 
-if (!class_exists("TargetingIdea")) {
+if (!class_exists("TargetingIdea", FALSE)) {
 /**
  * Represents a {@link TargetingIdea} returned by search criteria specified in
  * the {@link TargetingIdeaSelector}.
@@ -2465,7 +2465,7 @@ class TargetingIdea {
   }
 }}
 
-if (!class_exists("TargetingIdeaPage")) {
+if (!class_exists("TargetingIdeaPage", FALSE)) {
 /**
  * Contains a subset of {@link TargetingIdea}s from the search criteria
  * specified by a {@link TargetingIdeaSelector}.
@@ -2506,9 +2506,10 @@ class TargetingIdeaPage {
   }
 }}
 
-if (!class_exists("AttributeType")) {
+if (!class_exists("AttributeType", FALSE)) {
 /**
- * Represents the type of {@link Attribute}.
+ * Represents the type of
+ * {@link com.google.ads.api.services.targetingideas.attributes.Attribute}.
  * 
  * 
  * <p><b>{@link IdeaType} KEYWORD supports the following {@link AttributeType}s:</b><br/>
@@ -2559,7 +2560,7 @@ class AttributeType {
   }
 }}
 
-if (!class_exists("CollectionSizeErrorReason")) {
+if (!class_exists("CollectionSizeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  */
@@ -2585,7 +2586,7 @@ class CollectionSizeErrorReason {
   }
 }}
 
-if (!class_exists("CompetitionSearchParameterLevel")) {
+if (!class_exists("CompetitionSearchParameterLevel", FALSE)) {
 /**
  * An enumeration of possible values to be used in conjunction with the
  * {@CompetitionSearchParameter} to specify the granularity of competition to
@@ -2613,7 +2614,7 @@ class CompetitionSearchParameterLevel {
   }
 }}
 
-if (!class_exists("IdeaType")) {
+if (!class_exists("IdeaType", FALSE)) {
 /**
  * Represents the type of idea.
  */
@@ -2639,7 +2640,7 @@ class IdeaType {
   }
 }}
 
-if (!class_exists("RequestType")) {
+if (!class_exists("RequestType", FALSE)) {
 /**
  * Represents the type of the request.
  */
@@ -2665,7 +2666,7 @@ class RequestType {
   }
 }}
 
-if (!class_exists("SiteConstantsAdFormat")) {
+if (!class_exists("SiteConstantsAdFormat", FALSE)) {
 /**
  * Enumerates the ad formats which can be reported in search results.
  */
@@ -2691,7 +2692,7 @@ class SiteConstantsAdFormat {
   }
 }}
 
-if (!class_exists("SiteConstantsAdType")) {
+if (!class_exists("SiteConstantsAdType", FALSE)) {
 /**
  * Enumerates the ad types available for constraining searches.  Each corresponds
  * to one or more values from {@link AdFormat}.
@@ -2718,7 +2719,7 @@ class SiteConstantsAdType {
   }
 }}
 
-if (!class_exists("SiteConstantsPlacementType")) {
+if (!class_exists("SiteConstantsPlacementType", FALSE)) {
 /**
  * A placement request and response value indicating the type of site or other medium
  * (for example, a web page, in a feed, in a video) where ads will appear.
@@ -2745,7 +2746,7 @@ class SiteConstantsPlacementType {
   }
 }}
 
-if (!class_exists("TargetingIdeaErrorReason")) {
+if (!class_exists("TargetingIdeaErrorReason", FALSE)) {
 /**
  * An enumeration of
  * {@link com.google.ads.api.services.targetingideas.TargetingIdeaService}
@@ -2773,7 +2774,7 @@ class TargetingIdeaErrorReason {
   }
 }}
 
-if (!class_exists("TargetingIdeaServiceGet")) {
+if (!class_exists("TargetingIdeaServiceGet", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
  * 
@@ -2820,7 +2821,7 @@ class TargetingIdeaServiceGet {
   }
 }}
 
-if (!class_exists("TargetingIdeaServiceGetResponse")) {
+if (!class_exists("TargetingIdeaServiceGetResponse", FALSE)) {
 /**
  * 
  */
@@ -2853,7 +2854,7 @@ class TargetingIdeaServiceGetResponse {
   }
 }}
 
-if (!class_exists("getBulkKeywordIdeas")) {
+if (!class_exists("getBulkKeywordIdeas", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
  * 
@@ -2913,7 +2914,7 @@ class getBulkKeywordIdeas {
   }
 }}
 
-if (!class_exists("getBulkKeywordIdeasResponse")) {
+if (!class_exists("getBulkKeywordIdeasResponse", FALSE)) {
 /**
  * 
  */
@@ -2946,7 +2947,7 @@ class getBulkKeywordIdeasResponse {
   }
 }}
 
-if (!class_exists("AdGroupCriterionError")) {
+if (!class_exists("AdGroupCriterionError", FALSE)) {
 /**
  * Base error class for Ad Group Criterion Service.
  * 
@@ -2986,7 +2987,7 @@ class AdGroupCriterionError extends ApiError {
   }
 }}
 
-if (!class_exists("AdScheduleTarget")) {
+if (!class_exists("AdScheduleTarget", FALSE)) {
 /**
  * Immutable structure to hold an ad schedule target.
  * 
@@ -3059,7 +3060,7 @@ class AdScheduleTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("AuthenticationError")) {
+if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
  * 
@@ -3099,7 +3100,7 @@ class AuthenticationError extends ApiError {
   }
 }}
 
-if (!class_exists("AuthorizationError")) {
+if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
  * 
@@ -3139,7 +3140,7 @@ class AuthorizationError extends ApiError {
   }
 }}
 
-if (!class_exists("BiddingError")) {
+if (!class_exists("BiddingError", FALSE)) {
 /**
  * Represents bidding errors.
  * 
@@ -3179,7 +3180,7 @@ class BiddingError extends ApiError {
   }
 }}
 
-if (!class_exists("BudgetError")) {
+if (!class_exists("BudgetError", FALSE)) {
 /**
  * A list of all the error codes being used by the common budget domain package.
  * 
@@ -3219,7 +3220,7 @@ class BudgetError extends ApiError {
   }
 }}
 
-if (!class_exists("ClientTermsError")) {
+if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
  * 
@@ -3259,7 +3260,7 @@ class ClientTermsError extends ApiError {
   }
 }}
 
-if (!class_exists("DatabaseError")) {
+if (!class_exists("DatabaseError", FALSE)) {
 /**
  * Errors that are thrown due to a database access problem.
  * 
@@ -3299,7 +3300,7 @@ class DatabaseError extends ApiError {
   }
 }}
 
-if (!class_exists("DateError")) {
+if (!class_exists("DateError", FALSE)) {
 /**
  * Errors associated with invalid dates and date ranges.
  * 
@@ -3339,7 +3340,7 @@ class DateError extends ApiError {
   }
 }}
 
-if (!class_exists("DistinctError")) {
+if (!class_exists("DistinctError", FALSE)) {
 /**
  * Errors related to distinct ids or content.
  * 
@@ -3379,7 +3380,7 @@ class DistinctError extends ApiError {
   }
 }}
 
-if (!class_exists("EntityCountLimitExceeded")) {
+if (!class_exists("EntityCountLimitExceeded", FALSE)) {
 /**
  * Signals that an entity count limit was exceeded for some level.
  * For example, too many criteria for a campaign.
@@ -3434,7 +3435,7 @@ class EntityCountLimitExceeded extends ApiError {
   }
 }}
 
-if (!class_exists("EntityNotFound")) {
+if (!class_exists("EntityNotFound", FALSE)) {
 /**
  * An id did not correspond to an entity, or it referred to an entity which does not belong to the
  * customer.
@@ -3475,7 +3476,7 @@ class EntityNotFound extends ApiError {
   }
 }}
 
-if (!class_exists("InternalApiError")) {
+if (!class_exists("InternalApiError", FALSE)) {
 /**
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
@@ -3517,7 +3518,7 @@ class InternalApiError extends ApiError {
   }
 }}
 
-if (!class_exists("Keyword")) {
+if (!class_exists("Keyword", FALSE)) {
 /**
  * A keyword.
  * 
@@ -3563,7 +3564,7 @@ class Keyword extends Criterion {
   }
 }}
 
-if (!class_exists("LanguageTarget")) {
+if (!class_exists("LanguageTarget", FALSE)) {
 /**
  * Immutable structure to hold a language target.
  * 
@@ -3601,7 +3602,7 @@ class LanguageTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("Money")) {
+if (!class_exists("Money", FALSE)) {
 /**
  * Represents a money amount.
  * 
@@ -3639,7 +3640,7 @@ class Money extends ComparableValue {
   }
 }}
 
-if (!class_exists("NetworkTarget")) {
+if (!class_exists("NetworkTarget", FALSE)) {
 /**
  * Immutable structure to hold a network coverage target.
  * 
@@ -3677,7 +3678,7 @@ class NetworkTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("NotEmptyError")) {
+if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
  * 
@@ -3717,7 +3718,7 @@ class NotEmptyError extends ApiError {
   }
 }}
 
-if (!class_exists("NotWhitelistedError")) {
+if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
  * 
@@ -3757,7 +3758,7 @@ class NotWhitelistedError extends ApiError {
   }
 }}
 
-if (!class_exists("NullError")) {
+if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
  * 
@@ -3797,7 +3798,7 @@ class NullError extends ApiError {
   }
 }}
 
-if (!class_exists("NumberValue")) {
+if (!class_exists("NumberValue", FALSE)) {
 /**
  * Number value types for constructing number valued ranges.
  * 
@@ -3828,7 +3829,7 @@ class NumberValue extends ComparableValue {
   }
 }}
 
-if (!class_exists("Placement")) {
+if (!class_exists("Placement", FALSE)) {
 /**
  * A placement used for modifying bids for sites when targeting the content
  * network.
@@ -3868,7 +3869,7 @@ class Placement extends Criterion {
   }
 }}
 
-if (!class_exists("PlatformTarget")) {
+if (!class_exists("PlatformTarget", FALSE)) {
 /**
  * Immutable structure to hold a platform target.
  * 
@@ -3906,10 +3907,9 @@ class PlatformTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("QuotaCheckError")) {
+if (!class_exists("QuotaCheckError", FALSE)) {
 /**
- * Encapsulates the errors thrown during developer quota checks for webapi
- * calls.
+ * Encapsulates the errors thrown during developer quota checks.
  * 
  * 
  * 
@@ -3947,10 +3947,9 @@ class QuotaCheckError extends ApiError {
   }
 }}
 
-if (!class_exists("QuotaExceededError")) {
+if (!class_exists("QuotaExceededError", FALSE)) {
 /**
- * Used by WebAPI to convert QuotaExceededExceptions to ApiExceptions, which are
- * more suitable for user errors.
+ * Represents Quota Exceeded Error.
  * 
  * 
  * 
@@ -3988,7 +3987,7 @@ class QuotaExceededError extends ApiError {
   }
 }}
 
-if (!class_exists("RangeError")) {
+if (!class_exists("RangeError", FALSE)) {
 /**
  * A list of all errors associated with the Range constraint.
  * 
@@ -4028,7 +4027,7 @@ class RangeError extends ApiError {
   }
 }}
 
-if (!class_exists("ReadOnlyError")) {
+if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
  * 
@@ -4068,7 +4067,7 @@ class ReadOnlyError extends ApiError {
   }
 }}
 
-if (!class_exists("RequiredError")) {
+if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
  * 
@@ -4108,7 +4107,7 @@ class RequiredError extends ApiError {
   }
 }}
 
-if (!class_exists("SizeLimitError")) {
+if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
  * 
@@ -4148,7 +4147,7 @@ class SizeLimitError extends ApiError {
   }
 }}
 
-if (!class_exists("StatsQueryError")) {
+if (!class_exists("StatsQueryError", FALSE)) {
 /**
  * Represents possible error codes when querying for stats.
  * 
@@ -4188,7 +4187,7 @@ class StatsQueryError extends ApiError {
   }
 }}
 
-if (!class_exists("StringLengthError")) {
+if (!class_exists("StringLengthError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsString constraint.
  * 
@@ -4228,7 +4227,7 @@ class StringLengthError extends ApiError {
   }
 }}
 
-if (!class_exists("DemographicTarget")) {
+if (!class_exists("DemographicTarget", FALSE)) {
 /**
  * Abstract class to identify a demographic target.
  * 
@@ -4266,7 +4265,7 @@ class DemographicTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("GeoTarget")) {
+if (!class_exists("GeoTarget", FALSE)) {
 /**
  * Abstract class to identify a geographic target.
  * 
@@ -4304,7 +4303,7 @@ class GeoTarget extends AdWordsTarget {
   }
 }}
 
-if (!class_exists("PolicyViolationError")) {
+if (!class_exists("PolicyViolationError", FALSE)) {
 /**
  * Represents violations of a single policy by some text in a field.
  * 
@@ -4390,7 +4389,7 @@ class PolicyViolationError extends ApiError {
   }
 }}
 
-if (!class_exists("ApiException")) {
+if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
  * 
@@ -4429,7 +4428,7 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("AdFormatSpecListAttribute")) {
+if (!class_exists("AdFormatSpecListAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a list of {@link AdFormatSpec} values.
  */
@@ -4463,7 +4462,7 @@ class AdFormatSpecListAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("AdTypeSearchParameter")) {
+if (!class_exists("AdTypeSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code PLACEMENT} {@link IdeaType}s used to
  * filter the results by the {@link AdType}.
@@ -4499,7 +4498,7 @@ class AdTypeSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("BooleanAttribute")) {
+if (!class_exists("BooleanAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a boolean value.
  */
@@ -4533,7 +4532,7 @@ class BooleanAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("CompetitionSearchParameter")) {
+if (!class_exists("CompetitionSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s used to
  * filter the results by the amount of competition (eg: LOW, MEDIUM, HIGH).
@@ -4569,7 +4568,7 @@ class CompetitionSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("DoubleAttribute")) {
+if (!class_exists("DoubleAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a double value.
  */
@@ -4603,7 +4602,7 @@ class DoubleAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("IdeaTypeAttribute")) {
+if (!class_exists("IdeaTypeAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains an {@link IdeaType} value. For example,
  * if a {@link com.google.ads.api.services.targetingideas.TargetingIdea}
@@ -4640,7 +4639,7 @@ class IdeaTypeAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("InStreamAdInfoAttribute")) {
+if (!class_exists("InStreamAdInfoAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains an {@link InStreamAdInfo} value.
  */
@@ -4674,7 +4673,7 @@ class InStreamAdInfoAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("IncludeAdultContentSearchParameter")) {
+if (!class_exists("IncludeAdultContentSearchParameter", FALSE)) {
 /**
  * {@link SearchParameter} that specifies whether adult content should be
  * returned.<p>
@@ -4706,7 +4705,7 @@ class IncludeAdultContentSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("IntegerAttribute")) {
+if (!class_exists("IntegerAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains an integer value.
  */
@@ -4740,7 +4739,7 @@ class IntegerAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("IntegerSetAttribute")) {
+if (!class_exists("IntegerSetAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a Set of integer values.
  */
@@ -4774,7 +4773,7 @@ class IntegerSetAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("KeywordCategoryIdSearchParameter")) {
+if (!class_exists("KeywordCategoryIdSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s that
  * sets a keyword category that all search results should belong to.
@@ -4811,7 +4810,7 @@ class KeywordCategoryIdSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("KeywordMatchTypeSearchParameter")) {
+if (!class_exists("KeywordMatchTypeSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s that
  * specifies the {@link KeywordMatchType}s that all results must match.
@@ -4852,7 +4851,7 @@ class KeywordMatchTypeSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("LongAttribute")) {
+if (!class_exists("LongAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a long value.
  */
@@ -4886,11 +4885,14 @@ class LongAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("MobileSearchParameter")) {
+if (!class_exists("MobileSearchParameter", FALSE)) {
 /**
- * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s that
- * requires that all search results support mobile advertisements. Note
- * that the presence of this parameter is all that is needed to limit
+ * A {@link SearchParameter} that limits results to keywords and statistics for
+ * mobile WAP devices. Estimated
+ * {@link com.google.ads.api.services.targetingideas.external.AttributeType}s
+ * are not affected.<p>
+ * 
+ * Note that the presence of this parameter is all that is needed to limit
  * search results. It is not necessary to set any properties.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  */
@@ -4917,7 +4919,7 @@ class MobileSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("MonthlySearchVolumeAttribute")) {
+if (!class_exists("MonthlySearchVolumeAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a list of {@link MonthlySearchVolume}
  * values. The list contains the past 12 {@link MonthlySearchVolume}s
@@ -4954,7 +4956,7 @@ class MonthlySearchVolumeAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("NgramGroupsSearchParameter")) {
+if (!class_exists("NgramGroupsSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} that applies the constraint that the ideas returned
  * must match one of the specified ngram groups. Any absence of an
@@ -4993,7 +4995,7 @@ class NgramGroupsSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("PlacementTypeAttribute")) {
+if (!class_exists("PlacementTypeAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link PlacementType} value.
  */
@@ -5027,7 +5029,7 @@ class PlacementTypeAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("PlacementTypeSearchParameter")) {
+if (!class_exists("PlacementTypeSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code PLACEMENT} {@link IdeaType}s
  * used to filter results based on the type of website, known as
@@ -5066,7 +5068,7 @@ class PlacementTypeSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("RelatedToUrlSearchParameter")) {
+if (!class_exists("RelatedToUrlSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code KEYWORD} and {@code PLACEMENT}
  * {@link IdeaType}s that specifies a set of URLs that results should
@@ -5112,7 +5114,7 @@ class RelatedToUrlSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("SeedAdGroupIdSearchParameter")) {
+if (!class_exists("SeedAdGroupIdSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s
  * that specifies that the supplied AdGroup should be used as a seed
@@ -5150,7 +5152,7 @@ class SeedAdGroupIdSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("StringAttribute")) {
+if (!class_exists("StringAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a string value.
  */
@@ -5184,7 +5186,7 @@ class StringAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("WebpageDescriptorAttribute")) {
+if (!class_exists("WebpageDescriptorAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link WebpageDescriptor} value.
  */
@@ -5218,7 +5220,7 @@ class WebpageDescriptorAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("AverageTargetedMonthlySearchesSearchParameter")) {
+if (!class_exists("AverageTargetedMonthlySearchesSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} that constrains the approximate average number of
  * targeted monthly searches on ideas to be returned. Absence of a
@@ -5258,7 +5260,7 @@ class AverageTargetedMonthlySearchesSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("ExcludedKeywordSearchParameter")) {
+if (!class_exists("ExcludedKeywordSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s that
  * specifies {@link Keyword}s that should be excluded from the results.<p>
@@ -5332,7 +5334,7 @@ class ExcludedKeywordSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("GlobalMonthlySearchesSearchParameter")) {
+if (!class_exists("GlobalMonthlySearchesSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} that specifies the level of search volume expected
  * in results. Absence of a {@link GlobalMonthlySearchesSearchParameter} in a
@@ -5372,7 +5374,7 @@ class GlobalMonthlySearchesSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("KeywordAttribute")) {
+if (!class_exists("KeywordAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link Keyword} value.
  */
@@ -5406,7 +5408,7 @@ class KeywordAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("MoneyAttribute")) {
+if (!class_exists("MoneyAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link Money} value.
  */
@@ -5440,7 +5442,7 @@ class MoneyAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("PlacementAttribute")) {
+if (!class_exists("PlacementAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link Placement} value.
  */
@@ -5474,7 +5476,7 @@ class PlacementAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("RelatedToKeywordSearchParameter")) {
+if (!class_exists("RelatedToKeywordSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code KEYWORD} and {@code PLACEMENT}
  * {@link IdeaType}s that specifies a generic keyword that results should
@@ -5512,7 +5514,7 @@ class RelatedToKeywordSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("CountryTargetSearchParameter")) {
+if (!class_exists("CountryTargetSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for both {@code PLACEMENT} and {@code KEYWORD}
  * {@link IdeaType}s used to indicate the countries being targeted. This can be
@@ -5553,7 +5555,7 @@ class CountryTargetSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("LanguageTargetSearchParameter")) {
+if (!class_exists("LanguageTargetSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for both {@code PLACEMENT} and {@code KEYWORD}
  * {@link IdeaType}s used to indicate the languages being targeted. This can
@@ -5594,7 +5596,7 @@ class LanguageTargetSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("LongRangeAttribute")) {
+if (!class_exists("LongRangeAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link Range} of {@link LongValue}
  * values.
@@ -5629,7 +5631,7 @@ class LongRangeAttribute extends Attribute {
   }
 }}
 
-if (!class_exists("AdGroupCriterionLimitExceeded")) {
+if (!class_exists("AdGroupCriterionLimitExceeded", FALSE)) {
 /**
  * Signals that too many criteria were added to some ad group.
  * 
@@ -5672,7 +5674,7 @@ class AdGroupCriterionLimitExceeded extends EntityCountLimitExceeded {
   }
 }}
 
-if (!class_exists("AgeTarget")) {
+if (!class_exists("AgeTarget", FALSE)) {
 /**
  * Immutable structure to hold an age target.
  * 
@@ -5711,7 +5713,7 @@ class AgeTarget extends DemographicTarget {
   }
 }}
 
-if (!class_exists("CityTarget")) {
+if (!class_exists("CityTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a city.
  * 
@@ -5764,7 +5766,7 @@ class CityTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("CountryTarget")) {
+if (!class_exists("CountryTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a country.
  * 
@@ -5803,7 +5805,7 @@ class CountryTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("CriterionPolicyError")) {
+if (!class_exists("CriterionPolicyError", FALSE)) {
 /**
  * Contains the policy violations for a single BiddableAdGroupCriterion.
  * 
@@ -5842,7 +5844,7 @@ class CriterionPolicyError extends PolicyViolationError {
   }
 }}
 
-if (!class_exists("DoubleValue")) {
+if (!class_exists("DoubleValue", FALSE)) {
 /**
  * Number value type for constructing double valued ranges.
  * 
@@ -5880,7 +5882,7 @@ class DoubleValue extends NumberValue {
   }
 }}
 
-if (!class_exists("GenderTarget")) {
+if (!class_exists("GenderTarget", FALSE)) {
 /**
  * Immutable structure to hold a gender target.
  * 
@@ -5919,7 +5921,7 @@ class GenderTarget extends DemographicTarget {
   }
 }}
 
-if (!class_exists("LongValue")) {
+if (!class_exists("LongValue", FALSE)) {
 /**
  * Number value type for constructing long valued ranges.
  * 
@@ -5957,7 +5959,7 @@ class LongValue extends NumberValue {
   }
 }}
 
-if (!class_exists("MetroTarget")) {
+if (!class_exists("MetroTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a metro.
  * 
@@ -5996,7 +5998,7 @@ class MetroTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("PolygonTarget")) {
+if (!class_exists("PolygonTarget", FALSE)) {
 /**
  * Structure to specify a geographic target for a polygon location.
  * 
@@ -6038,7 +6040,7 @@ class PolygonTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("ProvinceTarget")) {
+if (!class_exists("ProvinceTarget", FALSE)) {
 /**
  * Immutable structure to specify a geographic target for a province or state.
  * 
@@ -6077,7 +6079,7 @@ class ProvinceTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("ProximityTarget")) {
+if (!class_exists("ProximityTarget", FALSE)) {
 /**
  * Structure to specify a geographic target for a proximity location.
  * 
