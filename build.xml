@@ -3,7 +3,7 @@
 <!-- See README file for requirements                                        -->
 <!-- ======================================================================= -->
 <project basedir="." default="generate_php" name="aw_api_php_lib">
-  <property name="version" value="1.2.1"/>
+  <property name="version" value="1.2.2"/>
   <property name="package" value="GoogleApiAdsAdWords"/>
   <property name="author" value="Adam Rogal &lt;api.arogal@gmail.com&gt;"/>
 
@@ -89,7 +89,7 @@
         classmap="$this->classmap = array('getResponse' => '${service.name}GetResponse',  'get' => '${service.name}Get', 'mutate' => '${service.name}Mutate', 'mutateResponse' => '${service.name}MutateResponse', 'DateTime' => 'AdWordsDateTime', 'Target' => 'AdWordsTarget', 'SoapHeader' => 'SoapRequestHeader');"
         soapClientClassName="${service.soapClientClassName}"
         soapClientClassPath="${service.soapClientClassPath}"
-        serviceName="${service.name}" version="${service.version}"
+        serviceName="${service.name}" version="${services.version}"
         author="${service.author}" package="${service.package}"/>
   </target>
 

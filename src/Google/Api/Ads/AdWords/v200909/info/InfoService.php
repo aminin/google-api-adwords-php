@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage ${service.version}
+ * @subpackage v200909
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -28,7 +28,7 @@
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("DateRange")) {
+if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
  * 
@@ -72,7 +72,7 @@ class DateRange {
   }
 }}
 
-if (!class_exists("SoapRequestHeader")) {
+if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
  * 
@@ -151,7 +151,7 @@ class SoapRequestHeader {
   }
 }}
 
-if (!class_exists("SoapResponseHeader")) {
+if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
  * 
@@ -209,7 +209,7 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("ApiError")) {
+if (!class_exists("ApiError", FALSE)) {
 /**
  * A service api error base class that provides error details.
  * 1) the OGNL field path is provided for parsers.
@@ -294,7 +294,7 @@ class ApiError {
   }
 }}
 
-if (!class_exists("ApplicationException")) {
+if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
  * 
@@ -370,7 +370,7 @@ class ApplicationException {
   }
 }}
 
-if (!class_exists("AuthenticationErrorReason")) {
+if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
  * 
@@ -400,7 +400,7 @@ class AuthenticationErrorReason {
   }
 }}
 
-if (!class_exists("AuthorizationErrorReason")) {
+if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
  * 
@@ -430,7 +430,7 @@ class AuthorizationErrorReason {
   }
 }}
 
-if (!class_exists("ClientTermsErrorReason")) {
+if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
@@ -461,7 +461,7 @@ class ClientTermsErrorReason {
   }
 }}
 
-if (!class_exists("EntityNotFoundReason")) {
+if (!class_exists("EntityNotFoundReason", FALSE)) {
 /**
  * The specified id refered to an entity which either doesn't exist or is not accessible to the
  * customer. e.g. campaign belongs to another customer.
@@ -492,7 +492,7 @@ class EntityNotFoundReason {
   }
 }}
 
-if (!class_exists("InternalApiErrorReason")) {
+if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
  * 
@@ -522,7 +522,7 @@ class InternalApiErrorReason {
   }
 }}
 
-if (!class_exists("NotEmptyErrorReason")) {
+if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  * 
@@ -552,7 +552,7 @@ class NotEmptyErrorReason {
   }
 }}
 
-if (!class_exists("NotWhitelistedErrorReason")) {
+if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
  * 
@@ -582,7 +582,7 @@ class NotWhitelistedErrorReason {
   }
 }}
 
-if (!class_exists("NullErrorReason")) {
+if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  * 
@@ -612,7 +612,7 @@ class NullErrorReason {
   }
 }}
 
-if (!class_exists("Operator")) {
+if (!class_exists("Operator", FALSE)) {
 /**
  * This represents an operator that may be presented to an adsapi service.
  * 
@@ -642,7 +642,7 @@ class Operator {
   }
 }}
 
-if (!class_exists("OperatorErrorReason")) {
+if (!class_exists("OperatorErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
  * 
@@ -672,7 +672,7 @@ class OperatorErrorReason {
   }
 }}
 
-if (!class_exists("QuotaCheckErrorReason")) {
+if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
@@ -703,7 +703,7 @@ class QuotaCheckErrorReason {
   }
 }}
 
-if (!class_exists("QuotaExceededErrorReason")) {
+if (!class_exists("QuotaExceededErrorReason", FALSE)) {
 /**
  * The single reason for the quota error.
  * 
@@ -733,7 +733,7 @@ class QuotaExceededErrorReason {
   }
 }}
 
-if (!class_exists("ReadOnlyErrorReason")) {
+if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  * 
@@ -763,7 +763,7 @@ class ReadOnlyErrorReason {
   }
 }}
 
-if (!class_exists("RequiredErrorReason")) {
+if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  * 
@@ -793,7 +793,7 @@ class RequiredErrorReason {
   }
 }}
 
-if (!class_exists("SizeLimitErrorReason")) {
+if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
  * 
@@ -823,7 +823,7 @@ class SizeLimitErrorReason {
   }
 }}
 
-if (!class_exists("ApiUsageError")) {
+if (!class_exists("ApiUsageError", FALSE)) {
 /**
  * Represents possible error codes in InfoService.
  */
@@ -859,7 +859,7 @@ class ApiUsageError extends ApiError {
   }
 }}
 
-if (!class_exists("ApiUsageRecord")) {
+if (!class_exists("ApiUsageRecord", FALSE)) {
 /**
  * Data record for per client API units.
  */
@@ -899,10 +899,11 @@ class ApiUsageRecord {
   }
 }}
 
-if (!class_exists("InfoSelector")) {
+if (!class_exists("InfoSelector", FALSE)) {
 /**
  * Specifies the type of API usage information to be returned. API usage information
- * returned is based on the {@link #apiUsageType API usage type} specified.
+ * returned is based on the {@link #apiUsageType API usage type} specified. The effective
+ * user specified in the request header should always be the MCC user.
  * 
  * <p>For each of the <code>apiUsageType</code> values, other <code>InfoSelector</code>
  * fields must also be set as described below:</p>
@@ -910,17 +911,14 @@ if (!class_exists("InfoSelector")) {
  * <ul>
  * <li><code>FREE_USAGE_API_UNITS_PER_MONTH</code> : Retrieves the number of
  * <a href="http://www.google.com/support/adwordsapi/bin/answer.py?answer=45891">
- * free API units</a> that can be used by the developer token being used to make
- * the call for this month. Specify only the apiUsageType parameter.</li>
+ * free API units</a>. Specify only the apiUsageType parameter.</li>
  * <li><code>TOTAL_USAGE_API_UNITS_PER_MONTH</code> : Retrieves the total number of API units for
- * this entire month that can be used by the developer token being used to make this call.
- * Includes both free and paid API units. Specify only the apiUsageType parameter.</li>
- * <li><code>OPERATION_COUNT</code> : Retrieves the number of operations recorded for the
- * developer token being used to make this call over the given date range. The given dates are
- * inclusive; to get the operation count for a single day, supply it as both
+ * this entire month. Includes both free and paid API units. Specify only the
+ * apiUsageType parameter.</li>
+ * <li><code>OPERATION_COUNT</code> : Retrieves the number of operations recorded. The
+ * given dates are inclusive; to get the operation count for a single day, supply it as both
  * the start and end date. Specify the apiUsageType and dateRange parameters. </li>
- * <li><code>UNIT_COUNT</code> : Retrieves the number of API units recorded for the developer
- * token being used to make this call.
+ * <li><code>UNIT_COUNT</code> : Retrieves the number of API units recorded.
  * <ul>
  * <li>Specify the apiUsageType and dateRange parameters to retrieve
  * the units recorded over the given date range.</li>
@@ -929,14 +927,13 @@ if (!class_exists("InfoSelector")) {
  * </ul>
  * </li>
  * <li><code>UNIT_COUNT_FOR_CLIENTS</code> :  Retrieves the number of API units recorded for a
- * subset of clients over the given date range for the developer token being used
- * to make this call. The given dates are inclusive; to get the unit count for a single day,
- * supply it as both the start and end date. Specify the apiUsageType, dateRange and
- * clientEmails parameters.</li>
+ * subset of clients over the given date range. The given dates are inclusive;
+ * to get the unit count for a single day, supply it as both the start and end date.
+ * Specify the apiUsageType, dateRange and clientEmails parameters.</li>
  * <li><code>METHOD_COST</code> : Retrieves the cost, in API units per operation, of the given
- * method on a specific date for the developer token being used to make this call. Methods
- * default to a cost of 1. Specify the apiUsageType, dateRange (start date and end date
- * should be the same), serviceName, methodName, operator parameters.</li>
+ * method on a specific date. Methods default to a cost of 1. Specify the apiUsageType,
+ * dateRange (start date and end date should be the same), serviceName, methodName,
+ * operator parameters.</li>
  * </ul>
  */
 class InfoSelector {
@@ -1003,7 +1000,7 @@ class InfoSelector {
   }
 }}
 
-if (!class_exists("ApiUsageInfo")) {
+if (!class_exists("ApiUsageInfo", FALSE)) {
 /**
  * Represents the API usage information.
  */
@@ -1043,7 +1040,7 @@ class ApiUsageInfo {
   }
 }}
 
-if (!class_exists("ApiUsageErrorReason")) {
+if (!class_exists("ApiUsageErrorReason", FALSE)) {
 /**
  * Enum used to represent the errors
  */
@@ -1069,7 +1066,7 @@ class ApiUsageErrorReason {
   }
 }}
 
-if (!class_exists("ApiUsageType")) {
+if (!class_exists("ApiUsageType", FALSE)) {
 /**
  * Enum to represent the type of API usage.
  */
@@ -1095,7 +1092,7 @@ class ApiUsageType {
   }
 }}
 
-if (!class_exists("InfoServiceGet")) {
+if (!class_exists("InfoServiceGet", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
  * 
@@ -1137,7 +1134,7 @@ class InfoServiceGet {
   }
 }}
 
-if (!class_exists("InfoServiceGetResponse")) {
+if (!class_exists("InfoServiceGetResponse", FALSE)) {
 /**
  * 
  */
@@ -1170,7 +1167,7 @@ class InfoServiceGetResponse {
   }
 }}
 
-if (!class_exists("AuthenticationError")) {
+if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
  * 
@@ -1210,7 +1207,7 @@ class AuthenticationError extends ApiError {
   }
 }}
 
-if (!class_exists("AuthorizationError")) {
+if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
  * 
@@ -1250,7 +1247,7 @@ class AuthorizationError extends ApiError {
   }
 }}
 
-if (!class_exists("ClientTermsError")) {
+if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
  * 
@@ -1290,7 +1287,7 @@ class ClientTermsError extends ApiError {
   }
 }}
 
-if (!class_exists("EntityNotFound")) {
+if (!class_exists("EntityNotFound", FALSE)) {
 /**
  * An id did not correspond to an entity, or it referred to an entity which does not belong to the
  * customer.
@@ -1331,7 +1328,7 @@ class EntityNotFound extends ApiError {
   }
 }}
 
-if (!class_exists("InternalApiError")) {
+if (!class_exists("InternalApiError", FALSE)) {
 /**
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
@@ -1373,7 +1370,7 @@ class InternalApiError extends ApiError {
   }
 }}
 
-if (!class_exists("NotEmptyError")) {
+if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
  * 
@@ -1413,7 +1410,7 @@ class NotEmptyError extends ApiError {
   }
 }}
 
-if (!class_exists("NotWhitelistedError")) {
+if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
  * 
@@ -1453,7 +1450,7 @@ class NotWhitelistedError extends ApiError {
   }
 }}
 
-if (!class_exists("NullError")) {
+if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
  * 
@@ -1493,7 +1490,7 @@ class NullError extends ApiError {
   }
 }}
 
-if (!class_exists("OperatorError")) {
+if (!class_exists("OperatorError", FALSE)) {
 /**
  * A list of all errors associated with the @SupportedOperators constraints.
  * 
@@ -1533,10 +1530,9 @@ class OperatorError extends ApiError {
   }
 }}
 
-if (!class_exists("QuotaCheckError")) {
+if (!class_exists("QuotaCheckError", FALSE)) {
 /**
- * Encapsulates the errors thrown during developer quota checks for webapi
- * calls.
+ * Encapsulates the errors thrown during developer quota checks.
  * 
  * 
  * 
@@ -1574,10 +1570,9 @@ class QuotaCheckError extends ApiError {
   }
 }}
 
-if (!class_exists("QuotaExceededError")) {
+if (!class_exists("QuotaExceededError", FALSE)) {
 /**
- * Used by WebAPI to convert QuotaExceededExceptions to ApiExceptions, which are
- * more suitable for user errors.
+ * Represents Quota Exceeded Error.
  * 
  * 
  * 
@@ -1615,7 +1610,7 @@ class QuotaExceededError extends ApiError {
   }
 }}
 
-if (!class_exists("ReadOnlyError")) {
+if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
  * 
@@ -1655,7 +1650,7 @@ class ReadOnlyError extends ApiError {
   }
 }}
 
-if (!class_exists("RequiredError")) {
+if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
  * 
@@ -1695,7 +1690,7 @@ class RequiredError extends ApiError {
   }
 }}
 
-if (!class_exists("SizeLimitError")) {
+if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
  * 
@@ -1735,7 +1730,7 @@ class SizeLimitError extends ApiError {
   }
 }}
 
-if (!class_exists("ApiException")) {
+if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
  * 

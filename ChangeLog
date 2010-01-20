@@ -1,3 +1,10 @@
+1.2.2:
+- Added namespace declaration workaround for bug in server side XML validation.
+- Changed tests to pull server from test_settings.ini.
+- Removed usage of deprecated split() method (Issue #6).
+- Prevented multiple appenders from being added for the same file (Issue #9).
+- Prevented autoloading of AdWords API classes (Issue #11).
+
 1.2.1:
 - Added new examples and rewrote existing ones for consistency.
 - Fixed incorrect method and service name for GetAdExtensionOverrideService in

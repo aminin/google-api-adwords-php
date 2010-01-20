@@ -38,24 +38,26 @@ require_once 'PHPUnit/Framework.php';
  */
 class ValidateOnlyTest extends PHPUnit_Framework_TestCase {
   private $version = 'v200909';
-  private $server = 'http://adwords-sandbox.google.com';
   private $user;
   private $campaignValidationService;
 
   protected function setUp() {
-    $this->user = new AdWordsUser(dirname(__FILE__)
-        . '/../../../../../../test_data/test_auth.ini');
+    $authFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
+    $settingsFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
+    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
+        NULL, NULL, NULL, $settingsFile);
     $this->user->LogDefaults();
     $this->campaignValidationService =
-        $this->user->GetCampaignService($this->version, $this->server, NULL,
-            true);
+        $this->user->GetCampaignService($this->version, NULL, NULL, true);
   }
 
   /**
    * Test whether we can validate a correctly formed create campaign request
    * using v200909.
    */
-  public function testValidCreateCampaignV200909() {
+  public function testValidCreateCampaign() {
     $campaign = new Campaign();
     $campaign->name = 'Campaign #' . time();
     $campaign->status = 'PAUSED';
@@ -74,7 +76,7 @@ class ValidateOnlyTest extends PHPUnit_Framework_TestCase {
    * Test whether we can validate an incorrectly formed create campaign request
    * using v200909.
    */
-  public function testInvalidCreateCampaignV200909() {
+  public function testInvalidCreateCampaign() {
     $campaign = new Campaign();
 
     $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));

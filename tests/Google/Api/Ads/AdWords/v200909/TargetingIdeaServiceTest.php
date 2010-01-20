@@ -38,23 +38,26 @@ require_once 'PHPUnit/Framework.php';
  */
 class TargetingIdeaServiceTest extends PHPUnit_Framework_TestCase {
   private $version = 'v200909';
-  private $server = 'http://adwords-sandbox.google.com';
   private $user;
   private $service;
 
   private static $adGroupId;
 
   protected function setUp() {
-    $this->user = new AdWordsUser(dirname(__FILE__)
-        . '/../../../../../../test_data/test_auth.ini');
+    $authFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
+    $settingsFile =
+        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
+    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
+        NULL, NULL, NULL, $settingsFile);
     $this->user->LogDefaults();
 
     $this->service =
-        $this->user->GetTargetingIdeaService($this->version, $this->server);
+        $this->user->GetTargetingIdeaService($this->version);
 
     if (!isset(TargetingIdeaServiceTest::$adGroupId)) {
       $campaignService =
-          $this->user->GetCampaignService($this->version, $this->server);
+          $this->user->GetCampaignService($this->version);
       $campaign = new Campaign();
       $campaign->name = 'Campaign #' . time();
       $campaign->status = 'PAUSED';
@@ -65,7 +68,7 @@ class TargetingIdeaServiceTest extends PHPUnit_Framework_TestCase {
           array(new CampaignOperation(NULL, $campaign, 'ADD')))->value[0]->id;
 
       $adGroupService =
-          $this->user->GetAdGroupService($this->version, $this->server);
+          $this->user->GetAdGroupService($this->version);
 
       $adGroup = new AdGroup();
       $adGroup->name = 'AdGroup #' . time();
@@ -81,7 +84,7 @@ class TargetingIdeaServiceTest extends PHPUnit_Framework_TestCase {
    * Test whether we can catch required search parameter error in selector using
    * v200909.
    */
-  public function testGetEmptySelectorV200909() {
+  public function testGetEmptySelector() {
     try {
       $this->service->get(new TargetingIdeaSelector());
     } catch (SoapFault $e) {
@@ -395,7 +398,7 @@ class TargetingIdeaServiceTest extends PHPUnit_Framework_TestCase {
     // TODO(api.ekoleda): validate result.
   }
 
-/**
+  /**
    * Test whether we can request seed ad group id search parameter using
    * v200909.
    */

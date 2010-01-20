@@ -26,6 +26,7 @@
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
 /**
@@ -67,9 +68,9 @@ class AuthToken {
    * @access private
    */
   private function GetToken() {
-    $lines = split("\n", $this->res);
+    $lines = explode("\n", $this->res);
     foreach ($lines as $line) {
-      $parts = split('=', $line);
+      $parts = explode('=', $line);
       if ($parts[0] == 'Auth') {
         return $parts[1];
       }

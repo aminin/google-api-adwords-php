@@ -31,6 +31,8 @@
             <br /><br />
                         <b>Files:</b><br />
       	subpackage <b>Lib</b><br>  <div class="package">
+			<a href="GoogleApiAdsCommon/Lib/_Common---Lib---AdsSoapClient.php.html">		AdsSoapClient.php
+		</a><br>
 			<a href="GoogleApiAdsCommon/Lib/_Common---Lib---AdsUser.php.html">		AdsUser.php
 		</a><br>
 			<a href="GoogleApiAdsCommon/Lib/_Common---Lib---SoapClientFactory.php.html">		SoapClientFactory.php
@@ -50,18 +52,12 @@
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---XmlUtils.php.html">		XmlUtils.php
 		</a><br>
 	  </div><br />
-	subpackage <b>v200812</b><br>  <div class="package">
-			<a href="GoogleApiAdsCommon/v200812/_Common---Lib---AdsSoapClient.php.html">		AdsSoapClient.php
-		</a><br>
-	  </div><br />
       
       
             <b>Classes:</b><br />
         <div class="package">
-	v200812<br />	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html">AdsSoapClient</a><br />
-	  </div>
-  <div class="package">
-	Lib<br />	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a><br />
+	Lib<br />	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a><br />
+	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/ValidationException.html">ValidationException</a><br />
 	  </div>
@@ -102,21 +98,21 @@
 		<h2>_</h2>
 		<dl>
 							<dt><b>__construct</b></dt>
-				<dd>in file ValidationException.php, method <a href="GoogleApiAdsCommon/Lib/ValidationException.html#method__construct">ValidationException::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for ValidationException where the exception will appear  as &quot;Validation failed for [$trigger] with value [$value]: $message&quot;.</dd>
-							<dt><b>__construct</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#method__construct">SoapClientFactory::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The constructor called by any sub-class.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#method__construct">AdsUser::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for AdsUser.</dd>
 							<dt><b>__construct</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__construct">AdsSoapClient::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The constructor intended to be called by all sub-classes.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file ValidationException.php, method <a href="GoogleApiAdsCommon/Lib/ValidationException.html#method__construct">ValidationException::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for ValidationException where the exception will appear  as &quot;Validation failed for [$trigger] with value [$value]: $message&quot;.</dd>
+							<dt><b>__doRequest</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__doRequest">AdsSoapClient::__doRequest()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Overrides the method SoapClient.__doRequest() to  perform a clean up of the request XML before marshalling.</dd>
+							<dt><b>__soapCall</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__soapCall">AdsSoapClient::__soapCall()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Overrides the method SoapClient.__soapCall() to process the  response from the SOAP call.</dd>
+							<dt><b>__construct</b></dt>
 				<dd>in file SoapRequestXmlFixer.php, method <a href="GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html#method__construct">SoapRequestXmlFixer::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor to determine how the XML should be fixed.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file AuthToken.php, method <a href="GoogleApiAdsCommon/Util/AuthToken.html#method__construct">AuthToken::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for the authentication token.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#method__construct">AdsSoapClient::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The constructor intended to be called by all sub-classes.</dd>
-							<dt><b>__doRequest</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#method__doRequest">AdsSoapClient::__doRequest()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Overrides the method SoapClient.__doRequest() to  perform a clean up of the request XML before marshalling.</dd>
-							<dt><b>__soapCall</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#method__soapCall">AdsSoapClient::__soapCall()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Overrides the method SoapClient.__soapCall() to process the  response from the SOAP call.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -125,18 +121,18 @@
 	<div>
 		<h2>a</h2>
 		<dl>
+							<dt><b>AdsSoapClient</b></dt>
+				<dd>in file AdsSoapClient.php, class <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a><br>&nbsp;&nbsp;&nbsp;&nbsp;An extension of the SoapClient class intended to prepare  the XML before making a request as well as perform any book-keeping on  the response.</dd>
 							<dt><b>AdsUser</b></dt>
 				<dd>in file AdsUser.php, class <a href="GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a><br>&nbsp;&nbsp;&nbsp;&nbsp;User class for all API modules using the Ads API.</dd>
+							<dt><b>AdsSoapClient.php</b></dt>
+				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_Common---Lib---AdsSoapClient.php.html">AdsSoapClient.php</a></dd>
 							<dt><b>AdsUser.php</b></dt>
 				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_Common---Lib---AdsUser.php.html">AdsUser.php</a></dd>
 							<dt><b>AuthToken</b></dt>
 				<dd>in file AuthToken.php, class <a href="GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Client used to retrieve an authentication token for the supplied credentials  with the client login API.</dd>
 							<dt><b>AuthToken.php</b></dt>
 				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---AuthToken.php.html">AuthToken.php</a></dd>
-							<dt><b>AdsSoapClient</b></dt>
-				<dd>in file AdsSoapClient.php, class <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html">AdsSoapClient</a><br>&nbsp;&nbsp;&nbsp;&nbsp;An extension of the SoapClient class intended to prepare  the XML before making a request as well as perform any book-keeping on  the response.</dd>
-							<dt><b>AdsSoapClient.php</b></dt>
-				<dd>procedural page <a href="GoogleApiAdsCommon/v200812/_Common---Lib---AdsSoapClient.php.html">AdsSoapClient.php</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -189,12 +185,16 @@
 	<div>
 		<h2>g</h2>
 		<dl>
+							<dt><b>GenerateRequestInfoMessage</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateRequestInfoMessage">AdsSoapClient::GenerateRequestInfoMessage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the request information using the request and response. This  method is called after the request has been made and RemoveSensitiveInfo()  has been called as well.</dd>
 							<dt><b>GenerateServiceClient</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGenerateServiceClient">SoapClientFactory::GenerateServiceClient()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the SOAP service client without the proper headers set yet.</dd>
 							<dt><b>GenerateSoapClient</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGenerateSoapClient">SoapClientFactory::GenerateSoapClient()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates a SOAP client for the given service name. Generates a user level  error if this instalation of PHP does not have the extension for SOAP  installed.</dd>
 							<dt><b>GenerateSoapHeader</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGenerateSoapHeader">SoapClientFactory::GenerateSoapHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the SOAP header for the client.</dd>
+							<dt><b>GetAdsUser</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user for this client.</dd>
 							<dt><b>GetAdsUser</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetAdsUser">SoapClientFactory::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user associated with this factory.</dd>
 							<dt><b>GetAuthVarValue</b></dt>
@@ -205,16 +205,34 @@
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultServer">AdsUser::GetDefaultServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the default server.</dd>
 							<dt><b>GetDefaultVersion</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultVersion">AdsUser::GetDefaultVersion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the default version.</dd>
+							<dt><b>GetEmail</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetEmail">AdsSoapClient::GetEmail()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the email of the user making the request.</dd>
 							<dt><b>GetHeaderValue</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderValue">AdsUser::GetHeaderValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the value for a registered request header element.</dd>
+							<dt><b>GetLastFaultMessage</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastFaultMessage">AdsSoapClient::GetLastFaultMessage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the SOAP fault message if there was any</dd>
+							<dt><b>GetLastMethodName</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastMethodName">AdsSoapClient::GetLastMethodName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the method name for the last method called.</dd>
+							<dt><b>GetLastRequestDom</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastRequestDom">AdsSoapClient::GetLastRequestDom()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Get the DOMDocument representing the last request from this client.</dd>
+							<dt><b>GetLastRequestId</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastRequestId">AdsSoapClient::GetLastRequestId()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the request ID for the last call</dd>
+							<dt><b>GetLastResponseDom</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastResponseDom">AdsSoapClient::GetLastResponseDom()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the DOMDocument representing the last response from this client.</dd>
+							<dt><b>GetLastResponseTime</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastResponseTime">AdsSoapClient::GetLastResponseTime()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the response time for the last call</dd>
 							<dt><b>GetLogsDirectory</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetLogsDirectory">AdsUser::GetLogsDirectory()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the logs directory.</dd>
 							<dt><b>GetProductName</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetProductName">SoapClientFactory::GetProductName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the product name associated with this factory.</dd>
 							<dt><b>GetServer</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServer">SoapClientFactory::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server associated with this factory.</dd>
+							<dt><b>GetServer</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server that the request was made to.</dd>
 							<dt><b>GetServiceLocation</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServiceLocation">SoapClientFactory::GetServiceLocation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the end-point location of the service.</dd>
+							<dt><b>GetServiceName</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServiceName">AdsSoapClient::GetServiceName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the service name for this client.</dd>
 							<dt><b>GetServiceSoapClient</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetServiceSoapClient">AdsUser::GetServiceSoapClient()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the service by its service name.</dd>
 							<dt><b>GetVersion</b></dt>
@@ -225,28 +243,6 @@
 				<dd>in file MediaUtils.php, method <a href="GoogleApiAdsCommon/Util/MediaUtils.html#methodGetBase64Data">MediaUtils::GetBase64Data()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the base64 encoded data from an asset located at <var>path</var> for  use with the API where &lt;x&gt;Data is needed.</dd>
 							<dt><b>GetDomFromXml</b></dt>
 				<dd>in file XmlUtils.php, method <a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodGetDomFromXml">XmlUtils::GetDomFromXml()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the DOMDocument of the <var>$xml</var>.</dd>
-							<dt><b>GenerateRequestInfoMessage</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGenerateRequestInfoMessage">AdsSoapClient::GenerateRequestInfoMessage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the request information using the request and response. This  method is called after the request has been made and RemoveSensitiveInfo()  has been called as well.</dd>
-							<dt><b>GetAdsUser</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user for this client.</dd>
-							<dt><b>GetEmail</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetEmail">AdsSoapClient::GetEmail()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the email of the user making the request.</dd>
-							<dt><b>GetLastFaultMessage</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetLastFaultMessage">AdsSoapClient::GetLastFaultMessage()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the SOAP fault message if there was any</dd>
-							<dt><b>GetLastMethodName</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetLastMethodName">AdsSoapClient::GetLastMethodName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the method name for the last method called.</dd>
-							<dt><b>GetLastRequestDom</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetLastRequestDom">AdsSoapClient::GetLastRequestDom()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Get the DOMDocument representing the last request from this client.</dd>
-							<dt><b>GetLastRequestId</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetLastRequestId">AdsSoapClient::GetLastRequestId()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the request ID for the last call</dd>
-							<dt><b>GetLastResponseDom</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetLastResponseDom">AdsSoapClient::GetLastResponseDom()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the DOMDocument representing the last response from this client.</dd>
-							<dt><b>GetLastResponseTime</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetLastResponseTime">AdsSoapClient::GetLastResponseTime()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the response time for the last call</dd>
-							<dt><b>GetServer</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server that the request was made to.</dd>
-							<dt><b>GetServiceName</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodGetServiceName">AdsSoapClient::GetServiceName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the service name for this client.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -265,10 +261,10 @@
 	<div>
 		<h2>i</h2>
 		<dl>
+							<dt><b>IsFault</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodIsFault">AdsSoapClient::IsFault()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns <var>TRUE</var> if there was a SOAP fault during the last call.</dd>
 							<dt><b>$INFO</b></dt>
 				<dd>in file Logger.php, variable <a href="GoogleApiAdsCommon/Util/Logger.html#var$INFO">Logger::$INFO</a><br>&nbsp;&nbsp;&nbsp;&nbsp;INFO level.</dd>
-							<dt><b>IsFault</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodIsFault">AdsSoapClient::IsFault()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns <var>TRUE</var> if there was a SOAP fault during the last call.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -277,6 +273,16 @@
 	<div>
 		<h2>l</h2>
 		<dl>
+							<dt><b>$lastArguments</b></dt>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The last arguments passed to the called SOAP method</dd>
+							<dt><b>$lastMethodName</b></dt>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The name of the last method called from this client.</dd>
+							<dt><b>$lastRequest</b></dt>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastRequest">AdsSoapClient::$lastRequest</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The last SOAP XML request made to the server after PrepareRequest() and  RemoveSensitiveInfo() have been called on it.</dd>
+							<dt><b>$lastResponse</b></dt>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastResponse">AdsSoapClient::$lastResponse</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The last SOAP XML response from the server.</dd>
+							<dt><b>$lastSoapFault</b></dt>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastSoapFault">AdsSoapClient::$lastSoapFault</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The last SOAP fault generated from the server. <var>NULL</var> if none.</dd>
 							<dt><b>LoadSettings</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodLoadSettings">AdsUser::LoadSettings()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Loads the settings for this client library. If the settings INI file  located at <var>$settingsIniPath</var> cannot be loaded, then the  parameters passed into this method are used.</dd>
 							<dt><b>LogDefaults</b></dt>
@@ -291,16 +297,6 @@
 				<dd>in file Logger.php, method <a href="GoogleApiAdsCommon/Util/Logger.html#methodLogToFile">Logger::LogToFile()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Logs the given log to a file at the file path.</dd>
 							<dt><b>LogToStream</b></dt>
 				<dd>in file Logger.php, method <a href="GoogleApiAdsCommon/Util/Logger.html#methodLogToStream">Logger::LogToStream()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Logs the given log to a stream represented by <var>$phpIoStream</var>. The  availble streams are listed here:</dd>
-							<dt><b>$lastArguments</b></dt>
-				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The last arguments passed to the called SOAP method</dd>
-							<dt><b>$lastMethodName</b></dt>
-				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The name of the last method called from this client.</dd>
-							<dt><b>$lastRequest</b></dt>
-				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastRequest">AdsSoapClient::$lastRequest</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The last SOAP XML request made to the server after PrepareRequest() and  RemoveSensitiveInfo() have been called on it.</dd>
-							<dt><b>$lastResponse</b></dt>
-				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastResponse">AdsSoapClient::$lastResponse</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The last SOAP XML response from the server.</dd>
-							<dt><b>$lastSoapFault</b></dt>
-				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$lastSoapFault">AdsSoapClient::$lastSoapFault</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The last SOAP fault generated from the server. <var>NULL</var> if none.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -321,10 +317,10 @@
 	<div>
 		<h2>p</h2>
 		<dl>
+							<dt><b>PrepareRequest</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodPrepareRequest">AdsSoapClient::PrepareRequest()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Depending on the version of PHP, the xsi:types need to be added and empty  tags may need to be removed. The SoapRequestXmlFixer class can facilitate  these changes.</dd>
 							<dt><b>PrettyPrint</b></dt>
 				<dd>in file XmlUtils.php, method <a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodPrettyPrint">XmlUtils::PrettyPrint()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns a pretty printed XML. If the XML cannot be loaded a string  stripped of any newlines is returned.</dd>
-							<dt><b>PrepareRequest</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodPrepareRequest">AdsSoapClient::PrepareRequest()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Depending on the version of PHP, the xsi:types need to be added and empty  tags may need to be removed. The SoapRequestXmlFixer class can facilitate  these changes.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -333,10 +329,10 @@
 	<div>
 		<h2>r</h2>
 		<dl>
+							<dt><b>RemoveSensitiveInfo</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes any sensitive information from the request XML. This method is  called after the request has been made and before logging any XML.</dd>
 							<dt><b>$REQUEST_INFO_LOG</b></dt>
 				<dd>in file Logger.php, variable <a href="GoogleApiAdsCommon/Util/Logger.html#var$REQUEST_INFO_LOG">Logger::$REQUEST_INFO_LOG</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Logs all information about requests.</dd>
-							<dt><b>RemoveSensitiveInfo</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes any sensitive information from the request XML. This method is  called after the request has been made and before logging any XML.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -345,6 +341,8 @@
 	<div>
 		<h2>s</h2>
 		<dl>
+							<dt><b>$serviceName</b></dt>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceName">AdsSoapClient::$serviceName</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The name of the service this client is accessing.</dd>
 							<dt><b>SoapClientFactory.php</b></dt>
 				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_Common---Lib---SoapClientFactory.php.html">SoapClientFactory.php</a></dd>
 							<dt><b>SetHeaderValue</b></dt>
@@ -361,8 +359,6 @@
 				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">SoapRequestXmlFixer.php</a></dd>
 							<dt><b>SoapRequestXmlFixer</b></dt>
 				<dd>in file SoapRequestXmlFixer.php, class <a href="GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The SOAP XML request fixer used to fix some inconsistencies among the  different versions of the PHP SoapClient.</dd>
-							<dt><b>$serviceName</b></dt>
-				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$serviceName">AdsSoapClient::$serviceName</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The name of the service this client is accessing.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -372,7 +368,7 @@
 		<h2>u</h2>
 		<dl>
 							<dt><b>$user</b></dt>
-				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/v200812/AdsSoapClient.html#var$user">AdsSoapClient::$user</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The <a href="GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a> which generated this client.</dd>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$user">AdsSoapClient::$user</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The <a href="GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a> which generated this client.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -402,7 +398,7 @@
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Thu, 10 Dec 2009 09:37:24 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Tue, 19 Jan 2010 18:51:47 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
