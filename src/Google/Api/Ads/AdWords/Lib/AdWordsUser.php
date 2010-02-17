@@ -38,7 +38,7 @@ require_once 'AdWordsSoapClientFactory.php';
  * services.
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = 'v1.2.2';
+  private static $LIB_VERSION = 'v2.0.0';
   private static $LIB_NAME = 'AdWords API PHP Client Library';
 
   /**
@@ -600,11 +600,6 @@ class AdWordsUser extends AdsUser {
     if ($this->GetDeveloperToken() == NULL) {
       throw new ValidationException('developerToken', NULL,
           'developerToken is required and cannot be NULL.');
-    }
-
-    if ($this->GetApplicationToken() == NULL) {
-      throw new ValidationException('applicationToken', NULL,
-          'applicationToken is required and cannot be NULL.');
     }
   }
 }

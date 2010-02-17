@@ -138,6 +138,13 @@ class WSDLInterpreter
   private $_serviceName = NULL;
 
   /**
+   * The service namespace.
+   * @var string
+   * @access private
+   */
+  private $_serviceNamespace = NULL;
+
+  /**
    * The service version.
    * @var string
    * @access private
@@ -211,6 +218,10 @@ class WSDLInterpreter
       $this->_dom->load($wsdl, LIBXML_DTDLOAD|LIBXML_DTDATTR|LIBXML_NOENT|LIBXML_XINCLUDE);
 
       $xpath = new DOMXPath($this->_dom);
+
+      // Service namespace.
+      $this->_serviceNamespace =
+          $this->_dom->documentElement->getAttribute('targetNamespace');
 
       /**
        * wsdl:import
@@ -651,7 +662,9 @@ class WSDLInterpreter
     $return .= "  ".' */'."\n";
     $return .= "  ".'public function __construct($wsdl=null, $options, $user) {'."\n";
     $return .= "    ".'$options["classmap"] = ' . $service->getAttribute("validatedName") . '::$classmap;' . "\n";
-    $return .= "    ".'parent::__construct($wsdl, $options, $user, '. "'" . $service->getAttribute("validatedName") . "');"."\n";
+    $return .= "    ".'parent::__construct($wsdl, $options, $user, '. "'"
+        . $service->getAttribute("validatedName") . "', '" . $this->_serviceNamespace
+        .  "');"."\n";
     $return .= "  }\n\n";
 
     $functionMap = array();

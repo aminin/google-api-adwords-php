@@ -3,12 +3,9 @@
 <!-- See README file for requirements                                        -->
 <!-- ======================================================================= -->
 <project basedir="." default="generate_php" name="aw_api_php_lib">
-  <property name="version" value="1.2.2"/>
+  <property name="version" value="2.0.0"/>
   <property name="package" value="GoogleApiAdsAdWords"/>
-  <property name="author" value="Adam Rogal &lt;api.arogal@gmail.com&gt;"/>
-
-  <property name="api.version.v200906" value="v200906"/>
-  <property name="api.version.v200906.cm.services" value="AdGroupService,CampaignCriterionService,AdGroupCriterionService,CampaignService,AdGroupAdService,CampaignTargetService"/>
+  <property name="author" value="Eric Koleda &lt;api.ekoleda@gmail.com&gt;"/>
 
   <property name="api.version.v200909" value="v200909"/>
   <property name="api.version.v200909.account.services" value="AccountService"/>
@@ -149,30 +146,10 @@
   </target>
 
   <!-- =================================================================== -->
-  <!-- Target: generates all php for v200906                               -->
-  <!-- =================================================================== -->
-  <target name="generate_v200906">
-    <property name="server" value="https://adwords.google.com"/>
-
-    <!-- cm -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="cm"/>
-      <property name="services.group.url" value="cm"/>
-      <property name="services.version" value="${api.version.v200906}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v200906.cm.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-  </target>
-
-  <!-- =================================================================== -->
   <!-- Target: generate php from wsdls                                     -->
   <!-- =================================================================== -->
   <target name="generate_php" depends="init">
     <phingcall target="generate_v200909"/>
-    <phingcall target="generate_v200906"/>
   </target>
 
   <!-- =================================================================== -->
@@ -180,14 +157,14 @@
   <!-- =================================================================== -->
   <target name="test" depends="init">
     <mkdir dir="report" />
-    <phpunit2 haltonfailure="false" printsummary="true">
+    <phpunit haltonfailure="false" printsummary="true">
       <batchtest>
         <fileset dir="${tests.dir}">
           <include name="**/*Test.php"/>
         </fileset>
       </batchtest>
       <formatter type="xml" todir="report" outfile="test_results.xml"/>
-    </phpunit2>
+    </phpunit>
   </target>
 
   <!-- =================================================================== -->

@@ -47,11 +47,25 @@ abstract class AdsSoapClient extends SoapClient {
   protected $user;
 
   /**
+   * The header values.
+   * @var array the header values
+   * @access protected
+   */
+  protected $headers;
+
+  /**
    * The name of the service this client is accessing.
    * @var string the name of the service this client is accessing
    * @access protected
    */
   protected $serviceName;
+
+  /**
+   * The namespace of the service this client is accessing.
+   * @var string the namespace of the service this client is accessing
+   * @access protected
+   */
+  protected $serviceNamespace;
 
   /**
    * The last SOAP XML request made to the server after PrepareRequest() and
@@ -117,12 +131,14 @@ abstract class AdsSoapClient extends SoapClient {
    * @param AdsUser $user the user which is responsible for this client
    * @param string $serviceName the name of the service which is making this
    *     call
+   * @param string $serviceNamespace the namespace of the service
    * @access protected
    */
   protected function __construct($wsdl, array $options, AdsUser $user,
-      $serviceName) {
+      $serviceName, $serviceNamespace) {
     $this->user = $user;
     $this->serviceName = $serviceName;
+    $this->serviceNamespace = $serviceNamespace;
     parent::__construct($wsdl, $options);
   }
 
@@ -155,6 +171,7 @@ abstract class AdsSoapClient extends SoapClient {
   function __soapCall($function_name, $arguments, $options = NULL,
       $input_headers = NULL, &$output_headers = NULL) {
     try {
+      $input_headers[] = $this->GenerateSoapHeader();
       $this->lastArguments = $arguments;
       $response = parent::__soapCall($function_name, $arguments, $options,
           $input_headers, $output_headers);
@@ -358,6 +375,78 @@ abstract class AdsSoapClient extends SoapClient {
       // Empty string is appended to "save" the XML from being deleted.
       return $request . '';
     }
+  }
+
+  /**
+   * Gets the names of all registered request header elements.
+   * @return array the names of the request header elements
+   */
+  public function GetHeaderNames() {
+    return array_keys($this->headers);
+  }
+
+  /**
+   * Gets the value for a registered request header element.
+   * @param string $key the name of the request header element
+   * @return string the value of the request header element or <var>NULL</var>
+   *     if not found
+   */
+  public function GetHeaderValue($key) {
+    if (array_key_exists($key, $this->headers)) {
+      return $this->headers[$key];
+    } else {
+      return NULL;
+    }
+  }
+
+  /**
+   * Sets the value for a request header.
+   * @param string $key the name of the request header element
+   * @param string $value the value for the request header element
+   */
+  public function SetHeaderValue($key, $value) {
+    $this->headers[$key] = $value;
+  }
+
+  /**
+   * Generates the SOAP header for the client.
+   * @return SoapHeader the instantiated SoapHeader ready to set
+   * @access protected
+   */
+  protected abstract function GenerateSoapHeader();
+
+  /**
+   * Creates a SOAP header for the client given the user. It assumes that
+   * each element within the header to be filled in is a publicly acessible
+   * feild of the SOAP header element.
+   * @param string $soapHeaderClassName the class of the SOAP header to
+   *     instantiate
+   * @param string $soapHeaderElementName the SOAP element name of the header
+   * @param string $namespace the namespace of the header
+   * @return SoapHeader the wrapped SOAP header ready to be set
+   * @access protected
+   */
+  protected function CreateSoapHeader($soapHeaderClassName,
+      $soapHeaderElementName, $headersOverrides) {
+    $requestHeader = new $soapHeaderClassName();
+    $namespace = $this->serviceNamespace;
+
+    foreach (get_class_vars($soapHeaderClassName) as $classVar => $value) {
+      if (isset($headersOverrides)
+          && array_key_exists($classVar, $headersOverrides)) {
+        $requestHeader->$classVar = $headersOverrides[$classVar];
+      } elseif (isset($this->headers)
+          && array_key_exists($classVar, $this->headers)) {
+        $requestHeader->$classVar = $this->headers[$classVar];
+      }
+    }
+
+    $soapRequestHeader =
+        new SoapVar($requestHeader, SOAP_ENC_OBJECT, $soapHeaderElementName,
+            $requestHeader->getNamespace());
+
+    return new SoapHeader($namespace, $soapHeaderElementName,
+        $soapRequestHeader, false);
   }
 
   /**

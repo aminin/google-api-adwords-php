@@ -23,7 +23,7 @@
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
- * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
@@ -3407,7 +3407,7 @@ class AdGroupService extends AdWordsSoapClient {
    */
   public function __construct($wsdl=null, $options, $user) {
     $options["classmap"] = AdGroupService::$classmap;
-    parent::__construct($wsdl, $options, $user, 'AdGroupService');
+    parent::__construct($wsdl, $options, $user, 'AdGroupService', 'https://adwords.google.com/api/adwords/cm/v200909');
   }
 
   /**

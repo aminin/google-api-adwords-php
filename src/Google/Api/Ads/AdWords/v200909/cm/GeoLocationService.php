@@ -23,7 +23,7 @@
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
- * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
@@ -806,6 +806,32 @@ class QuotaExceededErrorReason {
   }
 }}
 
+if (!class_exists("RangeErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ */
+class RangeErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RangeError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RangeErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("RegionCodeErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
@@ -1377,6 +1403,42 @@ class QuotaExceededError extends ApiError {
   }
 }}
 
+if (!class_exists("RangeError", FALSE)) {
+/**
+ * A list of all errors associated with the Range constraint.
+ */
+class RangeError extends ApiError {
+  /**
+   * @access public
+   * @var tnsRangeErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RangeError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('RangeError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("RegionCodeError", FALSE)) {
 /**
  * A list of all errors associated with the @RegionCode constraints.
@@ -1591,6 +1653,7 @@ class GeoLocationService extends AdWordsSoapClient {
     "NullError" => "NullError",
     "QuotaCheckError" => "QuotaCheckError",
     "QuotaExceededError" => "QuotaExceededError",
+    "RangeError" => "RangeError",
     "RegionCodeError" => "RegionCodeError",
     "RequiredError" => "RequiredError",
     "SizeLimitError" => "SizeLimitError",
@@ -1608,6 +1671,7 @@ class GeoLocationService extends AdWordsSoapClient {
     "NullError.Reason" => "NullErrorReason",
     "QuotaCheckError.Reason" => "QuotaCheckErrorReason",
     "QuotaExceededError.Reason" => "QuotaExceededErrorReason",
+    "RangeError.Reason" => "RangeErrorReason",
     "RegionCodeError.Reason" => "RegionCodeErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
     "SizeLimitError.Reason" => "SizeLimitErrorReason",
@@ -1621,7 +1685,7 @@ class GeoLocationService extends AdWordsSoapClient {
    */
   public function __construct($wsdl=null, $options, $user) {
     $options["classmap"] = GeoLocationService::$classmap;
-    parent::__construct($wsdl, $options, $user, 'GeoLocationService');
+    parent::__construct($wsdl, $options, $user, 'GeoLocationService', 'https://adwords.google.com/api/adwords/cm/v200909');
   }
 
   /**

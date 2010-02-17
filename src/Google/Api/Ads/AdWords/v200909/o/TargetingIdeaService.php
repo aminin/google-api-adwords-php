@@ -23,7 +23,7 @@
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
- * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
@@ -2589,8 +2589,8 @@ class CollectionSizeErrorReason {
 if (!class_exists("CompetitionSearchParameterLevel", FALSE)) {
 /**
  * An enumeration of possible values to be used in conjunction with the
- * {@CompetitionSearchParameter} to specify the granularity of competition to
- * be filtered.
+ * {@link CompetitionSearchParameter} to specify the granularity of
+ * competition to be filtered.
  */
 class CompetitionSearchParameterLevel {
   /**
@@ -4467,6 +4467,7 @@ if (!class_exists("AdTypeSearchParameter", FALSE)) {
  * A {@link SearchParameter} for {@code PLACEMENT} {@link IdeaType}s used to
  * filter the results by the {@link AdType}.
  * <p>This element is supported by following {@link IdeaType}s: PLACEMENT.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS.
  */
 class AdTypeSearchParameter extends SearchParameter {
   /**
@@ -4537,6 +4538,7 @@ if (!class_exists("CompetitionSearchParameter", FALSE)) {
  * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s used to
  * filter the results by the amount of competition (eg: LOW, MEDIUM, HIGH).
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class CompetitionSearchParameter extends SearchParameter {
   /**
@@ -4681,6 +4683,7 @@ if (!class_exists("IncludeAdultContentSearchParameter", FALSE)) {
  * Presence of this {@link SearchParameter} will allow adult keywords
  * to be included in the results.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class IncludeAdultContentSearchParameter extends SearchParameter {
   /**
@@ -4779,6 +4782,7 @@ if (!class_exists("KeywordCategoryIdSearchParameter", FALSE)) {
  * sets a keyword category that all search results should belong to.
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS.
  */
 class KeywordCategoryIdSearchParameter extends SearchParameter {
   /**
@@ -4820,6 +4824,7 @@ if (!class_exists("KeywordMatchTypeSearchParameter", FALSE)) {
  * {@link KeywordMatchType}s are set, a result need only match one
  * match type to be returned.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class KeywordMatchTypeSearchParameter extends SearchParameter {
   /**
@@ -4895,6 +4900,7 @@ if (!class_exists("MobileSearchParameter", FALSE)) {
  * Note that the presence of this parameter is all that is needed to limit
  * search results. It is not necessary to set any properties.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class MobileSearchParameter extends SearchParameter {
   /**
@@ -4964,6 +4970,7 @@ if (!class_exists("NgramGroupsSearchParameter", FALSE)) {
  * {@link com.google.ads.api.services.targetingideas.TargetingIdeaSelector} is
  * equivalent to having no constraint on ngram groups.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class NgramGroupsSearchParameter extends SearchParameter {
   /**
@@ -5037,6 +5044,7 @@ if (!class_exists("PlacementTypeSearchParameter", FALSE)) {
  * that they appear in. For example, searches may be limited to find
  * results that only appear within mobile websites or feeds.
  * <p>This element is supported by following {@link IdeaType}s: PLACEMENT.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS.
  */
 class PlacementTypeSearchParameter extends SearchParameter {
   /**
@@ -5076,6 +5084,7 @@ if (!class_exists("RelatedToUrlSearchParameter", FALSE)) {
  * similar to content keywords found on the related URLs.
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method. It must be single-valued when used in a call to that method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS.
  */
 class RelatedToUrlSearchParameter extends SearchParameter {
   /**
@@ -5121,6 +5130,7 @@ if (!class_exists("SeedAdGroupIdSearchParameter", FALSE)) {
  * for generating new ideas. For example, an AdGroup's keywords
  * would be used to generate new and related keywords.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class SeedAdGroupIdSearchParameter extends SearchParameter {
   /**
@@ -5229,6 +5239,7 @@ if (!class_exists("AverageTargetedMonthlySearchesSearchParameter", FALSE)) {
  * equivalent to having no constraint on average targeted monthly searches
  * pecified.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class AverageTargetedMonthlySearchesSearchParameter extends SearchParameter {
   /**
@@ -5303,6 +5314,7 @@ if (!class_exists("ExcludedKeywordSearchParameter", FALSE)) {
  * </tr>
  * </table>
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class ExcludedKeywordSearchParameter extends SearchParameter {
   /**
@@ -5343,6 +5355,7 @@ if (!class_exists("GlobalMonthlySearchesSearchParameter", FALSE)) {
  * parameter has a direct relationship to
  * {@link com.google.ads.api.services.targetingideas.external.AttributeType#GLOBAL_MONTHLY_SEARCHES}.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class GlobalMonthlySearchesSearchParameter extends SearchParameter {
   /**
@@ -5483,6 +5496,7 @@ if (!class_exists("RelatedToKeywordSearchParameter", FALSE)) {
  * be related to.
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class RelatedToKeywordSearchParameter extends SearchParameter {
   /**
@@ -5524,6 +5538,7 @@ if (!class_exists("CountryTargetSearchParameter", FALSE)) {
  * Note: The {@link CountryTarget}'s {@code excluded} attribute is ignored.
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method. It must be single-valued when used in a call to that method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class CountryTargetSearchParameter extends SearchParameter {
   /**
@@ -5565,6 +5580,7 @@ if (!class_exists("LanguageTargetSearchParameter", FALSE)) {
  * Note: The {@link LanguageTarget}'s {@code excluded} attribute is ignored.
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method. It must be single-valued when used in a call to that method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class LanguageTargetSearchParameter extends SearchParameter {
   /**
@@ -6324,7 +6340,7 @@ class TargetingIdeaService extends AdWordsSoapClient {
    */
   public function __construct($wsdl=null, $options, $user) {
     $options["classmap"] = TargetingIdeaService::$classmap;
-    parent::__construct($wsdl, $options, $user, 'TargetingIdeaService');
+    parent::__construct($wsdl, $options, $user, 'TargetingIdeaService', 'https://adwords.google.com/api/adwords/o/v200909');
   }
 
   /**

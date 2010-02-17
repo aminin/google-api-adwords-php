@@ -1,3 +1,8 @@
+2.0.0:
+- Removed support for v200906, which has been sunset.
+- Made application tokens optional.
+- Added support for gzip compression of SOAP requests and responses (Issue #14).
+
 1.2.2:
 - Added namespace declaration workaround for bug in server side XML validation.
 - Changed tests to pull server from test_settings.ini.

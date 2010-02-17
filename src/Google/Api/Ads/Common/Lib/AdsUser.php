@@ -74,6 +74,14 @@ abstract class AdsUser {
   }
 
   /**
+   * Gets the names of all registered request header elements.
+   * @return array the names of the request header elements
+   */
+  public function GetHeaderNames() {
+    return array_keys($this->requestHeaderElements);
+  }
+
+  /**
    * Gets the value for a registered request header element.
    * @param string $key the name of the request header element
    * @return string the value of the request header element or NULL if not found
@@ -157,6 +165,7 @@ abstract class AdsUser {
     $settingsIni = parse_ini_file($settingsIniPath, true);
 
     if (isset($settingsIni)) {
+      // Logging settings.
       if ($settingsIni['LOGGING']['PATH_RELATIVE'] == 1) {
         $path = realpath($logsRelativePathBase . '/'
             . $settingsIni['LOGGING']['LIB_LOG_DIR_PATH']);
@@ -166,31 +175,41 @@ abstract class AdsUser {
           $this->logsDirectory = $path;
         }
       } else {
-        $this->logsDirectory =
-            $settingsIni['LOGGING']['LIB_LOG_DIR_PATH'];
+        $this->logsDirectory = $settingsIni['LOGGING']['LIB_LOG_DIR_PATH'];
+      }
+
+      // Server settings.
+      if (array_key_exists('SERVER', $settingsIni)
+          && array_key_exists('DEFAULT_VERSION', $settingsIni['SERVER'])) {
+        $this->defaultVersion = $settingsIni['SERVER']['DEFAULT_VERSION'];
+      } else {
+        $this->defaultVersion = $defaultVersion;
+      }
+      if (array_key_exists('SERVER', $settingsIni)
+          && array_key_exists('DEFAULT_SERVER', $settingsIni['SERVER'])) {
+        $this->defaultServer = $settingsIni['SERVER']['DEFAULT_SERVER'];
+      } else {
+        $this->defaultServer = $defaultServer;
+      }
+
+      // SOAP settings.
+      if (array_key_exists('SOAP', $settingsIni)
+          && array_key_exists('COMPRESSION', $settingsIni['SOAP'])) {
+        $this->soapCompression = $settingsIni['SOAP']['COMPRESSION'];
+      } else {
+        // Default to using compression.
+        $this->soapCompression = TRUE;
+      }
+      if (array_key_exists('SOAP', $settingsIni)
+          && array_key_exists('COMPRESSION_LEVEL', $settingsIni['SOAP'])
+          && $settingsIni['SOAP']['COMPRESSION_LEVEL'] >= 1
+          && $settingsIni['SOAP']['COMPRESSION_LEVEL'] <= 9) {
+        $this->soapCompressionLevel = $settingsIni['SOAP']['COMPRESSION_LEVEL'];
+      } else {
+        // Default to using compression level 1.
+        $this->soapCompressionLevel = 1;
       }
     }
-
-    if (isset($settingsIni) && array_key_exists('SERVER', $settingsIni)
-        && array_key_exists('DEFAULT_VERSION', $settingsIni['SERVER'])) {
-      $this->defaultVersion = $settingsIni['SERVER']['DEFAULT_VERSION'];
-    } else {
-      $this->defaultVersion = $defaultVersion;
-    }
-
-    if (isset($settingsIni) && array_key_exists('SERVER', $settingsIni)
-        && array_key_exists('DEFAULT_SERVER', $settingsIni['SERVER'])) {
-      $this->defaultServer = $settingsIni['SERVER']['DEFAULT_SERVER'];
-    } else {
-      $this->defaultServer = $defaultServer;
-    }
-
-    // TODO(api.arogal): HTTP proxy
-    // Set up a potential HTTP proxy.
-    //define("HTTP_PROXY_HOST", $settingsIni['HTTP_Proxy_Host']);
-    //define("HTTP_PROXY_PORT", $settingsIni['HTTP_Proxy_Port']);
-    //define("HTTP_PROXY_USER", $settingsIni['HTTP_Proxy_User']);
-    //define("HTTP_PROXY_PASSWORD", $settingsIni['HTTP_Proxy_Password']);
   }
 
   /**
@@ -215,6 +234,22 @@ abstract class AdsUser {
    */
   public function GetLogsDirectory() {
     return $this->logsDirectory;
+  }
+
+  /**
+   * Is SOAP compression enabled.
+   * @return bool is SOAP compression enabled
+   */
+  public function IsSoapCompressionEnabled() {
+    return $this->soapCompression;
+  }
+
+  /**
+   * Gets the SOAP compression level.
+   * @return int the SOAP compression level
+   */
+  public function GetSoapCompressionLevel() {
+    return $this->soapCompressionLevel;
   }
 
   /**

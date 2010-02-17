@@ -47,6 +47,8 @@
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">		OAuthProvider.php
+		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---XmlUtils.php.html">		XmlUtils.php
@@ -65,6 +67,7 @@
 	Util<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
 	  </div>
@@ -99,12 +102,14 @@ Source Location: /Common/Lib/AdsSoapClient.php<br /><br />
 <td valign="top">
 <h3><a href="#class_vars">Variables</a></h3>
 <ul>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$headers">$headers</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastArguments">$lastArguments</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastMethodName">$lastMethodName</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastRequest">$lastRequest</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastResponse">$lastResponse</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastSoapFault">$lastSoapFault</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceName">$serviceName</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceNamespace">$serviceNamespace</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$user">$user</a></li>
   </ul>
 </td>
@@ -114,9 +119,13 @@ Source Location: /Common/Lib/AdsSoapClient.php<br /><br />
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__construct">__construct</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodCreateSoapHeader">CreateSoapHeader</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateRequestInfoMessage">GenerateRequestInfoMessage</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateSoapHeader">GenerateSoapHeader</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetAdsUser">GetAdsUser</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetEmail">GetEmail</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderNames">GetHeaderNames</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderValue">GetHeaderValue</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastFaultMessage">GetLastFaultMessage</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastMethodName">GetLastMethodName</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastRequestDom">GetLastRequestDom</a></li>
@@ -128,6 +137,7 @@ Source Location: /Common/Lib/AdsSoapClient.php<br /><br />
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodIsFault">IsFault</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodPrepareRequest">PrepareRequest</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodRemoveSensitiveInfo">RemoveSensitiveInfo</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodSetHeaderValue">SetHeaderValue</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__doRequest">__doRequest</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__soapCall">__soapCall</a></li>
   </ul>
@@ -261,10 +271,37 @@ An extension of the SoapClient class intended to prepare  the XML before making 
 <a name="class_vars"></a>
 <h3>Class Variables</h3>
 <div class="tags">
+	<a name="var$headers"></a>
+	<p></p>
+	<h4>$headers = <span class="value"></span></h4>
+	<p>[line 54]</p>
+  The header values.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>the header values</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
 	<a name="var$lastArguments"></a>
 	<p></p>
 	<h4>$lastArguments = <span class="value"></span></h4>
-	<p>[line 110]</p>
+	<p>[line 124]</p>
   The last arguments passed to the called SOAP method<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -291,7 +328,7 @@ An extension of the SoapClient class intended to prepare  the XML before making 
 	<a name="var$lastMethodName"></a>
 	<p></p>
 	<h4>$lastMethodName = <span class="value"></span></h4>
-	<p>[line 104]</p>
+	<p>[line 118]</p>
   The name of the last method called from this client.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -318,7 +355,7 @@ An extension of the SoapClient class intended to prepare  the XML before making 
 	<a name="var$lastRequest"></a>
 	<p></p>
 	<h4>$lastRequest = <span class="value"></span></h4>
-	<p>[line 64]</p>
+	<p>[line 78]</p>
   The last SOAP XML request made to the server after PrepareRequest() and  RemoveSensitiveInfo() have been called on it.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -351,7 +388,7 @@ An extension of the SoapClient class intended to prepare  the XML before making 
 	<a name="var$lastResponse"></a>
 	<p></p>
 	<h4>$lastResponse = <span class="value"></span></h4>
-	<p>[line 82]</p>
+	<p>[line 96]</p>
   The last SOAP XML response from the server.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -378,7 +415,7 @@ An extension of the SoapClient class intended to prepare  the XML before making 
 	<a name="var$lastSoapFault"></a>
 	<p></p>
 	<h4>$lastSoapFault = <span class="value"></span></h4>
-	<p>[line 97]</p>
+	<p>[line 111]</p>
   The last SOAP fault generated from the server. <var>NULL</var> if none.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -405,13 +442,40 @@ An extension of the SoapClient class intended to prepare  the XML before making 
 	<a name="var$serviceName"></a>
 	<p></p>
 	<h4>$serviceName = <span class="value"></span></h4>
-	<p>[line 54]</p>
+	<p>[line 61]</p>
   The name of the service this client is accessing.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><b>var:</b>&nbsp;&nbsp;</td><td>the name of the service this client is accessing</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$serviceNamespace"></a>
+	<p></p>
+	<h4>$serviceNamespace = <span class="value"></span></h4>
+	<p>[line 68]</p>
+  The namespace of the service this client is accessing.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>the namespace of the service this client is accessing</td>
   </tr>
   <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
@@ -465,7 +529,7 @@ An extension of the SoapClient class intended to prepare  the XML before making 
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 122]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 137]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -474,7 +538,8 @@ string
 $wsdl, 
 $options, <a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a>
 $user, string
-$serviceName)</code>
+$serviceName, string
+$serviceNamespace)</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -495,31 +560,19 @@ $serviceName)</code>
 		<dd>Constructor for the AdWords API SOAP client.</dd>
 	</dl>
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200906/AdGroupAdService.html#method__construct">AdGroupAdService::__construct()</a></dt>
-		<dd>Constructor using wsdl location and options array</dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200906/AdGroupCriterionService.html#method__construct">AdGroupCriterionService::__construct()</a></dt>
-		<dd>Constructor using wsdl location and options array</dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200906/AdGroupService.html#method__construct">AdGroupService::__construct()</a></dt>
-		<dd>Constructor using wsdl location and options array</dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200906/CampaignCriterionService.html#method__construct">CampaignCriterionService::__construct()</a></dt>
-		<dd>Constructor using wsdl location and options array</dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200906/CampaignService.html#method__construct">CampaignService::__construct()</a></dt>
-		<dd>Constructor using wsdl location and options array</dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200906/CampaignTargetService.html#method__construct">CampaignTargetService::__construct()</a></dt>
-		<dd>Constructor using wsdl location and options array</dd>
-	</dl>
-		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdExtensionOverrideService.html#method__construct">AdExtensionOverrideService::__construct()</a></dt>
+		<dd>Constructor using wsdl location and options array</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdService.html#method__construct">AdGroupAdService::__construct()</a></dt>
+		<dd>Constructor using wsdl location and options array</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionService.html#method__construct">AdGroupCriterionService::__construct()</a></dt>
+		<dd>Constructor using wsdl location and options array</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupService.html#method__construct">AdGroupService::__construct()</a></dt>
 		<dd>Constructor using wsdl location and options array</dd>
 	</dl>
 		<dl>
@@ -532,6 +585,18 @@ $serviceName)</code>
 	</dl>
 		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignAdExtensionService.html#method__construct">CampaignAdExtensionService::__construct()</a></dt>
+		<dd>Constructor using wsdl location and options array</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionService.html#method__construct">CampaignCriterionService::__construct()</a></dt>
+		<dd>Constructor using wsdl location and options array</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignService.html#method__construct">CampaignService::__construct()</a></dt>
+		<dd>Constructor using wsdl location and options array</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignTargetService.html#method__construct">CampaignTargetService::__construct()</a></dt>
 		<dd>Constructor using wsdl location and options array</dd>
 	</dl>
 		<dl>
@@ -571,13 +636,75 @@ $serviceName)</code>
         <td><b>$serviceName</b>&nbsp;&nbsp;</td>
         <td>the name of the service which is making this      call</td>
       </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$serviceNamespace</b>&nbsp;&nbsp;</td>
+        <td>the namespace of the service</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodCreateSoapHeader"></a>
+	<h3>method CreateSoapHeader <span class="smalllinenumber">[line 429]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>SoapHeader CreateSoapHeader(
+string
+$soapHeaderClassName, string
+$soapHeaderElementName, 
+$headersOverrides, string
+$namespace)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Creates a SOAP header for the client given the user. It assumes that  each element within the header to be filled in is a publicly acessible  feild of the SOAP header element.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the wrapped SOAP header ready to be set</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$soapHeaderClassName</b>&nbsp;&nbsp;</td>
+        <td>the class of the SOAP header to      instantiate</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$soapHeaderElementName</b>&nbsp;&nbsp;</td>
+        <td>the SOAP element name of the header</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$namespace</b>&nbsp;&nbsp;</td>
+        <td>the namespace of the header</td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$headersOverrides</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
         </table>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
 	<a name="methodGenerateRequestInfoMessage"></a>
-	<h3>method GenerateRequestInfoMessage <span class="smalllinenumber">[line 381]</span></h3>
+	<h3>method GenerateRequestInfoMessage <span class="smalllinenumber">[line 470]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -616,8 +743,45 @@ $serviceName)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodGenerateSoapHeader"></a>
+	<h3>method GenerateSoapHeader <span class="smalllinenumber">[line 416]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>SoapHeader GenerateSoapHeader(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Generates the SOAP header for the client.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the instantiated SoapHeader ready to set</td>
+  </tr>
+  <tr>
+    <td><b>abstract:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodGenerateSoapHeader">AdWordsSoapClient::GenerateSoapHeader()</a></dt>
+		<dd>Generates the SOAP header for the client.</dd>
+	</dl>
+	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodGetAdsUser"></a>
-	<h3>method GetAdsUser <span class="smalllinenumber">[line 237]</span></h3>
+	<h3>method GetAdsUser <span class="smalllinenumber">[line 254]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -645,7 +809,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetEmail"></a>
-	<h3>method GetEmail <span class="smalllinenumber">[line 256]</span></h3>
+	<h3>method GetEmail <span class="smalllinenumber">[line 273]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -672,8 +836,75 @@ $serviceName)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodGetHeaderNames"></a>
+	<h3>method GetHeaderNames <span class="smalllinenumber">[line 384]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array GetHeaderNames(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the names of all registered request header elements.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the names of the request header elements</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodGetHeaderValue"></a>
+	<h3>method GetHeaderValue <span class="smalllinenumber">[line 394]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string GetHeaderValue(
+string
+$key)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the value for a registered request header element.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the value of the request header element or <var>NULL</var>      if not found</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$key</b>&nbsp;&nbsp;</td>
+        <td>the name of the request header element</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodGetLastFaultMessage"></a>
-	<h3>method GetLastFaultMessage <span class="smalllinenumber">[line 323]</span></h3>
+	<h3>method GetLastFaultMessage <span class="smalllinenumber">[line 340]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -701,7 +932,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetLastMethodName"></a>
-	<h3>method GetLastMethodName <span class="smalllinenumber">[line 272]</span></h3>
+	<h3>method GetLastMethodName <span class="smalllinenumber">[line 289]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -729,7 +960,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetLastRequestDom"></a>
-	<h3>method GetLastRequestDom <span class="smalllinenumber">[line 401]</span></h3>
+	<h3>method GetLastRequestDom <span class="smalllinenumber">[line 490]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -760,7 +991,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetLastRequestId"></a>
-	<h3>method GetLastRequestId <span class="smalllinenumber">[line 297]</span></h3>
+	<h3>method GetLastRequestId <span class="smalllinenumber">[line 314]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -788,7 +1019,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetLastResponseDom"></a>
-	<h3>method GetLastResponseDom <span class="smalllinenumber">[line 388]</span></h3>
+	<h3>method GetLastResponseDom <span class="smalllinenumber">[line 477]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -819,7 +1050,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetLastResponseTime"></a>
-	<h3>method GetLastResponseTime <span class="smalllinenumber">[line 280]</span></h3>
+	<h3>method GetLastResponseTime <span class="smalllinenumber">[line 297]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -847,7 +1078,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetServer"></a>
-	<h3>method GetServer <span class="smalllinenumber">[line 245]</span></h3>
+	<h3>method GetServer <span class="smalllinenumber">[line 262]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -875,7 +1106,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodGetServiceName"></a>
-	<h3>method GetServiceName <span class="smalllinenumber">[line 264]</span></h3>
+	<h3>method GetServiceName <span class="smalllinenumber">[line 281]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -903,7 +1134,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodIsFault"></a>
-	<h3>method IsFault <span class="smalllinenumber">[line 315]</span></h3>
+	<h3>method IsFault <span class="smalllinenumber">[line 332]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -931,7 +1162,7 @@ $serviceName)</code>
   </div>
   <hr />
 	<a name="methodPrepareRequest"></a>
-	<h3>method PrepareRequest <span class="smalllinenumber">[line 337]</span></h3>
+	<h3>method PrepareRequest <span class="smalllinenumber">[line 354]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -976,7 +1207,7 @@ $arguments)</code>
   </div>
   <hr />
 	<a name="methodRemoveSensitiveInfo"></a>
-	<h3>method RemoveSensitiveInfo <span class="smalllinenumber">[line 371]</span></h3>
+	<h3>method RemoveSensitiveInfo <span class="smalllinenumber">[line 460]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1023,8 +1254,50 @@ $request)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodSetHeaderValue"></a>
+	<h3>method SetHeaderValue <span class="smalllinenumber">[line 407]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void SetHeaderValue(
+string
+$key, string
+$value)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the value for a request header.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$key</b>&nbsp;&nbsp;</td>
+        <td>the name of the request header element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$value</b>&nbsp;&nbsp;</td>
+        <td>the value for the request header element</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="method__doRequest"></a>
-	<h3>method __doRequest <span class="smalllinenumber">[line 138]</span></h3>
+	<h3>method __doRequest <span class="smalllinenumber">[line 154]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1078,7 +1351,7 @@ $version)</code>
   </div>
   <hr />
 	<a name="method__soapCall"></a>
-	<h3>method __soapCall <span class="smalllinenumber">[line 155]</span></h3>
+	<h3>method __soapCall <span class="smalllinenumber">[line 171]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1150,7 +1423,7 @@ $output_headers)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Tue, 19 Jan 2010 18:52:24 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Wed, 17 Feb 2010 11:39:53 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

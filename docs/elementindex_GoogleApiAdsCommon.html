@@ -47,6 +47,8 @@
 		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
+			<a href="GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">		OAuthProvider.php
+		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
 		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---XmlUtils.php.html">		XmlUtils.php
@@ -65,6 +67,7 @@
 	Util<br />	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
+	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
 	  </div>
@@ -84,6 +87,7 @@
 	[ <a href="elementindex_GoogleApiAdsCommon.html#i">i</a> ]
 	[ <a href="elementindex_GoogleApiAdsCommon.html#l">l</a> ]
 	[ <a href="elementindex_GoogleApiAdsCommon.html#m">m</a> ]
+	[ <a href="elementindex_GoogleApiAdsCommon.html#o">o</a> ]
 	[ <a href="elementindex_GoogleApiAdsCommon.html#p">p</a> ]
 	[ <a href="elementindex_GoogleApiAdsCommon.html#r">r</a> ]
 	[ <a href="elementindex_GoogleApiAdsCommon.html#s">s</a> ]
@@ -129,6 +133,10 @@
 				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_Common---Lib---AdsSoapClient.php.html">AdsSoapClient.php</a></dd>
 							<dt><b>AdsUser.php</b></dt>
 				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_Common---Lib---AdsUser.php.html">AdsUser.php</a></dd>
+							<dt><b>$ACCESS_TOKEN_ENDPOINT</b></dt>
+				<dd>in file OAuthProvider.php, variable <a href="GoogleApiAdsCommon/Util/OAuthProvider.html#var$ACCESS_TOKEN_ENDPOINT">OAuthProvider::$ACCESS_TOKEN_ENDPOINT</a></dd>
+							<dt><b>$AUTHORIZE_TOKEN_ENDPOINT</b></dt>
+				<dd>in file OAuthProvider.php, variable <a href="GoogleApiAdsCommon/Util/OAuthProvider.html#var$AUTHORIZE_TOKEN_ENDPOINT">OAuthProvider::$AUTHORIZE_TOKEN_ENDPOINT</a></dd>
 							<dt><b>AuthToken</b></dt>
 				<dd>in file AuthToken.php, class <a href="GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Client used to retrieve an authentication token for the supplied credentials  with the client login API.</dd>
 							<dt><b>AuthToken.php</b></dt>
@@ -142,7 +150,7 @@
 		<h2>c</h2>
 		<dl>
 							<dt><b>CreateSoapHeader</b></dt>
-				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodCreateSoapHeader">SoapClientFactory::CreateSoapHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a SOAP header for the client given the user. It assumes that  each element within the header to be filled in is a publicly acessible  feild of the SOAP header element.</dd>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodCreateSoapHeader">AdsSoapClient::CreateSoapHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a SOAP header for the client given the user. It assumes that  each element within the header to be filled in is a publicly acessible  feild of the SOAP header element.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -192,7 +200,7 @@
 							<dt><b>GenerateSoapClient</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGenerateSoapClient">SoapClientFactory::GenerateSoapClient()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates a SOAP client for the given service name. Generates a user level  error if this instalation of PHP does not have the extension for SOAP  installed.</dd>
 							<dt><b>GenerateSoapHeader</b></dt>
-				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGenerateSoapHeader">SoapClientFactory::GenerateSoapHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the SOAP header for the client.</dd>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateSoapHeader">AdsSoapClient::GenerateSoapHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the SOAP header for the client.</dd>
 							<dt><b>GetAdsUser</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user for this client.</dd>
 							<dt><b>GetAdsUser</b></dt>
@@ -207,6 +215,12 @@
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultVersion">AdsUser::GetDefaultVersion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the default version.</dd>
 							<dt><b>GetEmail</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetEmail">AdsSoapClient::GetEmail()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the email of the user making the request.</dd>
+							<dt><b>GetHeaderNames</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderNames">AdsSoapClient::GetHeaderNames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the names of all registered request header elements.</dd>
+							<dt><b>GetHeaderNames</b></dt>
+				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderNames">AdsUser::GetHeaderNames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the names of all registered request header elements.</dd>
+							<dt><b>GetHeaderValue</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderValue">AdsSoapClient::GetHeaderValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the value for a registered request header element.</dd>
 							<dt><b>GetHeaderValue</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderValue">AdsUser::GetHeaderValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the value for a registered request header element.</dd>
 							<dt><b>GetLastFaultMessage</b></dt>
@@ -235,6 +249,8 @@
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServiceName">AdsSoapClient::GetServiceName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the service name for this client.</dd>
 							<dt><b>GetServiceSoapClient</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetServiceSoapClient">AdsUser::GetServiceSoapClient()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the service by its service name.</dd>
+							<dt><b>GetSoapCompressionLevel</b></dt>
+				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetSoapCompressionLevel">AdsUser::GetSoapCompressionLevel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the SOAP compression level.</dd>
 							<dt><b>GetVersion</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetVersion">SoapClientFactory::GetVersion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the version associated with this factory.</dd>
 							<dt><b>GetAuthToken</b></dt>
@@ -243,6 +259,8 @@
 				<dd>in file MediaUtils.php, method <a href="GoogleApiAdsCommon/Util/MediaUtils.html#methodGetBase64Data">MediaUtils::GetBase64Data()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the base64 encoded data from an asset located at <var>path</var> for  use with the API where &lt;x&gt;Data is needed.</dd>
 							<dt><b>GetDomFromXml</b></dt>
 				<dd>in file XmlUtils.php, method <a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodGetDomFromXml">XmlUtils::GetDomFromXml()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the DOMDocument of the <var>$xml</var>.</dd>
+							<dt><b>GetOAuthHeader</b></dt>
+				<dd>in file OAuthProvider.php, method <a href="GoogleApiAdsCommon/Util/OAuthProvider.html#methodGetOAuthHeader">OAuthProvider::GetOAuthHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the value of the OAuth Authorization HTTP header for a given  endpoint URL.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -251,6 +269,8 @@
 	<div>
 		<h2>h</h2>
 		<dl>
+							<dt><b>$headers</b></dt>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$headers">AdsSoapClient::$headers</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The header values.</dd>
 							<dt><b>HandleXmlError</b></dt>
 				<dd>in file XmlUtils.php, function <a href="GoogleApiAdsCommon/Util/_Common---Util---XmlUtils.php.html#functionHandleXmlError">HandleXmlError()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Caputures the warnings thrown by the loadXML function to create a proper  DOMException.</dd>
 					</dl>
@@ -263,6 +283,8 @@
 		<dl>
 							<dt><b>IsFault</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodIsFault">AdsSoapClient::IsFault()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns <var>TRUE</var> if there was a SOAP fault during the last call.</dd>
+							<dt><b>IsSoapCompressionEnabled</b></dt>
+				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodIsSoapCompressionEnabled">AdsUser::IsSoapCompressionEnabled()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Is SOAP compression enabled.</dd>
 							<dt><b>$INFO</b></dt>
 				<dd>in file Logger.php, variable <a href="GoogleApiAdsCommon/Util/Logger.html#var$INFO">Logger::$INFO</a><br>&nbsp;&nbsp;&nbsp;&nbsp;INFO level.</dd>
 					</dl>
@@ -313,6 +335,18 @@
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
   <hr />
+	<a name="o"></a>
+	<div>
+		<h2>o</h2>
+		<dl>
+							<dt><b>OAuthProvider.php</b></dt>
+				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">OAuthProvider.php</a></dd>
+							<dt><b>OAuthProvider</b></dt>
+				<dd>in file OAuthProvider.php, class <a href="GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Base class for all OAuth providers.</dd>
+					</dl>
+	</div>
+	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
+  <hr />
 	<a name="p"></a>
 	<div>
 		<h2>p</h2>
@@ -333,6 +367,8 @@
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes any sensitive information from the request XML. This method is  called after the request has been made and before logging any XML.</dd>
 							<dt><b>$REQUEST_INFO_LOG</b></dt>
 				<dd>in file Logger.php, variable <a href="GoogleApiAdsCommon/Util/Logger.html#var$REQUEST_INFO_LOG">Logger::$REQUEST_INFO_LOG</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Logs all information about requests.</dd>
+							<dt><b>$REQUEST_TOKEN_ENDPOINT</b></dt>
+				<dd>in file OAuthProvider.php, variable <a href="GoogleApiAdsCommon/Util/OAuthProvider.html#var$REQUEST_TOKEN_ENDPOINT">OAuthProvider::$REQUEST_TOKEN_ENDPOINT</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -343,8 +379,12 @@
 		<dl>
 							<dt><b>$serviceName</b></dt>
 				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceName">AdsSoapClient::$serviceName</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The name of the service this client is accessing.</dd>
+							<dt><b>$serviceNamespace</b></dt>
+				<dd>in file AdsSoapClient.php, variable <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceNamespace">AdsSoapClient::$serviceNamespace</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The namespace of the service this client is accessing.</dd>
 							<dt><b>SoapClientFactory.php</b></dt>
 				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_Common---Lib---SoapClientFactory.php.html">SoapClientFactory.php</a></dd>
+							<dt><b>SetHeaderValue</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodSetHeaderValue">AdsSoapClient::SetHeaderValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the value for a request header.</dd>
 							<dt><b>SetHeaderValue</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodSetHeaderValue">AdsUser::SetHeaderValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the value for a request header.</dd>
 							<dt><b>SoapClientFactory</b></dt>
@@ -398,7 +438,7 @@
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Tue, 19 Jan 2010 18:51:47 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Wed, 17 Feb 2010 11:39:07 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

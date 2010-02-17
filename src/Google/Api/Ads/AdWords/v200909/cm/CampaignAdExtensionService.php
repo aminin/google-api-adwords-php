@@ -23,7 +23,7 @@
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
- * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
@@ -1034,7 +1034,7 @@ class Page {
 
 if (!class_exists("AdExtensionErrorReason", FALSE)) {
 /**
- * Cannot have multiple location sync extensions per campaign
+ * Account has been deleted
  */
 class AdExtensionErrorReason {
   /**
@@ -1604,6 +1604,32 @@ class QuotaExceededErrorReason {
 
   public function __construct() {
     if(get_parent_class('QuotaExceededErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("RangeErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ */
+class RangeErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RangeError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RangeErrorReason')) parent::__construct();
   }
 }}
 
@@ -2652,6 +2678,42 @@ class QuotaExceededError extends ApiError {
   }
 }}
 
+if (!class_exists("RangeError", FALSE)) {
+/**
+ * A list of all errors associated with the Range constraint.
+ */
+class RangeError extends ApiError {
+  /**
+   * @access public
+   * @var tnsRangeErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RangeError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('RangeError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
@@ -3020,6 +3082,7 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "PagingError" => "PagingError",
     "QuotaCheckError" => "QuotaCheckError",
     "QuotaExceededError" => "QuotaExceededError",
+    "RangeError" => "RangeError",
     "ReadOnlyError" => "ReadOnlyError",
     "RegionCodeError" => "RegionCodeError",
     "RequiredError" => "RequiredError",
@@ -3057,6 +3120,7 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "PagingError.Reason" => "PagingErrorReason",
     "QuotaCheckError.Reason" => "QuotaCheckErrorReason",
     "QuotaExceededError.Reason" => "QuotaExceededErrorReason",
+    "RangeError.Reason" => "RangeErrorReason",
     "ReadOnlyError.Reason" => "ReadOnlyErrorReason",
     "RegionCodeError.Reason" => "RegionCodeErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
@@ -3071,7 +3135,7 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
    */
   public function __construct($wsdl=null, $options, $user) {
     $options["classmap"] = CampaignAdExtensionService::$classmap;
-    parent::__construct($wsdl, $options, $user, 'CampaignAdExtensionService');
+    parent::__construct($wsdl, $options, $user, 'CampaignAdExtensionService', 'https://adwords.google.com/api/adwords/cm/v200909');
   }
 
   /**

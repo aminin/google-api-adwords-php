@@ -41,10 +41,22 @@ class AdWordsSoapClient extends AdsSoapClient {
    * @param AdsUser $user the user which is responsible for this client
    * @param string $serviceName the name of the service which is making this
    *     call
+   * @param string $serviceNamespace the namespace of the service
    */
   public function __construct($wsdl, array $options, AdsUser $user,
-      $serviceName) {
-    parent::__construct($wsdl, $options, $user, $serviceName);
+      $serviceName, $serviceNamespace) {
+    parent::__construct($wsdl, $options, $user, $serviceName,
+        $serviceNamespace);
+  }
+
+  /**
+   * Generates the SOAP header for the client.
+   * @return SoapHeader the instantiated SoapHeader ready to set
+   * @access protected
+   */
+  protected function GenerateSoapHeader() {
+    return parent::CreateSoapHeader('SoapRequestHeader', 'RequestHeader',
+        NULL);
   }
 
   /**

@@ -86,20 +86,6 @@ abstract class SoapClientFactory {
       $soapClient = $this->GenerateServiceClient($serviceName,
           isset($serviceGroupUrlOverride)
               ? $serviceGroupUrlOverride : $serviceGroup);
-
-      $namespaceGroup = '';
-      if (isset($serviceGroup)) {
-        if (isset($serviceGroupHeaderNamespaceOverride)) {
-          $namespaceGroup = $serviceGroupHeaderNamespaceOverride . '/';
-        } else {
-          $namespaceGroup = $serviceGroup. '/';
-        }
-      }
-
-      $soapClient->__setSoapHeaders($this->GenerateSoapHeader(
-          'https://' . $this->GetProductName() . '.google.com/api/'
-              . $this->GetProductName() . '/'
-              . $namespaceGroup . $this->GetVersion()));
       return $soapClient;
     } else {
       trigger_error('This client library requires the SOAP extension to be'
@@ -120,72 +106,35 @@ abstract class SoapClientFactory {
     $wsdl = $location . '?wsdl';
     $options = array(
         'trace' => true,
-        'compression' => true,
         'encoding' => 'utf-8',
         'connection_timeout' => 0,
         'features' => SOAP_SINGLE_ELEMENT_ARRAYS);
 
-    // TODO(api.arogal): Implement HTTP proxy.
-    /*if (HTTP_PROXY_HOST != '') {
-      $options['proxy_host'] = HTTP_PROXY_HOST;
+    if ($this->GetAdsUser()->IsSoapCompressionEnabled()) {
+      $options['compression'] = SOAP_COMPRESSION_ACCEPT |
+          SOAP_COMPRESSION_GZIP |
+          $this->GetAdsUser()->GetSoapCompressionLevel();
+      // The User-Agent HTTP header must contain the string 'gzip'.
+      $options['user_agent'] = 'PHP-SOAP/'. phpversion() . ', gzip';
     }
-    if (HTTP_PROXY_PORT != '') {
-      $options['proxy_port'] = HTTP_PROXY_PORT;
-    }
-    if (HTTP_PROXY_USER != '') {
-      $options['proxy_login'] = HTTP_PROXY_USER;
-    }
-    if (HTTP_PROXY_PASSWORD != '') {
-      $options['proxy_password'] = HTTP_PROXY_PASSWORD;
-    }*/
 
     $soapClient = new $serviceName($wsdl, $options, $this->GetAdsUser());
     $soapClient->__setLocation($location);
-    return $soapClient;
-  }
 
-  /**
-   * Generates the SOAP header for the client.
-   * @param $soapHeaderNamespace the namespace for the SOAP header
-   * @return SoapHeader the instantiated SoapHeader ready to set
-   * @access protected
-   */
-  protected function GenerateSoapHeader($soapHeaderNamespace) {
-    return $this->CreateSoapHeader('SoapRequestHeader',
-        'RequestHeader', $soapHeaderNamespace);
+    // Copy headers from user.
+    foreach($this->GetAdsUser()->GetHeaderNames() as $key) {
+      $soapClient->SetHeaderValue(
+          $key, $this->GetAdsUser()->GetHeaderValue($key));
+    }
 
-  }
-
-  /**
-   * Creates a SOAP header for the client given the user. It assumes that
-   * each element within the header to be filled in is a publicly acessible
-   * feild of the SOAP header element.
-   * @param string $soapHeaderClassName the class of the SOAP header to
-   *     instantiate
-   * @param string $soapHeaderElementName the SOAP element name of the header
-   * @param string $namespace the namespace of the header
-   * @return SoapHeader the wrapped SOAP header ready to be set
-   * @access protected
-   */
-  protected function CreateSoapHeader($soapHeaderClassName,
-      $soapHeaderElementName, $namespace) {
-    $requestHeader = new $soapHeaderClassName();
-
-    foreach (get_class_vars($soapHeaderClassName) as $classVar => $value) {
-      if (isset($this->headerOverrides)
-          && array_key_exists($classVar, $this->headerOverrides)) {
-        $requestHeader->$classVar = $this->headerOverrides[$classVar];
-      } else {
-        $requestHeader->$classVar = $this->user->getHeaderValue($classVar);
+    // Copy headers from overrides.
+    if (isset($this->headerOverrides)) {
+      foreach($this->headerOverrides as $key => $value) {
+        $soapClient->SetHeaderValue($key, $value);
       }
     }
 
-    $soapRequestHeader =
-        new SoapVar($requestHeader, SOAP_ENC_OBJECT, $soapHeaderElementName,
-            $namespace);
-
-    return new SoapHeader($namespace, $soapHeaderElementName,
-        $soapRequestHeader, false);
+    return $soapClient;
   }
 
   /**

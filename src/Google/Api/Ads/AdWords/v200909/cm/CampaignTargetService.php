@@ -23,7 +23,7 @@
  * @category   WebServices
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
- * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
@@ -1697,6 +1697,8 @@ if (!class_exists("CampaignTargetServiceMutate", FALSE)) {
  * 
  * 
  * Mutates (sets) targets for specified campaign identified in the campaign operations.
+ * Note that multiple operations containing the same type of targets can be submitted
+ * in the same call. The union of all the targets will be set as the new targets.
  * @param operations list of operations associating targets with campaign ids.
  * @return the added campaign targets, not necessarily in the same order in which they came in.
  * @throws ApiException if problems occurred while adding campaign targeting information.
@@ -3636,7 +3638,7 @@ class CampaignTargetService extends AdWordsSoapClient {
    */
   public function __construct($wsdl=null, $options, $user) {
     $options["classmap"] = CampaignTargetService::$classmap;
-    parent::__construct($wsdl, $options, $user, 'CampaignTargetService');
+    parent::__construct($wsdl, $options, $user, 'CampaignTargetService', 'https://adwords.google.com/api/adwords/cm/v200909');
   }
 
   /**
@@ -3665,6 +3667,8 @@ class CampaignTargetService extends AdWordsSoapClient {
    * 
    * 
    * Mutates (sets) targets for specified campaign identified in the campaign operations.
+   * Note that multiple operations containing the same type of targets can be submitted
+   * in the same call. The union of all the targets will be set as the new targets.
    * @param operations list of operations associating targets with campaign ids.
    * @return the added campaign targets, not necessarily in the same order in which they came in.
    * @throws ApiException if problems occurred while adding campaign targeting information.
