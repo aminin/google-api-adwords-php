@@ -80,14 +80,14 @@ class BulkMutateJobServiceTest extends PHPUnit_Framework_TestCase {
       $adGroup1->name = 'AdGroup #' . time();
       $adGroup1->status = 'ENABLED';
       $adGroup1->bids = new ManualCPCAdGroupBids();
-      $adGroup1->bids->keywordMaxCpc = new Money('1000000');
+      $adGroup1->bids->keywordMaxCpc = new Bid(new Money('1000000'));
 
       $adGroup2 = new AdGroup();
       $adGroup2->campaignId = BulkMutateJobServiceTest::$campaignId;
       $adGroup2->name = 'AdGroup #' . (time() + 1);
       $adGroup2->status = 'ENABLED';
       $adGroup2->bids = new ManualCPCAdGroupBids();
-      $adGroup2->bids->keywordMaxCpc = new Money('1000000');
+      $adGroup2->bids->keywordMaxCpc = new Bid(new Money('1000000'));
 
       $operations = array(new AdGroupOperation($adGroup1, 'ADD'),
           new AdGroupOperation($adGroup2, 'ADD'));
