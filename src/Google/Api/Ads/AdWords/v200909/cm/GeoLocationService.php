@@ -961,7 +961,7 @@ class GeoLocationServiceGet {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -969,7 +969,7 @@ class GeoLocationServiceGet {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "get";
+    return "";
   }
 
   public function __construct($selector = NULL) {
@@ -994,7 +994,7 @@ class GeoLocationServiceGetResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -1002,7 +1002,7 @@ class GeoLocationServiceGetResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "getResponse";
+    return "";
   }
 
   public function __construct($rval = NULL) {

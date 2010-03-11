@@ -2420,7 +2420,7 @@ class AdGroupCriterionServiceGet {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -2428,7 +2428,7 @@ class AdGroupCriterionServiceGet {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "get";
+    return "";
   }
 
   public function __construct($selector = NULL) {
@@ -2453,7 +2453,7 @@ class AdGroupCriterionServiceGetResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -2461,7 +2461,7 @@ class AdGroupCriterionServiceGetResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "getResponse";
+    return "";
   }
 
   public function __construct($rval = NULL) {
@@ -2498,7 +2498,7 @@ class AdGroupCriterionServiceMutate {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -2506,7 +2506,7 @@ class AdGroupCriterionServiceMutate {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "mutate";
+    return "";
   }
 
   public function __construct($operations = NULL) {
@@ -2531,7 +2531,7 @@ class AdGroupCriterionServiceMutateResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -2539,7 +2539,7 @@ class AdGroupCriterionServiceMutateResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "mutateResponse";
+    return "";
   }
 
   public function __construct($rval = NULL) {

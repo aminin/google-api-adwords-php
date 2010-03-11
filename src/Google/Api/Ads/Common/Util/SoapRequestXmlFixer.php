@@ -25,6 +25,7 @@
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
 require_once 'XmlUtils.php';
@@ -149,9 +150,12 @@ class SoapRequestXmlFixer {
    * @access private
    */
   private function AddXsiType(DOMNode $domNode, $object) {
-    $prefix = $domNode->lookupPrefix($object->getNamespace());
-    $domNode->setAttribute('xsi:type', (isset($prefix) ? $prefix . ':'  : '')
-        . $object->getXsiTypeName());
+    $xsiTypeName = $object->getXsiTypeName();
+    if (isset($xsiTypeName) && $xsiTypeName != '') {
+      $prefix = $domNode->lookupPrefix($object->getNamespace());
+      $domNode->setAttribute('xsi:type', (isset($prefix) ? $prefix . ':'  : '')
+          . $xsiTypeName);
+    }
   }
 
   /**

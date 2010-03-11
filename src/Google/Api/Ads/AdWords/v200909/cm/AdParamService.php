@@ -1096,7 +1096,7 @@ class AdParamServiceGet {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -1104,7 +1104,7 @@ class AdParamServiceGet {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "get";
+    return "";
   }
 
   public function __construct($selector = NULL) {
@@ -1129,7 +1129,7 @@ class AdParamServiceGetResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -1137,7 +1137,7 @@ class AdParamServiceGetResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "getResponse";
+    return "";
   }
 
   public function __construct($rval = NULL) {
@@ -1184,7 +1184,7 @@ class AdParamServiceMutate {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -1192,7 +1192,7 @@ class AdParamServiceMutate {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "mutate";
+    return "";
   }
 
   public function __construct($operations = NULL) {
@@ -1217,7 +1217,7 @@ class AdParamServiceMutateResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -1225,7 +1225,7 @@ class AdParamServiceMutateResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "mutateResponse";
+    return "";
   }
 
   public function __construct($rval = NULL) {

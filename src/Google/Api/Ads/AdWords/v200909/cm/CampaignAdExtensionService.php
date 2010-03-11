@@ -1787,7 +1787,7 @@ class CampaignAdExtensionServiceGet {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -1795,7 +1795,7 @@ class CampaignAdExtensionServiceGet {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "get";
+    return "";
   }
 
   public function __construct($selector = NULL) {
@@ -1820,7 +1820,7 @@ class CampaignAdExtensionServiceGetResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -1828,7 +1828,7 @@ class CampaignAdExtensionServiceGetResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "getResponse";
+    return "";
   }
 
   public function __construct($rval = NULL) {
@@ -1864,7 +1864,7 @@ class CampaignAdExtensionServiceMutate {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -1872,7 +1872,7 @@ class CampaignAdExtensionServiceMutate {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "mutate";
+    return "";
   }
 
   public function __construct($operations = NULL) {
@@ -1897,7 +1897,7 @@ class CampaignAdExtensionServiceMutateResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/cm/v200909";
   }
 
   /**
@@ -1905,7 +1905,7 @@ class CampaignAdExtensionServiceMutateResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "mutateResponse";
+    return "";
   }
 
   public function __construct($rval = NULL) {

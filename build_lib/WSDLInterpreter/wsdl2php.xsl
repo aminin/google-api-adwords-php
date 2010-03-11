@@ -74,7 +74,7 @@
           select="*[local-name()='types' and namespace-uri()='http://schemas.xmlsoap.org/wsdl/']
                     //*[(local-name()='complexType' or local-name()='simpleType') and
                         not(starts-with(@name, 'ArrayOf'))]">
-          <class name="{@name | ../@name}">
+          <class name="{@name | ../@name}" xsiTypeName="{@name}">
           <documentation>
             <xsl:if test=".//*[local-name()='annotation'] | ..//*[local-name()='annotation']">
               <xsl:value-of select=".//*[local-name()='annotation']"/>

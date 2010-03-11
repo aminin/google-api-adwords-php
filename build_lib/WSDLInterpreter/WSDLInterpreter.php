@@ -387,11 +387,14 @@ class WSDLInterpreter
     foreach ($schemas as $schema) {
       $namespace = $schema->getAttribute('targetNamespace');
       $types = $wsdlXPath->query('//wsdl:definitions/wsdl:types/xmlns:schema['
-          . $i . ']/xmlns:complexType'
+          . $i . ']//xmlns:complexType'
           . ' | //wsdl:definitions/wsdl:types/xmlns:schema[' . $i
-          . ']/xmlns:simpleType');
+          . ']//xmlns:simpleType');
       foreach ($types as $type) {
-        $this->_namespaceMap[$type->getAttribute('name')] = $namespace;
+        $typeName = ($type->getAttribute('name')
+            ? $type->getAttribute('name')
+            : $type->parentNode->getAttribute('name'));
+        $this->_namespaceMap[$typeName] = $namespace;
       }
       $i++;
     }
@@ -562,7 +565,7 @@ class WSDLInterpreter
         . "   * @return the xsi:type name of this class\n"
         . "   */\n"
         . "  public function getXsiTypeName() {\n"
-        . "    return \"" . $class->getAttribute('name') . "\";\n  }\n\n";
+        . "    return \"" . $class->getAttribute('xsiTypeName') . "\";\n  }\n\n";
 
     $params = $this->_getTopDownConstructorArguments($class);
 

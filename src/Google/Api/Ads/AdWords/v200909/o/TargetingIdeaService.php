@@ -1650,6 +1650,36 @@ class ReadOnlyErrorReason {
   }
 }}
 
+if (!class_exists("RegionCodeErrorReason", FALSE)) {
+/**
+ * The reasons for the validation error.
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class RegionCodeErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RegionCodeError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RegionCodeErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
@@ -1767,6 +1797,36 @@ class StringLengthErrorReason {
 
   public function __construct() {
     if(get_parent_class('StringLengthErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("TargetErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class TargetErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "TargetError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('TargetErrorReason')) parent::__construct();
   }
 }}
 
@@ -2156,6 +2216,7 @@ if (!class_exists("SearchParameter", FALSE)) {
  * </ul><p>
  * <p><b>{@link IdeaType} KEYWORD supports following {@link SearchParameter}s:</b><br/>
  * <ul>
+ * <li>{@link AdShareSearchParameter}</li>
  * <li>{@link AverageTargetedMonthlySearchesSearchParameter}</li>
  * <li>{@link CompetitionSearchParameter}</li>
  * <li>{@link CountryTargetSearchParameter}</li>
@@ -2169,6 +2230,7 @@ if (!class_exists("SearchParameter", FALSE)) {
  * <li>{@link NgramGroupsSearchParameter}</li>
  * <li>{@link RelatedToKeywordSearchParameter}</li>
  * <li>{@link RelatedToUrlSearchParameter}</li>
+ * <li>{@link SearchShareSearchParameter}</li>
  * <li>{@link SeedAdGroupIdSearchParameter}</li>
  * </ul><p>
  * <p><b>{@link IdeaType} PLACEMENT supports following {@link SearchParameter}s:</b><br/>
@@ -2804,7 +2866,7 @@ class TargetingIdeaServiceGet {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/o/v200909";
   }
 
   /**
@@ -2812,7 +2874,7 @@ class TargetingIdeaServiceGet {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "get";
+    return "";
   }
 
   public function __construct($selector = NULL) {
@@ -2837,7 +2899,7 @@ class TargetingIdeaServiceGetResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/o/v200909";
   }
 
   /**
@@ -2845,7 +2907,7 @@ class TargetingIdeaServiceGetResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "getResponse";
+    return "";
   }
 
   public function __construct($rval = NULL) {
@@ -2897,7 +2959,7 @@ class getBulkKeywordIdeas {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/o/v200909";
   }
 
   /**
@@ -2905,7 +2967,7 @@ class getBulkKeywordIdeas {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "getBulkKeywordIdeas";
+    return "";
   }
 
   public function __construct($selector = NULL) {
@@ -2930,7 +2992,7 @@ class getBulkKeywordIdeasResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "";
+    return "https://adwords.google.com/api/adwords/o/v200909";
   }
 
   /**
@@ -2938,7 +3000,7 @@ class getBulkKeywordIdeasResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "getBulkKeywordIdeasResponse";
+    return "";
   }
 
   public function __construct($rval = NULL) {
@@ -4067,6 +4129,46 @@ class ReadOnlyError extends ApiError {
   }
 }}
 
+if (!class_exists("RegionCodeError", FALSE)) {
+/**
+ * A list of all errors associated with the @RegionCode constraints.
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class RegionCodeError extends ApiError {
+  /**
+   * @access public
+   * @var tnsRegionCodeErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RegionCodeError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('RegionCodeError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
@@ -4220,6 +4322,46 @@ class StringLengthError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('StringLengthError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("TargetError", FALSE)) {
+/**
+ * A list of all the error codes being used by the common targeting package.
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class TargetError extends ApiError {
+  /**
+   * @access public
+   * @var tnsTargetErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "TargetError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('TargetError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -6235,11 +6377,13 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "QuotaExceededError" => "QuotaExceededError",
     "RangeError" => "RangeError",
     "ReadOnlyError" => "ReadOnlyError",
+    "RegionCodeError" => "RegionCodeError",
     "RequiredError" => "RequiredError",
     "SizeLimitError" => "SizeLimitError",
     "SoapResponseHeader" => "SoapResponseHeader",
     "StatsQueryError" => "StatsQueryError",
     "StringLengthError" => "StringLengthError",
+    "TargetError" => "TargetError",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
     "AdGroupCriterionError.Reason" => "AdGroupCriterionErrorReason",
@@ -6270,10 +6414,12 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "QuotaExceededError.Reason" => "QuotaExceededErrorReason",
     "RangeError.Reason" => "RangeErrorReason",
     "ReadOnlyError.Reason" => "ReadOnlyErrorReason",
+    "RegionCodeError.Reason" => "RegionCodeErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
     "SizeLimitError.Reason" => "SizeLimitErrorReason",
     "StatsQueryError.Reason" => "StatsQueryErrorReason",
     "StringLengthError.Reason" => "StringLengthErrorReason",
+    "TargetError.Reason" => "TargetErrorReason",
     "AdFormatSpec" => "AdFormatSpec",
     "AdFormatSpecListAttribute" => "AdFormatSpecListAttribute",
     "Attribute" => "Attribute",
