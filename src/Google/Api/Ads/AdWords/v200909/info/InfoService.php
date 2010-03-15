@@ -1769,7 +1769,7 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("InfoService")) {
+if (!class_exists("InfoService", FALSE)) {
 /**
  * InfoService
  * @author WSDLInterpreter

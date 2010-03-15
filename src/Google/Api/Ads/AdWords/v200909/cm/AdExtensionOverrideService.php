@@ -3027,7 +3027,7 @@ class LongValue extends NumberValue {
   }
 }}
 
-if (!class_exists("AdExtensionOverrideService")) {
+if (!class_exists("AdExtensionOverrideService", FALSE)) {
 /**
  * AdExtensionOverrideService
  * @author WSDLInterpreter

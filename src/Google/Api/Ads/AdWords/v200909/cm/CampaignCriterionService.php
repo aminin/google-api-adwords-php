@@ -2757,7 +2757,7 @@ class CampaignCriterionLimitExceeded extends EntityCountLimitExceeded {
   }
 }}
 
-if (!class_exists("CampaignCriterionService")) {
+if (!class_exists("CampaignCriterionService", FALSE)) {
 /**
  * CampaignCriterionService
  * @author WSDLInterpreter

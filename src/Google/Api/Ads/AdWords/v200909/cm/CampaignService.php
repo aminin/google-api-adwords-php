@@ -4153,7 +4153,7 @@ class LongValue extends NumberValue {
   }
 }}
 
-if (!class_exists("CampaignService")) {
+if (!class_exists("CampaignService", FALSE)) {
 /**
  * CampaignService
  * @author WSDLInterpreter

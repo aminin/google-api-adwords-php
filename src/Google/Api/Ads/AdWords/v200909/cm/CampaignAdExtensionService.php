@@ -3034,7 +3034,7 @@ class CampaignAdExtensionReturnValue extends ListReturnValue {
   }
 }}
 
-if (!class_exists("CampaignAdExtensionService")) {
+if (!class_exists("CampaignAdExtensionService", FALSE)) {
 /**
  * CampaignAdExtensionService
  * @author WSDLInterpreter

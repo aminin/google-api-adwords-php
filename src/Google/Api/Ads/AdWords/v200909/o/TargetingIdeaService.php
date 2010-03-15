@@ -6308,7 +6308,7 @@ class ProximityTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("TargetingIdeaService")) {
+if (!class_exists("TargetingIdeaService", FALSE)) {
 /**
  * TargetingIdeaService
  * @author WSDLInterpreter

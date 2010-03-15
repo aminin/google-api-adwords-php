@@ -3301,7 +3301,7 @@ class LongValue extends NumberValue {
   }
 }}
 
-if (!class_exists("AdGroupService")) {
+if (!class_exists("AdGroupService", FALSE)) {
 /**
  * AdGroupService
  * @author WSDLInterpreter

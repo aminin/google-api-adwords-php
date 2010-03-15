@@ -3522,7 +3522,7 @@ class ProximityTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("CampaignTargetService")) {
+if (!class_exists("CampaignTargetService", FALSE)) {
 /**
  * CampaignTargetService
  * @author WSDLInterpreter

@@ -4245,7 +4245,7 @@ class LongValue extends NumberValue {
   }
 }}
 
-if (!class_exists("AdGroupCriterionService")) {
+if (!class_exists("AdGroupCriterionService", FALSE)) {
 /**
  * AdGroupCriterionService
  * @author WSDLInterpreter

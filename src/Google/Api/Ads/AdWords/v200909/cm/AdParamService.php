@@ -1963,7 +1963,7 @@ class AdParamPolicyError extends PolicyViolationError {
   }
 }}
 
-if (!class_exists("AdParamService")) {
+if (!class_exists("AdParamService", FALSE)) {
 /**
  * AdParamService
  * @author WSDLInterpreter

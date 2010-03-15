@@ -11510,7 +11510,7 @@ class CountryTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("BulkMutateJobService")) {
+if (!class_exists("BulkMutateJobService", FALSE)) {
 /**
  * BulkMutateJobService
  * @author WSDLInterpreter

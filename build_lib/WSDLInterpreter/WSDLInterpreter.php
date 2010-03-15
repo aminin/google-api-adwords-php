@@ -637,7 +637,7 @@ class WSDLInterpreter
    */
   private function _generateServicePHP($service) {
     $return = "";
-    $return .= 'if (!class_exists("'.$service->getAttribute("validatedName").'")) {'."\n";
+    $return .= 'if (!class_exists("'.$service->getAttribute("validatedName").'", FALSE)) {'."\n";
     $return .= '/**'."\n";
     $return .= ' * '.$service->getAttribute("validatedName")."\n";
     $return .= ' * @author WSDLInterpreter'."\n";

@@ -6129,7 +6129,7 @@ class ProximityTarget extends GeoTarget {
   }
 }}
 
-if (!class_exists("AdGroupAdService")) {
+if (!class_exists("AdGroupAdService", FALSE)) {
 /**
  * AdGroupAdService
  * @author WSDLInterpreter

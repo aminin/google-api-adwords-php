@@ -1618,7 +1618,7 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("GeoLocationService")) {
+if (!class_exists("GeoLocationService", FALSE)) {
 /**
  * GeoLocationService
  * @author WSDLInterpreter
