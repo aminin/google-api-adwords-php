@@ -38,8 +38,8 @@ require_once 'AdWordsSoapClientFactory.php';
  * services.
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = 'v2.0.0';
-  private static $LIB_NAME = 'AdWords API PHP Client Library';
+  private static $LIB_VERSION = '2.0.1';
+  private static $LIB_NAME = 'AwApi';
 
   /**
    * The default version that is loaded if the settings INI cannot be loaded.
@@ -529,11 +529,8 @@ class AdWordsUser extends AdsUser {
    *     with the library name and version.
    */
   public function SetClientLibraryUserAgent($userAgent) {
-    $this->SetHeaderValue('userAgent',
-        'PHP v' . phpversion() . ' - '
-            . AdWordsUser::$LIB_NAME . ' - '
-            . AdWordsUser::$LIB_VERSION
-            . ' - ' . $userAgent);
+    $this->SetHeaderValue('userAgent', AdWordsUser::$LIB_NAME . '-PHP-'.
+        AdWordsUser::$LIB_VERSION . '-' . $userAgent);
   }
 
   /**
