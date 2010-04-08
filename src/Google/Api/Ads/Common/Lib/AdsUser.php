@@ -4,7 +4,7 @@
  *
  * PHP version 5
  *
- * Copyright 2009, Google Inc. All Rights Reserved.
+ * Copyright 2010, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
  * @package    GoogleApiAdsCommon
  * @subpackage Lib
  * @category   WebServices
- * @copyright  2009, Google Inc. All Rights Reserved.
+ * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
@@ -39,6 +39,9 @@ abstract class AdsUser {
   private $defaultServer;
   private $defaultVersion;
   private $logsDirectory;
+  private $soapCompression;
+  private $soapCompressionLevel;
+  private $wsdlCache;
 
   /**
    * Constructor for AdsUser.
@@ -157,12 +160,6 @@ abstract class AdsUser {
 
     ini_set('default_socket_timeout', 480);
 
-    // Settings for the SOAP extension.
-    ini_set('soap.wsdl_cache', 0);
-    ini_set('soap.wsdl_cache_enabled', 0);
-    ini_set('soap.wsdl_cache_dir', "./tmp/");
-    ini_set('soap.wsdl_cache_ttl', 86400);
-
     $settingsIni = parse_ini_file($settingsIniPath, true);
 
     if (isset($settingsIni)) {
@@ -196,7 +193,7 @@ abstract class AdsUser {
       // SOAP settings.
       if (array_key_exists('SOAP', $settingsIni)
           && array_key_exists('COMPRESSION', $settingsIni['SOAP'])) {
-        $this->soapCompression = $settingsIni['SOAP']['COMPRESSION'];
+        $this->soapCompression = (bool) $settingsIni['SOAP']['COMPRESSION'];
       } else {
         // Default to using compression.
         $this->soapCompression = TRUE;
@@ -205,10 +202,36 @@ abstract class AdsUser {
           && array_key_exists('COMPRESSION_LEVEL', $settingsIni['SOAP'])
           && $settingsIni['SOAP']['COMPRESSION_LEVEL'] >= 1
           && $settingsIni['SOAP']['COMPRESSION_LEVEL'] <= 9) {
-        $this->soapCompressionLevel = $settingsIni['SOAP']['COMPRESSION_LEVEL'];
+        $this->soapCompressionLevel =
+            (int) $settingsIni['SOAP']['COMPRESSION_LEVEL'];
       } else {
         // Default to using compression level 1.
         $this->soapCompressionLevel = 1;
+      }
+      if (array_key_exists('SOAP', $settingsIni)
+          && array_key_exists('WSDL_CACHE', $settingsIni['SOAP'])
+          && $settingsIni['SOAP']['WSDL_CACHE'] >= 0
+          && $settingsIni['SOAP']['WSDL_CACHE'] <= 3) {
+        $this->wsdlCache = (int) $settingsIni['SOAP']['WSDL_CACHE'];
+      } else {
+        // Default to none.
+        $this->wsdlCache = WSDL_CACHE_NONE;
+      }
+
+      // Proxy settings.
+      if (array_key_exists('PROXY', $settingsIni)) {
+        if (array_key_exists('HOST', $settingsIni['PROXY'])) {
+          define('HTTP_PROXY_HOST', $settingsIni['PROXY']['HOST']);
+        }
+        if (array_key_exists('PORT', $settingsIni['PROXY'])) {
+          define('HTTP_PROXY_PORT', (int) $settingsIni['PROXY']['PORT']);
+        }
+        if (array_key_exists('USER', $settingsIni['PROXY'])) {
+          define('HTTP_PROXY_USER', $settingsIni['PROXY']['USER']);
+        }
+        if (array_key_exists('PASSWORD', $settingsIni['PROXY'])) {
+          define('HTTP_PROXY_PASSWORD', $settingsIni['PROXY']['PASSWORD']);
+        }
       }
     }
   }
@@ -251,6 +274,14 @@ abstract class AdsUser {
    */
   public function GetSoapCompressionLevel() {
     return $this->soapCompressionLevel;
+  }
+
+  /**
+   * Gets the type of WSDL caching in use.
+   * @return int the type of WSDL caching in use
+   */
+  public function GetWsdlCacheType() {
+    return $this->wsdlCache;
   }
 
   /**

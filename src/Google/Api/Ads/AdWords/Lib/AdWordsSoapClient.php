@@ -4,7 +4,7 @@
  *
  * PHP version 5
  *
- * Copyright 2009, Google Inc. All Rights Reserved.
+ * Copyright 2010, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
  * @package    GoogleApiAdsAdWords
  * @subpackage Lib
  * @category   WebServices
- * @copyright  2009, Google Inc. All Rights Reserved.
+ * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @see        AdsSoapClient

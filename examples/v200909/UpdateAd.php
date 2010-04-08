@@ -5,7 +5,7 @@
  *
  * PHP version 5
  *
- * Copyright 2009, Google Inc. All Rights Reserved.
+ * Copyright 2010, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
  * @package    GoogleApiAdsAdWords
  * @subpackage v200909
  * @category   WebServices
- * @copyright  2009, Google Inc. All Rights Reserved.
+ * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  * @link       http://code.google.com/apis/adwords/v2009/docs/reference/AdGroupAdService.html
@@ -49,8 +49,8 @@ try {
   // Get the AdGroupAdService.
   $adGroupAdService = $user->GetAdGroupAdService('v200909');
 
-  $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
-  $adId = 'INSERT_AD_ID_HERE';
+  $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
+  $adId = (float) 'INSERT_AD_ID_HERE';
 
   // Create ad with updated status.
   $ad = new Ad();

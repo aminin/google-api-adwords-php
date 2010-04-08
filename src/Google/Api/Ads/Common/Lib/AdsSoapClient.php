@@ -6,7 +6,7 @@
  *
  * PHP version 5
  *
- * Copyright 2009, Google Inc. All Rights Reserved.
+ * Copyright 2010, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
  * @package    GoogleApiAdsCommon
  * @subpackage Lib
  * @category   WebServices
- * @copyright  2009, Google Inc. All Rights Reserved.
+ * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
@@ -152,7 +152,8 @@ abstract class AdsSoapClient extends SoapClient {
    * @param string $version the SOAP version
    * @return string the XML SOAP response
    */
-  function __doRequest($request, $location, $action, $version) {
+  function __doRequest($request , $location , $action , $version,
+      $one_way = 0) {
     $this->lastRequest = $this->PrepareRequest($request, $this->lastArguments);
     return parent::__doRequest($this->lastRequest,
         $location, $action, $version);

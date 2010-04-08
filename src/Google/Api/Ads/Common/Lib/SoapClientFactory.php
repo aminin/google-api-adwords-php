@@ -4,7 +4,7 @@
  *
  * PHP version 5
  *
- * Copyright 2009, Google Inc. All Rights Reserved.
+ * Copyright 2010, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
  * @package    GoogleApiAdsCommon
  * @subpackage Lib
  * @category   WebServices
- * @copyright  2009, Google Inc. All Rights Reserved.
+ * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
@@ -111,12 +111,30 @@ abstract class SoapClientFactory {
         'connection_timeout' => 0,
         'features' => SOAP_SINGLE_ELEMENT_ARRAYS);
 
+    // Compression settings.
     if ($this->GetAdsUser()->IsSoapCompressionEnabled()) {
       $options['compression'] = SOAP_COMPRESSION_ACCEPT |
           SOAP_COMPRESSION_GZIP |
           $this->GetAdsUser()->GetSoapCompressionLevel();
       // The User-Agent HTTP header must contain the string 'gzip'.
       $options['user_agent'] = 'PHP-SOAP/'. phpversion() . ', gzip';
+    }
+
+    // WSDL caching settings.
+    $options['cache_wsdl'] = $this->GetAdsUser()->GetWsdlCacheType();
+
+    // Proxy settings.
+    if (defined('HTTP_PROXY_HOST') && HTTP_PROXY_HOST != '') {
+      $options['proxy_host'] = HTTP_PROXY_HOST;
+    }
+    if (defined('HTTP_PROXY_PORT') && HTTP_PROXY_PORT != '') {
+      $options['proxy_port'] = HTTP_PROXY_PORT;
+    }
+    if (defined('HTTP_PROXY_USER') && HTTP_PROXY_USER != '') {
+      $options['proxy_login'] = HTTP_PROXY_USER;
+    }
+    if (defined('HTTP_PROXY_PASSWORD') && HTTP_PROXY_PASSWORD != '') {
+      $options['proxy_password'] = HTTP_PROXY_PASSWORD;
     }
 
     $soapClient = new $serviceName($wsdl, $options, $this->GetAdsUser());

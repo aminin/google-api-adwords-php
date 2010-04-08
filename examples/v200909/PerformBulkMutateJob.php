@@ -9,7 +9,7 @@
  *
  * PHP version 5
  *
- * Copyright 2009, Google Inc. All Rights Reserved.
+ * Copyright 2010, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
  * @package    GoogleApiAdsAdWords
  * @subpackage v200909
  * @category   WebServices
- * @copyright  2009, Google Inc. All Rights Reserved.
+ * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  */
@@ -43,9 +43,10 @@ require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 require_once 'Google/Api/Ads/Common/Util/MediaUtils.php';
 
 // IDs required for this example.
-$campaignId = 'INSERT_CAMPAIGN_ID_HERE';
-$adGroupId1 = 'INSERT_AD_GROUP_ID_BELONGING_TO_CAMPAIGN_ABOVE_HERE';
-$adGroupId2 = 'INSERT_ANOTHER_AD_GROUP_ID_BELONGING_TO_CAMPAIGN_ABOVE_ID_HERE';
+$campaignId = (float) 'INSERT_CAMPAIGN_ID_HERE';
+$adGroupId1 = (float) 'INSERT_AD_GROUP_ID_BELONGING_TO_CAMPAIGN_ABOVE_HERE';
+$adGroupId2 =
+    (float) 'INSERT_ANOTHER_AD_GROUP_ID_BELONGING_TO_CAMPAIGN_ABOVE_ID_HERE';
 
 /**
  * Creates an array of ad group ad operations to be performed by the

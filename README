@@ -12,8 +12,8 @@ clients to programmatically access AdWords accounts. All client
 library classes and utilities are in the directory or sub-directory of
 "src/Google/Api/Ads/AdWords/".
 
-The client library is compatible with all standard PHP 5.2.x distributions. The
-library uses the native SoapClient class
+The client library is compatible with all standard PHP 5.2.x and 5.3.x
+distributions. The library uses the native SoapClient class
 [http://us3.php.net/manual/en/book.soap.php], which needs to be enabled with the
 --enable-soap flag if building PHP from source. More information about
 compatibility can be found in the PHP Compatibility section of this README.
@@ -228,6 +228,42 @@ This invokes the default behavior as described below:
     your project's home directory.
 
 
+Encoding special characters
+---------------------------
+
+The AdWords API requires that all requests are UTF-8 encoded. Because UTF-8 is
+backwards compatible with ASCII, alphanumeric and punctuation characters from
+other ASCII based encodings (such as ISO 8859-1 or Windows-1252) are compatible
+and don't request any conversion. However, many special characters are not
+compatible between encodings and need to be manually converted before being
+passed in to the client library. This can be done using the PHP function
+iconv().
+
+For example, to convert a Windows-1252 encoded string containing the euro sign
+to UTF-8 you could use the following code:
+
+  $price = iconv('WINDOWS-1252', 'UTF-8', '€40');
+
+Alternatively you can choose to represent the special characters as XML
+character entities. For example, the euro sign (€) is represented as the XML
+entity "&#x20AC;". The format of the XML entity is "&#x" followed by the Unicode
+hex code point for the character. You can look up the code point for a given
+character using the charts on unicode.org (http://www.unicode.org/charts/).
+
+The PHP SoapClient class, and hence the PHP client library, assumes
+that the values passed in to the services are unescaped and will
+automatically escape them. For XML entities like the one above this can have
+the unintended consequence of escaping the ampersand, breaking the entity. To
+work around this issue we recommend that you use the PHP function
+html_entity_decode() to to unescape these entities before passing them in to
+the client library.
+
+For example, to unescape a string containing the XML character entity for
+the euro sign to a UTF-8 string you could use the following code:
+
+  $price = html_entity_decode('&#x20AC;40', ENT_QUOTES, 'UTF-8');
+
+
 Error messages about Timezones
 ------------------------------
 
@@ -293,8 +329,8 @@ the current Ubuntu distribution - 5.2.4-2ubuntu5.7.
 PHP Compatiblity
 -----------------
 
-The PHP client library supports most 5.2.x distributions. If you find the
-library is not compatible with your setup, please let us know here:
+The PHP client library supports most 5.2.x and 5.3.x distributions. If you find
+the library is not compatible with your setup, please let us know here:
 
 http://code.google.com/p/google-api-adwords-php/wiki/PhpCompatibility
 
@@ -303,7 +339,7 @@ External dependencies
 ---------------------
 
 Run environment:
-  - PHP 5.2.x [http://php.net]
+  - PHP 5.2.x-5.3.x [http://php.net]
   - Required PHP extensions:
     - SoapClient [http://us3.php.net/manual/en/book.soap.php] (--enable-soap)
     - OpenSSL [http://php.net/manual/en/book.openssl.php] (--with-ssl)

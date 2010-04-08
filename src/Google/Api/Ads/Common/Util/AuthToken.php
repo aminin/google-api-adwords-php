@@ -6,7 +6,7 @@
  *
  * PHP version 5
  *
- * Copyright 2009, Google Inc. All Rights Reserved.
+ * Copyright 2010, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
  * @package    GoogleApiAdsCommon
  * @subpackage Util
  * @category   WebServices
- * @copyright  2009, Google Inc. All Rights Reserved.
+ * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
@@ -108,6 +108,17 @@ class AuthToken {
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    if (defined('HTTP_PROXY_HOST') && HTTP_PROXY_HOST != '') {
+      curl_setopt($ch, CURLOPT_PROXY, HTTP_PROXY_HOST);
+    }
+    if (defined('HTTP_PROXY_PORT') && HTTP_PROXY_PORT != '') {
+      curl_setopt($ch, CURLOPT_PROXYPORT, HTTP_PROXY_PORT);
+    }
+    if (defined('HTTP_PROXY_USER') && defined('HTTP_PROXY_PASSWORD')
+        && HTTP_PROXY_USER != '' && HTTP_PROXY_PASSWORD != '') {
+      curl_setopt($ch, CURLOPT_PROXYUSERPWD, HTTP_PROXY_USER . ':'
+          . HTTP_PROXY_PASSWORD);
+    }
     $this->res = curl_exec($ch);
     curl_close($ch);
   }

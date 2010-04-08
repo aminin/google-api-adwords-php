@@ -5,7 +5,7 @@
  *
  * PHP version 5
  *
- * Copyright 2009, Google Inc. All Rights Reserved.
+ * Copyright 2010, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
  * @package    GoogleApiAdsCommon
  * @subpackage Util
  * @category   WebServices
- * @copyright  2009, Google Inc. All Rights Reserved.
+ * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
@@ -150,11 +150,14 @@ class SoapRequestXmlFixer {
    * @access private
    */
   private function AddXsiType(DOMNode $domNode, $object) {
-    $xsiTypeName = $object->getXsiTypeName();
-    if (isset($xsiTypeName) && $xsiTypeName != '') {
-      $prefix = $domNode->lookupPrefix($object->getNamespace());
-      $domNode->setAttribute('xsi:type', (isset($prefix) ? $prefix . ':'  : '')
-          . $xsiTypeName);
+    if (method_exists($object, 'getXsiTypeName')
+        && method_exists($object, 'getNamespace')) {
+      $xsiTypeName = $object->getXsiTypeName();
+      if (isset($xsiTypeName) && $xsiTypeName != '') {
+        $prefix = $domNode->lookupPrefix($object->getNamespace());
+        $domNode->setAttribute('xsi:type', (isset($prefix) ? $prefix . ':' : '')
+            . $xsiTypeName);
+      }
     }
   }
 
