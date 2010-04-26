@@ -43,11 +43,15 @@
 	subpackage <b>Util</b><br>  <div class="package">
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---AuthToken.php.html">		AuthToken.php
 		</a><br>
+			<a href="GoogleApiAdsCommon/Util/_Common---Util---ErrorUtils.php.html">		ErrorUtils.php
+		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
 		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">		OAuthProvider.php
+		</a><br>
+			<a href="GoogleApiAdsCommon/Util/_Common---Util---OgnlUtils.php.html">		OgnlUtils.php
 		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
 		</a><br>
@@ -65,9 +69,11 @@
 	  </div>
   <div class="package">
 	Util<br />	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
+	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/ErrorUtils.html">ErrorUtils</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
+	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
 	  </div>
@@ -173,6 +179,10 @@
 		<dl>
 							<dt><b>$ERROR</b></dt>
 				<dd>in file Logger.php, variable <a href="GoogleApiAdsCommon/Util/Logger.html#var$ERROR">Logger::$ERROR</a><br>&nbsp;&nbsp;&nbsp;&nbsp;ERROR level.</dd>
+							<dt><b>ErrorUtils.php</b></dt>
+				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---ErrorUtils.php.html">ErrorUtils.php</a></dd>
+							<dt><b>ErrorUtils</b></dt>
+				<dd>in file ErrorUtils.php, class <a href="GoogleApiAdsCommon/Util/ErrorUtils.html">ErrorUtils</a><br>&nbsp;&nbsp;&nbsp;&nbsp;A collection of utility methods for working with errors.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -202,9 +212,9 @@
 							<dt><b>GenerateSoapHeader</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateSoapHeader">AdsSoapClient::GenerateSoapHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generates the SOAP header for the client.</dd>
 							<dt><b>GetAdsUser</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user for this client.</dd>
-							<dt><b>GetAdsUser</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetAdsUser">SoapClientFactory::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user associated with this factory.</dd>
+							<dt><b>GetAdsUser</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user for this client.</dd>
 							<dt><b>GetAuthVarValue</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthVarValue">AdsUser::GetAuthVarValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the authenticaiton value for the <var>$authVar</var> supplied. If  the <var>$authVar</var> is set, it is is used. Otherwirse, the supplied  <var>$authenticationIni</var> is queired for the variable. If none is found  <var>NULL</var> is returned.</dd>
 							<dt><b>GetClientLibraryIdentifier</b></dt>
@@ -216,9 +226,9 @@
 							<dt><b>GetEmail</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetEmail">AdsSoapClient::GetEmail()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the email of the user making the request.</dd>
 							<dt><b>GetHeaderNames</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderNames">AdsSoapClient::GetHeaderNames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the names of all registered request header elements.</dd>
-							<dt><b>GetHeaderNames</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderNames">AdsUser::GetHeaderNames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the names of all registered request header elements.</dd>
+							<dt><b>GetHeaderNames</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderNames">AdsSoapClient::GetHeaderNames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the names of all registered request header elements.</dd>
 							<dt><b>GetHeaderValue</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderValue">AdsSoapClient::GetHeaderValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the value for a registered request header element.</dd>
 							<dt><b>GetHeaderValue</b></dt>
@@ -240,9 +250,9 @@
 							<dt><b>GetProductName</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetProductName">SoapClientFactory::GetProductName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the product name associated with this factory.</dd>
 							<dt><b>GetServer</b></dt>
-				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServer">SoapClientFactory::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server associated with this factory.</dd>
-							<dt><b>GetServer</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server that the request was made to.</dd>
+							<dt><b>GetServer</b></dt>
+				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServer">SoapClientFactory::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server associated with this factory.</dd>
 							<dt><b>GetServiceLocation</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServiceLocation">SoapClientFactory::GetServiceLocation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the end-point location of the service.</dd>
 							<dt><b>GetServiceName</b></dt>
@@ -253,6 +263,10 @@
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetSoapCompressionLevel">AdsUser::GetSoapCompressionLevel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the SOAP compression level.</dd>
 							<dt><b>GetVersion</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetVersion">SoapClientFactory::GetVersion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the version associated with this factory.</dd>
+							<dt><b>GetWsdlCacheType</b></dt>
+				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetWsdlCacheType">AdsUser::GetWsdlCacheType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the type of WSDL caching in use.</dd>
+							<dt><b>GetApiErrors</b></dt>
+				<dd>in file ErrorUtils.php, method <a href="GoogleApiAdsCommon/Util/ErrorUtils.html#methodGetApiErrors">ErrorUtils::GetApiErrors()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the ApiErrors in the SOAP fault, if any.</dd>
 							<dt><b>GetAuthToken</b></dt>
 				<dd>in file AuthToken.php, method <a href="GoogleApiAdsCommon/Util/AuthToken.html#methodGetAuthToken">AuthToken::GetAuthToken()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Peforms a POST to get the auth token and then parses the result.</dd>
 							<dt><b>GetBase64Data</b></dt>
@@ -261,6 +275,10 @@
 				<dd>in file XmlUtils.php, method <a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodGetDomFromXml">XmlUtils::GetDomFromXml()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the DOMDocument of the <var>$xml</var>.</dd>
 							<dt><b>GetOAuthHeader</b></dt>
 				<dd>in file OAuthProvider.php, method <a href="GoogleApiAdsCommon/Util/OAuthProvider.html#methodGetOAuthHeader">OAuthProvider::GetOAuthHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the value of the OAuth Authorization HTTP header for a given  endpoint URL.</dd>
+							<dt><b>GetSourceOperationIndex</b></dt>
+				<dd>in file ErrorUtils.php, method <a href="GoogleApiAdsCommon/Util/ErrorUtils.html#methodGetSourceOperationIndex">ErrorUtils::GetSourceOperationIndex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the index of the operation that was the source of an error.</dd>
+							<dt><b>GetValue</b></dt>
+				<dd>in file OgnlUtils.php, method <a href="GoogleApiAdsCommon/Util/OgnlUtils.html#methodGetValue">OgnlUtils::GetValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the value of an OGNL expression in the given context.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -341,8 +359,12 @@
 		<dl>
 							<dt><b>OAuthProvider.php</b></dt>
 				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">OAuthProvider.php</a></dd>
+							<dt><b>OgnlUtils.php</b></dt>
+				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---OgnlUtils.php.html">OgnlUtils.php</a></dd>
 							<dt><b>OAuthProvider</b></dt>
 				<dd>in file OAuthProvider.php, class <a href="GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Base class for all OAuth providers.</dd>
+							<dt><b>OgnlUtils</b></dt>
+				<dd>in file OgnlUtils.php, class <a href="GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br>&nbsp;&nbsp;&nbsp;&nbsp;A collection of utility methods for working with OGNL paths.</dd>
 					</dl>
 	</div>
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
@@ -438,7 +460,7 @@
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 17 Feb 2010 11:39:07 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Mon, 26 Apr 2010 18:01:27 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -43,11 +43,15 @@
 	subpackage <b>Util</b><br>  <div class="package">
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---AuthToken.php.html">		AuthToken.php
 		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---ErrorUtils.php.html">		ErrorUtils.php
+		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">		OAuthProvider.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OgnlUtils.php.html">		OgnlUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
 		</a><br>
@@ -65,9 +69,11 @@
 	  </div>
   <div class="package">
 	Util<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/ErrorUtils.html">ErrorUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
 	  </div>
@@ -112,6 +118,7 @@ Source Location: /Common/Lib/AdsUser.php<br /><br />
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetLogsDirectory">GetLogsDirectory</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetServiceSoapClient">GetServiceSoapClient</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetSoapCompressionLevel">GetSoapCompressionLevel</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetWsdlCacheType">GetWsdlCacheType</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodIsSoapCompressionEnabled">IsSoapCompressionEnabled</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLoadSettings">LoadSettings</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLogDefaults">LogDefaults</a></li>
@@ -144,7 +151,7 @@ Source Location: /Common/Lib/AdsUser.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 36]<br />
+[line 37]<br />
 User class for all API modules using the Ads API.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -165,7 +172,7 @@ User class for all API modules using the Ads API.<br /><br /><br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 46]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 50]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -196,7 +203,7 @@ User class for all API modules using the Ads API.<br /><br /><br /><br />
   </div>
   <hr />
 	<a name="methodGetAuthVarValue"></a>
-	<h3>method GetAuthVarValue <span class="smalllinenumber">[line 63]</span></h3>
+	<h3>method GetAuthVarValue <span class="smalllinenumber">[line 67]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -247,7 +254,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetClientLibraryIdentifier"></a>
-	<h3>method GetClientLibraryIdentifier <span class="smalllinenumber">[line 259]</span></h3>
+	<h3>method GetClientLibraryIdentifier <span class="smalllinenumber">[line 291]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -284,7 +291,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetDefaultServer"></a>
-	<h3>method GetDefaultServer <span class="smalllinenumber">[line 219]</span></h3>
+	<h3>method GetDefaultServer <span class="smalllinenumber">[line 243]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -312,7 +319,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetDefaultVersion"></a>
-	<h3>method GetDefaultVersion <span class="smalllinenumber">[line 227]</span></h3>
+	<h3>method GetDefaultVersion <span class="smalllinenumber">[line 251]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -340,7 +347,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetHeaderNames"></a>
-	<h3>method GetHeaderNames <span class="smalllinenumber">[line 80]</span></h3>
+	<h3>method GetHeaderNames <span class="smalllinenumber">[line 84]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -368,7 +375,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetHeaderValue"></a>
-	<h3>method GetHeaderValue <span class="smalllinenumber">[line 89]</span></h3>
+	<h3>method GetHeaderValue <span class="smalllinenumber">[line 93]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -407,7 +414,7 @@ $key)</code>
   </div>
   <hr />
 	<a name="methodGetLogsDirectory"></a>
-	<h3>method GetLogsDirectory <span class="smalllinenumber">[line 235]</span></h3>
+	<h3>method GetLogsDirectory <span class="smalllinenumber">[line 259]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -435,7 +442,7 @@ $key)</code>
   </div>
   <hr />
 	<a name="methodGetServiceSoapClient"></a>
-	<h3>method GetServiceSoapClient <span class="smalllinenumber">[line 118]</span></h3>
+	<h3>method GetServiceSoapClient <span class="smalllinenumber">[line 122]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -498,7 +505,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetSoapCompressionLevel"></a>
-	<h3>method GetSoapCompressionLevel <span class="smalllinenumber">[line 251]</span></h3>
+	<h3>method GetSoapCompressionLevel <span class="smalllinenumber">[line 275]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -525,8 +532,36 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodGetWsdlCacheType"></a>
+	<h3>method GetWsdlCacheType <span class="smalllinenumber">[line 283]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>int GetWsdlCacheType(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the type of WSDL caching in use.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the type of WSDL caching in use</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodIsSoapCompressionEnabled"></a>
-	<h3>method IsSoapCompressionEnabled <span class="smalllinenumber">[line 243]</span></h3>
+	<h3>method IsSoapCompressionEnabled <span class="smalllinenumber">[line 267]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -554,7 +589,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodLoadSettings"></a>
-	<h3>method LoadSettings <span class="smalllinenumber">[line 152]</span></h3>
+	<h3>method LoadSettings <span class="smalllinenumber">[line 156]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -614,7 +649,7 @@ $logsRelativePathBase)</code>
   </div>
   <hr />
 	<a name="methodLogDefaults"></a>
-	<h3>method LogDefaults <span class="smalllinenumber">[line 131]</span></h3>
+	<h3>method LogDefaults <span class="smalllinenumber">[line 135]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -639,7 +674,7 @@ $logsRelativePathBase)</code>
   </div>
   <hr />
 	<a name="methodSetHeaderValue"></a>
-	<h3>method SetHeaderValue <span class="smalllinenumber">[line 102]</span></h3>
+	<h3>method SetHeaderValue <span class="smalllinenumber">[line 106]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -684,7 +719,7 @@ $value)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 17 Feb 2010 11:39:53 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Mon, 26 Apr 2010 18:02:00 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

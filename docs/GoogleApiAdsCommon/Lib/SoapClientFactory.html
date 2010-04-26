@@ -43,11 +43,15 @@
 	subpackage <b>Util</b><br>  <div class="package">
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---AuthToken.php.html">		AuthToken.php
 		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---ErrorUtils.php.html">		ErrorUtils.php
+		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">		OAuthProvider.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OgnlUtils.php.html">		OgnlUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
 		</a><br>
@@ -65,9 +69,11 @@
 	  </div>
   <div class="package">
 	Util<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/ErrorUtils.html">ErrorUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
 	  </div>
@@ -139,7 +145,7 @@ Source Location: /Common/Lib/SoapClientFactory.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 35]<br />
+[line 36]<br />
 Base class for all SOAP client factories of Ads client libraries.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -160,7 +166,7 @@ Base class for all SOAP client factories of Ads client libraries.<br /><br /><br
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 50]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 51]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -226,7 +232,7 @@ $headerOverrides = NULL])</code>
   </div>
   <hr />
 	<a name="methodDoRequireOnce"></a>
-	<h3>method DoRequireOnce <span class="smalllinenumber">[line 66]</span></h3>
+	<h3>method DoRequireOnce <span class="smalllinenumber">[line 67]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -277,7 +283,7 @@ $serviceGroup = NULL])</code>
   </div>
   <hr />
 	<a name="methodGenerateServiceClient"></a>
-	<h3>method GenerateServiceClient <span class="smalllinenumber">[line 104]</span></h3>
+	<h3>method GenerateServiceClient <span class="smalllinenumber">[line 105]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -328,7 +334,7 @@ $serviceGroupo)</code>
   </div>
   <hr />
 	<a name="methodGenerateSoapClient"></a>
-	<h3>method GenerateSoapClient <span class="smalllinenumber">[line 81]</span></h3>
+	<h3>method GenerateSoapClient <span class="smalllinenumber">[line 82]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -385,7 +391,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetAdsUser"></a>
-	<h3>method GetAdsUser <span class="smalllinenumber">[line 158]</span></h3>
+	<h3>method GetAdsUser <span class="smalllinenumber">[line 177]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -413,7 +419,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetProductName"></a>
-	<h3>method GetProductName <span class="smalllinenumber">[line 182]</span></h3>
+	<h3>method GetProductName <span class="smalllinenumber">[line 201]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -441,7 +447,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetServer"></a>
-	<h3>method GetServer <span class="smalllinenumber">[line 174]</span></h3>
+	<h3>method GetServer <span class="smalllinenumber">[line 193]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -469,7 +475,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetServiceLocation"></a>
-	<h3>method GetServiceLocation <span class="smalllinenumber">[line 148]</span></h3>
+	<h3>method GetServiceLocation <span class="smalllinenumber">[line 167]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -514,7 +520,7 @@ $serviceGroup = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetVersion"></a>
-	<h3>method GetVersion <span class="smalllinenumber">[line 166]</span></h3>
+	<h3>method GetVersion <span class="smalllinenumber">[line 185]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -545,7 +551,7 @@ $serviceGroup = NULL])</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 17 Feb 2010 11:40:19 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Mon, 26 Apr 2010 18:02:28 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

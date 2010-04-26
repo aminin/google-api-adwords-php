@@ -43,11 +43,15 @@
 	subpackage <b>Util</b><br>  <div class="package">
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---AuthToken.php.html">		AuthToken.php
 		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---ErrorUtils.php.html">		ErrorUtils.php
+		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">		OAuthProvider.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OgnlUtils.php.html">		OgnlUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
 		</a><br>
@@ -65,9 +69,11 @@
 	  </div>
   <div class="package">
 	Util<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/ErrorUtils.html">ErrorUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
 	  </div>
@@ -134,7 +140,7 @@ Source Location: /Common/Util/Logger.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 42]<br />
+[line 43]<br />
 A logger class which registers appenders (any writable handle location  which can be fopen'ed) with a unique name for that log. The library will  write all incoming/outgoing SOAP XML to <var>SOAP_XML_LOG</var> and  all records of requests to <var>REQUEST_INFO_LOG</var>.<br /><br /><p>Currently, levels are only used as indicators (there is no filtering  mechanism as of yet).</p><p>A list of supported appenders (file handles) can be found here:  <a href="http://us2.php.net/manual/en/wrappers.php">http://us2.php.net/manual/en/wrappers.php</a></p><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -145,7 +151,7 @@ A logger class which registers appenders (any writable handle location  which ca
 	<a name="var$DEBUG"></a>
 	<p></p>
 	<h4>static $DEBUG = <span class="value">&nbsp;'DEBUG'</span></h4>
-	<p>[line 79]</p>
+	<p>[line 80]</p>
   DEBUG level.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -172,7 +178,7 @@ A logger class which registers appenders (any writable handle location  which ca
 	<a name="var$ERROR"></a>
 	<p></p>
 	<h4>static $ERROR = <span class="value">&nbsp;'ERROR'</span></h4>
-	<p>[line 85]</p>
+	<p>[line 86]</p>
   ERROR level.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -199,7 +205,7 @@ A logger class which registers appenders (any writable handle location  which ca
 	<a name="var$FATAL"></a>
 	<p></p>
 	<h4>static $FATAL = <span class="value">&nbsp;'FATAL'</span></h4>
-	<p>[line 91]</p>
+	<p>[line 92]</p>
   FATAL level.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -226,7 +232,7 @@ A logger class which registers appenders (any writable handle location  which ca
 	<a name="var$INFO"></a>
 	<p></p>
 	<h4>static $INFO = <span class="value">&nbsp;'INFO'</span></h4>
-	<p>[line 73]</p>
+	<p>[line 74]</p>
   INFO level.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -253,7 +259,7 @@ A logger class which registers appenders (any writable handle location  which ca
 	<a name="var$REQUEST_INFO_LOG"></a>
 	<p></p>
 	<h4>static $REQUEST_INFO_LOG = <span class="value">&nbsp;'request_info'</span></h4>
-	<p>[line 53]</p>
+	<p>[line 54]</p>
   Logs all information about requests.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -280,7 +286,7 @@ A logger class which registers appenders (any writable handle location  which ca
 	<a name="var$SOAP_XML_LOG"></a>
 	<p></p>
 	<h4>static $SOAP_XML_LOG = <span class="value">&nbsp;'soap_xml'</span></h4>
-	<p>[line 47]</p>
+	<p>[line 48]</p>
   Logs all incomming and outgoing SOAP XML.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -307,7 +313,7 @@ A logger class which registers appenders (any writable handle location  which ca
 	<a name="var$STD_ERR_STREAM"></a>
 	<p></p>
 	<h4>static $STD_ERR_STREAM = <span class="value">&nbsp;'php://stderr'</span></h4>
-	<p>[line 67]</p>
+	<p>[line 68]</p>
   Standard error stream for use with the LogToStream method.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -337,7 +343,7 @@ A logger class which registers appenders (any writable handle location  which ca
 	<a name="var$STD_OUT_STREAM"></a>
 	<p></p>
 	<h4>static $STD_OUT_STREAM = <span class="value">&nbsp;'php://stdout'</span></h4>
-	<p>[line 60]</p>
+	<p>[line 61]</p>
   Standard out stream for use with the LogToStream method.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -372,7 +378,7 @@ A logger class which registers appenders (any writable handle location  which ca
 <div class="tags">
   <hr />
 	<a name="methodLog"></a>
-	<h3>static method Log <span class="smalllinenumber">[line 154]</span></h3>
+	<h3>static method Log <span class="smalllinenumber">[line 155]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -420,7 +426,7 @@ $level = NULL])</code>
   </div>
   <hr />
 	<a name="methodLogToFile"></a>
-	<h3>static method LogToFile <span class="smalllinenumber">[line 107]</span></h3>
+	<h3>static method LogToFile <span class="smalllinenumber">[line 108]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -462,7 +468,7 @@ $filePath)</code>
   </div>
   <hr />
 	<a name="methodLogToStream"></a>
-	<h3>static method LogToStream <span class="smalllinenumber">[line 124]</span></h3>
+	<h3>static method LogToStream <span class="smalllinenumber">[line 125]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -514,7 +520,7 @@ $phpIoStream)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 17 Feb 2010 11:40:19 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Mon, 26 Apr 2010 18:02:28 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

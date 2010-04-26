@@ -837,19 +837,19 @@ Source Location: /AdWords/v200909/o/TargetingIdeaService.php<br /><br />
 <h4>Class: SoapClient (Internal Class)</h4>
 <dl>
     <dt>
-    constructor SoapClient (  )
+    constructor SoapClient ( $wsdl, [$options = ] )
   </dt>
   <dd>
     
   </dd>
     <dt>
-    __call ( $ )
+    __call ( $function_name, $arguments )
   </dt>
   <dd>
     
   </dd>
     <dt>
-    __doRequest (  )
+    __doRequest ( $request, $location, $action, $version, [$one_way = ] )
   </dt>
   <dd>
     
@@ -891,19 +891,19 @@ Source Location: /AdWords/v200909/o/TargetingIdeaService.php<br /><br />
     
   </dd>
     <dt>
-    __setCookie (  )
+    __setCookie ( $name, [$value = ] )
   </dt>
   <dd>
     
   </dd>
     <dt>
-    __setLocation (  )
+    __setLocation ( [$new_location = ] )
   </dt>
   <dd>
     
   </dd>
     <dt>
-    __setSoapHeaders (  )
+    __setSoapHeaders ( $soapheaders )
   </dt>
   <dd>
     
@@ -924,7 +924,7 @@ Source Location: /AdWords/v200909/o/TargetingIdeaService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 6174]<br />
+[line 6316]<br />
 TargetingIdeaService<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1001,11 +1001,13 @@ TargetingIdeaService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;QuotaExceededError&quot;&nbsp;=&gt;&nbsp;&quot;QuotaExceededError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;RangeError&quot;&nbsp;=&gt;&nbsp;&quot;RangeError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;ReadOnlyError&quot;&nbsp;=&gt;&nbsp;&quot;ReadOnlyError&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;RegionCodeError&quot;&nbsp;=&gt;&nbsp;&quot;RegionCodeError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;RequiredError&quot;&nbsp;=&gt;&nbsp;&quot;RequiredError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;SizeLimitError&quot;&nbsp;=&gt;&nbsp;&quot;SizeLimitError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;SoapResponseHeader&quot;&nbsp;=&gt;&nbsp;&quot;SoapResponseHeader&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;StatsQueryError&quot;&nbsp;=&gt;&nbsp;&quot;StatsQueryError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;StringLengthError&quot;&nbsp;=&gt;&nbsp;&quot;StringLengthError&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;TargetError&quot;&nbsp;=&gt;&nbsp;&quot;TargetError&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;ApiException&quot;&nbsp;=&gt;&nbsp;&quot;ApiException&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;ApplicationException&quot;&nbsp;=&gt;&nbsp;&quot;ApplicationException&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AdGroupCriterionError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;AdGroupCriterionErrorReason&quot;,<br>
@@ -1036,10 +1038,12 @@ TargetingIdeaService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;QuotaExceededError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;QuotaExceededErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;RangeError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;RangeErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;ReadOnlyError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;ReadOnlyErrorReason&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;RegionCodeError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;RegionCodeErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;RequiredError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;RequiredErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;SizeLimitError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;SizeLimitErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;StatsQueryError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;StatsQueryErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;StringLengthError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;StringLengthErrorReason&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;TargetError.Reason&quot;&nbsp;=&gt;&nbsp;&quot;TargetErrorReason&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AdFormatSpec&quot;&nbsp;=&gt;&nbsp;&quot;AdFormatSpec&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;AdFormatSpecListAttribute&quot;&nbsp;=&gt;&nbsp;&quot;AdFormatSpecListAttribute&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;Attribute&quot;&nbsp;=&gt;&nbsp;&quot;Attribute&quot;,<br>
@@ -1098,7 +1102,7 @@ TargetingIdeaService<br /><br /><br /><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;getBulkKeywordIdeas&quot;&nbsp;=&gt;&nbsp;&quot;getBulkKeywordIdeas&quot;,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&quot;getBulkKeywordIdeasResponse&quot;&nbsp;=&gt;&nbsp;&quot;getBulkKeywordIdeasResponse&quot;,<br>
 &nbsp;&nbsp;)</span></h4>
-	<p>[line 6180]</p>
+	<p>[line 6322]</p>
   Default class map for wsdl=&gt;php<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1128,7 +1132,7 @@ TargetingIdeaService<br /><br /><br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 6341]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 6487]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1176,7 +1180,7 @@ $user)</code>
   </div>
   <hr />
 	<a name="methodget"></a>
-	<h3>method get <span class="smalllinenumber">[line 6363]</span></h3>
+	<h3>method get <span class="smalllinenumber">[line 6509]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1218,7 +1222,7 @@ $selector)</code>
   </div>
   <hr />
 	<a name="methodgetBulkKeywordIdeas"></a>
-	<h3>method getBulkKeywordIdeas <span class="smalllinenumber">[line 6400]</span></h3>
+	<h3>method getBulkKeywordIdeas <span class="smalllinenumber">[line 6546]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1265,7 +1269,7 @@ $selector)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 17 Feb 2010 11:40:27 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Mon, 26 Apr 2010 18:02:35 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

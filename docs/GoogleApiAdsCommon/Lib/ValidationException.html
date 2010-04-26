@@ -43,11 +43,15 @@
 	subpackage <b>Util</b><br>  <div class="package">
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---AuthToken.php.html">		AuthToken.php
 		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---ErrorUtils.php.html">		ErrorUtils.php
+		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">		OAuthProvider.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OgnlUtils.php.html">		OgnlUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
 		</a><br>
@@ -65,9 +69,11 @@
 	  </div>
   <div class="package">
 	Util<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/ErrorUtils.html">ErrorUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
 	  </div>
@@ -143,6 +149,12 @@ Source Location: /Common/Lib/ValidationException.php<br /><br />
    
 </dd>
 <dt>
+  $previous
+  </dt>
+<dd>
+   
+</dd>
+<dt>
   $string
   </dt>
 <dd>
@@ -164,7 +176,7 @@ Source Location: /Common/Lib/ValidationException.php<br /><br />
 <h4>Class: Exception (Internal Class)</h4>
 <dl>
     <dt>
-    constructor __construct ( [$message = ], [$code = ] )
+    constructor __construct ( [$message = ], [$code = ], [$previous = ] )
   </dt>
   <dd>
     
@@ -189,6 +201,12 @@ Source Location: /Common/Lib/ValidationException.php<br /><br />
   </dd>
     <dt>
     getMessage (  )
+  </dt>
+  <dd>
+    
+  </dd>
+    <dt>
+    getPrevious (  )
   </dt>
   <dd>
     
@@ -227,7 +245,7 @@ Source Location: /Common/Lib/ValidationException.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 32]<br />
+[line 33]<br />
 Exception class for any client library validation error.<br /><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -239,7 +257,7 @@ Exception class for any client library validation error.<br /><br /></div><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 40]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 41]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -262,7 +280,7 @@ $message)</code>
 </div>
 <br /><br />
 
-	Overrides Exception::constructor __construct ( [$message = ], [$code = ] ) (parent method not documented)<br /><br />
+	Overrides Exception::constructor __construct ( [$message = ], [$code = ], [$previous = ] ) (parent method not documented)<br /><br />
         <h4>Parameters:</h4>
     <div class="tags">
     <table border="0" cellspacing="0" cellpadding="0">
@@ -290,7 +308,7 @@ $message)</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 17 Feb 2010 11:40:28 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Mon, 26 Apr 2010 18:02:36 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
