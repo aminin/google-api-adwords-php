@@ -39,6 +39,7 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+require_once 'Google/Api/Ads/Common/Util/ErrorUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -85,11 +86,11 @@ try {
   try {
     // Check that the campaign is eligible for conversion optimization.
     $result = $campaignValidationService->mutate($operations);
-
     print 'Campaign with id "' . $campaign->id
         . "\" is eligible to use conversion optimizer.\n";
   } catch (SoapFault $fault) {
-    foreach ($fault->detail->ApiExceptionFault->errors as $error) {
+    $errors = ErrorUtils::GetApiErrors($fault);
+    foreach ($errors as $error) {
       if ($error instanceof BiddingTransitionError) {
         print 'Campaign with id "' . $campaign->id
             . '" is not eligible to use conversion optimizer for reason "'
