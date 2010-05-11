@@ -30,7 +30,6 @@ error_reporting(E_STRICT | E_ALL);
 
 require_once 'PHPUnit/Framework.php';
 require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/Common/Util/ErrorUtils.php';
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v200909/cm/CampaignService.php';
 
 /**
  * Unit tests for ErrorUtils.
@@ -57,17 +56,17 @@ class ErrorUtilsTest extends PHPUnit_Framework_TestCase {
    */
   public function SoapFaultProvider() {
     $data = array();
-    $error = new AuthenticationError('AUTHENTICATION_FAILED');
+    $error = (object) array();
 
     // No SoapVar.
-    $exception = new ApiException(array($error));
+    $exception = (object) array('errors' => array($error));
     $details = (object) array('ApiExceptionFault' => $exception);
     $fault = new SoapFault('soap:Server', NULL, NULL, $details);
     $data[] = array($fault, array($error));
 
     // With SoapVar.
     $soapVar = new SoapVar($error, SOAP_ENC_OBJECT);
-    $exception = new ApiException(array($soapVar));
+    $exception = (object) array('errors' => array($soapVar));
     $details = (object) array('ApiExceptionFault' => $exception);
     $fault = new SoapFault('soap:Server', NULL, NULL, $details);
     $data[] = array($fault, array($error));
@@ -101,33 +100,27 @@ class ErrorUtilsTest extends PHPUnit_Framework_TestCase {
 
     // Valid data sets.
     // First operation.
-    $error = new RequiredError();
-    $error->fieldPath = 'operations[0].operand';
+    $error = (object) array('fieldPath' => 'operations[0].operand');
     $data[] = array($error, 0);
     // Two digit index.
-    $error = new RequiredError();
-    $error->fieldPath = 'operations[10].operand';
+    $error = (object) array('fieldPath' => 'operations[10].operand');
     $data[] = array($error, 10);
 
     // Invalid data sets.
     // NULL field path.
-    $error = new RequiredError();
+    $error = (object) array('fieldPath' => NULL);
     $data[] = array($error, NULL);
     // Empty field path.
-    $error = new RequiredError();
-    $error->fieldPath = '';
+    $error = (object) array('fieldPath' => '');
     $data[] = array($error, NULL);
     // Field path that doesn't reference an operation.
-    $error = new RequiredError();
-    $error->fieldPath = 'foo';
+    $error = (object) array('fieldPath' => 'foo');
     $data[] = array($error, NULL);
     // Negative index.
-    $error = new RequiredError();
-    $error->fieldPath = 'operations[-1]';
+    $error = (object) array('fieldPath' => 'operations[-1]');
     $data[] = array($error, NULL);
     // Non-numeric index.
-    $error = new RequiredError();
-    $error->fieldPath = 'operations[foo]';
+    $error = (object) array('fieldPath' => 'operations[foo]');
     $data[] = array($error, NULL);
 
     return $data;

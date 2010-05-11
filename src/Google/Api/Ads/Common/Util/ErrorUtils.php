@@ -68,11 +68,11 @@ class ErrorUtils {
 
   /**
    * Gets the index of the operation that was the source of an error.
-   * @param ApiError $error the error returned in the response
+   * @param mixed $error the error returned in the response
    * @return int the index of the operation that caused the error, or NULL if
    *     no operation was referenced by the error
    */
-  public static function GetSourceOperationIndex(ApiError $error) {
+  public static function GetSourceOperationIndex($error) {
     $matches = array();
     if (preg_match(ErrorUtils::$OPERATION_INDEX_OGNL_REGEX, $error->fieldPath,
         $matches)) {
