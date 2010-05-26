@@ -42,6 +42,7 @@ abstract class AdsUser {
   private $soapCompression;
   private $soapCompressionLevel;
   private $wsdlCache;
+  private $authServer;
 
   /**
    * Constructor for AdsUser.
@@ -233,6 +234,13 @@ abstract class AdsUser {
           define('HTTP_PROXY_PASSWORD', $settingsIni['PROXY']['PASSWORD']);
         }
       }
+
+      // Auth settings.
+      if (array_key_exists('AUTH', $settingsIni)) {
+        if (array_key_exists('AUTH_SERVER', $settingsIni['AUTH'])) {
+          $this->authServer = $settingsIni['AUTH']['AUTH_SERVER'];
+        }
+      }
     }
   }
 
@@ -282,6 +290,14 @@ abstract class AdsUser {
    */
   public function GetWsdlCacheType() {
     return $this->wsdlCache;
+  }
+
+  /**
+   * Gets the server used for authentication.
+   * @return string the server used for authentiation
+   */
+  public function GetAuthServer() {
+    return $this->authServer;
   }
 
   /**
