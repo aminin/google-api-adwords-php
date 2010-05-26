@@ -35,6 +35,10 @@
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---AdsUser.php.html">		AdsUser.php
 		</a><br>
+			<a href="../../GoogleApiAdsCommon/Lib/_Common---Util---AuthTokenException.php.html">		AuthTokenException.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Lib/_AdWords---Util---ReportDownloadException.php.html">		ReportDownloadException.php
+		</a><br>
 			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---SoapClientFactory.php.html">		SoapClientFactory.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---ValidationException.php.html">		ValidationException.php
@@ -46,6 +50,8 @@
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---ErrorUtils.php.html">		ErrorUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
+		</a><br>
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MapUtils.php.html">		MapUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
@@ -64,6 +70,8 @@
         <div class="package">
 	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/AuthTokenException.html">AuthTokenException</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/ReportDownloadException.html">ReportDownloadException</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/ValidationException.html">ValidationException</a><br />
 	  </div>
@@ -71,6 +79,7 @@
 	Util<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/ErrorUtils.html">ErrorUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MapUtils.html">MapUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br />
@@ -107,6 +116,7 @@ Source Location: /Common/Util/AuthToken.php<br /><br />
 <ul>
     <li><a href="../../GoogleApiAdsCommon/Util/AuthToken.html#method__construct">__construct</a></li>
     <li><a href="../../GoogleApiAdsCommon/Util/AuthToken.html#methodGetAuthToken">GetAuthToken</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Util/AuthToken.html#methodGetServer">GetServer</a></li>
   </ul>
 </td>
 
@@ -126,7 +136,7 @@ Source Location: /Common/Util/AuthToken.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 37]<br />
+[line 38]<br />
 Client used to retrieve an authentication token for the supplied credentials  with the client login API.<br /><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -138,18 +148,20 @@ Client used to retrieve an authentication token for the supplied credentials  wi
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 56]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 60]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
 		<code>AuthToken __construct(
 string
 $email, string
-$passwd, string
+$password, string
 $service, string
 $source, [string
 $accountType = 'GOOGLE'], [string
-$server = NULL])</code>
+$server = NULL], [string
+$captchaToken = NULL], [string
+$captchaResponse = NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -166,7 +178,7 @@ $server = NULL])</code>
       </tr>
           <tr>
         <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$passwd</b>&nbsp;&nbsp;</td>
+        <td><b>$password</b>&nbsp;&nbsp;</td>
         <td>the password of the user</td>
       </tr>
           <tr>
@@ -189,13 +201,23 @@ $server = NULL])</code>
         <td><b>$server</b>&nbsp;&nbsp;</td>
         <td>the server to make the request to. Defaults to      https://www.google.com</td>
       </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$captchaToken</b>&nbsp;&nbsp;</td>
+        <td>captchaToken the token return with a CAPTCHA challenge</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$captchaResponse</b>&nbsp;&nbsp;</td>
+        <td>captchaResponse the response to a CAPTCHA challenge</td>
+      </tr>
         </table>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
 	<a name="methodGetAuthToken"></a>
-	<h3>method GetAuthToken <span class="smalllinenumber">[line 89]</span></h3>
+	<h3>method GetAuthToken <span class="smalllinenumber">[line 78]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -212,6 +234,37 @@ $server = NULL])</code>
     <td><b>return:</b>&nbsp;&nbsp;</td><td>the auth token</td>
   </tr>
   <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>AuthTokenException if an error occurs during authentication</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodGetServer"></a>
+	<h3>method GetServer <span class="smalllinenumber">[line 166]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string GetServer(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the server to make requests to.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the server to make requests to</td>
+  </tr>
+  <tr>
     <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
@@ -226,7 +279,7 @@ $server = NULL])</code>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 26 Apr 2010 18:02:02 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Wed, 26 May 2010 16:15:19 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>

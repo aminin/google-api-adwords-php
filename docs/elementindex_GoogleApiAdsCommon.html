@@ -35,6 +35,10 @@
 		</a><br>
 			<a href="GoogleApiAdsCommon/Lib/_Common---Lib---AdsUser.php.html">		AdsUser.php
 		</a><br>
+			<a href="GoogleApiAdsCommon/Lib/_Common---Util---AuthTokenException.php.html">		AuthTokenException.php
+		</a><br>
+			<a href="GoogleApiAdsCommon/Lib/_AdWords---Util---ReportDownloadException.php.html">		ReportDownloadException.php
+		</a><br>
 			<a href="GoogleApiAdsCommon/Lib/_Common---Lib---SoapClientFactory.php.html">		SoapClientFactory.php
 		</a><br>
 			<a href="GoogleApiAdsCommon/Lib/_Common---Lib---ValidationException.php.html">		ValidationException.php
@@ -46,6 +50,8 @@
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---ErrorUtils.php.html">		ErrorUtils.php
 		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
+		</a><br>
+			<a href="GoogleApiAdsCommon/Util/_Common---Util---MapUtils.php.html">		MapUtils.php
 		</a><br>
 			<a href="GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
@@ -64,6 +70,8 @@
         <div class="package">
 	Lib<br />	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a><br />
+	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/AuthTokenException.html">AuthTokenException</a><br />
+	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/ReportDownloadException.html">ReportDownloadException</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Lib/ValidationException.html">ValidationException</a><br />
 	  </div>
@@ -71,6 +79,7 @@
 	Util<br />	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/ErrorUtils.html">ErrorUtils</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
+	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/MapUtils.html">MapUtils</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
 	    &nbsp;&nbsp;		<a href="GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br />
@@ -108,13 +117,17 @@
 		<h2>_</h2>
 		<dl>
 							<dt><b>__construct</b></dt>
+				<dd>in file ReportDownloadException.php, method <a href="GoogleApiAdsCommon/Lib/ReportDownloadException.html#method__construct">ReportDownloadException::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for ReportDownloadException.</dd>
+							<dt><b>__construct</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#method__construct">SoapClientFactory::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The constructor called by any sub-class.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file ValidationException.php, method <a href="GoogleApiAdsCommon/Lib/ValidationException.html#method__construct">ValidationException::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for ValidationException where the exception will appear  as &quot;Validation failed for [$trigger] with value [$value]: $message&quot;.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file AuthTokenException.php, method <a href="GoogleApiAdsCommon/Lib/AuthTokenException.html#method__construct">AuthTokenException::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for AuthTokenException.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#method__construct">AdsUser::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for AdsUser.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__construct">AdsSoapClient::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The constructor intended to be called by all sub-classes.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file ValidationException.php, method <a href="GoogleApiAdsCommon/Lib/ValidationException.html#method__construct">ValidationException::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor for ValidationException where the exception will appear  as &quot;Validation failed for [$trigger] with value [$value]: $message&quot;.</dd>
 							<dt><b>__doRequest</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__doRequest">AdsSoapClient::__doRequest()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Overrides the method SoapClient.__doRequest() to  perform a clean up of the request XML before marshalling.</dd>
 							<dt><b>__soapCall</b></dt>
@@ -135,10 +148,14 @@
 				<dd>in file AdsSoapClient.php, class <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a><br>&nbsp;&nbsp;&nbsp;&nbsp;An extension of the SoapClient class intended to prepare  the XML before making a request as well as perform any book-keeping on  the response.</dd>
 							<dt><b>AdsUser</b></dt>
 				<dd>in file AdsUser.php, class <a href="GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a><br>&nbsp;&nbsp;&nbsp;&nbsp;User class for all API modules using the Ads API.</dd>
+							<dt><b>AuthTokenException</b></dt>
+				<dd>in file AuthTokenException.php, class <a href="GoogleApiAdsCommon/Lib/AuthTokenException.html">AuthTokenException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Exception class for any AuthToken (ClientLogin) error.</dd>
 							<dt><b>AdsSoapClient.php</b></dt>
 				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_Common---Lib---AdsSoapClient.php.html">AdsSoapClient.php</a></dd>
 							<dt><b>AdsUser.php</b></dt>
 				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_Common---Lib---AdsUser.php.html">AdsUser.php</a></dd>
+							<dt><b>AuthTokenException.php</b></dt>
+				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_Common---Util---AuthTokenException.php.html">AuthTokenException.php</a></dd>
 							<dt><b>$ACCESS_TOKEN_ENDPOINT</b></dt>
 				<dd>in file OAuthProvider.php, variable <a href="GoogleApiAdsCommon/Util/OAuthProvider.html#var$ACCESS_TOKEN_ENDPOINT">OAuthProvider::$ACCESS_TOKEN_ENDPOINT</a></dd>
 							<dt><b>$AUTHORIZE_TOKEN_ENDPOINT</b></dt>
@@ -215,8 +232,14 @@
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetAdsUser">SoapClientFactory::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user associated with this factory.</dd>
 							<dt><b>GetAdsUser</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the user for this client.</dd>
+							<dt><b>GetAuthServer</b></dt>
+				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthServer">AdsUser::GetAuthServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server used for authentication.</dd>
 							<dt><b>GetAuthVarValue</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthVarValue">AdsUser::GetAuthVarValue()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the authenticaiton value for the <var>$authVar</var> supplied. If  the <var>$authVar</var> is set, it is is used. Otherwirse, the supplied  <var>$authenticationIni</var> is queired for the variable. If none is found  <var>NULL</var> is returned.</dd>
+							<dt><b>GetCaptchaToken</b></dt>
+				<dd>in file AuthTokenException.php, method <a href="GoogleApiAdsCommon/Lib/AuthTokenException.html#methodGetCaptchaToken">AuthTokenException::GetCaptchaToken()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the CATPCHA token for the error.</dd>
+							<dt><b>GetCaptchaUrl</b></dt>
+				<dd>in file AuthTokenException.php, method <a href="GoogleApiAdsCommon/Lib/AuthTokenException.html#methodGetCaptchaUrl">AuthTokenException::GetCaptchaUrl()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the CAPTCHA URL for the error.</dd>
 							<dt><b>GetClientLibraryIdentifier</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryIdentifier">AdsUser::GetClientLibraryIdentifier()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the client library identifier used for user-agent fields.</dd>
 							<dt><b>GetDefaultServer</b></dt>
@@ -225,6 +248,8 @@
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultVersion">AdsUser::GetDefaultVersion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the default version.</dd>
 							<dt><b>GetEmail</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetEmail">AdsSoapClient::GetEmail()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the email of the user making the request.</dd>
+							<dt><b>GetError</b></dt>
+				<dd>in file AuthTokenException.php, method <a href="GoogleApiAdsCommon/Lib/AuthTokenException.html#methodGetError">AuthTokenException::GetError()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the error that caused the exception.</dd>
 							<dt><b>GetHeaderNames</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderNames">AdsUser::GetHeaderNames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the names of all registered request header elements.</dd>
 							<dt><b>GetHeaderNames</b></dt>
@@ -250,9 +275,9 @@
 							<dt><b>GetProductName</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetProductName">SoapClientFactory::GetProductName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the product name associated with this factory.</dd>
 							<dt><b>GetServer</b></dt>
-				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server that the request was made to.</dd>
-							<dt><b>GetServer</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServer">SoapClientFactory::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server associated with this factory.</dd>
+							<dt><b>GetServer</b></dt>
+				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the server that the request was made to.</dd>
 							<dt><b>GetServiceLocation</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServiceLocation">SoapClientFactory::GetServiceLocation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the end-point location of the service.</dd>
 							<dt><b>GetServiceName</b></dt>
@@ -261,6 +286,8 @@
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetServiceSoapClient">AdsUser::GetServiceSoapClient()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the service by its service name.</dd>
 							<dt><b>GetSoapCompressionLevel</b></dt>
 				<dd>in file AdsUser.php, method <a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetSoapCompressionLevel">AdsUser::GetSoapCompressionLevel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the SOAP compression level.</dd>
+							<dt><b>GetUrl</b></dt>
+				<dd>in file AuthTokenException.php, method <a href="GoogleApiAdsCommon/Lib/AuthTokenException.html#methodGetUrl">AuthTokenException::GetUrl()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the URL associated with the error.</dd>
 							<dt><b>GetVersion</b></dt>
 				<dd>in file SoapClientFactory.php, method <a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetVersion">SoapClientFactory::GetVersion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the version associated with this factory.</dd>
 							<dt><b>GetWsdlCacheType</b></dt>
@@ -273,8 +300,14 @@
 				<dd>in file MediaUtils.php, method <a href="GoogleApiAdsCommon/Util/MediaUtils.html#methodGetBase64Data">MediaUtils::GetBase64Data()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the base64 encoded data from an asset located at <var>path</var> for  use with the API where &lt;x&gt;Data is needed.</dd>
 							<dt><b>GetDomFromXml</b></dt>
 				<dd>in file XmlUtils.php, method <a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodGetDomFromXml">XmlUtils::GetDomFromXml()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the DOMDocument of the <var>$xml</var>.</dd>
+							<dt><b>GetMap</b></dt>
+				<dd>in file MapUtils.php, method <a href="GoogleApiAdsCommon/Util/MapUtils.html#methodGetMap">MapUtils::GetMap()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets a map (associative array) from an array of map entries. A map entry  is any object that has a key and value field.</dd>
+							<dt><b>GetMapEntries</b></dt>
+				<dd>in file MapUtils.php, method <a href="GoogleApiAdsCommon/Util/MapUtils.html#methodGetMapEntries">MapUtils::GetMapEntries()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets an array of map entries from a map (associative array). A map entry  is any object that has a key and value field. An optional map entry class  name can be specified for constructing the entries, otherise the stdClass  is used.</dd>
 							<dt><b>GetOAuthHeader</b></dt>
 				<dd>in file OAuthProvider.php, method <a href="GoogleApiAdsCommon/Util/OAuthProvider.html#methodGetOAuthHeader">OAuthProvider::GetOAuthHeader()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the value of the OAuth Authorization HTTP header for a given  endpoint URL.</dd>
+							<dt><b>GetServer</b></dt>
+				<dd>in file AuthToken.php, method <a href="GoogleApiAdsCommon/Util/AuthToken.html#methodGetServer">AuthToken::GetServer()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the server to make requests to.</dd>
 							<dt><b>GetSourceOperationIndex</b></dt>
 				<dd>in file ErrorUtils.php, method <a href="GoogleApiAdsCommon/Util/ErrorUtils.html#methodGetSourceOperationIndex">ErrorUtils::GetSourceOperationIndex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the index of the operation that was the source of an error.</dd>
 							<dt><b>GetValue</b></dt>
@@ -345,8 +378,12 @@
 	<div>
 		<h2>m</h2>
 		<dl>
+							<dt><b>MapUtils.php</b></dt>
+				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---MapUtils.php.html">MapUtils.php</a></dd>
 							<dt><b>MediaUtils.php</b></dt>
 				<dd>procedural page <a href="GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">MediaUtils.php</a></dd>
+							<dt><b>MapUtils</b></dt>
+				<dd>in file MapUtils.php, class <a href="GoogleApiAdsCommon/Util/MapUtils.html">MapUtils</a><br>&nbsp;&nbsp;&nbsp;&nbsp;A collection of utility methods for working with maps (associative arrays).</dd>
 							<dt><b>MediaUtils</b></dt>
 				<dd>in file MediaUtils.php, class <a href="GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br>&nbsp;&nbsp;&nbsp;&nbsp;A utility class to handle data of media assets (such as image, SWF,  or video files).</dd>
 					</dl>
@@ -385,8 +422,12 @@
 	<div>
 		<h2>r</h2>
 		<dl>
+							<dt><b>ReportDownloadException.php</b></dt>
+				<dd>procedural page <a href="GoogleApiAdsCommon/Lib/_AdWords---Util---ReportDownloadException.php.html">ReportDownloadException.php</a></dd>
 							<dt><b>RemoveSensitiveInfo</b></dt>
 				<dd>in file AdsSoapClient.php, method <a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes any sensitive information from the request XML. This method is  called after the request has been made and before logging any XML.</dd>
+							<dt><b>ReportDownloadException</b></dt>
+				<dd>in file ReportDownloadException.php, class <a href="GoogleApiAdsCommon/Lib/ReportDownloadException.html">ReportDownloadException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Exception class for an error that occurs while downloading a report.</dd>
 							<dt><b>$REQUEST_INFO_LOG</b></dt>
 				<dd>in file Logger.php, variable <a href="GoogleApiAdsCommon/Util/Logger.html#var$REQUEST_INFO_LOG">Logger::$REQUEST_INFO_LOG</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Logs all information about requests.</dd>
 							<dt><b>$REQUEST_TOKEN_ENDPOINT</b></dt>
@@ -460,7 +501,7 @@
 	<a href="elementindex_GoogleApiAdsCommon.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Mon, 26 Apr 2010 18:01:27 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Wed, 26 May 2010 16:14:31 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
