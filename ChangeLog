@@ -1,3 +1,13 @@
+2.2.0
+- Added support for v201003, with examples and tests.
+- Removed API dependency from ErrorUtils.
+- Added MapUtils for converting between maps and map entry arrays.
+- Updated TargetingIdeaService examples to use MapUtils.
+- Updated AddAds examples to include video template ad.
+- Added ReportUtils for downloading reports.
+- Improved error handling for AuthToken requests.
+- Added proxy support to wsdl2php library.
+
 2.1.0:
 - Corrected typo in settings file.
 - Addition to README, unicode characters and escaping.

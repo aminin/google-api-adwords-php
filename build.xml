@@ -8,12 +8,18 @@
   <property name="author" value="Eric Koleda &lt;api.ekoleda@gmail.com&gt;"/>
 
   <property name="api.version.v200909" value="v200909"/>
-  <property name="api.version.v200909.account.services" value="AccountService"/>
   <property name="api.version.v200909.cm.services"
       value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,GeoLocationService"/>
   <property name="api.version.v200909.info.services" value="InfoService"/>
   <property name="api.version.v200909.job.services" value="BulkMutateJobService"/>
   <property name="api.version.v200909.o.services" value="TargetingIdeaService"/>
+
+  <property name="api.version.v201003" value="v201003"/>
+  <property name="api.version.v201003.cm.services"
+      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,BidLandscapeService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,GeoLocationService,MediaService,ReportDefinitionService"/>
+  <property name="api.version.v201003.info.services" value="InfoService"/>
+  <property name="api.version.v201003.job.services" value="BulkMutateJobService"/>
+  <property name="api.version.v201003.o.services" value="TargetingIdeaService"/>
 
   <property name="src.dir" value="${project.basedir}/src"/>
   <property name="examples.dir" value="${project.basedir}/examples"/>
@@ -26,6 +32,9 @@
   <property name="docs.dir" value="${project.basedir}/docs"/>
 
   <taskdef name="wsdl2php" classname="build_lib.Wsdl2PhpTask" />
+  <!-- Optionally specify a proxy to use when processing the WSDLs in the
+      format tcp://host:port. -->
+  <property name="wsdl2php.proxy" value=""/>
 
   <!-- =================================================================== -->
   <!-- Initialization target                                               -->
@@ -80,12 +89,14 @@
   <!-- Target: generate a service for a version                            -->
   <!-- =================================================================== -->
   <target name="generate_service">
+    <mkdir dir="${service.outputDir}"/>
     <wsdl2php
         url="${service.url.prefix}/${service.name}${service.url.postfix}"
         outputDir="${service.outputDir}" namespace="${service.namespace}"
         classmap="$this->classmap = array('getResponse' => '${service.name}GetResponse',  'get' => '${service.name}Get', 'mutate' => '${service.name}Mutate', 'mutateResponse' => '${service.name}MutateResponse', 'DateTime' => 'AdWordsDateTime', 'Target' => 'AdWordsTarget', 'SoapHeader' => 'SoapRequestHeader');"
         soapClientClassName="${service.soapClientClassName}"
         soapClientClassPath="${service.soapClientClassPath}"
+        proxy="${wsdl2php.proxy}"
         serviceName="${service.name}" version="${services.version}"
         author="${service.author}" package="${service.package}"/>
   </target>
@@ -146,6 +157,61 @@
   </target>
 
   <!-- =================================================================== -->
+  <!-- Target: generates all php for v201003                               -->
+  <!-- =================================================================== -->
+  <target name="generate_v201003">
+    <property name="server" value="https://adwords.google.com"/>
+
+    <!-- cm -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="cm"/>
+      <property name="services.group.url" value="cm"/>
+      <property name="services.version" value="${api.version.v201003}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201003.cm.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+
+    <!-- info -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="info"/>
+      <property name="services.group.url" value="info"/>
+      <property name="services.version" value="${api.version.v201003}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201003.info.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+
+    <!-- job -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="cm"/>
+      <property name="services.group.url" value="job"/>
+      <property name="services.version" value="${api.version.v201003}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201003.job.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+
+    <!-- o -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="o"/>
+      <property name="services.group.url" value="o"/>
+      <property name="services.version" value="${api.version.v201003}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201003.o.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+  </target>
+
+  <!-- =================================================================== -->
   <!-- Target: generate php from wsdls                                     -->
   <!-- =================================================================== -->
   <target name="generate_php" depends="init">
@@ -153,17 +219,48 @@
   </target>
 
   <!-- =================================================================== -->
-  <!-- Target: run tests                                                   -->
+  <!-- Target: run tests for v200909                                       -->
   <!-- =================================================================== -->
-  <target name="test" depends="init">
+  <target name="test_v200909" depends="init">
     <mkdir dir="report" />
     <phpunit haltonfailure="false" printsummary="true">
       <batchtest>
         <fileset dir="${tests.dir}">
-          <include name="**/*Test.php"/>
+          <include name="**/v200909/*Test.php"/>
         </fileset>
       </batchtest>
-      <formatter type="xml" todir="report" outfile="test_results.xml"/>
+      <formatter type="xml" todir="report" outfile="test_results_v200909.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: run tests for v201003                                       -->
+  <!-- =================================================================== -->
+  <target name="test_v201003" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="**/v201003/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report" outfile="test_results_v201003.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: run tests for core library                                  -->
+  <!-- =================================================================== -->
+  <target name="test_core" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="**/Lib/*Test.php"/>
+          <include name="**/Util/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report" outfile="test_results_core.xml"/>
     </phpunit>
   </target>
 
