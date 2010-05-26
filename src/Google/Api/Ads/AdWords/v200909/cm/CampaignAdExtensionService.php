@@ -485,81 +485,6 @@ class StatsSelector {
   }
 }}
 
-if (!class_exists("AdExtension", FALSE)) {
-/**
- * Base class for AdExtension objects. An AdExtension is an extension to
- * an existing ad or metadata that will process into an extension.
- * The class is concrete, so ad extensions can be added/removed to campaigns
- * by referring to the id.
- */
-class AdExtension {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $id;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $AdExtensionType;
-
-  private $_parameterMap = array (
-    "AdExtension.Type" => "AdExtensionType",
-  );
-
-  /**
-   * Provided for setting non-php-standard named variables
-   * @param $var Variable name to set
-   * @param $value Value to set
-   */
-  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @param $var Variable name to get.
-   * @return mixed Variable value
-   */
-  public function __get($var) {
-    if (!array_key_exists($var, $this->_parameterMap)) {
-      return NULL;
-    } else {
-      return $this->{$this->_parameterMap[$var]};
-    }
-  }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @return array parameter map
-   */
-  protected function getParameterMap() {
-    return $this->_parameterMap;
-    }
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AdExtension";
-  }
-
-  public function __construct($id = NULL, $AdExtensionType = NULL) {
-    if(get_parent_class('AdExtension')) parent::__construct();
-    $this->id = $id;
-    $this->AdExtensionType = $AdExtensionType;
-  }
-}}
-
 if (!class_exists("ApiError", FALSE)) {
 /**
  * A service api error base class that provides error details.
@@ -764,6 +689,81 @@ class CampaignAdExtensionSelector {
     $this->campaignIds = $campaignIds;
     $this->statuses = $statuses;
     $this->paging = $paging;
+  }
+}}
+
+if (!class_exists("AdExtension", FALSE)) {
+/**
+ * Base class for AdExtension objects. An AdExtension is an extension to
+ * an existing ad or metadata that will process into an extension.
+ * The class is concrete, so ad extensions can be added/removed to campaigns
+ * by referring to the id.
+ */
+class AdExtension {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $id;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $AdExtensionType;
+
+  private $_parameterMap = array (
+    "AdExtension.Type" => "AdExtensionType",
+  );
+
+  /**
+   * Provided for setting non-php-standard named variables
+   * @param $var Variable name to set
+   * @param $value Value to set
+   */
+  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @param $var Variable name to get.
+   * @return mixed Variable value
+   */
+  public function __get($var) {
+    if (!array_key_exists($var, $this->_parameterMap)) {
+      return NULL;
+    } else {
+      return $this->{$this->_parameterMap[$var]};
+    }
+  }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @return array parameter map
+   */
+  protected function getParameterMap() {
+    return $this->_parameterMap;
+    }
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "AdExtension";
+  }
+
+  public function __construct($id = NULL, $AdExtensionType = NULL) {
+    if(get_parent_class('AdExtension')) parent::__construct();
+    $this->id = $id;
+    $this->AdExtensionType = $AdExtensionType;
   }
 }}
 
@@ -2122,42 +2122,6 @@ class ClientTermsError extends ApiError {
   }
 }}
 
-if (!class_exists("DatabaseError", FALSE)) {
-/**
- * Errors that are thrown due to a database access problem.
- */
-class DatabaseError extends ApiError {
-  /**
-   * @access public
-   * @var tnsDatabaseErrorReason
-   */
-  public $reason;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "DatabaseError";
-  }
-
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('DatabaseError')) parent::__construct();
-    $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
 if (!class_exists("DistinctError", FALSE)) {
 /**
  * Errors related to distinct ids or content.
@@ -2894,6 +2858,42 @@ class StringLengthError extends ApiError {
   }
 }}
 
+if (!class_exists("DatabaseError", FALSE)) {
+/**
+ * Errors that are thrown due to a database access problem.
+ */
+class DatabaseError extends ApiError {
+  /**
+   * @access public
+   * @var tnsDatabaseErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "DatabaseError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('DatabaseError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
@@ -3062,7 +3062,6 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "CampaignAdExtensionStatsSelector" => "CampaignAdExtensionStatsSelector",
     "StatsSelector" => "StatsSelector",
     "ClientTermsError" => "ClientTermsError",
-    "DatabaseError" => "DatabaseError",
     "DateRange" => "DateRange",
     "DistinctError" => "DistinctError",
     "EntityNotFound" => "EntityNotFound",
@@ -3089,6 +3088,7 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "SizeLimitError" => "SizeLimitError",
     "SoapResponseHeader" => "SoapResponseHeader",
     "StringLengthError" => "StringLengthError",
+    "DatabaseError" => "DatabaseError",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
     "CampaignAdExtensionSelector" => "CampaignAdExtensionSelector",

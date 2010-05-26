@@ -1697,8 +1697,6 @@ if (!class_exists("CampaignTargetServiceMutate", FALSE)) {
  * 
  * 
  * Mutates (sets) targets for specified campaign identified in the campaign operations.
- * Note that multiple operations containing the same type of targets can be submitted
- * in the same call. The union of all the targets will be set as the new targets.
  * @param operations list of operations associating targets with campaign ids.
  * @return the added campaign targets, not necessarily in the same order in which they came in.
  * @throws ApiException if problems occurred while adding campaign targeting information.
@@ -2007,42 +2005,6 @@ class ClientTermsError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('ClientTermsError')) parent::__construct();
-    $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("DatabaseError", FALSE)) {
-/**
- * Errors that are thrown due to a database access problem.
- */
-class DatabaseError extends ApiError {
-  /**
-   * @access public
-   * @var tnsDatabaseErrorReason
-   */
-  public $reason;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "DatabaseError";
-  }
-
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('DatabaseError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -2768,6 +2730,42 @@ class TargetError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('TargetError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("DatabaseError", FALSE)) {
+/**
+ * Errors that are thrown due to a database access problem.
+ */
+class DatabaseError extends ApiError {
+  /**
+   * @access public
+   * @var tnsDatabaseErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "DatabaseError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('DatabaseError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -3554,7 +3552,6 @@ class CampaignTargetService extends AdWordsSoapClient {
     "GeoTarget" => "GeoTarget",
     "ClientTermsError" => "ClientTermsError",
     "CountryTarget" => "CountryTarget",
-    "DatabaseError" => "DatabaseError",
     "DistinctError" => "DistinctError",
     "EntityNotFound" => "EntityNotFound",
     "GenderTarget" => "GenderTarget",
@@ -3583,6 +3580,7 @@ class CampaignTargetService extends AdWordsSoapClient {
     "StringLengthError" => "StringLengthError",
     "TargetError" => "TargetError",
     "CampaignTargetSelector" => "CampaignTargetSelector",
+    "DatabaseError" => "DatabaseError",
     "AdScheduleTargetList" => "AdScheduleTargetList",
     "TargetList" => "TargetList",
     "ApiException" => "ApiException",
@@ -3667,8 +3665,6 @@ class CampaignTargetService extends AdWordsSoapClient {
    * 
    * 
    * Mutates (sets) targets for specified campaign identified in the campaign operations.
-   * Note that multiple operations containing the same type of targets can be submitted
-   * in the same call. The union of all the targets will be set as the new targets.
    * @param operations list of operations associating targets with campaign ids.
    * @return the added campaign targets, not necessarily in the same order in which they came in.
    * @throws ApiException if problems occurred while adding campaign targeting information.

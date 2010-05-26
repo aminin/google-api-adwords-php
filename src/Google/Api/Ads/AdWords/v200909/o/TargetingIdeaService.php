@@ -2222,6 +2222,7 @@ if (!class_exists("SearchParameter", FALSE)) {
  * <li>{@link CountryTargetSearchParameter}</li>
  * <li>{@link ExcludedKeywordSearchParameter}</li>
  * <li>{@link GlobalMonthlySearchesSearchParameter}</li>
+ * <li>{@link IdeaTextMatchesSearchParameter}</li>
  * <li>{@link IncludeAdultContentSearchParameter}</li>
  * <li>{@link KeywordCategoryIdSearchParameter}</li>
  * <li>{@link KeywordMatchTypeSearchParameter}</li>
@@ -3322,46 +3323,6 @@ class ClientTermsError extends ApiError {
   }
 }}
 
-if (!class_exists("DatabaseError", FALSE)) {
-/**
- * Errors that are thrown due to a database access problem.
- * 
- * 
- * 
- * Base error class for Ad Group Criterion Service.
- */
-class DatabaseError extends ApiError {
-  /**
-   * @access public
-   * @var tnsDatabaseErrorReason
-   */
-  public $reason;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "DatabaseError";
-  }
-
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('DatabaseError')) parent::__construct();
-    $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
 if (!class_exists("DateError", FALSE)) {
 /**
  * Errors associated with invalid dates and date ranges.
@@ -4362,6 +4323,46 @@ class TargetError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('TargetError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("DatabaseError", FALSE)) {
+/**
+ * Errors that are thrown due to a database access problem.
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class DatabaseError extends ApiError {
+  /**
+   * @access public
+   * @var tnsDatabaseErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "DatabaseError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('DatabaseError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -6345,7 +6346,6 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "CountryTarget" => "CountryTarget",
     "CriterionPolicyError" => "CriterionPolicyError",
     "PolicyViolationError" => "PolicyViolationError",
-    "DatabaseError" => "DatabaseError",
     "DateError" => "DateError",
     "DistinctError" => "DistinctError",
     "DoubleValue" => "DoubleValue",
@@ -6384,6 +6384,7 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "StatsQueryError" => "StatsQueryError",
     "StringLengthError" => "StringLengthError",
     "TargetError" => "TargetError",
+    "DatabaseError" => "DatabaseError",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
     "AdGroupCriterionError.Reason" => "AdGroupCriterionErrorReason",

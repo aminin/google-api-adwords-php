@@ -2757,42 +2757,6 @@ class ConversionOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
   }
 }}
 
-if (!class_exists("DatabaseError", FALSE)) {
-/**
- * Errors that are thrown due to a database access problem.
- */
-class DatabaseError extends ApiError {
-  /**
-   * @access public
-   * @var tnsDatabaseErrorReason
-   */
-  public $reason;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "DatabaseError";
-  }
-
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('DatabaseError')) parent::__construct();
-    $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
 if (!class_exists("DateError", FALSE)) {
 /**
  * Errors associated with invalid dates and date ranges.
@@ -3666,6 +3630,42 @@ class StatsQueryError extends ApiError {
   }
 }}
 
+if (!class_exists("DatabaseError", FALSE)) {
+/**
+ * Errors that are thrown due to a database access problem.
+ */
+class DatabaseError extends ApiError {
+  /**
+   * @access public
+   * @var tnsDatabaseErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "DatabaseError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('DatabaseError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("PolicyViolationError", FALSE)) {
 /**
  * Represents violations of a single policy by some text in a field.
@@ -4277,7 +4277,6 @@ class AdGroupCriterionService extends AdWordsSoapClient {
     "AdGroupCriterionBids" => "AdGroupCriterionBids",
     "CriterionPolicyError" => "CriterionPolicyError",
     "PolicyViolationError" => "PolicyViolationError",
-    "DatabaseError" => "DatabaseError",
     "DateError" => "DateError",
     "DateRange" => "DateRange",
     "DistinctError" => "DistinctError",
@@ -4313,6 +4312,7 @@ class AdGroupCriterionService extends AdWordsSoapClient {
     "SoapResponseHeader" => "SoapResponseHeader",
     "StatsQueryError" => "StatsQueryError",
     "StatsSelector" => "StatsSelector",
+    "DatabaseError" => "DatabaseError",
     "ExemptionRequest" => "ExemptionRequest",
     "Stats" => "Stats",
     "ApiException" => "ApiException",

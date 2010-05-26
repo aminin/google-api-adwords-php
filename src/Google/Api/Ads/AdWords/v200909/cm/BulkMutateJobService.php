@@ -1085,6 +1085,12 @@ class ApiErrorReason {
 
   /**
    * @access public
+   * @var tnsRequestErrorReason
+   */
+  public $RequestErrorReason;
+
+  /**
+   * @access public
    * @var tnsRequiredErrorReason
    */
   public $RequiredErrorReason;
@@ -1129,7 +1135,7 @@ class ApiErrorReason {
     return "ApiErrorReason";
   }
 
-  public function __construct($AdErrorReason = NULL, $AdGroupAdErrorReason = NULL, $AdGroupCriterionErrorReason = NULL, $AdGroupServiceErrorReason = NULL, $AuthenticationErrorReason = NULL, $AuthorizationErrorReason = NULL, $BiddingErrorReason = NULL, $BiddingTransitionErrorReason = NULL, $BudgetErrorReason = NULL, $BulkMutateJobErrorReason = NULL, $CampaignCriterionErrorReason = NULL, $CampaignErrorReason = NULL, $ClientTermsErrorReason = NULL, $DatabaseErrorReason = NULL, $DateErrorReason = NULL, $DistinctErrorReason = NULL, $EntityAccessDeniedReason = NULL, $EntityCountLimitExceededReason = NULL, $EntityNotFoundReason = NULL, $IdErrorReason = NULL, $ImageErrorReason = NULL, $InternalApiErrorReason = NULL, $JobErrorReason = NULL, $LoasAuthenticationErrorReason = NULL, $MediaErrorReason = NULL, $NewEntityCreationErrorReason = NULL, $NotEmptyErrorReason = NULL, $NotWhitelistedErrorReason = NULL, $NullErrorReason = NULL, $OperationAccessDeniedReason = NULL, $OperatorErrorReason = NULL, $PagingErrorReason = NULL, $PolicyViolationErrorReason = NULL, $QuotaCheckErrorReason = NULL, $QuotaErrorReason = NULL, $QuotaExceededErrorReason = NULL, $RangeErrorReason = NULL, $ReadOnlyErrorReason = NULL, $RegionCodeErrorReason = NULL, $RequiredErrorReason = NULL, $SizeLimitErrorReason = NULL, $StatsQueryErrorReason = NULL, $StringLengthErrorReason = NULL, $TargetErrorReason = NULL) {
+  public function __construct($AdErrorReason = NULL, $AdGroupAdErrorReason = NULL, $AdGroupCriterionErrorReason = NULL, $AdGroupServiceErrorReason = NULL, $AuthenticationErrorReason = NULL, $AuthorizationErrorReason = NULL, $BiddingErrorReason = NULL, $BiddingTransitionErrorReason = NULL, $BudgetErrorReason = NULL, $BulkMutateJobErrorReason = NULL, $CampaignCriterionErrorReason = NULL, $CampaignErrorReason = NULL, $ClientTermsErrorReason = NULL, $DatabaseErrorReason = NULL, $DateErrorReason = NULL, $DistinctErrorReason = NULL, $EntityAccessDeniedReason = NULL, $EntityCountLimitExceededReason = NULL, $EntityNotFoundReason = NULL, $IdErrorReason = NULL, $ImageErrorReason = NULL, $InternalApiErrorReason = NULL, $JobErrorReason = NULL, $LoasAuthenticationErrorReason = NULL, $MediaErrorReason = NULL, $NewEntityCreationErrorReason = NULL, $NotEmptyErrorReason = NULL, $NotWhitelistedErrorReason = NULL, $NullErrorReason = NULL, $OperationAccessDeniedReason = NULL, $OperatorErrorReason = NULL, $PagingErrorReason = NULL, $PolicyViolationErrorReason = NULL, $QuotaCheckErrorReason = NULL, $QuotaErrorReason = NULL, $QuotaExceededErrorReason = NULL, $RangeErrorReason = NULL, $ReadOnlyErrorReason = NULL, $RegionCodeErrorReason = NULL, $RequestErrorReason = NULL, $RequiredErrorReason = NULL, $SizeLimitErrorReason = NULL, $StatsQueryErrorReason = NULL, $StringLengthErrorReason = NULL, $TargetErrorReason = NULL) {
     if(get_parent_class('ApiErrorReason')) parent::__construct();
     $this->AdErrorReason = $AdErrorReason;
     $this->AdGroupAdErrorReason = $AdGroupAdErrorReason;
@@ -1170,6 +1176,7 @@ class ApiErrorReason {
     $this->RangeErrorReason = $RangeErrorReason;
     $this->ReadOnlyErrorReason = $ReadOnlyErrorReason;
     $this->RegionCodeErrorReason = $RegionCodeErrorReason;
+    $this->RequestErrorReason = $RequestErrorReason;
     $this->RequiredErrorReason = $RequiredErrorReason;
     $this->SizeLimitErrorReason = $SizeLimitErrorReason;
     $this->StatsQueryErrorReason = $StatsQueryErrorReason;
@@ -9021,6 +9028,32 @@ class RegionCodeErrorReason {
   }
 }}
 
+if (!class_exists("RequestErrorReason", FALSE)) {
+/**
+ * Error reason is unknown.
+ */
+class RequestErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RequestError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RequestErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
@@ -10152,7 +10185,8 @@ if (!class_exists("BulkMutateJob", FALSE)) {
  * job.
  * 
  * <p><i>Note: A job may have no more than 500,000 mutate operations in total,
- * and no more than 10 different scoping campaigns.</i></p>
+ * and no more than 10 different scoping campaigns. Since v201003, a job may
+ * have no fewer than 100 mutate operations in total.</i></p>
  * 
  * <p>The mutate operations must be packaged into containers called
  * {@code Operation Streams}, each tagged with the id of the scoping entity of
@@ -11782,6 +11816,7 @@ class BulkMutateJobService extends AdWordsSoapClient {
     "RangeError.Reason" => "RangeErrorReason",
     "ReadOnlyError.Reason" => "ReadOnlyErrorReason",
     "RegionCodeError.Reason" => "RegionCodeErrorReason",
+    "RequestError.Reason" => "RequestErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
     "ServingStatus" => "ServingStatus",
     "SizeLimitError.Reason" => "SizeLimitErrorReason",

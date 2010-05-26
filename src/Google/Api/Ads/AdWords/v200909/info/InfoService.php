@@ -902,23 +902,24 @@ class ApiUsageRecord {
 if (!class_exists("InfoSelector", FALSE)) {
 /**
  * Specifies the type of API usage information to be returned. API usage information
- * returned is based on the {@link #apiUsageType API usage type} specified. The effective
- * user specified in the request header should always be the MCC user.
+ * returned is based on the {@link #apiUsageType API usage type} specified. All returned
+ * values are specific to the developer token being used to call <code>InfoService.get</code>.
  * 
  * <p>For each of the <code>apiUsageType</code> values, other <code>InfoSelector</code>
  * fields must also be set as described below:</p>
  * 
  * <ul>
- * <li><code>FREE_USAGE_API_UNITS_PER_MONTH</code> : Retrieves the number of
+ * <li><code>FREE_USAGE_API_UNITS_PER_MONTH</code> : Returns the number of allocated
  * <a href="http://www.google.com/support/adwordsapi/bin/answer.py?answer=45891">
- * free API units</a>. Specify only the apiUsageType parameter.</li>
- * <li><code>TOTAL_USAGE_API_UNITS_PER_MONTH</code> : Retrieves the total number of API units for
- * this entire month. Includes both free and paid API units. Specify only the
+ * free API units</a> for this entire month. Specify only the apiUsageType parameter.</li>
+ * <li><code>TOTAL_USAGE_API_UNITS_PER_MONTH</code> : Returns the total number of allocated API
+ * units for this entire month. Includes both free and paid API units. Specify only the
  * apiUsageType parameter.</li>
- * <li><code>OPERATION_COUNT</code> : Retrieves the number of operations recorded. The
- * given dates are inclusive; to get the operation count for a single day, supply it as both
- * the start and end date. Specify the apiUsageType and dateRange parameters. </li>
- * <li><code>UNIT_COUNT</code> : Retrieves the number of API units recorded.
+ * <li><code>OPERATION_COUNT</code> : Returns the number of operations recorded over the given
+ * date range. The given dates are inclusive; to get the operation count for a single day,
+ * supply it as both the start and end date. Specify the apiUsageType and
+ * dateRange parameters. </li>
+ * <li><code>UNIT_COUNT</code> : Returns the number of API units recorded.
  * <ul>
  * <li>Specify the apiUsageType and dateRange parameters to retrieve
  * the units recorded over the given date range.</li>
@@ -926,11 +927,11 @@ if (!class_exists("InfoSelector", FALSE)) {
  * retrieve the units recorded over the given date range for a specified method.</li>
  * </ul>
  * </li>
- * <li><code>UNIT_COUNT_FOR_CLIENTS</code> :  Retrieves the number of API units recorded for a
- * subset of clients over the given date range. The given dates are inclusive;
- * to get the unit count for a single day, supply it as both the start and end date.
- * Specify the apiUsageType, dateRange and clientEmails parameters.</li>
- * <li><code>METHOD_COST</code> : Retrieves the cost, in API units per operation, of the given
+ * <li><code>UNIT_COUNT_FOR_CLIENTS</code> :  Returns the number of API units recorded for a
+ * subset of clients over the given date range. The given dates are inclusive; to get
+ * the unit count for a single day, supply it as both the start and end date. Specify the
+ * apiUsageType, dateRange and clientEmails parameters.</li>
+ * <li><code>METHOD_COST</code> : Returns the cost, in API units per operation, of the given
  * method on a specific date. Methods default to a cost of 1. Specify the apiUsageType,
  * dateRange (start date and end date should be the same), serviceName, methodName,
  * operator parameters.</li>

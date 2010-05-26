@@ -386,81 +386,6 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("AdExtension", FALSE)) {
-/**
- * Base class for AdExtension objects. An AdExtension is an extension to
- * an existing ad or metadata that will process into an extension.
- * The class is concrete, so ad extensions can be added/removed to campaigns
- * by referring to the id.
- */
-class AdExtension {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $id;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $AdExtensionType;
-
-  private $_parameterMap = array (
-    "AdExtension.Type" => "AdExtensionType",
-  );
-
-  /**
-   * Provided for setting non-php-standard named variables
-   * @param $var Variable name to set
-   * @param $value Value to set
-   */
-  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @param $var Variable name to get.
-   * @return mixed Variable value
-   */
-  public function __get($var) {
-    if (!array_key_exists($var, $this->_parameterMap)) {
-      return NULL;
-    } else {
-      return $this->{$this->_parameterMap[$var]};
-    }
-  }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @return array parameter map
-   */
-  protected function getParameterMap() {
-    return $this->_parameterMap;
-    }
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AdExtension";
-  }
-
-  public function __construct($id = NULL, $AdExtensionType = NULL) {
-    if(get_parent_class('AdExtension')) parent::__construct();
-    $this->id = $id;
-    $this->AdExtensionType = $AdExtensionType;
-  }
-}}
-
 if (!class_exists("AdExtensionOverrideSelector", FALSE)) {
 /**
  * Specifies criteria for selecting a set of AdExtensionOverrides.
@@ -764,76 +689,6 @@ class Stats {
   }
 }}
 
-if (!class_exists("AdExtensionOverride", FALSE)) {
-/**
- * Represents an ad level ad extension override. An ad extension override
- * specifies the ad extension that must be used if the ad is served with
- * any ad extension data.
- */
-class AdExtensionOverride {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $adId;
-
-  /**
-   * @access public
-   * @var AdExtension
-   */
-  public $adExtension;
-
-  /**
-   * @access public
-   * @var OverrideInfo
-   */
-  public $overrideInfo;
-
-  /**
-   * @access public
-   * @var tnsAdExtensionOverrideStatus
-   */
-  public $status;
-
-  /**
-   * @access public
-   * @var tnsAdExtensionOverrideApprovalStatus
-   */
-  public $approvalStatus;
-
-  /**
-   * @access public
-   * @var AdExtensionOverrideStats
-   */
-  public $stats;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AdExtensionOverride";
-  }
-
-  public function __construct($adId = NULL, $adExtension = NULL, $overrideInfo = NULL, $status = NULL, $approvalStatus = NULL, $stats = NULL) {
-    if(get_parent_class('AdExtensionOverride')) parent::__construct();
-    $this->adId = $adId;
-    $this->adExtension = $adExtension;
-    $this->overrideInfo = $overrideInfo;
-    $this->status = $status;
-    $this->approvalStatus = $approvalStatus;
-    $this->stats = $stats;
-  }
-}}
-
 if (!class_exists("ApiError", FALSE)) {
 /**
  * A service api error base class that provides error details.
@@ -984,6 +839,151 @@ class ApplicationException {
     if(get_parent_class('ApplicationException')) parent::__construct();
     $this->message = $message;
     $this->ApplicationExceptionType = $ApplicationExceptionType;
+  }
+}}
+
+if (!class_exists("AdExtension", FALSE)) {
+/**
+ * Base class for AdExtension objects. An AdExtension is an extension to
+ * an existing ad or metadata that will process into an extension.
+ * The class is concrete, so ad extensions can be added/removed to campaigns
+ * by referring to the id.
+ */
+class AdExtension {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $id;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $AdExtensionType;
+
+  private $_parameterMap = array (
+    "AdExtension.Type" => "AdExtensionType",
+  );
+
+  /**
+   * Provided for setting non-php-standard named variables
+   * @param $var Variable name to set
+   * @param $value Value to set
+   */
+  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @param $var Variable name to get.
+   * @return mixed Variable value
+   */
+  public function __get($var) {
+    if (!array_key_exists($var, $this->_parameterMap)) {
+      return NULL;
+    } else {
+      return $this->{$this->_parameterMap[$var]};
+    }
+  }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @return array parameter map
+   */
+  protected function getParameterMap() {
+    return $this->_parameterMap;
+    }
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "AdExtension";
+  }
+
+  public function __construct($id = NULL, $AdExtensionType = NULL) {
+    if(get_parent_class('AdExtension')) parent::__construct();
+    $this->id = $id;
+    $this->AdExtensionType = $AdExtensionType;
+  }
+}}
+
+if (!class_exists("AdExtensionOverride", FALSE)) {
+/**
+ * Represents an ad level ad extension override. An ad extension override
+ * specifies the ad extension that must be used if the ad is served with
+ * any ad extension data.
+ */
+class AdExtensionOverride {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $adId;
+
+  /**
+   * @access public
+   * @var AdExtension
+   */
+  public $adExtension;
+
+  /**
+   * @access public
+   * @var OverrideInfo
+   */
+  public $overrideInfo;
+
+  /**
+   * @access public
+   * @var tnsAdExtensionOverrideStatus
+   */
+  public $status;
+
+  /**
+   * @access public
+   * @var tnsAdExtensionOverrideApprovalStatus
+   */
+  public $approvalStatus;
+
+  /**
+   * @access public
+   * @var AdExtensionOverrideStats
+   */
+  public $stats;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "AdExtensionOverride";
+  }
+
+  public function __construct($adId = NULL, $adExtension = NULL, $overrideInfo = NULL, $status = NULL, $approvalStatus = NULL, $stats = NULL) {
+    if(get_parent_class('AdExtensionOverride')) parent::__construct();
+    $this->adId = $adId;
+    $this->adExtension = $adExtension;
+    $this->overrideInfo = $overrideInfo;
+    $this->status = $status;
+    $this->approvalStatus = $approvalStatus;
+    $this->stats = $stats;
   }
 }}
 
@@ -2819,6 +2819,41 @@ class StringLengthError extends ApiError {
   }
 }}
 
+if (!class_exists("ApiException", FALSE)) {
+/**
+ * Exception class for holding a list of service errors.
+ */
+class ApiException extends ApplicationException {
+  /**
+   * @access public
+   * @var ApiError[]
+   */
+  public $errors;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ApiException";
+  }
+
+  public function __construct($errors = NULL, $message = NULL, $ApplicationExceptionType = NULL) {
+    if(get_parent_class('ApiException')) parent::__construct();
+    $this->errors = $errors;
+    $this->message = $message;
+    $this->ApplicationExceptionType = $ApplicationExceptionType;
+  }
+}}
+
 if (!class_exists("AdExtensionOverrideOperation", FALSE)) {
 /**
  * AdExtensionOverride service operation.
@@ -2921,41 +2956,6 @@ class AdExtensionOverrideReturnValue extends ListReturnValue {
     if(get_parent_class('AdExtensionOverrideReturnValue')) parent::__construct();
     $this->value = $value;
     $this->ListReturnValueType = $ListReturnValueType;
-  }
-}}
-
-if (!class_exists("ApiException", FALSE)) {
-/**
- * Exception class for holding a list of service errors.
- */
-class ApiException extends ApplicationException {
-  /**
-   * @access public
-   * @var ApiError[]
-   */
-  public $errors;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "ApiException";
-  }
-
-  public function __construct($errors = NULL, $message = NULL, $ApplicationExceptionType = NULL) {
-    if(get_parent_class('ApiException')) parent::__construct();
-    $this->errors = $errors;
-    $this->message = $message;
-    $this->ApplicationExceptionType = $ApplicationExceptionType;
   }
 }}
 
@@ -3081,6 +3081,8 @@ class AdExtensionOverrideService extends AdWordsSoapClient {
     "SoapResponseHeader" => "SoapResponseHeader",
     "StringLengthError" => "StringLengthError",
     "AdExtensionOverrideSelector" => "AdExtensionOverrideSelector",
+    "ApiException" => "ApiException",
+    "ApplicationException" => "ApplicationException",
     "AdExtensionOverride" => "AdExtensionOverride",
     "AdExtensionOverrideOperation" => "AdExtensionOverrideOperation",
     "Operation" => "Operation",
@@ -3088,8 +3090,6 @@ class AdExtensionOverrideService extends AdWordsSoapClient {
     "Page" => "Page",
     "AdExtensionOverrideReturnValue" => "AdExtensionOverrideReturnValue",
     "ListReturnValue" => "ListReturnValue",
-    "ApiException" => "ApiException",
-    "ApplicationException" => "ApplicationException",
     "AdExtensionOverride.ApprovalStatus" => "AdExtensionOverrideApprovalStatus",
     "AdExtensionOverride.Status" => "AdExtensionOverrideStatus",
     "AdExtensionOverrideError.Reason" => "AdExtensionOverrideErrorReason",

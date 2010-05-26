@@ -3214,19 +3214,21 @@ if (!class_exists("AdGroupAdServiceMutate", FALSE)) {
  * 
  * 
  * Applies the list of mutate operations (ie. add, set, remove):
- * 
+ * <p>
  * Add - Creates a set of AdGroupAd entities, each effectively linking an
  * AdGroup and an Ad.  The adGroupId of each AdGroupAd must be that of an
  * existing AdGroup.  The Ad may either specify an existing Ad in the account
  * library by id or be sufficiently specified for a new Ad to be created and
  * added to the account library.
- * 
+ * <p>
  * Set - Updates a set of AdGroupAd entities. Except for status, AdGroupAd
  * fields are not mutable. Status updates are straightforward - the status of
- * the AdGroupAd is updated as specified.
- * 
+ * the AdGroupAd is updated as specified. If any other field has changed,
+ * it will be ignored. If you want to change any of the fields other than
+ * status, you must make a new ad and then delete the old one.
+ * <p>
  * Remove - Removes the link between the specified AdGroup and Ad.
- * 
+ * <p>
  * @param operations the operations to apply
  * @return a list of AdGroupAds where each entry in the list is the result of
  * applying the operation in the input list with the same index. For an
@@ -3720,42 +3722,6 @@ class ClientTermsError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('ClientTermsError')) parent::__construct();
-    $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("DatabaseError", FALSE)) {
-/**
- * Errors that are thrown due to a database access problem.
- */
-class DatabaseError extends ApiError {
-  /**
-   * @access public
-   * @var tnsDatabaseErrorReason
-   */
-  public $reason;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "DatabaseError";
-  }
-
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('DatabaseError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -5086,6 +5052,42 @@ class Video extends Media {
   }
 }}
 
+if (!class_exists("DatabaseError", FALSE)) {
+/**
+ * Errors that are thrown due to a database access problem.
+ */
+class DatabaseError extends ApiError {
+  /**
+   * @access public
+   * @var tnsDatabaseErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "DatabaseError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('DatabaseError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("DemographicTarget", FALSE)) {
 /**
  * Abstract class to identify a demographic target.
@@ -6170,7 +6172,6 @@ class AdGroupAdService extends AdWordsSoapClient {
     "GeoTarget" => "GeoTarget",
     "ClientTermsError" => "ClientTermsError",
     "CountryTarget" => "CountryTarget",
-    "DatabaseError" => "DatabaseError",
     "DateError" => "DateError",
     "DateRange" => "DateRange",
     "DeprecatedAd" => "DeprecatedAd",
@@ -6222,6 +6223,7 @@ class AdGroupAdService extends AdWordsSoapClient {
     "AdUnionId" => "AdUnionId",
     "TextAd" => "TextAd",
     "Video" => "Video",
+    "DatabaseError" => "DatabaseError",
     "ExemptionRequest" => "ExemptionRequest",
     "MobileImageAd" => "MobileImageAd",
     "PolicyViolationError" => "PolicyViolationError",
@@ -6327,19 +6329,21 @@ class AdGroupAdService extends AdWordsSoapClient {
    * 
    * 
    * Applies the list of mutate operations (ie. add, set, remove):
-   * 
+   * <p>
    * Add - Creates a set of AdGroupAd entities, each effectively linking an
    * AdGroup and an Ad.  The adGroupId of each AdGroupAd must be that of an
    * existing AdGroup.  The Ad may either specify an existing Ad in the account
    * library by id or be sufficiently specified for a new Ad to be created and
    * added to the account library.
-   * 
+   * <p>
    * Set - Updates a set of AdGroupAd entities. Except for status, AdGroupAd
    * fields are not mutable. Status updates are straightforward - the status of
-   * the AdGroupAd is updated as specified.
-   * 
+   * the AdGroupAd is updated as specified. If any other field has changed,
+   * it will be ignored. If you want to change any of the fields other than
+   * status, you must make a new ad and then delete the old one.
+   * <p>
    * Remove - Removes the link between the specified AdGroup and Ad.
-   * 
+   * <p>
    * @param operations the operations to apply
    * @return a list of AdGroupAds where each entry in the list is the result of
    * applying the operation in the input list with the same index. For an

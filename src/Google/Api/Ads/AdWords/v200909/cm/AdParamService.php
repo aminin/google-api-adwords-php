@@ -758,6 +758,32 @@ class ClientTermsErrorReason {
   }
 }}
 
+if (!class_exists("DatabaseErrorReason", FALSE)) {
+/**
+ * The reasons for the database error.
+ */
+class DatabaseErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "DatabaseError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('DatabaseErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
@@ -1811,6 +1837,42 @@ class StringLengthError extends ApiError {
   }
 }}
 
+if (!class_exists("DatabaseError", FALSE)) {
+/**
+ * Errors that are thrown due to a database access problem.
+ */
+class DatabaseError extends ApiError {
+  /**
+   * @access public
+   * @var tnsDatabaseErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "DatabaseError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('DatabaseError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("PolicyViolationError", FALSE)) {
 /**
  * Represents violations of a single policy by some text in a field.
@@ -2009,12 +2071,14 @@ class AdParamService extends AdWordsSoapClient {
     "SoapResponseHeader" => "SoapResponseHeader",
     "StringLengthError" => "StringLengthError",
     "AdParamSelector" => "AdParamSelector",
+    "DatabaseError" => "DatabaseError",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
     "AdParamError.Reason" => "AdParamErrorReason",
     "AuthenticationError.Reason" => "AuthenticationErrorReason",
     "AuthorizationError.Reason" => "AuthorizationErrorReason",
     "ClientTermsError.Reason" => "ClientTermsErrorReason",
+    "DatabaseError.Reason" => "DatabaseErrorReason",
     "InternalApiError.Reason" => "InternalApiErrorReason",
     "NotEmptyError.Reason" => "NotEmptyErrorReason",
     "NotWhitelistedError.Reason" => "NotWhitelistedErrorReason",
