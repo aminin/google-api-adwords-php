@@ -104,6 +104,13 @@ class Wsdl2PhpTask extends Task {
   private $package = NULL;
 
   /**
+   * The proxy URL to use when downloading WSDLs.
+   * @var the proxy URL to use when downloading WSDLs
+   * @access private
+   */
+  private $proxy = NULL;
+
+  /**
    * The setter for the attribute <var>$url</var>.
    * @param string $url the URL of the WSDL file
    */
@@ -180,6 +187,14 @@ class Wsdl2PhpTask extends Task {
   }
 
   /**
+   * The setter for the attribute <var>$proxy</var>.
+   * @param string $proxy the proxy URL to use when downloading WSDLs
+   */
+  public function SetProxy($proxy) {
+    $this->proxy = $proxy;
+  }
+
+  /**
    * The setter of the attribute <var>$serviceName</var>.
    * @param string $serviceName the name of the generated service
    */
@@ -205,7 +220,7 @@ class Wsdl2PhpTask extends Task {
             array('location' => $this->url, 'uri' => $this->namespace,
                 'classmap' => $this->classmap),
             $this->serviceName, $this->version, $this->author, $this->package,
-            $this->soapClientClassPath);
+            $this->soapClientClassPath, $this->proxy);
     $wsdlInterpreter->savePHP($this->outputDir);
     print 'Done: ' . $this->url . "\n";
   }

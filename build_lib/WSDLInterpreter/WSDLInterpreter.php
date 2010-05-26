@@ -190,12 +190,13 @@ class WSDLInterpreter
    * @param string $package the package to be placed in the file header
    * @param string $soapClientClassPath the class path to require for the
    *     SOAP client
+   * @param string $proxy the proxy URL to use when downloading WSDLs
    * @throws WSDLInterpreterException container for all WSDL interpretation
    *     problems
    * @todo Create plug in model to handle extendability of WSDL files
    */
   public function __construct($wsdl, $soapClientClassName, $options = array(),
-      $serviceName, $version, $author, $package, $soapClientClassPath)
+      $serviceName, $version, $author, $package, $soapClientClassPath, $proxy)
   {
     try {
       $this->_wsdl = $wsdl;
@@ -213,6 +214,18 @@ class WSDLInterpreter
       $this->_author = $author;
       $this->_package = $package;
       $this->_soapClientClassPath = $soapClientClassPath;
+
+      // Set proxy.
+      if (!empty($proxy)) {
+        $opts = array(
+            'http' => array(
+                'proxy' => $proxy,
+                'request_fulluri' => TRUE
+            )
+        );
+        $context = stream_context_get_default($opts);
+        libxml_set_streams_context($context);
+      }
 
       $this->_dom = new DOMDocument();
       $this->_dom->load($wsdl, LIBXML_DTDLOAD|LIBXML_DTDATTR|LIBXML_NOENT|LIBXML_XINCLUDE);
