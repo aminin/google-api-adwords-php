@@ -3,6 +3,8 @@
  * This example deletes a campaign by setting the status to 'DELETED'. To get
  * campaigns, run GetAllCampaigns.php.
  *
+ * Tags: CampaignService.mutate
+ *
  * PHP version 5
  *
  * Copyright 2010, Google Inc. All Rights Reserved.
@@ -26,7 +28,7 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
- * @link       http://code.google.com/apis/adwords/v2009/docs/reference/CampaignService.html
+ * @link       http://code.google.com/apis/adwords/v2009/docs/reference-v200909/CampaignService.html
  */
 
 error_reporting(E_STRICT | E_ALL);

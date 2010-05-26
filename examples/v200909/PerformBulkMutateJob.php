@@ -7,6 +7,8 @@
  * complex operations, this example will show how you can easily upgrade from
  * normal mutate calls to using bulk mutate jobs.
  *
+ * Tags: BulkMutateJobService.mutate, BulkMutateJobService.get
+ *
  * PHP version 5
  *
  * Copyright 2010, Google Inc. All Rights Reserved.
@@ -295,9 +297,7 @@ try {
   $user->LogDefaults();
 
   // Get the BulkMutateJobService.
-  $bulkMutateJobService = $user->GetBulkMutateJobService();
-
-
+  $bulkMutateJobService = $user->GetBulkMutateJobService('v200909');
 
   // Set scope of jobs.
   $scopingEntityId = new EntityId('CAMPAIGN_ID', $campaignId);

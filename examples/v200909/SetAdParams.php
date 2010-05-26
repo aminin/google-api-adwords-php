@@ -3,6 +3,8 @@
  * This example sets ad parameters for a keyword ad group criterion. To get ad
  * group criteria, run GetAllAdGroupCriteria.php.
  *
+ * Tags: AdParamService.mutate
+ *
  * PHP version 5
  *
  * Copyright 2010, Google Inc. All Rights Reserved.
@@ -24,7 +26,7 @@
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @author     Eric Koleda <api.ekoleda@gmail.com>
- * @link       http://code.google.com/apis/adwords/v2009/docs/reference/AdParamService.html
+ * @link       http://code.google.com/apis/adwords/v2009/docs/reference-v200909/AdParamService.html
  */
 
 error_reporting(E_STRICT | E_ALL);
@@ -46,7 +48,7 @@ try {
   $user->LogDefaults();
 
   // Get the AdParamService.
-  $adParamService = $user->GetAdParamService();
+  $adParamService = $user->GetAdParamService('v200909');
 
   $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
   $keywordId = (float) 'INSERT_KEYWORD_ID_HERE';

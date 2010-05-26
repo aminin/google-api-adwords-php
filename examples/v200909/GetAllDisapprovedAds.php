@@ -1,7 +1,9 @@
 <?php
 /**
  * This example gets all disapproved ads in an ad group. To add ads, run
- * AddAds.php. To get ad groups, run GetAllAdGroups.php
+ * AddAds.php. To get ad groups, run GetAllAdGroups.php.
+ *
+ * Tags: AdGroupAdService.get
  *
  * PHP version 5
  *
@@ -25,7 +27,7 @@
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Eric Koleda <api.ekoleda@gmail.com>
- * @link       http://code.google.com/apis/adwords/v2009/docs/reference/AdGroupAdService.html
+ * @link       http://code.google.com/apis/adwords/v2009/docs/reference-v200909/AdGroupAdService.html
  */
 
 error_reporting(E_STRICT | E_ALL);

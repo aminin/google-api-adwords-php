@@ -2,6 +2,8 @@
 /**
  * This example gets keywords related to a seed keyword.
  *
+ * Tags: TargetingIdeaService.get
+ *
  * PHP version 5
  *
  * Copyright 2010, Google Inc. All Rights Reserved.
@@ -24,7 +26,7 @@
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Eric Koleda <api.ekoleda@gmail.com>
- * @link       http://code.google.com/apis/adwords/v2009/docs/reference/TargetingIdeaService.html
+ * @link       http://code.google.com/apis/adwords/v2009/docs/reference-v200909/TargetingIdeaService.html
  */
 
 error_reporting(E_STRICT | E_ALL);
@@ -36,6 +38,7 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+require_once 'Google/Api/Ads/Common/Util/MapUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -57,7 +60,8 @@ try {
   $selector = new TargetingIdeaSelector();
   $selector->requestType = 'IDEAS';
   $selector->ideaType = 'KEYWORD';
-  $selector->requestedAttributeTypes = array('KEYWORD');
+  $selector->requestedAttributeTypes =
+      array('KEYWORD', 'AVERAGE_TARGETED_MONTHLY_SEARCHES');
 
   // Set selector paging (required for targeting idea service).
   $paging = new Paging();
@@ -68,7 +72,13 @@ try {
   // Create related to keyword search parameter.
   $relatedToKeywordSearchParameter = new RelatedToKeywordSearchParameter();
   $relatedToKeywordSearchParameter->keywords = array($keyword);
-  $selector->searchParameters = array($relatedToKeywordSearchParameter);
+
+  // Create keyword match type search parameter to ensure unique results.
+  $keywordMatchTypeSearchParameter = new KeywordMatchTypeSearchParameter();
+  $keywordMatchTypeSearchParameter->keywordMatchTypes = array('BROAD');
+
+  $selector->searchParameters =
+      array($relatedToKeywordSearchParameter, $keywordMatchTypeSearchParameter);
 
   // Get related keywords.
   $page = $targetingIdeaService->get($selector);
@@ -76,9 +86,14 @@ try {
   // Display related keywords.
   if (isset($page->entries)) {
     foreach ($page->entries as $targetingIdea) {
-      $keyword = $targetingIdea->data[0]->value->value;
-      print 'Keyword with text "' . $keyword->text . '" and match type "'
-          . $keyword->matchType . "\" was found.\n";
+      $data = MapUtils::GetMap($targetingIdea->data);
+      $keyword = $data['KEYWORD']->value;
+      $averageMonthlySearches =
+          isset($data['AVERAGE_TARGETED_MONTHLY_SEARCHES']->value)
+          ? $data['AVERAGE_TARGETED_MONTHLY_SEARCHES']->value : 0;
+      printf("Keyword with text '%s', match type '%s', and average monthly "
+          . "search volume '%s' was found.\n", $keyword->text,
+          $keyword->matchType, $averageMonthlySearches);
     }
   } else {
     print "No related keywords were found.\n";

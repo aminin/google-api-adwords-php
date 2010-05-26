@@ -3,6 +3,8 @@
  * This example deletes an ad group by setting the status to 'DELETED'.
  * To get ad groups, run GetAllAdGroups.php.
  *
+ * Tags: AdGroupService.mutate
+ *
  * PHP version 5
  *
  * Copyright 2010, Google Inc. All Rights Reserved.
@@ -25,7 +27,7 @@
  * @copyright  2009, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Eric Koleda <api.ekoleda@gmail.com>
- * @link       http://code.google.com/apis/adwords/v2009/docs/reference/AdGroupService.html
+ * @link       http://code.google.com/apis/adwords/v2009/docs/reference-v200909/AdGroupService.html
  */
 
 error_reporting(E_STRICT | E_ALL);

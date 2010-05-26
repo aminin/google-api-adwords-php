@@ -2,6 +2,8 @@
 /**
  * This example gets placements related to a seed url.
  *
+ * Tags: TargetingIdeaService.get
+ *
  * PHP version 5
  *
  * Copyright 2010, Google Inc. All Rights Reserved.
@@ -24,7 +26,7 @@
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Eric Koleda <api.ekoleda@gmail.com>
- * @link       http://code.google.com/apis/adwords/v2009/docs/reference/TargetingIdeaService.html
+ * @link       http://code.google.com/apis/adwords/v2009/docs/reference-v200909/TargetingIdeaService.html
  */
 
 error_reporting(E_STRICT | E_ALL);
@@ -36,6 +38,7 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+require_once 'Google/Api/Ads/Common/Util/MapUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -55,7 +58,7 @@ try {
   $selector = new TargetingIdeaSelector();
   $selector->requestType = 'IDEAS';
   $selector->ideaType = 'PLACEMENT';
-  $selector->requestedAttributeTypes = array('PLACEMENT');
+  $selector->requestedAttributeTypes = array('PLACEMENT', 'PLACEMENT_TYPE');
 
   // Set selector paging (required for targeting idea service).
   $paging = new Paging();
@@ -72,10 +75,14 @@ try {
   // Get related placements.
   $page = $targetingIdeaService->get($selector);
 
+  // Display related placements.
   if (isset($page->entries)) {
     foreach ($page->entries as $targetingIdea) {
-      $placement = $targetingIdea->data[0]->value->value;
-      print 'Placement with url "' . $placement->url . "\" was found.\n";
+      $data = MapUtils::GetMap($targetingIdea->data);
+      $placement = $data['PLACEMENT']->value;
+      $placementType = $data['PLACEMENT_TYPE']->value;
+      printf("Placement with url '%s' and type '%s' was found.\n",
+          $placement->url, $placementType);
     }
   } else {
     print "No related placements were found.\n";

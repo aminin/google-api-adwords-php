@@ -3,6 +3,8 @@
  * This example shows how to use the validate only header to check for errors.
  * No objects will be created, but exceptions will still be thrown.
  *
+ * Tags: CampaignService.mutate
+ *
  * PHP version 5
  *
  * Copyright 2010, Google Inc. All Rights Reserved.

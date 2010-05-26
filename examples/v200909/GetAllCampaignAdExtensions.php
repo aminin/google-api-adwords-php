@@ -4,6 +4,8 @@
  * ad extensions, run AddCampaignAdExtensions.php. To get campaigns, run
  * GetAllCampaigns.php.
  *
+ * Tags: CampaignAdExtensionService.get
+ *
  * PHP version 5
  *
  * Copyright 2010, Google Inc. All Rights Reserved.
@@ -26,7 +28,7 @@
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Eric Koleda <api.ekoleda@gmail.com>
- * @link       http://code.google.com/apis/adwords/v2009/docs/reference/CampaignAdExtensionService.html
+ * @link       http://code.google.com/apis/adwords/v2009/docs/reference-v200909/CampaignAdExtensionService.html
  */
 
 error_reporting(E_STRICT | E_ALL);
