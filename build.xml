@@ -3,7 +3,7 @@
 <!-- See README file for requirements                                        -->
 <!-- ======================================================================= -->
 <project basedir="." default="generate_php" name="aw_api_php_lib">
-  <property name="version" value="2.1.0"/>
+  <property name="version" value="2.2.0"/>
   <property name="package" value="GoogleApiAdsAdWords"/>
   <property name="author" value="Eric Koleda &lt;api.ekoleda@gmail.com&gt;"/>
 
