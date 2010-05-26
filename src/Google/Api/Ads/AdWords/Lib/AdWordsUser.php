@@ -38,7 +38,7 @@ require_once 'AdWordsSoapClientFactory.php';
  * services.
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = '2.1.0';
+  private static $LIB_VERSION = '2.2.0';
   private static $LIB_NAME = 'AwApi';
 
   /**
@@ -238,6 +238,25 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
+   * Gets the BidLandscapeService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return BidLandscapeService the instantiated bid landscape service
+   */
+  public function GetBidLandscapeService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('BidLandscapeService', 'cm', $version, $server,
+        $serviceFactory, 'cm', NULL, $validateOnly);
+  }
+
+  /**
    * Gets the BulkMutateJobService SOAP client.
    * @param string $version the version of the service to get. If
    *     <var>NULL</var>, then the default version will be used
@@ -373,6 +392,44 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
+   * Gets the MediaService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return MediaService the instantiated media service
+   */
+  public function GetMediaService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('MediaService', 'cm', $version, $server,
+        $serviceFactory, NULL, 'cm', $validateOnly);
+  }
+
+  /**
+   * Gets the ReportDefinitionService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return ReportDefinitionService the instantiated report definition service
+   */
+  public function GetReportDefinitionService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('ReportDefinitionService', 'cm', $version, $server,
+        $serviceFactory, NULL, 'cm', $validateOnly);
+  }
+
+  /**
    * Gets the TargetingIdeaService SOAP client.
    * @param string $version the version of the service to get. If
    *     <var>NULL</var>, then the default version will be used
@@ -438,11 +495,22 @@ class AdWordsUser extends AdsUser {
    * @return string the newly generated auth token
    */
   public function RegenerateAuthToken($server = NULL) {
+    if (!isset($server)) {
+      $server = $this->GetAuthServer();
+    }
     $authTokenClient = new AuthToken($this->email, $this->password, 'adwords',
         $this->GetUserAgent(), 'GOOGLE', $server);
     $authToken = $authTokenClient->GetAuthToken();
     $this->SetAuthToken($authToken);
     return $authToken;
+  }
+
+  /**
+   * Gets the authentication token.
+   * @return string the auth token
+   */
+  public function GetAuthToken() {
+    return $this->GetHeaderValue('authToken');
   }
 
   /**
