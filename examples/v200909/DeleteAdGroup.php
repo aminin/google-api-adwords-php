@@ -65,7 +65,7 @@ try {
 
   $operations = array($operation);
 
-  // Update ad group.
+  // Delete ad group.
   $result = $adGroupService->mutate($operations);
 
   // Display ad groups.

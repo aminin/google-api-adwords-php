@@ -117,7 +117,7 @@ function CreateAdGroupCriterionOperations($adGroupId1, $adGroupId2) {
   // Create 100 keywords.
   for ($i = 0; $i < 100; $i++) {
     $keyword = new Keyword();
-    $keyword->text = 'mars cruise ' . time();
+    $keyword->text = 'mars cruise ' . $i;
     $keyword->matchType = 'BROAD';
 
     // Create biddable ad group criterion.
@@ -132,7 +132,6 @@ function CreateAdGroupCriterionOperations($adGroupId1, $adGroupId2) {
 
     $operations[] = $keywordAdGroupCriterionOperation;
   }
-
 
   // Create placement.
   $placement = new Placement();

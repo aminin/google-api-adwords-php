@@ -60,9 +60,9 @@ try {
   $image->name = 'Sample Image';
 
   // Upload image.
-  $result = $mediaService->upload($image);
+  $result = $mediaService->upload(array($image));
 
-  // Display ads.
+  // Display images.
   if (isset($result[0])) {
     $image = $result[0];
     $dimensions = MapUtils::GetMap($image->dimensions);

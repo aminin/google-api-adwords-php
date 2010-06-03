@@ -60,7 +60,7 @@ try {
   // Get all videos.
   $page = $mediaService->get($selector);
 
-  // Display images.
+  // Display videos.
   if (isset($page->media)) {
     foreach ($page->media as $video) {
       printf("Video with id '%s' and name '%s' was found.\n", $video->mediaId,

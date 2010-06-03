@@ -60,7 +60,7 @@ try {
   $criterion->id = $criterionId;
 
   // Create ad group criterion.
-  $adGroupCriterion = new BiddableAdGroupCriterion();
+  $adGroupCriterion = new AdGroupCriterionOperation();
   $adGroupCriterion->adGroupId = $adGroupId;
   $adGroupCriterion->criterion = new Criterion($criterionId);
 
