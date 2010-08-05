@@ -364,7 +364,8 @@ abstract class AdsSoapClient extends SoapClient {
       trigger_error('The minimum required version of this client library'
           . ' is 5.2.0.', E_USER_ERROR);
     }
-    $addXsiTypes = version_compare(PHP_VERSION, '5.2.7', '<');
+    $addXsiTypes =
+        version_compare(PHP_VERSION, '5.2.7', '<') || PHP_OS == 'Darwin';
     $removeEmptyElements = version_compare(PHP_VERSION, '5.2.3', '<');
     $replaceReferences = version_compare(PHP_VERSION, '5.2.2', '>=');
 
