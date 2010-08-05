@@ -80,5 +80,5 @@ try {
   }
 
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

@@ -102,5 +102,5 @@ try {
     print "No campaign targets were set.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

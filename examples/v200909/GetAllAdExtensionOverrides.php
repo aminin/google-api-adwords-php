@@ -73,5 +73,5 @@ try {
     print "No ad extension overrides were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

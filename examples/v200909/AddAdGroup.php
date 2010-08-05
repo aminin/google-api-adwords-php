@@ -84,5 +84,5 @@ try {
     print "No ad groups were added.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

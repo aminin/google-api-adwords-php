@@ -74,5 +74,5 @@ try {
     print "No images were uploaded.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

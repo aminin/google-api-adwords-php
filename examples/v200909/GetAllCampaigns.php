@@ -67,5 +67,5 @@ try {
     print "No campaigns were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

@@ -111,5 +111,5 @@ try {
     print 'Validation failed for reason "' . $e->getMessage() . "\".\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

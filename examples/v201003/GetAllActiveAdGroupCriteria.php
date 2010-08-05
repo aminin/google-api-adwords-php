@@ -79,5 +79,5 @@ try {
     print "No ad group criteria were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

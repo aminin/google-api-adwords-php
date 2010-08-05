@@ -96,5 +96,5 @@ try {
     print "No report definitions were added.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

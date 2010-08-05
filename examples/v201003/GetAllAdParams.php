@@ -73,5 +73,5 @@ try {
     print "No ad parameters were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

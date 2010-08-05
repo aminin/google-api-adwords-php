@@ -93,5 +93,5 @@ try {
     print "No ad group criteria were updated.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

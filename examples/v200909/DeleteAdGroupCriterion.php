@@ -86,5 +86,5 @@ try {
     print "No ad group criteria were deleted.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

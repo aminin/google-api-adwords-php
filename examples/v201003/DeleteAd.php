@@ -83,5 +83,5 @@ try {
     print "No ads were deleted.";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

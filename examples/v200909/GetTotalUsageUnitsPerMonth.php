@@ -67,5 +67,5 @@ try {
     print "No api usage information was returned.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

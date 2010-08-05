@@ -59,5 +59,5 @@ try {
   printf("Report with definition id '%s' was downloaded to '%s'.\n",
       $reportDefintionId, $fileName);
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

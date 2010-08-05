@@ -90,5 +90,5 @@ try {
     print "No criterion bid landscapes were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

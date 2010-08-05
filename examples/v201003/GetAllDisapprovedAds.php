@@ -76,5 +76,5 @@ try {
     print "No disapproved ads were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

@@ -88,5 +88,5 @@ try {
     print "No related placements were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

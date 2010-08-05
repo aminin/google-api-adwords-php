@@ -85,5 +85,5 @@ try {
     print "No campaign criteria were added.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

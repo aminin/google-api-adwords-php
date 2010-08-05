@@ -74,5 +74,5 @@ try {
     print "No campaign ad extensions were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

@@ -83,7 +83,6 @@ try {
   } else {
     print "No campaigns were updated.";
   }
-
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

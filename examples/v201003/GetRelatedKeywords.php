@@ -99,5 +99,5 @@ try {
     print "No related keywords were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

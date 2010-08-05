@@ -111,5 +111,5 @@ try {
     print "No campaign ad extensions were added.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

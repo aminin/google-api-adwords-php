@@ -84,5 +84,5 @@ try {
     print "No ad parameters were set.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

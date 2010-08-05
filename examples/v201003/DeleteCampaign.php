@@ -79,5 +79,5 @@ try {
     print "No campaigns were deleted.";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }

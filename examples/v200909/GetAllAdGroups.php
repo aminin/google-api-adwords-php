@@ -70,5 +70,5 @@ try {
     print "No ad groups were found.\n";
   }
 } catch (Exception $e) {
-  print_r($e);
+  print $e->getMessage();
 }
