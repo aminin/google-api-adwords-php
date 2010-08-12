@@ -42,14 +42,18 @@ class ReportUtils {
   private function __construct() {}
 
   /**
-   * Downloads a new instance of a report to a file.
+   * Downloads a new instance of an existing report definition. If the path
+   * parameter is specified it will be downloaded to the file at that path,
+   * otherwise it will be downloaded to memory and be returned as a string.
    * @param float $reportDefintionId the id of the ReportDefinition to downlaod
-   * @param string $path the path of the file to download the report to
+   * @param string $path an optional path of the file to download the report to
    * @param AdWordsUser $user the user that created the ReportDefinition
    * @param string $server the server to make the request to. If
    *     <var>NULL</var>, then the default server will be used
+   * @return mixed if path isn't specified the contents of the report,
+   *     otherwise the size in bytes of the downloaded report
    */
-  public static function DownloadReport($reportDefintionId, $path,
+  public static function DownloadReport($reportDefintionId, $path = NULL,
       AdWordsUser $user, $server = NULL) {
     $url = sprintf('%s/api/adwords/reportdownload?__rd=%s',
         isset($server) ? $server : $user->GetDefaultServer(),
@@ -68,9 +72,13 @@ class ReportUtils {
       }
     }
 
-    $file = fopen($path, 'w');
     $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_FILE, $file);
+    if (isset($path)) {
+      $file = fopen($path, 'w');
+      curl_setopt($ch, CURLOPT_FILE, $file);
+    } else {
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    }
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -86,23 +94,36 @@ class ReportUtils {
       curl_setopt($ch, CURLOPT_PROXYUSERPWD, HTTP_PROXY_USER . ':'
           . HTTP_PROXY_PASSWORD);
     }
-    curl_exec($ch);
+    $result = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $error = curl_error($ch);
+    $downloadSize = curl_getinfo($ch, CURLINFO_SIZE_DOWNLOAD);
     curl_close($ch);
-    fclose($file);
+    if (isset($file)) {
+      fclose($file);
+    }
 
     if ($httpCode != 200) {
       throw new ReportDownloadException($error, $httpCode);
     }
 
     // Check for error in downloaded file.
-    $file = fopen($path, 'r');
-    $line = fgets($file);
-    fclose($file);
+    if (isset($path)) {
+      $file = fopen($path, 'r');
+      $result = fgets($file);
+      fclose($file);
+    }
     $matches = array();
-    if (preg_match(ReportUtils::$REPORT_ERROR_MESSAGE_REGEX, $line, $matches)) {
+    if (preg_match(ReportUtils::$REPORT_ERROR_MESSAGE_REGEX, $result,
+        $matches)) {
       throw new ReportDownloadException($matches[1]);
+    }
+
+    // Return results.
+    if (isset($path)) {
+      return $downloadSize;
+    } else {
+      return $result;
     }
   }
 }
