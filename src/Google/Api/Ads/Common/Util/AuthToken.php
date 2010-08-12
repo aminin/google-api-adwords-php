@@ -94,7 +94,7 @@ class AuthToken {
   }
 
   /**
-   * Makes the client login requrest and stores the result.
+   * Makes the client login request and stores the result.
    * @return string the response from the ClientLogin API
    * @throws AuthTokenException if an error occurs during authentication
    * @access private
@@ -109,7 +109,7 @@ class AuthToken {
         'source' => $this->source,
         'logintoken' => $this->captchaToken,
         'logincaptcha' => $this->captchaResponse
-    ));
+    ), NULL, '&');
 
     $ch = curl_init($postUrl);
     curl_setopt($ch, CURLOPT_POST, 1);
