@@ -48,16 +48,16 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefintionId = (float) 'INSERT_REPORT_DEFINITION_ID_HERE';
+  $reportDefinitionId = (float) 'INSERT_REPORT_DEFINITION_ID_HERE';
   $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
 
   $path = dirname(__FILE__) . '/' . $fileName;
 
   // Download report.
-  ReportUtils::DownloadReport($reportDefintionId, $path, $user);
+  ReportUtils::DownloadReport($reportDefinitionId, $path, $user);
 
   printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefintionId, $fileName);
+      $reportDefinitionId, $fileName);
 } catch (Exception $e) {
   print $e->getMessage();
 }
