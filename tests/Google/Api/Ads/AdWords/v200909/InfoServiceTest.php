@@ -28,108 +28,131 @@
 
 error_reporting(E_STRICT | E_ALL);
 
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'PHPUnit/Framework.php';
+require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
+require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v200909/info/InfoService.php';
 
 /**
  * Functional tests for InfoService.
  *
  * @author api.arogal@gmail.com
  */
-class InfoServiceTest extends PHPUnit_Framework_TestCase {
-  private $version = 'v200909';
-  private $user;
+class InfoServiceTest extends AdsTestCase {
   private $service;
 
-  private static $clientId;
+  private $clientId;
 
+  /**
+   * Create the test suite.
+   */
+  public static function suite() {
+    $suite = new AdWordsTestSuite(__CLASS__);
+    $suite->SetVersion('v200909');
+    return $suite;
+  }
+
+  /**
+   * Set up the test fixtures.
+   */
   protected function setUp() {
-    $authFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
-    $settingsFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
-    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
-        NULL, NULL, NULL, $settingsFile);
-    InfoServiceTest::$clientId = $this->user->GetClientId();
-    $this->user->SetClientId(NULL);
-    $this->user->LogDefaults();
-    $this->service =
-        $this->user->GetInfoService($this->version);
+    $user = $this->sharedFixture['mccUser'];
+    $this->service = $user->GetInfoService();
+
+    $this->clientId = $this->sharedFixture['clientId'];
   }
 
   /**
-   * Test whether we can get free usage units per month using v200909.
+   * Test getting API usage.
+   * @param string $apiUsageType the API usage type
+   * @dataProvider apiUsageTypeProvider
+   * @covers InfoService::get
    */
-  public function testGetFreeUsageUnitsPerMonth() {
-    $selector = new InfoSelector(NULL, NULL, NULL,
-        NULL, NULL, 'FREE_USAGE_API_UNITS_PER_MONTH');
+  public function testGetApiUsage($apiUsageType) {
+    $selector = new InfoSelector();
+    $selector->serviceName = 'CampaignService';
+    $selector->methodName = 'mutate';
+    $selector->operator = 'ADD';
+    $selector->dateRange =  new DateRange(date('Ym01'), date('Ymd'));
+    $selector->apiUsageType = $apiUsageType;
+
     $apiUsageInfo = $this->service->get($selector);
 
-    $this->assertFalse(isset($apiUsageInfo->apiUsageRecords));
-    $this->assertTrue(isset($apiUsageInfo->cost));
+    $this->assertNull($apiUsageInfo->apiUsageRecords);
+    $this->assertNotNull($apiUsageInfo->cost);
   }
 
   /**
-   * Test whether we can get total usage units per month using v200909.
+   * Test getting monthly API usage limits.
+   * @param string $apiUsageType the API usage type
+   * @dataProvider monthlyLimitApiUsageTypeProvider
+   * @covers InfoService::get
    */
-  public function testGetTotalUsageUnitsPerMonth() {
-    $selector = new InfoSelector(NULL, NULL, NULL,
-        NULL, NULL, 'TOTAL_USAGE_API_UNITS_PER_MONTH');
+  public function testGetMonthyLimits($apiUsageType) {
+    $selector = new InfoSelector();
+    $selector->apiUsageType = $apiUsageType;
     $apiUsageInfo = $this->service->get($selector);
 
-    $this->assertFalse(isset($apiUsageInfo->apiUsageRecords));
-    $this->assertTrue(isset($apiUsageInfo->cost));
+    $this->assertNull($apiUsageInfo->apiUsageRecords);
+    $this->assertNotNull($apiUsageInfo->cost);
   }
 
   /**
-   * Test whether we can get operation count using v200909.
-   */
-  public function testGetOperationCount() {
-    $selector = new InfoSelector('CampaignService', 'get', NULL,
-        new DateRange('20090601', '20090831'), NULL, 'OPERATION_COUNT');
-    $apiUsageInfo = $this->service->get($selector);
-
-    $this->assertFalse(isset($apiUsageInfo->apiUsageRecords));
-    $this->assertTrue(isset($apiUsageInfo->cost));
-  }
-
-  /**
-   * Test whether we can get unit count using v200909.
-   */
-  public function testGetUnitCount() {
-    $selector = new InfoSelector('CampaignService', 'get', NULL,
-        new DateRange('20090601', '20090831'), NULL, 'UNIT_COUNT');
-    $apiUsageInfo = $this->service->get($selector);
-
-    $this->assertFalse(isset($apiUsageInfo->apiUsageRecords));
-    $this->assertTrue(isset($apiUsageInfo->cost));
-  }
-
-  /**
-   * Test whether we can get unit count for clients using v200909.
+   * Test getting a unit count for clients.
+   * @covers InfoService::get
    */
   public function testGetUnitCountForClients() {
-    $selector = new InfoSelector('CampaignService', 'get', NULL,
-        new DateRange('20090601', '20090831'),
-        array(InfoServiceTest::$clientId), 'UNIT_COUNT_FOR_CLIENTS');
+    $selector = new InfoSelector('CampaignService', 'mutate', 'ADD',
+        new DateRange(date('Ym01'), date('Ymd')), array($this->clientId),
+        'UNIT_COUNT_FOR_CLIENTS');
     $apiUsageInfo = $this->service->get($selector);
 
-    $this->assertTrue(isset($apiUsageInfo->apiUsageRecords));
-    $this->assertEquals(InfoServiceTest::$clientId,
+    $this->assertNotNull($apiUsageInfo->apiUsageRecords);
+    $this->assertEquals($this->clientId,
         $apiUsageInfo->apiUsageRecords[0]->clientEmail);
+    $this->assertNotNull($apiUsageInfo->apiUsageRecords[0]->cost);
     $this->assertEquals(0, $apiUsageInfo->cost);
   }
 
   /**
-   * Test whether we can get method cost using v200909.
+   * Test getting the cost of a method.
+   * @covers InfoService::get
    */
   public function testGetMethodCost() {
-    $selector = new InfoSelector('CampaignService', 'get', NULL,
-        new DateRange('20090601', '20090601'),
-        array(InfoServiceTest::$clientId), 'METHOD_COST');
+    $selector = new InfoSelector('CampaignService', 'mutate', 'ADD',
+        new DateRange(date('Ymd'), date('Ymd')), NULL, 'METHOD_COST');
     $apiUsageInfo = $this->service->get($selector);
 
-    $this->assertFalse(isset($apiUsageInfo->apiUsageRecords));
-    $this->assertEquals(1, $apiUsageInfo->cost);
+    $this->assertNull($apiUsageInfo->apiUsageRecords);
+    $this->assertNotNull($apiUsageInfo->cost);
+  }
+
+  /**
+   * Provides apiUsageTypes for InfoSelectors.
+   * @return array an array of apiUsageType (as an array)
+   */
+  public function apiUsageTypeProvider() {
+    $data = array();
+
+    // Unit count.
+    $data[] = array('UNIT_COUNT');
+    // Operation count.
+    $data[] = array('OPERATION_COUNT');
+
+    return $data;
+  }
+
+  /**
+   * Provides monthly limit apiUsageTypes for InfoSelectors.
+   * @return array an array of apiUsageType (as an array)
+   */
+  public function monthlyLimitApiUsageTypeProvider() {
+    $data = array();
+
+    // Free units.
+    $data[] = array('FREE_USAGE_API_UNITS_PER_MONTH');
+    // Unit cap.
+    $data[] = array('TOTAL_USAGE_API_UNITS_PER_MONTH');
+
+    return $data;
   }
 }

@@ -23,251 +23,176 @@
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
- * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
 error_reporting(E_STRICT | E_ALL);
 
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'PHPUnit/Framework.php';
+require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
+require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v200909/cm/BulkMutateJobService.php';
 
 /**
  * Functional tests for BulkMutateJobService.
- *
- * @author api.arogal@gmail.com
  */
-class BulkMutateJobServiceTest extends PHPUnit_Framework_TestCase {
-  private $version = 'v200909';
-  private $user;
+class BulkMutateJobServiceTest extends AdsTestCase {
   private $service;
+  private $testUtils;
 
-  private static $campaignId;
-  private static $adGroupId1;
-  private static $adGroupId2;
+  private $campaignId;
+  private $adGroupId;
 
+  /**
+   * Create the test suite.
+   */
+  public static function suite() {
+    $suite = new AdWordsTestSuite(__CLASS__);
+    $suite->SetVersion('v200909');
+    $suite->SetRequires(array('CAMPAIGN', 'AD_GROUP'));
+    return $suite;
+  }
+
+  /**
+   * Set up the test fixtures.
+   */
   protected function setUp() {
-    $authFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
-    $settingsFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
-    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
-        NULL, NULL, NULL, $settingsFile);
-    $this->user->LogDefaults();
-    $this->service =
-        $this->user->GetBulkMutateJobService($this->version);
+    $user = $this->sharedFixture['user'];
+    $this->service = $user->GetBulkMutateJobService();
 
-    if (!isset(BulkMutateJobServiceTest::$campaignId)) {
-      $service = $this->user->GetCampaignService($this->version);
-
-      $campaign = new Campaign();
-      $campaign->name = 'Campaign #' . time();
-      $campaign->status = 'PAUSED';
-      $campaign->biddingStrategy = new ManualCPC();
-      $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
-
-      $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
-
-      BulkMutateJobServiceTest::$campaignId =
-          $service->mutate($operations)->value[0]->id;
-    }
-
-    if (!isset(BulkMutateJobServiceTest::$adGroupId1)
-        || !isset(BulkMutateJobServiceTest::$adGroupId1)) {
-      $service = $this->user->GetAdGroupService($this->version);
-
-      $adGroup1 = new AdGroup();
-      $adGroup1->campaignId = BulkMutateJobServiceTest::$campaignId;
-      $adGroup1->name = 'AdGroup #' . time();
-      $adGroup1->status = 'ENABLED';
-      $adGroup1->bids = new ManualCPCAdGroupBids();
-      $adGroup1->bids->keywordMaxCpc = new Bid(new Money('1000000'));
-
-      $adGroup2 = new AdGroup();
-      $adGroup2->campaignId = BulkMutateJobServiceTest::$campaignId;
-      $adGroup2->name = 'AdGroup #' . (time() + 1);
-      $adGroup2->status = 'ENABLED';
-      $adGroup2->bids = new ManualCPCAdGroupBids();
-      $adGroup2->bids->keywordMaxCpc = new Bid(new Money('1000000'));
-
-      $operations = array(new AdGroupOperation($adGroup1, 'ADD'),
-          new AdGroupOperation($adGroup2, 'ADD'));
-
-      $adGroups = $service->mutate($operations)->value;
-
-      BulkMutateJobServiceTest::$adGroupId1 = $adGroups[0]->id;
-      BulkMutateJobServiceTest::$adGroupId2 = $adGroups[1]->id;
-    }
+    $this->campaignId = $this->sharedFixture['campaignId'];
+    $this->adGroupId = $this->sharedFixture['adGroupId'];
   }
 
   /**
-   * Test whether we can fetch all jobs currently in the queue using v200909.
+   * Test adding a bulk mutate job.
+   * @covers BulkMutateJobService::mutate
    */
-  public function testGetAllJobs() {
-    $jobs = $this->service->get(new BulkMutateJobSelector());
+  public function testAdd() {
+    $operations = $this->CreateKeywordOperations(50);
+    $operationStream =  new OperationStream(
+        new EntityId('CAMPAIGN_ID', $this->campaignId), $operations);
+    $bulkMutateRequest  = new BulkMutateRequest(0, array($operationStream));
+
+    $bulkMutateJob = new BulkMutateJob();
+    $bulkMutateJob->request = $bulkMutateRequest;
+    $bulkMutateJob->numRequestParts = 2;
+
+    $operation = new JobOperation($bulkMutateJob, 'ADD');
+    $testBulkMutateJob = $this->service->mutate($operation);
+
+    // Exclude generated fields.
+    $excludeFields = array('id', 'policy', 'request', 'status',
+        'numRequestPartsReceived', 'context', 'JobType');
+    $this->assertEqualsWithExclusions($bulkMutateJob,
+        $testBulkMutateJob, $excludeFields);
+
+    return $testBulkMutateJob->id;
   }
 
   /**
-   * Test whether we can fetch all COMPLETED jobs using v200909.
+   * Test setting a bulk mutate job.
+   * @covers BulkMutateJobService::mutate
+   * @depends testAdd
    */
-  public function testGetAllCompletedJobs() {
-    $jobs = $this->service->get(
-        new BulkMutateJobSelector(NULL, array('COMPLETED')));
+  public function testSet($id) {
+    $operations = $this->CreateKeywordOperations(50);
+    $operationStream =  new OperationStream(
+        new EntityId('CAMPAIGN_ID', $this->campaignId), $operations);
+    $bulkMutateRequest  = new BulkMutateRequest(1, array($operationStream));
+
+    $bulkMutateJob = new BulkMutateJob();
+    $bulkMutateJob->id = $id;
+    $bulkMutateJob->request = $bulkMutateRequest;
+    $bulkMutateJob->numRequestParts = 2;
+
+    $operation = new JobOperation($bulkMutateJob, 'SET');
+    $testBulkMutateJob = $this->service->mutate($operation);
+
+    // Exclude generated fields.
+    $excludeFields = array('policy', 'request', 'status',
+        'numRequestPartsReceived', 'context', 'JobType');
+    $this->assertEqualsWithExclusions($bulkMutateJob,
+        $testBulkMutateJob, $excludeFields);
+
+    return $testBulkMutateJob->id;
   }
 
   /**
-   * Test whether we can set campaign targets using single part job with
-   * single stream and multiple operations using v200909.
+   * Test getting a bulk mutate job.
+   * @covers BulkMutateJobService::get
+   * @depends testAdd
    */
-  public function testSinglePartSingleStreamMultipleOperations() {
-    $scopingEntityId =
-        new EntityId('CAMPAIGN_ID', BulkMutateJobServiceTest::$campaignId);
+  public function testGet($id) {
+    $selector = new BulkMutateJobSelector();
+    $selector->jobIds = array($id);
+    $selector->jobStatuses =
+        array('COMPLETED', 'PROCESSING', 'FAILED', 'PENDING');
 
-    $geoTargetList = new GeoTargetList(
-        array(new CityTarget('New York', 'US-NY', 'US', NULL, 'CityTarget')),
-        BulkMutateJobServiceTest::$campaignId, 'GeoTargetList');
+    $bulkMutateJobs = $this->service->get($selector);
 
-    $networkTargetList = new NetworkTargetList(
-        array(new NetworkTarget('CONTENT_NETWORK', 'NetworkTarget')),
-        BulkMutateJobServiceTest::$campaignId, 'NetworkTargetList');
+    $this->assertNotNull($bulkMutateJobs);
+    $this->assertEquals(1, sizeof($bulkMutateJobs));
+  }
 
-    $languageTargetList = new LanguageTargetList(
-        array(new LanguageTarget('en', 'LanguageTarget')),
-        BulkMutateJobServiceTest::$campaignId, 'LanguageTargetList');
+  /**
+   * Test getting all bulk mutate jobs.
+   * @covers BulkMutateJobService::get+
+   * @depends testAdd
+   */
+  public function testGetAll() {
+    $selector = new BulkMutateJobSelector();
+    $bulkMutateJobs = $this->service->get($selector);
 
-    $operations = array(
-        new CampaignTargetOperation($geoTargetList, 'SET'),
-        new CampaignTargetOperation($networkTargetList, 'SET'),
-        new CampaignTargetOperation($languageTargetList, 'SET'));
+    $this->assertNotNull($bulkMutateJobs);
+    $this->assertGreaterThanOrEqual(1, sizeof($bulkMutateJobs));
+  }
 
-    $operationStream = new OperationStream($scopingEntityId, $operations);
-    $request = new BulkMutateRequest(0, $operationStream);
-
-    $job = new BulkMutateJob();
-    $job->request = $request;
-    $job->numRequestParts = 1;
-
-    $job = $this->service->mutate(new JobOperation($job, 'ADD'));
-
-    $this->assertEquals('PENDING', $job->status);
+  /**
+   * Test getting the results of a bulk mutate job.
+   * @covers BulkMutateJobService::get
+   * @depends testSet
+   */
+  public function testGetResults($id) {
+    $selector = new BulkMutateJobSelector();
+    $selector->jobIds = array($id);
 
     do {
-      $jobs = $this->service->get(
-          new BulkMutateJobSelector(array($job->id)));
-      $job = $jobs[0];
-      sleep(5);
-    } while($job->status == 'PENDING' || $job->status == 'PROCESSING');
+      $bulkMutateJobs = $this->service->get($selector);
+      $bulkMutateJob = $bulkMutateJobs[0];
+    } while ($bulkMutateJob->status == 'PENDING'
+        || $bulkMutateJob->status == 'PROCESSING');
 
-    $this->assertEquals('COMPLETED', $job->status);
+    $this->assertEquals('COMPLETED', $bulkMutateJob->status);
 
-    $jobs = $this->service->get(
-        new BulkMutateJobSelector(array($job->id), NULL, 0));
-    $job = $jobs[0];
+    $selector->resultPartIndex = 0;
+    $selector->includeHistory = TRUE;
+    $selector->includeStats = TRUE;
 
-    $operationResults =
-        $job->result->operationStreamResults[0]->operationResults;
+    $bulkMutateJobs = $this->service->get($selector);
+    $bulkMutateJob = $bulkMutateJobs[0];
 
-    $this->assertEquals($geoTargetList,
-        $operationResults[0]->returnValue->TargetList);
-    $this->assertEquals($networkTargetList,
-        $operationResults[1]->returnValue->TargetList);
-    $this->assertEquals($languageTargetList,
-        $operationResults[2]->returnValue->TargetList);
+    $this->assertNotNull($bulkMutateJob);
+    $this->assertNotNull($bulkMutateJob->stats);
+    $this->assertNotNull($bulkMutateJob->billingSummary);
+    $this->assertNotNull($bulkMutateJob->history);
+    $this->assertNotNull($bulkMutateJob->result);
   }
 
   /**
-   * Test whether we can add ads and keywords using multiple part job with
-   * multiple streams using v200909.
+   * Creates the specified number of new keyword operations.
+   * @param int $num the number of operations to create
+   * @return array an array of operations
    */
-  public function testMultiplePartsSingleStreamMultipleOperations() {
-    $scopingEntityId =
-        new EntityId('CAMPAIGN_ID', BulkMutateJobServiceTest::$campaignId);
-
-    $ad1 = new TextAd('Luxury Cruise to Mars is here now!!!',
-        'Visit the Red Planet in style.', 'Low-gravity fun for everyone!', NULL,
-        'http://www.example.com', 'example.com', NULL, NULL, 'TextAd');
-    $adGroupAd1 = new AdGroupAd(BulkMutateJobServiceTest::$adGroupId1, $ad1);
-
-    $ad2 = new TextAd('Luxury Cruise to Mars is here now!!!',
-        'Visit the Red Planet in style.', 'Low-gravity fun for everyone!', NULL,
-        'http://www.example.com', 'example.com', NULL, NULL, 'TextAd');
-    $adGroupAd2 = new AdGroupAd(BulkMutateJobServiceTest::$adGroupId2, $ad2);
-
-    $adStream = new OperationStream(
-        $scopingEntityId,
-        array(new AdGroupAdOperation($adGroupAd1, NULL, 'ADD'),
-            new AdGroupAdOperation($adGroupAd2, NULL, 'ADD')));
-
-    $part1 = new BulkMutateRequest(0, array($adStream));
-
-    $job = new BulkMutateJob();
-    $job->request = $part1;
-    $job->numRequestParts = 2;
-
-    $job = $this->service->mutate(new JobOperation($job, 'ADD'));
-
-    $this->assertEquals('PENDING', $job->status);
-
-    $keyword1 = new Keyword('mars cruise', 'BROAD', NULL, 'Keyword');
-    $biddableAdGroupCriterion1 = new BiddableAdGroupCriterion(NULL, NULL, NULL,
-        NULL, NULL, NULL, NULL, NULL, BulkMutateJobServiceTest::$adGroupId1,
-        $keyword1, 'BiddableAdGroupCriterion');
-
-    $keyword2 = new Keyword('mars cruise', 'EXACT', NULL, 'Keyword');
-    $biddableAdGroupCriterion2 = new BiddableAdGroupCriterion(NULL, NULL, NULL,
-        NULL, NULL, NULL, NULL, NULL, BulkMutateJobServiceTest::$adGroupId2,
-        $keyword2, 'BiddableAdGroupCriterion');
-
-    $keywordStream = new OperationStream(
-        $scopingEntityId,array(
-            new AdGroupCriterionOperation($biddableAdGroupCriterion1, NULL,
-                'ADD'),
-            new AdGroupCriterionOperation($biddableAdGroupCriterion2, NULL,
-                'ADD')));
-
-    $part2 = new BulkMutateRequest(1, array($keywordStream));
-
-    $jobId = $job->id;
-    $job = new BulkMutateJob();
-    $job->id = $jobId;
-    $job->request = $part2;
-
-    $job = $this->service->mutate(new JobOperation($job, 'SET'));
-
-    $this->assertEquals('PENDING', $job->status);
-
-    do {
-      $jobs = $this->service->get(
-          new BulkMutateJobSelector(array($job->id)));
-      $job = $jobs[0];
-      sleep(5);
-    } while($job->status == 'PENDING' || $job->status == 'PROCESSING');
-
-    $this->assertEquals('COMPLETED', $job->status);
-
-    $jobs = $this->service->get(
-        new BulkMutateJobSelector(array($job->id), NULL, 0));
-    $job = $jobs[0];
-    $operationResults1 =
-        $job->result->operationStreamResults[0]->operationResults;
-
-    $jobs = $this->service->get(
-        new BulkMutateJobSelector(array($job->id), NULL, 1));
-    $job = $jobs[0];
-    $operationResults2 =
-        $job->result->operationStreamResults[0]->operationResults;
-
-    $this->assertTrue($operationResults1[0] instanceof FailureResult);
-    $this->assertTrue($operationResults1[1] instanceof BatchFailureResult);
-
-    $testKeyword1 =
-        $operationResults2[0]->returnValue->AdGroupCriterion->criterion;
-    $testKeyword2 =
-        $operationResults2[1]->returnValue->AdGroupCriterion->criterion;
-
-    $keyword1->id = $testKeyword1->id;
-    $keyword2->id = $testKeyword2->id;
-
-    $this->assertEquals($keyword1, $testKeyword1);
-    $this->assertEquals($keyword2, $testKeyword2);
+  private function CreateKeywordOperations($num) {
+    $operations = array();
+    for ($i=0; $i<$num; $i++) {
+      $keyword = new Keyword('mars cruise ' . $i, 'BROAD');
+      $adGroupCriterion = new BiddableAdGroupCriterion();
+      $adGroupCriterion->adGroupId = $this->adGroupId;
+      $adGroupCriterion->criterion = $keyword;
+      $operations[] =
+          new AdGroupCriterionOperation($adGroupCriterion, NULL, 'ADD');
+    }
+    return $operations;
   }
 }
