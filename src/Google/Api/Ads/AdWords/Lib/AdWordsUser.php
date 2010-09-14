@@ -102,10 +102,11 @@ class AdWordsUser extends AdsUser {
     parent::__construct();
 
     if (isset($authenticationIniPath)) {
-      $authenticationIni = parse_ini_file(realpath($authenticationIniPath));
+      $authenticationIni =
+          parse_ini_file(realpath($authenticationIniPath), true);
     } else {
       $authenticationIni =
-          parse_ini_file(dirname(__FILE__) . '/../auth.ini');
+          parse_ini_file(dirname(__FILE__) . '/../auth.ini', true);
     }
 
     $email = $this->GetAuthVarValue($email, 'email', $authenticationIni);
@@ -122,6 +123,10 @@ class AdWordsUser extends AdsUser {
     $clientId = $this->GetAuthVarValue($clientId, 'clientEmail',
         $authenticationIni);
     $clientId = $this->GetAuthVarValue($clientId, 'clientCustomerId',
+        $authenticationIni);
+    $authToken = $this->GetAuthVarValue($authToken, 'authToken',
+        $authenticationIni);
+    $oauthInfo = $this->GetAuthVarValue($oauthInfo, 'OAUTH',
         $authenticationIni);
 
     $this->SetEmail($email);
