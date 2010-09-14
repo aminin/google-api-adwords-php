@@ -33,7 +33,7 @@ require_once 'ReportDownloadException.php';
  * A collection of utility methods for working with reports.
  */
 class ReportUtils {
-  private static $REPORT_ERROR_MESSAGE_REGEX = '/^!!!([^|]*)\|\|\|(.*)/';
+  private static $REPORT_ERROR_MESSAGE_REGEX = '/^!!![^|]*\|\|\|([^|]*)\|\|\|([^?]*)\?\?\?/';
 
   /**
    * The ReportUtils class is not meant to have any instances.
@@ -116,7 +116,7 @@ class ReportUtils {
     $matches = array();
     if (preg_match(ReportUtils::$REPORT_ERROR_MESSAGE_REGEX, $result,
         $matches)) {
-      throw new ReportDownloadException($matches[1]);
+      throw new ReportDownloadException($matches[2]);
     }
 
     // Return results.
