@@ -345,12 +345,12 @@ class TargetingIdeaServiceTest extends AdsTestCase {
     $data = array();
 
     // Related to URL.
-    $url = 'mars.google.com';
+    $url = 'code.google.com';
     $rtusp = new RelatedToUrlSearchParameter(array($url), TRUE);
     $data[] = array(array($rtusp));
 
     // Relates to keyword and URL.
-    $keyword = new Keyword('mars cruise', 'BROAD');
+    $keyword = new Keyword('html', 'BROAD');
     $rtksp = new RelatedToKeywordSearchParameter(array($keyword));
     $data[] = array(array($rtusp, $rtksp));
 
@@ -364,7 +364,7 @@ class TargetingIdeaServiceTest extends AdsTestCase {
 
     // Language target, single value only.
     $ltsp =
-        new LanguageTargetSearchParameter(array(new LanguageTarget('zh_CN')));
+        new LanguageTargetSearchParameter(array(new LanguageTarget('en')));
     $data[] = array(array($rtusp, $ltsp));
 
     return $data;

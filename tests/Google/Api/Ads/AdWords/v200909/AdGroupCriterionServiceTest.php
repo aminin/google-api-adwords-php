@@ -94,7 +94,7 @@ class AdGroupCriterionServiceTest extends AdsTestCase {
         'AdGroupCriterionType', 'systemServingStatus', 'approvalStatus',
         'bids->AdGroupCriterionBidsType',
         'bids->maxCpc->amount->ComparableValueType', 'bids->bidSource',
-        'qualityInfo', 'stats');
+        'firstPageCpc', 'qualityInfo', 'stats');
     $this->assertEqualsWithExclusions($biddableAdGroupCriterion,
         $testBiddableAdGroupCriterion, $excludeFields);
   }
