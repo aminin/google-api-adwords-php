@@ -204,6 +204,36 @@ To run in this enviroment, you can make one of two changes to your library:
              'https://adwords-sandbox.google.com');
 
 
+Authentication Options
+----------------------
+
+Authentication in the client library is handled by the AdWordsUser object, which
+has the following options.
+
+  - Email and Password: The email and password of the AdWords account or MCC
+    account is used. When the first service is created an AuthToken is generated
+    using the ClientLogin API using these credentials. The email and
+    password can be be stored in the auth.ini file, passed into the AdWordsUser
+    constructor, or set individually using the SetEmail() and SetPassword()
+    methods. If the AuthToken expires (they are valid for up to two weeks) it
+    can be regenerated using the RegenerateAuthToken() method.
+
+  - AuthToken: An existing AuthToken is used. It is recommended to reuse
+    AuthTokens since too many requests to the ClientLogin API can lead to
+    errors.  You can pass the authToken in the contructor or set it using the
+    SetAuthToken() method.
+
+  - OAuth: The OAuth protocol is used. This protocol provides a way to access
+    an AdWords account without needing possesion of the email or password.
+    Instead a permanent OAuth token is requested, authorized by the user
+    in their browser, and then upgraded for full access. The AdWordsUser
+    provides the RequestOAuthToken(), GetOAuthAuthorizationUrl(), and
+    UpgradeOAuthToken() methods to help simplify the process. Existing OAuth
+    tokens can be used by passing them into the contructor or by using the
+    SetOAuthInfo() method. See the example UseOAuth.php for an example of
+    how to use these methods.
+
+
 How do I enable logging?
 ------------------------
 
@@ -344,6 +374,8 @@ Run environment:
     - SoapClient [http://us3.php.net/manual/en/book.soap.php] (--enable-soap)
     - OpenSSL [http://php.net/manual/en/book.openssl.php] (--with-ssl)
     - cURL [http://php.net/manual/en/book.curl.php] (--with-curl)
+  - Optional PHP extensions:
+    - OAuth [http://pecl.php.net/package/oauth]  (pecl install oauth)
 
 Build environment:
   - PHPUnit [http://www.phpunit.de/]

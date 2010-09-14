@@ -28,6 +28,7 @@
  */
 
 require_once dirname(__FILE__) . '/../../Common/Lib/AdsSoapClient.php';
+require_once dirname(__FILE__) . '/../../Common/Util/OAuthUtils.php';
 
 /**
  * An extension of the {@link AdsSoapClient} for the AdWords API.
@@ -47,6 +48,28 @@ class AdWordsSoapClient extends AdsSoapClient {
       $serviceName, $serviceNamespace) {
     parent::__construct($wsdl, $options, $user, $serviceName,
         $serviceNamespace);
+  }
+
+  /**
+   * Overrides the method __doRequest().  When OAuth authentication is used
+   * the URL has OAuth parameters added.
+   * @param string $request the request XML
+   * @param string $location the URL to request
+   * @param string $action the SOAP action
+   * @param string $version the SOAP version
+   * @param int $one_way if set to 1, this method returns nothing
+   * @return string the XML SOAP response
+   */
+  function __doRequest($request , $location , $action , $version,
+      $one_way = 0) {
+    if ($this->user->GetOAuthInfo() != NULL) {
+      $oauthParameters =
+          OAuthUtils::GetSignedRequestParameters($this->user->GetOAuthInfo(),
+              $location);
+      $location = $location . '?' .
+          http_build_query($oauthParameters, NULL, '&');
+    }
+    return parent::__doRequest($request, $location, $action, $version);
   }
 
   /**

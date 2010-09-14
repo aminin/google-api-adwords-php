@@ -25,6 +25,7 @@
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  * @see        AdsUser
  */
 
@@ -91,10 +92,13 @@ class AdWordsUser extends AdsUser {
    *     clientCustomerId entries loaded from any INI file
    * @param string $settingsIniPath the path to the settings INI file. If
    *     <var>NULL</var>, the default settings INI file will be loaded
+   * @param string $authToken the authToken to use for requests
+   * @param array $oauthInfo the OAuth information to use for requests
    */
   public function __construct($authenticationIniPath = NULL, $email = NULL,
       $password = NULL, $developerToken = NULL, $applicationToken = NULL,
-      $userAgent = NULL, $clientId = NULL, $settingsIniPath = NULL) {
+      $userAgent = NULL, $clientId = NULL, $settingsIniPath = NULL,
+      $authToken = NULL, $oauthInfo = NULL) {
     parent::__construct();
 
     if (isset($authenticationIniPath)) {
@@ -122,12 +126,12 @@ class AdWordsUser extends AdsUser {
 
     $this->SetEmail($email);
     $this->SetPassword($password);
+    $this->SetAuthToken($authToken);
+    $this->SetOAuthInfo($oauthInfo);
     $this->SetClientLibraryUserAgent($userAgent);
     $this->SetClientId($clientId);
     $this->SetDeveloperToken($developerToken);
     $this->SetApplicationToken($applicationToken);
-
-    $this->ValidateUser();
 
     if (!isset($settingsIniPath)) {
       $settingsIniPath = dirname(__FILE__) . '/../settings.ini';
@@ -137,8 +141,6 @@ class AdWordsUser extends AdsUser {
         AdWordsUser::$DEFAULT_VERSION,
         AdWordsUser::$DEFAULT_SERVER,
         dirname(__FILE__), dirname(__FILE__));
-
-    $this->RegenerateAuthToken();
   }
 
   /**
@@ -471,6 +473,7 @@ class AdWordsUser extends AdsUser {
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $serviceGroupUrlOverride = NULL,
       $serviceGroupHeaderNamespaceOverride = NULL, $validateOnly = NULL) {
+    $this->ValidateUser();
     if (!isset($serviceFactory)) {
       if (!isset($version)) {
         $version = $this->GetDefaultVersion();
@@ -510,7 +513,11 @@ class AdWordsUser extends AdsUser {
    * @return string the auth token
    */
   public function GetAuthToken() {
-    return $this->GetHeaderValue('authToken');
+    $authToken = $this->GetHeaderValue('authToken');
+    if (!isset($authToken) && isset($this->email) && isset($this->password)) {
+      $authToken = $this->RegenerateAuthToken();
+    }
+    return $authToken;
   }
 
   /**
@@ -644,17 +651,22 @@ class AdWordsUser extends AdsUser {
   /**
    * Validates the user and throws a validation error if there are any errors.
    * @throws ValidationException if there are any validation errors
-   * @access private
    */
-  private function ValidateUser() {
-    if (!isset($this->email)) {
-      throw new ValidationException('email', NULL,
-          'email is required and cannot be NULL.');
-    }
+  public function ValidateUser() {
+    if ($this->GetOAuthInfo()) {
+      parent::ValidateOAuthInfo();
+    } else if ($this->GetAuthToken() == NULL) {
+      if (!isset($this->email)) {
+        throw new ValidationException('email', NULL,
+            'email is required and cannot be NULL.');
+      }
 
-    if (!isset($this->password)) {
-      throw new ValidationException('password', NULL,
-          'password is required and cannot be NULL.');
+      if (!isset($this->password)) {
+        throw new ValidationException('password', NULL,
+            'password is required and cannot be NULL.');
+      }
+      // Generate an authToken.
+      $this->RegenerateAuthToken();
     }
 
     if ($this->GetUserAgent() == NULL) {
@@ -666,5 +678,18 @@ class AdWordsUser extends AdsUser {
       throw new ValidationException('developerToken', NULL,
           'developerToken is required and cannot be NULL.');
     }
+  }
+
+  /**
+   * Gets the OAuth scope for this user.
+   * @param string $server the AdWords API server that requests will be made to
+   * @return string the OAuth scope to use when requesting the token
+   */
+  protected function GetOAuthScope($server = NULL) {
+    $server = isset($server) ? $server : $this->GetDefaultServer();
+    if (substr($server, -1) == '/') {
+      $server = substr($server, 0, -1);
+    }
+    return $server . '/api/adwords/';
   }
 }

@@ -28,6 +28,7 @@
  */
 
 require_once dirname(__FILE__) . '/../Util/Logger.php';
+require_once dirname(__FILE__) . '/../Util/OAuthUtils.php';
 require_once 'SoapClientFactory.php';
 require_once 'ValidationException.php';
 
@@ -43,6 +44,7 @@ abstract class AdsUser {
   private $soapCompressionLevel;
   private $wsdlCache;
   private $authServer;
+  private $oauthInfo;
 
   /**
    * Constructor for AdsUser.
@@ -51,6 +53,7 @@ abstract class AdsUser {
   protected function __construct() {
     $this->requestHeaderElements = array();
     $this->logsDirectory = '.';
+    $this->authServer = 'https://www.google.com';
   }
 
   /**
@@ -253,11 +256,27 @@ abstract class AdsUser {
   }
 
   /**
+   * Sets the default server.
+   * @param string $defaultServer the default server
+   */
+  public function SetDefaultServer($defaultServer) {
+    $this->defaultServer = $defaultServer;
+  }
+
+  /**
    * Gets the default version.
    * @return string the default version
    */
   public function GetDefaultVersion() {
     return $this->defaultVersion;
+  }
+
+  /**
+   * Sets the default version.
+   * @param string $defaultVersion the default version
+   */
+  public function SetDefaultVersion($defaultVersion) {
+    $this->defaultVersion = $defaultVersion;
   }
 
   /**
@@ -301,8 +320,86 @@ abstract class AdsUser {
   }
 
   /**
+   * Gets the OAuth info for this user.
+   * @return array the OAuth info for this user
+   */
+  public function GetOAuthInfo() {
+    return $this->oauthInfo;
+  }
+
+  /**
+   * Sets the OAuth info for this user.
+   * @param array $oauthInfo the OAuth info for this user
+   */
+  public function SetOAuthInfo($oauthInfo) {
+    $this->oauthInfo = $oauthInfo;
+  }
+
+  /**
    * Gets the client library identifier used for user-agent fields.
    * @return string a unique client library identifier
    */
   abstract public function GetClientLibraryIdentifier();
+
+  /**
+   * Requests a new OAuth token.
+   * @param $callbackUrl the URL to return to after the token is authorized
+   * @param $server the AdWords API server that requests will be made to
+   */
+  public function RequestOAuthToken($callbackUrl = NULL, $server = NULL) {
+    $server = isset($server) ? $server : $this->GetDefaultServer();
+    $scope = $this->GetOAuthScope($server);
+    $this->oauthInfo = OAuthUtils::GetRequestToken($this->oauthInfo, $scope,
+        $this->GetAuthServer(), $callbackUrl);
+  }
+
+  /**
+   * Gets the OAuth authorization URL for the OAuth token.
+   * @returns string the URL used to authorize the token
+   */
+  public function GetOAuthAuthorizationUrl() {
+    return OAuthUtils::GetAuthorizationUrl($this->oauthInfo,
+        $this->GetAuthServer());
+  }
+
+  /**
+   * Upgrades the authorized OAuth token.
+   * @param string $verifier the verifier string returned from authorizing the
+   *     token
+   */
+  public function UpgradeOAuthToken($verifier) {
+    $this->oauthInfo = OAuthUtils::GetAccessToken($this->oauthInfo, $verifier,
+        $this->GetAuthServer());
+  }
+
+  /**
+   * Validates that the OAuth info is complete.
+   * @throws ValidationException if there are any validation errors
+   * @access protected
+   */
+  protected function ValidateOAuthInfo() {
+    if (!array_key_exists('oauth_consumer_key', $this->oauthInfo)) {
+      throw new ValidationException('oauthInfo', NULL,
+          'oauth_consumer_key is required and cannot be NULL.');
+    }
+    if (!array_key_exists('oauth_consumer_secret', $this->oauthInfo)) {
+      throw new ValidationException('oauthInfo', NULL,
+          'oauth_consumer_secret is required and cannot be NULL.');
+    }
+    if (!array_key_exists('oauth_token', $this->oauthInfo)) {
+      throw new ValidationException('oauthInfo', NULL,
+          'oauth_token is required and cannot be NULL.');
+    }
+    if (!array_key_exists('oauth_token_secret', $this->oauthInfo)) {
+      throw new ValidationException('oauthInfo', NULL,
+          'oauth_token_secret is required and cannot be NULL.');
+    }
+  }
+
+  /**
+   * Gets the OAuth scope for this user.
+   * @param string $server the AdWords API server that requests will be made to
+   * @return string the scope to use when requesting an OAuth token
+   */
+  abstract protected function GetOAuthScope($server = NULL);
 }
