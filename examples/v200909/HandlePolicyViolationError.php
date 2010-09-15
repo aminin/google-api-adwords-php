@@ -26,7 +26,7 @@
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Eric Koleda <api.ekoleda@gmail.com>
- * @link       http://code.google.com/apis/adwords/v2009/docs/reference-v200909/AdGroupCriterionService.html
+ * @link       http://code.google.com/apis/adwords/v2009/docs/reference/AdGroupCriterionService.html
  */
 
 error_reporting(E_STRICT | E_ALL);
@@ -83,10 +83,11 @@ try {
     $result = $adGroupAdValidationService->mutate($operations);
   } catch (SoapFault $fault) {
     $errors = ErrorUtils::GetApiErrors($fault);
+    $operationIndicesToRemove = array();
     foreach ($errors as $error) {
       if ($error instanceof PolicyViolationError) {
-        $operationIdex = ErrorUtils::GetSourceOperationIndex($error);
-        $operation = $operations[$operationIdex];
+        $operationIndex = ErrorUtils::GetSourceOperationIndex($error);
+        $operation = $operations[$operationIndex];
         printf("Ad with headline '%s' violated %s policy '%s'.\n",
             $operation->operand->ad->headline,
             $error->isExemptable ? 'exemptable' : 'non-exemptable',
@@ -102,14 +103,19 @@ try {
         } else {
           // Remove non-exemptable operation.
           print "Removing the operation from the request.\n";
-          $index = array_search($operation, $operations);
-          if ($index !== FALSE) {
-            unset($operations[$index]);
-          }
+          $operationIndicesToRemove[] = $operationIndex;
         }
       } else {
         // Non-policy error returned, throw fault.
         throw $fault;
+      }
+    }
+    $operationIndicesToRemove =
+        array_unique($operationIndicesToRemove);
+    rsort($operationIndicesToRemove, SORT_NUMERIC);
+    if (sizeof($operationIndicesToRemove) > 0) {
+      foreach ($operationIndicesToRemove as $operationIndex) {
+        unset($operations[$operationIndex]);
       }
     }
   }

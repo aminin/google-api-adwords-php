@@ -1,3 +1,18 @@
+2.3.0
+- Added support for v201008, with examples.
+- Changed error handling in examples to avoid authTokens and developer tokens
+appearing in stack traces.
+- Added AuthToken unit test.
+- Added XSI type fix for OSX.
+- Ensured correct argument separator for ClientLogin requests.
+- Added ability to download reports to memory.
+- Updated ReportUtils error regex.
+- Added OAuth support.
+- Added ability to reuse authToken without first creating new one.
+- Added new test framework and utils.
+- Added and updated v200909 tests.
+- Added the ability to load authToken or OAuth info from the auth.ini file.
+
 2.2.0
 - Added support for v201003, with examples and tests.
 - Removed API dependency from ErrorUtils.

@@ -3,7 +3,7 @@
 <!-- See README file for requirements                                        -->
 <!-- ======================================================================= -->
 <project basedir="." default="generate_php" name="aw_api_php_lib">
-  <property name="version" value="2.2.0"/>
+  <property name="version" value="2.3.0"/>
   <property name="package" value="GoogleApiAdsAdWords"/>
   <property name="author" value="Eric Koleda &lt;api.ekoleda@gmail.com&gt;"/>
 
@@ -20,6 +20,13 @@
   <property name="api.version.v201003.info.services" value="InfoService"/>
   <property name="api.version.v201003.job.services" value="BulkMutateJobService"/>
   <property name="api.version.v201003.o.services" value="TargetingIdeaService"/>
+
+  <property name="api.version.v201008" value="v201008"/>
+  <property name="api.version.v201008.cm.services"
+      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,BidLandscapeService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,ExperimentService,GeoLocationService,MediaService,ReportDefinitionService"/>
+  <property name="api.version.v201008.info.services" value="InfoService"/>
+  <property name="api.version.v201008.job.services" value="BulkMutateJobService"/>
+  <property name="api.version.v201008.o.services" value="TargetingIdeaService,TrafficEstimatorService"/>
 
   <property name="src.dir" value="${project.basedir}/src"/>
   <property name="examples.dir" value="${project.basedir}/examples"/>
@@ -212,10 +219,67 @@
   </target>
 
   <!-- =================================================================== -->
+  <!-- Target: generates all php for v201008                               -->
+  <!-- =================================================================== -->
+  <target name="generate_v201008">
+    <property name="server" value="https://adwords.google.com"/>
+
+    <!-- cm -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="cm"/>
+      <property name="services.group.url" value="cm"/>
+      <property name="services.version" value="${api.version.v201008}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201008.cm.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+
+    <!-- info -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="info"/>
+      <property name="services.group.url" value="info"/>
+      <property name="services.version" value="${api.version.v201008}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201008.info.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+
+    <!-- job -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="cm"/>
+      <property name="services.group.url" value="job"/>
+      <property name="services.version" value="${api.version.v201008}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201008.job.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+
+    <!-- o -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="o"/>
+      <property name="services.group.url" value="o"/>
+      <property name="services.version" value="${api.version.v201008}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201008.o.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+  </target>
+
+  <!-- =================================================================== -->
   <!-- Target: generate php from wsdls                                     -->
   <!-- =================================================================== -->
   <target name="generate_php" depends="init">
     <phingcall target="generate_v200909"/>
+    <phingcall target="generate_v201003"/>
+    <phingcall target="generate_v201008"/>
   </target>
 
   <!-- =================================================================== -->
@@ -245,6 +309,21 @@
         </fileset>
       </batchtest>
       <formatter type="xml" todir="report" outfile="test_results_v201003.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: run tests for v201008                                       -->
+  <!-- =================================================================== -->
+  <target name="test_v201008" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="**/v201008/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report" outfile="test_results_v201008.xml"/>
     </phpunit>
   </target>
 

@@ -65,7 +65,7 @@ class ReportUtils {
     $headers[]= 'Authorization: GoogleLogin auth=' . $user->GetAuthToken();
     $clientId = $user->GetClientId();
     if (isset($clientId)) {
-      if (strpos($clientId, '@') >= 0) {
+      if (strpos($clientId, '@') !== FALSE) {
         $headers[] = 'clientEmail: ' . $clientId;
       } else {
         $headers[] = 'clientCustomerId: ' . $clientId;

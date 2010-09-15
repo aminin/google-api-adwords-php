@@ -21,7 +21,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v201003
+ * @subpackage v201008
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -49,11 +49,11 @@ try {
   $user->LogDefaults();
 
   // Get the AdGroupAdService.
-  $adGroupAdService = $user->GetAdGroupAdService('v201003');
+  $adGroupAdService = $user->GetAdGroupAdService('v201008');
 
   // Get validateOnly version of the AdGroupAdService.
   $adGroupAdValidationService =
-      $user->GetAdGroupAdService('v201003', NULL, NULL, TRUE);
+      $user->GetAdGroupAdService('v201008', NULL, NULL, TRUE);
 
   $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
 

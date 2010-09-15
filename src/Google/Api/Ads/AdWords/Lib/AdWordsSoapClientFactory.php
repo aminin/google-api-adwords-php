@@ -41,11 +41,15 @@ class AdWordsSoapClientFactory extends SoapClientFactory {
    * @param string $server the server to generate clients for
    * @param bool $validateOnly if the clients should be created in validateOnly
    *     mode
+   * @param bool $partialFailure if the service should be created in
+   *     partialFailure mode
    */
-  public function __construct(AdsUser $user, $version, $server, $validateOnly) {
+  public function __construct(AdsUser $user, $version, $server, $validateOnly,
+      $partialFailure) {
     $headerOverrides = array();
-    if (isset($validateOnly)) {
+    if (isset($validateOnly) || isset($partialFailure)) {
       $headerOverrides['validateOnly'] = $validateOnly;
+      $headerOverrides['partialFailure'] = $partialFailure;
     }
     parent::__construct($user, $version, $server, 'adwords', $headerOverrides);
   }

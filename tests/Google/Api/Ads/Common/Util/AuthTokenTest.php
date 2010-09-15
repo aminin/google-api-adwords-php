@@ -42,6 +42,7 @@ class AuthTokenTest extends PHPUnit_Framework_TestCase {
 
   private $email = NULL;
   private $password = NULL;
+  private $server = NULL;
 
   /**
    * Sets up the test.
@@ -49,14 +50,23 @@ class AuthTokenTest extends PHPUnit_Framework_TestCase {
   public function setup() {
     $authIniPath =
         dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
+    $settingsIniPath =
+        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
     $authIni = parse_ini_file($authIniPath, true);
+    $settingsIni = parse_ini_file($settingsIniPath, true);
     $this->assertNotNull($authIni, 'The file test_auth.ini was not found.');
+    $this->assertNotNull($settingsIni,
+        'The file test_settings.ini was not found.');
     $this->assertTrue(isset($authIni['email']),
         'The email field was not found in test_auth.ini.');
     $this->assertTrue(isset($authIni['password']),
         'The password field was not found in test_auth.ini.');
     $this->email = $authIni['email'];
     $this->password = $authIni['password'];
+    if (array_key_exists('AUTH', $settingsIni) &&
+        array_key_exists('AUTH_SERVER', $settingsIni['AUTH'])) {
+      $this->server = $settingsIni['AUTH']['AUTH_SERVER'];
+    }
   }
 
   /**
@@ -66,7 +76,7 @@ class AuthTokenTest extends PHPUnit_Framework_TestCase {
    */
   public function testGetAuthToken($service) {
     $authToken = new AuthToken($this->email, $this->password, $service,
-        AuthTokenTest::$SOURCE);
+        AuthTokenTest::$SOURCE, NULL, $this->server);
     $result = $authToken->GetAuthToken();
     $this->assertNotNull($authToken->GetAuthToken());
   }
