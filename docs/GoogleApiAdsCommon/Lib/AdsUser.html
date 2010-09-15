@@ -55,7 +55,7 @@
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
 		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OAuthProvider.php.html">		OAuthProvider.php
+			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OAuthUtils.php.html">		OAuthUtils.php
 		</a><br>
 			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OgnlUtils.php.html">		OgnlUtils.php
 		</a><br>
@@ -81,7 +81,7 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MapUtils.html">MapUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OAuthProvider.html">OAuthProvider</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OAuthUtils.html">OAuthUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
@@ -126,13 +126,22 @@ Source Location: /Common/Lib/AdsUser.php<br /><br />
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderNames">GetHeaderNames</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderValue">GetHeaderValue</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetLogsDirectory">GetLogsDirectory</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthAuthorizationUrl">GetOAuthAuthorizationUrl</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthInfo">GetOAuthInfo</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthScope">GetOAuthScope</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetServiceSoapClient">GetServiceSoapClient</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetSoapCompressionLevel">GetSoapCompressionLevel</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetWsdlCacheType">GetWsdlCacheType</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodIsSoapCompressionEnabled">IsSoapCompressionEnabled</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLoadSettings">LoadSettings</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLogDefaults">LogDefaults</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodRequestOAuthToken">RequestOAuthToken</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetDefaultServer">SetDefaultServer</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetDefaultVersion">SetDefaultVersion</a></li>
     <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetHeaderValue">SetHeaderValue</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetOAuthInfo">SetOAuthInfo</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodUpgradeOAuthToken">UpgradeOAuthToken</a></li>
+    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodValidateOAuthInfo">ValidateOAuthInfo</a></li>
   </ul>
 </td>
 
@@ -161,7 +170,7 @@ Source Location: /Common/Lib/AdsUser.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 37]<br />
+[line 38]<br />
 User class for all API modules using the Ads API.<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -182,7 +191,7 @@ User class for all API modules using the Ads API.<br /><br /><br /><br />
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 51]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 53]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -213,7 +222,7 @@ User class for all API modules using the Ads API.<br /><br /><br /><br />
   </div>
   <hr />
 	<a name="methodGetAuthServer"></a>
-	<h3>method GetAuthServer <span class="smalllinenumber">[line 299]</span></h3>
+	<h3>method GetAuthServer <span class="smalllinenumber">[line 318]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -241,7 +250,7 @@ User class for all API modules using the Ads API.<br /><br /><br /><br />
   </div>
   <hr />
 	<a name="methodGetAuthVarValue"></a>
-	<h3>method GetAuthVarValue <span class="smalllinenumber">[line 68]</span></h3>
+	<h3>method GetAuthVarValue <span class="smalllinenumber">[line 71]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -292,7 +301,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetClientLibraryIdentifier"></a>
-	<h3>method GetClientLibraryIdentifier <span class="smalllinenumber">[line 307]</span></h3>
+	<h3>method GetClientLibraryIdentifier <span class="smalllinenumber">[line 342]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -329,7 +338,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetDefaultServer"></a>
-	<h3>method GetDefaultServer <span class="smalllinenumber">[line 251]</span></h3>
+	<h3>method GetDefaultServer <span class="smalllinenumber">[line 254]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -357,7 +366,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetDefaultVersion"></a>
-	<h3>method GetDefaultVersion <span class="smalllinenumber">[line 259]</span></h3>
+	<h3>method GetDefaultVersion <span class="smalllinenumber">[line 270]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -385,7 +394,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetHeaderNames"></a>
-	<h3>method GetHeaderNames <span class="smalllinenumber">[line 85]</span></h3>
+	<h3>method GetHeaderNames <span class="smalllinenumber">[line 88]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -413,7 +422,7 @@ $authIni)</code>
   </div>
   <hr />
 	<a name="methodGetHeaderValue"></a>
-	<h3>method GetHeaderValue <span class="smalllinenumber">[line 94]</span></h3>
+	<h3>method GetHeaderValue <span class="smalllinenumber">[line 97]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -452,7 +461,7 @@ $key)</code>
   </div>
   <hr />
 	<a name="methodGetLogsDirectory"></a>
-	<h3>method GetLogsDirectory <span class="smalllinenumber">[line 267]</span></h3>
+	<h3>method GetLogsDirectory <span class="smalllinenumber">[line 286]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -479,8 +488,112 @@ $key)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodGetOAuthAuthorizationUrl"></a>
+	<h3>method GetOAuthAuthorizationUrl <span class="smalllinenumber">[line 360]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string GetOAuthAuthorizationUrl(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the OAuth authorization URL for the OAuth token.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the URL used to authorize the token</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodGetOAuthInfo"></a>
+	<h3>method GetOAuthInfo <span class="smalllinenumber">[line 326]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array GetOAuthInfo(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the OAuth info for this user.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the OAuth info for this user</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodGetOAuthScope"></a>
+	<h3>method GetOAuthScope <span class="smalllinenumber">[line 404]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string GetOAuthScope(
+[string
+$server = NULL])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Gets the OAuth scope for this user.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>the scope to use when requesting an OAuth token</td>
+  </tr>
+  <tr>
+    <td><b>abstract:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html#methodGetOAuthScope">AdWordsUser::GetOAuthScope()</a></dt>
+		<dd>Gets the OAuth scope for this user.</dd>
+	</dl>
+	</p>
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$server</b>&nbsp;&nbsp;</td>
+        <td>the AdWords API server that requests will be made to</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodGetServiceSoapClient"></a>
-	<h3>method GetServiceSoapClient <span class="smalllinenumber">[line 123]</span></h3>
+	<h3>method GetServiceSoapClient <span class="smalllinenumber">[line 126]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -543,7 +656,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetSoapCompressionLevel"></a>
-	<h3>method GetSoapCompressionLevel <span class="smalllinenumber">[line 283]</span></h3>
+	<h3>method GetSoapCompressionLevel <span class="smalllinenumber">[line 302]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -571,7 +684,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodGetWsdlCacheType"></a>
-	<h3>method GetWsdlCacheType <span class="smalllinenumber">[line 291]</span></h3>
+	<h3>method GetWsdlCacheType <span class="smalllinenumber">[line 310]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -599,7 +712,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodIsSoapCompressionEnabled"></a>
-	<h3>method IsSoapCompressionEnabled <span class="smalllinenumber">[line 275]</span></h3>
+	<h3>method IsSoapCompressionEnabled <span class="smalllinenumber">[line 294]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -627,7 +740,7 @@ $serviceGroupHeaderNamespaceOverride = NULL])</code>
   </div>
   <hr />
 	<a name="methodLoadSettings"></a>
-	<h3>method LoadSettings <span class="smalllinenumber">[line 157]</span></h3>
+	<h3>method LoadSettings <span class="smalllinenumber">[line 160]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -687,7 +800,7 @@ $logsRelativePathBase)</code>
   </div>
   <hr />
 	<a name="methodLogDefaults"></a>
-	<h3>method LogDefaults <span class="smalllinenumber">[line 136]</span></h3>
+	<h3>method LogDefaults <span class="smalllinenumber">[line 139]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -711,8 +824,122 @@ $logsRelativePathBase)</code>
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
+	<a name="methodRequestOAuthToken"></a>
+	<h3>method RequestOAuthToken <span class="smalllinenumber">[line 349]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void RequestOAuthToken(
+[$callbackUrl
+$callbackUrl = NULL], [$server
+$server = NULL])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Requests a new OAuth token.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">$callbackUrl&nbsp;&nbsp;</td>
+        <td><b>$callbackUrl</b>&nbsp;&nbsp;</td>
+        <td>the URL to return to after the token is authorized</td>
+      </tr>
+          <tr>
+        <td class="type">$server&nbsp;&nbsp;</td>
+        <td><b>$server</b>&nbsp;&nbsp;</td>
+        <td>the AdWords API server that requests will be made to</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodSetDefaultServer"></a>
+	<h3>method SetDefaultServer <span class="smalllinenumber">[line 262]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void SetDefaultServer(
+string
+$defaultServer)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the default server.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$defaultServer</b>&nbsp;&nbsp;</td>
+        <td>the default server</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodSetDefaultVersion"></a>
+	<h3>method SetDefaultVersion <span class="smalllinenumber">[line 278]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void SetDefaultVersion(
+string
+$defaultVersion)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the default version.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$defaultVersion</b>&nbsp;&nbsp;</td>
+        <td>the default version</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
 	<a name="methodSetHeaderValue"></a>
-	<h3>method SetHeaderValue <span class="smalllinenumber">[line 107]</span></h3>
+	<h3>method SetHeaderValue <span class="smalllinenumber">[line 110]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -752,12 +979,112 @@ $value)</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodSetOAuthInfo"></a>
+	<h3>method SetOAuthInfo <span class="smalllinenumber">[line 334]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void SetOAuthInfo(
+array
+$oauthInfo)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the OAuth info for this user.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$oauthInfo</b>&nbsp;&nbsp;</td>
+        <td>the OAuth info for this user</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodUpgradeOAuthToken"></a>
+	<h3>method UpgradeOAuthToken <span class="smalllinenumber">[line 370]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void UpgradeOAuthToken(
+string
+$verifier)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Upgrades the authorized OAuth token.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$verifier</b>&nbsp;&nbsp;</td>
+        <td>the verifier string returned from authorizing the      token</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodValidateOAuthInfo"></a>
+	<h3>method ValidateOAuthInfo <span class="smalllinenumber">[line 380]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void ValidateOAuthInfo(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Validates that the OAuth info is complete.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>ValidationException if there are any validation errors</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Wed, 26 May 2010 16:15:17 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+		    Documentation generated on Wed, 15 Sep 2010 15:40:45 -0400 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
 	      </div>
       </td></tr></table>
     </td>
