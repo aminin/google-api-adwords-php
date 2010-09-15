@@ -138,7 +138,7 @@ class GeoLocationSelector {
 
 if (!class_exists("GeoPoint", FALSE)) {
 /**
- * Specifies a geo location with the supplied lat/long.
+ * Specifies a geo location with the supplied latitude/longitude.
  */
 class GeoPoint {
   /**
@@ -386,9 +386,11 @@ class GeoLocation {
 
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -1150,7 +1152,7 @@ class ClientTermsError extends ApiError {
 
 if (!class_exists("GeoLocationError", FALSE)) {
 /**
- * Errors for {@link GeoLocationService}
+ * Errors for {@link GeoLocationService}.
  */
 class GeoLocationError extends ApiError {
   /**

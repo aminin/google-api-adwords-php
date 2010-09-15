@@ -109,7 +109,7 @@ class Address {
 
 if (!class_exists("GeoPoint", FALSE)) {
 /**
- * Specifies a geo location with the supplied lat/long.
+ * Specifies a geo location with the supplied latitude/longitude.
  * 
  * 
  * 
@@ -153,7 +153,9 @@ class GeoPoint {
 
 if (!class_exists("Paging", FALSE)) {
 /**
- * Specifies what kind of paging wanted for the result of a get.
+ * Specifies the page of results to return in the response. A page is specified
+ * by the result position to start at and the maximum number of results to
+ * return.
  * 
  * 
  * 
@@ -483,82 +485,6 @@ class ComparableValue {
   }
 }}
 
-if (!class_exists("Criterion", FALSE)) {
-/**
- * Represents any criterion (e.g. keyword, placement).
- * 
- * 
- * 
- * Base error class for Ad Group Criterion Service.
- */
-class Criterion {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $id;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $CriterionType;
-
-  private $_parameterMap = array (
-    "Criterion.Type" => "CriterionType",
-  );
-
-  /**
-   * Provided for setting non-php-standard named variables
-   * @param $var Variable name to set
-   * @param $value Value to set
-   */
-  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @param $var Variable name to get.
-   * @return mixed Variable value
-   */
-  public function __get($var) {
-    if (!array_key_exists($var, $this->_parameterMap)) {
-      return NULL;
-    } else {
-      return $this->{$this->_parameterMap[$var]};
-    }
-  }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @return array parameter map
-   */
-  protected function getParameterMap() {
-    return $this->_parameterMap;
-    }
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Criterion";
-  }
-
-  public function __construct($id = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Criterion')) parent::__construct();
-    $this->id = $id;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("AdWordsTarget", FALSE)) {
 /**
  * Target abstract class.
@@ -630,9 +556,11 @@ class AdWordsTarget {
 
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * 
  * 
  * 
@@ -793,6 +721,82 @@ class ApplicationException {
     if(get_parent_class('ApplicationException')) parent::__construct();
     $this->message = $message;
     $this->ApplicationExceptionType = $ApplicationExceptionType;
+  }
+}}
+
+if (!class_exists("Criterion", FALSE)) {
+/**
+ * Represents a criterion (such as a keyword, placement, or vertical).
+ * 
+ * 
+ * 
+ * Base error class for Ad Group Criterion Service.
+ */
+class Criterion {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $id;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $CriterionType;
+
+  private $_parameterMap = array (
+    "Criterion.Type" => "CriterionType",
+  );
+
+  /**
+   * Provided for setting non-php-standard named variables
+   * @param $var Variable name to set
+   * @param $value Value to set
+   */
+  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @param $var Variable name to get.
+   * @return mixed Variable value
+   */
+  public function __get($var) {
+    if (!array_key_exists($var, $this->_parameterMap)) {
+      return NULL;
+    } else {
+      return $this->{$this->_parameterMap[$var]};
+    }
+  }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @return array parameter map
+   */
+  protected function getParameterMap() {
+    return $this->_parameterMap;
+    }
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201003";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Criterion";
+  }
+
+  public function __construct($id = NULL, $CriterionType = NULL) {
+    if(get_parent_class('Criterion')) parent::__construct();
+    $this->id = $id;
+    $this->CriterionType = $CriterionType;
   }
 }}
 
@@ -2322,6 +2326,7 @@ if (!class_exists("SearchParameter", FALSE)) {
  * <li>{@link AdTypeSearchParameter}</li>
  * <li>{@link CountryTargetSearchParameter}</li>
  * <li>{@link LanguageTargetSearchParameter}</li>
+ * <li>{@link MobileSearchParameter}</li>
  * <li>{@link PlacementTypeSearchParameter}</li>
  * <li>{@link RelatedToKeywordSearchParameter}</li>
  * <li>{@link RelatedToUrlSearchParameter}</li>
@@ -2667,6 +2672,7 @@ if (!class_exists("AttributeType", FALSE)) {
  * <li>{@link #IDEA_TYPE}</li>
  * <li>{@link #KEYWORD}</li>
  * <li>{@link #KEYWORD_CATEGORY}</li>
+ * <li>{@link #NEGATIVE_KEYWORDS}</li>
  * <li>{@link #NGRAM_GROUP}</li>
  * <li>{@link #SEARCH_SHARE}</li>
  * <li>{@link #TARGETED_MONTHLY_SEARCHES}</li>
@@ -3663,7 +3669,7 @@ class InternalApiError extends ApiError {
 
 if (!class_exists("Keyword", FALSE)) {
 /**
- * A keyword.
+ * Represents a keyword.
  * 
  * 
  * 
@@ -4559,11 +4565,10 @@ class TargetError extends ApiError {
 
 if (!class_exists("Vertical", FALSE)) {
 /**
- * A vertical is used for targeting or excluding sites in the Google network that are
- * related to a specific vertical or sub-vertical, e.g. category::Animals>Pets.
- * Each category is specified as an array of string, where each element is the name
- * of component of the path e.g.category::Animals>Pets is {"Animals", "Pets"}.
- * These verticals only apply to the content network.
+ * Use verticals to target or exclude placements in the Google Display Network
+ * based on the category into which the placement falls (for example, "Pets &amp;
+ * Animals/Pets/Dogs"). <a href="../codelists/vertical_categories.html">View
+ * the complete list of available vertical categories.</a>
  * 
  * 
  * 
@@ -5367,7 +5372,7 @@ if (!class_exists("MobileSearchParameter", FALSE)) {
  * 
  * Note that the presence of this parameter is all that is needed to limit
  * search results. It is not necessary to set any properties.
- * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class MobileSearchParameter extends SearchParameter {
@@ -5781,81 +5786,6 @@ class AverageTargetedMonthlySearchesSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("ExcludedKeywordSearchParameter", FALSE)) {
-/**
- * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s that
- * specifies {@link Keyword}s that should be excluded from the results.<p>
- * 
- * The {@link KeywordMatchType} associated with these keywords is used to
- * provide various filtering strategies. For example, the excluded keyword
- * <b>"sony player"</b> will exclude ideas from the resulting ideas as
- * described by the table below.
- * 
- * <table border="1">
- * <tr style="font-weight: bold;">
- * <th>Idea</th>
- * <th>{@code BROAD}</th>
- * <th>{@code PHRASE}</th>
- * <th>{@code EXACT}</th>
- * </tr>
- * <tr>
- * <td>sony player</td>
- * <td>Exclude</td>
- * <td>Exclude</td>
- * <td>Exclude</td>
- * </tr>
- * <tr>
- * <td>blu-ray sony player</td>
- * <td>Exclude</td>
- * <td>Exclude</td>
- * <td>Include</td>
- * </tr>
- * <tr>
- * <td>sony dvd player</td>
- * <td>Exclude</td>
- * <td>Include</td>
- * <td>Include</td>
- * </tr>
- * <tr>
- * <td>sony dvd</td>
- * <td>Include</td>
- * <td>Include</td>
- * <td>Include</td>
- * </tr>
- * </table>
- * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
- * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
- */
-class ExcludedKeywordSearchParameter extends SearchParameter {
-  /**
-   * @access public
-   * @var Keyword[]
-   */
-  public $keywords;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/o/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "ExcludedKeywordSearchParameter";
-  }
-
-  public function __construct($keywords = NULL, $SearchParameterType = NULL) {
-    if(get_parent_class('ExcludedKeywordSearchParameter')) parent::__construct();
-    $this->keywords = $keywords;
-    $this->SearchParameterType = $SearchParameterType;
-  }
-}}
-
 if (!class_exists("GlobalMonthlySearchesSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} that specifies the level of search volume expected
@@ -5897,40 +5827,6 @@ class GlobalMonthlySearchesSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("KeywordAttribute", FALSE)) {
-/**
- * {@link Attribute} type that contains a {@link Keyword} value.
- */
-class KeywordAttribute extends Attribute {
-  /**
-   * @access public
-   * @var Keyword
-   */
-  public $value;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/o/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "KeywordAttribute";
-  }
-
-  public function __construct($value = NULL, $AttributeType = NULL) {
-    if(get_parent_class('KeywordAttribute')) parent::__construct();
-    $this->value = $value;
-    $this->AttributeType = $AttributeType;
-  }
-}}
-
 if (!class_exists("MoneyAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link Money} value.
@@ -5962,79 +5858,6 @@ class MoneyAttribute extends Attribute {
     if(get_parent_class('MoneyAttribute')) parent::__construct();
     $this->value = $value;
     $this->AttributeType = $AttributeType;
-  }
-}}
-
-if (!class_exists("PlacementAttribute", FALSE)) {
-/**
- * {@link Attribute} type that contains a {@link Placement} value.
- */
-class PlacementAttribute extends Attribute {
-  /**
-   * @access public
-   * @var Placement
-   */
-  public $value;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/o/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "PlacementAttribute";
-  }
-
-  public function __construct($value = NULL, $AttributeType = NULL) {
-    if(get_parent_class('PlacementAttribute')) parent::__construct();
-    $this->value = $value;
-    $this->AttributeType = $AttributeType;
-  }
-}}
-
-if (!class_exists("RelatedToKeywordSearchParameter", FALSE)) {
-/**
- * A {@link SearchParameter} for {@code KEYWORD} and {@code PLACEMENT}
- * {@link IdeaType}s that specifies a generic keyword that results should
- * be related to.
- * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method.
- * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
- * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
- */
-class RelatedToKeywordSearchParameter extends SearchParameter {
-  /**
-   * @access public
-   * @var Keyword[]
-   */
-  public $keywords;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/o/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "RelatedToKeywordSearchParameter";
-  }
-
-  public function __construct($keywords = NULL, $SearchParameterType = NULL) {
-    if(get_parent_class('RelatedToKeywordSearchParameter')) parent::__construct();
-    $this->keywords = $keywords;
-    $this->SearchParameterType = $SearchParameterType;
   }
 }}
 
@@ -6154,6 +5977,188 @@ class LongRangeAttribute extends Attribute {
     if(get_parent_class('LongRangeAttribute')) parent::__construct();
     $this->value = $value;
     $this->AttributeType = $AttributeType;
+  }
+}}
+
+if (!class_exists("ExcludedKeywordSearchParameter", FALSE)) {
+/**
+ * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s that
+ * specifies {@link Keyword}s that should be excluded from the results.<p>
+ * 
+ * The {@link KeywordMatchType} associated with these keywords is used to
+ * provide various filtering strategies. For example, the excluded keyword
+ * <b>"sony player"</b> will exclude ideas from the resulting ideas as
+ * described by the table below.
+ * 
+ * <table border="1">
+ * <tr style="font-weight: bold;">
+ * <th>Idea</th>
+ * <th>{@code BROAD}</th>
+ * <th>{@code PHRASE}</th>
+ * <th>{@code EXACT}</th>
+ * </tr>
+ * <tr>
+ * <td>sony player</td>
+ * <td>Exclude</td>
+ * <td>Exclude</td>
+ * <td>Exclude</td>
+ * </tr>
+ * <tr>
+ * <td>blu-ray sony player</td>
+ * <td>Exclude</td>
+ * <td>Exclude</td>
+ * <td>Include</td>
+ * </tr>
+ * <tr>
+ * <td>sony dvd player</td>
+ * <td>Exclude</td>
+ * <td>Include</td>
+ * <td>Include</td>
+ * </tr>
+ * <tr>
+ * <td>sony dvd</td>
+ * <td>Include</td>
+ * <td>Include</td>
+ * <td>Include</td>
+ * </tr>
+ * </table>
+ * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ */
+class ExcludedKeywordSearchParameter extends SearchParameter {
+  /**
+   * @access public
+   * @var Keyword[]
+   */
+  public $keywords;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/o/v201003";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ExcludedKeywordSearchParameter";
+  }
+
+  public function __construct($keywords = NULL, $SearchParameterType = NULL) {
+    if(get_parent_class('ExcludedKeywordSearchParameter')) parent::__construct();
+    $this->keywords = $keywords;
+    $this->SearchParameterType = $SearchParameterType;
+  }
+}}
+
+if (!class_exists("KeywordAttribute", FALSE)) {
+/**
+ * {@link Attribute} type that contains a {@link Keyword} value.
+ */
+class KeywordAttribute extends Attribute {
+  /**
+   * @access public
+   * @var Keyword
+   */
+  public $value;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/o/v201003";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "KeywordAttribute";
+  }
+
+  public function __construct($value = NULL, $AttributeType = NULL) {
+    if(get_parent_class('KeywordAttribute')) parent::__construct();
+    $this->value = $value;
+    $this->AttributeType = $AttributeType;
+  }
+}}
+
+if (!class_exists("PlacementAttribute", FALSE)) {
+/**
+ * {@link Attribute} type that contains a {@link Placement} value.
+ */
+class PlacementAttribute extends Attribute {
+  /**
+   * @access public
+   * @var Placement
+   */
+  public $value;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/o/v201003";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "PlacementAttribute";
+  }
+
+  public function __construct($value = NULL, $AttributeType = NULL) {
+    if(get_parent_class('PlacementAttribute')) parent::__construct();
+    $this->value = $value;
+    $this->AttributeType = $AttributeType;
+  }
+}}
+
+if (!class_exists("RelatedToKeywordSearchParameter", FALSE)) {
+/**
+ * A {@link SearchParameter} for {@code KEYWORD} and {@code PLACEMENT}
+ * {@link IdeaType}s that specifies a generic keyword that results should
+ * be related to.
+ * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method.
+ * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ */
+class RelatedToKeywordSearchParameter extends SearchParameter {
+  /**
+   * @access public
+   * @var Keyword[]
+   */
+  public $keywords;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/o/v201003";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RelatedToKeywordSearchParameter";
+  }
+
+  public function __construct($keywords = NULL, $SearchParameterType = NULL) {
+    if(get_parent_class('RelatedToKeywordSearchParameter')) parent::__construct();
+    $this->keywords = $keywords;
+    $this->SearchParameterType = $SearchParameterType;
   }
 }}
 
@@ -6611,10 +6616,12 @@ class MobilePlatformTarget extends MobileTarget {
 
 if (!class_exists("PolygonTarget", FALSE)) {
 /**
- * Structure to specify a geographic target for a polygon location.
+ * Represents a geographic region enclosed by a set of vertices (points).
  * 
- * This polygon target consists of a list of vertices;
- * each vertex is a geo point defined by a latitude and longitude.
+ * A polygon target is described by a list of at least three points,
+ * where each point is a (<var>latitude</var>, <var>longitude</var>)
+ * ordered pair. No point can be no more than 400km from the center of
+ * the polygon.
  * 
  * 
  * 
@@ -6914,16 +6921,16 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "WebpageDescriptorAttribute" => "WebpageDescriptorAttribute",
     "AdShareSearchParameter" => "AdShareSearchParameter",
     "AverageTargetedMonthlySearchesSearchParameter" => "AverageTargetedMonthlySearchesSearchParameter",
-    "ExcludedKeywordSearchParameter" => "ExcludedKeywordSearchParameter",
     "GlobalMonthlySearchesSearchParameter" => "GlobalMonthlySearchesSearchParameter",
-    "KeywordAttribute" => "KeywordAttribute",
     "MoneyAttribute" => "MoneyAttribute",
-    "PlacementAttribute" => "PlacementAttribute",
     "Range" => "Range",
-    "RelatedToKeywordSearchParameter" => "RelatedToKeywordSearchParameter",
     "CountryTargetSearchParameter" => "CountryTargetSearchParameter",
     "LanguageTargetSearchParameter" => "LanguageTargetSearchParameter",
     "LongRangeAttribute" => "LongRangeAttribute",
+    "ExcludedKeywordSearchParameter" => "ExcludedKeywordSearchParameter",
+    "KeywordAttribute" => "KeywordAttribute",
+    "PlacementAttribute" => "PlacementAttribute",
+    "RelatedToKeywordSearchParameter" => "RelatedToKeywordSearchParameter",
     "TargetingIdeaSelector" => "TargetingIdeaSelector",
     "Type_AttributeMapEntry" => "Type_AttributeMapEntry",
     "TargetingIdea" => "TargetingIdea",

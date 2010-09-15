@@ -70,7 +70,9 @@ class DateRange {
 
 if (!class_exists("Paging", FALSE)) {
 /**
- * Specifies what kind of paging wanted for the result of a get.
+ * Specifies the page of results to return in the response. A page is specified
+ * by the result position to start at and the maximum number of results to
+ * return.
  */
 class Paging {
   /**
@@ -553,9 +555,11 @@ class Stats {
 
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -859,7 +863,7 @@ class AdGroupSelector {
 
 if (!class_exists("AdGroup", FALSE)) {
 /**
- * Represents the AdGroup object that is sent over the wire.
+ * Represents an ad group.
  */
 class AdGroup {
   /**
@@ -1144,7 +1148,7 @@ class Page {
 
 if (!class_exists("AdGroupStatus", FALSE)) {
 /**
- * The status of the AdGroup.
+ * Status of this ad group.
  */
 class AdGroupStatus {
   /**
@@ -1927,7 +1931,7 @@ if (!class_exists("AdGroupServiceMutate", FALSE)) {
  * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
  * <span class="constraint NotEmpty">This field must contain at least one element.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
- * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, SET.</span>
+ * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, SET.</span>
  * 
  * 
  * 
@@ -3433,7 +3437,7 @@ class AdGroupService extends AdWordsSoapClient {
    * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
    * <span class="constraint NotEmpty">This field must contain at least one element.</span>
    * <span class="constraint Required">This field is required and should not be {@code null}.</span>
-   * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, SET.</span>
+   * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, SET.</span>
    * 
    * 
    * 

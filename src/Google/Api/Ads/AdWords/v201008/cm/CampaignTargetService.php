@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v200909
+ * @subpackage v201008
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -80,7 +80,7 @@ class Address {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -125,7 +125,7 @@ class GeoPoint {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -148,12 +148,6 @@ if (!class_exists("SoapRequestHeader", FALSE)) {
  * Defines the required and optional elements within the header of a SOAP request.
  */
 class SoapRequestHeader {
-  /**
-   * @access public
-   * @var string
-   */
-  public $applicationToken;
-
   /**
    * @access public
    * @var string
@@ -191,11 +185,17 @@ class SoapRequestHeader {
   public $validateOnly;
 
   /**
+   * @access public
+   * @var boolean
+   */
+  public $partialFailure;
+
+  /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -206,15 +206,15 @@ class SoapRequestHeader {
     return "SoapHeader";
   }
 
-  public function __construct($applicationToken = NULL, $authToken = NULL, $clientCustomerId = NULL, $clientEmail = NULL, $developerToken = NULL, $userAgent = NULL, $validateOnly = NULL) {
+  public function __construct($authToken = NULL, $clientCustomerId = NULL, $clientEmail = NULL, $developerToken = NULL, $userAgent = NULL, $validateOnly = NULL, $partialFailure = NULL) {
     if(get_parent_class('SoapRequestHeader')) parent::__construct();
-    $this->applicationToken = $applicationToken;
     $this->authToken = $authToken;
     $this->clientCustomerId = $clientCustomerId;
     $this->clientEmail = $clientEmail;
     $this->developerToken = $developerToken;
     $this->userAgent = $userAgent;
     $this->validateOnly = $validateOnly;
+    $this->partialFailure = $partialFailure;
   }
 }}
 
@@ -252,7 +252,7 @@ class SoapResponseHeader {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -288,7 +288,7 @@ class CampaignTargetSelector {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -353,7 +353,7 @@ class AdWordsTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -390,6 +390,12 @@ class ApiError {
    * @var string
    */
   public $trigger;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $errorString;
 
   /**
    * @access public
@@ -434,7 +440,7 @@ class ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -445,10 +451,11 @@ class ApiError {
     return "ApiError";
   }
 
-  public function __construct($fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('ApiError')) parent::__construct();
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -507,7 +514,7 @@ class ApplicationException {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -579,7 +586,7 @@ class TargetList {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -645,7 +652,7 @@ class ListReturnValue {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -717,7 +724,7 @@ class Operation {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -789,7 +796,7 @@ class Page {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -817,7 +824,7 @@ class AgeTargetAge {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -843,7 +850,7 @@ class AuthenticationErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -869,7 +876,7 @@ class AuthorizationErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -895,7 +902,7 @@ class BiddingErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -921,7 +928,7 @@ class CampaignErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -948,7 +955,7 @@ class ClientTermsErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -974,7 +981,7 @@ class DatabaseErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1000,7 +1007,7 @@ class DayOfWeek {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1026,7 +1033,7 @@ class DistinctErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1053,7 +1060,7 @@ class EntityNotFoundReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1079,7 +1086,7 @@ class GenderTargetGender {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1105,7 +1112,7 @@ class InternalApiErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1131,7 +1138,7 @@ class MinuteOfHour {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1157,7 +1164,7 @@ class NetworkCoverageType {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1183,7 +1190,7 @@ class NotEmptyErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1209,7 +1216,7 @@ class NotWhitelistedErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1235,7 +1242,7 @@ class NullErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1261,7 +1268,7 @@ class OperationAccessDeniedReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1287,7 +1294,7 @@ class Operator {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1313,7 +1320,7 @@ class OperatorErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1339,7 +1346,7 @@ class PlatformType {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1365,7 +1372,7 @@ class ProximityTargetDistanceUnits {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1392,7 +1399,7 @@ class QuotaCheckErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1418,7 +1425,7 @@ class QuotaErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1434,32 +1441,6 @@ class QuotaErrorReason {
   }
 }}
 
-if (!class_exists("QuotaExceededErrorReason", FALSE)) {
-/**
- * The single reason for the quota error.
- */
-class QuotaExceededErrorReason {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "QuotaExceededError.Reason";
-  }
-
-  public function __construct() {
-    if(get_parent_class('QuotaExceededErrorReason')) parent::__construct();
-  }
-}}
-
 if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
@@ -1470,7 +1451,7 @@ class RangeErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1486,6 +1467,32 @@ class RangeErrorReason {
   }
 }}
 
+if (!class_exists("RateExceededErrorReason", FALSE)) {
+/**
+ * The reason for the rate exceeded error.
+ */
+class RateExceededErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RateExceededError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RateExceededErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("RegionCodeErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
@@ -1496,7 +1503,7 @@ class RegionCodeErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1512,6 +1519,58 @@ class RegionCodeErrorReason {
   }
 }}
 
+if (!class_exists("RejectedErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ */
+class RejectedErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RejectedError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RejectedErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("RequestErrorReason", FALSE)) {
+/**
+ * Error reason is unknown.
+ */
+class RequestErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RequestError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RequestErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
@@ -1522,7 +1581,7 @@ class RequiredErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1548,7 +1607,7 @@ class SizeLimitErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1574,7 +1633,7 @@ class StringLengthErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1600,7 +1659,7 @@ class TargetErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1639,7 +1698,7 @@ class CampaignTargetServiceGet {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1672,7 +1731,7 @@ class CampaignTargetServiceGetResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1715,7 +1774,7 @@ class CampaignTargetServiceMutate {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1748,7 +1807,7 @@ class CampaignTargetServiceMutateResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1811,7 +1870,7 @@ class AdScheduleTarget extends AdWordsTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1850,7 +1909,7 @@ class AuthenticationError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1861,11 +1920,12 @@ class AuthenticationError extends ApiError {
     return "AuthenticationError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('AuthenticationError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -1886,7 +1946,7 @@ class AuthorizationError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1897,11 +1957,12 @@ class AuthorizationError extends ApiError {
     return "AuthorizationError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('AuthorizationError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -1922,7 +1983,7 @@ class BiddingError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1933,11 +1994,12 @@ class BiddingError extends ApiError {
     return "BiddingError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('BiddingError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -1958,7 +2020,7 @@ class CampaignError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1969,11 +2031,12 @@ class CampaignError extends ApiError {
     return "CampaignError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('CampaignError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -1994,7 +2057,7 @@ class ClientTermsError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2005,11 +2068,12 @@ class ClientTermsError extends ApiError {
     return "ClientTermsError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('ClientTermsError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2030,7 +2094,7 @@ class DistinctError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2041,11 +2105,12 @@ class DistinctError extends ApiError {
     return "DistinctError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('DistinctError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2067,7 +2132,7 @@ class EntityNotFound extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2078,11 +2143,12 @@ class EntityNotFound extends ApiError {
     return "EntityNotFound";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('EntityNotFound')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2105,7 +2171,7 @@ class InternalApiError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2116,11 +2182,12 @@ class InternalApiError extends ApiError {
     return "InternalApiError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('InternalApiError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2141,7 +2208,7 @@ class LanguageTarget extends AdWordsTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2155,6 +2222,33 @@ class LanguageTarget extends AdWordsTarget {
   public function __construct($languageCode = NULL, $TargetType = NULL) {
     if(get_parent_class('LanguageTarget')) parent::__construct();
     $this->languageCode = $languageCode;
+    $this->TargetType = $TargetType;
+  }
+}}
+
+if (!class_exists("MobileTarget", FALSE)) {
+/**
+ * Abstract class to identify a mobile target.
+ */
+class MobileTarget extends AdWordsTarget {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "MobileTarget";
+  }
+
+  public function __construct($TargetType = NULL) {
+    if(get_parent_class('MobileTarget')) parent::__construct();
     $this->TargetType = $TargetType;
   }
 }}
@@ -2175,7 +2269,7 @@ class NetworkTarget extends AdWordsTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2209,7 +2303,7 @@ class NotEmptyError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2220,11 +2314,12 @@ class NotEmptyError extends ApiError {
     return "NotEmptyError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('NotEmptyError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2245,7 +2340,7 @@ class NotWhitelistedError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2256,11 +2351,12 @@ class NotWhitelistedError extends ApiError {
     return "NotWhitelistedError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('NotWhitelistedError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2281,7 +2377,7 @@ class NullError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2292,11 +2388,12 @@ class NullError extends ApiError {
     return "NullError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('NullError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2318,7 +2415,7 @@ class OperationAccessDenied extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2329,11 +2426,12 @@ class OperationAccessDenied extends ApiError {
     return "OperationAccessDenied";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('OperationAccessDenied')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2354,7 +2452,7 @@ class OperatorError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2365,11 +2463,12 @@ class OperatorError extends ApiError {
     return "OperatorError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('OperatorError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2390,7 +2489,7 @@ class PlatformTarget extends AdWordsTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2424,7 +2523,7 @@ class QuotaCheckError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2435,11 +2534,12 @@ class QuotaCheckError extends ApiError {
     return "QuotaCheckError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('QuotaCheckError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2466,7 +2566,7 @@ class QuotaError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2477,48 +2577,13 @@ class QuotaError extends ApiError {
     return "QuotaError";
   }
 
-  public function __construct($reason = NULL, $limit = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $limit = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('QuotaError')) parent::__construct();
     $this->reason = $reason;
     $this->limit = $limit;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("QuotaExceededError", FALSE)) {
-/**
- * Represents Quota Exceeded Error.
- */
-class QuotaExceededError extends ApiError {
-  /**
-   * @access public
-   * @var tnsQuotaExceededErrorReason
-   */
-  public $reason;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "QuotaExceededError";
-  }
-
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('QuotaExceededError')) parent::__construct();
-    $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2539,7 +2604,7 @@ class RangeError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2550,11 +2615,70 @@ class RangeError extends ApiError {
     return "RangeError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('RangeError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("RateExceededError", FALSE)) {
+/**
+ * Signals that a call failed because a measured rate exceeded.
+ */
+class RateExceededError extends ApiError {
+  /**
+   * @access public
+   * @var tnsRateExceededErrorReason
+   */
+  public $reason;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $rateName;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $rateScope;
+
+  /**
+   * @access public
+   * @var integer
+   */
+  public $retryAfterSeconds;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RateExceededError";
+  }
+
+  public function __construct($reason = NULL, $rateName = NULL, $rateScope = NULL, $retryAfterSeconds = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('RateExceededError')) parent::__construct();
+    $this->reason = $reason;
+    $this->rateName = $rateName;
+    $this->rateScope = $rateScope;
+    $this->retryAfterSeconds = $retryAfterSeconds;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2575,7 +2699,7 @@ class RegionCodeError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2586,11 +2710,87 @@ class RegionCodeError extends ApiError {
     return "RegionCodeError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('RegionCodeError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("RejectedError", FALSE)) {
+/**
+ * The error reason represented by an enum.
+ */
+class RejectedError extends ApiError {
+  /**
+   * @access public
+   * @var tnsRejectedErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RejectedError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('RejectedError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("RequestError", FALSE)) {
+/**
+ * Encapsulates the generic errors thrown when there's an error with user
+ * request.
+ */
+class RequestError extends ApiError {
+  /**
+   * @access public
+   * @var tnsRequestErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RequestError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('RequestError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2611,7 +2811,7 @@ class RequiredError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2622,11 +2822,12 @@ class RequiredError extends ApiError {
     return "RequiredError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('RequiredError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2647,7 +2848,7 @@ class SizeLimitError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2658,11 +2859,12 @@ class SizeLimitError extends ApiError {
     return "SizeLimitError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('SizeLimitError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2683,7 +2885,7 @@ class StringLengthError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2694,11 +2896,12 @@ class StringLengthError extends ApiError {
     return "StringLengthError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('StringLengthError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2719,7 +2922,7 @@ class TargetError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2730,11 +2933,12 @@ class TargetError extends ApiError {
     return "TargetError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('TargetError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2755,7 +2959,7 @@ class DatabaseError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2766,11 +2970,12 @@ class DatabaseError extends ApiError {
     return "DatabaseError";
   }
 
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $ApiErrorType = NULL) {
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('DatabaseError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
+    $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
   }
 }}
@@ -2791,7 +2996,7 @@ class DemographicTarget extends AdWordsTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2825,7 +3030,7 @@ class GeoTarget extends AdWordsTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2859,7 +3064,7 @@ class AdScheduleTargetList extends TargetList {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2894,7 +3099,7 @@ class ApiException extends ApplicationException {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2929,7 +3134,7 @@ class DemographicTargetList extends TargetList {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2964,7 +3169,7 @@ class GeoTargetList extends TargetList {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2999,7 +3204,7 @@ class LanguageTargetList extends TargetList {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3012,6 +3217,41 @@ class LanguageTargetList extends TargetList {
 
   public function __construct($targets = NULL, $campaignId = NULL, $TargetListType = NULL) {
     if(get_parent_class('LanguageTargetList')) parent::__construct();
+    $this->targets = $targets;
+    $this->campaignId = $campaignId;
+    $this->TargetListType = $TargetListType;
+  }
+}}
+
+if (!class_exists("MobileTargetList", FALSE)) {
+/**
+ * List of mobile targets.
+ */
+class MobileTargetList extends TargetList {
+  /**
+   * @access public
+   * @var MobileTarget[]
+   */
+  public $targets;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "MobileTargetList";
+  }
+
+  public function __construct($targets = NULL, $campaignId = NULL, $TargetListType = NULL) {
+    if(get_parent_class('MobileTargetList')) parent::__construct();
     $this->targets = $targets;
     $this->campaignId = $campaignId;
     $this->TargetListType = $TargetListType;
@@ -3034,7 +3274,7 @@ class NetworkTargetList extends TargetList {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3069,7 +3309,7 @@ class PlatformTargetList extends TargetList {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3104,7 +3344,7 @@ class CampaignTargetOperation extends Operation {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3140,7 +3380,7 @@ class CampaignTargetPage extends Page {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3175,7 +3415,7 @@ class CampaignTargetReturnValue extends ListReturnValue {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3209,7 +3449,7 @@ class AgeTarget extends DemographicTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3256,7 +3496,7 @@ class CityTarget extends GeoTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3293,7 +3533,7 @@ class CountryTarget extends GeoTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3328,7 +3568,7 @@ class GenderTarget extends DemographicTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3363,7 +3603,7 @@ class MetroTarget extends GeoTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3378,6 +3618,81 @@ class MetroTarget extends GeoTarget {
     if(get_parent_class('MetroTarget')) parent::__construct();
     $this->metroCode = $metroCode;
     $this->excluded = $excluded;
+    $this->TargetType = $TargetType;
+  }
+}}
+
+if (!class_exists("MobileCarrierTarget", FALSE)) {
+/**
+ * Immutable structure to hold a mobile carrier target.
+ */
+class MobileCarrierTarget extends MobileTarget {
+  /**
+   * @access public
+   * @var string
+   */
+  public $carrierName;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $countryCode;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "MobileCarrierTarget";
+  }
+
+  public function __construct($carrierName = NULL, $countryCode = NULL, $TargetType = NULL) {
+    if(get_parent_class('MobileCarrierTarget')) parent::__construct();
+    $this->carrierName = $carrierName;
+    $this->countryCode = $countryCode;
+    $this->TargetType = $TargetType;
+  }
+}}
+
+if (!class_exists("MobilePlatformTarget", FALSE)) {
+/**
+ * Immutable structure to hold a mobile platform target.
+ */
+class MobilePlatformTarget extends MobileTarget {
+  /**
+   * @access public
+   * @var string
+   */
+  public $platformName;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "MobilePlatformTarget";
+  }
+
+  public function __construct($platformName = NULL, $TargetType = NULL) {
+    if(get_parent_class('MobilePlatformTarget')) parent::__construct();
+    $this->platformName = $platformName;
     $this->TargetType = $TargetType;
   }
 }}
@@ -3403,7 +3718,7 @@ class PolygonTarget extends GeoTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3438,7 +3753,7 @@ class ProvinceTarget extends GeoTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3501,7 +3816,7 @@ class ProximityTarget extends GeoTarget {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -3563,6 +3878,9 @@ class CampaignTargetService extends AdWordsSoapClient {
     "InternalApiError" => "InternalApiError",
     "LanguageTarget" => "LanguageTarget",
     "MetroTarget" => "MetroTarget",
+    "MobileCarrierTarget" => "MobileCarrierTarget",
+    "MobileTarget" => "MobileTarget",
+    "MobilePlatformTarget" => "MobilePlatformTarget",
     "NetworkTarget" => "NetworkTarget",
     "NotEmptyError" => "NotEmptyError",
     "NotWhitelistedError" => "NotWhitelistedError",
@@ -3575,9 +3893,11 @@ class CampaignTargetService extends AdWordsSoapClient {
     "ProximityTarget" => "ProximityTarget",
     "QuotaCheckError" => "QuotaCheckError",
     "QuotaError" => "QuotaError",
-    "QuotaExceededError" => "QuotaExceededError",
     "RangeError" => "RangeError",
+    "RateExceededError" => "RateExceededError",
     "RegionCodeError" => "RegionCodeError",
+    "RejectedError" => "RejectedError",
+    "RequestError" => "RequestError",
     "RequiredError" => "RequiredError",
     "SizeLimitError" => "SizeLimitError",
     "SoapResponseHeader" => "SoapResponseHeader",
@@ -3592,6 +3912,7 @@ class CampaignTargetService extends AdWordsSoapClient {
     "DemographicTargetList" => "DemographicTargetList",
     "GeoTargetList" => "GeoTargetList",
     "LanguageTargetList" => "LanguageTargetList",
+    "MobileTargetList" => "MobileTargetList",
     "NetworkTargetList" => "NetworkTargetList",
     "PlatformTargetList" => "PlatformTargetList",
     "CampaignTargetOperation" => "CampaignTargetOperation",
@@ -3624,9 +3945,11 @@ class CampaignTargetService extends AdWordsSoapClient {
     "ProximityTarget.DistanceUnits" => "ProximityTargetDistanceUnits",
     "QuotaCheckError.Reason" => "QuotaCheckErrorReason",
     "QuotaError.Reason" => "QuotaErrorReason",
-    "QuotaExceededError.Reason" => "QuotaExceededErrorReason",
     "RangeError.Reason" => "RangeErrorReason",
+    "RateExceededError.Reason" => "RateExceededErrorReason",
     "RegionCodeError.Reason" => "RegionCodeErrorReason",
+    "RejectedError.Reason" => "RejectedErrorReason",
+    "RequestError.Reason" => "RequestErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
     "SizeLimitError.Reason" => "SizeLimitErrorReason",
     "StringLengthError.Reason" => "StringLengthErrorReason",
@@ -3640,7 +3963,7 @@ class CampaignTargetService extends AdWordsSoapClient {
    */
   public function __construct($wsdl=null, $options, $user) {
     $options["classmap"] = CampaignTargetService::$classmap;
-    parent::__construct($wsdl, $options, $user, 'CampaignTargetService', 'https://adwords.google.com/api/adwords/cm/v200909');
+    parent::__construct($wsdl, $options, $user, 'CampaignTargetService', 'https://adwords.google.com/api/adwords/cm/v201008');
   }
 
   /**

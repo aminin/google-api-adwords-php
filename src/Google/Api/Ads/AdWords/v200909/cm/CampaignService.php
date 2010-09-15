@@ -118,7 +118,9 @@ class FrequencyCap {
 
 if (!class_exists("Paging", FALSE)) {
 /**
- * Specifies what kind of paging wanted for the result of a get.
+ * Specifies the page of results to return in the response. A page is specified
+ * by the result position to start at and the maximum number of results to
+ * return.
  */
 class Paging {
   /**
@@ -601,9 +603,11 @@ class Stats {
 
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -787,7 +791,7 @@ class Bid {
 
 if (!class_exists("Budget", FALSE)) {
 /**
- * Class representing budget for the campaign.
+ * Data representing the budget for a campaign.
  */
 class Budget {
   /**
@@ -1044,7 +1048,7 @@ class BiddingTransition {
 
 if (!class_exists("Campaign", FALSE)) {
 /**
- * Class representing a campaign for the CampaignService.
+ * Data representing an AdWords campaign.
  */
 class Campaign {
   /**
@@ -2420,12 +2424,11 @@ if (!class_exists("CampaignServiceGet", FALSE)) {
  * 
  * 
  * 
- * Returns a list of campaigns specified by the list of selectors from
- * the customer's account. Each selector (filter) in the list results in
- * a set of campaigns. The final result is the union of each of these sets.
- * @param selector filter to run campaigns through.
- * If selector is empty, all campaigns are returned.
- * @return list of campaigns meeting all the criteria of each selector.
+ * Returns the list of campaigns that meet the selector criteria.
+ * 
+ * @param selector Determines which campaigns to return.
+ * If empty, all campaigns are returned.
+ * @return A list of campaigns.
  * @throws ApiException if problems occurred while fetching campaign information.
  */
 class CampaignServiceGet {
@@ -2496,16 +2499,18 @@ if (!class_exists("CampaignServiceMutate", FALSE)) {
  * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
  * <span class="constraint NotEmpty">This field must contain at least one element.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
- * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, SET.</span>
+ * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, SET.</span>
  * 
  * 
  * 
- * Adds, updates, or removes campaigns.
- * Note: to REMOVE use SET and mark status to DELETE.
- * @param operations a list of unique operations.
+ * Adds, updates, or deletes campaigns.
+ * <p class="note"><b>Note:</b> {@link CampaignOperation} does not support the
+ * <code>REMOVE</code> operator. To delete a campaign, set its
+ * {@link Campaign#status status} to <code>DELETED</code>.</p>
+ * @param operations A list of unique operations.
  * The same campaign cannot be specified in more than one operation.
- * @return the added campaigns.
- * The list of campaigns is returned in the same order in which it came in as input.
+ * @return The list of updated campaigns, returned in the same order as the
+ * <code>operations</code> array.
  * @throws ApiException if problems occurred while updating campaign information.
  */
 class CampaignServiceMutate {
@@ -3968,7 +3973,10 @@ class ManualCPMAdGroupBids extends AdGroupBids {
 
 if (!class_exists("CampaignOperation", FALSE)) {
 /**
- * Operations (add, update, remove) class for campaigns.
+ * An operation on an AdWords campaign.
+ * <p class="note"><b>Note:</b> The <code>REMOVE</code> operator is not
+ * supported.  To remove a a campaign, set its {@link Campaign#status status}
+ * to <code>DELETED</code>.</p>
  */
 class CampaignOperation extends Operation {
   /**
@@ -4290,12 +4298,11 @@ class CampaignService extends AdWordsSoapClient {
    * 
    * 
    * 
-   * Returns a list of campaigns specified by the list of selectors from
-   * the customer's account. Each selector (filter) in the list results in
-   * a set of campaigns. The final result is the union of each of these sets.
-   * @param selector filter to run campaigns through.
-   * If selector is empty, all campaigns are returned.
-   * @return list of campaigns meeting all the criteria of each selector.
+   * Returns the list of campaigns that meet the selector criteria.
+   * 
+   * @param selector Determines which campaigns to return.
+   * If empty, all campaigns are returned.
+   * @return A list of campaigns.
    * @throws ApiException if problems occurred while fetching campaign information.
    */
   public function get($selector) {
@@ -4310,16 +4317,18 @@ class CampaignService extends AdWordsSoapClient {
    * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
    * <span class="constraint NotEmpty">This field must contain at least one element.</span>
    * <span class="constraint Required">This field is required and should not be {@code null}.</span>
-   * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, SET.</span>
+   * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, SET.</span>
    * 
    * 
    * 
-   * Adds, updates, or removes campaigns.
-   * Note: to REMOVE use SET and mark status to DELETE.
-   * @param operations a list of unique operations.
+   * Adds, updates, or deletes campaigns.
+   * <p class="note"><b>Note:</b> {@link CampaignOperation} does not support the
+   * <code>REMOVE</code> operator. To delete a campaign, set its
+   * {@link Campaign#status status} to <code>DELETED</code>.</p>
+   * @param operations A list of unique operations.
    * The same campaign cannot be specified in more than one operation.
-   * @return the added campaigns.
-   * The list of campaigns is returned in the same order in which it came in as input.
+   * @return The list of updated campaigns, returned in the same order as the
+   * <code>operations</code> array.
    * @throws ApiException if problems occurred while updating campaign information.
    */
   public function mutate($operations) {

@@ -185,7 +185,7 @@ class Dimensions {
 
 if (!class_exists("GeoPoint", FALSE)) {
 /**
- * Specifies a geo location with the supplied lat/long.
+ * Specifies a geo location with the supplied latitude/longitude.
  */
 class GeoPoint {
   /**
@@ -348,7 +348,9 @@ class Media_Size_StringMapEntry {
 
 if (!class_exists("Paging", FALSE)) {
 /**
- * Specifies what kind of paging wanted for the result of a get.
+ * Specifies the page of results to return in the response. A page is specified
+ * by the result position to start at and the maximum number of results to
+ * return.
  */
 class Paging {
   /**
@@ -833,7 +835,7 @@ class ExemptionRequest {
 
 if (!class_exists("Media", FALSE)) {
 /**
- * Represents any media (e.g., image).
+ * Represents some kind of media.
  */
 class Media {
   /**
@@ -1278,9 +1280,11 @@ class TemplateElementField {
 
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -4246,15 +4250,23 @@ class MediaError extends ApiError {
 
 if (!class_exists("MobileAd", FALSE)) {
 /**
- * Represents a MobileAd.
+ * Represents a mobile ad.
  * 
+ * <p>
  * A mobile ad can contain a click-to-call phone number, a link to a website,
  * or both.  You specify which features you want by setting certain fields, as
  * shown in the following table.  For example, to create a click-to-call mobile
- * ad, set the fields in the <b>Click-to-call</b> column.  A hyphen means don't
- * set the corresponding field.
+ * ad, set the fields in the <b>Click-to-call</b> column. A hyphen indicates
+ * that you should not set the corresponding field.
  * </p>
- * <table summary="">
+ * <p>
+ * For more information, see
+ * <a href=
+ * "http://adwords.google.com/support/aw/bin/static.py?hl=en&amp;topic=28428&gamp;uide=28427&amp;page=guide.cs"
+ * target="_blank">Mobile Ads Requirements</a>.
+ * </p>
+ * 
+ * <table summary="" style="clear: none">
  * <tr> <th scope="col"> Click-to-call </th>
  * <th scope="col"> Website       </th>
  * <th scope="col"> Both          </th></tr>
@@ -4289,16 +4301,6 @@ if (!class_exists("MobileAd", FALSE)) {
  * markupLanguages <br />
  * </td></tr>
  * </table>
- * 
- * <h2 class="normalsize">More Information</h2>
- * <ul class="nolist">
- * <li>
- * <a href="https://adwords.google.com/select/mobileguidelines.html"
- * target="_blank">Mobile Ad Editorial Guidelines</a></li>
- * <li>
- * <a href="http://adwords.google.com/support/bin/topic.py?topic=8500"
- * target="_blank">Mobile Ad FAQ</a></li>
- * </ul>
  */
 class MobileAd extends Ad {
   /**
@@ -5341,17 +5343,13 @@ class GeoTarget extends AdWordsTarget {
 
 if (!class_exists("MobileImageAd", FALSE)) {
 /**
- * Data associated with a mobile image ad.
- * 
- * <h2 class="normalsize">More Information</h2>
- * <ul class="nolist">
- * <li>
- * <a href="https://adwords.google.com/select/mobileguidelines.html"
- * target="_blank">Mobile Ad Editorial Guidelines</a></li>
- * <li>
- * <a href="http://adwords.google.com/support/bin/topic.py?topic=8500"
- * target="_blank">Mobile Ad FAQ</a></li>
- * </ul>
+ * Represents a mobile image ad.
+ * <p>
+ * For more information, see
+ * <a href=
+ * "http://adwords.google.com/support/aw/bin/static.py?hl=en&amp;topic=28428&gamp;uide=28427&amp;page=guide.cs"
+ * target="_blank">Mobile Ads Requirements</a>.
+ * </p>
  */
 class MobileImageAd extends Ad {
   /**
@@ -6325,10 +6323,12 @@ class MobilePlatformTarget extends MobileTarget {
 
 if (!class_exists("PolygonTarget", FALSE)) {
 /**
- * Structure to specify a geographic target for a polygon location.
+ * Represents a geographic region enclosed by a set of vertices (points).
  * 
- * This polygon target consists of a list of vertices;
- * each vertex is a geo point defined by a latitude and longitude.
+ * A polygon target is described by a list of at least three points,
+ * where each point is a (<var>latitude</var>, <var>longitude</var>)
+ * ordered pair. No point can be no more than 400km from the center of
+ * the polygon.
  */
 class PolygonTarget extends GeoTarget {
   /**

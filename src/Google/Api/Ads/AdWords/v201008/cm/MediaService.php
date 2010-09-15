@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains all client objects for the AdParamService service.
+ * Contains all client objects for the MediaService service.
  *
  * PHP version 5
  *
@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v201003
+ * @subpackage v201008
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -28,51 +28,111 @@
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("AdParam", FALSE)) {
+if (!class_exists("Dimensions", FALSE)) {
 /**
- * Represents an ad parameter.  Use ad parameters to update numeric values
- * (such as prices or inventory levels) in text ads. You can set two
- * <code>AdParam</code> objects (one for each value of {@link #paramIndex})
- * per ad group {@link Keyword} criterion.
- * <p>When setting or removing an <code>AdParam</code>, it is uniquely
- * identified by the combination of these three fields:</p>
- * <ul>
- * <li><code>adGroupId</code></li>
- * <li><code>criterionId</code></li>
- * <li><code>paramIndex</code></li>
- * </ul>
+ * Represents a simple height-width dimension.
  */
-class AdParam {
+class Dimensions {
   /**
    * @access public
    * @var integer
    */
-  public $adGroupId;
+  public $width;
 
   /**
    * @access public
    * @var integer
    */
-  public $criterionId;
+  public $height;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Dimensions";
+  }
+
+  public function __construct($width = NULL, $height = NULL) {
+    if(get_parent_class('Dimensions')) parent::__construct();
+    $this->width = $width;
+    $this->height = $height;
+  }
+}}
+
+if (!class_exists("Media_Size_DimensionsMapEntry", FALSE)) {
+/**
+ * This represents an entry in a map with a key of type Size
+ * and value of type Dimensions.
+ */
+class Media_Size_DimensionsMapEntry {
+  /**
+   * @access public
+   * @var tnsMediaSize
+   */
+  public $key;
+
+  /**
+   * @access public
+   * @var Dimensions
+   */
+  public $value;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Media_Size_DimensionsMapEntry";
+  }
+
+  public function __construct($key = NULL, $value = NULL) {
+    if(get_parent_class('Media_Size_DimensionsMapEntry')) parent::__construct();
+    $this->key = $key;
+    $this->value = $value;
+  }
+}}
+
+if (!class_exists("Media_Size_StringMapEntry", FALSE)) {
+/**
+ * This represents an entry in a map with a key of type Size
+ * and value of type String.
+ */
+class Media_Size_StringMapEntry {
+  /**
+   * @access public
+   * @var tnsMediaSize
+   */
+  public $key;
 
   /**
    * @access public
    * @var string
    */
-  public $insertionText;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $paramIndex;
+  public $value;
 
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -80,251 +140,13 @@ class AdParam {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "AdParam";
+    return "Media_Size_StringMapEntry";
   }
 
-  public function __construct($adGroupId = NULL, $criterionId = NULL, $insertionText = NULL, $paramIndex = NULL) {
-    if(get_parent_class('AdParam')) parent::__construct();
-    $this->adGroupId = $adGroupId;
-    $this->criterionId = $criterionId;
-    $this->insertionText = $insertionText;
-    $this->paramIndex = $paramIndex;
-  }
-}}
-
-if (!class_exists("AdParamPage", FALSE)) {
-/**
- * Represents a page of AdParams returned by the {@link AdParamService}.
- */
-class AdParamPage {
-  /**
-   * @access public
-   * @var AdParam[]
-   */
-  public $entries;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $totalNumEntries;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AdParamPage";
-  }
-
-  public function __construct($entries = NULL, $totalNumEntries = NULL) {
-    if(get_parent_class('AdParamPage')) parent::__construct();
-    $this->entries = $entries;
-    $this->totalNumEntries = $totalNumEntries;
-  }
-}}
-
-if (!class_exists("Operation", FALSE)) {
-/**
- * This represents an operation that includes an operator and an operand
- * specified type.
- */
-class Operation {
-  /**
-   * @access public
-   * @var tnsOperator
-   */
-  public $operator;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $OperationType;
-
-  private $_parameterMap = array (
-    "Operation.Type" => "OperationType",
-  );
-
-  /**
-   * Provided for setting non-php-standard named variables
-   * @param $var Variable name to set
-   * @param $value Value to set
-   */
-  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @param $var Variable name to get.
-   * @return mixed Variable value
-   */
-  public function __get($var) {
-    if (!array_key_exists($var, $this->_parameterMap)) {
-      return NULL;
-    } else {
-      return $this->{$this->_parameterMap[$var]};
-    }
-  }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @return array parameter map
-   */
-  protected function getParameterMap() {
-    return $this->_parameterMap;
-    }
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Operation";
-  }
-
-  public function __construct($operator = NULL, $OperationType = NULL) {
-    if(get_parent_class('Operation')) parent::__construct();
-    $this->operator = $operator;
-    $this->OperationType = $OperationType;
-  }
-}}
-
-if (!class_exists("Paging", FALSE)) {
-/**
- * Specifies the page of results to return in the response. A page is specified
- * by the result position to start at and the maximum number of results to
- * return.
- */
-class Paging {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $startIndex;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $numberResults;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Paging";
-  }
-
-  public function __construct($startIndex = NULL, $numberResults = NULL) {
-    if(get_parent_class('Paging')) parent::__construct();
-    $this->startIndex = $startIndex;
-    $this->numberResults = $numberResults;
-  }
-}}
-
-if (!class_exists("PolicyViolationErrorPart", FALSE)) {
-/**
- * Points to a substring within an ad field or criterion.
- */
-class PolicyViolationErrorPart {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $index;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $length;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "PolicyViolationError.Part";
-  }
-
-  public function __construct($index = NULL, $length = NULL) {
-    if(get_parent_class('PolicyViolationErrorPart')) parent::__construct();
-    $this->index = $index;
-    $this->length = $length;
-  }
-}}
-
-if (!class_exists("PolicyViolationKey", FALSE)) {
-/**
- * Key of the violation. The key is used for referring to a violation when
- * filing an exemption request.
- */
-class PolicyViolationKey {
-  /**
-   * @access public
-   * @var string
-   */
-  public $policyName;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $violatingText;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "PolicyViolationKey";
-  }
-
-  public function __construct($policyName = NULL, $violatingText = NULL) {
-    if(get_parent_class('PolicyViolationKey')) parent::__construct();
-    $this->policyName = $policyName;
-    $this->violatingText = $violatingText;
+  public function __construct($key = NULL, $value = NULL) {
+    if(get_parent_class('Media_Size_StringMapEntry')) parent::__construct();
+    $this->key = $key;
+    $this->value = $value;
   }
 }}
 
@@ -370,11 +192,17 @@ class SoapRequestHeader {
   public $validateOnly;
 
   /**
+   * @access public
+   * @var boolean
+   */
+  public $partialFailure;
+
+  /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -385,7 +213,7 @@ class SoapRequestHeader {
     return "SoapHeader";
   }
 
-  public function __construct($authToken = NULL, $clientCustomerId = NULL, $clientEmail = NULL, $developerToken = NULL, $userAgent = NULL, $validateOnly = NULL) {
+  public function __construct($authToken = NULL, $clientCustomerId = NULL, $clientEmail = NULL, $developerToken = NULL, $userAgent = NULL, $validateOnly = NULL, $partialFailure = NULL) {
     if(get_parent_class('SoapRequestHeader')) parent::__construct();
     $this->authToken = $authToken;
     $this->clientCustomerId = $clientCustomerId;
@@ -393,6 +221,7 @@ class SoapRequestHeader {
     $this->developerToken = $developerToken;
     $this->userAgent = $userAgent;
     $this->validateOnly = $validateOnly;
+    $this->partialFailure = $partialFailure;
   }
 }}
 
@@ -430,7 +259,7 @@ class SoapResponseHeader {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -450,35 +279,115 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("AdParamSelector", FALSE)) {
+if (!class_exists("Media", FALSE)) {
 /**
- * A selector used to specify what AdParams should be returned.
+ * Represents some kind of media.
  */
-class AdParamSelector {
+class Media {
   /**
    * @access public
-   * @var integer[]
+   * @var integer
    */
-  public $adGroupIds;
+  public $mediaId;
 
   /**
    * @access public
-   * @var integer[]
+   * @var tnsMediaMediaType
    */
-  public $criteriaId;
+  public $type;
 
   /**
    * @access public
-   * @var Paging
+   * @var integer
    */
-  public $paging;
+  public $referenceId;
+
+  /**
+   * @access public
+   * @var Media_Size_DimensionsMapEntry[]
+   */
+  public $dimensions;
+
+  /**
+   * @access public
+   * @var Media_Size_StringMapEntry[]
+   */
+  public $urls;
+
+  /**
+   * @access public
+   * @var tnsMediaMimeType
+   */
+  public $mimeType;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $sourceUrl;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $name;
+
+  /**
+   * @access public
+   * @var integer
+   */
+  public $fileSize;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $creationTime;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $MediaType;
+
+  private $_parameterMap = array (
+    "Media.Type" => "MediaType",
+  );
+
+  /**
+   * Provided for setting non-php-standard named variables
+   * @param $var Variable name to set
+   * @param $value Value to set
+   */
+  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @param $var Variable name to get.
+   * @return mixed Variable value
+   */
+  public function __get($var) {
+    if (!array_key_exists($var, $this->_parameterMap)) {
+      return NULL;
+    } else {
+      return $this->{$this->_parameterMap[$var]};
+    }
+  }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @return array parameter map
+   */
+  protected function getParameterMap() {
+    return $this->_parameterMap;
+    }
 
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -486,14 +395,138 @@ class AdParamSelector {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "AdParamSelector";
+    return "Media";
   }
 
-  public function __construct($adGroupIds = NULL, $criteriaId = NULL, $paging = NULL) {
-    if(get_parent_class('AdParamSelector')) parent::__construct();
-    $this->adGroupIds = $adGroupIds;
-    $this->criteriaId = $criteriaId;
-    $this->paging = $paging;
+  public function __construct($mediaId = NULL, $type = NULL, $referenceId = NULL, $dimensions = NULL, $urls = NULL, $mimeType = NULL, $sourceUrl = NULL, $name = NULL, $fileSize = NULL, $creationTime = NULL, $MediaType = NULL) {
+    if(get_parent_class('Media')) parent::__construct();
+    $this->mediaId = $mediaId;
+    $this->type = $type;
+    $this->referenceId = $referenceId;
+    $this->dimensions = $dimensions;
+    $this->urls = $urls;
+    $this->mimeType = $mimeType;
+    $this->sourceUrl = $sourceUrl;
+    $this->name = $name;
+    $this->fileSize = $fileSize;
+    $this->creationTime = $creationTime;
+    $this->MediaType = $MediaType;
+  }
+}}
+
+if (!class_exists("MediaPage", FALSE)) {
+/**
+ * Page of media returned by the {@link MediaService} which includes
+ * the media.
+ */
+class MediaPage {
+  /**
+   * @access public
+   * @var Media[]
+   */
+  public $entries;
+
+  /**
+   * @access public
+   * @var integer
+   */
+  public $totalNumEntries;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "MediaPage";
+  }
+
+  public function __construct($entries = NULL, $totalNumEntries = NULL) {
+    if(get_parent_class('MediaPage')) parent::__construct();
+    $this->entries = $entries;
+    $this->totalNumEntries = $totalNumEntries;
+  }
+}}
+
+if (!class_exists("MediaSelector", FALSE)) {
+/**
+ * Specifies criteria for selecting a set of Media for the account.
+ */
+class MediaSelector {
+  /**
+   * @access public
+   * @var tnsMediaMediaType
+   */
+  public $mediaType;
+
+  /**
+   * @access public
+   * @var integer[]
+   */
+  public $mediaIds;
+
+  /**
+   * @access public
+   * @var integer[]
+   */
+  public $mediaReferenceIds;
+
+  /**
+   * @access public
+   * @var string[]
+   */
+  public $youTubeVideoIds;
+
+  /**
+   * @access public
+   * @var Dimensions[]
+   */
+  public $mediaDimensions;
+
+  /**
+   * @access public
+   * @var tnsMediaMediaExtendedCapabilityState[]
+   */
+  public $extendedCapabilityStates;
+
+  /**
+   * @access public
+   * @var tnsMediaMimeType[]
+   */
+  public $mimeTypes;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "MediaSelector";
+  }
+
+  public function __construct($mediaType = NULL, $mediaIds = NULL, $mediaReferenceIds = NULL, $youTubeVideoIds = NULL, $mediaDimensions = NULL, $extendedCapabilityStates = NULL, $mimeTypes = NULL) {
+    if(get_parent_class('MediaSelector')) parent::__construct();
+    $this->mediaType = $mediaType;
+    $this->mediaIds = $mediaIds;
+    $this->mediaReferenceIds = $mediaReferenceIds;
+    $this->youTubeVideoIds = $youTubeVideoIds;
+    $this->mediaDimensions = $mediaDimensions;
+    $this->extendedCapabilityStates = $extendedCapabilityStates;
+    $this->mimeTypes = $mimeTypes;
   }
 }}
 
@@ -567,7 +600,7 @@ class ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -641,7 +674,7 @@ class ApplicationException {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -659,17 +692,17 @@ class ApplicationException {
   }
 }}
 
-if (!class_exists("AdParamErrorReason", FALSE)) {
+if (!class_exists("AudioErrorReason", FALSE)) {
 /**
- * The same ad param cannot be specified in multiple operations
+ * 
  */
-class AdParamErrorReason {
+class AudioErrorReason {
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -677,11 +710,11 @@ class AdParamErrorReason {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "AdParamError.Reason";
+    return "AudioError.Reason";
   }
 
   public function __construct() {
-    if(get_parent_class('AdParamErrorReason')) parent::__construct();
+    if(get_parent_class('AudioErrorReason')) parent::__construct();
   }
 }}
 
@@ -695,7 +728,7 @@ class AuthenticationErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -721,7 +754,7 @@ class AuthorizationErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -748,7 +781,7 @@ class ClientTermsErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -774,7 +807,7 @@ class DatabaseErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -790,6 +823,59 @@ class DatabaseErrorReason {
   }
 }}
 
+if (!class_exists("EntityNotFoundReason", FALSE)) {
+/**
+ * The specified id refered to an entity which either doesn't exist or is not accessible to the
+ * customer. e.g. campaign belongs to another customer.
+ */
+class EntityNotFoundReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "EntityNotFound.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('EntityNotFoundReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("ImageErrorReason", FALSE)) {
+/**
+ * 
+ */
+class ImageErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ImageError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('ImageErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
@@ -800,7 +886,7 @@ class InternalApiErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -816,17 +902,17 @@ class InternalApiErrorReason {
   }
 }}
 
-if (!class_exists("NotEmptyErrorReason", FALSE)) {
+if (!class_exists("MediaMediaExtendedCapabilityState", FALSE)) {
 /**
- * The reasons for the validation error.
+ * 
  */
-class NotEmptyErrorReason {
+class MediaMediaExtendedCapabilityState {
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -834,11 +920,141 @@ class NotEmptyErrorReason {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "NotEmptyError.Reason";
+    return "Media.MediaExtendedCapabilityState";
   }
 
   public function __construct() {
-    if(get_parent_class('NotEmptyErrorReason')) parent::__construct();
+    if(get_parent_class('MediaMediaExtendedCapabilityState')) parent::__construct();
+  }
+}}
+
+if (!class_exists("MediaMediaType", FALSE)) {
+/**
+ * Media types
+ */
+class MediaMediaType {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Media.MediaType";
+  }
+
+  public function __construct() {
+    if(get_parent_class('MediaMediaType')) parent::__construct();
+  }
+}}
+
+if (!class_exists("MediaMimeType", FALSE)) {
+/**
+ * Mime types
+ */
+class MediaMimeType {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Media.MimeType";
+  }
+
+  public function __construct() {
+    if(get_parent_class('MediaMimeType')) parent::__construct();
+  }
+}}
+
+if (!class_exists("MediaSize", FALSE)) {
+/**
+ * Sizes for retrieving the original media
+ */
+class MediaSize {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Media.Size";
+  }
+
+  public function __construct() {
+    if(get_parent_class('MediaSize')) parent::__construct();
+  }
+}}
+
+if (!class_exists("MediaErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ */
+class MediaErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "MediaError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('MediaErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("NewEntityCreationErrorReason", FALSE)) {
+/**
+ * Do not set the id field while creating new entities.
+ */
+class NewEntityCreationErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "NewEntityCreationError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('NewEntityCreationErrorReason')) parent::__construct();
   }
 }}
 
@@ -852,7 +1068,7 @@ class NotWhitelistedErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -878,7 +1094,7 @@ class NullErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -894,17 +1110,17 @@ class NullErrorReason {
   }
 }}
 
-if (!class_exists("Operator", FALSE)) {
+if (!class_exists("OperationAccessDeniedReason", FALSE)) {
 /**
- * This represents an operator that may be presented to an adsapi service.
+ * The reasons for the operation access error.
  */
-class Operator {
+class OperationAccessDeniedReason {
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -912,37 +1128,11 @@ class Operator {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "Operator";
+    return "OperationAccessDenied.Reason";
   }
 
   public function __construct() {
-    if(get_parent_class('Operator')) parent::__construct();
-  }
-}}
-
-if (!class_exists("OperatorErrorReason", FALSE)) {
-/**
- * The reasons for the validation error.
- */
-class OperatorErrorReason {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "OperatorError.Reason";
-  }
-
-  public function __construct() {
-    if(get_parent_class('OperatorErrorReason')) parent::__construct();
+    if(get_parent_class('OperationAccessDeniedReason')) parent::__construct();
   }
 }}
 
@@ -957,7 +1147,7 @@ class QuotaCheckErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -983,7 +1173,7 @@ class RangeErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1009,7 +1199,7 @@ class RateExceededErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1025,6 +1215,32 @@ class RateExceededErrorReason {
   }
 }}
 
+if (!class_exists("ReadOnlyErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ */
+class ReadOnlyErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ReadOnlyError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('ReadOnlyErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("RequestErrorReason", FALSE)) {
 /**
  * Error reason is unknown.
@@ -1035,7 +1251,7 @@ class RequestErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1061,7 +1277,7 @@ class RequiredErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1087,7 +1303,7 @@ class SizeLimitErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1103,17 +1319,17 @@ class SizeLimitErrorReason {
   }
 }}
 
-if (!class_exists("StringLengthErrorReason", FALSE)) {
+if (!class_exists("VideoErrorReason", FALSE)) {
 /**
- * The reasons for the target error.
+ * 
  */
-class StringLengthErrorReason {
+class VideoErrorReason {
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1121,30 +1337,27 @@ class StringLengthErrorReason {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "StringLengthError.Reason";
+    return "VideoError.Reason";
   }
 
   public function __construct() {
-    if(get_parent_class('StringLengthErrorReason')) parent::__construct();
+    if(get_parent_class('VideoErrorReason')) parent::__construct();
   }
 }}
 
-if (!class_exists("AdParamServiceGet", FALSE)) {
+if (!class_exists("MediaServiceGet", FALSE)) {
 /**
- * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * Returns a list of media that meet the criteria specified by the selector.
+ * <p class="note"><b>Note:</b> {@code MediaService} will not return any
+ * {@link ImageAd} image files.</p>
  * 
- * 
- * 
- * Returns the ad parameters that match the criteria specified in the
- * selector.
- * 
- * @param selector Specifies which ad parameters to return.
- * @return A list of ad parameters.
+ * @param selector Selects which media objects to return.
+ * @return A list of {@code Media} objects.
  */
-class AdParamServiceGet {
+class MediaServiceGet {
   /**
    * @access public
-   * @var AdParamSelector
+   * @var MediaSelector
    */
   public $selector;
 
@@ -1153,7 +1366,7 @@ class AdParamServiceGet {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1165,19 +1378,19 @@ class AdParamServiceGet {
   }
 
   public function __construct($selector = NULL) {
-    if(get_parent_class('AdParamServiceGet')) parent::__construct();
+    if(get_parent_class('MediaServiceGet')) parent::__construct();
     $this->selector = $selector;
   }
 }}
 
-if (!class_exists("AdParamServiceGetResponse", FALSE)) {
+if (!class_exists("MediaServiceGetResponse", FALSE)) {
 /**
  * 
  */
-class AdParamServiceGetResponse {
+class MediaServiceGetResponse {
   /**
    * @access public
-   * @var AdParamPage
+   * @var MediaPage
    */
   public $rval;
 
@@ -1186,7 +1399,7 @@ class AdParamServiceGetResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1198,50 +1411,32 @@ class AdParamServiceGetResponse {
   }
 
   public function __construct($rval = NULL) {
-    if(get_parent_class('AdParamServiceGetResponse')) parent::__construct();
+    if(get_parent_class('MediaServiceGetResponse')) parent::__construct();
     $this->rval = $rval;
   }
 }}
 
-if (!class_exists("AdParamServiceMutate", FALSE)) {
+if (!class_exists("upload", FALSE)) {
 /**
- * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
- * <span class="constraint NotEmpty">This field must contain at least one element.</span>
- * <span class="constraint Required">This field is required and should not be {@code null}.</span>
- * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: SET, REMOVE.</span>
+ * Uploads new media. Currently, you can only upload {@link Image} files.
  * 
- * 
- * 
- * Sets and removes ad parameters.
- * 
- * <ul class="nolist">
- * <li>{@code ADD}: Unsupported. Use {@code SET} for new ad parameters.</li>
- * <li>{@code SET}: Creates or updates an ad parameter, setting the new
- * parameterized value for the given ad group / keyword pair.
- * <li>{@code REMOVE}: Removes an ad parameter. The <code><var>default-value</var>
- * </code> specified in the ad text will be used.</li>
- * </ul>
- * 
- * @param operations The operations to perform.
- * @return A list of ad parameters, where each entry in the list is the
- * result of applying the operation in the input list with the same index.
- * For a {@code SET} operation, the returned ad parameter will contain the
- * updated values. For a {@code REMOVE} operation, the returned ad parameter
- * will simply be the ad parameter that was removed.
+ * @param media A list of {@code Media} objects, each containing the data to
+ * be uploaded.
+ * @return A list of uploaded media in the same order as the argument list.
  */
-class AdParamServiceMutate {
+class upload {
   /**
    * @access public
-   * @var AdParamOperation[]
+   * @var Media[]
    */
-  public $operations;
+  public $media;
 
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1252,20 +1447,20 @@ class AdParamServiceMutate {
     return "";
   }
 
-  public function __construct($operations = NULL) {
-    if(get_parent_class('AdParamServiceMutate')) parent::__construct();
-    $this->operations = $operations;
+  public function __construct($media = NULL) {
+    if(get_parent_class('upload')) parent::__construct();
+    $this->media = $media;
   }
 }}
 
-if (!class_exists("AdParamServiceMutateResponse", FALSE)) {
+if (!class_exists("uploadResponse", FALSE)) {
 /**
  * 
  */
-class AdParamServiceMutateResponse {
+class uploadResponse {
   /**
    * @access public
-   * @var AdParam[]
+   * @var Media[]
    */
   public $rval;
 
@@ -1274,7 +1469,7 @@ class AdParamServiceMutateResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1286,19 +1481,77 @@ class AdParamServiceMutateResponse {
   }
 
   public function __construct($rval = NULL) {
-    if(get_parent_class('AdParamServiceMutateResponse')) parent::__construct();
+    if(get_parent_class('uploadResponse')) parent::__construct();
     $this->rval = $rval;
   }
 }}
 
-if (!class_exists("AdParamError", FALSE)) {
+if (!class_exists("Audio", FALSE)) {
 /**
- * Errors for AdParamService.
+ * Encapsulates an Audio media identified by a MediaId.
  */
-class AdParamError extends ApiError {
+class Audio extends Media {
   /**
    * @access public
-   * @var tnsAdParamErrorReason
+   * @var integer
+   */
+  public $durationMillis;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $streamingUrl;
+
+  /**
+   * @access public
+   * @var boolean
+   */
+  public $readyToPlayOnTheWeb;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Audio";
+  }
+
+  public function __construct($durationMillis = NULL, $streamingUrl = NULL, $readyToPlayOnTheWeb = NULL, $mediaId = NULL, $type = NULL, $referenceId = NULL, $dimensions = NULL, $urls = NULL, $mimeType = NULL, $sourceUrl = NULL, $name = NULL, $fileSize = NULL, $creationTime = NULL, $MediaType = NULL) {
+    if(get_parent_class('Audio')) parent::__construct();
+    $this->durationMillis = $durationMillis;
+    $this->streamingUrl = $streamingUrl;
+    $this->readyToPlayOnTheWeb = $readyToPlayOnTheWeb;
+    $this->mediaId = $mediaId;
+    $this->type = $type;
+    $this->referenceId = $referenceId;
+    $this->dimensions = $dimensions;
+    $this->urls = $urls;
+    $this->mimeType = $mimeType;
+    $this->sourceUrl = $sourceUrl;
+    $this->name = $name;
+    $this->fileSize = $fileSize;
+    $this->creationTime = $creationTime;
+    $this->MediaType = $MediaType;
+  }
+}}
+
+if (!class_exists("AudioError", FALSE)) {
+/**
+ * Error class for errors associated with parsing audio data.
+ */
+class AudioError extends ApiError {
+  /**
+   * @access public
+   * @var tnsAudioErrorReason
    */
   public $reason;
 
@@ -1307,7 +1560,7 @@ class AdParamError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1315,52 +1568,16 @@ class AdParamError extends ApiError {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "AdParamError";
+    return "AudioError";
   }
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('AdParamError')) parent::__construct();
+    if(get_parent_class('AudioError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
     $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("AdParamOperation", FALSE)) {
-/**
- * Represents an operation on an {@link AdParam}. The supported operators
- * are {@code SET} and {@code REMOVE}.
- */
-class AdParamOperation extends Operation {
-  /**
-   * @access public
-   * @var AdParam
-   */
-  public $operand;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AdParamOperation";
-  }
-
-  public function __construct($operand = NULL, $operator = NULL, $OperationType = NULL) {
-    if(get_parent_class('AdParamOperation')) parent::__construct();
-    $this->operand = $operand;
-    $this->operator = $operator;
-    $this->OperationType = $OperationType;
   }
 }}
 
@@ -1380,7 +1597,7 @@ class AuthenticationError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1417,7 +1634,7 @@ class AuthorizationError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1454,7 +1671,7 @@ class ClientTermsError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1467,6 +1684,125 @@ class ClientTermsError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('ClientTermsError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("EntityNotFound", FALSE)) {
+/**
+ * An id did not correspond to an entity, or it referred to an entity which does not belong to the
+ * customer.
+ */
+class EntityNotFound extends ApiError {
+  /**
+   * @access public
+   * @var tnsEntityNotFoundReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "EntityNotFound";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('EntityNotFound')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("Image", FALSE)) {
+/**
+ * 
+ */
+class Image extends Media {
+  /**
+   * @access public
+   * @var base64Binary
+   */
+  public $data;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Image";
+  }
+
+  public function __construct($data = NULL, $mediaId = NULL, $type = NULL, $referenceId = NULL, $dimensions = NULL, $urls = NULL, $mimeType = NULL, $sourceUrl = NULL, $name = NULL, $fileSize = NULL, $creationTime = NULL, $MediaType = NULL) {
+    if(get_parent_class('Image')) parent::__construct();
+    $this->data = $data;
+    $this->mediaId = $mediaId;
+    $this->type = $type;
+    $this->referenceId = $referenceId;
+    $this->dimensions = $dimensions;
+    $this->urls = $urls;
+    $this->mimeType = $mimeType;
+    $this->sourceUrl = $sourceUrl;
+    $this->name = $name;
+    $this->fileSize = $fileSize;
+    $this->creationTime = $creationTime;
+    $this->MediaType = $MediaType;
+  }
+}}
+
+if (!class_exists("ImageError", FALSE)) {
+/**
+ * Error class for errors associated with parsing image data.
+ */
+class ImageError extends ApiError {
+  /**
+   * @access public
+   * @var tnsImageErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ImageError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('ImageError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -1493,7 +1829,7 @@ class InternalApiError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1514,14 +1850,14 @@ class InternalApiError extends ApiError {
   }
 }}
 
-if (!class_exists("NotEmptyError", FALSE)) {
+if (!class_exists("MediaError", FALSE)) {
 /**
- * A list of all errors associated with the @NotEmpty constraints.
+ * Error class for media related errors.
  */
-class NotEmptyError extends ApiError {
+class MediaError extends ApiError {
   /**
    * @access public
-   * @var tnsNotEmptyErrorReason
+   * @var tnsMediaErrorReason
    */
   public $reason;
 
@@ -1530,7 +1866,7 @@ class NotEmptyError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1538,11 +1874,49 @@ class NotEmptyError extends ApiError {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "NotEmptyError";
+    return "MediaError";
   }
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('NotEmptyError')) parent::__construct();
+    if(get_parent_class('MediaError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("NewEntityCreationError", FALSE)) {
+/**
+ * Error associated with creation of new entities using
+ * {@link com.google.ads.api.services.common.id.TempId}s.
+ */
+class NewEntityCreationError extends ApiError {
+  /**
+   * @access public
+   * @var tnsNewEntityCreationErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "NewEntityCreationError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('NewEntityCreationError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -1567,7 +1941,7 @@ class NotWhitelistedError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1604,7 +1978,7 @@ class NullError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1625,14 +1999,15 @@ class NullError extends ApiError {
   }
 }}
 
-if (!class_exists("OperatorError", FALSE)) {
+if (!class_exists("OperationAccessDenied", FALSE)) {
 /**
- * A list of all errors associated with the @SupportedOperators constraints.
+ * Unauthorized access errors as determined by the invoked service's
+ * access policy.
  */
-class OperatorError extends ApiError {
+class OperationAccessDenied extends ApiError {
   /**
    * @access public
-   * @var tnsOperatorErrorReason
+   * @var tnsOperationAccessDeniedReason
    */
   public $reason;
 
@@ -1641,7 +2016,7 @@ class OperatorError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1649,11 +2024,11 @@ class OperatorError extends ApiError {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "OperatorError";
+    return "OperationAccessDenied";
   }
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('OperatorError')) parent::__construct();
+    if(get_parent_class('OperationAccessDenied')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -1678,7 +2053,7 @@ class QuotaCheckError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1715,7 +2090,7 @@ class RangeError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1770,7 +2145,7 @@ class RateExceededError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1787,6 +2162,43 @@ class RateExceededError extends ApiError {
     $this->rateName = $rateName;
     $this->rateScope = $rateScope;
     $this->retryAfterSeconds = $retryAfterSeconds;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("ReadOnlyError", FALSE)) {
+/**
+ * A list of all errors associated with the @ReadOnly constraint.
+ */
+class ReadOnlyError extends ApiError {
+  /**
+   * @access public
+   * @var tnsReadOnlyErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ReadOnlyError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('ReadOnlyError')) parent::__construct();
+    $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
     $this->errorString = $errorString;
@@ -1811,7 +2223,7 @@ class RequestError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1848,7 +2260,7 @@ class RequiredError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1885,7 +2297,7 @@ class SizeLimitError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1906,14 +2318,93 @@ class SizeLimitError extends ApiError {
   }
 }}
 
-if (!class_exists("StringLengthError", FALSE)) {
+if (!class_exists("Video", FALSE)) {
 /**
- * A list of all errors associated with the @ContentsString constraint.
+ * Encapsulates a Video media identified by a MediaId
  */
-class StringLengthError extends ApiError {
+class Video extends Media {
   /**
    * @access public
-   * @var tnsStringLengthErrorReason
+   * @var integer
+   */
+  public $durationMillis;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $streamingUrl;
+
+  /**
+   * @access public
+   * @var boolean
+   */
+  public $readyToPlayOnTheWeb;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $industryStandardCommercialIdentifier;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $advertisingId;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $youTubeVideoIdString;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Video";
+  }
+
+  public function __construct($durationMillis = NULL, $streamingUrl = NULL, $readyToPlayOnTheWeb = NULL, $industryStandardCommercialIdentifier = NULL, $advertisingId = NULL, $youTubeVideoIdString = NULL, $mediaId = NULL, $type = NULL, $referenceId = NULL, $dimensions = NULL, $urls = NULL, $mimeType = NULL, $sourceUrl = NULL, $name = NULL, $fileSize = NULL, $creationTime = NULL, $MediaType = NULL) {
+    if(get_parent_class('Video')) parent::__construct();
+    $this->durationMillis = $durationMillis;
+    $this->streamingUrl = $streamingUrl;
+    $this->readyToPlayOnTheWeb = $readyToPlayOnTheWeb;
+    $this->industryStandardCommercialIdentifier = $industryStandardCommercialIdentifier;
+    $this->advertisingId = $advertisingId;
+    $this->youTubeVideoIdString = $youTubeVideoIdString;
+    $this->mediaId = $mediaId;
+    $this->type = $type;
+    $this->referenceId = $referenceId;
+    $this->dimensions = $dimensions;
+    $this->urls = $urls;
+    $this->mimeType = $mimeType;
+    $this->sourceUrl = $sourceUrl;
+    $this->name = $name;
+    $this->fileSize = $fileSize;
+    $this->creationTime = $creationTime;
+    $this->MediaType = $MediaType;
+  }
+}}
+
+if (!class_exists("VideoError", FALSE)) {
+/**
+ * Error class for errors associated with parsing video data.
+ */
+class VideoError extends ApiError {
+  /**
+   * @access public
+   * @var tnsVideoErrorReason
    */
   public $reason;
 
@@ -1922,7 +2413,7 @@ class StringLengthError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1930,11 +2421,11 @@ class StringLengthError extends ApiError {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "StringLengthError";
+    return "VideoError";
   }
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('StringLengthError')) parent::__construct();
+    if(get_parent_class('VideoError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -1959,7 +2450,7 @@ class DatabaseError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1973,89 +2464,6 @@ class DatabaseError extends ApiError {
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('DatabaseError')) parent::__construct();
     $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->errorString = $errorString;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("PolicyViolationError", FALSE)) {
-/**
- * Represents violations of a single policy by some text in a field.
- * 
- * Violations of a single policy by the same string in multiple places
- * within a field is reported in one instace of this class and only one
- * exemption needs to be filed.
- * Violations of a single policy by two different strings is reported
- * as two separate instances of this class.
- * 
- * e.g. If 'ACME' violates 'capitalization' and occurs twice in a text ad it
- * would be represented by one instance. If the ad also contains 'INC' which
- * also violates 'capitalization' it would be represented in a separate
- * instance.
- */
-class PolicyViolationError extends ApiError {
-  /**
-   * @access public
-   * @var PolicyViolationKey
-   */
-  public $key;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $externalPolicyName;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $externalPolicyUrl;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $externalPolicyDescription;
-
-  /**
-   * @access public
-   * @var boolean
-   */
-  public $isExemptable;
-
-  /**
-   * @access public
-   * @var PolicyViolationErrorPart[]
-   */
-  public $violatingParts;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "PolicyViolationError";
-  }
-
-  public function __construct($key = NULL, $externalPolicyName = NULL, $externalPolicyUrl = NULL, $externalPolicyDescription = NULL, $isExemptable = NULL, $violatingParts = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('PolicyViolationError')) parent::__construct();
-    $this->key = $key;
-    $this->externalPolicyName = $externalPolicyName;
-    $this->externalPolicyUrl = $externalPolicyUrl;
-    $this->externalPolicyDescription = $externalPolicyDescription;
-    $this->isExemptable = $isExemptable;
-    $this->violatingParts = $violatingParts;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
     $this->errorString = $errorString;
@@ -2079,7 +2487,7 @@ class ApiException extends ApplicationException {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2098,110 +2506,86 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("AdParamPolicyError", FALSE)) {
+if (!class_exists("MediaService", FALSE)) {
 /**
- * Policy violation for an AdParam.
- */
-class AdParamPolicyError extends PolicyViolationError {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AdParamPolicyError";
-  }
-
-  public function __construct($key = NULL, $externalPolicyName = NULL, $externalPolicyUrl = NULL, $externalPolicyDescription = NULL, $isExemptable = NULL, $violatingParts = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('AdParamPolicyError')) parent::__construct();
-    $this->key = $key;
-    $this->externalPolicyName = $externalPolicyName;
-    $this->externalPolicyUrl = $externalPolicyUrl;
-    $this->externalPolicyDescription = $externalPolicyDescription;
-    $this->isExemptable = $isExemptable;
-    $this->violatingParts = $violatingParts;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->errorString = $errorString;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("AdParamService", FALSE)) {
-/**
- * AdParamService
+ * MediaService
  * @author WSDLInterpreter
  */
-class AdParamService extends AdWordsSoapClient {
+class MediaService extends AdWordsSoapClient {
   /**
    * Default class map for wsdl=>php
    * @access private
    * @var array
    */
   public static $classmap = array(
-    "getResponse" => "AdParamServiceGetResponse",
-    "get" => "AdParamServiceGet",
-    "mutate" => "AdParamServiceMutate",
-    "mutateResponse" => "AdParamServiceMutateResponse",
+    "getResponse" => "MediaServiceGetResponse",
+    "get" => "MediaServiceGet",
+    "mutate" => "MediaServiceMutate",
+    "mutateResponse" => "MediaServiceMutateResponse",
     "DateTime" => "AdWordsDateTime",
     "Target" => "AdWordsTarget",
     "SoapHeader" => "SoapRequestHeader",
-    "AdParam" => "AdParam",
-    "AdParamError" => "AdParamError",
+    "Audio" => "Audio",
+    "Media" => "Media",
+    "AudioError" => "AudioError",
     "ApiError" => "ApiError",
-    "AdParamOperation" => "AdParamOperation",
-    "Operation" => "Operation",
-    "AdParamPage" => "AdParamPage",
-    "AdParamPolicyError" => "AdParamPolicyError",
-    "PolicyViolationError" => "PolicyViolationError",
     "AuthenticationError" => "AuthenticationError",
     "AuthorizationError" => "AuthorizationError",
     "ClientTermsError" => "ClientTermsError",
+    "Dimensions" => "Dimensions",
+    "EntityNotFound" => "EntityNotFound",
+    "Image" => "Image",
+    "ImageError" => "ImageError",
     "InternalApiError" => "InternalApiError",
-    "NotEmptyError" => "NotEmptyError",
+    "MediaError" => "MediaError",
+    "Media_Size_DimensionsMapEntry" => "Media_Size_DimensionsMapEntry",
+    "Media_Size_StringMapEntry" => "Media_Size_StringMapEntry",
+    "NewEntityCreationError" => "NewEntityCreationError",
     "NotWhitelistedError" => "NotWhitelistedError",
     "NullError" => "NullError",
-    "OperatorError" => "OperatorError",
-    "Paging" => "Paging",
-    "PolicyViolationError.Part" => "PolicyViolationErrorPart",
-    "PolicyViolationKey" => "PolicyViolationKey",
+    "OperationAccessDenied" => "OperationAccessDenied",
     "QuotaCheckError" => "QuotaCheckError",
     "RangeError" => "RangeError",
     "RateExceededError" => "RateExceededError",
+    "ReadOnlyError" => "ReadOnlyError",
     "RequestError" => "RequestError",
     "RequiredError" => "RequiredError",
     "SizeLimitError" => "SizeLimitError",
     "SoapResponseHeader" => "SoapResponseHeader",
-    "StringLengthError" => "StringLengthError",
-    "AdParamSelector" => "AdParamSelector",
+    "Video" => "Video",
+    "VideoError" => "VideoError",
     "DatabaseError" => "DatabaseError",
+    "MediaPage" => "MediaPage",
+    "MediaSelector" => "MediaSelector",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
-    "AdParamError.Reason" => "AdParamErrorReason",
+    "AudioError.Reason" => "AudioErrorReason",
     "AuthenticationError.Reason" => "AuthenticationErrorReason",
     "AuthorizationError.Reason" => "AuthorizationErrorReason",
     "ClientTermsError.Reason" => "ClientTermsErrorReason",
     "DatabaseError.Reason" => "DatabaseErrorReason",
+    "EntityNotFound.Reason" => "EntityNotFoundReason",
+    "ImageError.Reason" => "ImageErrorReason",
     "InternalApiError.Reason" => "InternalApiErrorReason",
-    "NotEmptyError.Reason" => "NotEmptyErrorReason",
+    "Media.MediaExtendedCapabilityState" => "MediaMediaExtendedCapabilityState",
+    "Media.MediaType" => "MediaMediaType",
+    "Media.MimeType" => "MediaMimeType",
+    "Media.Size" => "MediaSize",
+    "MediaError.Reason" => "MediaErrorReason",
+    "NewEntityCreationError.Reason" => "NewEntityCreationErrorReason",
     "NotWhitelistedError.Reason" => "NotWhitelistedErrorReason",
     "NullError.Reason" => "NullErrorReason",
-    "Operator" => "Operator",
-    "OperatorError.Reason" => "OperatorErrorReason",
+    "OperationAccessDenied.Reason" => "OperationAccessDeniedReason",
     "QuotaCheckError.Reason" => "QuotaCheckErrorReason",
     "RangeError.Reason" => "RangeErrorReason",
     "RateExceededError.Reason" => "RateExceededErrorReason",
+    "ReadOnlyError.Reason" => "ReadOnlyErrorReason",
     "RequestError.Reason" => "RequestErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
     "SizeLimitError.Reason" => "SizeLimitErrorReason",
-    "StringLengthError.Reason" => "StringLengthErrorReason",
+    "VideoError.Reason" => "VideoErrorReason",
+    "upload" => "upload",
+    "uploadResponse" => "uploadResponse",
   );
 
   /**
@@ -2210,56 +2594,35 @@ class AdParamService extends AdWordsSoapClient {
    * @param array $options Options for the SoapClient
    */
   public function __construct($wsdl=null, $options, $user) {
-    $options["classmap"] = AdParamService::$classmap;
-    parent::__construct($wsdl, $options, $user, 'AdParamService', 'https://adwords.google.com/api/adwords/cm/v201003');
+    $options["classmap"] = MediaService::$classmap;
+    parent::__construct($wsdl, $options, $user, 'MediaService', 'https://adwords.google.com/api/adwords/cm/v201008');
   }
 
   /**
-   * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+   * Returns a list of media that meet the criteria specified by the selector.
+   * <p class="note"><b>Note:</b> {@code MediaService} will not return any
+   * {@link ImageAd} image files.</p>
    * 
-   * 
-   * 
-   * Returns the ad parameters that match the criteria specified in the
-   * selector.
-   * 
-   * @param selector Specifies which ad parameters to return.
-   * @return A list of ad parameters.
+   * @param selector Selects which media objects to return.
+   * @return A list of {@code Media} objects.
    */
   public function get($selector) {
-    $arg = new AdParamServiceGet($selector);
+    $arg = new MediaServiceGet($selector);
     $result = $this->__soapCall("get", array($arg));
     return $result->rval;
   }
 
 
   /**
-   * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
-   * <span class="constraint NotEmpty">This field must contain at least one element.</span>
-   * <span class="constraint Required">This field is required and should not be {@code null}.</span>
-   * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: SET, REMOVE.</span>
+   * Uploads new media. Currently, you can only upload {@link Image} files.
    * 
-   * 
-   * 
-   * Sets and removes ad parameters.
-   * 
-   * <ul class="nolist">
-   * <li>{@code ADD}: Unsupported. Use {@code SET} for new ad parameters.</li>
-   * <li>{@code SET}: Creates or updates an ad parameter, setting the new
-   * parameterized value for the given ad group / keyword pair.
-   * <li>{@code REMOVE}: Removes an ad parameter. The <code><var>default-value</var>
-   * </code> specified in the ad text will be used.</li>
-   * </ul>
-   * 
-   * @param operations The operations to perform.
-   * @return A list of ad parameters, where each entry in the list is the
-   * result of applying the operation in the input list with the same index.
-   * For a {@code SET} operation, the returned ad parameter will contain the
-   * updated values. For a {@code REMOVE} operation, the returned ad parameter
-   * will simply be the ad parameter that was removed.
+   * @param media A list of {@code Media} objects, each containing the data to
+   * be uploaded.
+   * @return A list of uploaded media in the same order as the argument list.
    */
-  public function mutate($operations) {
-    $arg = new AdParamServiceMutate($operations);
-    $result = $this->__soapCall("mutate", array($arg));
+  public function upload($media) {
+    $arg = new upload($media);
+    $result = $this->__soapCall("upload", array($arg));
     return $result->rval;
   }
 

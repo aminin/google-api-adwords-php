@@ -277,7 +277,7 @@ class AdExtensionOverride {
 
 if (!class_exists("AdGroup", FALSE)) {
 /**
- * Represents the AdGroup object that is sent over the wire.
+ * Represents an ad group.
  */
 class AdGroup {
   /**
@@ -765,9 +765,11 @@ class Address {
 
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -1666,7 +1668,9 @@ class BiddingTransitionError extends ApiError {
 if (!class_exists("BillingSummary", FALSE)) {
 /**
  * Represents the billing summary of the job that provides the overall cost of
- * the job.
+ * the job's operations, i.e., for the work done <i>by</i> the job. This
+ * therefore excludes the cost of operating on the job itself - setting up the
+ * job, polling for its status, retrieving the result, etc.
  */
 class BillingSummary {
   /**
@@ -1706,7 +1710,7 @@ class BillingSummary {
 
 if (!class_exists("Budget", FALSE)) {
 /**
- * Class representing budget for the campaign.
+ * Data representing the budget for a campaign.
  */
 class Budget {
   /**
@@ -2097,7 +2101,7 @@ class BulkMutateResult {
 
 if (!class_exists("Campaign", FALSE)) {
 /**
- * Class representing a campaign for the CampaignService.
+ * Data representing an AdWords campaign.
  */
 class Campaign {
   /**
@@ -2594,7 +2598,7 @@ class ConversionOptimizerBiddingTransition extends BiddingTransition {
 
 if (!class_exists("Criterion", FALSE)) {
 /**
- * Represents any criterion (e.g. keyword, placement).
+ * Represents a criterion (such as a keyword, placement, or vertical).
  */
 class Criterion {
   /**
@@ -3108,7 +3112,7 @@ class FrequencyCap {
 
 if (!class_exists("GeoPoint", FALSE)) {
 /**
- * Specifies a geo location with the supplied lat/long.
+ * Specifies a geo location with the supplied latitude/longitude.
  */
 class GeoPoint {
   /**
@@ -3727,7 +3731,7 @@ class JobStats {
 
 if (!class_exists("Keyword", FALSE)) {
 /**
- * A keyword.
+ * Represents a keyword.
  */
 class Keyword extends Criterion {
   /**
@@ -4100,7 +4104,7 @@ class ManualCPCAdGroupBids extends AdGroupBids {
 
 if (!class_exists("ManualCPCAdGroupCriterionBids", FALSE)) {
 /**
- * AdGroupCriterion level bids used in manual cpc bidding strategy.
+ * Data representing a criterion-level CPC bid.
  */
 class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
@@ -4209,7 +4213,7 @@ class ManualCPMAdGroupBids extends AdGroupBids {
 
 if (!class_exists("ManualCPMAdGroupCriterionBids", FALSE)) {
 /**
- * AdGroupCriterion level bids used in manual CPM bidding strategy.
+ * Data representing a criterion-level CPM bid.
  */
 class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
@@ -4250,7 +4254,7 @@ class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
 
 if (!class_exists("Media", FALSE)) {
 /**
- * Represents any media (e.g., image).
+ * Represents some kind of media.
  */
 class Media {
   /**
@@ -4558,15 +4562,23 @@ class Media_Size_StringMapEntry {
 
 if (!class_exists("MobileAd", FALSE)) {
 /**
- * Represents a MobileAd.
+ * Represents a mobile ad.
  * 
+ * <p>
  * A mobile ad can contain a click-to-call phone number, a link to a website,
  * or both.  You specify which features you want by setting certain fields, as
  * shown in the following table.  For example, to create a click-to-call mobile
- * ad, set the fields in the <b>Click-to-call</b> column.  A hyphen means don't
- * set the corresponding field.
+ * ad, set the fields in the <b>Click-to-call</b> column. A hyphen indicates
+ * that you should not set the corresponding field.
  * </p>
- * <table summary="">
+ * <p>
+ * For more information, see
+ * <a href=
+ * "http://adwords.google.com/support/aw/bin/static.py?hl=en&amp;topic=28428&gamp;uide=28427&amp;page=guide.cs"
+ * target="_blank">Mobile Ads Requirements</a>.
+ * </p>
+ * 
+ * <table summary="" style="clear: none">
  * <tr> <th scope="col"> Click-to-call </th>
  * <th scope="col"> Website       </th>
  * <th scope="col"> Both          </th></tr>
@@ -4601,16 +4613,6 @@ if (!class_exists("MobileAd", FALSE)) {
  * markupLanguages <br />
  * </td></tr>
  * </table>
- * 
- * <h2 class="normalsize">More Information</h2>
- * <ul class="nolist">
- * <li>
- * <a href="https://adwords.google.com/select/mobileguidelines.html"
- * target="_blank">Mobile Ad Editorial Guidelines</a></li>
- * <li>
- * <a href="http://adwords.google.com/support/bin/topic.py?topic=8500"
- * target="_blank">Mobile Ad FAQ</a></li>
- * </ul>
  */
 class MobileAd extends Ad {
   /**
@@ -4691,17 +4693,13 @@ class MobileAd extends Ad {
 
 if (!class_exists("MobileImageAd", FALSE)) {
 /**
- * Data associated with a mobile image ad.
- * 
- * <h2 class="normalsize">More Information</h2>
- * <ul class="nolist">
- * <li>
- * <a href="https://adwords.google.com/select/mobileguidelines.html"
- * target="_blank">Mobile Ad Editorial Guidelines</a></li>
- * <li>
- * <a href="http://adwords.google.com/support/bin/topic.py?topic=8500"
- * target="_blank">Mobile Ad FAQ</a></li>
- * </ul>
+ * Represents a mobile image ad.
+ * <p>
+ * For more information, see
+ * <a href=
+ * "http://adwords.google.com/support/aw/bin/static.py?hl=en&amp;topic=28428&gamp;uide=28427&amp;page=guide.cs"
+ * target="_blank">Mobile Ads Requirements</a>.
+ * </p>
  */
 class MobileImageAd extends Ad {
   /**
@@ -6916,9 +6914,9 @@ class TextAd extends Ad {
 if (!class_exists("UnprocessedResult", FALSE)) {
 /**
  * Indicates that the mutate operation was not processed. This could result
- * either because the operation has not yet been scheduled for processing,
- * or because the workflow implementation prevented the operation from
- * being processed. See the job status to see which of these is relevant.
+ * if the job was aborted by the back-end workflow because the developer's API
+ * quota was exceeded or if the job encountered some severe workflow system
+ * failure.
  */
 class UnprocessedResult extends OperationResult {
   /**
@@ -7123,7 +7121,7 @@ class AdExtensionOverrideStatus {
 
 if (!class_exists("AdGroupStatus", FALSE)) {
 /**
- * The status of the AdGroup.
+ * Status of this ad group.
  */
 class AdGroupStatus {
   /**
@@ -10498,7 +10496,10 @@ class CampaignCriterionOperation extends Operation {
 
 if (!class_exists("CampaignOperation", FALSE)) {
 /**
- * Operations (add, update, remove) class for campaigns.
+ * An operation on an AdWords campaign.
+ * <p class="note"><b>Note:</b> The <code>REMOVE</code> operator is not
+ * supported.  To remove a a campaign, set its {@link Campaign#status status}
+ * to <code>DELETED</code>.</p>
  */
 class CampaignOperation extends Operation {
   /**
@@ -11287,10 +11288,12 @@ class PlatformTargetList extends TargetList {
 
 if (!class_exists("PolygonTarget", FALSE)) {
 /**
- * Structure to specify a geographic target for a polygon location.
+ * Represents a geographic region enclosed by a set of vertices (points).
  * 
- * This polygon target consists of a list of vertices;
- * each vertex is a geo point defined by a latitude and longitude.
+ * A polygon target is described by a list of at least three points,
+ * where each point is a (<var>latitude</var>, <var>longitude</var>)
+ * ordered pair. No point can be no more than 400km from the center of
+ * the polygon.
  */
 class PolygonTarget extends GeoTarget {
   /**

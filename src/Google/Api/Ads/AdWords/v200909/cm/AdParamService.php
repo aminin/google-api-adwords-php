@@ -30,14 +30,16 @@ require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("AdParam", FALSE)) {
 /**
- * <p>Represents an ad parameter.  Use ad parameters to insert parameterized
- * numeric values into text ads.  An <code>AdParam</code> object is
- * associated to exactly one <code>Keyword</code> criterion and one
- * ad group. Up to two ad parameters can be set per keyword (one for each
- * paramIndex):</p>
+ * Represents an ad parameter.  Use ad parameters to update numeric values
+ * (such as prices or inventory levels) in text ads. You can set two
+ * <code>AdParam</code> objects (one for each value of {@link #paramIndex})
+ * per ad group {@link Keyword} criterion.
+ * <p>When setting or removing an <code>AdParam</code>, it is uniquely
+ * identified by the combination of these three fields:</p>
  * <ul>
- * <li>paramIndex = 1</li>
- * <li>paramIndex = 2</li>
+ * <li><code>adGroupId</code></li>
+ * <li><code>criterionId</code></li>
+ * <li><code>paramIndex</code></li>
  * </ul>
  */
 class AdParam {
@@ -205,7 +207,9 @@ class Operation {
 
 if (!class_exists("Paging", FALSE)) {
 /**
- * Specifies what kind of paging wanted for the result of a get.
+ * Specifies the page of results to return in the response. A page is specified
+ * by the result position to start at and the maximum number of results to
+ * return.
  */
 class Paging {
   /**
@@ -502,9 +506,11 @@ class AdParamSelector {
 
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -1103,12 +1109,11 @@ if (!class_exists("AdParamServiceGet", FALSE)) {
  * 
  * 
  * 
- * Returns a list of AdParams based on an AdParamSelector. The selector
- * defines a specific set of AdParams that are to be returned - an AdParam
- * must pass all the criteria specified in the argument AdParamSelector.
+ * Returns the ad parameters that match the criteria specified in the
+ * selector.
  * 
- * @param selector the selector specifying the query
- * @return the AdParams specified
+ * @param selector Specifies which ad parameters to return.
+ * @return A list of ad parameters.
  */
 class AdParamServiceGet {
   /**
@@ -1177,26 +1182,26 @@ if (!class_exists("AdParamServiceMutate", FALSE)) {
  * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
  * <span class="constraint NotEmpty">This field must contain at least one element.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
- * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: SET, REMOVE.</span>
+ * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: SET, REMOVE.</span>
  * 
  * 
  * 
- * Applies the list of mutate operations (ie. set, remove)
+ * Sets and removes ad parameters.
  * 
- * Add - unsupported. Use set instead.
+ * <ul class="nolist">
+ * <li>{@code ADD}: Unsupported. Use {@code SET} for new ad parameters.</li>
+ * <li>{@code SET}: Creates or updates an ad parameter, setting the new
+ * parameterized value for the given ad group / keyword pair.
+ * <li>{@code REMOVE}: Removes an ad parameter. The <code><var>default-value</var>
+ * </code> specified in the ad text will be used.</li>
+ * </ul>
  * 
- * Set - Creates, if necessary, or updates an AdParam setting the new
- * parameter text for the given adgroup, keyword pair specified by the
- * operand AdParam.
- * 
- * Remove - Removes an AdParam.
- * 
- * @param operations the operations to apply
- * @return a list of AdParams where each entry in the list is the result
- * of applying the operation in the input list with the same index. For a
- * set operation, the return AdParam will be what is saved.
- * In the case of a remove operation, the return AdParam will simply
- * be what AdParam was removed.
+ * @param operations The operations to perform.
+ * @return A list of ad parameters, where each entry in the list is the
+ * result of applying the operation in the input list with the same index.
+ * For a {@code SET} operation, the returned ad parameter will contain the
+ * updated values. For a {@code REMOVE} operation, the returned ad parameter
+ * will simply be the ad parameter that was removed.
  */
 class AdParamServiceMutate {
   /**
@@ -1298,7 +1303,8 @@ class AdParamError extends ApiError {
 
 if (!class_exists("AdParamOperation", FALSE)) {
 /**
- * AdParam service operation.
+ * Represents an operation on an {@link AdParam}. The supported operators
+ * are {@code SET} and {@code REMOVE}.
  */
 class AdParamOperation extends Operation {
   /**
@@ -2108,12 +2114,11 @@ class AdParamService extends AdWordsSoapClient {
    * 
    * 
    * 
-   * Returns a list of AdParams based on an AdParamSelector. The selector
-   * defines a specific set of AdParams that are to be returned - an AdParam
-   * must pass all the criteria specified in the argument AdParamSelector.
+   * Returns the ad parameters that match the criteria specified in the
+   * selector.
    * 
-   * @param selector the selector specifying the query
-   * @return the AdParams specified
+   * @param selector Specifies which ad parameters to return.
+   * @return A list of ad parameters.
    */
   public function get($selector) {
     $arg = new AdParamServiceGet($selector);
@@ -2126,26 +2131,26 @@ class AdParamService extends AdWordsSoapClient {
    * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
    * <span class="constraint NotEmpty">This field must contain at least one element.</span>
    * <span class="constraint Required">This field is required and should not be {@code null}.</span>
-   * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: SET, REMOVE.</span>
+   * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: SET, REMOVE.</span>
    * 
    * 
    * 
-   * Applies the list of mutate operations (ie. set, remove)
+   * Sets and removes ad parameters.
    * 
-   * Add - unsupported. Use set instead.
+   * <ul class="nolist">
+   * <li>{@code ADD}: Unsupported. Use {@code SET} for new ad parameters.</li>
+   * <li>{@code SET}: Creates or updates an ad parameter, setting the new
+   * parameterized value for the given ad group / keyword pair.
+   * <li>{@code REMOVE}: Removes an ad parameter. The <code><var>default-value</var>
+   * </code> specified in the ad text will be used.</li>
+   * </ul>
    * 
-   * Set - Creates, if necessary, or updates an AdParam setting the new
-   * parameter text for the given adgroup, keyword pair specified by the
-   * operand AdParam.
-   * 
-   * Remove - Removes an AdParam.
-   * 
-   * @param operations the operations to apply
-   * @return a list of AdParams where each entry in the list is the result
-   * of applying the operation in the input list with the same index. For a
-   * set operation, the return AdParam will be what is saved.
-   * In the case of a remove operation, the return AdParam will simply
-   * be what AdParam was removed.
+   * @param operations The operations to perform.
+   * @return A list of ad parameters, where each entry in the list is the
+   * result of applying the operation in the input list with the same index.
+   * For a {@code SET} operation, the returned ad parameter will contain the
+   * updated values. For a {@code REMOVE} operation, the returned ad parameter
+   * will simply be the ad parameter that was removed.
    */
   public function mutate($operations) {
     $arg = new AdParamServiceMutate($operations);

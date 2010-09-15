@@ -70,7 +70,9 @@ class DateRange {
 
 if (!class_exists("Paging", FALSE)) {
 /**
- * Specifies what kind of paging wanted for the result of a get.
+ * Specifies the page of results to return in the response. A page is specified
+ * by the result position to start at and the maximum number of results to
+ * return.
  */
 class Paging {
   /**
@@ -220,53 +222,6 @@ class ReportDefinitionField {
   }
 }}
 
-if (!class_exists("Selector", FALSE)) {
-/**
- * A generic selector to specify the type of campaign information to return.
- */
-class Selector {
-  /**
-   * @access public
-   * @var string[]
-   */
-  public $fields;
-
-  /**
-   * @access public
-   * @var Predicate[]
-   */
-  public $predicates;
-
-  /**
-   * @access public
-   * @var DateRange
-   */
-  public $dateRange;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Selector";
-  }
-
-  public function __construct($fields = NULL, $predicates = NULL, $dateRange = NULL) {
-    if(get_parent_class('Selector')) parent::__construct();
-    $this->fields = $fields;
-    $this->predicates = $predicates;
-    $this->dateRange = $dateRange;
-  }
-}}
-
 if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
@@ -389,11 +344,60 @@ class SoapResponseHeader {
   }
 }}
 
+if (!class_exists("Selector", FALSE)) {
+/**
+ * A generic selector to specify the type of campaign information to return.
+ */
+class Selector {
+  /**
+   * @access public
+   * @var string[]
+   */
+  public $fields;
+
+  /**
+   * @access public
+   * @var Predicate[]
+   */
+  public $predicates;
+
+  /**
+   * @access public
+   * @var DateRange
+   */
+  public $dateRange;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201003";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Selector";
+  }
+
+  public function __construct($fields = NULL, $predicates = NULL, $dateRange = NULL) {
+    if(get_parent_class('Selector')) parent::__construct();
+    $this->fields = $fields;
+    $this->predicates = $predicates;
+    $this->dateRange = $dateRange;
+  }
+}}
+
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -584,7 +588,7 @@ class ReportDefinitionSelector {
 
 if (!class_exists("ReportDefinition", FALSE)) {
 /**
- * Represents the ReportDefinition object that is sent over the wire.
+ * Represents a report definition.
  */
 class ReportDefinition {
   /**
@@ -636,18 +640,6 @@ class ReportDefinition {
   public $creationTime;
 
   /**
-   * @access public
-   * @var integer
-   */
-  public $creatorUserId;
-
-  /**
-   * @access public
-   * @var integer[]
-   */
-  public $customerIds;
-
-  /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
@@ -663,7 +655,7 @@ class ReportDefinition {
     return "ReportDefinition";
   }
 
-  public function __construct($id = NULL, $selector = NULL, $reportName = NULL, $reportType = NULL, $hasAttachment = NULL, $dateRangeType = NULL, $downloadFormat = NULL, $creationTime = NULL, $creatorUserId = NULL, $customerIds = NULL) {
+  public function __construct($id = NULL, $selector = NULL, $reportName = NULL, $reportType = NULL, $hasAttachment = NULL, $dateRangeType = NULL, $downloadFormat = NULL, $creationTime = NULL) {
     if(get_parent_class('ReportDefinition')) parent::__construct();
     $this->id = $id;
     $this->selector = $selector;
@@ -673,8 +665,6 @@ class ReportDefinition {
     $this->dateRangeType = $dateRangeType;
     $this->downloadFormat = $downloadFormat;
     $this->creationTime = $creationTime;
-    $this->creatorUserId = $creatorUserId;
-    $this->customerIds = $customerIds;
   }
 }}
 
@@ -1375,11 +1365,10 @@ if (!class_exists("ReportDefinitionServiceGet", FALSE)) {
  * 
  * 
  * 
- * Returns all report definitions that match a selector.
- * @param selector filter to run report definitions through. If the selector
- * is empty, all report definitions belonging to a customer will be
- * returned.
- * @return page with matching report definitions
+ * Returns the list of report definitions that meet the selector criteria.
+ * @param selector Determines which report definitions to return. If empty,
+ * all report definitions will be returned.
+ * @return A list of report definitions.
  * @throws ApiException if problems occurred while fetching report definitions
  * information.
  */
@@ -1451,13 +1440,13 @@ if (!class_exists("getReportFields", FALSE)) {
  * 
  * 
  * 
- * Allows the report creator to query for supported fields for the given
- * report type.
+ * Returns the available report fields for a given report type.
  * 
  * @param reportType The type of report.
- * @return List of ReportDefinitionFields which encapsulates the
- * field name, the field data type and the enum values if the field is
- * an enum type.
+ * @return The list of available report fields. Each
+ * {@link ReportDefinitionField} encapsulates the field name, the
+ * field data type, and the enum values (if the field's type is
+ * {@code enum}).
  * @throws ApiException if a problem occurred while fetching the
  * ReportDefinitionField information.
  */
@@ -1529,16 +1518,16 @@ if (!class_exists("ReportDefinitionServiceMutate", FALSE)) {
  * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
  * <span class="constraint NotEmpty">This field must contain at least one element.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
- * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, SET, REMOVE.</span>
+ * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, SET, REMOVE.</span>
  * 
  * 
  * 
- * Create or update a scheduled report. The mutate operation supports
- * deletes as well, even though report definitions are not actually deleted
- * in the database but marked as inactive.
- * @param operations a list of unique operations. The same report definition
+ * Creates, updates, and deletes report definitions.
+ * 
+ * @param operations A list of unique operations. The same report definition
  * cannot be specified in more than one operation.
- * @return list of results for each operation
+ * @return The list of updated report definitions, returned in the same
+ * order as the <code>operations</code> array.
  * @throws ApiException if an error occurred while updating report definitions
  * information.
  */
@@ -2368,9 +2357,9 @@ class ReportDefinitionService extends AdWordsSoapClient {
     "ReportDefinitionField" => "ReportDefinitionField",
     "RequestError" => "RequestError",
     "RequiredError" => "RequiredError",
-    "Selector" => "Selector",
     "SizeLimitError" => "SizeLimitError",
     "SoapResponseHeader" => "SoapResponseHeader",
+    "Selector" => "Selector",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
     "ReportDefinitionSelector" => "ReportDefinitionSelector",
@@ -2419,11 +2408,10 @@ class ReportDefinitionService extends AdWordsSoapClient {
    * 
    * 
    * 
-   * Returns all report definitions that match a selector.
-   * @param selector filter to run report definitions through. If the selector
-   * is empty, all report definitions belonging to a customer will be
-   * returned.
-   * @return page with matching report definitions
+   * Returns the list of report definitions that meet the selector criteria.
+   * @param selector Determines which report definitions to return. If empty,
+   * all report definitions will be returned.
+   * @return A list of report definitions.
    * @throws ApiException if problems occurred while fetching report definitions
    * information.
    */
@@ -2439,13 +2427,13 @@ class ReportDefinitionService extends AdWordsSoapClient {
    * 
    * 
    * 
-   * Allows the report creator to query for supported fields for the given
-   * report type.
+   * Returns the available report fields for a given report type.
    * 
    * @param reportType The type of report.
-   * @return List of ReportDefinitionFields which encapsulates the
-   * field name, the field data type and the enum values if the field is
-   * an enum type.
+   * @return The list of available report fields. Each
+   * {@link ReportDefinitionField} encapsulates the field name, the
+   * field data type, and the enum values (if the field's type is
+   * {@code enum}).
    * @throws ApiException if a problem occurred while fetching the
    * ReportDefinitionField information.
    */
@@ -2461,16 +2449,16 @@ class ReportDefinitionService extends AdWordsSoapClient {
    * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
    * <span class="constraint NotEmpty">This field must contain at least one element.</span>
    * <span class="constraint Required">This field is required and should not be {@code null}.</span>
-   * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, SET, REMOVE.</span>
+   * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, SET, REMOVE.</span>
    * 
    * 
    * 
-   * Create or update a scheduled report. The mutate operation supports
-   * deletes as well, even though report definitions are not actually deleted
-   * in the database but marked as inactive.
-   * @param operations a list of unique operations. The same report definition
+   * Creates, updates, and deletes report definitions.
+   * 
+   * @param operations A list of unique operations. The same report definition
    * cannot be specified in more than one operation.
-   * @return list of results for each operation
+   * @return The list of updated report definitions, returned in the same
+   * order as the <code>operations</code> array.
    * @throws ApiException if an error occurred while updating report definitions
    * information.
    */

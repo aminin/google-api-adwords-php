@@ -70,7 +70,9 @@ class CampaignCriterionIdFilter {
 
 if (!class_exists("Paging", FALSE)) {
 /**
- * Specifies what kind of paging wanted for the result of a get.
+ * Specifies the page of results to return in the response. A page is specified
+ * by the result position to start at and the maximum number of results to
+ * return.
  */
 class Paging {
   /**
@@ -230,83 +232,13 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("Criterion", FALSE)) {
-/**
- * Represents any criterion (e.g. keyword, placement).
- */
-class Criterion {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $id;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $CriterionType;
-
-  private $_parameterMap = array (
-    "Criterion.Type" => "CriterionType",
-  );
-
-  /**
-   * Provided for setting non-php-standard named variables
-   * @param $var Variable name to set
-   * @param $value Value to set
-   */
-  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @param $var Variable name to get.
-   * @return mixed Variable value
-   */
-  public function __get($var) {
-    if (!array_key_exists($var, $this->_parameterMap)) {
-      return NULL;
-    } else {
-      return $this->{$this->_parameterMap[$var]};
-    }
-  }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @return array parameter map
-   */
-  protected function getParameterMap() {
-    return $this->_parameterMap;
-    }
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Criterion";
-  }
-
-  public function __construct($id = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Criterion')) parent::__construct();
-    $this->id = $id;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -459,6 +391,78 @@ class ApplicationException {
     if(get_parent_class('ApplicationException')) parent::__construct();
     $this->message = $message;
     $this->ApplicationExceptionType = $ApplicationExceptionType;
+  }
+}}
+
+if (!class_exists("Criterion", FALSE)) {
+/**
+ * Represents a criterion (such as a keyword, placement, or vertical).
+ */
+class Criterion {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $id;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $CriterionType;
+
+  private $_parameterMap = array (
+    "Criterion.Type" => "CriterionType",
+  );
+
+  /**
+   * Provided for setting non-php-standard named variables
+   * @param $var Variable name to set
+   * @param $value Value to set
+   */
+  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @param $var Variable name to get.
+   * @return mixed Variable value
+   */
+  public function __get($var) {
+    if (!array_key_exists($var, $this->_parameterMap)) {
+      return NULL;
+    } else {
+      return $this->{$this->_parameterMap[$var]};
+    }
+  }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @return array parameter map
+   */
+  protected function getParameterMap() {
+    return $this->_parameterMap;
+    }
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201003";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Criterion";
+  }
+
+  public function __construct($id = NULL, $CriterionType = NULL) {
+    if(get_parent_class('Criterion')) parent::__construct();
+    $this->id = $id;
+    $this->CriterionType = $CriterionType;
   }
 }}
 
@@ -1577,7 +1581,7 @@ if (!class_exists("CampaignCriterionServiceMutate", FALSE)) {
  * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
  * <span class="constraint NotEmpty">This field must contain at least one element.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
- * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
+ * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
  * 
  * 
  * 
@@ -2000,7 +2004,7 @@ class InternalApiError extends ApiError {
 
 if (!class_exists("Keyword", FALSE)) {
 /**
- * A keyword.
+ * Represents a keyword.
  */
 class Keyword extends Criterion {
   /**
@@ -2650,11 +2654,10 @@ class SizeLimitError extends ApiError {
 
 if (!class_exists("Vertical", FALSE)) {
 /**
- * A vertical is used for targeting or excluding sites in the Google network that are
- * related to a specific vertical or sub-vertical, e.g. category::Animals>Pets.
- * Each category is specified as an array of string, where each element is the name
- * of component of the path e.g.category::Animals>Pets is {"Animals", "Pets"}.
- * These verticals only apply to the content network.
+ * Use verticals to target or exclude placements in the Google Display Network
+ * based on the category into which the placement falls (for example, "Pets &amp;
+ * Animals/Pets/Dogs"). <a href="../codelists/vertical_categories.html">View
+ * the complete list of available vertical categories.</a>
  */
 class Vertical extends Criterion {
   /**
@@ -3027,7 +3030,7 @@ class CampaignCriterionService extends AdWordsSoapClient {
    * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
    * <span class="constraint NotEmpty">This field must contain at least one element.</span>
    * <span class="constraint Required">This field is required and should not be {@code null}.</span>
-   * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
+   * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
    * 
    * 
    * 

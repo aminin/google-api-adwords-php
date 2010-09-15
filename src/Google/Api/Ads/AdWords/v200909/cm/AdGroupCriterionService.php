@@ -123,7 +123,9 @@ class DateRange {
 
 if (!class_exists("Paging", FALSE)) {
 /**
- * Specifies what kind of paging wanted for the result of a get.
+ * Specifies the page of results to return in the response. A page is specified
+ * by the result position to start at and the maximum number of results to
+ * return.
  */
 class Paging {
   /**
@@ -562,78 +564,6 @@ class ComparableValue {
   }
 }}
 
-if (!class_exists("Criterion", FALSE)) {
-/**
- * Represents any criterion (e.g. keyword, placement).
- */
-class Criterion {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $id;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $CriterionType;
-
-  private $_parameterMap = array (
-    "Criterion.Type" => "CriterionType",
-  );
-
-  /**
-   * Provided for setting non-php-standard named variables
-   * @param $var Variable name to set
-   * @param $value Value to set
-   */
-  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @param $var Variable name to get.
-   * @return mixed Variable value
-   */
-  public function __get($var) {
-    if (!array_key_exists($var, $this->_parameterMap)) {
-      return NULL;
-    } else {
-      return $this->{$this->_parameterMap[$var]};
-    }
-  }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @return array parameter map
-   */
-  protected function getParameterMap() {
-    return $this->_parameterMap;
-    }
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Criterion";
-  }
-
-  public function __construct($id = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Criterion')) parent::__construct();
-    $this->id = $id;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("ExemptionRequest", FALSE)) {
 /**
  * A request to be exempted from a {@link PolicyViolationError}.
@@ -846,9 +776,11 @@ class Stats {
 
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -1075,6 +1007,78 @@ class PositionPreferenceAdGroupCriterionBids {
     $this->proxyMaxCpc = $proxyMaxCpc;
     $this->preferredPosition = $preferredPosition;
     $this->bottomPosition = $bottomPosition;
+  }
+}}
+
+if (!class_exists("Criterion", FALSE)) {
+/**
+ * Represents a criterion (such as a keyword, placement, or vertical).
+ */
+class Criterion {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $id;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $CriterionType;
+
+  private $_parameterMap = array (
+    "Criterion.Type" => "CriterionType",
+  );
+
+  /**
+   * Provided for setting non-php-standard named variables
+   * @param $var Variable name to set
+   * @param $value Value to set
+   */
+  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @param $var Variable name to get.
+   * @return mixed Variable value
+   */
+  public function __get($var) {
+    if (!array_key_exists($var, $this->_parameterMap)) {
+      return NULL;
+    } else {
+      return $this->{$this->_parameterMap[$var]};
+    }
+  }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @return array parameter map
+   */
+  protected function getParameterMap() {
+    return $this->_parameterMap;
+    }
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v200909";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Criterion";
+  }
+
+  public function __construct($id = NULL, $CriterionType = NULL) {
+    if(get_parent_class('Criterion')) parent::__construct();
+    $this->id = $id;
+    $this->CriterionType = $CriterionType;
   }
 }}
 
@@ -2993,7 +2997,7 @@ class InternalApiError extends ApiError {
 
 if (!class_exists("Keyword", FALSE)) {
 /**
- * A keyword.
+ * Represents a keyword.
  */
 class Keyword extends Criterion {
   /**
@@ -3819,7 +3823,7 @@ class BudgetOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
 
 if (!class_exists("ManualCPMAdGroupCriterionBids", FALSE)) {
 /**
- * AdGroupCriterion level bids used in manual CPM bidding strategy.
+ * Data representing a criterion-level CPM bid.
  */
 class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
@@ -3860,7 +3864,7 @@ class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
 
 if (!class_exists("ManualCPCAdGroupCriterionBids", FALSE)) {
 /**
- * AdGroupCriterion level bids used in manual cpc bidding strategy.
+ * Data representing a criterion-level CPC bid.
  */
 class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
   /**

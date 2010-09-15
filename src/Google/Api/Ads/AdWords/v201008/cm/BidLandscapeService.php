@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains all client objects for the AdParamService service.
+ * Contains all client objects for the BidLandscapeService service.
  *
  * PHP version 5
  *
@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v201003
+ * @subpackage v201008
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -28,21 +28,28 @@
 
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("AdParam", FALSE)) {
+if (!class_exists("BidLandscapeIdFilter", FALSE)) {
 /**
- * Represents an ad parameter.  Use ad parameters to update numeric values
- * (such as prices or inventory levels) in text ads. You can set two
- * <code>AdParam</code> objects (one for each value of {@link #paramIndex})
- * per ad group {@link Keyword} criterion.
- * <p>When setting or removing an <code>AdParam</code>, it is uniquely
- * identified by the combination of these three fields:</p>
+ * Specifies how broadly to select bid landscapes.
+ * To retrieve bid landscapes for criteria, use one of the following
+ * combinations of IDs:
+ * 
  * <ul>
- * <li><code>adGroupId</code></li>
- * <li><code>criterionId</code></li>
- * <li><code>paramIndex</code></li>
+ * <li>For all criterion bid landscapes under a campaign, specify only
+ * {@code campaignId}.</li>
+ * <li>For all criterion bid landscapes under an ad group, specify only
+ * {@code adGroupId}.</li>
+ * <li>For a specific criteria bid landscape, specify only {@code adGroupId}
+ * and {@code criterionId}.</li>
  * </ul>
  */
-class AdParam {
+class BidLandscapeIdFilter {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $campaignId;
+
   /**
    * @access public
    * @var integer
@@ -56,23 +63,11 @@ class AdParam {
   public $criterionId;
 
   /**
-   * @access public
-   * @var string
-   */
-  public $insertionText;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $paramIndex;
-
-  /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -80,251 +75,14 @@ class AdParam {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "AdParam";
+    return "BidLandscapeIdFilter";
   }
 
-  public function __construct($adGroupId = NULL, $criterionId = NULL, $insertionText = NULL, $paramIndex = NULL) {
-    if(get_parent_class('AdParam')) parent::__construct();
+  public function __construct($campaignId = NULL, $adGroupId = NULL, $criterionId = NULL) {
+    if(get_parent_class('BidLandscapeIdFilter')) parent::__construct();
+    $this->campaignId = $campaignId;
     $this->adGroupId = $adGroupId;
     $this->criterionId = $criterionId;
-    $this->insertionText = $insertionText;
-    $this->paramIndex = $paramIndex;
-  }
-}}
-
-if (!class_exists("AdParamPage", FALSE)) {
-/**
- * Represents a page of AdParams returned by the {@link AdParamService}.
- */
-class AdParamPage {
-  /**
-   * @access public
-   * @var AdParam[]
-   */
-  public $entries;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $totalNumEntries;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AdParamPage";
-  }
-
-  public function __construct($entries = NULL, $totalNumEntries = NULL) {
-    if(get_parent_class('AdParamPage')) parent::__construct();
-    $this->entries = $entries;
-    $this->totalNumEntries = $totalNumEntries;
-  }
-}}
-
-if (!class_exists("Operation", FALSE)) {
-/**
- * This represents an operation that includes an operator and an operand
- * specified type.
- */
-class Operation {
-  /**
-   * @access public
-   * @var tnsOperator
-   */
-  public $operator;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $OperationType;
-
-  private $_parameterMap = array (
-    "Operation.Type" => "OperationType",
-  );
-
-  /**
-   * Provided for setting non-php-standard named variables
-   * @param $var Variable name to set
-   * @param $value Value to set
-   */
-  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @param $var Variable name to get.
-   * @return mixed Variable value
-   */
-  public function __get($var) {
-    if (!array_key_exists($var, $this->_parameterMap)) {
-      return NULL;
-    } else {
-      return $this->{$this->_parameterMap[$var]};
-    }
-  }
-
-  /**
-   * Provided for getting non-php-standard named variables
-   * @return array parameter map
-   */
-  protected function getParameterMap() {
-    return $this->_parameterMap;
-    }
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Operation";
-  }
-
-  public function __construct($operator = NULL, $OperationType = NULL) {
-    if(get_parent_class('Operation')) parent::__construct();
-    $this->operator = $operator;
-    $this->OperationType = $OperationType;
-  }
-}}
-
-if (!class_exists("Paging", FALSE)) {
-/**
- * Specifies the page of results to return in the response. A page is specified
- * by the result position to start at and the maximum number of results to
- * return.
- */
-class Paging {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $startIndex;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $numberResults;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Paging";
-  }
-
-  public function __construct($startIndex = NULL, $numberResults = NULL) {
-    if(get_parent_class('Paging')) parent::__construct();
-    $this->startIndex = $startIndex;
-    $this->numberResults = $numberResults;
-  }
-}}
-
-if (!class_exists("PolicyViolationErrorPart", FALSE)) {
-/**
- * Points to a substring within an ad field or criterion.
- */
-class PolicyViolationErrorPart {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $index;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $length;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "PolicyViolationError.Part";
-  }
-
-  public function __construct($index = NULL, $length = NULL) {
-    if(get_parent_class('PolicyViolationErrorPart')) parent::__construct();
-    $this->index = $index;
-    $this->length = $length;
-  }
-}}
-
-if (!class_exists("PolicyViolationKey", FALSE)) {
-/**
- * Key of the violation. The key is used for referring to a violation when
- * filing an exemption request.
- */
-class PolicyViolationKey {
-  /**
-   * @access public
-   * @var string
-   */
-  public $policyName;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $violatingText;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "PolicyViolationKey";
-  }
-
-  public function __construct($policyName = NULL, $violatingText = NULL) {
-    if(get_parent_class('PolicyViolationKey')) parent::__construct();
-    $this->policyName = $policyName;
-    $this->violatingText = $violatingText;
   }
 }}
 
@@ -370,11 +128,17 @@ class SoapRequestHeader {
   public $validateOnly;
 
   /**
+   * @access public
+   * @var boolean
+   */
+  public $partialFailure;
+
+  /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -385,7 +149,7 @@ class SoapRequestHeader {
     return "SoapHeader";
   }
 
-  public function __construct($authToken = NULL, $clientCustomerId = NULL, $clientEmail = NULL, $developerToken = NULL, $userAgent = NULL, $validateOnly = NULL) {
+  public function __construct($authToken = NULL, $clientCustomerId = NULL, $clientEmail = NULL, $developerToken = NULL, $userAgent = NULL, $validateOnly = NULL, $partialFailure = NULL) {
     if(get_parent_class('SoapRequestHeader')) parent::__construct();
     $this->authToken = $authToken;
     $this->clientCustomerId = $clientCustomerId;
@@ -393,6 +157,7 @@ class SoapRequestHeader {
     $this->developerToken = $developerToken;
     $this->userAgent = $userAgent;
     $this->validateOnly = $validateOnly;
+    $this->partialFailure = $partialFailure;
   }
 }}
 
@@ -430,7 +195,7 @@ class SoapResponseHeader {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -450,35 +215,61 @@ class SoapResponseHeader {
   }
 }}
 
-if (!class_exists("AdParamSelector", FALSE)) {
+if (!class_exists("BidLandscapeSelector", FALSE)) {
 /**
- * A selector used to specify what AdParams should be returned.
+ * Specifies which bid landscapes should be returned.
  */
-class AdParamSelector {
+class BidLandscapeSelector {
   /**
    * @access public
-   * @var integer[]
+   * @var BidLandscapeIdFilter[]
    */
-  public $adGroupIds;
+  public $idFilters;
 
   /**
    * @access public
-   * @var integer[]
+   * @var string
    */
-  public $criteriaId;
+  public $BidLandscapeSelectorType;
+
+  private $_parameterMap = array (
+    "BidLandscapeSelector.Type" => "BidLandscapeSelectorType",
+  );
 
   /**
-   * @access public
-   * @var Paging
+   * Provided for setting non-php-standard named variables
+   * @param $var Variable name to set
+   * @param $value Value to set
    */
-  public $paging;
+  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @param $var Variable name to get.
+   * @return mixed Variable value
+   */
+  public function __get($var) {
+    if (!array_key_exists($var, $this->_parameterMap)) {
+      return NULL;
+    } else {
+      return $this->{$this->_parameterMap[$var]};
+    }
+  }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @return array parameter map
+   */
+  protected function getParameterMap() {
+    return $this->_parameterMap;
+    }
 
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -486,14 +277,78 @@ class AdParamSelector {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "AdParamSelector";
+    return "BidLandscapeSelector";
   }
 
-  public function __construct($adGroupIds = NULL, $criteriaId = NULL, $paging = NULL) {
-    if(get_parent_class('AdParamSelector')) parent::__construct();
-    $this->adGroupIds = $adGroupIds;
-    $this->criteriaId = $criteriaId;
-    $this->paging = $paging;
+  public function __construct($idFilters = NULL, $BidLandscapeSelectorType = NULL) {
+    if(get_parent_class('BidLandscapeSelector')) parent::__construct();
+    $this->idFilters = $idFilters;
+    $this->BidLandscapeSelectorType = $BidLandscapeSelectorType;
+  }
+}}
+
+if (!class_exists("ComparableValue", FALSE)) {
+/**
+ * Comparable types for constructing ranges with.
+ */
+class ComparableValue {
+  /**
+   * @access public
+   * @var string
+   */
+  public $ComparableValueType;
+
+  private $_parameterMap = array (
+    "ComparableValue.Type" => "ComparableValueType",
+  );
+
+  /**
+   * Provided for setting non-php-standard named variables
+   * @param $var Variable name to set
+   * @param $value Value to set
+   */
+  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @param $var Variable name to get.
+   * @return mixed Variable value
+   */
+  public function __get($var) {
+    if (!array_key_exists($var, $this->_parameterMap)) {
+      return NULL;
+    } else {
+      return $this->{$this->_parameterMap[$var]};
+    }
+  }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @return array parameter map
+   */
+  protected function getParameterMap() {
+    return $this->_parameterMap;
+    }
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ComparableValue";
+  }
+
+  public function __construct($ComparableValueType = NULL) {
+    if(get_parent_class('ComparableValue')) parent::__construct();
+    $this->ComparableValueType = $ComparableValueType;
   }
 }}
 
@@ -567,7 +422,7 @@ class ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -641,7 +496,7 @@ class ApplicationException {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -659,17 +514,48 @@ class ApplicationException {
   }
 }}
 
-if (!class_exists("AdParamErrorReason", FALSE)) {
+if (!class_exists("BidLandscapeLandscapePoint", FALSE)) {
 /**
- * The same ad param cannot be specified in multiple operations
+ * A set of estimates for a criterion's performance for a specific bid
+ * amount.
  */
-class AdParamErrorReason {
+class BidLandscapeLandscapePoint {
+  /**
+   * @access public
+   * @var Money
+   */
+  public $bid;
+
+  /**
+   * @access public
+   * @var integer
+   */
+  public $clicks;
+
+  /**
+   * @access public
+   * @var Money
+   */
+  public $cost;
+
+  /**
+   * @access public
+   * @var Money
+   */
+  public $marginalCpc;
+
+  /**
+   * @access public
+   * @var integer
+   */
+  public $impressions;
+
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -677,11 +563,142 @@ class AdParamErrorReason {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "AdParamError.Reason";
+    return "BidLandscape.LandscapePoint";
+  }
+
+  public function __construct($bid = NULL, $clicks = NULL, $cost = NULL, $marginalCpc = NULL, $impressions = NULL) {
+    if(get_parent_class('BidLandscapeLandscapePoint')) parent::__construct();
+    $this->bid = $bid;
+    $this->clicks = $clicks;
+    $this->cost = $cost;
+    $this->marginalCpc = $marginalCpc;
+    $this->impressions = $impressions;
+  }
+}}
+
+if (!class_exists("BidLandscape", FALSE)) {
+/**
+ * Represents data about a bid landscape for an ad group or criterion.
+ */
+class BidLandscape {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $campaignId;
+
+  /**
+   * @access public
+   * @var integer
+   */
+  public $adGroupId;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $startDate;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $endDate;
+
+  /**
+   * @access public
+   * @var BidLandscapeLandscapePoint[]
+   */
+  public $landscapePoints;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $BidLandscapeType;
+
+  private $_parameterMap = array (
+    "BidLandscape.Type" => "BidLandscapeType",
+  );
+
+  /**
+   * Provided for setting non-php-standard named variables
+   * @param $var Variable name to set
+   * @param $value Value to set
+   */
+  public function __set($var, $value) { $this->{$this->_parameterMap[$var]} = $value; }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @param $var Variable name to get.
+   * @return mixed Variable value
+   */
+  public function __get($var) {
+    if (!array_key_exists($var, $this->_parameterMap)) {
+      return NULL;
+    } else {
+      return $this->{$this->_parameterMap[$var]};
+    }
+  }
+
+  /**
+   * Provided for getting non-php-standard named variables
+   * @return array parameter map
+   */
+  protected function getParameterMap() {
+    return $this->_parameterMap;
+    }
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "BidLandscape";
+  }
+
+  public function __construct($campaignId = NULL, $adGroupId = NULL, $startDate = NULL, $endDate = NULL, $landscapePoints = NULL, $BidLandscapeType = NULL) {
+    if(get_parent_class('BidLandscape')) parent::__construct();
+    $this->campaignId = $campaignId;
+    $this->adGroupId = $adGroupId;
+    $this->startDate = $startDate;
+    $this->endDate = $endDate;
+    $this->landscapePoints = $landscapePoints;
+    $this->BidLandscapeType = $BidLandscapeType;
+  }
+}}
+
+if (!class_exists("AdGroupBidLandscapeType", FALSE)) {
+/**
+ * Used to specify the type of {@code AdGroupLandscape}
+ */
+class AdGroupBidLandscapeType {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "AdGroupBidLandscape.Type";
   }
 
   public function __construct() {
-    if(get_parent_class('AdParamErrorReason')) parent::__construct();
+    if(get_parent_class('AdGroupBidLandscapeType')) parent::__construct();
   }
 }}
 
@@ -695,7 +712,7 @@ class AuthenticationErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -721,7 +738,7 @@ class AuthorizationErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -737,6 +754,32 @@ class AuthorizationErrorReason {
   }
 }}
 
+if (!class_exists("BidLandscapeServiceErrorReason", FALSE)) {
+/**
+ * The reasons for the adgroup service error.
+ */
+class BidLandscapeServiceErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "BidLandscapeServiceError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('BidLandscapeServiceErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
@@ -748,7 +791,7 @@ class ClientTermsErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -774,7 +817,7 @@ class DatabaseErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -790,6 +833,33 @@ class DatabaseErrorReason {
   }
 }}
 
+if (!class_exists("EntityNotFoundReason", FALSE)) {
+/**
+ * The specified id refered to an entity which either doesn't exist or is not accessible to the
+ * customer. e.g. campaign belongs to another customer.
+ */
+class EntityNotFoundReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "EntityNotFound.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('EntityNotFoundReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
@@ -800,7 +870,7 @@ class InternalApiErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -826,7 +896,7 @@ class NotEmptyErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -852,7 +922,7 @@ class NotWhitelistedErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -878,7 +948,7 @@ class NullErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -894,17 +964,17 @@ class NullErrorReason {
   }
 }}
 
-if (!class_exists("Operator", FALSE)) {
+if (!class_exists("OperationAccessDeniedReason", FALSE)) {
 /**
- * This represents an operator that may be presented to an adsapi service.
+ * The reasons for the operation access error.
  */
-class Operator {
+class OperationAccessDeniedReason {
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -912,11 +982,11 @@ class Operator {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "Operator";
+    return "OperationAccessDenied.Reason";
   }
 
   public function __construct() {
-    if(get_parent_class('Operator')) parent::__construct();
+    if(get_parent_class('OperationAccessDeniedReason')) parent::__construct();
   }
 }}
 
@@ -930,7 +1000,7 @@ class OperatorErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -957,7 +1027,7 @@ class QuotaCheckErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -983,7 +1053,7 @@ class RangeErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1009,7 +1079,7 @@ class RateExceededErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1025,6 +1095,32 @@ class RateExceededErrorReason {
   }
 }}
 
+if (!class_exists("ReadOnlyErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ */
+class ReadOnlyErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ReadOnlyError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('ReadOnlyErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("RequestErrorReason", FALSE)) {
 /**
  * Error reason is unknown.
@@ -1035,7 +1131,7 @@ class RequestErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1061,7 +1157,7 @@ class RequiredErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1087,7 +1183,7 @@ class SizeLimitErrorReason {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1103,48 +1199,23 @@ class SizeLimitErrorReason {
   }
 }}
 
-if (!class_exists("StringLengthErrorReason", FALSE)) {
-/**
- * The reasons for the target error.
- */
-class StringLengthErrorReason {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "StringLengthError.Reason";
-  }
-
-  public function __construct() {
-    if(get_parent_class('StringLengthErrorReason')) parent::__construct();
-  }
-}}
-
-if (!class_exists("AdParamServiceGet", FALSE)) {
+if (!class_exists("getBidLandscape", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
  * 
  * 
  * 
- * Returns the ad parameters that match the criteria specified in the
- * selector.
+ * Returns a list of bid landscapes for the campaigns, ad groups, and
+ * criteria specified in the selector.
  * 
- * @param selector Specifies which ad parameters to return.
- * @return A list of ad parameters.
+ * @param selector Selects which entities to return bid landscapes for.
+ * @return A list of bid landscapes.
+ * @throws ApiException when there is at least one error with the request.
  */
-class AdParamServiceGet {
+class getBidLandscape {
   /**
    * @access public
-   * @var AdParamSelector
+   * @var BidLandscapeSelector
    */
   public $selector;
 
@@ -1153,7 +1224,7 @@ class AdParamServiceGet {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1165,19 +1236,19 @@ class AdParamServiceGet {
   }
 
   public function __construct($selector = NULL) {
-    if(get_parent_class('AdParamServiceGet')) parent::__construct();
+    if(get_parent_class('getBidLandscape')) parent::__construct();
     $this->selector = $selector;
   }
 }}
 
-if (!class_exists("AdParamServiceGetResponse", FALSE)) {
+if (!class_exists("getBidLandscapeResponse", FALSE)) {
 /**
  * 
  */
-class AdParamServiceGetResponse {
+class getBidLandscapeResponse {
   /**
    * @access public
-   * @var AdParamPage
+   * @var BidLandscape[]
    */
   public $rval;
 
@@ -1186,7 +1257,7 @@ class AdParamServiceGetResponse {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1198,50 +1269,34 @@ class AdParamServiceGetResponse {
   }
 
   public function __construct($rval = NULL) {
-    if(get_parent_class('AdParamServiceGetResponse')) parent::__construct();
+    if(get_parent_class('getBidLandscapeResponse')) parent::__construct();
     $this->rval = $rval;
   }
 }}
 
-if (!class_exists("AdParamServiceMutate", FALSE)) {
+if (!class_exists("AdGroupBidLandscape", FALSE)) {
 /**
- * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
- * <span class="constraint NotEmpty">This field must contain at least one element.</span>
- * <span class="constraint Required">This field is required and should not be {@code null}.</span>
- * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: SET, REMOVE.</span>
- * 
- * 
- * 
- * Sets and removes ad parameters.
- * 
- * <ul class="nolist">
- * <li>{@code ADD}: Unsupported. Use {@code SET} for new ad parameters.</li>
- * <li>{@code SET}: Creates or updates an ad parameter, setting the new
- * parameterized value for the given ad group / keyword pair.
- * <li>{@code REMOVE}: Removes an ad parameter. The <code><var>default-value</var>
- * </code> specified in the ad text will be used.</li>
- * </ul>
- * 
- * @param operations The operations to perform.
- * @return A list of ad parameters, where each entry in the list is the
- * result of applying the operation in the input list with the same index.
- * For a {@code SET} operation, the returned ad parameter will contain the
- * updated values. For a {@code REMOVE} operation, the returned ad parameter
- * will simply be the ad parameter that was removed.
+ * Represents data about a bidlandscape for an adroup.
  */
-class AdParamServiceMutate {
+class AdGroupBidLandscape extends BidLandscape {
   /**
    * @access public
-   * @var AdParamOperation[]
+   * @var tnsAdGroupBidLandscapeType
    */
-  public $operations;
+  public $type;
+
+  /**
+   * @access public
+   * @var boolean
+   */
+  public $landscapeCurrent;
 
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1249,32 +1304,34 @@ class AdParamServiceMutate {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "";
+    return "AdGroupBidLandscape";
   }
 
-  public function __construct($operations = NULL) {
-    if(get_parent_class('AdParamServiceMutate')) parent::__construct();
-    $this->operations = $operations;
+  public function __construct($type = NULL, $landscapeCurrent = NULL, $campaignId = NULL, $adGroupId = NULL, $startDate = NULL, $endDate = NULL, $landscapePoints = NULL, $BidLandscapeType = NULL) {
+    if(get_parent_class('AdGroupBidLandscape')) parent::__construct();
+    $this->type = $type;
+    $this->landscapeCurrent = $landscapeCurrent;
+    $this->campaignId = $campaignId;
+    $this->adGroupId = $adGroupId;
+    $this->startDate = $startDate;
+    $this->endDate = $endDate;
+    $this->landscapePoints = $landscapePoints;
+    $this->BidLandscapeType = $BidLandscapeType;
   }
 }}
 
-if (!class_exists("AdParamServiceMutateResponse", FALSE)) {
+if (!class_exists("AdGroupBidLandscapeSelector", FALSE)) {
 /**
- * 
+ * The selector used to retrieve {@link AdGroupBidLandscape}s
+ * using the {@link BidLandscapeService}.
  */
-class AdParamServiceMutateResponse {
-  /**
-   * @access public
-   * @var AdParam[]
-   */
-  public $rval;
-
+class AdGroupBidLandscapeSelector extends BidLandscapeSelector {
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1282,85 +1339,13 @@ class AdParamServiceMutateResponse {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "";
+    return "AdGroupBidLandscapeSelector";
   }
 
-  public function __construct($rval = NULL) {
-    if(get_parent_class('AdParamServiceMutateResponse')) parent::__construct();
-    $this->rval = $rval;
-  }
-}}
-
-if (!class_exists("AdParamError", FALSE)) {
-/**
- * Errors for AdParamService.
- */
-class AdParamError extends ApiError {
-  /**
-   * @access public
-   * @var tnsAdParamErrorReason
-   */
-  public $reason;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AdParamError";
-  }
-
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('AdParamError')) parent::__construct();
-    $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->errorString = $errorString;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("AdParamOperation", FALSE)) {
-/**
- * Represents an operation on an {@link AdParam}. The supported operators
- * are {@code SET} and {@code REMOVE}.
- */
-class AdParamOperation extends Operation {
-  /**
-   * @access public
-   * @var AdParam
-   */
-  public $operand;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AdParamOperation";
-  }
-
-  public function __construct($operand = NULL, $operator = NULL, $OperationType = NULL) {
-    if(get_parent_class('AdParamOperation')) parent::__construct();
-    $this->operand = $operand;
-    $this->operator = $operator;
-    $this->OperationType = $OperationType;
+  public function __construct($idFilters = NULL, $BidLandscapeSelectorType = NULL) {
+    if(get_parent_class('AdGroupBidLandscapeSelector')) parent::__construct();
+    $this->idFilters = $idFilters;
+    $this->BidLandscapeSelectorType = $BidLandscapeSelectorType;
   }
 }}
 
@@ -1380,7 +1365,7 @@ class AuthenticationError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1417,7 +1402,7 @@ class AuthorizationError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1430,6 +1415,43 @@ class AuthorizationError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('AuthorizationError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("BidLandscapeServiceError", FALSE)) {
+/**
+ * Represents possible error codes in BidLandscape Service.
+ */
+class BidLandscapeServiceError extends ApiError {
+  /**
+   * @access public
+   * @var tnsBidLandscapeServiceErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "BidLandscapeServiceError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('BidLandscapeServiceError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -1454,7 +1476,7 @@ class ClientTermsError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1467,6 +1489,120 @@ class ClientTermsError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('ClientTermsError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("CriterionBidLandscape", FALSE)) {
+/**
+ * The bid landscape for a criterion.  A bid landscape estimates how a
+ * a criterion will perform based on different bid amounts.
+ */
+class CriterionBidLandscape extends BidLandscape {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $criterionId;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "CriterionBidLandscape";
+  }
+
+  public function __construct($criterionId = NULL, $campaignId = NULL, $adGroupId = NULL, $startDate = NULL, $endDate = NULL, $landscapePoints = NULL, $BidLandscapeType = NULL) {
+    if(get_parent_class('CriterionBidLandscape')) parent::__construct();
+    $this->criterionId = $criterionId;
+    $this->campaignId = $campaignId;
+    $this->adGroupId = $adGroupId;
+    $this->startDate = $startDate;
+    $this->endDate = $endDate;
+    $this->landscapePoints = $landscapePoints;
+    $this->BidLandscapeType = $BidLandscapeType;
+  }
+}}
+
+if (!class_exists("CriterionBidLandscapeSelector", FALSE)) {
+/**
+ * Specifies which criterion bid landscapes should be returned. Each
+ * element in {@code idFilters} selects one of the following:
+ * <ul>
+ * <li>All bid landscapes a specified campaign
+ * <li>All bid landscapes under a specified ad group
+ * <li>A bid landscape for a specified criterion
+ * </ul>
+ * <p>See the {@link BidLandscapeIdFilter} documentation for more
+ * information.</p>
+ */
+class CriterionBidLandscapeSelector extends BidLandscapeSelector {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "CriterionBidLandscapeSelector";
+  }
+
+  public function __construct($idFilters = NULL, $BidLandscapeSelectorType = NULL) {
+    if(get_parent_class('CriterionBidLandscapeSelector')) parent::__construct();
+    $this->idFilters = $idFilters;
+    $this->BidLandscapeSelectorType = $BidLandscapeSelectorType;
+  }
+}}
+
+if (!class_exists("EntityNotFound", FALSE)) {
+/**
+ * An id did not correspond to an entity, or it referred to an entity which does not belong to the
+ * customer.
+ */
+class EntityNotFound extends ApiError {
+  /**
+   * @access public
+   * @var tnsEntityNotFoundReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "EntityNotFound";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('EntityNotFound')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -1493,7 +1629,7 @@ class InternalApiError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1514,6 +1650,40 @@ class InternalApiError extends ApiError {
   }
 }}
 
+if (!class_exists("Money", FALSE)) {
+/**
+ * Represents a money amount.
+ */
+class Money extends ComparableValue {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $microAmount;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "Money";
+  }
+
+  public function __construct($microAmount = NULL, $ComparableValueType = NULL) {
+    if(get_parent_class('Money')) parent::__construct();
+    $this->microAmount = $microAmount;
+    $this->ComparableValueType = $ComparableValueType;
+  }
+}}
+
 if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
@@ -1530,7 +1700,7 @@ class NotEmptyError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1567,7 +1737,7 @@ class NotWhitelistedError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1604,7 +1774,7 @@ class NullError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1617,6 +1787,71 @@ class NullError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('NullError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("NumberValue", FALSE)) {
+/**
+ * Number value types for constructing number valued ranges.
+ */
+class NumberValue extends ComparableValue {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "NumberValue";
+  }
+
+  public function __construct($ComparableValueType = NULL) {
+    if(get_parent_class('NumberValue')) parent::__construct();
+    $this->ComparableValueType = $ComparableValueType;
+  }
+}}
+
+if (!class_exists("OperationAccessDenied", FALSE)) {
+/**
+ * Unauthorized access errors as determined by the invoked service's
+ * access policy.
+ */
+class OperationAccessDenied extends ApiError {
+  /**
+   * @access public
+   * @var tnsOperationAccessDeniedReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OperationAccessDenied";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('OperationAccessDenied')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -1641,7 +1876,7 @@ class OperatorError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1678,7 +1913,7 @@ class QuotaCheckError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1715,7 +1950,7 @@ class RangeError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1770,7 +2005,7 @@ class RateExceededError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1787,6 +2022,43 @@ class RateExceededError extends ApiError {
     $this->rateName = $rateName;
     $this->rateScope = $rateScope;
     $this->retryAfterSeconds = $retryAfterSeconds;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("ReadOnlyError", FALSE)) {
+/**
+ * A list of all errors associated with the @ReadOnly constraint.
+ */
+class ReadOnlyError extends ApiError {
+  /**
+   * @access public
+   * @var tnsReadOnlyErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ReadOnlyError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('ReadOnlyError')) parent::__construct();
+    $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
     $this->errorString = $errorString;
@@ -1811,7 +2083,7 @@ class RequestError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1848,7 +2120,7 @@ class RequiredError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1885,7 +2157,7 @@ class SizeLimitError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1898,43 +2170,6 @@ class SizeLimitError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('SizeLimitError')) parent::__construct();
-    $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->errorString = $errorString;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("StringLengthError", FALSE)) {
-/**
- * A list of all errors associated with the @ContentsString constraint.
- */
-class StringLengthError extends ApiError {
-  /**
-   * @access public
-   * @var tnsStringLengthErrorReason
-   */
-  public $reason;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "StringLengthError";
-  }
-
-  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('StringLengthError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -1959,7 +2194,7 @@ class DatabaseError extends ApiError {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -1973,89 +2208,6 @@ class DatabaseError extends ApiError {
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('DatabaseError')) parent::__construct();
     $this->reason = $reason;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->errorString = $errorString;
-    $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("PolicyViolationError", FALSE)) {
-/**
- * Represents violations of a single policy by some text in a field.
- * 
- * Violations of a single policy by the same string in multiple places
- * within a field is reported in one instace of this class and only one
- * exemption needs to be filed.
- * Violations of a single policy by two different strings is reported
- * as two separate instances of this class.
- * 
- * e.g. If 'ACME' violates 'capitalization' and occurs twice in a text ad it
- * would be represented by one instance. If the ad also contains 'INC' which
- * also violates 'capitalization' it would be represented in a separate
- * instance.
- */
-class PolicyViolationError extends ApiError {
-  /**
-   * @access public
-   * @var PolicyViolationKey
-   */
-  public $key;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $externalPolicyName;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $externalPolicyUrl;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $externalPolicyDescription;
-
-  /**
-   * @access public
-   * @var boolean
-   */
-  public $isExemptable;
-
-  /**
-   * @access public
-   * @var PolicyViolationErrorPart[]
-   */
-  public $violatingParts;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "PolicyViolationError";
-  }
-
-  public function __construct($key = NULL, $externalPolicyName = NULL, $externalPolicyUrl = NULL, $externalPolicyDescription = NULL, $isExemptable = NULL, $violatingParts = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('PolicyViolationError')) parent::__construct();
-    $this->key = $key;
-    $this->externalPolicyName = $externalPolicyName;
-    $this->externalPolicyUrl = $externalPolicyUrl;
-    $this->externalPolicyDescription = $externalPolicyDescription;
-    $this->isExemptable = $isExemptable;
-    $this->violatingParts = $violatingParts;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
     $this->errorString = $errorString;
@@ -2079,7 +2231,7 @@ class ApiException extends ApplicationException {
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2098,17 +2250,23 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("AdParamPolicyError", FALSE)) {
+if (!class_exists("DoubleValue", FALSE)) {
 /**
- * Policy violation for an AdParam.
+ * Number value type for constructing double valued ranges.
  */
-class AdParamPolicyError extends PolicyViolationError {
+class DoubleValue extends NumberValue {
+  /**
+   * @access public
+   * @var double
+   */
+  public $number;
+
   /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
   public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201003";
+    return "https://adwords.google.com/api/adwords/cm/v201008";
   }
 
   /**
@@ -2116,92 +2274,127 @@ class AdParamPolicyError extends PolicyViolationError {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "AdParamPolicyError";
+    return "DoubleValue";
   }
 
-  public function __construct($key = NULL, $externalPolicyName = NULL, $externalPolicyUrl = NULL, $externalPolicyDescription = NULL, $isExemptable = NULL, $violatingParts = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
-    if(get_parent_class('AdParamPolicyError')) parent::__construct();
-    $this->key = $key;
-    $this->externalPolicyName = $externalPolicyName;
-    $this->externalPolicyUrl = $externalPolicyUrl;
-    $this->externalPolicyDescription = $externalPolicyDescription;
-    $this->isExemptable = $isExemptable;
-    $this->violatingParts = $violatingParts;
-    $this->fieldPath = $fieldPath;
-    $this->trigger = $trigger;
-    $this->errorString = $errorString;
-    $this->ApiErrorType = $ApiErrorType;
+  public function __construct($number = NULL, $ComparableValueType = NULL) {
+    if(get_parent_class('DoubleValue')) parent::__construct();
+    $this->number = $number;
+    $this->ComparableValueType = $ComparableValueType;
   }
 }}
 
-if (!class_exists("AdParamService", FALSE)) {
+if (!class_exists("LongValue", FALSE)) {
 /**
- * AdParamService
+ * Number value type for constructing long valued ranges.
+ */
+class LongValue extends NumberValue {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $number;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "LongValue";
+  }
+
+  public function __construct($number = NULL, $ComparableValueType = NULL) {
+    if(get_parent_class('LongValue')) parent::__construct();
+    $this->number = $number;
+    $this->ComparableValueType = $ComparableValueType;
+  }
+}}
+
+if (!class_exists("BidLandscapeService", FALSE)) {
+/**
+ * BidLandscapeService
  * @author WSDLInterpreter
  */
-class AdParamService extends AdWordsSoapClient {
+class BidLandscapeService extends AdWordsSoapClient {
   /**
    * Default class map for wsdl=>php
    * @access private
    * @var array
    */
   public static $classmap = array(
-    "getResponse" => "AdParamServiceGetResponse",
-    "get" => "AdParamServiceGet",
-    "mutate" => "AdParamServiceMutate",
-    "mutateResponse" => "AdParamServiceMutateResponse",
+    "getResponse" => "BidLandscapeServiceGetResponse",
+    "get" => "BidLandscapeServiceGet",
+    "mutate" => "BidLandscapeServiceMutate",
+    "mutateResponse" => "BidLandscapeServiceMutateResponse",
     "DateTime" => "AdWordsDateTime",
     "Target" => "AdWordsTarget",
     "SoapHeader" => "SoapRequestHeader",
-    "AdParam" => "AdParam",
-    "AdParamError" => "AdParamError",
-    "ApiError" => "ApiError",
-    "AdParamOperation" => "AdParamOperation",
-    "Operation" => "Operation",
-    "AdParamPage" => "AdParamPage",
-    "AdParamPolicyError" => "AdParamPolicyError",
-    "PolicyViolationError" => "PolicyViolationError",
+    "AdGroupBidLandscape" => "AdGroupBidLandscape",
+    "BidLandscape" => "BidLandscape",
+    "AdGroupBidLandscapeSelector" => "AdGroupBidLandscapeSelector",
+    "BidLandscapeSelector" => "BidLandscapeSelector",
     "AuthenticationError" => "AuthenticationError",
+    "ApiError" => "ApiError",
     "AuthorizationError" => "AuthorizationError",
+    "BidLandscapeIdFilter" => "BidLandscapeIdFilter",
+    "BidLandscapeServiceError" => "BidLandscapeServiceError",
     "ClientTermsError" => "ClientTermsError",
+    "CriterionBidLandscape" => "CriterionBidLandscape",
+    "CriterionBidLandscapeSelector" => "CriterionBidLandscapeSelector",
+    "DoubleValue" => "DoubleValue",
+    "NumberValue" => "NumberValue",
+    "EntityNotFound" => "EntityNotFound",
     "InternalApiError" => "InternalApiError",
+    "LongValue" => "LongValue",
+    "Money" => "Money",
+    "ComparableValue" => "ComparableValue",
     "NotEmptyError" => "NotEmptyError",
     "NotWhitelistedError" => "NotWhitelistedError",
     "NullError" => "NullError",
+    "OperationAccessDenied" => "OperationAccessDenied",
     "OperatorError" => "OperatorError",
-    "Paging" => "Paging",
-    "PolicyViolationError.Part" => "PolicyViolationErrorPart",
-    "PolicyViolationKey" => "PolicyViolationKey",
     "QuotaCheckError" => "QuotaCheckError",
     "RangeError" => "RangeError",
     "RateExceededError" => "RateExceededError",
+    "ReadOnlyError" => "ReadOnlyError",
     "RequestError" => "RequestError",
     "RequiredError" => "RequiredError",
     "SizeLimitError" => "SizeLimitError",
     "SoapResponseHeader" => "SoapResponseHeader",
-    "StringLengthError" => "StringLengthError",
-    "AdParamSelector" => "AdParamSelector",
     "DatabaseError" => "DatabaseError",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
-    "AdParamError.Reason" => "AdParamErrorReason",
+    "BidLandscape.LandscapePoint" => "BidLandscapeLandscapePoint",
+    "AdGroupBidLandscape.Type" => "AdGroupBidLandscapeType",
     "AuthenticationError.Reason" => "AuthenticationErrorReason",
     "AuthorizationError.Reason" => "AuthorizationErrorReason",
+    "BidLandscapeServiceError.Reason" => "BidLandscapeServiceErrorReason",
     "ClientTermsError.Reason" => "ClientTermsErrorReason",
     "DatabaseError.Reason" => "DatabaseErrorReason",
+    "EntityNotFound.Reason" => "EntityNotFoundReason",
     "InternalApiError.Reason" => "InternalApiErrorReason",
     "NotEmptyError.Reason" => "NotEmptyErrorReason",
     "NotWhitelistedError.Reason" => "NotWhitelistedErrorReason",
     "NullError.Reason" => "NullErrorReason",
-    "Operator" => "Operator",
+    "OperationAccessDenied.Reason" => "OperationAccessDeniedReason",
     "OperatorError.Reason" => "OperatorErrorReason",
     "QuotaCheckError.Reason" => "QuotaCheckErrorReason",
     "RangeError.Reason" => "RangeErrorReason",
     "RateExceededError.Reason" => "RateExceededErrorReason",
+    "ReadOnlyError.Reason" => "ReadOnlyErrorReason",
     "RequestError.Reason" => "RequestErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
     "SizeLimitError.Reason" => "SizeLimitErrorReason",
-    "StringLengthError.Reason" => "StringLengthErrorReason",
+    "getBidLandscape" => "getBidLandscape",
+    "getBidLandscapeResponse" => "getBidLandscapeResponse",
   );
 
   /**
@@ -2210,8 +2403,8 @@ class AdParamService extends AdWordsSoapClient {
    * @param array $options Options for the SoapClient
    */
   public function __construct($wsdl=null, $options, $user) {
-    $options["classmap"] = AdParamService::$classmap;
-    parent::__construct($wsdl, $options, $user, 'AdParamService', 'https://adwords.google.com/api/adwords/cm/v201003');
+    $options["classmap"] = BidLandscapeService::$classmap;
+    parent::__construct($wsdl, $options, $user, 'BidLandscapeService', 'https://adwords.google.com/api/adwords/cm/v201008');
   }
 
   /**
@@ -2219,47 +2412,16 @@ class AdParamService extends AdWordsSoapClient {
    * 
    * 
    * 
-   * Returns the ad parameters that match the criteria specified in the
-   * selector.
+   * Returns a list of bid landscapes for the campaigns, ad groups, and
+   * criteria specified in the selector.
    * 
-   * @param selector Specifies which ad parameters to return.
-   * @return A list of ad parameters.
+   * @param selector Selects which entities to return bid landscapes for.
+   * @return A list of bid landscapes.
+   * @throws ApiException when there is at least one error with the request.
    */
-  public function get($selector) {
-    $arg = new AdParamServiceGet($selector);
-    $result = $this->__soapCall("get", array($arg));
-    return $result->rval;
-  }
-
-
-  /**
-   * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
-   * <span class="constraint NotEmpty">This field must contain at least one element.</span>
-   * <span class="constraint Required">This field is required and should not be {@code null}.</span>
-   * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: SET, REMOVE.</span>
-   * 
-   * 
-   * 
-   * Sets and removes ad parameters.
-   * 
-   * <ul class="nolist">
-   * <li>{@code ADD}: Unsupported. Use {@code SET} for new ad parameters.</li>
-   * <li>{@code SET}: Creates or updates an ad parameter, setting the new
-   * parameterized value for the given ad group / keyword pair.
-   * <li>{@code REMOVE}: Removes an ad parameter. The <code><var>default-value</var>
-   * </code> specified in the ad text will be used.</li>
-   * </ul>
-   * 
-   * @param operations The operations to perform.
-   * @return A list of ad parameters, where each entry in the list is the
-   * result of applying the operation in the input list with the same index.
-   * For a {@code SET} operation, the returned ad parameter will contain the
-   * updated values. For a {@code REMOVE} operation, the returned ad parameter
-   * will simply be the ad parameter that was removed.
-   */
-  public function mutate($operations) {
-    $arg = new AdParamServiceMutate($operations);
-    $result = $this->__soapCall("mutate", array($arg));
+  public function getBidLandscape($selector) {
+    $arg = new getBidLandscape($selector);
+    $result = $this->__soapCall("getBidLandscape", array($arg));
     return $result->rval;
   }
 

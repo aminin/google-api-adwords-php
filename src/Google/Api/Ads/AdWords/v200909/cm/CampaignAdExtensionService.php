@@ -145,7 +145,7 @@ class DateRange {
 
 if (!class_exists("GeoPoint", FALSE)) {
 /**
- * Specifies a geo location with the supplied lat/long.
+ * Specifies a geo location with the supplied latitude/longitude.
  */
 class GeoPoint {
   /**
@@ -183,70 +183,11 @@ class GeoPoint {
   }
 }}
 
-if (!class_exists("LbcListingData", FALSE)) {
-/**
- * Represents a lbc listing data entry.
- */
-class LbcListingData {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $adExtensionId;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $lbcKey;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $displayState;
-
-  /**
-   * @access public
-   * @var tnsLbcListingDataContentCheckStatus
-   */
-  public $contentCheckStatus;
-
-  /**
-   * @access public
-   * @var boolean
-   */
-  public $ownerVerified;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "LbcListingData";
-  }
-
-  public function __construct($adExtensionId = NULL, $lbcKey = NULL, $displayState = NULL, $contentCheckStatus = NULL, $ownerVerified = NULL) {
-    if(get_parent_class('LbcListingData')) parent::__construct();
-    $this->adExtensionId = $adExtensionId;
-    $this->lbcKey = $lbcKey;
-    $this->displayState = $displayState;
-    $this->contentCheckStatus = $contentCheckStatus;
-    $this->ownerVerified = $ownerVerified;
-  }
-}}
-
 if (!class_exists("Paging", FALSE)) {
 /**
- * Specifies what kind of paging wanted for the result of a get.
+ * Specifies the page of results to return in the response. A page is specified
+ * by the result position to start at and the maximum number of results to
+ * return.
  */
 class Paging {
   /**
@@ -487,9 +428,11 @@ class StatsSelector {
 
 if (!class_exists("ApiError", FALSE)) {
 /**
- * A service api error base class that provides error details.
- * 1) the OGNL field path is provided for parsers.
- * 2) the OGNL field path with debug comments easily helps track causes.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  */
 class ApiError {
   /**
@@ -1320,32 +1263,6 @@ class InternalApiErrorReason {
   }
 }}
 
-if (!class_exists("LbcListingDataContentCheckStatus", FALSE)) {
-/**
- * 
- */
-class LbcListingDataContentCheckStatus {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "LbcListingData.ContentCheckStatus";
-  }
-
-  public function __construct() {
-    if(get_parent_class('LbcListingDataContentCheckStatus')) parent::__construct();
-  }
-}}
-
 if (!class_exists("LocationExtensionSource", FALSE)) {
 /**
  * From manual entry in adwords frontend
@@ -1843,7 +1760,7 @@ if (!class_exists("CampaignAdExtensionServiceMutate", FALSE)) {
  * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
  * <span class="constraint NotEmpty">This field must contain at least one element.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
- * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
+ * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
  * 
  * 
  * 
@@ -2230,41 +2147,6 @@ class InternalApiError extends ApiError {
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
     $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("LbcListingDataOperation", FALSE)) {
-/**
- * LbcListingData service operation.
- */
-class LbcListingDataOperation extends Operation {
-  /**
-   * @access public
-   * @var LbcListingData
-   */
-  public $operand;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v200909";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "LbcListingDataOperation";
-  }
-
-  public function __construct($operand = NULL, $operator = NULL, $OperationType = NULL) {
-    if(get_parent_class('LbcListingDataOperation')) parent::__construct();
-    $this->operand = $operand;
-    $this->operator = $operator;
-    $this->OperationType = $OperationType;
   }
 }}
 
@@ -3067,9 +2949,6 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "EntityNotFound" => "EntityNotFound",
     "GeoPoint" => "GeoPoint",
     "InternalApiError" => "InternalApiError",
-    "LbcListingData" => "LbcListingData",
-    "LbcListingDataOperation" => "LbcListingDataOperation",
-    "Operation" => "Operation",
     "LocationExtension" => "LocationExtension",
     "AdExtension" => "AdExtension",
     "NotEmptyError" => "NotEmptyError",
@@ -3094,6 +2973,7 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "CampaignAdExtensionSelector" => "CampaignAdExtensionSelector",
     "CampaignAdExtension" => "CampaignAdExtension",
     "CampaignAdExtensionOperation" => "CampaignAdExtensionOperation",
+    "Operation" => "Operation",
     "CampaignAdExtensionPage" => "CampaignAdExtensionPage",
     "Page" => "Page",
     "CampaignAdExtensionReturnValue" => "CampaignAdExtensionReturnValue",
@@ -3109,7 +2989,6 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "DistinctError.Reason" => "DistinctErrorReason",
     "EntityNotFound.Reason" => "EntityNotFoundReason",
     "InternalApiError.Reason" => "InternalApiErrorReason",
-    "LbcListingData.ContentCheckStatus" => "LbcListingDataContentCheckStatus",
     "LocationExtension.Source" => "LocationExtensionSource",
     "NotEmptyError.Reason" => "NotEmptyErrorReason",
     "NotWhitelistedError.Reason" => "NotWhitelistedErrorReason",
@@ -3161,7 +3040,7 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
    * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
    * <span class="constraint NotEmpty">This field must contain at least one element.</span>
    * <span class="constraint Required">This field is required and should not be {@code null}.</span>
-   * <span class="constraint SuppoprtedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
+   * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
    * 
    * 
    * 
