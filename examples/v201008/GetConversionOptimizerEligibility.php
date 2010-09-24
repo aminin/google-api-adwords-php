@@ -1,8 +1,7 @@
 <?php
 /**
  * This example shows how to check for conversion optimizer eligibility by
- * attempting to set the bidding transition with the validate only header set to
- * true.
+ * examining the conversionOptimizerEligibility field of the Campaign.
  *
  * Tags: CampaignService.get
  *
@@ -51,57 +50,34 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  // Get the validation CampaignService by passing 'true' for the parameter
-  // $validateOnly.
-  $campaignValidationService = $user->GetCampaignService('v201008', NULL,
-      NULL, true);
+  // Get the CampaignService.
+  $campaignService = $user->GetCampaignService('v201008');
 
   $campaignId = (float) 'INSERT_CAMPAIGN_ID_HERE';
 
-  // Create campaign.
-  $campaign = new Campaign();
-  $campaign->id = $campaignId;
+  // Create selector.
+  $selector = new CampaignSelector();
+  $selector->ids = array($campaignId);
 
-  // Create bidding transition.
-  $conversionOptimizerBiddingTransition =
-      new ConversionOptimizerBiddingTransition();
+  // Get campaigns.
+  $page = $campaignService->get($selector);
 
-  // Create conversion optimizer bidding strategy.
-  $conversionOptimizer = new ConversionOptimizer();
-  $conversionOptimizer->pricingModel = 'CONVERSIONS';
-  $conversionOptimizerBiddingTransition->targetBiddingStrategy =
-      $conversionOptimizer;
-
-  // Create conversion optimizer ad group bids.
-  $conversionOptimizerAdGroupBids = new ConversionOptimizerAdGroupBids();
-  $conversionOptimizerBiddingTransition->explicitAdGroupBids =
-      $conversionOptimizerAdGroupBids;
-
-  // Create operations.
-  $operation = new CampaignOperation();
-  $operation->biddingTransition = $conversionOptimizerBiddingTransition;
-  $operation->operand = $campaign;
-  $operation->operator = 'SET';
-
-  $operations = array($operation);
-
-  try {
-    // Check that the campaign is eligible for conversion optimization.
-    $result = $campaignValidationService->mutate($operations);
-    print 'Campaign with id "' . $campaign->id
-        . "\" is eligible to use conversion optimizer.\n";
-  } catch (SoapFault $fault) {
-    $errors = ErrorUtils::GetApiErrors($fault);
-    foreach ($errors as $error) {
-      if ($error instanceof BiddingTransitionError) {
-        print 'Campaign with id "' . $campaign->id
-            . '" is not eligible to use conversion optimizer for reason "'
-            . $error->reason . "\".\n";
+  // Display campaigns.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $campaign) {
+      if ($campaign->conversionOptimizerEligibility->eligible) {
+        printf("Campaign with name '%s' and id '%d' is eligible to use "
+            . "conversion optimizer.\n", $campaign->name, $campaign->id);
       } else {
-        print 'Error of type "' . $error->ApiErrorType
-            . '" was returned for reason "' .  $error->reason . "\".\n";
+        printf("Campaign with name '%s' and id '%d' is not eligible to use "
+            . "conversion optimizer for the reasons: %s.\n",
+            $campaign->name, $campaign->id,
+            implode(', ',
+                $campaign->conversionOptimizerEligibility->rejectionReasons));
       }
     }
+  } else {
+    print "No campaigns were found.\n";
   }
 } catch (Exception $e) {
   print $e->getMessage();
