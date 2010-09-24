@@ -55,7 +55,7 @@ try {
 
   // Create selector.
   $selector = new AdGroupSelector();
-  $selector->campaignId = $campaignId;
+  $selector->campaignIds = array($campaignId);
 
   // Get all ad groups.
   $page = $adGroupService->get($selector);
