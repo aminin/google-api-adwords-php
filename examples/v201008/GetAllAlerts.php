@@ -1,9 +1,10 @@
 <?php
 /**
- * This example adds an ad group to a campaign. To get campaigns, run
- * GetAllCampaigns.php.
+ * This example gets all alerts for all clients of an MCC account. The effective
+ * user (clientEmail, clientCustomerId, or authToken) must be an MCC user to
+ * get results.
  *
- * Tags: AdGroupService.mutate
+ * Tags: AlertService.get
  *
  * PHP version 5
  *
@@ -22,7 +23,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v200909
+ * @subpackage v201008
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -47,40 +48,40 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  // Get the AdGroupService.
-  $adGroupService = $user->GetAdGroupService('v200909');
+  // Get the AlertService.
+  $alertService = $user->GetAlertService('v201008');
 
-  $campaignId = (float) 'INSERT_CAMPAIGN_ID_HERE';
+  // Create alert query.
+  $alertQuery = new AlertQuery();
+  $alertQuery->clientSpec = 'ALL';
+  $alertQuery->filterSpec = 'ALL';
+  $alertQuery->types = array('ACCOUNT_BUDGET_BURN_RATE','ACCOUNT_BUDGET_ENDING',
+      'ACCOUNT_ON_TARGET','CAMPAIGN_ENDED','CAMPAIGN_ENDING',
+      'CREDIT_CARD_EXPIRING','DECLINED_PAYMENT','KEYWORD_BELOW_MIN_CPC',
+      'MANAGER_LINK_PENDING','MISSING_BANK_REFERENCE_NUMBER',
+      'PAYMENT_NOT_ENTERED','TV_ACCOUNT_BUDGET_ENDING','TV_ACCOUNT_ON_TARGET',
+      'TV_ZERO_DAILY_SPENDING_LIMIT','USER_INVITE_ACCEPTED',
+      'USER_INVITE_PENDING','ZERO_DAILY_SPENDING_LIMIT');
+  $alertQuery->severities = array('GREEN', 'YELLOW', 'RED');
+  $alertQuery->triggerTimeSpec = 'ALL_TIME';
 
-  // Create ad group.
-  $adGroup = new AdGroup();
-  $adGroup->name = 'Earth to Mars Cruises #' . time();
-  $adGroup->status = 'ENABLED';
-  $adGroup->campaignId = $campaignId;
+  // Create selector.
+  $selector = new AlertSelector();
+  $selector->query = $alertQuery;
+  $selector->paging = new Paging(0, 100);
 
-  // Create ad group bid.
-  $adGroupBids = new ManualCPCAdGroupBids();
-  $adGroupBids->keywordMaxCpc = new Bid(new Money(1000000));
-  $adGroup->bids = $adGroupBids;
+  // Get alerts.
+  $page = $alertService->get($selector);
 
-  // Create operations.
-  $operation = new AdGroupOperation();
-  $operation->operand = $adGroup;
-  $operation->operator = 'ADD';
-
-  $operations = array($operation);
-
-  // Add ad group.
-  $result = $adGroupService->mutate($operations);
-
-  // Display ad groups.
-  if (isset($result->value)) {
-    foreach ($result->value as $adGroup) {
-      print 'Ad group with name "' . $adGroup->name . '" and id "'
-          . $adGroup->id . "\" was added.\n";
+  // Display alerts.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $alert) {
+      printf("Alert of type '%s' and severity '%s' for account '%d' was "
+          . "found.\n", $alert->alertType, $alert->alertSeverity,
+          $alert->clientCustomerId);
     }
   } else {
-    print "No ad groups were added.\n";
+    print "No alerts were found.\n";
   }
 } catch (Exception $e) {
   print $e->getMessage();

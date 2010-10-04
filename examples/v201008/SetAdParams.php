@@ -26,7 +26,6 @@
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @author     Eric Koleda <api.ekoleda@gmail.com>
- * @link       http://code.google.com/apis/adwords/v2009/docs/reference/AdParamService.html
  */
 
 error_reporting(E_STRICT | E_ALL);

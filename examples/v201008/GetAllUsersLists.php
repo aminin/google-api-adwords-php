@@ -1,9 +1,8 @@
 <?php
 /**
- * This example adds an ad group to a campaign. To get campaigns, run
- * GetAllCampaigns.php.
+ * This example gets all users lists. To add a user list, run AddUserList.php.
  *
- * Tags: AdGroupService.mutate
+ * Tags: UserListService.get
  *
  * PHP version 5
  *
@@ -22,7 +21,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v200909
+ * @subpackage v201008
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -47,40 +46,24 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  // Get the AdGroupService.
-  $adGroupService = $user->GetAdGroupService('v200909');
+  // Get the UserListService.
+  $userListService = $user->GetUserListService('v201008');
 
-  $campaignId = (float) 'INSERT_CAMPAIGN_ID_HERE';
+  // Create selector.
+  $selector = new UserListSelector();
 
-  // Create ad group.
-  $adGroup = new AdGroup();
-  $adGroup->name = 'Earth to Mars Cruises #' . time();
-  $adGroup->status = 'ENABLED';
-  $adGroup->campaignId = $campaignId;
+  // Get all user lists.
+  $page = $userListService->get($selector);
 
-  // Create ad group bid.
-  $adGroupBids = new ManualCPCAdGroupBids();
-  $adGroupBids->keywordMaxCpc = new Bid(new Money(1000000));
-  $adGroup->bids = $adGroupBids;
-
-  // Create operations.
-  $operation = new AdGroupOperation();
-  $operation->operand = $adGroup;
-  $operation->operator = 'ADD';
-
-  $operations = array($operation);
-
-  // Add ad group.
-  $result = $adGroupService->mutate($operations);
-
-  // Display ad groups.
-  if (isset($result->value)) {
-    foreach ($result->value as $adGroup) {
-      print 'Ad group with name "' . $adGroup->name . '" and id "'
-          . $adGroup->id . "\" was added.\n";
+  // Display user lists.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $userList) {
+      printf("User list with name '%s', id '%d', status '%s', and number of "
+          . "users '%d' was found.\n", $userList->name, $userList->id,
+          $userList->status, $userList->size);
     }
   } else {
-    print "No ad groups were added.\n";
+    print "No user lists were found.\n";
   }
 } catch (Exception $e) {
   print $e->getMessage();
