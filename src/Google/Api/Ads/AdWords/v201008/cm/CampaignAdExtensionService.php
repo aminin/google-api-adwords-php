@@ -2067,6 +2067,32 @@ class RegionCodeErrorReason {
   }
 }}
 
+if (!class_exists("RejectedErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ */
+class RejectedErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RejectedError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RejectedErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("RequestErrorReason", FALSE)) {
 /**
  * Error reason is unknown.
@@ -3387,6 +3413,43 @@ class RegionCodeError extends ApiError {
   }
 }}
 
+if (!class_exists("RejectedError", FALSE)) {
+/**
+ * The error reason represented by an enum.
+ */
+class RejectedError extends ApiError {
+  /**
+   * @access public
+   * @var tnsRejectedErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RejectedError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('RejectedError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("RequestError", FALSE)) {
 /**
  * Encapsulates the generic errors thrown when there's an error with user
@@ -3978,6 +4041,7 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "RateExceededError" => "RateExceededError",
     "ReadOnlyError" => "ReadOnlyError",
     "RegionCodeError" => "RegionCodeError",
+    "RejectedError" => "RejectedError",
     "RequestError" => "RequestError",
     "RequiredError" => "RequiredError",
     "Sitelink" => "Sitelink",
@@ -4025,6 +4089,7 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
     "RateExceededError.Reason" => "RateExceededErrorReason",
     "ReadOnlyError.Reason" => "ReadOnlyErrorReason",
     "RegionCodeError.Reason" => "RegionCodeErrorReason",
+    "RejectedError.Reason" => "RejectedErrorReason",
     "RequestError.Reason" => "RequestErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
     "SizeLimitError.Reason" => "SizeLimitErrorReason",

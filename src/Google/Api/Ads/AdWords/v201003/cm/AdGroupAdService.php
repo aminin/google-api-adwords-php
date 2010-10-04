@@ -3285,21 +3285,19 @@ if (!class_exists("AdGroupAdServiceMutate", FALSE)) {
  * 
  * 
  * Applies the list of mutate operations (ie. add, set, remove):
- * <p>
- * Add - Creates a set of AdGroupAd entities, each effectively linking an
- * AdGroup and an Ad.  The adGroupId of each AdGroupAd must be that of an
- * existing AdGroup.  The Ad may either specify an existing Ad in the account
- * library by id or be sufficiently specified for a new Ad to be created and
- * added to the account library.
- * <p>
- * Set - Updates a set of AdGroupAd entities. Except for status, AdGroupAd
- * fields are not mutable. Status updates are straightforward - the status of
- * the AdGroupAd is updated as specified. If any other field has changed,
- * it will be ignored. If you want to change any of the fields other than
- * status, you must make a new ad and then delete the old one.
- * <p>
- * Remove - Removes the link between the specified AdGroup and Ad.
- * <p>
+ * <p>Add - Creates a new {@linkplain AdGroupAd ad group ad}. The
+ * {@code adGroupId} must
+ * reference an existing ad group. The child {@code Ad} must be sufficiently
+ * specified by constructing a concrete ad type (such as {@code TextAd})
+ * and setting its fields accordingly.</p>
+ * <p>Set - Updates an ad group ad. Except for {@code status},
+ * ad group ad fields are not mutable. Status updates are
+ * straightforward - the status of the ad group ad is updated as
+ * specified. If any other field has changed, it will be ignored. If
+ * you want to change any of the fields other than status, you must
+ * make a new ad and then delete the old one.</p>
+ * <p>Remove - Removes the link between the specified AdGroup and
+ * Ad.</p>
  * @param operations the operations to apply
  * @return a list of AdGroupAds where each entry in the list is the result of
  * applying the operation in the input list with the same index. For an
@@ -6328,7 +6326,8 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * A polygon target is described by a list of at least three points,
  * where each point is a (<var>latitude</var>, <var>longitude</var>)
  * ordered pair. No point can be no more than 400km from the center of
- * the polygon.
+ * the polygon. Polygon targets cannot be used for exclusion, and
+ * other targets cannot be used to exclude regions of polygon targets.
  */
 class PolygonTarget extends GeoTarget {
   /**
@@ -6400,9 +6399,12 @@ if (!class_exists("ProximityTarget", FALSE)) {
 /**
  * Structure to specify a geographic target for a proximity location.
  * 
- * This proximity target doesn't support taking in an address location in place of a lat/long,
- * geocoding it, and creating a proximity target for the campaign like AWFE does.
- * The caller must ensure the address fields are valid and consistent with the supplied lat/long.
+ * This proximity target doesn't support taking in a location address in place
+ * of a lat/long, geocoding it, and creating a proximity target for the
+ * campaign. The caller must ensure the address fields are valid
+ * and consistent with the supplied lat/long. Proximity targets cannot be used
+ * for exclusion, and other targets cannot be used to exclude regions of
+ * proximity targets.
  */
 class ProximityTarget extends GeoTarget {
   /**
@@ -6735,21 +6737,19 @@ class AdGroupAdService extends AdWordsSoapClient {
    * 
    * 
    * Applies the list of mutate operations (ie. add, set, remove):
-   * <p>
-   * Add - Creates a set of AdGroupAd entities, each effectively linking an
-   * AdGroup and an Ad.  The adGroupId of each AdGroupAd must be that of an
-   * existing AdGroup.  The Ad may either specify an existing Ad in the account
-   * library by id or be sufficiently specified for a new Ad to be created and
-   * added to the account library.
-   * <p>
-   * Set - Updates a set of AdGroupAd entities. Except for status, AdGroupAd
-   * fields are not mutable. Status updates are straightforward - the status of
-   * the AdGroupAd is updated as specified. If any other field has changed,
-   * it will be ignored. If you want to change any of the fields other than
-   * status, you must make a new ad and then delete the old one.
-   * <p>
-   * Remove - Removes the link between the specified AdGroup and Ad.
-   * <p>
+   * <p>Add - Creates a new {@linkplain AdGroupAd ad group ad}. The
+   * {@code adGroupId} must
+   * reference an existing ad group. The child {@code Ad} must be sufficiently
+   * specified by constructing a concrete ad type (such as {@code TextAd})
+   * and setting its fields accordingly.</p>
+   * <p>Set - Updates an ad group ad. Except for {@code status},
+   * ad group ad fields are not mutable. Status updates are
+   * straightforward - the status of the ad group ad is updated as
+   * specified. If any other field has changed, it will be ignored. If
+   * you want to change any of the fields other than status, you must
+   * make a new ad and then delete the old one.</p>
+   * <p>Remove - Removes the link between the specified AdGroup and
+   * Ad.</p>
    * @param operations the operations to apply
    * @return a list of AdGroupAds where each entry in the list is the result of
    * applying the operation in the input list with the same index. For an

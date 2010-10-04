@@ -6170,7 +6170,8 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * A polygon target is described by a list of at least three points,
  * where each point is a (<var>latitude</var>, <var>longitude</var>)
  * ordered pair. No point can be no more than 400km from the center of
- * the polygon.
+ * the polygon. Polygon targets cannot be used for exclusion, and
+ * other targets cannot be used to exclude regions of polygon targets.
  * 
  * 
  * 
@@ -6250,9 +6251,12 @@ if (!class_exists("ProximityTarget", FALSE)) {
 /**
  * Structure to specify a geographic target for a proximity location.
  * 
- * This proximity target doesn't support taking in an address location in place of a lat/long,
- * geocoding it, and creating a proximity target for the campaign like AWFE does.
- * The caller must ensure the address fields are valid and consistent with the supplied lat/long.
+ * This proximity target doesn't support taking in a location address in place
+ * of a lat/long, geocoding it, and creating a proximity target for the
+ * campaign. The caller must ensure the address fields are valid
+ * and consistent with the supplied lat/long. Proximity targets cannot be used
+ * for exclusion, and other targets cannot be used to exclude regions of
+ * proximity targets.
  * 
  * 
  * 

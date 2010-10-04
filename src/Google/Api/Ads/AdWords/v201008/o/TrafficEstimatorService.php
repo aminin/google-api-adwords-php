@@ -3852,6 +3852,54 @@ class TargetError extends ApiError {
   }
 }}
 
+if (!class_exists("CriterionUserInterest", FALSE)) {
+/**
+ * User Interest - represents a particular interest based vertical to be targeted.
+ * Targeting UserInterest is currently in a limited beta.  If you'd like access
+ * please speak with your account representative.
+ * 
+ * 
+ * 
+ * Immutable structure to hold an ad schedule target.
+ */
+class CriterionUserInterest extends Criterion {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $userInterestId;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $userInterestName;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "CriterionUserInterest";
+  }
+
+  public function __construct($userInterestId = NULL, $userInterestName = NULL, $id = NULL, $CriterionType = NULL) {
+    if(get_parent_class('CriterionUserInterest')) parent::__construct();
+    $this->userInterestId = $userInterestId;
+    $this->userInterestName = $userInterestName;
+    $this->id = $id;
+    $this->CriterionType = $CriterionType;
+  }
+}}
+
 if (!class_exists("CriterionUserList", FALSE)) {
 /**
  * UserList - represents a user list that is defined by the advertiser to be targeted.
@@ -4737,7 +4785,8 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * A polygon target is described by a list of at least three points,
  * where each point is a (<var>latitude</var>, <var>longitude</var>)
  * ordered pair. No point can be no more than 400km from the center of
- * the polygon.
+ * the polygon. Polygon targets cannot be used for exclusion, and
+ * other targets cannot be used to exclude regions of polygon targets.
  * 
  * 
  * 
@@ -4817,9 +4866,12 @@ if (!class_exists("ProximityTarget", FALSE)) {
 /**
  * Structure to specify a geographic target for a proximity location.
  * 
- * This proximity target doesn't support taking in an address location in place of a lat/long,
- * geocoding it, and creating a proximity target for the campaign like AWFE does.
- * The caller must ensure the address fields are valid and consistent with the supplied lat/long.
+ * This proximity target doesn't support taking in a location address in place
+ * of a lat/long, geocoding it, and creating a proximity target for the
+ * campaign. The caller must ensure the address fields are valid
+ * and consistent with the supplied lat/long. Proximity targets cannot be used
+ * for exclusion, and other targets cannot be used to exclude regions of
+ * proximity targets.
  * 
  * 
  * 
@@ -4958,6 +5010,7 @@ class TrafficEstimatorService extends AdWordsSoapClient {
     "SoapResponseHeader" => "SoapResponseHeader",
     "StringLengthError" => "StringLengthError",
     "TargetError" => "TargetError",
+    "CriterionUserInterest" => "CriterionUserInterest",
     "CriterionUserList" => "CriterionUserList",
     "Vertical" => "Vertical",
     "DatabaseError" => "DatabaseError",

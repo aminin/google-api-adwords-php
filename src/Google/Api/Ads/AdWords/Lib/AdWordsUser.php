@@ -103,10 +103,10 @@ class AdWordsUser extends AdsUser {
 
     if (isset($authenticationIniPath)) {
       $authenticationIni =
-          parse_ini_file(realpath($authenticationIniPath), true);
+          parse_ini_file(realpath($authenticationIniPath), TRUE);
     } else {
       $authenticationIni =
-          parse_ini_file(dirname(__FILE__) . '/../auth.ini', true);
+          parse_ini_file(dirname(__FILE__) . '/../auth.ini', TRUE);
     }
 
     $email = $this->GetAuthVarValue($email, 'email', $authenticationIni);
@@ -247,6 +247,25 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
+   * Gets the AlertService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return AlertService the instantiated alert service
+   */
+  public function GetAlertService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('AlertService', 'mcm', $version, $server,
+        $serviceFactory, NULL, NULL, $validateOnly);
+  }
+
+  /**
    * Gets the BidLandscapeService SOAP client.
    * @param string $version the version of the service to get. If
    *     <var>NULL</var>, then the default version will be used
@@ -262,7 +281,7 @@ class AdWordsUser extends AdsUser {
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
     return $this->GetService('BidLandscapeService', 'cm', $version, $server,
-        $serviceFactory, 'cm', NULL, $validateOnly);
+        $serviceFactory, NULL, NULL, $validateOnly);
   }
 
   /**
@@ -363,6 +382,25 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
+   * Gets the CustomerSyncService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return CustomerSyncService the instantiated customer sync service
+   */
+  public function GetCustomerSyncService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('CustomerSyncService', 'ch', $version, $server,
+        $serviceFactory, NULL, NULL, $validateOnly);
+  }
+
+  /**
    * Gets the ExperimentService SOAP client.
    * @param string $version the version of the service to get. If
    *     <var>NULL</var>, then the default version will be used
@@ -416,7 +454,7 @@ class AdWordsUser extends AdsUser {
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
     return $this->GetService('InfoService', 'info', $version, $server,
-        $serviceFactory, NULL, 'info', $validateOnly);
+        $serviceFactory, NULL, NULL, $validateOnly);
   }
 
   /**
@@ -435,7 +473,7 @@ class AdWordsUser extends AdsUser {
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
     return $this->GetService('MediaService', 'cm', $version, $server,
-        $serviceFactory, NULL, 'cm', $validateOnly);
+        $serviceFactory, NULL, NULL, $validateOnly);
   }
 
   /**
@@ -454,7 +492,26 @@ class AdWordsUser extends AdsUser {
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
     return $this->GetService('ReportDefinitionService', 'cm', $version, $server,
-        $serviceFactory, NULL, 'cm', $validateOnly);
+        $serviceFactory, NULL, NULL, $validateOnly);
+  }
+
+  /**
+   * Gets the ServicedAccountService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return ServicedAccountService the instantiated report definition service
+   */
+  public function GetServicedAccountService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('ServicedAccountService', 'mcm', $version, $server,
+        $serviceFactory, NULL, NULL, $validateOnly);
   }
 
   /**
@@ -473,7 +530,7 @@ class AdWordsUser extends AdsUser {
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
     return $this->GetService('TargetingIdeaService', 'o', $version, $server,
-        $serviceFactory, NULL, 'o', $validateOnly);
+        $serviceFactory, NULL, NULL, $validateOnly);
   }
 
   /**
@@ -492,7 +549,26 @@ class AdWordsUser extends AdsUser {
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
     return $this->GetService('TrafficEstimatorService', 'o', $version, $server,
-        $serviceFactory, NULL, 'o', $validateOnly);
+        $serviceFactory, NULL, NULL, $validateOnly);
+  }
+
+  /**
+   * Gets the UserListService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return TrafficEstimatorService the instantiated traffic estimator service
+   */
+  public function GetUserListService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('UserListService', 'cm', $version, $server,
+        $serviceFactory, NULL, NULL, $validateOnly);
   }
 
   /**
@@ -701,7 +777,7 @@ class AdWordsUser extends AdsUser {
    * @throws ValidationException if there are any validation errors
    */
   public function ValidateUser() {
-    if ($this->GetOAuthInfo()) {
+    if ($this->GetOAuthInfo() != NULL) {
       parent::ValidateOAuthInfo();
     } else if ($this->GetAuthToken() == NULL) {
       if (!isset($this->email)) {

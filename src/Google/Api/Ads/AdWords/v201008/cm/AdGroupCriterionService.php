@@ -4231,6 +4231,50 @@ class StatsQueryError extends ApiError {
   }
 }}
 
+if (!class_exists("CriterionUserInterest", FALSE)) {
+/**
+ * User Interest - represents a particular interest based vertical to be targeted.
+ * Targeting UserInterest is currently in a limited beta.  If you'd like access
+ * please speak with your account representative.
+ */
+class CriterionUserInterest extends Criterion {
+  /**
+   * @access public
+   * @var integer
+   */
+  public $userInterestId;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $userInterestName;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "CriterionUserInterest";
+  }
+
+  public function __construct($userInterestId = NULL, $userInterestName = NULL, $id = NULL, $CriterionType = NULL) {
+    if(get_parent_class('CriterionUserInterest')) parent::__construct();
+    $this->userInterestId = $userInterestId;
+    $this->userInterestName = $userInterestName;
+    $this->id = $id;
+    $this->CriterionType = $CriterionType;
+  }
+}}
+
 if (!class_exists("CriterionUserList", FALSE)) {
 /**
  * UserList - represents a user list that is defined by the advertiser to be targeted.
@@ -5129,6 +5173,7 @@ class AdGroupCriterionService extends AdWordsSoapClient {
     "SoapResponseHeader" => "SoapResponseHeader",
     "StatsQueryError" => "StatsQueryError",
     "StatsSelector" => "StatsSelector",
+    "CriterionUserInterest" => "CriterionUserInterest",
     "CriterionUserList" => "CriterionUserList",
     "Vertical" => "Vertical",
     "DatabaseError" => "DatabaseError",

@@ -22,10 +22,12 @@
   <property name="api.version.v201003.o.services" value="TargetingIdeaService"/>
 
   <property name="api.version.v201008" value="v201008"/>
+  <property name="api.version.v201008.ch.services" value="CustomerSyncService"/>
   <property name="api.version.v201008.cm.services"
-      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,BidLandscapeService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,ExperimentService,GeoLocationService,MediaService,ReportDefinitionService"/>
+      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,BidLandscapeService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,ExperimentService,GeoLocationService,MediaService,ReportDefinitionService,UserListService"/>
   <property name="api.version.v201008.info.services" value="InfoService"/>
   <property name="api.version.v201008.job.services" value="BulkMutateJobService"/>
+  <property name="api.version.v201008.mcm.services" value="AlertService,ServicedAccountService"/>
   <property name="api.version.v201008.o.services" value="TargetingIdeaService,TrafficEstimatorService"/>
 
   <property name="src.dir" value="${project.basedir}/src"/>
@@ -224,6 +226,18 @@
   <target name="generate_v201008">
     <property name="server" value="https://adwords.google.com"/>
 
+    <!-- ch -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="ch"/>
+      <property name="services.group.url" value="ch"/>
+      <property name="services.version" value="${api.version.v201008}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201008.ch.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+
     <!-- cm -->
     <phingcall target="generate_version_group">
       <property name="services.group" value="cm"/>
@@ -255,6 +269,18 @@
       <property name="services.version" value="${api.version.v201008}"/>
       <property name="services.server" value="${server}"/>
       <property name="services" value="${api.version.v201008.job.services}"/>
+      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
+      <property name="service.soapClientClassPath"
+          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
+    </phingcall>
+
+    <!-- mcm -->
+    <phingcall target="generate_version_group">
+      <property name="services.group" value="mcm"/>
+      <property name="services.group.url" value="mcm"/>
+      <property name="services.version" value="${api.version.v201008}"/>
+      <property name="services.server" value="${server}"/>
+      <property name="services" value="${api.version.v201008.mcm.services}"/>
       <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
       <property name="service.soapClientClassPath"
           value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
