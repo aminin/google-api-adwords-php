@@ -151,4 +151,28 @@ class OAuthUtils {
     // Return oauth parameters.
     return $params;
   }
+
+  /**
+   * Formats OAuth parameters for use in a URL.
+   * For example: param1=value1&param2=value2.
+   * @param array $oauthParameters the OAuth parameters
+   * @return string the parameters formatted for use in a URL
+   */
+  public static function FormatParametersForUrl($oauthParameters) {
+    return http_build_query($oauthParameters, NULL, '&');
+  }
+
+  /**
+   * Formats OAuth parameters for use in an HTTP header.
+   * For example: param1="value1", param2="value2"
+   * @param array $oauthParameters the OAuth parameters
+   * @return string the parameters formatted for use in an HTTP header
+   */
+  public static function FormatParametersForHeader($oauthParameters) {
+    $parts = array();
+    foreach($oauthParameters as $key => $value) {
+      $parts[] = sprintf('%s="%s"', $key, urlencode($value));
+    }
+    return implode(', ', $parts);
+  }
 }

@@ -62,12 +62,11 @@ class AdWordsSoapClient extends AdsSoapClient {
    */
   function __doRequest($request , $location , $action , $version,
       $one_way = 0) {
-    if ($this->user->GetOAuthInfo() != NULL) {
+    $oAuthInfo = $this->user->GetOAuthInfo();
+    if ($oAuthInfo != NULL) {
       $oauthParameters =
-          OAuthUtils::GetSignedRequestParameters($this->user->GetOAuthInfo(),
-              $location);
-      $location = $location . '?' .
-          http_build_query($oauthParameters, NULL, '&');
+          OAuthUtils::GetSignedRequestParameters($oAuthInfo, $location);
+      $location .= '?' . OAuthUtils::FormatParametersForUrl($oauthParameters);
     }
     return parent::__doRequest($request, $location, $action, $version);
   }
