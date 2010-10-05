@@ -39,7 +39,7 @@ require_once 'AdWordsSoapClientFactory.php';
  * services.
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = '2.3.0';
+  private static $LIB_VERSION = '2.4.0';
   private static $LIB_NAME = 'AwApi';
 
   /**

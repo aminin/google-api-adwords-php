@@ -1,4 +1,14 @@
-2.3.0
+2.4.0:
+- Added support and examples for additional v201008 services.
+- Made v201008 the default version.
+- Updated OAuth parameter to use standard method.
+- Updated conversion optimizer example to use new campaign field.
+- Added additional BulkMutateJobService examples.
+- Added new utility to work with choice classes.
+- Fixed GetAllAdGroups examples (Issue #44).
+- Removed CSV and other data files.
+
+2.3.0:
 - Added support for v201008, with examples.
 - Changed error handling in examples to avoid authTokens and developer tokens
 appearing in stack traces.
@@ -13,7 +23,7 @@ appearing in stack traces.
 - Added and updated v200909 tests.
 - Added the ability to load authToken or OAuth info from the auth.ini file.
 
-2.2.0
+2.2.0:
 - Added support for v201003, with examples and tests.
 - Removed API dependency from ErrorUtils.
 - Added MapUtils for converting between maps and map entry arrays.
