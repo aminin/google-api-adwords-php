@@ -89,7 +89,7 @@ class AdWordsSoapClient extends AdsSoapClient {
    */
   protected function RemoveSensitiveInfo($request) {
     $result = preg_replace(
-        '/(.*authToken>)(.*)(<\/.*authToken>.*)/s', '\1*****\3', $request);
+        '/(.*authToken>)(.*)(<\/.*authToken>.*)/sU', '\1*****\3', $request);
     return isset($result) ? $result : $request;
   }
 
