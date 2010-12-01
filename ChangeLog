@@ -1,3 +1,8 @@
+2.4.1:
+- Added support for the returnMoneyInMicros header in ReportUtils.
+- Added an example for handling partial failures.
+- Fixed small typo in GetAccountHierarchy example.
+
 2.4.0:
 - Added support and examples for additional v201008 services.
 - Made v201008 the default version.
