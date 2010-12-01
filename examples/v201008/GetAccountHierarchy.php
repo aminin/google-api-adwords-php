@@ -1,6 +1,6 @@
 <?php
 /**
- * This example gets the account heirarchy under the current account.
+ * This example gets the account hierarchy under the current account.
  *
  * Tags: ServicedAccountService.get
  *
