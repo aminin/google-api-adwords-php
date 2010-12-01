@@ -604,6 +604,11 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v200909/WebpageDescriptorAttribute.html">WebpageDescriptorAttribute</a><br />
 	  </div>
   <div class="package">
+	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
+	  </div>
+  <div class="package">
 	v201008<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/Account.html">Account</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscape.html">AdGroupBidLandscape</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscapeSelector.html">AdGroupBidLandscapeSelector</a><br />
@@ -731,11 +736,6 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/UserListType.html">UserListType</a><br />
 	  </div>
   <div class="package">
-	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
-	  </div>
-  <div class="package">
 	v201003<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AdShareSearchParameter.html">AdShareSearchParameter</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AudioError.html">AudioError</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AudioErrorReason.html">AudioErrorReason</a><br />
@@ -814,7 +814,7 @@
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
 <h1>Class: Operation</h1>
-Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
+Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -863,8 +863,32 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 <h3>Child classes:</h3>
 <div class="tags">
 <dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdOperation.html">AdGroupAdOperation</a></dt>
+	<dd>AdGroupAd service operations.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionOperation.html">AdGroupCriterionOperation</a></dt>
+	<dd>Operation (add, remove and set) on adgroup criteria.</dd>
+</dl>
+<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupOperation.html">AdGroupOperation</a></dt>
 	<dd>AdGroup operations for adding/updating/removing adgroups.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionOperation.html">CampaignCriterionOperation</a></dt>
+	<dd>Generic operation (add, remove and set) for campaign criteria.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignOperation.html">CampaignOperation</a></dt>
+	<dd>An operation on an AdWords campaign.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignTargetOperation.html">CampaignTargetOperation</a></dt>
+	<dd>&lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/JobOperation.html">JobOperation</a></dt>
+	<dd>Mutate operations of a job service:</dd>
 </dl>
 </div>
 </td>
@@ -878,7 +902,7 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 1009]<br />
+[line 5126]<br />
 This represents an operation that includes an operator and an operand  specified type.<br /><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -889,7 +913,7 @@ This represents an operation that includes an operator and an operand  specified
 	<a name="var$OperationType"></a>
 	<p></p>
 	<h4>$OperationType = <span class="value"></span></h4>
-	<p>[line 1020]</p>
+	<p>[line 5137]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -913,7 +937,7 @@ This represents an operation that includes an operator and an operand  specified
 	<a name="var$operator"></a>
 	<p></p>
 	<h4>$operator = <span class="value"></span></h4>
-	<p>[line 1014]</p>
+	<p>[line 5131]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -943,7 +967,7 @@ This represents an operation that includes an operator and an operand  specified
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 1070]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 5187]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -967,7 +991,31 @@ $OperationType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdOperation.html#method__construct">AdGroupAdOperation::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionOperation.html#method__construct">AdGroupCriterionOperation::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupOperation.html#method__construct">AdGroupOperation::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionOperation.html#method__construct">CampaignCriterionOperation::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignOperation.html#method__construct">CampaignOperation::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignTargetOperation.html#method__construct">CampaignTargetOperation::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/JobOperation.html#method__construct">JobOperation::__construct()</a></dt>
 		<dd></dd>
 	</dl>
 	</p>
@@ -991,7 +1039,7 @@ $OperationType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetNamespace"></a>
-	<h3>method getNamespace <span class="smalllinenumber">[line 1058]</span></h3>
+	<h3>method getNamespace <span class="smalllinenumber">[line 5175]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1016,7 +1064,31 @@ $OperationType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdOperation.html#methodgetNamespace">AdGroupAdOperation::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionOperation.html#methodgetNamespace">AdGroupCriterionOperation::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupOperation.html#methodgetNamespace">AdGroupOperation::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionOperation.html#methodgetNamespace">CampaignCriterionOperation::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignOperation.html#methodgetNamespace">CampaignOperation::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignTargetOperation.html#methodgetNamespace">CampaignTargetOperation::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/JobOperation.html#methodgetNamespace">JobOperation::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 	</p>
@@ -1025,7 +1097,7 @@ $OperationType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetParameterMap"></a>
-	<h3>method getParameterMap <span class="smalllinenumber">[line 1050]</span></h3>
+	<h3>method getParameterMap <span class="smalllinenumber">[line 5167]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1053,7 +1125,7 @@ $OperationType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetXsiTypeName"></a>
-	<h3>method getXsiTypeName <span class="smalllinenumber">[line 1066]</span></h3>
+	<h3>method getXsiTypeName <span class="smalllinenumber">[line 5183]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1078,7 +1150,31 @@ $OperationType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdOperation.html#methodgetXsiTypeName">AdGroupAdOperation::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionOperation.html#methodgetXsiTypeName">AdGroupCriterionOperation::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupOperation.html#methodgetXsiTypeName">AdGroupOperation::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionOperation.html#methodgetXsiTypeName">CampaignCriterionOperation::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignOperation.html#methodgetXsiTypeName">CampaignOperation::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignTargetOperation.html#methodgetXsiTypeName">CampaignTargetOperation::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/JobOperation.html#methodgetXsiTypeName">JobOperation::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 	</p>
@@ -1087,7 +1183,7 @@ $OperationType = NULL])</code>
   </div>
   <hr />
 	<a name="method__get"></a>
-	<h3>method __get <span class="smalllinenumber">[line 1038]</span></h3>
+	<h3>method __get <span class="smalllinenumber">[line 5155]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1126,7 +1222,7 @@ $var)</code>
   </div>
   <hr />
 	<a name="method__set"></a>
-	<h3>method __set <span class="smalllinenumber">[line 1031]</span></h3>
+	<h3>method __set <span class="smalllinenumber">[line 5148]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">

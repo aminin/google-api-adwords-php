@@ -604,6 +604,11 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v200909/WebpageDescriptorAttribute.html">WebpageDescriptorAttribute</a><br />
 	  </div>
   <div class="package">
+	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
+	  </div>
+  <div class="package">
 	v201008<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/Account.html">Account</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscape.html">AdGroupBidLandscape</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscapeSelector.html">AdGroupBidLandscapeSelector</a><br />
@@ -731,11 +736,6 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/UserListType.html">UserListType</a><br />
 	  </div>
   <div class="package">
-	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
-	  </div>
-  <div class="package">
 	v201003<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AdShareSearchParameter.html">AdShareSearchParameter</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AudioError.html">AudioError</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AudioErrorReason.html">AudioErrorReason</a><br />
@@ -814,7 +814,7 @@
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
 <h1>Class: BiddingStrategy</h1>
-Source Location: /AdWords/v200909/cm/CampaignService.php<br /><br />
+Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -862,6 +862,10 @@ Source Location: /AdWords/v200909/cm/CampaignService.php<br /><br />
 <h3>Child classes:</h3>
 <div class="tags">
 <dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetOptimizer.html">BudgetOptimizer</a></dt>
+	<dd>In budget optimizer, Google automatically places bids for the user  based on their daily/monthly budget.</dd>
+</dl>
+<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/ConversionOptimizer.html">ConversionOptimizer</a></dt>
 	<dd>Conversion optimizer bidding strategy.</dd>
 </dl>
@@ -872,10 +876,6 @@ Source Location: /AdWords/v200909/cm/CampaignService.php<br /><br />
 <dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/ManualCPM.html">ManualCPM</a></dt>
 	<dd>Manual impression based bidding where user pays per thousand impressions.</dd>
-</dl>
-<dl>
-<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetOptimizer.html">BudgetOptimizer</a></dt>
-	<dd>In budget optimizer, Google automatically places bids for the user  based on their daily/monthly budget.</dd>
 </dl>
 </div>
 </td>
@@ -889,7 +889,7 @@ Source Location: /AdWords/v200909/cm/CampaignService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 909]<br />
+[line 1492]<br />
 A campaign's bidding strategy, such as manual CPC, manual CPM, budget optimizer, etc.<br /><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -900,7 +900,7 @@ A campaign's bidding strategy, such as manual CPC, manual CPM, budget optimizer,
 	<a name="var$BiddingStrategyType"></a>
 	<p></p>
 	<h4>$BiddingStrategyType = <span class="value"></span></h4>
-	<p>[line 914]</p>
+	<p>[line 1497]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -930,7 +930,7 @@ A campaign's bidding strategy, such as manual CPC, manual CPM, budget optimizer,
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 964]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 1547]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -953,6 +953,10 @@ $BiddingStrategyType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetOptimizer.html#method__construct">BudgetOptimizer::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ConversionOptimizer.html#method__construct">ConversionOptimizer::__construct()</a></dt>
 		<dd></dd>
 	</dl>
@@ -962,10 +966,6 @@ $BiddingStrategyType = NULL])</code>
 	</dl>
 		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ManualCPM.html#method__construct">ManualCPM::__construct()</a></dt>
-		<dd></dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetOptimizer.html#method__construct">BudgetOptimizer::__construct()</a></dt>
 		<dd></dd>
 	</dl>
 	</p>
@@ -984,7 +984,7 @@ $BiddingStrategyType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetNamespace"></a>
-	<h3>method getNamespace <span class="smalllinenumber">[line 952]</span></h3>
+	<h3>method getNamespace <span class="smalllinenumber">[line 1535]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1009,6 +1009,10 @@ $BiddingStrategyType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetOptimizer.html#methodgetNamespace">BudgetOptimizer::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ConversionOptimizer.html#methodgetNamespace">ConversionOptimizer::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
@@ -1020,17 +1024,13 @@ $BiddingStrategyType = NULL])</code>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ManualCPM.html#methodgetNamespace">ManualCPM::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetOptimizer.html#methodgetNamespace">BudgetOptimizer::getNamespace()</a></dt>
-		<dd>Gets the namesapce of this class</dd>
-	</dl>
 	</p>
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
 	<a name="methodgetParameterMap"></a>
-	<h3>method getParameterMap <span class="smalllinenumber">[line 944]</span></h3>
+	<h3>method getParameterMap <span class="smalllinenumber">[line 1527]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1058,7 +1058,7 @@ $BiddingStrategyType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetXsiTypeName"></a>
-	<h3>method getXsiTypeName <span class="smalllinenumber">[line 960]</span></h3>
+	<h3>method getXsiTypeName <span class="smalllinenumber">[line 1543]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1083,6 +1083,10 @@ $BiddingStrategyType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetOptimizer.html#methodgetXsiTypeName">BudgetOptimizer::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ConversionOptimizer.html#methodgetXsiTypeName">ConversionOptimizer::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
@@ -1094,17 +1098,13 @@ $BiddingStrategyType = NULL])</code>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ManualCPM.html#methodgetXsiTypeName">ManualCPM::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetOptimizer.html#methodgetXsiTypeName">BudgetOptimizer::getXsiTypeName()</a></dt>
-		<dd>Gets the xsi:type name of this class</dd>
-	</dl>
 	</p>
 	
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
   <hr />
 	<a name="method__get"></a>
-	<h3>method __get <span class="smalllinenumber">[line 932]</span></h3>
+	<h3>method __get <span class="smalllinenumber">[line 1515]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1143,7 +1143,7 @@ $var)</code>
   </div>
   <hr />
 	<a name="method__set"></a>
-	<h3>method __set <span class="smalllinenumber">[line 925]</span></h3>
+	<h3>method __set <span class="smalllinenumber">[line 1508]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">

@@ -604,6 +604,11 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v200909/WebpageDescriptorAttribute.html">WebpageDescriptorAttribute</a><br />
 	  </div>
   <div class="package">
+	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
+	  </div>
+  <div class="package">
 	v201008<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/Account.html">Account</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscape.html">AdGroupBidLandscape</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscapeSelector.html">AdGroupBidLandscapeSelector</a><br />
@@ -731,11 +736,6 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/UserListType.html">UserListType</a><br />
 	  </div>
   <div class="package">
-	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
-	  </div>
-  <div class="package">
 	v201003<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AdShareSearchParameter.html">AdShareSearchParameter</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AudioError.html">AudioError</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AudioErrorReason.html">AudioErrorReason</a><br />
@@ -814,7 +814,7 @@
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
 <h1>Class: Ad</h1>
-Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
+Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -871,18 +871,6 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 	<dd>Represents a deprecated ad.</dd>
 </dl>
 <dl>
-<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileAd.html">MobileAd</a></dt>
-	<dd>Represents a mobile ad.</dd>
-</dl>
-<dl>
-<dt><a href="../../GoogleApiAdsAdWords/v200909/TextAd.html">TextAd</a></dt>
-	<dd>Represents a TextAd.</dd>
-</dl>
-<dl>
-<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileImageAd.html">MobileImageAd</a></dt>
-	<dd>Represents a mobile image ad.</dd>
-</dl>
-<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/ImageAd.html">ImageAd</a></dt>
 	<dd>Represents an ImageAd.</dd>
 </dl>
@@ -891,8 +879,20 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 	<dd>Represents Legacy Local Business Ad</dd>
 </dl>
 <dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileAd.html">MobileAd</a></dt>
+	<dd>Represents a mobile ad.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileImageAd.html">MobileImageAd</a></dt>
+	<dd>Represents a mobile image ad.</dd>
+</dl>
+<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/TemplateAd.html">TemplateAd</a></dt>
 	<dd>Represents a TemplateAd. A template ad is composed of a template (specified  by it's template id) along with all the elements to populate the  template's fields.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/TextAd.html">TextAd</a></dt>
+	<dd>Represents a TextAd.</dd>
 </dl>
 </div>
 </td>
@@ -906,7 +906,7 @@ Source Location: /AdWords/v200909/cm/AdGroupAdService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 1551]<br />
+[line 37]<br />
 The base class of all Ad types.  Not abstract since it is conceivable for  the base attributes of an Ad to be updated without reference to its concrete  type.<br /><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -917,7 +917,7 @@ The base class of all Ad types.  Not abstract since it is conceivable for  the b
 	<a name="var$AdType"></a>
 	<p></p>
 	<h4>$AdType = <span class="value"></span></h4>
-	<p>[line 1586]</p>
+	<p>[line 72]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -941,7 +941,7 @@ The base class of all Ad types.  Not abstract since it is conceivable for  the b
 	<a name="var$approvalStatus"></a>
 	<p></p>
 	<h4>$approvalStatus = <span class="value"></span></h4>
-	<p>[line 1574]</p>
+	<p>[line 60]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -965,7 +965,7 @@ The base class of all Ad types.  Not abstract since it is conceivable for  the b
 	<a name="var$disapprovalReasons"></a>
 	<p></p>
 	<h4>$disapprovalReasons = <span class="value"></span></h4>
-	<p>[line 1580]</p>
+	<p>[line 66]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -989,7 +989,7 @@ The base class of all Ad types.  Not abstract since it is conceivable for  the b
 	<a name="var$displayUrl"></a>
 	<p></p>
 	<h4>$displayUrl = <span class="value"></span></h4>
-	<p>[line 1568]</p>
+	<p>[line 54]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1013,7 +1013,7 @@ The base class of all Ad types.  Not abstract since it is conceivable for  the b
 	<a name="var$id"></a>
 	<p></p>
 	<h4>$id = <span class="value"></span></h4>
-	<p>[line 1556]</p>
+	<p>[line 42]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1037,7 +1037,7 @@ The base class of all Ad types.  Not abstract since it is conceivable for  the b
 	<a name="var$url"></a>
 	<p></p>
 	<h4>$url = <span class="value"></span></h4>
-	<p>[line 1562]</p>
+	<p>[line 48]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1067,7 +1067,7 @@ The base class of all Ad types.  Not abstract since it is conceivable for  the b
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 1636]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 122]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1099,18 +1099,6 @@ $AdType = NULL])</code>
 		<dd></dd>
 	</dl>
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileAd.html#method__construct">MobileAd::__construct()</a></dt>
-		<dd></dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/TextAd.html#method__construct">TextAd::__construct()</a></dt>
-		<dd></dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileImageAd.html#method__construct">MobileImageAd::__construct()</a></dt>
-		<dd></dd>
-	</dl>
-		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ImageAd.html#method__construct">ImageAd::__construct()</a></dt>
 		<dd></dd>
 	</dl>
@@ -1119,7 +1107,19 @@ $AdType = NULL])</code>
 		<dd></dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileAd.html#method__construct">MobileAd::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileImageAd.html#method__construct">MobileImageAd::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/TemplateAd.html#method__construct">TemplateAd::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/TextAd.html#method__construct">TextAd::__construct()</a></dt>
 		<dd></dd>
 	</dl>
 	</p>
@@ -1163,7 +1163,7 @@ $AdType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetNamespace"></a>
-	<h3>method getNamespace <span class="smalllinenumber">[line 1624]</span></h3>
+	<h3>method getNamespace <span class="smalllinenumber">[line 110]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1192,18 +1192,6 @@ $AdType = NULL])</code>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileAd.html#methodgetNamespace">MobileAd::getNamespace()</a></dt>
-		<dd>Gets the namesapce of this class</dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/TextAd.html#methodgetNamespace">TextAd::getNamespace()</a></dt>
-		<dd>Gets the namesapce of this class</dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileImageAd.html#methodgetNamespace">MobileImageAd::getNamespace()</a></dt>
-		<dd>Gets the namesapce of this class</dd>
-	</dl>
-		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ImageAd.html#methodgetNamespace">ImageAd::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
@@ -1212,7 +1200,19 @@ $AdType = NULL])</code>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileAd.html#methodgetNamespace">MobileAd::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileImageAd.html#methodgetNamespace">MobileImageAd::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/TemplateAd.html#methodgetNamespace">TemplateAd::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/TextAd.html#methodgetNamespace">TextAd::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 	</p>
@@ -1221,7 +1221,7 @@ $AdType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetParameterMap"></a>
-	<h3>method getParameterMap <span class="smalllinenumber">[line 1616]</span></h3>
+	<h3>method getParameterMap <span class="smalllinenumber">[line 102]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1249,7 +1249,7 @@ $AdType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetXsiTypeName"></a>
-	<h3>method getXsiTypeName <span class="smalllinenumber">[line 1632]</span></h3>
+	<h3>method getXsiTypeName <span class="smalllinenumber">[line 118]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1278,18 +1278,6 @@ $AdType = NULL])</code>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileAd.html#methodgetXsiTypeName">MobileAd::getXsiTypeName()</a></dt>
-		<dd>Gets the xsi:type name of this class</dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/TextAd.html#methodgetXsiTypeName">TextAd::getXsiTypeName()</a></dt>
-		<dd>Gets the xsi:type name of this class</dd>
-	</dl>
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileImageAd.html#methodgetXsiTypeName">MobileImageAd::getXsiTypeName()</a></dt>
-		<dd>Gets the xsi:type name of this class</dd>
-	</dl>
-		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ImageAd.html#methodgetXsiTypeName">ImageAd::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
@@ -1298,7 +1286,19 @@ $AdType = NULL])</code>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileAd.html#methodgetXsiTypeName">MobileAd::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/MobileImageAd.html#methodgetXsiTypeName">MobileImageAd::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/TemplateAd.html#methodgetXsiTypeName">TemplateAd::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/TextAd.html#methodgetXsiTypeName">TextAd::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 	</p>
@@ -1307,7 +1307,7 @@ $AdType = NULL])</code>
   </div>
   <hr />
 	<a name="method__get"></a>
-	<h3>method __get <span class="smalllinenumber">[line 1604]</span></h3>
+	<h3>method __get <span class="smalllinenumber">[line 90]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1346,7 +1346,7 @@ $var)</code>
   </div>
   <hr />
 	<a name="method__set"></a>
-	<h3>method __set <span class="smalllinenumber">[line 1597]</span></h3>
+	<h3>method __set <span class="smalllinenumber">[line 83]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">

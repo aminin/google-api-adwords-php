@@ -604,6 +604,11 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v200909/WebpageDescriptorAttribute.html">WebpageDescriptorAttribute</a><br />
 	  </div>
   <div class="package">
+	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
+	  </div>
+  <div class="package">
 	v201008<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/Account.html">Account</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscape.html">AdGroupBidLandscape</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscapeSelector.html">AdGroupBidLandscapeSelector</a><br />
@@ -729,11 +734,6 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/UserListServiceMutate.html">UserListServiceMutate</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/UserListServiceMutateResponse.html">UserListServiceMutateResponse</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/UserListType.html">UserListType</a><br />
-	  </div>
-  <div class="package">
-	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
 	  </div>
   <div class="package">
 	v201003<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AdShareSearchParameter.html">AdShareSearchParameter</a><br />
@@ -868,7 +868,7 @@ A collection of utility methods for working with reports.<br /><br /></div><br /
 <div class="tags">
   <hr />
 	<a name="methodDownloadReport"></a>
-	<h3>static method DownloadReport <span class="smalllinenumber">[line 56]</span></h3>
+	<h3>static method DownloadReport <span class="smalllinenumber">[line 58]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -877,7 +877,8 @@ float
 $reportDefintionId, [string
 $path = NULL], <a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a>
 $user, [string
-$server = NULL])</code>
+$server = NULL], [boolean
+$returnMoneyInMicros = NULL])</code>
     </td></tr></table>
     </td></tr></table><br />
 	
@@ -918,6 +919,11 @@ $server = NULL])</code>
         <td class="type">string&nbsp;&nbsp;</td>
         <td><b>$server</b>&nbsp;&nbsp;</td>
         <td>the server to make the request to. If      <var>NULL</var>, then the default server will be used</td>
+      </tr>
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$returnMoneyInMicros</b>&nbsp;&nbsp;</td>
+        <td>if the money values in the report      should be returned in micros</td>
       </tr>
         </table>
     </div><br />

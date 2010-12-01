@@ -604,6 +604,11 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v200909/WebpageDescriptorAttribute.html">WebpageDescriptorAttribute</a><br />
 	  </div>
   <div class="package">
+	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
+	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
+	  </div>
+  <div class="package">
 	v201008<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/Account.html">Account</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscape.html">AdGroupBidLandscape</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/AdGroupBidLandscapeSelector.html">AdGroupBidLandscapeSelector</a><br />
@@ -731,11 +736,6 @@
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201008/UserListType.html">UserListType</a><br />
 	  </div>
   <div class="package">
-	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClientFactory.html">AdWordsSoapClientFactory</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a><br />
-	  </div>
-  <div class="package">
 	v201003<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AdShareSearchParameter.html">AdShareSearchParameter</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AudioError.html">AudioError</a><br />
 	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsAdWords/v201003/AudioErrorReason.html">AudioErrorReason</a><br />
@@ -814,7 +814,7 @@
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
 <h1>Class: ApiError</h1>
-Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
+Source Location: /AdWords/v200909/cm/BulkMutateJobService.php<br /><br />
 
 
 <table width="100%" border="0">
@@ -864,10 +864,6 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 <h3>Child classes:</h3>
 <div class="tags">
 <dl>
-<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupServiceError.html">AdGroupServiceError</a></dt>
-	<dd>Represents possible error codes in AdGroupService.</dd>
-</dl>
-<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/AuthenticationError.html">AuthenticationError</a></dt>
 	<dd>Errors returned when Authentication failed.</dd>
 </dl>
@@ -880,8 +876,32 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 	<dd>Represents bidding errors.</dd>
 </dl>
 <dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/BiddingTransitionError.html">BiddingTransitionError</a></dt>
+	<dd>Bidding transition errors.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetError.html">BudgetError</a></dt>
+	<dd>A list of all the error codes being used by the common budget domain package.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/BulkMutateJobError.html">BulkMutateJobError</a></dt>
+	<dd>Bulk mutate job handling errors.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionError.html">CampaignCriterionError</a></dt>
+	<dd>Base error class for Campaign Criterion Service.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignError.html">CampaignError</a></dt>
+	<dd>Base error class for Campaign Service.</dd>
+</dl>
+<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/ClientTermsError.html">ClientTermsError</a></dt>
 	<dd>Encapsulates the errors thrown during client terms checks for adwords.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/DatabaseError.html">DatabaseError</a></dt>
+	<dd>Errors that are thrown due to a database access problem.</dd>
 </dl>
 <dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/DateError.html">DateError</a></dt>
@@ -892,12 +912,36 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 	<dd>Errors related to distinct ids or content.</dd>
 </dl>
 <dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityAccessDenied.html">EntityAccessDenied</a></dt>
+	<dd>Reports permission problems trying to access an entity.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityCountLimitExceeded.html">EntityCountLimitExceeded</a></dt>
+	<dd>Signals that an entity count limit was exceeded for some level.</dd>
+</dl>
+<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/EntityNotFound.html">EntityNotFound</a></dt>
 	<dd>An id did not correspond to an entity, or it referred to an entity which does not belong to the  customer.</dd>
 </dl>
 <dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/IdError.html">IdError</a></dt>
+	<dd>Errors associated with the ids.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/ImageError.html">ImageError</a></dt>
+	<dd>Error class for errors associated with parsing image data.</dd>
+</dl>
+<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/InternalApiError.html">InternalApiError</a></dt>
 	<dd>Indicates that a server-side error has occured. {@code InternalApiError}s  are generally not the result of an invalid request or message sent by the  client.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/JobError.html">JobError</a></dt>
+	<dd>Job handling errors.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/MediaError.html">MediaError</a></dt>
+	<dd>Error class for media related errors.</dd>
 </dl>
 <dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/NewEntityCreationError.html">NewEntityCreationError</a></dt>
@@ -924,6 +968,14 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 	<dd>A list of all errors associated with the @SupportedOperators constraints.</dd>
 </dl>
 <dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/PagingError.html">PagingError</a></dt>
+	<dd>Error codes for pagination.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/PolicyViolationError.html">PolicyViolationError</a></dt>
+	<dd>Represents violations of a single policy by some text in a field.</dd>
+</dl>
+<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/QuotaCheckError.html">QuotaCheckError</a></dt>
 	<dd>Encapsulates the errors thrown during developer quota checks.</dd>
 </dl>
@@ -944,6 +996,10 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 	<dd>A list of all errors associated with the @ReadOnly constraint.</dd>
 </dl>
 <dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/RegionCodeError.html">RegionCodeError</a></dt>
+	<dd>A list of all errors associated with the @RegionCode constraints.</dd>
+</dl>
+<dl>
 <dt><a href="../../GoogleApiAdsAdWords/v200909/RequiredError.html">RequiredError</a></dt>
 	<dd>Errors due to missing required field.</dd>
 </dl>
@@ -956,8 +1012,28 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 	<dd>Represents possible error codes when querying for stats.</dd>
 </dl>
 <dl>
-<dt><a href="../../GoogleApiAdsAdWords/v200909/DatabaseError.html">DatabaseError</a></dt>
-	<dd>Errors that are thrown due to a database access problem.</dd>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/StringLengthError.html">StringLengthError</a></dt>
+	<dd>A list of all errors associated with the @ContentsString constraint.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/TargetError.html">TargetError</a></dt>
+	<dd>A list of all the error codes being used by the common targeting package.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/AdError.html">AdError</a></dt>
+	<dd>Base error class for Ad Service.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdError.html">AdGroupAdError</a></dt>
+	<dd>Error information for AdGroupAdService.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionError.html">AdGroupCriterionError</a></dt>
+	<dd>Base error class for Ad Group Criterion Service.</dd>
+</dl>
+<dl>
+<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupServiceError.html">AdGroupServiceError</a></dt>
+	<dd>Represents possible error codes in AdGroupService.</dd>
 </dl>
 </div>
 </td>
@@ -971,7 +1047,7 @@ Source Location: /AdWords/v200909/cm/AdGroupService.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 564]<br />
+[line 774]<br />
 The API error base class that provides details about an error that occurred while processing a service request.<br /><br /><p>The OGNL field path is provided for parsers to identify the request data  element that may have caused the error.</p><br /></div><br /><br />
 <div class="top">[ <a href="#top">Top</a> ]</div><br />
 
@@ -982,7 +1058,7 @@ The API error base class that provides details about an error that occurred whil
 	<a name="var$ApiErrorType"></a>
 	<p></p>
 	<h4>$ApiErrorType = <span class="value"></span></h4>
-	<p>[line 581]</p>
+	<p>[line 791]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1006,7 +1082,7 @@ The API error base class that provides details about an error that occurred whil
 	<a name="var$fieldPath"></a>
 	<p></p>
 	<h4>$fieldPath = <span class="value"></span></h4>
-	<p>[line 569]</p>
+	<p>[line 779]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1030,7 +1106,7 @@ The API error base class that provides details about an error that occurred whil
 	<a name="var$trigger"></a>
 	<p></p>
 	<h4>$trigger = <span class="value"></span></h4>
-	<p>[line 575]</p>
+	<p>[line 785]</p>
   <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
@@ -1060,7 +1136,7 @@ The API error base class that provides details about an error that occurred whil
 
   <hr />
 	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 631]</span></h3>
+	<h3>constructor __construct <span class="smalllinenumber">[line 841]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1085,10 +1161,6 @@ $ApiErrorType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupServiceError.html#method__construct">AdGroupServiceError::__construct()</a></dt>
-		<dd></dd>
-	</dl>
-		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/AuthenticationError.html#method__construct">AuthenticationError::__construct()</a></dt>
 		<dd></dd>
 	</dl>
@@ -1101,7 +1173,31 @@ $ApiErrorType = NULL])</code>
 		<dd></dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BiddingTransitionError.html#method__construct">BiddingTransitionError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetError.html#method__construct">BudgetError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BulkMutateJobError.html#method__construct">BulkMutateJobError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionError.html#method__construct">CampaignCriterionError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignError.html#method__construct">CampaignError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ClientTermsError.html#method__construct">ClientTermsError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/DatabaseError.html#method__construct">DatabaseError::__construct()</a></dt>
 		<dd></dd>
 	</dl>
 		<dl>
@@ -1113,11 +1209,47 @@ $ApiErrorType = NULL])</code>
 		<dd></dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityAccessDenied.html#method__construct">EntityAccessDenied::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityCountLimitExceeded.html#method__construct">EntityCountLimitExceeded::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdCountLimitExceeded.html#method__construct">AdGroupAdCountLimitExceeded::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionLimitExceeded.html#method__construct">AdGroupCriterionLimitExceeded::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionLimitExceeded.html#method__construct">CampaignCriterionLimitExceeded::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityNotFound.html#method__construct">EntityNotFound::__construct()</a></dt>
 		<dd></dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/IdError.html#method__construct">IdError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/ImageError.html#method__construct">ImageError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/InternalApiError.html#method__construct">InternalApiError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/JobError.html#method__construct">JobError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/MediaError.html#method__construct">MediaError::__construct()</a></dt>
 		<dd></dd>
 	</dl>
 		<dl>
@@ -1145,6 +1277,18 @@ $ApiErrorType = NULL])</code>
 		<dd></dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/PagingError.html#method__construct">PagingError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/PolicyViolationError.html#method__construct">PolicyViolationError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CriterionPolicyError.html#method__construct">CriterionPolicyError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/QuotaCheckError.html#method__construct">QuotaCheckError::__construct()</a></dt>
 		<dd></dd>
 	</dl>
@@ -1165,6 +1309,10 @@ $ApiErrorType = NULL])</code>
 		<dd></dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/RegionCodeError.html#method__construct">RegionCodeError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/RequiredError.html#method__construct">RequiredError::__construct()</a></dt>
 		<dd></dd>
 	</dl>
@@ -1177,7 +1325,27 @@ $ApiErrorType = NULL])</code>
 		<dd></dd>
 	</dl>
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/DatabaseError.html#method__construct">DatabaseError::__construct()</a></dt>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/StringLengthError.html#method__construct">StringLengthError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/TargetError.html#method__construct">TargetError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdError.html#method__construct">AdError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdError.html#method__construct">AdGroupAdError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionError.html#method__construct">AdGroupCriterionError::__construct()</a></dt>
+		<dd></dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupServiceError.html#method__construct">AdGroupServiceError::__construct()</a></dt>
 		<dd></dd>
 	</dl>
 	</p>
@@ -1206,7 +1374,7 @@ $ApiErrorType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetNamespace"></a>
-	<h3>method getNamespace <span class="smalllinenumber">[line 619]</span></h3>
+	<h3>method getNamespace <span class="smalllinenumber">[line 829]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1231,10 +1399,6 @@ $ApiErrorType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupServiceError.html#methodgetNamespace">AdGroupServiceError::getNamespace()</a></dt>
-		<dd>Gets the namesapce of this class</dd>
-	</dl>
-		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/AuthenticationError.html#methodgetNamespace">AuthenticationError::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
@@ -1247,7 +1411,31 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BiddingTransitionError.html#methodgetNamespace">BiddingTransitionError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetError.html#methodgetNamespace">BudgetError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BulkMutateJobError.html#methodgetNamespace">BulkMutateJobError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionError.html#methodgetNamespace">CampaignCriterionError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignError.html#methodgetNamespace">CampaignError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ClientTermsError.html#methodgetNamespace">ClientTermsError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/DatabaseError.html#methodgetNamespace">DatabaseError::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
@@ -1259,11 +1447,47 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityAccessDenied.html#methodgetNamespace">EntityAccessDenied::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityCountLimitExceeded.html#methodgetNamespace">EntityCountLimitExceeded::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdCountLimitExceeded.html#methodgetNamespace">AdGroupAdCountLimitExceeded::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionLimitExceeded.html#methodgetNamespace">AdGroupCriterionLimitExceeded::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionLimitExceeded.html#methodgetNamespace">CampaignCriterionLimitExceeded::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityNotFound.html#methodgetNamespace">EntityNotFound::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/IdError.html#methodgetNamespace">IdError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/ImageError.html#methodgetNamespace">ImageError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/InternalApiError.html#methodgetNamespace">InternalApiError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/JobError.html#methodgetNamespace">JobError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/MediaError.html#methodgetNamespace">MediaError::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
@@ -1291,6 +1515,18 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/PagingError.html#methodgetNamespace">PagingError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/PolicyViolationError.html#methodgetNamespace">PolicyViolationError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CriterionPolicyError.html#methodgetNamespace">CriterionPolicyError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/QuotaCheckError.html#methodgetNamespace">QuotaCheckError::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
@@ -1311,6 +1547,10 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/RegionCodeError.html#methodgetNamespace">RegionCodeError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/RequiredError.html#methodgetNamespace">RequiredError::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
@@ -1323,7 +1563,27 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/DatabaseError.html#methodgetNamespace">DatabaseError::getNamespace()</a></dt>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/StringLengthError.html#methodgetNamespace">StringLengthError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/TargetError.html#methodgetNamespace">TargetError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdError.html#methodgetNamespace">AdError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdError.html#methodgetNamespace">AdGroupAdError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionError.html#methodgetNamespace">AdGroupCriterionError::getNamespace()</a></dt>
+		<dd>Gets the namesapce of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupServiceError.html#methodgetNamespace">AdGroupServiceError::getNamespace()</a></dt>
 		<dd>Gets the namesapce of this class</dd>
 	</dl>
 	</p>
@@ -1332,7 +1592,7 @@ $ApiErrorType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetParameterMap"></a>
-	<h3>method getParameterMap <span class="smalllinenumber">[line 611]</span></h3>
+	<h3>method getParameterMap <span class="smalllinenumber">[line 821]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1360,7 +1620,7 @@ $ApiErrorType = NULL])</code>
   </div>
   <hr />
 	<a name="methodgetXsiTypeName"></a>
-	<h3>method getXsiTypeName <span class="smalllinenumber">[line 627]</span></h3>
+	<h3>method getXsiTypeName <span class="smalllinenumber">[line 837]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1385,10 +1645,6 @@ $ApiErrorType = NULL])</code>
 
 	<p>Overridden in child classes as:<br />
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupServiceError.html#methodgetXsiTypeName">AdGroupServiceError::getXsiTypeName()</a></dt>
-		<dd>Gets the xsi:type name of this class</dd>
-	</dl>
-		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/AuthenticationError.html#methodgetXsiTypeName">AuthenticationError::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
@@ -1401,7 +1657,31 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BiddingTransitionError.html#methodgetXsiTypeName">BiddingTransitionError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BudgetError.html#methodgetXsiTypeName">BudgetError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/BulkMutateJobError.html#methodgetXsiTypeName">BulkMutateJobError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionError.html#methodgetXsiTypeName">CampaignCriterionError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignError.html#methodgetXsiTypeName">CampaignError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/ClientTermsError.html#methodgetXsiTypeName">ClientTermsError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/DatabaseError.html#methodgetXsiTypeName">DatabaseError::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
@@ -1413,11 +1693,47 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityAccessDenied.html#methodgetXsiTypeName">EntityAccessDenied::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityCountLimitExceeded.html#methodgetXsiTypeName">EntityCountLimitExceeded::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdCountLimitExceeded.html#methodgetXsiTypeName">AdGroupAdCountLimitExceeded::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionLimitExceeded.html#methodgetXsiTypeName">AdGroupCriterionLimitExceeded::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CampaignCriterionLimitExceeded.html#methodgetXsiTypeName">CampaignCriterionLimitExceeded::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/EntityNotFound.html#methodgetXsiTypeName">EntityNotFound::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/IdError.html#methodgetXsiTypeName">IdError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/ImageError.html#methodgetXsiTypeName">ImageError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/InternalApiError.html#methodgetXsiTypeName">InternalApiError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/JobError.html#methodgetXsiTypeName">JobError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/MediaError.html#methodgetXsiTypeName">MediaError::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
@@ -1445,6 +1761,18 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/PagingError.html#methodgetXsiTypeName">PagingError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/PolicyViolationError.html#methodgetXsiTypeName">PolicyViolationError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/CriterionPolicyError.html#methodgetXsiTypeName">CriterionPolicyError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/QuotaCheckError.html#methodgetXsiTypeName">QuotaCheckError::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
@@ -1465,6 +1793,10 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/RegionCodeError.html#methodgetXsiTypeName">RegionCodeError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
 	<dt><a href="../../GoogleApiAdsAdWords/v200909/RequiredError.html#methodgetXsiTypeName">RequiredError::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
@@ -1477,7 +1809,27 @@ $ApiErrorType = NULL])</code>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/v200909/DatabaseError.html#methodgetXsiTypeName">DatabaseError::getXsiTypeName()</a></dt>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/StringLengthError.html#methodgetXsiTypeName">StringLengthError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/TargetError.html#methodgetXsiTypeName">TargetError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdError.html#methodgetXsiTypeName">AdError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupAdError.html#methodgetXsiTypeName">AdGroupAdError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupCriterionError.html#methodgetXsiTypeName">AdGroupCriterionError::getXsiTypeName()</a></dt>
+		<dd>Gets the xsi:type name of this class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../../GoogleApiAdsAdWords/v200909/AdGroupServiceError.html#methodgetXsiTypeName">AdGroupServiceError::getXsiTypeName()</a></dt>
 		<dd>Gets the xsi:type name of this class</dd>
 	</dl>
 	</p>
@@ -1486,7 +1838,7 @@ $ApiErrorType = NULL])</code>
   </div>
   <hr />
 	<a name="method__get"></a>
-	<h3>method __get <span class="smalllinenumber">[line 599]</span></h3>
+	<h3>method __get <span class="smalllinenumber">[line 809]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -1525,7 +1877,7 @@ $var)</code>
   </div>
   <hr />
 	<a name="method__set"></a>
-	<h3>method __set <span class="smalllinenumber">[line 592]</span></h3>
+	<h3>method __set <span class="smalllinenumber">[line 802]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
