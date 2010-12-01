@@ -50,11 +50,13 @@ class ReportUtils {
    * @param AdWordsUser $user the user that created the ReportDefinition
    * @param string $server the server to make the request to. If
    *     <var>NULL</var>, then the default server will be used
+   * @param boolean $returnMoneyInMicros if the money values in the report
+   *     should be returned in micros
    * @return mixed if path isn't specified the contents of the report,
    *     otherwise the size in bytes of the downloaded report
    */
   public static function DownloadReport($reportDefintionId, $path = NULL,
-      AdWordsUser $user, $server = NULL) {
+      AdWordsUser $user, $server = NULL, $returnMoneyInMicros = NULL) {
     $url = sprintf('%s/api/adwords/reportdownload?__rd=%s',
         isset($server) ? $server : $user->GetDefaultServer(),
         $reportDefintionId);
@@ -70,6 +72,10 @@ class ReportUtils {
       } else {
         $headers[] = 'clientCustomerId: ' . $clientId;
       }
+    }
+    if (isset($returnMoneyInMicros)) {
+      $headers[] = 'returnMoneyInMicros: '
+          . ($returnMoneyInMicros ? "true" : "false");
     }
 
     $ch = curl_init($url);
