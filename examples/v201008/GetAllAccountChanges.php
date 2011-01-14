@@ -86,7 +86,7 @@ try {
     printf("Most recent change: %s\n", $accountChanges->lastChangeTimestamp);
     if (isset($accountChanges->changedCampaigns)) {
       foreach ($accountChanges->changedCampaigns as $campaignChangeData) {
-        printf("Campaign with id '%d' has change status '%s'.\n",
+        printf("Campaign with id '%.0f' has change status '%s'.\n",
             $campaignChangeData->campaignId,
             $campaignChangeData->campaignChangeStatus);
         if ($campaignChangeData->campaignChangeStatus != 'NEW') {
@@ -104,7 +104,7 @@ try {
           if (isset($campaignChangeData->changedAdGroups)) {
             foreach($campaignChangeData->changedAdGroups as
                 $adGroupChangeData) {
-              printf("\tAd Group with id '%d' has change status '%s'.\n",
+              printf("\tAd Group with id '%.0f' has change status '%s'.\n",
                   $adGroupChangeData->adGroupId,
                   $adGroupChangeData->adGroupChangeStatus);
               if ($adGroupChangeData->adGroupChangeStatus != 'NEW') {

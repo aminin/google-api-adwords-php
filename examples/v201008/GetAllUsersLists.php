@@ -58,7 +58,7 @@ try {
   // Display user lists.
   if (isset($page->entries)) {
     foreach ($page->entries as $userList) {
-      printf("User list with name '%s', id '%d', status '%s', and number of "
+      printf("User list with name '%s', id '%.0f', status '%s', and number of "
           . "users '%d' was found.\n", $userList->name, $userList->id,
           $userList->status, $userList->size);
     }

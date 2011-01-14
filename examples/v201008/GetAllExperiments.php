@@ -63,7 +63,7 @@ try {
   // Display experiments.
   if (isset($page->entries)) {
     foreach ($page->entries as $experiment) {
-      printf("Experiment with name '%s', id '%d', and control id '%d' was "
+      printf("Experiment with name '%s', id '%.0f', and control id '%.0f' was "
           . "found. It includes %d ad groups and %d criteria. \n",
           $experiment->name, $experiment->id, $experiment->controlId,
           $experiment->experimentSummaryStats->adGroupsCount,

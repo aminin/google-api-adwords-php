@@ -68,7 +68,7 @@ try {
 
   // Display bulk mutate jobs.
   if (isset($bulkMutateJob)) {
-    printf("Bulk mutate job with id '%d' was deleted.\n", $bulkMutateJob->id);
+    printf("Bulk mutate job with id '%.0f' was deleted.\n", $bulkMutateJob->id);
   } else {
     print "No bulk mutate jobs were deleted.\n";
   }

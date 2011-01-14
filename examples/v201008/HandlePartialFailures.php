@@ -82,9 +82,9 @@ try {
   if (isset($result->value)) {
     foreach ($result->value as $adGroupCriterion) {
       if ($adGroupCriterion instanceof BiddableAdGroupCriterion) {
-        printf("Ad group criterion with ad group id '%d', criterion id '%d', "
-            . "and keyword '%s' was added.\n", $adGroupCriterion->adGroupId,
-            $adGroupCriterion->criterion->id,
+        printf("Ad group criterion with ad group id '%.0f', criterion id"
+            . "'%.0f', and keyword '%s' was added.\n",
+            $adGroupCriterion->adGroupId, $adGroupCriterion->criterion->id,
             $adGroupCriterion->criterion->text);
       }
     }
@@ -98,7 +98,7 @@ try {
       $index = ErrorUtils::GetSourceOperationIndex($error);
       if (isset($index)) {
         $adGroupCriterion = $operations[$index]->operand;
-        printf("Ad group criterion with ad group id '%d' and keyword '%s' "
+        printf("Ad group criterion with ad group id '%.0f' and keyword '%s' "
             . "failed with error '%s'.\n", $adGroupCriterion->adGroupId,
             $adGroupCriterion->criterion->text, $error->errorString);
       } else {

@@ -53,9 +53,9 @@ try {
   $userListId = (float) 'INSERT_USER_LIST_ID_HERE';
 
   // Create user list with updated description.
-  $userList = new RemarketingUserList();
+  $userList = new UserList();
   $userList->id = $userListId;
-  $userList->description = 'Last updated at ' . time();
+  $userList->description = 'Last updated at ' . date('Ymd hms');
 
   // Create operations.
   $operation = new UserListOperation();
@@ -70,7 +70,7 @@ try {
   // Display user lists.
   if (isset($result->value)) {
     foreach ($result->value as $userList) {
-      printf("User list with name '%s', id '%d', and description '%s' was "
+      printf("User list with name '%s', id '%.0f', and description '%s' was "
           . "updated.\n", $userList->name, $userList->id,
           $userList->description);
     }

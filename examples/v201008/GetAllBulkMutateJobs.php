@@ -61,7 +61,7 @@ try {
   // Display bulk mutate jobs.
   if (isset($bulkMutateJobs)) {
     foreach ($bulkMutateJobs as $bulkMutateJob) {
-      printf("Bulk mutate job with id '%d' and status '%s' was found.\n",
+      printf("Bulk mutate job with id '%.0f' and status '%s' was found.\n",
           $bulkMutateJob->id, $bulkMutateJob->status);
       if ($bulkMutateJob->status == 'PENDING') {
         printf("  Total parts: %d, parts received: %d.\n",

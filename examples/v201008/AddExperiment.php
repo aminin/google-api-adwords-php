@@ -79,7 +79,7 @@ try {
   // Display experiments.
   if (isset($result->value)) {
     foreach ($result->value as $experiment) {
-      printf ("Experiment with name '%s' and id '%d' was added.\n",
+      printf ("Experiment with name '%s' and id '%.0f' was added.\n",
           $experiment->name, $experiment->id);
     }
   } else {
@@ -115,7 +115,7 @@ try {
   // Display ad groups.
   if (isset($result->value)) {
     foreach ($result->value as $adGroup) {
-      printf ("Ad group with name '%s' and id '%d' was updated in the "
+      printf ("Ad group with name '%s' and id '%.0f' was updated in the "
           . "experiment.\n", $adGroup->name, $adGroup->id);
     }
   } else {
@@ -150,9 +150,9 @@ try {
   // Display ad group criteria.
   if (isset($result->value)) {
     foreach ($result->value as $adGroupCriterion) {
-      printf ("Ad group criterion with ad group id '%d' and criterion id '%d' "
-          . "was added to the experiment.\n", $adGroupCriterion->adGroupId,
-          $adGroupCriterion->criterion->id);
+      printf ("Ad group criterion with ad group id '%.0f' and criterion id "
+          . "'%.0f' was added to the experiment.\n",
+          $adGroupCriterion->adGroupId, $adGroupCriterion->criterion->id);
     }
   } else {
     print "No ad group criteria were added.\n";

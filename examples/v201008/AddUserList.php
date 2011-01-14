@@ -73,7 +73,7 @@ try {
   // Display user lists.
   if (isset($result->value)) {
     foreach ($result->value as $userList) {
-      printf("User list with name '%s' and id '%d' was added.\n",
+      printf("User list with name '%s' and id '%.0f' was added.\n",
           $userList->name, $userList->id);
     }
   } else {

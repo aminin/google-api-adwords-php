@@ -70,7 +70,7 @@ try {
   // Display experiments.
   if (isset($result->value)) {
     foreach ($result->value as $experiment) {
-      printf ("Experiment with name '%s' and id '%d' was deleted.\n",
+      printf ("Experiment with name '%s' and id '%.0f' was deleted.\n",
           $experiment->name, $experiment->id);
     }
   } else {

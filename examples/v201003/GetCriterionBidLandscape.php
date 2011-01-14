@@ -76,7 +76,7 @@ try {
             $bidLandscape->adGroupId, $bidLandscape->criterionId,
             $bidLandscape->startDate, $bidLandscape->endDate);
         foreach ($bidLandscape->landscapePoints as $bidLandscapePoint) {
-          printf("- bid: %d => clicks: %d, cost: %d, marginalCpc: %d, "
+          printf("- bid: %.0f => clicks: %d, cost: %.0f, marginalCpc: %.0f, "
               . "impressions: %d\n",
               $bidLandscapePoint->bid->microAmount, $bidLandscapePoint->clicks,
               $bidLandscapePoint->cost->microAmount,

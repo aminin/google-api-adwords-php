@@ -72,7 +72,7 @@ try {
   // Display experiments.
   if (isset($result->value)) {
     foreach ($result->value as $experiment) {
-      printf ("Experiment with name '%s' and id '%d' was promoted.\n",
+      printf ("Experiment with name '%s' and id '%.0f' was promoted.\n",
           $experiment->name, $experiment->id);
     }
   } else {

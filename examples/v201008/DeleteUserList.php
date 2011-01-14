@@ -53,7 +53,7 @@ try {
   $userListId = (float) 'INSERT_USER_LIST_ID_HERE';
 
   // Create user list with CLOSED status.
-  $userList = new RemarketingUserList();
+  $userList = new UserList();
   $userList->id = $userListId;
   $userList->status = 'CLOSED';
 
@@ -70,7 +70,7 @@ try {
   // Display user lists.
   if (isset($result->value)) {
     foreach ($result->value as $userList) {
-      printf("User list with name '%s' and id '%d' was deleted (closed).\n",
+      printf("User list with name '%s' and id '%.0f' was deleted (closed).\n",
           $userList->name, $userList->id);
     }
   } else {

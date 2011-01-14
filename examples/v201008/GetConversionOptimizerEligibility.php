@@ -64,10 +64,10 @@ try {
   if (isset($page->entries)) {
     foreach ($page->entries as $campaign) {
       if ($campaign->conversionOptimizerEligibility->eligible) {
-        printf("Campaign with name '%s' and id '%d' is eligible to use "
+        printf("Campaign with name '%s' and id '%.0f' is eligible to use "
             . "conversion optimizer.\n", $campaign->name, $campaign->id);
       } else {
-        printf("Campaign with name '%s' and id '%d' is not eligible to use "
+        printf("Campaign with name '%s' and id '%.0f' is not eligible to use "
             . "conversion optimizer for the reasons: %s.\n",
             $campaign->name, $campaign->id,
             implode(', ',

@@ -103,10 +103,10 @@ try {
 
       printf("Results for the keyword with text '%s' and match type '%s':\n",
           $keyword->text, $keyword->matchType);
-      printf("  Estimated average CPC: %d\n", $meanAverageCpc);
+      printf("  Estimated average CPC: %.0f\n", $meanAverageCpc);
       printf("  Estimated ad position: %.2f \n", $meanAveragePosition);
       printf("  Estimated daily clicks: %d\n", $meanClicks);
-      printf("  Estimated daily cost: %d\n\n", $meanTotalCost);
+      printf("  Estimated daily cost: %.0f\n\n", $meanTotalCost);
     }
   } else {
     print "No traffic estimates were returned.\n";
