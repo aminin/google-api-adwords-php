@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v200909
+ * @subpackage v201003
  * @category   WebServices
  * @copyright  2010, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
@@ -30,7 +30,7 @@ error_reporting(E_STRICT | E_ALL);
 
 require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
 require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v200909/cm/AdGroupAdService.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201003/cm/AdGroupAdService.php';
 require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/Common/Util/MediaUtils.php';
 
 /**
@@ -49,7 +49,7 @@ class AdGroupAdServiceTest extends AdsTestCase {
    */
   public static function suite() {
     $suite = new AdWordsTestSuite(__CLASS__);
-    $suite->SetVersion('v200909');
+    $suite->SetVersion('v201003');
     $suite->SetRequires(array('CAMPAIGN', 'AD_GROUP'));
     return $suite;
   }

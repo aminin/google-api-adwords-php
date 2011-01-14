@@ -28,34 +28,38 @@
 
 error_reporting(E_STRICT | E_ALL);
 
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'PHPUnit/Framework.php';
+require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
+require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201003/cm/CampaignService.php';
 
 /**
  * Functional tests for the validateOnly header.
  *
  * @author api.ekoleda@gmail.com
  */
-class ValidateOnlyTest extends PHPUnit_Framework_TestCase {
-  private $version = 'v201003';
-  private $user;
-  private $campaignValidationService;
+class ValidateOnlyTest extends AdsTestCase {
+  private $service;
 
-  protected function setUp() {
-    $authFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
-    $settingsFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
-    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
-        NULL, NULL, NULL, $settingsFile);
-    $this->user->LogDefaults();
-    $this->campaignValidationService =
-        $this->user->GetCampaignService($this->version, NULL, NULL, true);
+  /**
+   * Create the test suite.
+   */
+  public static function suite() {
+    $suite = new AdWordsTestSuite(__CLASS__);
+    $suite->SetVersion('v201003');
+    return $suite;
   }
 
   /**
-   * Test whether we can validate a correctly formed create campaign request
-   * using v201003.
+   * Set up the test fixtures.
+   */
+  protected function setUp() {
+    $user = $this->sharedFixture['user'];
+    $this->service =
+        $user->GetCampaignService(NULL, NULL, NULL, true);
+  }
+
+  /**
+   * Test whether we can validate a correctly formed create campaign request.
    */
   public function testValidCreateCampaign() {
     $campaign = new Campaign();
@@ -66,27 +70,20 @@ class ValidateOnlyTest extends PHPUnit_Framework_TestCase {
 
     $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
 
-    $campaignReturnValue = $this->campaignValidationService->mutate(
-        $operations);
+    $campaignReturnValue = $this->service->mutate($operations);
 
     $this->assertNull($campaignReturnValue);
   }
 
   /**
-   * Test whether we can validate an incorrectly formed create campaign request
-   * using v201003.
+   * Test whether we can validate an incorrectly formed create campaign request.
+   * @expectedException SoapFault
    */
   public function testInvalidCreateCampaign() {
     $campaign = new Campaign();
 
     $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
 
-    try {
-      $campaignReturnValue = $this->campaignValidationService->mutate(
-          $operations);
-      $this->fail('The expected SoapFault was not thrown.');
-    } catch (SoapFault $expected) {
-      $this->assertNotNull($expected->detail->ApiExceptionFault);
-    }
+    $campaignReturnValue = $this->service->mutate($operations);
   }
 }

@@ -72,6 +72,7 @@ class TestUtils {
     $campaign->name = 'Campaign #' . time();
     $campaign->biddingStrategy = new ManualCPC();
     $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
+    $campaign->status = 'PAUSED';
 
     $operation = new CampaignOperation(NULL, $campaign, 'ADD');
     $campaign = $campaignService->mutate(array($operation))->value[0];
@@ -105,6 +106,7 @@ class TestUtils {
     $adGroup->name = 'AdGroup #' . time();
     $adGroup->bids = new ManualCPCAdGroupBids(new Bid(new Money(1000000)));
     $adGroup->campaignId = $campaignId;
+    $adGroup->status = 'PAUSED';
 
     $operation = new AdGroupOperation($adGroup, 'ADD');
     $adGroup = $adGroupService->mutate(array($operation))->value[0];
@@ -249,5 +251,44 @@ class TestUtils {
     $operation = new AdExtensionOverrideOperation($adExtensionOverride,
         'REMOVE');
     $adExtensionOverrideService->mutate(array($operation));
+  }
+
+  /**
+   * Uploads an image.
+   * @return float the id of the image media
+   */
+  public function UploadImage() {
+    $mediaService = $this->user->GetMediaService($this->version);
+
+    $image = new Image();
+    $image->data = MediaUtils::GetBase64Data(
+        'https://sandbox.google.com/sandboximages/image.jpg');
+    $image->mediaTypeDb = 'IMAGE';
+
+    $result = $mediaService->upload(array($image));
+    return $result[0]->mediaId;
+  }
+
+  /**
+   * Adds a report definition.
+   * @return float the id of the report definition
+   */
+  public function AddReportDefinition() {
+    $reportDefinitionService =
+        $this->user->GetReportDefinitionService($this->version);
+
+    $selector =
+        new Selector(array('KeywordText', 'KeywordMatchType', 'Clicks'));
+    $reportDefinition = new ReportDefinition();
+    $reportDefinition->selector = $selector;
+    $reportDefinition->reportName = 'Test report #' . time();
+    $reportDefinition->reportType = 'KEYWORDS_PERFORMANCE_REPORT';
+    $reportDefinition->dateRangeType = 'YESTERDAY';
+    $reportDefinition->downloadFormat = 'XML';
+
+    $operation = new ReportDefinitionOperation($reportDefinition, 'ADD');
+    $result = $reportDefinitionService->mutate(array($operation));
+
+    return $result[0]->id;
   }
 }

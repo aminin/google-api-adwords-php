@@ -80,8 +80,8 @@ class CampaignServiceTest extends AdsTestCase {
     $campaign = new Campaign();
     $campaign->name = 'Campaign #' . time();
     $campaign->status = 'PAUSED';
-    $campaign->startDate = date('Ymd');
-    $campaign->endDate = date('Ymd');
+    $campaign->startDate = date('Ymd', strtotime('+1 day'));
+    $campaign->endDate = date('Ymd', strtotime('+1 day'));
     $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
     $campaign->biddingStrategy = new ManualCPC();
     $campaign->autoKeywordMatchingStatus = 'OPT_OUT';
