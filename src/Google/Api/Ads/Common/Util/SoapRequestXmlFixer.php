@@ -150,8 +150,10 @@ class SoapRequestXmlFixer {
    * @access private
    */
   private function AddXsiType(DOMNode $domNode, $object) {
+    $xsiType = $domNode->getAttribute('xsi:type');
     if (method_exists($object, 'getXsiTypeName')
-        && method_exists($object, 'getNamespace')) {
+        && method_exists($object, 'getNamespace')
+        && empty($xsiType)) {
       $xsiTypeName = $object->getXsiTypeName();
       if (isset($xsiTypeName) && $xsiTypeName != '') {
         $prefix = $domNode->lookupPrefix($object->getNamespace());
