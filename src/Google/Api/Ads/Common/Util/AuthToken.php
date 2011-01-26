@@ -80,6 +80,9 @@ class AuthToken {
     $fields = $this->ParseResponse($response);
     if (array_key_exists('Error', $fields)) {
       $error = $fields['Error'];
+      if (array_key_exists('Info', $fields)) {
+        $error .= ': ' . $fields['Info'];
+      }
       $url = array_key_exists('Url', $fields) ? $fields['Url'] : NULL;
       $captchaToken = array_key_exists('CaptchaToken', $fields) ?
           $fields['CaptchaToken'] : NULL;
