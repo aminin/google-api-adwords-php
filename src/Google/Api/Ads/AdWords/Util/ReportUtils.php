@@ -116,7 +116,7 @@ class ReportUtils {
     // Check for error in downloaded file.
     if (isset($path)) {
       $file = fopen($path, 'r');
-      $result = fgets($file);
+      $result = fgets($file, 1024);
       fclose($file);
     }
     $matches = array();
