@@ -56,7 +56,6 @@ try {
   $image->data = MediaUtils::GetBase64Data(
       'https://sandbox.google.com/sandboximages/image.jpg');
   $image->mediaTypeDb = 'IMAGE';
-  $image->name = 'Sample Image';
 
   // Upload image.
   $result = $mediaService->upload(array($image));
