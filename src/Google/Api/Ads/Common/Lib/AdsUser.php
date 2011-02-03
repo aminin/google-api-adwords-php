@@ -244,6 +244,19 @@ abstract class AdsUser {
           $this->authServer = $settingsIni['AUTH']['AUTH_SERVER'];
         }
       }
+
+      // SSL settings.
+      if (array_key_exists('SSL', $settingsIni)) {
+        if (array_key_exists('VERIFY_PEER', $settingsIni['SSL'])) {
+          define('SSL_VERIFY_PEER', $settingsIni['SSL']['VERIFY_PEER']);
+        }
+        if (array_key_exists('CA_PATH', $settingsIni['SSL'])) {
+          define('SSL_CA_PATH', $settingsIni['SSL']['CA_PATH']);
+        }
+        if (array_key_exists('CA_FILE', $settingsIni['SSL'])) {
+          define('SSL_CA_FILE', $settingsIni['SSL']['CA_FILE']);
+        }
+      }
     }
   }
 

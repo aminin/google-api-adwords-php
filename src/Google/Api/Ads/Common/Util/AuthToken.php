@@ -30,6 +30,7 @@
  */
 
 require_once 'AuthTokenException.php';
+require_once 'CurlUtils.php';
 
 /**
  * Client used to retrieve an authentication token for the supplied credentials
@@ -114,24 +115,10 @@ class AuthToken {
         'logincaptcha' => $this->captchaResponse
     ), NULL, '&');
 
-    $ch = curl_init($postUrl);
+    $ch = CurlUtils::CreateSession($postUrl);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $postVars);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    if (defined('HTTP_PROXY_HOST') && HTTP_PROXY_HOST != '') {
-      curl_setopt($ch, CURLOPT_PROXY, HTTP_PROXY_HOST);
-    }
-    if (defined('HTTP_PROXY_PORT') && HTTP_PROXY_PORT != '') {
-      curl_setopt($ch, CURLOPT_PROXYPORT, HTTP_PROXY_PORT);
-    }
-    if (defined('HTTP_PROXY_USER') && defined('HTTP_PROXY_PASSWORD')
-        && HTTP_PROXY_USER != '' && HTTP_PROXY_PASSWORD != '') {
-      curl_setopt($ch, CURLOPT_PROXYUSERPWD, HTTP_PROXY_USER . ':'
-          . HTTP_PROXY_PASSWORD);
-    }
+
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $error = curl_error($ch);

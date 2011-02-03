@@ -110,6 +110,7 @@ abstract class SoapClientFactory {
         'encoding' => 'utf-8',
         'connection_timeout' => 0,
         'features' => SOAP_SINGLE_ELEMENT_ARRAYS);
+    $contextOptions = array();
 
     // Compression settings.
     if ($this->GetAdsUser()->IsSoapCompressionEnabled()) {
@@ -136,6 +137,19 @@ abstract class SoapClientFactory {
     if (defined('HTTP_PROXY_PASSWORD') && HTTP_PROXY_PASSWORD != '') {
       $options['proxy_password'] = HTTP_PROXY_PASSWORD;
     }
+
+    // SSL settings.
+    if (defined('SSL_VERIFY_PEER') && SSL_VERIFY_PEER != '') {
+      $contextOptions['ssl']['verify_peer'] = SSL_VERIFY_PEER;
+    }
+    if (defined('SSL_CA_PATH') && SSL_CA_PATH != '') {
+      $contextOptions['ssl']['capath'] = SSL_CA_PATH;
+    }
+    if (defined('SSL_CA_FILE') && SSL_CA_FILE != '') {
+      $contextOptions['ssl']['cafile'] = SSL_CA_FILE;
+    }
+
+    $options['stream_context'] = stream_context_create($contextOptions);
 
     $soapClient = new $serviceName($wsdl, $options, $this->GetAdsUser());
     $soapClient->__setLocation($location);
