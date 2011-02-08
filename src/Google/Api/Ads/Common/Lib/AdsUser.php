@@ -225,16 +225,17 @@ abstract class AdsUser {
       // Proxy settings.
       if (array_key_exists('PROXY', $settingsIni)) {
         if (array_key_exists('HOST', $settingsIni['PROXY'])) {
-          define('HTTP_PROXY_HOST', $settingsIni['PROXY']['HOST']);
+          $this->Define('HTTP_PROXY_HOST', $settingsIni['PROXY']['HOST']);
         }
         if (array_key_exists('PORT', $settingsIni['PROXY'])) {
-          define('HTTP_PROXY_PORT', (int) $settingsIni['PROXY']['PORT']);
+          $this->Define('HTTP_PROXY_PORT', (int) $settingsIni['PROXY']['PORT']);
         }
         if (array_key_exists('USER', $settingsIni['PROXY'])) {
-          define('HTTP_PROXY_USER', $settingsIni['PROXY']['USER']);
+          $this->Define('HTTP_PROXY_USER', $settingsIni['PROXY']['USER']);
         }
         if (array_key_exists('PASSWORD', $settingsIni['PROXY'])) {
-          define('HTTP_PROXY_PASSWORD', $settingsIni['PROXY']['PASSWORD']);
+          $this->Define('HTTP_PROXY_PASSWORD',
+              $settingsIni['PROXY']['PASSWORD']);
         }
       }
 
@@ -248,15 +249,28 @@ abstract class AdsUser {
       // SSL settings.
       if (array_key_exists('SSL', $settingsIni)) {
         if (array_key_exists('VERIFY_PEER', $settingsIni['SSL'])) {
-          define('SSL_VERIFY_PEER', $settingsIni['SSL']['VERIFY_PEER']);
+          $this->Define('SSL_VERIFY_PEER', $settingsIni['SSL']['VERIFY_PEER']);
         }
         if (array_key_exists('CA_PATH', $settingsIni['SSL'])) {
-          define('SSL_CA_PATH', $settingsIni['SSL']['CA_PATH']);
+          $this->Define('SSL_CA_PATH', $settingsIni['SSL']['CA_PATH']);
         }
         if (array_key_exists('CA_FILE', $settingsIni['SSL'])) {
-          define('SSL_CA_FILE', $settingsIni['SSL']['CA_FILE']);
+          $this->Define('SSL_CA_FILE', $settingsIni['SSL']['CA_FILE']);
         }
       }
+    }
+  }
+
+  /**
+   * Define a constant if it isn't already defined. If it is defined but the
+   * value is different then attempt to redefine it, which will fail and throw
+   * the appropriate error.
+   * @param string $name the name of the constant
+   * @param string $value the value of the constant
+   */
+  private function Define($name, $value) {
+    if (!defined($name) || (constant($name) != $value)) {
+      define ($name, $value);
     }
   }
 
