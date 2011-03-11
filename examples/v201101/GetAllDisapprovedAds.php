@@ -69,13 +69,10 @@ try {
   // Display ads.
   if (isset($page->entries)) {
     foreach ($page->entries as $adGroupAd) {
-      if ($adGroupAd->ad->approvalStatus == 'DISAPPROVED') {
-        print 'Ad with id "' . $adGroupAd->ad->id . '" and type "'
-            . $adGroupAd->ad->AdType
-            . "\" was disapproved for the following reasons:\n";
-        foreach ($adGroupAd->ad->disapprovalReasons as $reason) {
-          print '  "' . $reason . "\"\n";
-        }
+      printf("Ad with id '%.0f', and type '%s' was disapproved for the "
+          . "following reasons:\n", $adGroupAd->ad->id, $adGroupAd->ad->AdType);
+      foreach ($adGroupAd->ad->disapprovalReasons as $reason) {
+        printf("\t'%s'\n", $reason);
       }
     }
   } else {
