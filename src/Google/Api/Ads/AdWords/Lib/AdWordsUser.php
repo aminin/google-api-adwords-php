@@ -401,6 +401,25 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
+   * Gets the DataService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return DataService the instantiated data service
+   */
+  public function GetDataService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('DataService', 'cm', $version, $server,
+        $serviceFactory, NULL, NULL, $validateOnly);
+  }
+
+  /**
    * Gets the ExperimentService SOAP client.
    * @param string $version the version of the service to get. If
    *     <var>NULL</var>, then the default version will be used
