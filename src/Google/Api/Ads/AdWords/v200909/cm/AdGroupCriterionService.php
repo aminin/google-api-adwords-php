@@ -1149,9 +1149,7 @@ class AdGroupCriterionBids {
 
 if (!class_exists("AdGroupCriterion", FALSE)) {
 /**
- * Represents a crterion in an ad group.
- * 
- * <p>May be instantiated to refer to ad group criteria to be deleted.
+ * Represents a criterion in an ad group, used with AdGroupCriterionService.
  */
 class AdGroupCriterion {
   /**
@@ -3864,7 +3862,7 @@ class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
 
 if (!class_exists("ManualCPCAdGroupCriterionBids", FALSE)) {
 /**
- * Data representing a criterion-level CPC bid.
+ * Data representing a criterion level cost-per-click bid.
  */
 class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
   /**

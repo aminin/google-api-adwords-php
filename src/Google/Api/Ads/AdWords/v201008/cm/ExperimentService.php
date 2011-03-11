@@ -958,7 +958,7 @@ class ExperimentServiceErrorReason {
 
 if (!class_exists("ExperimentServingStatus", FALSE)) {
 /**
- * 
+ * Experiment is currently active and receiving traffic
  */
 class ExperimentServingStatus {
   /**

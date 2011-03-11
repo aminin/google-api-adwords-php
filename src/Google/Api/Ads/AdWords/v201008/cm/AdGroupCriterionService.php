@@ -1073,8 +1073,8 @@ class Bid {
 
 if (!class_exists("BidMultiplier", FALSE)) {
 /**
- * Represents a bid multiplier to modify a bid. The final value after
- * modification is represented by the multipliedBid value.
+ * Represents a multiplier to modify a bid. The final value after
+ * modification is represented by the multiplied bid value.
  */
 class BidMultiplier {
   /**
@@ -1228,7 +1228,7 @@ class AdGroupCriterionExperimentBidMultiplier {
 
 if (!class_exists("BiddableAdGroupCriterionExperimentData", FALSE)) {
 /**
- * Data associated with an advertiser experiment for this {@link BiddableAdGroupCriterion}
+ * Data associated with an advertiser experiment for this {@link BiddableAdGroupCriterion}.
  */
 class BiddableAdGroupCriterionExperimentData {
   /**
@@ -1419,9 +1419,7 @@ class AdGroupCriterionBids {
 
 if (!class_exists("AdGroupCriterion", FALSE)) {
 /**
- * Represents a crterion in an ad group.
- * 
- * <p>May be instantiated to refer to ad group criteria to be deleted.
+ * Represents a criterion in an ad group, used with AdGroupCriterionService.
  */
 class AdGroupCriterion {
   /**
@@ -2183,7 +2181,7 @@ class EntityNotFoundReason {
 
 if (!class_exists("ExperimentDataStatus", FALSE)) {
 /**
- * Whether this delta row is being used for the experiment.
+ * Status of the experimental change associated with an entity.
  */
 class ExperimentDataStatus {
   /**
@@ -2209,7 +2207,7 @@ class ExperimentDataStatus {
 
 if (!class_exists("ExperimentDeltaStatus", FALSE)) {
 /**
- * 
+ * Status of an entity denoting its type of experimental change in a campaign.
  */
 class ExperimentDeltaStatus {
   /**
@@ -3799,7 +3797,7 @@ class PagingError extends ApiError {
 
 if (!class_exists("PercentCPAAdGroupCriterionBids", FALSE)) {
 /**
- * Criterion-level Percent CPA bid for Product criteria type.
+ * Criterion-level Percent cost-per-conversion(acquisition) bid for Product criteria type.
  * {@link PercentCPA} bidding strategy and bids are available only
  * to some advertisers.
  */
@@ -4335,8 +4333,9 @@ if (!class_exists("Vertical", FALSE)) {
 /**
  * Use verticals to target or exclude placements in the Google Display Network
  * based on the category into which the placement falls (for example, "Pets &amp;
- * Animals/Pets/Dogs"). <a href="../codelists/vertical_categories.html">View
- * the complete list of available vertical categories.</a>
+ * Animals/Pets/Dogs").
+ * <a href="/apis/adwords/docs/appendix/verticals.html">View the complete list
+ * of available vertical categories.</a>
  */
 class Vertical extends Criterion {
   /**
@@ -4694,7 +4693,7 @@ class Product extends Criterion {
 
 if (!class_exists("ManualCPCAdGroupCriterionBids", FALSE)) {
 /**
- * Data representing a criterion-level CPC bid.
+ * Data representing a criterion level cost-per-click bid.
  */
 class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
   /**

@@ -2601,6 +2601,32 @@ class StringLengthErrorReason {
   }
 }}
 
+if (!class_exists("TargetErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ */
+class TargetErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "TargetError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('TargetErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("TimeUnit", FALSE)) {
 /**
  * Unit of time the cap is defined at.
@@ -3682,6 +3708,11 @@ if (!class_exists("PercentCPA", FALSE)) {
 /**
  * Percentage CPA based bidding where user pays a percent of conversions.
  * This bidding strategy is available only to some advertisers.
+ * <p>A campaign can only be created with PercentCPA bidding strategy.
+ * Existing campaigns with a different bidding strategy cannot be transitioned to
+ * PercentCPA.
+ * <p>Similarly, once created as a PercentCPA, a campaign cannot be transitioned to
+ * any other bidding strategy.
  */
 class PercentCPA extends BiddingStrategy {
   /**
@@ -4170,6 +4201,43 @@ class StringLengthError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('StringLengthError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("TargetError", FALSE)) {
+/**
+ * A list of all the error codes being used by the common targeting package.
+ */
+class TargetError extends ApiError {
+  /**
+   * @access public
+   * @var tnsTargetErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201008";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "TargetError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('TargetError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -4737,6 +4805,7 @@ class CampaignService extends AdWordsSoapClient {
     "StatsQueryError" => "StatsQueryError",
     "StatsSelector" => "StatsSelector",
     "StringLengthError" => "StringLengthError",
+    "TargetError" => "TargetError",
     "DatabaseError" => "DatabaseError",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
@@ -4797,6 +4866,7 @@ class CampaignService extends AdWordsSoapClient {
     "Stats.Network" => "StatsNetwork",
     "StatsQueryError.Reason" => "StatsQueryErrorReason",
     "StringLengthError.Reason" => "StringLengthErrorReason",
+    "TargetError.Reason" => "TargetErrorReason",
     "TimeUnit" => "TimeUnit",
   );
 

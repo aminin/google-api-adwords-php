@@ -778,8 +778,8 @@ class Bid {
 
 if (!class_exists("BidMultiplier", FALSE)) {
 /**
- * Represents a bid multiplier to modify a bid. The final value after
- * modification is represented by the multipliedBid value.
+ * Represents a multiplier to modify a bid. The final value after
+ * modification is represented by the multiplied bid value.
  */
 class BidMultiplier {
   /**
@@ -1683,7 +1683,7 @@ class EntityNotFoundReason {
 
 if (!class_exists("ExperimentDataStatus", FALSE)) {
 /**
- * Whether this delta row is being used for the experiment.
+ * Status of the experimental change associated with an entity.
  */
 class ExperimentDataStatus {
   /**
@@ -1709,7 +1709,7 @@ class ExperimentDataStatus {
 
 if (!class_exists("ExperimentDeltaStatus", FALSE)) {
 /**
- * 
+ * Status of an entity denoting its type of experimental change in a campaign.
  */
 class ExperimentDeltaStatus {
   /**

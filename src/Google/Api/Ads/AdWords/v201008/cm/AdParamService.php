@@ -31,9 +31,9 @@ require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 if (!class_exists("AdParam", FALSE)) {
 /**
  * Represents an ad parameter.  Use ad parameters to update numeric values
- * (such as prices or inventory levels) in text ads. You can set two
- * <code>AdParam</code> objects (one for each value of {@link #paramIndex})
- * per ad group {@link Keyword} criterion.
+ * (such as prices or inventory levels) in any line of a text ad, including
+ * the destination URL. You can set two <code>AdParam</code> objects
+ * (one for each value of {@link #paramIndex}) per ad group {@link Keyword} criterion.
  * <p>When setting or removing an <code>AdParam</code>, it is uniquely
  * identified by the combination of these three fields:</p>
  * <ul>

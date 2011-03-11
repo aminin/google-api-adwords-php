@@ -1175,7 +1175,7 @@ class UserList {
 
 if (!class_exists("UserListError", FALSE)) {
 /**
- * 
+ * Represents possible error codes in UserListService.
  */
 class UserListError extends ApiError {
   /**
@@ -1382,12 +1382,6 @@ class UserListSelector {
 
   /**
    * @access public
-   * @var boolean
-   */
-  public $includeUserInterests;
-
-  /**
-   * @access public
    * @var Paging
    */
   public $paging;
@@ -1408,12 +1402,11 @@ class UserListSelector {
     return "UserListSelector";
   }
 
-  public function __construct($userListIds = NULL, $userListTypes = NULL, $userListStatuses = NULL, $includeUserInterests = NULL, $paging = NULL) {
+  public function __construct($userListIds = NULL, $userListTypes = NULL, $userListStatuses = NULL, $paging = NULL) {
     if(get_parent_class('UserListSelector')) parent::__construct();
     $this->userListIds = $userListIds;
     $this->userListTypes = $userListTypes;
     $this->userListStatuses = $userListStatuses;
-    $this->includeUserInterests = $includeUserInterests;
     $this->paging = $paging;
   }
 }}

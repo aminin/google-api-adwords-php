@@ -64,8 +64,8 @@ try {
   if (isset($result[0])) {
     $image = $result[0];
     $dimensions = MapUtils::GetMap($image->dimensions);
-    printf("Image with id '%s', dimensions '%dx%d', and MIME type '%s' was " .
-        "uploaded.\n",
+    printf("Image with id '%s', dimensions '%dx%d', and MIME type '%s' was "
+        . "uploaded.\n",
         $image->mediaId, $dimensions['FULL']->width,
         $dimensions['FULL']->height, $image->mimeType);
   } else {

@@ -941,8 +941,6 @@ if (!class_exists("DayOfWeek", FALSE)) {
  * 
  * 
  * 
- * 
- * 
  * Immutable structure to hold an ad schedule target.
  */
 class DayOfWeek {
@@ -1155,7 +1153,6 @@ if (!class_exists("KeywordMatchType", FALSE)) {
  * 
  * 
  * 
- * 
  * Immutable structure to hold an ad schedule target.
  */
 class KeywordMatchType {
@@ -1186,7 +1183,6 @@ if (!class_exists("MinuteOfHour", FALSE)) {
  * 
  * 
  * 
- * 
  * Immutable structure to hold an ad schedule target.
  */
 class MinuteOfHour {
@@ -1214,9 +1210,6 @@ class MinuteOfHour {
 if (!class_exists("NetworkCoverageType", FALSE)) {
 /**
  * Network coverage types.
- * 
- * 
- * 
  * 
  * 
  * 
@@ -1397,9 +1390,6 @@ class OperatorErrorReason {
 if (!class_exists("PlatformType", FALSE)) {
 /**
  * Platform types.
- * 
- * 
- * 
  * 
  * 
  * 
@@ -2921,7 +2911,10 @@ class Keyword extends Criterion {
 
 if (!class_exists("LanguageTarget", FALSE)) {
 /**
- * Immutable structure to hold a language target.
+ * Represents language for targeting.
+ * The list of languages available for targeting are listed
+ * <a href = "http://code.google.com/apis/adwords/docs/appendix/languagecodes.html">
+ * here.</a>
  * 
  * 
  * 
@@ -3029,6 +3022,8 @@ class Money extends ComparableValue {
 if (!class_exists("NetworkTarget", FALSE)) {
 /**
  * Immutable structure to hold a network coverage target.
+ * This class has been replaced by the networkSetting attribute in
+ * the Campaign structure in v201101.
  * 
  * 
  * 
@@ -3343,7 +3338,8 @@ class Placement extends Criterion {
 
 if (!class_exists("PlatformTarget", FALSE)) {
 /**
- * Immutable structure to hold a platform target.
+ * A platform target is used to discriminate among the potential devices from
+ * which the users access the web (ie, desktops vs. mobile devices).
  * 
  * 
  * 
@@ -3964,8 +3960,9 @@ if (!class_exists("Vertical", FALSE)) {
 /**
  * Use verticals to target or exclude placements in the Google Display Network
  * based on the category into which the placement falls (for example, "Pets &amp;
- * Animals/Pets/Dogs"). <a href="../codelists/vertical_categories.html">View
- * the complete list of available vertical categories.</a>
+ * Animals/Pets/Dogs").
+ * <a href="/apis/adwords/docs/appendix/verticals.html">View the complete list
+ * of available vertical categories.</a>
  * 
  * 
  * 
@@ -4451,7 +4448,13 @@ class AgeTarget extends DemographicTarget {
 
 if (!class_exists("CityTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a city.
+ * Represents cities for targeting.
+ * The list of cities around the world available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/cities_world.html">
+ * here.</a>
+ * The list of cities within US available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/cities_us.html">
+ * here.</a>
  * 
  * 
  * 
@@ -4504,7 +4507,10 @@ class CityTarget extends GeoTarget {
 
 if (!class_exists("CountryTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a country.
+ * Represents countries in the world for targeting.
+ * The list of countries of the world available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/countrycodes.html">
+ * here.</a>
  * 
  * 
  * 
@@ -4658,7 +4664,10 @@ class LongValue extends NumberValue {
 
 if (!class_exists("MetroTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a metro.
+ * Represents US metropolitan regions (metros) for targeting.
+ * The list of metros available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/metrocodes.html">
+ * here.</a>
  * 
  * 
  * 
@@ -4697,7 +4706,9 @@ class MetroTarget extends GeoTarget {
 
 if (!class_exists("MobileCarrierTarget", FALSE)) {
 /**
- * Immutable structure to hold a mobile carrier target.
+ * Represents a mobile carrier for a particular country. See
+ * <a href="/apis/adwords/docs/appendix/mobilecarriers.html">
+ * available carriers</a> for each country code.
  * 
  * 
  * 
@@ -4742,7 +4753,9 @@ class MobileCarrierTarget extends MobileTarget {
 
 if (!class_exists("MobilePlatformTarget", FALSE)) {
 /**
- * Immutable structure to hold a mobile platform target.
+ * Represents a mobile operating system platform. See
+ * <a href="/apis/adwords/docs/appendix/mobileplatforms.html">
+ * available platforms</a>.
  * 
  * 
  * 
@@ -4785,7 +4798,9 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * A polygon target is described by a list of at least three points,
  * where each point is a (<var>latitude</var>, <var>longitude</var>)
  * ordered pair. No point can be no more than 400km from the center of
- * the polygon. Polygon targets cannot be used for exclusion, and
+ * the polygon. The points are specified in microdegrees, the precison
+ * for the value is 1 second which is equal to 277 microdegrees.
+ * Polygon targets cannot be used for exclusion, and
  * other targets cannot be used to exclude regions of polygon targets.
  * 
  * 
@@ -4825,7 +4840,10 @@ class PolygonTarget extends GeoTarget {
 
 if (!class_exists("ProvinceTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a province or state.
+ * Represents the worldwide province for targeting.
+ * The list of provinces available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/provincecodes.html">
+ * here</a>
  * 
  * 
  * 
@@ -4869,9 +4887,10 @@ if (!class_exists("ProximityTarget", FALSE)) {
  * This proximity target doesn't support taking in a location address in place
  * of a lat/long, geocoding it, and creating a proximity target for the
  * campaign. The caller must ensure the address fields are valid
- * and consistent with the supplied lat/long. Proximity targets cannot be used
- * for exclusion, and other targets cannot be used to exclude regions of
- * proximity targets.
+ * and consistent with the supplied lat/long. GeoLocationService can be used
+ * to find a valid GeoPoint for an address that can be used with this service.
+ * Proximity targets cannot be used for exclusion, and other targets cannot be used
+ * to exclude regions of proximity targets.
  * 
  * 
  * 

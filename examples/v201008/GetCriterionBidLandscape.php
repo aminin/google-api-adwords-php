@@ -66,13 +66,13 @@ try {
   // Get bid landscape for ad group criteria.
   $bidLandscapes = $bidLandscapeService->getBidLandscape($selector);
 
-  // Displsay bid landscapes.
+  // Display bid landscapes.
   if (isset($bidLandscapes)) {
     foreach ($bidLandscapes as $bidLandscape) {
       if ($bidLandscape instanceof CriterionBidLandscape) {
-        printf("Found criterion bid landscape with ad group id '%s', criterion "
-            . "id '%s', start date '%s', end date '%s', and landscape "
-            . "points:\n",
+        printf("Found criterion bid landscape with ad group id '%s', "
+            . "criterion id '%s', start date '%s', end date '%s', and "
+            . "landscape points:\n",
             $bidLandscape->adGroupId, $bidLandscape->criterionId,
             $bidLandscape->startDate, $bidLandscape->endDate);
         foreach ($bidLandscape->landscapePoints as $bidLandscapePoint) {

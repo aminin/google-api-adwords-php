@@ -2229,11 +2229,11 @@ if (!class_exists("CampaignAdExtensionServiceGet", FALSE)) {
  * 
  * 
  * 
- * Returns a list of CampaignAdExtensions based on a
- * CampaignAdExtensionSelector.
- * @param selector the selector specifying the query
- * @return the page containing the CampaignAdExtensions which meet the
- * criteria specified by the selector
+ * Returns a list of {@link CampaignAdExtension}s based on a
+ * {@link CampaignAdExtensionSelector}.
+ * @param selector The selector specifying the query.
+ * @return The page containing the {@link CampaignAdExtension}s which meet the
+ * criteria specified by the selector.
  */
 class CampaignAdExtensionServiceGet {
   /**
@@ -2303,14 +2303,14 @@ if (!class_exists("CampaignAdExtensionServiceMutate", FALSE)) {
  * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
  * <span class="constraint NotEmpty">This field must contain at least one element.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
- * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
  * 
  * 
  * 
  * Applies the list of mutate operations.
- * @param operations the operations to apply. The same campaign ad extension
+ * @param operations The operations to apply. The same {@link CampaignAdExtension}
  * cannot be specified in more than one operation.
- * @return the applied campaign ad extensions
+ * @return The applied {@link CampaignAdExtension}s. The {@link Operator#SET}
+ * is not supported.
  */
 class CampaignAdExtensionServiceMutate {
   /**
@@ -4112,11 +4112,11 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
    * 
    * 
    * 
-   * Returns a list of CampaignAdExtensions based on a
-   * CampaignAdExtensionSelector.
-   * @param selector the selector specifying the query
-   * @return the page containing the CampaignAdExtensions which meet the
-   * criteria specified by the selector
+   * Returns a list of {@link CampaignAdExtension}s based on a
+   * {@link CampaignAdExtensionSelector}.
+   * @param selector The selector specifying the query.
+   * @return The page containing the {@link CampaignAdExtension}s which meet the
+   * criteria specified by the selector.
    */
   public function get($selector) {
     $arg = new CampaignAdExtensionServiceGet($selector);
@@ -4130,14 +4130,14 @@ class CampaignAdExtensionService extends AdWordsSoapClient {
    * <span class="constraint DistinctIds">Elements in this field must have distinct IDs for following {@link Operator}s : SET, REMOVE.</span>
    * <span class="constraint NotEmpty">This field must contain at least one element.</span>
    * <span class="constraint Required">This field is required and should not be {@code null}.</span>
-   * <span class="constraint SupportedOperators">The following {@link Operator}s are supported: ADD, REMOVE.</span>
    * 
    * 
    * 
    * Applies the list of mutate operations.
-   * @param operations the operations to apply. The same campaign ad extension
+   * @param operations The operations to apply. The same {@link CampaignAdExtension}
    * cannot be specified in more than one operation.
-   * @return the applied campaign ad extensions
+   * @return The applied {@link CampaignAdExtension}s. The {@link Operator#SET}
+   * is not supported.
    */
   public function mutate($operations) {
     $arg = new CampaignAdExtensionServiceMutate($operations);

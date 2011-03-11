@@ -1551,9 +1551,9 @@ class AdGroupAdSelector {
 
 if (!class_exists("Ad", FALSE)) {
 /**
- * The base class of all Ad types.  Not abstract since it is conceivable for
- * the base attributes of an Ad to be updated without reference to its concrete
- * type.
+ * The base class of all ad types. To update basic ad fields (such as
+ * {@link #status status}), you can construct an {@code Ad} object (instead of
+ * the ad's concrete type) with the appropriate fields set.
  */
 class Ad {
   /**
@@ -1924,7 +1924,7 @@ class Page {
 
 if (!class_exists("AdApprovalStatus", FALSE)) {
 /**
- * Approval status for Creatives.
+ * Represents the possible approval statuses.
  */
 class AdApprovalStatus {
   /**
@@ -4177,7 +4177,10 @@ class InternalApiError extends ApiError {
 
 if (!class_exists("LanguageTarget", FALSE)) {
 /**
- * Immutable structure to hold a language target.
+ * Represents language for targeting.
+ * The list of languages available for targeting are listed
+ * <a href = "http://code.google.com/apis/adwords/docs/appendix/languagecodes.html">
+ * here.</a>
  */
 class LanguageTarget extends AdWordsTarget {
   /**
@@ -4442,6 +4445,8 @@ class Money extends ComparableValue {
 if (!class_exists("NetworkTarget", FALSE)) {
 /**
  * Immutable structure to hold a network coverage target.
+ * This class has been replaced by the networkSetting attribute in
+ * the Campaign structure in v201101.
  */
 class NetworkTarget extends AdWordsTarget {
   /**
@@ -4727,7 +4732,8 @@ class PagingError extends ApiError {
 
 if (!class_exists("PlatformTarget", FALSE)) {
 /**
- * Immutable structure to hold a platform target.
+ * A platform target is used to discriminate among the potential devices from
+ * which the users access the web (ie, desktops vs. mobile devices).
  */
 class PlatformTarget extends AdWordsTarget {
   /**
@@ -5342,12 +5348,10 @@ class GeoTarget extends AdWordsTarget {
 if (!class_exists("MobileImageAd", FALSE)) {
 /**
  * Represents a mobile image ad.
- * <p>
- * For more information, see
- * <a href=
- * "http://adwords.google.com/support/aw/bin/static.py?hl=en&amp;topic=28428&gamp;uide=28427&amp;page=guide.cs"
- * target="_blank">Mobile Ads Requirements</a>.
- * </p>
+ * 
+ * <p>For more information, see the
+ * <a href="http://adwords.google.com/support/aw/bin/answer.py?answer=83248"
+ * >mobile ads guidelines</a>.</p>
  */
 class MobileImageAd extends Ad {
   /**
@@ -5767,9 +5771,13 @@ class LocalBusinessAd extends Ad {
 
 if (!class_exists("TemplateAd", FALSE)) {
 /**
- * Represents a TemplateAd. A template ad is composed of a template (specified
- * by it's template id) along with all the elements to populate the
- * template's fields.
+ * Represents a <a href=
+ * "http://www.google.com/adwords/displaynetwork/plan-creative-campaigns/display-ad-builder.html"
+ * >Display Ad Builder</a> template ad. A template ad is
+ * composed of a template (specified by its ID) and the data that populates
+ * the template's fields. For a list of available templates and their required
+ * fields, see the <a href=
+ * "/apis/adwords/docs/appendix/templateads.html">Template Ads appendix</a>.
  */
 class TemplateAd extends Ad {
   /**
@@ -6024,7 +6032,13 @@ class AgeTarget extends DemographicTarget {
 
 if (!class_exists("CityTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a city.
+ * Represents cities for targeting.
+ * The list of cities around the world available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/cities_world.html">
+ * here.</a>
+ * The list of cities within US available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/cities_us.html">
+ * here.</a>
  */
 class CityTarget extends GeoTarget {
   /**
@@ -6073,7 +6087,10 @@ class CityTarget extends GeoTarget {
 
 if (!class_exists("CountryTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a country.
+ * Represents countries in the world for targeting.
+ * The list of countries of the world available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/countrycodes.html">
+ * here.</a>
  */
 class CountryTarget extends GeoTarget {
   /**
@@ -6211,7 +6228,10 @@ class LongValue extends NumberValue {
 
 if (!class_exists("MetroTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a metro.
+ * Represents US metropolitan regions (metros) for targeting.
+ * The list of metros available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/metrocodes.html">
+ * here.</a>
  */
 class MetroTarget extends GeoTarget {
   /**
@@ -6246,7 +6266,9 @@ class MetroTarget extends GeoTarget {
 
 if (!class_exists("MobileCarrierTarget", FALSE)) {
 /**
- * Immutable structure to hold a mobile carrier target.
+ * Represents a mobile carrier for a particular country. See
+ * <a href="/apis/adwords/docs/appendix/mobilecarriers.html">
+ * available carriers</a> for each country code.
  */
 class MobileCarrierTarget extends MobileTarget {
   /**
@@ -6287,7 +6309,9 @@ class MobileCarrierTarget extends MobileTarget {
 
 if (!class_exists("MobilePlatformTarget", FALSE)) {
 /**
- * Immutable structure to hold a mobile platform target.
+ * Represents a mobile operating system platform. See
+ * <a href="/apis/adwords/docs/appendix/mobileplatforms.html">
+ * available platforms</a>.
  */
 class MobilePlatformTarget extends MobileTarget {
   /**
@@ -6326,7 +6350,9 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * A polygon target is described by a list of at least three points,
  * where each point is a (<var>latitude</var>, <var>longitude</var>)
  * ordered pair. No point can be no more than 400km from the center of
- * the polygon. Polygon targets cannot be used for exclusion, and
+ * the polygon. The points are specified in microdegrees, the precison
+ * for the value is 1 second which is equal to 277 microdegrees.
+ * Polygon targets cannot be used for exclusion, and
  * other targets cannot be used to exclude regions of polygon targets.
  */
 class PolygonTarget extends GeoTarget {
@@ -6362,7 +6388,10 @@ class PolygonTarget extends GeoTarget {
 
 if (!class_exists("ProvinceTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a province or state.
+ * Represents the worldwide province for targeting.
+ * The list of provinces available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/provincecodes.html">
+ * here</a>
  */
 class ProvinceTarget extends GeoTarget {
   /**
@@ -6402,9 +6431,10 @@ if (!class_exists("ProximityTarget", FALSE)) {
  * This proximity target doesn't support taking in a location address in place
  * of a lat/long, geocoding it, and creating a proximity target for the
  * campaign. The caller must ensure the address fields are valid
- * and consistent with the supplied lat/long. Proximity targets cannot be used
- * for exclusion, and other targets cannot be used to exclude regions of
- * proximity targets.
+ * and consistent with the supplied lat/long. GeoLocationService can be used
+ * to find a valid GeoPoint for an address that can be used with this service.
+ * Proximity targets cannot be used for exclusion, and other targets cannot be used
+ * to exclude regions of proximity targets.
  */
 class ProximityTarget extends GeoTarget {
   /**

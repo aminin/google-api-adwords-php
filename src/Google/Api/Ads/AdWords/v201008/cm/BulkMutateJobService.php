@@ -30,9 +30,9 @@ require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("Ad", FALSE)) {
 /**
- * The base class of all Ad types.  Not abstract since it is conceivable for
- * the base attributes of an Ad to be updated without reference to its concrete
- * type.
+ * The base class of all ad types. To update basic ad fields (such as
+ * {@link #status status}), you can construct an {@code Ad} object (instead of
+ * the ad's concrete type) with the appropriate fields set.
  */
 class Ad {
   /**
@@ -486,9 +486,7 @@ class AdGroupBids {
 
 if (!class_exists("AdGroupCriterion", FALSE)) {
 /**
- * Represents a crterion in an ad group.
- * 
- * <p>May be instantiated to refer to ad group criteria to be deleted.
+ * Represents a criterion in an ad group, used with AdGroupCriterionService.
  */
 class AdGroupCriterion {
   /**
@@ -1603,8 +1601,8 @@ class Bid {
 
 if (!class_exists("BidMultiplier", FALSE)) {
 /**
- * Represents a bid multiplier to modify a bid. The final value after
- * modification is represented by the multipliedBid value.
+ * Represents a multiplier to modify a bid. The final value after
+ * modification is represented by the multiplied bid value.
  */
 class BidMultiplier {
   /**
@@ -1736,7 +1734,7 @@ class BiddableAdGroupCriterion extends AdGroupCriterion {
 
 if (!class_exists("BiddableAdGroupCriterionExperimentData", FALSE)) {
 /**
- * Data associated with an advertiser experiment for this {@link BiddableAdGroupCriterion}
+ * Data associated with an advertiser experiment for this {@link BiddableAdGroupCriterion}.
  */
 class BiddableAdGroupCriterionExperimentData {
   /**
@@ -4742,7 +4740,7 @@ class ManualCPCAdGroupBids extends AdGroupBids {
 
 if (!class_exists("ManualCPCAdGroupCriterionBids", FALSE)) {
 /**
- * Data representing a criterion-level CPC bid.
+ * Data representing a criterion level cost-per-click bid.
  */
 class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
@@ -5454,12 +5452,10 @@ class MobileExtension extends AdExtension {
 if (!class_exists("MobileImageAd", FALSE)) {
 /**
  * Represents a mobile image ad.
- * <p>
- * For more information, see
- * <a href=
- * "http://adwords.google.com/support/aw/bin/static.py?hl=en&amp;topic=28428&gamp;uide=28427&amp;page=guide.cs"
- * target="_blank">Mobile Ads Requirements</a>.
- * </p>
+ * 
+ * <p>For more information, see the
+ * <a href="http://adwords.google.com/support/aw/bin/answer.py?answer=83248"
+ * >mobile ads guidelines</a>.</p>
  */
 class MobileImageAd extends Ad {
   /**
@@ -6255,6 +6251,11 @@ if (!class_exists("PercentCPA", FALSE)) {
 /**
  * Percentage CPA based bidding where user pays a percent of conversions.
  * This bidding strategy is available only to some advertisers.
+ * <p>A campaign can only be created with PercentCPA bidding strategy.
+ * Existing campaigns with a different bidding strategy cannot be transitioned to
+ * PercentCPA.
+ * <p>Similarly, once created as a PercentCPA, a campaign cannot be transitioned to
+ * any other bidding strategy.
  */
 class PercentCPA extends BiddingStrategy {
   /**
@@ -6317,7 +6318,7 @@ class PercentCPAAdGroupBids extends AdGroupBids {
 
 if (!class_exists("PercentCPAAdGroupCriterionBids", FALSE)) {
 /**
- * Criterion-level Percent CPA bid for Product criteria type.
+ * Criterion-level Percent cost-per-conversion(acquisition) bid for Product criteria type.
  * {@link PercentCPA} bidding strategy and bids are available only
  * to some advertisers.
  */
@@ -6653,11 +6654,19 @@ class Product extends Criterion {
 
 if (!class_exists("ProductAd", FALSE)) {
 /**
- * Represents a ProductAd.
+ * Represents a product ad (known as a <a href=
+ * "https://adwords.google.com/support/aw/bin/answer.py?answer=185788">product
+ * listing ad</a> in the AdWords user interface). A product ad displays
+ * product data (managed using the Google Merchant Center) that is
+ * pulled from the Google base product feed specified in the parent campaign's
+ * {@linkplain ProductExtension product extension}.
  * 
- * A ProductAd serves as an ad which displays a merchant's products (managed
- * via Google Merchant Center). The ad uses a product feed stored in the
- * campaign's ProductExtension.
+ * <p>Product ads are only available to a limited set of advertisers. If you
+ * not eligible to use product ads, they will not serve.</p>
+ * 
+ * <p class="caution"><b>Caution:</b> Product ads do not use {@link #url url} or
+ * {@link #displayUrl displayUrl}; setting these fields on a product ad will
+ * cause an error.</p>
  */
 class ProductAd extends Ad {
   /**
@@ -8096,9 +8105,13 @@ class TempAdUnionId extends AdUnionId {
 
 if (!class_exists("TemplateAd", FALSE)) {
 /**
- * Represents a TemplateAd. A template ad is composed of a template (specified
- * by it's template id) along with all the elements to populate the
- * template's fields.
+ * Represents a <a href=
+ * "http://www.google.com/adwords/displaynetwork/plan-creative-campaigns/display-ad-builder.html"
+ * >Display Ad Builder</a> template ad. A template ad is
+ * composed of a template (specified by its ID) and the data that populates
+ * the template's fields. For a list of available templates and their required
+ * fields, see the <a href=
+ * "/apis/adwords/docs/appendix/templateads.html">Template Ads appendix</a>.
  */
 class TemplateAd extends Ad {
   /**
@@ -8520,8 +8533,9 @@ if (!class_exists("Vertical", FALSE)) {
 /**
  * Use verticals to target or exclude placements in the Google Display Network
  * based on the category into which the placement falls (for example, "Pets &amp;
- * Animals/Pets/Dogs"). <a href="../codelists/vertical_categories.html">View
- * the complete list of available vertical categories.</a>
+ * Animals/Pets/Dogs").
+ * <a href="/apis/adwords/docs/appendix/verticals.html">View the complete list
+ * of available vertical categories.</a>
  */
 class Vertical extends Criterion {
   /**
@@ -8635,7 +8649,7 @@ class Video extends Media {
 
 if (!class_exists("AdApprovalStatus", FALSE)) {
 /**
- * Approval status for Creatives.
+ * Represents the possible approval statuses.
  */
 class AdApprovalStatus {
   /**
@@ -9841,7 +9855,7 @@ class EntityNotFoundReason {
 
 if (!class_exists("ExperimentDataStatus", FALSE)) {
 /**
- * Whether this delta row is being used for the experiment.
+ * Status of the experimental change associated with an entity.
  */
 class ExperimentDataStatus {
   /**
@@ -9867,7 +9881,7 @@ class ExperimentDataStatus {
 
 if (!class_exists("ExperimentDeltaStatus", FALSE)) {
 /**
- * 
+ * Status of an entity denoting its type of experimental change in a campaign.
  */
 class ExperimentDeltaStatus {
   /**
@@ -12016,7 +12030,7 @@ class AdScheduleTargetList extends TargetList {
 
 if (!class_exists("AdStats", FALSE)) {
 /**
- * Represents stats specific to Ads
+ * Represents stats specific to Ads.
  */
 class AdStats extends Stats {
   /**
@@ -13148,7 +13162,10 @@ class JobOperation extends Operation {
 
 if (!class_exists("LanguageTarget", FALSE)) {
 /**
- * Immutable structure to hold a language target.
+ * Represents language for targeting.
+ * The list of languages available for targeting are listed
+ * <a href = "http://code.google.com/apis/adwords/docs/appendix/languagecodes.html">
+ * here.</a>
  */
 class LanguageTarget extends AdWordsTarget {
   /**
@@ -13283,7 +13300,10 @@ class LostResult extends OperationResult {
 
 if (!class_exists("MetroTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a metro.
+ * Represents US metropolitan regions (metros) for targeting.
+ * The list of metros available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/metrocodes.html">
+ * here.</a>
  */
 class MetroTarget extends GeoTarget {
   /**
@@ -13381,6 +13401,8 @@ class MobileTargetList extends TargetList {
 if (!class_exists("NetworkTarget", FALSE)) {
 /**
  * Immutable structure to hold a network coverage target.
+ * This class has been replaced by the networkSetting attribute in
+ * the Campaign structure in v201101.
  */
 class NetworkTarget extends AdWordsTarget {
   /**
@@ -13449,7 +13471,8 @@ class NetworkTargetList extends TargetList {
 
 if (!class_exists("PlatformTarget", FALSE)) {
 /**
- * Immutable structure to hold a platform target.
+ * A platform target is used to discriminate among the potential devices from
+ * which the users access the web (ie, desktops vs. mobile devices).
  */
 class PlatformTarget extends AdWordsTarget {
   /**
@@ -13523,7 +13546,9 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * A polygon target is described by a list of at least three points,
  * where each point is a (<var>latitude</var>, <var>longitude</var>)
  * ordered pair. No point can be no more than 400km from the center of
- * the polygon. Polygon targets cannot be used for exclusion, and
+ * the polygon. The points are specified in microdegrees, the precison
+ * for the value is 1 second which is equal to 277 microdegrees.
+ * Polygon targets cannot be used for exclusion, and
  * other targets cannot be used to exclude regions of polygon targets.
  */
 class PolygonTarget extends GeoTarget {
@@ -13559,7 +13584,10 @@ class PolygonTarget extends GeoTarget {
 
 if (!class_exists("ProvinceTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a province or state.
+ * Represents the worldwide province for targeting.
+ * The list of provinces available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/provincecodes.html">
+ * here</a>
  */
 class ProvinceTarget extends GeoTarget {
   /**
@@ -13599,9 +13627,10 @@ if (!class_exists("ProximityTarget", FALSE)) {
  * This proximity target doesn't support taking in a location address in place
  * of a lat/long, geocoding it, and creating a proximity target for the
  * campaign. The caller must ensure the address fields are valid
- * and consistent with the supplied lat/long. Proximity targets cannot be used
- * for exclusion, and other targets cannot be used to exclude regions of
- * proximity targets.
+ * and consistent with the supplied lat/long. GeoLocationService can be used
+ * to find a valid GeoPoint for an address that can be used with this service.
+ * Proximity targets cannot be used for exclusion, and other targets cannot be used
+ * to exclude regions of proximity targets.
  */
 class ProximityTarget extends GeoTarget {
   /**
@@ -13699,7 +13728,13 @@ class AgeTarget extends DemographicTarget {
 
 if (!class_exists("CityTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a city.
+ * Represents cities for targeting.
+ * The list of cities around the world available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/cities_world.html">
+ * here.</a>
+ * The list of cities within US available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/cities_us.html">
+ * here.</a>
  */
 class CityTarget extends GeoTarget {
   /**
@@ -13748,7 +13783,10 @@ class CityTarget extends GeoTarget {
 
 if (!class_exists("CountryTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a country.
+ * Represents countries in the world for targeting.
+ * The list of countries of the world available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/countrycodes.html">
+ * here.</a>
  */
 class CountryTarget extends GeoTarget {
   /**
@@ -13783,7 +13821,9 @@ class CountryTarget extends GeoTarget {
 
 if (!class_exists("MobileCarrierTarget", FALSE)) {
 /**
- * Immutable structure to hold a mobile carrier target.
+ * Represents a mobile carrier for a particular country. See
+ * <a href="/apis/adwords/docs/appendix/mobilecarriers.html">
+ * available carriers</a> for each country code.
  */
 class MobileCarrierTarget extends MobileTarget {
   /**
@@ -13824,7 +13864,9 @@ class MobileCarrierTarget extends MobileTarget {
 
 if (!class_exists("MobilePlatformTarget", FALSE)) {
 /**
- * Immutable structure to hold a mobile platform target.
+ * Represents a mobile operating system platform. See
+ * <a href="/apis/adwords/docs/appendix/mobileplatforms.html">
+ * available platforms</a>.
  */
 class MobilePlatformTarget extends MobileTarget {
   /**

@@ -2656,8 +2656,9 @@ if (!class_exists("Vertical", FALSE)) {
 /**
  * Use verticals to target or exclude placements in the Google Display Network
  * based on the category into which the placement falls (for example, "Pets &amp;
- * Animals/Pets/Dogs"). <a href="../codelists/vertical_categories.html">View
- * the complete list of available vertical categories.</a>
+ * Animals/Pets/Dogs").
+ * <a href="/apis/adwords/docs/appendix/verticals.html">View the complete list
+ * of available vertical categories.</a>
  */
 class Vertical extends Criterion {
   /**

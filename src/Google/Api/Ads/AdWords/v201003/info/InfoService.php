@@ -956,7 +956,7 @@ if (!class_exists("InfoSelector", FALSE)) {
  * <ul>
  * <li>Specify the apiUsageType and dateRange parameters to retrieve
  * the units recorded over the given date range.</li>
- * <li>Specify the apiUsageType, serviceName, methodName, operator, dateRange to
+ * <li>Specify the apiUsageType, serviceName, methodName and dateRange to
  * retrieve the units recorded over the given date range for a specified method.</li>
  * </ul>
  * </li>

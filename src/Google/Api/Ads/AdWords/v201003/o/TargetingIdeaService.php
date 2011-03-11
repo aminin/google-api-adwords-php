@@ -1107,8 +1107,6 @@ if (!class_exists("DayOfWeek", FALSE)) {
  * 
  * 
  * 
- * 
- * 
  * Base error class for Ad Group Criterion Service.
  */
 class DayOfWeek {
@@ -1291,7 +1289,6 @@ if (!class_exists("KeywordMatchType", FALSE)) {
  * 
  * 
  * 
- * 
  * Base error class for Ad Group Criterion Service.
  */
 class KeywordMatchType {
@@ -1322,7 +1319,6 @@ if (!class_exists("MinuteOfHour", FALSE)) {
  * 
  * 
  * 
- * 
  * Base error class for Ad Group Criterion Service.
  */
 class MinuteOfHour {
@@ -1350,9 +1346,6 @@ class MinuteOfHour {
 if (!class_exists("NetworkCoverageType", FALSE)) {
 /**
  * Network coverage types.
- * 
- * 
- * 
  * 
  * 
  * 
@@ -1473,9 +1466,6 @@ class NullErrorReason {
 if (!class_exists("PlatformType", FALSE)) {
 /**
  * Platform types.
- * 
- * 
- * 
  * 
  * 
  * 
@@ -2297,6 +2287,7 @@ if (!class_exists("SearchParameter", FALSE)) {
  * A request should only contain one instance of each {@link SearchParameter}
  * <p>One or more of the following {@link SearchParameter}s are required:<br/>
  * <ul><li>{@link KeywordCategoryIdSearchParameter}</li>
+ * <li>{@link CategoryProductsAndServicesSearchParameter}</li>
  * <li>{@link RelatedToKeywordSearchParameter}</li>
  * <li>{@link RelatedToUrlSearchParameter}</li>
  * <li>{@link SeedAdGroupIdSearchParameter}</li>
@@ -2307,11 +2298,13 @@ if (!class_exists("SearchParameter", FALSE)) {
  * <li>{@link AverageTargetedMonthlySearchesSearchParameter}</li>
  * <li>{@link CompetitionSearchParameter}</li>
  * <li>{@link CountryTargetSearchParameter}</li>
+ * <li>{@link DeviceTypeSearchParameter}</li>
  * <li>{@link ExcludedKeywordSearchParameter}</li>
  * <li>{@link GlobalMonthlySearchesSearchParameter}</li>
  * <li>{@link IdeaTextMatchesSearchParameter}</li>
  * <li>{@link IncludeAdultContentSearchParameter}</li>
  * <li>{@link KeywordCategoryIdSearchParameter}</li>
+ * <li>{@link CategoryProductsAndServicesSearchParameter}</li>
  * <li>{@link KeywordMatchTypeSearchParameter}</li>
  * <li>{@link LanguageTargetSearchParameter}</li>
  * <li>{@link MobileSearchParameter}</li>
@@ -2325,6 +2318,7 @@ if (!class_exists("SearchParameter", FALSE)) {
  * <ul>
  * <li>{@link AdTypeSearchParameter}</li>
  * <li>{@link CountryTargetSearchParameter}</li>
+ * <li>{@link DeviceTypeSearchParameter}</li>
  * <li>{@link LanguageTargetSearchParameter}</li>
  * <li>{@link MobileSearchParameter}</li>
  * <li>{@link PlacementTypeSearchParameter}</li>
@@ -2661,12 +2655,12 @@ if (!class_exists("AttributeType", FALSE)) {
 /**
  * Represents the type of
  * {@link com.google.ads.api.services.targetingideas.attributes.Attribute}.
- * 
- * 
  * <p><b>{@link IdeaType} KEYWORD supports the following {@link AttributeType}s:</b><br/>
  * <ul><li>{@link #AD_SHARE}</li>
  * <li>{@link #AVERAGE_TARGETED_MONTHLY_SEARCHES}</li>
+ * <li>{@link #CATEGORY_PRODUCTS_AND_SERVICES}</li>
  * <li>{@link #COMPETITION}</li>
+ * <li>{@link #CRITERION}</li>
  * <li>{@link #EXTRACTED_FROM_WEBPAGE}</li>
  * <li>{@link #GLOBAL_MONTHLY_SEARCHES}</li>
  * <li>{@link #IDEA_TYPE}</li>
@@ -2679,6 +2673,7 @@ if (!class_exists("AttributeType", FALSE)) {
  * </ul>
  * <p><b>{@link IdeaType} PLACEMENT supports the following {@link AttributeType}s:</b><br/>
  * <ul><li>{@link #APPROX_CONTENT_IMPRESSIONS_PER_DAY}</li>
+ * <li>{@link #CRITERION}</li>
  * <li>{@link #FORMATS}</li>
  * <li>{@link #IDEA_TYPE}</li>
  * <li>{@link #IN_STREAM_AD_INFO}</li>
@@ -2961,7 +2956,14 @@ if (!class_exists("TargetingIdeaServiceGet", FALSE)) {
  * Returns a page of ideas that match the query described by the specified
  * {@link TargetingIdeaSelector}.
  * 
- * The selector must specify a Paging value, with {@code numberResults} set to 800 or less.
+ * <p>The selector must specify a {@code paging} value, with {@code numberResults} set to 800 or
+ * less.  Large result sets must be composed through multiple calls to this method, advancing the
+ * paging {@code startIndex} value by {@code numberResults} with each call.
+ * 
+ * <p>Only a relatively small total number of results will be available through this method.
+ * Much larger result sets may be available using
+ * {@link #getBulkKeywordIdeas(TargetingIdeaSelector)} at the price of reduced flexibility in
+ * selector options.
  * 
  * @param selector Query describing the types of results to return when
  * finding matches (similar keyword ideas/placement ideas).
@@ -3042,20 +3044,24 @@ if (!class_exists("getBulkKeywordIdeas", FALSE)) {
  * {@link TargetingIdeaSelector}.  This method is specialized for returning
  * bulk keyword ideas, and thus the selector must be set for
  * {@link com.google.ads.api.services.targetingideas.attributes.RequestType#IDEAS} and
- * {@link com.google.ads.api.services.targetingideas.attributes.IdeaType#KEYWORD}.
- * A limited, fixed set of attributes will be returned.<p>
+ * {@link com.google.ads.api.services.common.optimization.attributes.IdeaType#KEYWORD}.
+ * A limited, fixed set of attributes will be returned.
  * 
- * A single-valued
+ * <p>A single-valued
  * {@link com.google.ads.api.services.targetingideas.search.RelatedToUrlSearchParameter}
  * must be supplied.  Single-valued
  * {@link com.google.ads.api.services.targetingideas.search.LanguageTargetSearchParameter} and
  * {@link com.google.ads.api.services.targetingideas.search.CountryTargetSearchParameter} are
  * both optional.  Other search parameters compatible with a keyword query may also be
- * supplied.<p>
+ * supplied.
  * 
- * The selector must specify a Paging value, with {@code numberResults} set to 500 or less.
- * Large result sets must be composed through multiple calls to this method, advancing the
- * Paging {@code startIndex} value by {@code numberResults} with each call.
+ * <p>The selector must specify a {@code paging} value, with {@code numberResults} set to 500 or
+ * less. Large result sets must be composed through multiple calls to this method, advancing the
+ * paging {@code startIndex} value by {@code numberResults} with each call.
+ * 
+ * <p>This method can make many more results available than {@link #get(TargetingIdeaSelector)},
+ * but allows less control over the query. For fine-tuned queries that do not need large numbers
+ * of results, prefer {@link #get(TargetingIdeaSelector)}.
  * 
  * @param selector Query describing the bulk keyword ideas to return.
  * @return A {@link TargetingIdeaPage} of results, that is a subset of the
@@ -3715,7 +3721,10 @@ class Keyword extends Criterion {
 
 if (!class_exists("LanguageTarget", FALSE)) {
 /**
- * Immutable structure to hold a language target.
+ * Represents language for targeting.
+ * The list of languages available for targeting are listed
+ * <a href = "http://code.google.com/apis/adwords/docs/appendix/languagecodes.html">
+ * here.</a>
  * 
  * 
  * 
@@ -3823,6 +3832,8 @@ class Money extends ComparableValue {
 if (!class_exists("NetworkTarget", FALSE)) {
 /**
  * Immutable structure to hold a network coverage target.
+ * This class has been replaced by the networkSetting attribute in
+ * the Campaign structure in v201101.
  * 
  * 
  * 
@@ -4054,7 +4065,8 @@ class Placement extends Criterion {
 
 if (!class_exists("PlatformTarget", FALSE)) {
 /**
- * Immutable structure to hold a platform target.
+ * A platform target is used to discriminate among the potential devices from
+ * which the users access the web (ie, desktops vs. mobile devices).
  * 
  * 
  * 
@@ -4567,8 +4579,9 @@ if (!class_exists("Vertical", FALSE)) {
 /**
  * Use verticals to target or exclude placements in the Google Display Network
  * based on the category into which the placement falls (for example, "Pets &amp;
- * Animals/Pets/Dogs"). <a href="../codelists/vertical_categories.html">View
- * the complete list of available vertical categories.</a>
+ * Animals/Pets/Dogs").
+ * <a href="/apis/adwords/docs/appendix/verticals.html">View the complete list
+ * of available vertical categories.</a>
  * 
  * 
  * 
@@ -5253,6 +5266,9 @@ if (!class_exists("KeywordCategoryIdSearchParameter", FALSE)) {
 /**
  * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s that
  * sets a keyword category that all search results should belong to.
+ * This search parameter will be retired soon in favor of
+ * {@link CategoryProductsAndServicesSearchParameter}, which uses the newer
+ * "Products and Services" taxonomy.
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS.
@@ -5517,7 +5533,7 @@ if (!class_exists("RelatedToUrlSearchParameter", FALSE)) {
  * similar to content keywords found on the related URLs.
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method. It must be single-valued when used in a call to that method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
- * <p>This element is supported by following {@link RequestType}s: IDEAS.
+ * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
  */
 class RelatedToUrlSearchParameter extends SearchParameter {
   /**
@@ -6247,7 +6263,13 @@ class AgeTarget extends DemographicTarget {
 
 if (!class_exists("CityTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a city.
+ * Represents cities for targeting.
+ * The list of cities around the world available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/cities_world.html">
+ * here.</a>
+ * The list of cities within US available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/cities_us.html">
+ * here.</a>
  * 
  * 
  * 
@@ -6300,7 +6322,10 @@ class CityTarget extends GeoTarget {
 
 if (!class_exists("CountryTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a country.
+ * Represents countries in the world for targeting.
+ * The list of countries of the world available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/countrycodes.html">
+ * here.</a>
  * 
  * 
  * 
@@ -6494,7 +6519,10 @@ class LongValue extends NumberValue {
 
 if (!class_exists("MetroTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a metro.
+ * Represents US metropolitan regions (metros) for targeting.
+ * The list of metros available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/metrocodes.html">
+ * here.</a>
  * 
  * 
  * 
@@ -6533,7 +6561,9 @@ class MetroTarget extends GeoTarget {
 
 if (!class_exists("MobileCarrierTarget", FALSE)) {
 /**
- * Immutable structure to hold a mobile carrier target.
+ * Represents a mobile carrier for a particular country. See
+ * <a href="/apis/adwords/docs/appendix/mobilecarriers.html">
+ * available carriers</a> for each country code.
  * 
  * 
  * 
@@ -6578,7 +6608,9 @@ class MobileCarrierTarget extends MobileTarget {
 
 if (!class_exists("MobilePlatformTarget", FALSE)) {
 /**
- * Immutable structure to hold a mobile platform target.
+ * Represents a mobile operating system platform. See
+ * <a href="/apis/adwords/docs/appendix/mobileplatforms.html">
+ * available platforms</a>.
  * 
  * 
  * 
@@ -6621,7 +6653,9 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * A polygon target is described by a list of at least three points,
  * where each point is a (<var>latitude</var>, <var>longitude</var>)
  * ordered pair. No point can be no more than 400km from the center of
- * the polygon. Polygon targets cannot be used for exclusion, and
+ * the polygon. The points are specified in microdegrees, the precison
+ * for the value is 1 second which is equal to 277 microdegrees.
+ * Polygon targets cannot be used for exclusion, and
  * other targets cannot be used to exclude regions of polygon targets.
  * 
  * 
@@ -6661,7 +6695,10 @@ class PolygonTarget extends GeoTarget {
 
 if (!class_exists("ProvinceTarget", FALSE)) {
 /**
- * Immutable structure to specify a geographic target for a province or state.
+ * Represents the worldwide province for targeting.
+ * The list of provinces available for targeting are listed
+ * <a href="http://code.google.com/apis/adwords/docs/appendix/provincecodes.html">
+ * here</a>
  * 
  * 
  * 
@@ -6705,9 +6742,10 @@ if (!class_exists("ProximityTarget", FALSE)) {
  * This proximity target doesn't support taking in a location address in place
  * of a lat/long, geocoding it, and creating a proximity target for the
  * campaign. The caller must ensure the address fields are valid
- * and consistent with the supplied lat/long. Proximity targets cannot be used
- * for exclusion, and other targets cannot be used to exclude regions of
- * proximity targets.
+ * and consistent with the supplied lat/long. GeoLocationService can be used
+ * to find a valid GeoPoint for an address that can be used with this service.
+ * Proximity targets cannot be used for exclusion, and other targets cannot be used
+ * to exclude regions of proximity targets.
  * 
  * 
  * 
@@ -6971,7 +7009,14 @@ class TargetingIdeaService extends AdWordsSoapClient {
    * Returns a page of ideas that match the query described by the specified
    * {@link TargetingIdeaSelector}.
    * 
-   * The selector must specify a Paging value, with {@code numberResults} set to 800 or less.
+   * <p>The selector must specify a {@code paging} value, with {@code numberResults} set to 800 or
+   * less.  Large result sets must be composed through multiple calls to this method, advancing the
+   * paging {@code startIndex} value by {@code numberResults} with each call.
+   * 
+   * <p>Only a relatively small total number of results will be available through this method.
+   * Much larger result sets may be available using
+   * {@link #getBulkKeywordIdeas(TargetingIdeaSelector)} at the price of reduced flexibility in
+   * selector options.
    * 
    * @param selector Query describing the types of results to return when
    * finding matches (similar keyword ideas/placement ideas).
@@ -6996,20 +7041,24 @@ class TargetingIdeaService extends AdWordsSoapClient {
    * {@link TargetingIdeaSelector}.  This method is specialized for returning
    * bulk keyword ideas, and thus the selector must be set for
    * {@link com.google.ads.api.services.targetingideas.attributes.RequestType#IDEAS} and
-   * {@link com.google.ads.api.services.targetingideas.attributes.IdeaType#KEYWORD}.
-   * A limited, fixed set of attributes will be returned.<p>
+   * {@link com.google.ads.api.services.common.optimization.attributes.IdeaType#KEYWORD}.
+   * A limited, fixed set of attributes will be returned.
    * 
-   * A single-valued
+   * <p>A single-valued
    * {@link com.google.ads.api.services.targetingideas.search.RelatedToUrlSearchParameter}
    * must be supplied.  Single-valued
    * {@link com.google.ads.api.services.targetingideas.search.LanguageTargetSearchParameter} and
    * {@link com.google.ads.api.services.targetingideas.search.CountryTargetSearchParameter} are
    * both optional.  Other search parameters compatible with a keyword query may also be
-   * supplied.<p>
+   * supplied.
    * 
-   * The selector must specify a Paging value, with {@code numberResults} set to 500 or less.
-   * Large result sets must be composed through multiple calls to this method, advancing the
-   * Paging {@code startIndex} value by {@code numberResults} with each call.
+   * <p>The selector must specify a {@code paging} value, with {@code numberResults} set to 500 or
+   * less. Large result sets must be composed through multiple calls to this method, advancing the
+   * paging {@code startIndex} value by {@code numberResults} with each call.
+   * 
+   * <p>This method can make many more results available than {@link #get(TargetingIdeaSelector)},
+   * but allows less control over the query. For fine-tuned queries that do not need large numbers
+   * of results, prefer {@link #get(TargetingIdeaSelector)}.
    * 
    * @param selector Query describing the bulk keyword ideas to return.
    * @return A {@link TargetingIdeaPage} of results, that is a subset of the

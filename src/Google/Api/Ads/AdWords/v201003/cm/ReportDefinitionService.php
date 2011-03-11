@@ -346,7 +346,7 @@ class SoapResponseHeader {
 
 if (!class_exists("Selector", FALSE)) {
 /**
- * A generic selector to specify the type of campaign information to return.
+ * A generic selector to specify the type of information to return.
  */
 class Selector {
   /**

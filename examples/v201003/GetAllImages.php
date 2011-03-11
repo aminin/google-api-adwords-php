@@ -62,8 +62,8 @@ try {
   if (isset($page->media)) {
     foreach ($page->media as $image) {
       $dimensions = MapUtils::GetMap($image->dimensions);
-      printf("Image with id '%s', dimensions '%dx%d', and MIME type '%s' was " .
-          "found.\n",
+      printf("Image with id '%s', dimensions '%dx%d', and MIME type '%s' was "
+          . "found.\n",
           $image->mediaId, $dimensions['FULL']->width,
           $dimensions['FULL']->height, $image->mimeType);
     }

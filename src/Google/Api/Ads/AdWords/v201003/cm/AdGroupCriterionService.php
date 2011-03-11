@@ -1149,9 +1149,7 @@ class AdGroupCriterionBids {
 
 if (!class_exists("AdGroupCriterion", FALSE)) {
 /**
- * Represents a crterion in an ad group.
- * 
- * <p>May be instantiated to refer to ad group criteria to be deleted.
+ * Represents a criterion in an ad group, used with AdGroupCriterionService.
  */
 class AdGroupCriterion {
   /**
@@ -1231,17 +1229,6 @@ class AdGroupCriterion {
 if (!class_exists("AdGroupCriterionSelector", FALSE)) {
 /**
  * Selects adgroup level criteria.
- * 
- * <p>Note:
- * <ul>
- * <li>You may not sort by biddable criterion-only fields if
- * biddable criteria are not being selected.</li>
- * <li>You may not filter on biddable criterion-only fields if only
- * negatives are being selected.</li>
- * <li>You may not filter on fields that are specific to a criterion
- * type (Keyword, for example) when that type is not being
- * selected.</li>
- * </ul>
  */
 class AdGroupCriterionSelector {
   /**
@@ -3810,8 +3797,9 @@ if (!class_exists("Vertical", FALSE)) {
 /**
  * Use verticals to target or exclude placements in the Google Display Network
  * based on the category into which the placement falls (for example, "Pets &amp;
- * Animals/Pets/Dogs"). <a href="../codelists/vertical_categories.html">View
- * the complete list of available vertical categories.</a>
+ * Animals/Pets/Dogs").
+ * <a href="/apis/adwords/docs/appendix/verticals.html">View the complete list
+ * of available vertical categories.</a>
  */
 class Vertical extends Criterion {
   /**
@@ -4083,7 +4071,7 @@ class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
 
 if (!class_exists("ManualCPCAdGroupCriterionBids", FALSE)) {
 /**
- * Data representing a criterion-level CPC bid.
+ * Data representing a criterion level cost-per-click bid.
  */
 class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
