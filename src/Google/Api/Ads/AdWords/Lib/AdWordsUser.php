@@ -22,7 +22,7 @@
  * @package    GoogleApiAdsAdWords
  * @subpackage Lib
  * @category   WebServices
- * @copyright  2010, Google Inc. All Rights Reserved.
+ * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
@@ -39,14 +39,14 @@ require_once 'AdWordsSoapClientFactory.php';
  * services.
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = '2.4.1';
+  private static $LIB_VERSION = '2.5.0';
   private static $LIB_NAME = 'AwApi';
 
   /**
    * The default version that is loaded if the settings INI cannot be loaded.
    * @var string default version of the API
    */
-  private static $DEFAULT_VERSION = 'v201008';
+  private static $DEFAULT_VERSION = 'v201101';
 
   /**
    * The default server that is loaded if the settings INI cannot be loaded.

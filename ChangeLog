@@ -1,3 +1,17 @@
+2.5.0:
+- Added support for v201101, including examples.
+- Fixed bug where constants were being redefined.
+- Added support for SSL peer validation.
+- Removed name field from image upload examples.
+- Added example for CAPTCHA handling in auth token errors.
+- Prevent whole file from being read in when checking for errors in report
+  download (Issue #51).
+- Enhanced auth token error handling to support 2-step errors.
+- Fixed bug in SoapRequestXmlFixer that lead to duplicate xsi:types in some
+  environments (Issue #50).
+- Added new tests for v201003 and updated some v200909 tests.
+-  Updated examples to ensure proper string formatting for long types.
+
 2.4.1:
 - Added support for the returnMoneyInMicros header in ReportUtils.
 - Added an example for handling partial failures.
@@ -16,7 +30,7 @@
 2.3.0:
 - Added support for v201008, with examples.
 - Changed error handling in examples to avoid authTokens and developer tokens
-appearing in stack traces.
+  appearing in stack traces.
 - Added AuthToken unit test.
 - Added XSI type fix for OSX.
 - Ensured correct argument separator for ClientLogin requests.
