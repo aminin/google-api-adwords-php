@@ -33,11 +33,11 @@
   <property name="api.version.v201101" value="v201101"/>
   <property name="api.version.v201101.ch.services" value="CustomerSyncService"/>
   <property name="api.version.v201101.cm.services"
-      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,DataService,ExperimentService,GeoLocationService,MediaService,ReportDefinitionService,UserListService"/>
+      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,ConversionTrackerService,DataService,ExperimentService,GeoLocationService,MediaService,ReportDefinitionService,UserListService"/>
   <property name="api.version.v201101.info.services" value="InfoService"/>
   <property name="api.version.v201101.job.services" value="BulkMutateJobService"/>
   <property name="api.version.v201101.mcm.services" value="AlertService,ServicedAccountService"/>
-  <property name="api.version.v201101.o.services" value="TargetingIdeaService,TrafficEstimatorService"/>
+  <property name="api.version.v201101.o.services" value="BulkOpportunityService,TargetingIdeaService,TrafficEstimatorService"/>
 
   <property name="src.dir" value="${project.basedir}/src"/>
   <property name="examples.dir" value="${project.basedir}/examples"/>

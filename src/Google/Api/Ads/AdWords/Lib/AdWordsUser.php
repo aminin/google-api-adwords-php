@@ -304,6 +304,25 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
+   * Gets the BulkOpportunityService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return BulkOpportunityService the instantiated bulk opportunity service
+   */
+  public function GetBulkOpportunityService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('BulkOpportunityService', 'o', $version, $server,
+        $serviceFactory, NULL, NULL, $validateOnly);
+  }
+
+  /**
    * Gets the CampaignAdExtensionService SOAP client.
    * @param string $version the version of the service to get. If
    *     <var>NULL</var>, then the default version will be used
@@ -379,6 +398,26 @@ class AdWordsUser extends AdsUser {
       $validateOnly = NULL) {
     return $this->GetService('CampaignTargetService', 'cm', $version, $server,
         $serviceFactory, NULL, NULL, $validateOnly);
+  }
+
+  /**
+   * Gets the ConversionTrackerService SOAP client.
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   * @param string $server the server to make the request to. If
+   *     <var>NULL</var>, then the default server will be used
+   * @param SoapClientFactory $serviceFactory the factory to create the client.
+   *     If <var>NULL</var>, then the built-in SOAP client factory will be used
+   * @param bool $validateOnly if the service should be created in validateOnly
+   *     mode
+   * @return ConversionTrackerService the instantiated conversion tracker
+   *     service
+   */
+  public function GetConversionTrackerService($version = NULL,
+      $server = NULL, SoapClientFactory $serviceFactory = NULL,
+      $validateOnly = NULL) {
+    return $this->GetService('ConversionTrackerService', 'cm', $version,
+        $server, $serviceFactory, NULL, NULL, $validateOnly);
   }
 
   /**
