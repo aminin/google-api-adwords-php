@@ -388,6 +388,7 @@ class DatabaseError extends ApiError {
 if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
+ * The format for the date is YYYYMMDD.
  */
 class DateRange {
   /**
@@ -2886,6 +2887,18 @@ class LogicalUserList extends UserList {
 if (!class_exists("RemarketingUserList", FALSE)) {
 /**
  * User list targeting as a collection of conversion types.
+ * 
+ * {@link RemarketingUserList} can be created in the following ways :
+ * <ul>
+ * <li> Using a single conversion type name: The service will create a new {@link ConversionType}
+ * and associate it with the {@link RemarketingUserList}.
+ * </li>
+ * <li> Using one or many existing conversion type Ids: The service will associate the
+ * conversion types with the {@link RemarketingUserList}.
+ * The Id of the {@link ConversionType} can be obtained using
+ * {@link ConversionTrackerService}.
+ * </li>
+ * </ul>
  */
 class RemarketingUserList extends UserList {
   /**

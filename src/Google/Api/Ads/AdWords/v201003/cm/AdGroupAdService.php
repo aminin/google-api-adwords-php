@@ -106,6 +106,7 @@ class Address {
 if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
+ * The format for the date is YYYYMMDD.
  */
 class DateRange {
   /**
@@ -2211,7 +2212,7 @@ class DayOfWeek {
 
 if (!class_exists("DeprecatedAdType", FALSE)) {
 /**
- * 
+ * Video ad.
  */
 class DeprecatedAdType {
   /**
@@ -2368,7 +2369,7 @@ class IdErrorReason {
 
 if (!class_exists("ImageErrorReason", FALSE)) {
 /**
- * 
+ * The image is not valid.
  */
 class ImageErrorReason {
   /**
@@ -3556,7 +3557,7 @@ class AdScheduleTarget extends AdWordsTarget {
 
 if (!class_exists("AdStats", FALSE)) {
 /**
- * Represents stats specific to Ads
+ * Represents stats specific to Ads.
  */
 class AdStats extends Stats {
   /**
@@ -4055,7 +4056,7 @@ class IdError extends ApiError {
 
 if (!class_exists("Image", FALSE)) {
 /**
- * 
+ * Raw image data.
  */
 class Image extends Media {
   /**

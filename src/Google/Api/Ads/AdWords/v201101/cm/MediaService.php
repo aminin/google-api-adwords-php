@@ -31,6 +31,7 @@ require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
+ * The format for the date is YYYYMMDD.
  */
 class DateRange {
   /**
@@ -1007,7 +1008,7 @@ class EntityNotFoundReason {
 
 if (!class_exists("ImageErrorReason", FALSE)) {
 /**
- * 
+ * The image is not valid.
  */
 class ImageErrorReason {
   /**
@@ -1943,7 +1944,7 @@ class EntityNotFound extends ApiError {
 
 if (!class_exists("Image", FALSE)) {
 /**
- * 
+ * Raw image data.
  */
 class Image extends Media {
   /**

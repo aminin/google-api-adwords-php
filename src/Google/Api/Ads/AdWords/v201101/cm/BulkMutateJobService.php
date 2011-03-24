@@ -2770,8 +2770,6 @@ class CampaignAdExtensionError extends ApiError {
 if (!class_exists("CampaignCriterion", FALSE)) {
 /**
  * Represents a campaign level criterion (either keyword or placement).
- * 
- * <p>Can be directly used to refer to campaign criteria in remove operations.
  */
 class CampaignCriterion {
   /**
@@ -9952,7 +9950,7 @@ class DayOfWeek {
 
 if (!class_exists("DeprecatedAdType", FALSE)) {
 /**
- * 
+ * Video ad.
  */
 class DeprecatedAdType {
   /**
@@ -10265,7 +10263,7 @@ class IdErrorReason {
 
 if (!class_exists("ImageErrorReason", FALSE)) {
 /**
- * 
+ * The image is not valid.
  */
 class ImageErrorReason {
   /**
@@ -12364,7 +12362,7 @@ class AdScheduleTargetList extends TargetList {
 
 if (!class_exists("AdStats", FALSE)) {
 /**
- * Represents stats specific to Ads
+ * Represents stats specific to Ads.
  */
 class AdStats extends Stats {
   /**
@@ -13483,7 +13481,7 @@ class GeoTargetTypeSetting extends Setting {
 
 if (!class_exists("Image", FALSE)) {
 /**
- * 
+ * Raw image data.
  */
 class Image extends Media {
   /**

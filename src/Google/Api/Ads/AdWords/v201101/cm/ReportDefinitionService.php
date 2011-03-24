@@ -31,6 +31,7 @@ require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
+ * The format for the date is YYYYMMDD.
  */
 class DateRange {
   /**
@@ -454,8 +455,7 @@ class SoapResponseHeader {
 
 if (!class_exists("ClientSelector", FALSE)) {
 /**
- * A filter for cross-account selection. This is used to select specific clients
- * or specific values within a client (e.g. campaigns).
+ * A filter to select specific clients and campaigns that are managed by an MCC.
  */
 class ClientSelector {
   /**

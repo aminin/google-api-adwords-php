@@ -723,7 +723,7 @@ class RequiredErrorReason {
 
 if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
- * <span class="constraint Rejected">Indicates that an unknown value was returned. Do not use this enumeration.</span>
+ * <span class="constraint Rejected">Used for return value only. An enumeration could not be processed, typically due to incompatibility with your WSDL version.</span>
  * 
  * 
  * 

@@ -33,7 +33,9 @@ if (!class_exists("AdParam", FALSE)) {
  * Represents an ad parameter.  Use ad parameters to update numeric values
  * (such as prices or inventory levels) in any line of a text ad, including
  * the destination URL. You can set two <code>AdParam</code> objects
- * (one for each value of {@link #paramIndex}) per ad group {@link Keyword} criterion.
+ * (one for each value of {@link #paramIndex}) per ad group
+ * <a href="AdGroupCriterionService.Keyword.html">Keyword</a>
+ * criterion.
  * <p>When setting or removing an <code>AdParam</code>, it is uniquely
  * identified by the combination of these three fields:</p>
  * <ul>
@@ -1187,9 +1189,10 @@ if (!class_exists("AdParamServiceMutate", FALSE)) {
  * 
  * 
  * Sets and removes ad parameters.
+ * <p class="note"><b>Note:</b> {@code ADD} is not supported. Use {@code SET}
+ * for new ad parameters.</p>
  * 
  * <ul class="nolist">
- * <li>{@code ADD}: Unsupported. Use {@code SET} for new ad parameters.</li>
  * <li>{@code SET}: Creates or updates an ad parameter, setting the new
  * parameterized value for the given ad group / keyword pair.
  * <li>{@code REMOVE}: Removes an ad parameter. The <code><var>default-value</var>
@@ -2136,9 +2139,10 @@ class AdParamService extends AdWordsSoapClient {
    * 
    * 
    * Sets and removes ad parameters.
+   * <p class="note"><b>Note:</b> {@code ADD} is not supported. Use {@code SET}
+   * for new ad parameters.</p>
    * 
    * <ul class="nolist">
-   * <li>{@code ADD}: Unsupported. Use {@code SET} for new ad parameters.</li>
    * <li>{@code SET}: Creates or updates an ad parameter, setting the new
    * parameterized value for the given ad group / keyword pair.
    * <li>{@code REMOVE}: Removes an ad parameter. The <code><var>default-value</var>

@@ -106,6 +106,7 @@ class Address {
 if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
+ * The format for the date is YYYYMMDD.
  */
 class DateRange {
   /**

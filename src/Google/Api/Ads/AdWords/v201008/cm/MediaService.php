@@ -852,7 +852,7 @@ class EntityNotFoundReason {
 
 if (!class_exists("ImageErrorReason", FALSE)) {
 /**
- * 
+ * The image is not valid.
  */
 class ImageErrorReason {
   /**
@@ -1732,7 +1732,7 @@ class EntityNotFound extends ApiError {
 
 if (!class_exists("Image", FALSE)) {
 /**
- * 
+ * Raw image data.
  */
 class Image extends Media {
   /**
