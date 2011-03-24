@@ -5,7 +5,7 @@
  *
  * PHP version 5
  *
- * Copyright 2010, Google Inc. All Rights Reserved.
+ * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +21,9 @@
  *
  * @package    GoogleApiAdsCommon
  * @category   WebServices
- * @copyright  2010, Google Inc. All Rights Reserved.
- * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
+ * @copyright  2011, Google Inc. All Rights Reserved.
+ * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
+ *             Version 2.0
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
