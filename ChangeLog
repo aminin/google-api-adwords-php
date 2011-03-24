@@ -1,3 +1,9 @@
+2.5.1:
+- Added support for the ConversionTrackerService and BulkOpportunityService,
+  including examples.
+- Updated the AddUserList.php example to include retrieving the conversion
+  tracker snippet.
+
 2.5.0:
 - Added support for v201101, including examples.
 - Fixed bug where constants were being redefined.
