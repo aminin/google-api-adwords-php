@@ -1,1101 +1,961 @@
-<html>
-<head>
-<title>Docs For Class AdsUser</title>
-<link rel="stylesheet" type="text/css" href="../../media/style.css">
-</head>
-<body>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class AdsUser</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class AdsUser</h2>
 
-<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
-  <tr>
-    <td class="header_top">GoogleApiAdsCommon</td>
-  </tr>
-  <tr><td class="header_line"><img src="../../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
-  <tr>
-    <td class="header_menu">
-        
-                                                        
-                              		  [ <a href="../../classtrees_GoogleApiAdsCommon.html" class="menu">class tree: GoogleApiAdsCommon</a> ]
-		  [ <a href="../../elementindex_GoogleApiAdsCommon.html" class="menu">index: GoogleApiAdsCommon</a> ]
-		  	    [ <a href="../../elementindex.html" class="menu">all elements</a> ]
-    </td>
-  </tr>
-  <tr><td class="header_line"><img src="../../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
-</table>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr valign="top">
-    <td width="200" class="menu">
-      <b>Packages:</b><br />
-              <a href="../../li_GoogleApiAdsAdWords.html">GoogleApiAdsAdWords</a><br />
-              <a href="../../li_GoogleApiAdsCommon.html">GoogleApiAdsCommon</a><br />
-            <br /><br />
-                        <b>Files:</b><br />
-      	subpackage <b>Lib</b><br>  <div class="package">
-			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---AdsSoapClient.php.html">		AdsSoapClient.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---AdsUser.php.html">		AdsUser.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Lib/_Common---Util---AuthTokenException.php.html">		AuthTokenException.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Lib/_AdWords---Util---ReportDownloadException.php.html">		ReportDownloadException.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---SoapClientFactory.php.html">		SoapClientFactory.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Lib/_Common---Lib---ValidationException.php.html">		ValidationException.php
-		</a><br>
-	  </div><br />
-	subpackage <b>Util</b><br>  <div class="package">
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---AuthToken.php.html">		AuthToken.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---ChoiceUtils.php.html">		ChoiceUtils.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---CurlUtils.php.html">		CurlUtils.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---ErrorUtils.php.html">		ErrorUtils.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---Logger.php.html">		Logger.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MapUtils.php.html">		MapUtils.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---MediaUtils.php.html">		MediaUtils.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OAuthUtils.php.html">		OAuthUtils.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---OgnlUtils.php.html">		OgnlUtils.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---SoapRequestXmlFixer.php.html">		SoapRequestXmlFixer.php
-		</a><br>
-			<a href="../../GoogleApiAdsCommon/Util/_Common---Util---XmlUtils.php.html">		XmlUtils.php
-		</a><br>
-	  </div><br />
-      
-      
-            <b>Classes:</b><br />
-        <div class="package">
-	Lib<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/AuthTokenException.html">AuthTokenException</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/ReportDownloadException.html">ReportDownloadException</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Lib/ValidationException.html">ValidationException</a><br />
-	  </div>
-  <div class="package">
-	Util<br />	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/AuthToken.html">AuthToken</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/ChoiceUtils.html">ChoiceUtils</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/CurlUtils.html">CurlUtils</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/ErrorUtils.html">ErrorUtils</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/Logger.html">Logger</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MapUtils.html">MapUtils</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/MediaUtils.html">MediaUtils</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OAuthUtils.html">OAuthUtils</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/OgnlUtils.html">OgnlUtils</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/SoapRequestXmlFixer.html">SoapRequestXmlFixer</a><br />
-	    &nbsp;&nbsp;		<a href="../../GoogleApiAdsCommon/Util/XmlUtils.html">XmlUtils</a><br />
-	  </div>
-                </td>
-    <td>
-      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
-
-<h1>Class: AdsUser</h1>
-Source Location: /Common/Lib/AdsUser.php<br /><br />
-
-
-<table width="100%" border="0">
-<tr><td valign="top">
-
-<h3><a href="#class_details">Class Overview</a></h3>
-<pre></pre><br />
-<div class="description">User class for all API modules using the Ads API.</div><br /><br />
-<h4>Author(s):</h4>
-<ul>
-        </ul>
-
-
-
-
-    
-
-        
-</td>
-
-
-
-<td valign="top">
-<h3><a href="#class_methods">Methods</a></h3>
-<ul>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#method__construct">__construct</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthServer">GetAuthServer</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthVarValue">GetAuthVarValue</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryIdentifier">GetClientLibraryIdentifier</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultServer">GetDefaultServer</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultVersion">GetDefaultVersion</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderNames">GetHeaderNames</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderValue">GetHeaderValue</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetLogsDirectory">GetLogsDirectory</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthAuthorizationUrl">GetOAuthAuthorizationUrl</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthInfo">GetOAuthInfo</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthScope">GetOAuthScope</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetServiceSoapClient">GetServiceSoapClient</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetSoapCompressionLevel">GetSoapCompressionLevel</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetWsdlCacheType">GetWsdlCacheType</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodIsSoapCompressionEnabled">IsSoapCompressionEnabled</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLoadSettings">LoadSettings</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLogDefaults">LogDefaults</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodRequestOAuthToken">RequestOAuthToken</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetDefaultServer">SetDefaultServer</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetDefaultVersion">SetDefaultVersion</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetHeaderValue">SetHeaderValue</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetOAuthInfo">SetOAuthInfo</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodUpgradeOAuthToken">UpgradeOAuthToken</a></li>
-    <li><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodValidateOAuthInfo">ValidateOAuthInfo</a></li>
-  </ul>
-</td>
-
-</tr></table>
-<hr />
-
-<table width="100%" border="0"><tr>
-
-
-<td valign="top">
-<h3>Child classes:</h3>
-<div class="tags">
-<dl>
-<dt><a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a></dt>
-	<dd>User class for the AdWords API to create SOAP clients to the available API  services.</dd>
-</dl>
-</div>
-</td>
-
-
-
-
-</tr></table>
-<hr />
-
-<a name="class_details"></a>
-<h3>Class Details</h3>
-<div class="tags">
-[line 39]<br />
-User class for all API modules using the Ads API.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>abstract:</b>&nbsp;&nbsp;</td><td></td>
-  </tr>
-</table>
-</div>
-</div><br /><br />
-<div class="top">[ <a href="#top">Top</a> ]</div><br />
-
-
-<hr />
-<a name="class_methods"></a>
-<h3>Class Methods</h3>
-<div class="tags">
-
-  <hr />
-	<a name="method__construct"></a>
-	<h3>constructor __construct <span class="smalllinenumber">[line 54]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>AdsUser __construct(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">User class for all API modules using the Ads API.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Common---Lib---AdsUser.php.html">/Common/Lib/AdsUser.php</a> (line <span class="field">42</span>)
+		</p>
+		
+				
+		<pre></pre>
 	
-		Constructor for AdsUser.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
+			</div>
 </div>
-<br /><br />
 
-	<p>Overridden in child classes as:<br />
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html#method__construct">AdWordsUser::__construct()</a></dt>
-		<dd>The AdWordsUser constructor.</dd>
-	</dl>
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html">AdWordsUser</a></td>
+					<td>
+											User class for the AdWords API to create SOAP clients to the available API  services.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																												
+												<div class="method-definition">
+											<span class="method-result">AdsUser</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetAuthServer" title="details" class="method-name">GetAuthServer</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetAuthVarValue" title="details" class="method-name">GetAuthVarValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$authVar</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$authVarName</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$authIni</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetClientLibraryIdentifier" title="details" class="method-name">GetClientLibraryIdentifier</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetDefaultServer" title="details" class="method-name">GetDefaultServer</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetDefaultVersion" title="details" class="method-name">GetDefaultVersion</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#GetHeaderNames" title="details" class="method-name">GetHeaderNames</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetHeaderValue" title="details" class="method-name">GetHeaderValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetLogsDirectory" title="details" class="method-name">GetLogsDirectory</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetOAuthAuthorizationUrl" title="details" class="method-name">GetOAuthAuthorizationUrl</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#GetOAuthInfo" title="details" class="method-name">GetOAuthInfo</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetOAuthScope" title="details" class="method-name">GetOAuthScope</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">SoapClient</span>
+										<a href="#GetServiceSoapClient" title="details" class="method-name">GetServiceSoapClient</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceName</span>, <span class="var-type"><a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a></span>&nbsp;<span class="var-name">$serviceFactory</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceGroup</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceGroupUrlOverride</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceGroupHeaderNamespaceOverride</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#GetSoapCompressionLevel" title="details" class="method-name">GetSoapCompressionLevel</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#GetWsdlCacheType" title="details" class="method-name">GetWsdlCacheType</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#IsSoapCompressionEnabled" title="details" class="method-name">IsSoapCompressionEnabled</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#LoadSettings" title="details" class="method-name">LoadSettings</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$settingsIniPath</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$defaultVersion</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$defaultServer</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$defaultLogsDir</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$logsRelativePathBase</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#LogDefaults" title="details" class="method-name">LogDefaults</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#RequestOAuthToken" title="details" class="method-name">RequestOAuthToken</a>
+											([<span class="var-type">$callbackUrl</span>&nbsp;<span class="var-name">$callbackUrl</span> = <span class="var-default">NULL</span>], [<span class="var-type">$server</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetDefaultServer" title="details" class="method-name">SetDefaultServer</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$defaultServer</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetDefaultVersion" title="details" class="method-name">SetDefaultVersion</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$defaultVersion</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetHeaderValue" title="details" class="method-name">SetHeaderValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetOAuthInfo" title="details" class="method-name">SetOAuthInfo</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$oauthInfo</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#UpgradeOAuthToken" title="details" class="method-name">UpgradeOAuthToken</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$verifier</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#ValidateOAuthInfo" title="details" class="method-name">ValidateOAuthInfo</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">57</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor for AdsUser.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">AdsUser</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html#method__construct">AdWordsUser::__construct()</a>
+								: The AdWordsUser constructor.
+							</li>
+				</ul>
+	</div>
+<a name="methodGetAuthServer" id="GetAuthServer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetAuthServer</span> (line <span class="line-number">349</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the server used for authentication.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the server used for authentiation</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetAuthServer
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetAuthVarValue" id="GetAuthVarValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetAuthVarValue</span> (line <span class="line-number">75</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the authenticaiton value for the <var>$authVar</var> supplied. If  the <var>$authVar</var> is set, it is is used. Otherwirse, the supplied  <var>$authenticationIni</var> is queired for the variable. If none is found  <var>NULL</var> is returned.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the authentication variable value</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetAuthVarValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$authVar</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$authVarName</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$authIni</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$authVar</span><span class="var-description">: the default value for the authenticaiton variable</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$authVarName</span><span class="var-description">: the name of the authencation variable</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$authIni</span><span class="var-description">: the array of authentication variables from      an INI file</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodGetClientLibraryIdentifier" id="GetClientLibraryIdentifier"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetClientLibraryIdentifier</span> (line <span class="line-number">373</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the client library identifier used for user-agent fields.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> a unique client library identifier</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetClientLibraryIdentifier
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html#methodGetClientLibraryIdentifier">AdWordsUser::GetClientLibraryIdentifier()</a>
+								: Gets the client library identifier used for user-agent fields.
+							</li>
+				</ul>
+	</div>
+<a name="methodGetDefaultServer" id="GetDefaultServer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetDefaultServer</span> (line <span class="line-number">285</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the default server.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the default server</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetDefaultServer
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetDefaultVersion" id="GetDefaultVersion"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetDefaultVersion</span> (line <span class="line-number">301</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the default version.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the default version</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetDefaultVersion
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetHeaderNames" id="GetHeaderNames"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetHeaderNames</span> (line <span class="line-number">92</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the names of all registered request header elements.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the names of the request header elements</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			GetHeaderNames
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetHeaderValue" id="GetHeaderValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetHeaderValue</span> (line <span class="line-number">101</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the value for a registered request header element.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the value of the request header element or NULL if not found</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetHeaderValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the name of the request header element</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodGetLogsDirectory" id="GetLogsDirectory"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetLogsDirectory</span> (line <span class="line-number">317</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the logs directory.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the logs directory</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetLogsDirectory
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetOAuthAuthorizationUrl" id="GetOAuthAuthorizationUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetOAuthAuthorizationUrl</span> (line <span class="line-number">391</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the OAuth authorization URL for the OAuth token.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the URL used to authorize the token</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetOAuthAuthorizationUrl
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetOAuthInfo" id="GetOAuthInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetOAuthInfo</span> (line <span class="line-number">357</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the OAuth info for this user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the OAuth info for this user</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			GetOAuthInfo
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetOAuthScope" id="GetOAuthScope"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetOAuthScope</span> (line <span class="line-number">435</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the OAuth scope for this user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the scope to use when requesting an OAuth token</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetOAuthScope
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server</span><span class="var-description">: the AdWords API server that requests will be made to</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html#methodGetOAuthScope">AdWordsUser::GetOAuthScope()</a>
+								: Gets the OAuth scope for this user.
+							</li>
+				</ul>
+	</div>
+<a name="methodGetServiceSoapClient" id="GetServiceSoapClient"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetServiceSoapClient</span> (line <span class="line-number">130</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the service by its service name.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the instantiated service</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">SoapClient</span>
+		<span class="method-name">
+			GetServiceSoapClient
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceName</span>, <span class="var-type"><a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a></span>&nbsp;<span class="var-name">$serviceFactory</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceGroup</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceGroupUrlOverride</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$serviceGroupHeaderNamespaceOverride</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceName</span><span class="var-description">: the service name</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a></span>
+				<span class="var-name">$serviceFactory</span><span class="var-description">: the service factory</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceGroup</span><span class="var-description">: the service group. Can be <var>NULL</var>      if the product has not implemented service groups yet</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceGroupUrlOverride</span><span class="var-description">: the name of the service group to be      used in the location url</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$serviceGroupHeaderNamespaceOverride</span><span class="var-description">: the name of the service      group to use in the header namespace</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodGetSoapCompressionLevel" id="GetSoapCompressionLevel"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetSoapCompressionLevel</span> (line <span class="line-number">333</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the SOAP compression level.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the SOAP compression level</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			GetSoapCompressionLevel
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetWsdlCacheType" id="GetWsdlCacheType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetWsdlCacheType</span> (line <span class="line-number">341</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the type of WSDL caching in use.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the type of WSDL caching in use</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			GetWsdlCacheType
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodIsSoapCompressionEnabled" id="IsSoapCompressionEnabled"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">IsSoapCompressionEnabled</span> (line <span class="line-number">325</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Is SOAP compression enabled.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> is SOAP compression enabled</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			IsSoapCompressionEnabled
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodLoadSettings" id="LoadSettings"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">LoadSettings</span> (line <span class="line-number">164</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the settings for this client library. If the settings INI file  located at <var>$settingsIniPath</var> cannot be loaded, then the  parameters passed into this method are used.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			LoadSettings
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$settingsIniPath</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$defaultVersion</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$defaultServer</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$defaultLogsDir</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$logsRelativePathBase</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$settingsIniPath</span><span class="var-description">: the path to the settings INI file</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$defaultVersion</span><span class="var-description">: the default version if the settings INI file      cannot be loaded</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$defaultServer</span><span class="var-description">: the default server if the settings INI file      cannot be loaded</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$defaultLogsDir</span><span class="var-description">: the default logs directory if the settings      INI file cannot be loaded</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$logsRelativePathBase</span><span class="var-description">: the relative path base for the logs      directory</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodLogDefaults" id="LogDefaults"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">LogDefaults</span> (line <span class="line-number">143</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initiates the default logging behavior of logging all HTTP headers and  SOAP XML to the soap_xml.log file and all request information to the  request_info.log file under the logs directory.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			LogDefaults
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodRequestOAuthToken" id="RequestOAuthToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">RequestOAuthToken</span> (line <span class="line-number">380</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Requests a new OAuth token.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			RequestOAuthToken
+		</span>
+					([<span class="var-type">$callbackUrl</span>&nbsp;<span class="var-name">$callbackUrl</span> = <span class="var-default">NULL</span>], [<span class="var-type">$server</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$callbackUrl</span>
+				<span class="var-name">$callbackUrl</span><span class="var-description">: the URL to return to after the token is authorized</span>			</li>
+					<li>
+				<span class="var-type">$server</span>
+				<span class="var-name">$server</span><span class="var-description">: the AdWords API server that requests will be made to</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetDefaultServer" id="SetDefaultServer"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetDefaultServer</span> (line <span class="line-number">293</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the default server.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetDefaultServer
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$defaultServer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$defaultServer</span><span class="var-description">: the default server</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetDefaultVersion" id="SetDefaultVersion"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetDefaultVersion</span> (line <span class="line-number">309</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the default version.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetDefaultVersion
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$defaultVersion</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$defaultVersion</span><span class="var-description">: the default version</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetHeaderValue" id="SetHeaderValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetHeaderValue</span> (line <span class="line-number">114</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the value for a request header.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetHeaderValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: the name of the request header element</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the value for the request header element</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetOAuthInfo" id="SetOAuthInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetOAuthInfo</span> (line <span class="line-number">365</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the OAuth info for this user.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetOAuthInfo
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$oauthInfo</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$oauthInfo</span><span class="var-description">: the OAuth info for this user</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodUpgradeOAuthToken" id="UpgradeOAuthToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">UpgradeOAuthToken</span> (line <span class="line-number">401</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Upgrades the authorized OAuth token.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			UpgradeOAuthToken
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$verifier</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$verifier</span><span class="var-description">: the verifier string returned from authorizing the      token</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodValidateOAuthInfo" id="ValidateOAuthInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ValidateOAuthInfo</span> (line <span class="line-number">411</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validates that the OAuth info is complete.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ValidationException if there are any validation errors</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ValidateOAuthInfo
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetAuthServer"></a>
-	<h3>method GetAuthServer <span class="smalllinenumber">[line 346]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string GetAuthServer(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the server used for authentication.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the server used for authentiation</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetAuthVarValue"></a>
-	<h3>method GetAuthVarValue <span class="smalllinenumber">[line 72]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string GetAuthVarValue(
-string
-$authVar, string
-$authVarName, 
-$authIni)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the authenticaiton value for the <var>$authVar</var> supplied. If  the <var>$authVar</var> is set, it is is used. Otherwirse, the supplied  <var>$authenticationIni</var> is queired for the variable. If none is found  <var>NULL</var> is returned.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the authentication variable value</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$authVar</b>&nbsp;&nbsp;</td>
-        <td>the default value for the authenticaiton variable</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$authVarName</b>&nbsp;&nbsp;</td>
-        <td>the name of the authencation variable</td>
-      </tr>
-          <tr>
-        <td class="type">array&nbsp;&nbsp;</td>
-        <td><b>$authIni</b>&nbsp;&nbsp;</td>
-        <td>the array of authentication variables from      an INI file</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetClientLibraryIdentifier"></a>
-	<h3>method GetClientLibraryIdentifier <span class="smalllinenumber">[line 370]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string GetClientLibraryIdentifier(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the client library identifier used for user-agent fields.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>a unique client library identifier</td>
-  </tr>
-  <tr>
-    <td><b>abstract:</b>&nbsp;&nbsp;</td><td></td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	<p>Overridden in child classes as:<br />
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html#methodGetClientLibraryIdentifier">AdWordsUser::GetClientLibraryIdentifier()</a></dt>
-		<dd>Gets the client library identifier used for user-agent fields.</dd>
-	</dl>
-	</p>
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetDefaultServer"></a>
-	<h3>method GetDefaultServer <span class="smalllinenumber">[line 282]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string GetDefaultServer(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the default server.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the default server</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetDefaultVersion"></a>
-	<h3>method GetDefaultVersion <span class="smalllinenumber">[line 298]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string GetDefaultVersion(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the default version.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the default version</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetHeaderNames"></a>
-	<h3>method GetHeaderNames <span class="smalllinenumber">[line 89]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>array GetHeaderNames(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the names of all registered request header elements.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the names of the request header elements</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetHeaderValue"></a>
-	<h3>method GetHeaderValue <span class="smalllinenumber">[line 98]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string GetHeaderValue(
-string
-$key)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the value for a registered request header element.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the value of the request header element or NULL if not found</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$key</b>&nbsp;&nbsp;</td>
-        <td>the name of the request header element</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetLogsDirectory"></a>
-	<h3>method GetLogsDirectory <span class="smalllinenumber">[line 314]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string GetLogsDirectory(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the logs directory.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the logs directory</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetOAuthAuthorizationUrl"></a>
-	<h3>method GetOAuthAuthorizationUrl <span class="smalllinenumber">[line 388]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string GetOAuthAuthorizationUrl(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the OAuth authorization URL for the OAuth token.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the URL used to authorize the token</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetOAuthInfo"></a>
-	<h3>method GetOAuthInfo <span class="smalllinenumber">[line 354]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>array GetOAuthInfo(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the OAuth info for this user.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the OAuth info for this user</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetOAuthScope"></a>
-	<h3>method GetOAuthScope <span class="smalllinenumber">[line 432]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string GetOAuthScope(
-[string
-$server = NULL])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the OAuth scope for this user.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the scope to use when requesting an OAuth token</td>
-  </tr>
-  <tr>
-    <td><b>abstract:</b>&nbsp;&nbsp;</td><td></td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	<p>Overridden in child classes as:<br />
-		<dl>
-	<dt><a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html#methodGetOAuthScope">AdWordsUser::GetOAuthScope()</a></dt>
-		<dd>Gets the OAuth scope for this user.</dd>
-	</dl>
-	</p>
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$server</b>&nbsp;&nbsp;</td>
-        <td>the AdWords API server that requests will be made to</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetServiceSoapClient"></a>
-	<h3>method GetServiceSoapClient <span class="smalllinenumber">[line 127]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>SoapClient GetServiceSoapClient(
-string
-$serviceName, <a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a>
-$serviceFactory, [string
-$serviceGroup = NULL], [string
-$serviceGroupUrlOverride = NULL], [string
-$serviceGroupHeaderNamespaceOverride = NULL])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the service by its service name.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the instantiated service</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$serviceName</b>&nbsp;&nbsp;</td>
-        <td>the service name</td>
-      </tr>
-          <tr>
-        <td class="type"><a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a>&nbsp;&nbsp;</td>
-        <td><b>$serviceFactory</b>&nbsp;&nbsp;</td>
-        <td>the service factory</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$serviceGroup</b>&nbsp;&nbsp;</td>
-        <td>the service group. Can be <var>NULL</var>      if the product has not implemented service groups yet</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$serviceGroupUrlOverride</b>&nbsp;&nbsp;</td>
-        <td>the name of the service group to be      used in the location url</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$serviceGroupHeaderNamespaceOverride</b>&nbsp;&nbsp;</td>
-        <td>the name of the service      group to use in the header namespace</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetSoapCompressionLevel"></a>
-	<h3>method GetSoapCompressionLevel <span class="smalllinenumber">[line 330]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>int GetSoapCompressionLevel(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the SOAP compression level.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the SOAP compression level</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodGetWsdlCacheType"></a>
-	<h3>method GetWsdlCacheType <span class="smalllinenumber">[line 338]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>int GetWsdlCacheType(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Gets the type of WSDL caching in use.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>the type of WSDL caching in use</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodIsSoapCompressionEnabled"></a>
-	<h3>method IsSoapCompressionEnabled <span class="smalllinenumber">[line 322]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>bool IsSoapCompressionEnabled(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Is SOAP compression enabled.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>is SOAP compression enabled</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodLoadSettings"></a>
-	<h3>method LoadSettings <span class="smalllinenumber">[line 161]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void LoadSettings(
-string
-$settingsIniPath, string
-$defaultVersion, string
-$defaultServer, string
-$defaultLogsDir, string
-$logsRelativePathBase)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Loads the settings for this client library. If the settings INI file  located at <var>$settingsIniPath</var> cannot be loaded, then the  parameters passed into this method are used.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$settingsIniPath</b>&nbsp;&nbsp;</td>
-        <td>the path to the settings INI file</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$defaultVersion</b>&nbsp;&nbsp;</td>
-        <td>the default version if the settings INI file      cannot be loaded</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$defaultServer</b>&nbsp;&nbsp;</td>
-        <td>the default server if the settings INI file      cannot be loaded</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$defaultLogsDir</b>&nbsp;&nbsp;</td>
-        <td>the default logs directory if the settings      INI file cannot be loaded</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$logsRelativePathBase</b>&nbsp;&nbsp;</td>
-        <td>the relative path base for the logs      directory</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodLogDefaults"></a>
-	<h3>method LogDefaults <span class="smalllinenumber">[line 140]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void LogDefaults(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Initiates the default logging behavior of logging all HTTP headers and  SOAP XML to the soap_xml.log file and all request information to the  request_info.log file under the logs directory.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodRequestOAuthToken"></a>
-	<h3>method RequestOAuthToken <span class="smalllinenumber">[line 377]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void RequestOAuthToken(
-[$callbackUrl
-$callbackUrl = NULL], [$server
-$server = NULL])</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Requests a new OAuth token.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">$callbackUrl&nbsp;&nbsp;</td>
-        <td><b>$callbackUrl</b>&nbsp;&nbsp;</td>
-        <td>the URL to return to after the token is authorized</td>
-      </tr>
-          <tr>
-        <td class="type">$server&nbsp;&nbsp;</td>
-        <td><b>$server</b>&nbsp;&nbsp;</td>
-        <td>the AdWords API server that requests will be made to</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodSetDefaultServer"></a>
-	<h3>method SetDefaultServer <span class="smalllinenumber">[line 290]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void SetDefaultServer(
-string
-$defaultServer)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Sets the default server.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$defaultServer</b>&nbsp;&nbsp;</td>
-        <td>the default server</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodSetDefaultVersion"></a>
-	<h3>method SetDefaultVersion <span class="smalllinenumber">[line 306]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void SetDefaultVersion(
-string
-$defaultVersion)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Sets the default version.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$defaultVersion</b>&nbsp;&nbsp;</td>
-        <td>the default version</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodSetHeaderValue"></a>
-	<h3>method SetHeaderValue <span class="smalllinenumber">[line 111]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void SetHeaderValue(
-string
-$key, string
-$value)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Sets the value for a request header.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$key</b>&nbsp;&nbsp;</td>
-        <td>the name of the request header element</td>
-      </tr>
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$value</b>&nbsp;&nbsp;</td>
-        <td>the value for the request header element</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodSetOAuthInfo"></a>
-	<h3>method SetOAuthInfo <span class="smalllinenumber">[line 362]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void SetOAuthInfo(
-array
-$oauthInfo)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Sets the OAuth info for this user.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">array&nbsp;&nbsp;</td>
-        <td><b>$oauthInfo</b>&nbsp;&nbsp;</td>
-        <td>the OAuth info for this user</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodUpgradeOAuthToken"></a>
-	<h3>method UpgradeOAuthToken <span class="smalllinenumber">[line 398]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void UpgradeOAuthToken(
-string
-$verifier)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Upgrades the authorized OAuth token.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$verifier</b>&nbsp;&nbsp;</td>
-        <td>the verifier string returned from authorizing the      token</td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodValidateOAuthInfo"></a>
-	<h3>method ValidateOAuthInfo <span class="smalllinenumber">[line 408]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void ValidateOAuthInfo(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Validates that the OAuth info is complete.<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>throws:</b>&nbsp;&nbsp;</td><td>ValidationException if there are any validation errors</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-</div><br />
-
-
-        <div class="credit">
-		    <hr />
-		    Documentation generated by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
-	      </div>
-      </td></tr></table>
-    </td>
-  </tr>
-</table>
-
-</body>
+	</div></body>
 </html>
