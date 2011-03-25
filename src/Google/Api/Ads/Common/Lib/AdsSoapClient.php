@@ -30,6 +30,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required classes. **/
 require_once 'AdsUser.php';
 require_once dirname(__FILE__) . '/../Util/Logger.php';
 require_once dirname(__FILE__) . '/../Util/SoapRequestXmlFixer.php';
@@ -39,6 +40,8 @@ require_once dirname(__FILE__) . '/../Util/XmlUtils.php';
  * An extension of the {@link SoapClient} class intended to prepare
  * the XML before making a request as well as perform any book-keeping on
  * the response.
+ * @package GoogleApiAdsCommon
+ * @subpackage Lib
  */
 abstract class AdsSoapClient extends SoapClient {
   /**

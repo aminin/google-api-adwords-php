@@ -28,11 +28,14 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required classes. **/
 require_once 'AdsUser.php';
 
 /**
  * Base class for all SOAP client factories of Ads client libraries.
  * @abstract
+ * @package GoogleApiAdsCommon
+ * @subpackage Lib
  */
 abstract class SoapClientFactory {
   private $user;

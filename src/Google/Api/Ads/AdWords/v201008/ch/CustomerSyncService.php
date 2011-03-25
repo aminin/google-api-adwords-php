@@ -27,12 +27,15 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("DateTimeRange", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateTimeRange {
   /**
@@ -74,6 +77,8 @@ if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapRequestHeader {
   /**
@@ -150,6 +155,8 @@ if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapResponseHeader {
   /**
@@ -210,6 +217,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiError {
   /**
@@ -302,6 +311,8 @@ if (!class_exists("ApplicationException", FALSE)) {
  * 
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApplicationException {
   /**
@@ -375,6 +386,8 @@ if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationErrorReason {
   /**
@@ -402,6 +415,8 @@ if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationErrorReason {
   /**
@@ -429,6 +444,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsErrorReason {
   /**
@@ -456,6 +473,8 @@ if (!class_exists("DatabaseErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DatabaseErrorReason {
   /**
@@ -483,6 +502,8 @@ if (!class_exists("DateErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateErrorReason {
   /**
@@ -510,6 +531,8 @@ if (!class_exists("DistinctErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DistinctErrorReason {
   /**
@@ -537,6 +560,8 @@ if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiErrorReason {
   /**
@@ -564,6 +589,8 @@ if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyErrorReason {
   /**
@@ -591,6 +618,8 @@ if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedErrorReason {
   /**
@@ -618,6 +647,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckErrorReason {
   /**
@@ -645,6 +676,8 @@ if (!class_exists("RateExceededErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededErrorReason {
   /**
@@ -672,6 +705,8 @@ if (!class_exists("RequestErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestErrorReason {
   /**
@@ -699,6 +734,8 @@ if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredErrorReason {
   /**
@@ -730,6 +767,8 @@ if (!class_exists("SizeLimitErrorReason", FALSE)) {
  * 
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitErrorReason {
   /**
@@ -756,6 +795,8 @@ class SizeLimitErrorReason {
 if (!class_exists("AdGroupChangeData", FALSE)) {
 /**
  * Holds information about a changed adgroup
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdGroupChangeData {
   /**
@@ -818,6 +859,8 @@ if (!class_exists("CampaignChangeData", FALSE)) {
 /**
  * Holds information about a changed campaign and any adgroups under
  * that have changed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CampaignChangeData {
   /**
@@ -900,6 +943,8 @@ class CampaignChangeData {
 if (!class_exists("CustomerChangeData", FALSE)) {
 /**
  * Holds information about changes to a customer
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CustomerChangeData {
   /**
@@ -940,6 +985,8 @@ class CustomerChangeData {
 if (!class_exists("CustomerSyncError", FALSE)) {
 /**
  * Represents CustomerSyncService specific errors
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CustomerSyncError extends ApiError {
   /**
@@ -984,6 +1031,8 @@ class CustomerSyncError extends ApiError {
 if (!class_exists("CustomerSyncSelector", FALSE)) {
 /**
  * A filter for selecting changehistory events for a customer.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CustomerSyncSelector {
   /**
@@ -1030,6 +1079,8 @@ if (!class_exists("ChangeStatus", FALSE)) {
  * For example, if an AdGroup name changed, this status would be FIELDS_CHANGED,
  * but if only bids on keywords belonging an AdGroup were changed this
  * status would be FIELDS_UNCHANGED.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ChangeStatus {
   /**
@@ -1057,6 +1108,8 @@ if (!class_exists("CustomerSyncErrorReason", FALSE)) {
 /**
  * The request attempted to access a campaign that either does not
  * exist or belongs to a different account.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CustomerSyncErrorReason {
   /**
@@ -1092,6 +1145,8 @@ if (!class_exists("CustomerSyncServiceGet", FALSE)) {
  * @return A Customer->Campaign->AdGroup hierarchy containing information about the objects
  * changed at each level.  All Campaigns that are requested in the selector will be returned,
  * regardless of whether or not they have changed, but unchanged AdGroups will be ignored.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CustomerSyncServiceGet {
   /**
@@ -1125,6 +1180,8 @@ class CustomerSyncServiceGet {
 if (!class_exists("CustomerSyncServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CustomerSyncServiceGetResponse {
   /**
@@ -1159,6 +1216,8 @@ if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationError extends ApiError {
   /**
@@ -1197,6 +1256,8 @@ if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationError extends ApiError {
   /**
@@ -1235,6 +1296,8 @@ if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsError extends ApiError {
   /**
@@ -1273,6 +1336,8 @@ if (!class_exists("DateError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateError extends ApiError {
   /**
@@ -1311,6 +1376,8 @@ if (!class_exists("DistinctError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DistinctError extends ApiError {
   /**
@@ -1349,6 +1416,8 @@ if (!class_exists("InternalApiError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiError extends ApiError {
   /**
@@ -1387,6 +1456,8 @@ if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyError extends ApiError {
   /**
@@ -1425,6 +1496,8 @@ if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -1463,6 +1536,8 @@ if (!class_exists("QuotaCheckError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1501,6 +1576,8 @@ if (!class_exists("RateExceededError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededError extends ApiError {
   /**
@@ -1560,6 +1637,8 @@ if (!class_exists("RequestError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestError extends ApiError {
   /**
@@ -1598,6 +1677,8 @@ if (!class_exists("RequiredError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredError extends ApiError {
   /**
@@ -1636,6 +1717,8 @@ if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitError extends ApiError {
   /**
@@ -1674,6 +1757,8 @@ if (!class_exists("DatabaseError", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DatabaseError extends ApiError {
   /**
@@ -1712,6 +1797,8 @@ if (!class_exists("ApiException", FALSE)) {
 /**
  * This field indicates the subtype of ApiError of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiException extends ApplicationException {
   /**
@@ -1747,6 +1834,8 @@ class ApiException extends ApplicationException {
 if (!class_exists("CustomerSyncService", FALSE)) {
 /**
  * CustomerSyncService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  * @author WSDLInterpreter
  */
 class CustomerSyncService extends AdWordsSoapClient {

@@ -29,6 +29,8 @@
 
 /**
  * A collection of utility methods for working with errors.
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class ErrorUtils {
   private static $API_EXCEPTION_FIELD_NAME = 'ApiExceptionFault';

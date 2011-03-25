@@ -30,6 +30,8 @@
 
 /**
  * A collection of utility methods for working with XML.
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class XmlUtils {
   /**

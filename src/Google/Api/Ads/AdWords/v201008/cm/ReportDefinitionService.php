@@ -27,12 +27,15 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
  * The format for the date is YYYYMMDD.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateRange {
   /**
@@ -75,6 +78,8 @@ if (!class_exists("Paging", FALSE)) {
  * Specifies the page of results to return in the response. A page is specified
  * by the result position to start at and the maximum number of results to
  * return.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Paging {
   /**
@@ -115,6 +120,8 @@ class Paging {
 if (!class_exists("Predicate", FALSE)) {
 /**
  * Specifies how an entity (eg. adgroup, campaign, criterion, ad) should be filtered.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Predicate {
   /**
@@ -166,6 +173,8 @@ if (!class_exists("ReportDefinitionField", FALSE)) {
  * given report type. Consumers of reports will be able use the retrieved
  * fields through the {@link ReportDefinitionService#getReportFields}
  * api and run the corresponding reports.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionField {
   /**
@@ -241,6 +250,8 @@ class ReportDefinitionField {
 if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapRequestHeader {
   /**
@@ -316,6 +327,8 @@ class SoapRequestHeader {
 if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapResponseHeader {
   /**
@@ -370,6 +383,8 @@ class SoapResponseHeader {
 if (!class_exists("Selector", FALSE)) {
 /**
  * A generic selector to specify the type of information to return.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Selector {
   /**
@@ -421,6 +436,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * <p>The OGNL field path is provided for parsers to identify the request data
  * element that may have caused the error.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiError {
   /**
@@ -507,6 +524,8 @@ class ApiError {
 if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApplicationException {
   /**
@@ -579,6 +598,8 @@ class ApplicationException {
 if (!class_exists("ReportDefinitionSelector", FALSE)) {
 /**
  * A selector used to specify which report definitions should be returned.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionSelector {
   /**
@@ -612,6 +633,8 @@ class ReportDefinitionSelector {
 if (!class_exists("ReportDefinition", FALSE)) {
 /**
  * Represents a report definition.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinition {
   /**
@@ -695,6 +718,8 @@ if (!class_exists("ReportDefinitionPage", FALSE)) {
 /**
  * Contains a subset of report definitions resulting from the filtering and
  * paging of the {@link ReportDefinitionService#get} call.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionPage {
   /**
@@ -736,6 +761,8 @@ if (!class_exists("Operation", FALSE)) {
 /**
  * This represents an operation that includes an operator and an operand
  * specified type.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Operation {
   /**
@@ -808,6 +835,8 @@ class Operation {
 if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationErrorReason {
   /**
@@ -834,6 +863,8 @@ class AuthenticationErrorReason {
 if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationErrorReason {
   /**
@@ -861,6 +892,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsErrorReason {
   /**
@@ -887,6 +920,8 @@ class ClientTermsErrorReason {
 if (!class_exists("CollectionSizeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CollectionSizeErrorReason {
   /**
@@ -913,6 +948,8 @@ class CollectionSizeErrorReason {
 if (!class_exists("DateErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateErrorReason {
   /**
@@ -939,6 +976,8 @@ class DateErrorReason {
 if (!class_exists("DistinctErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DistinctErrorReason {
   /**
@@ -967,6 +1006,8 @@ if (!class_exists("DownloadFormat", FALSE)) {
  * Enum class that describes the supported formats for content downloads.
  * The order mimics the order in which download options are presented in the
  * legacy report center.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DownloadFormat {
   /**
@@ -993,6 +1034,8 @@ class DownloadFormat {
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiErrorReason {
   /**
@@ -1019,6 +1062,8 @@ class InternalApiErrorReason {
 if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyErrorReason {
   /**
@@ -1045,6 +1090,8 @@ class NotEmptyErrorReason {
 if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedErrorReason {
   /**
@@ -1071,6 +1118,8 @@ class NotWhitelistedErrorReason {
 if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NullErrorReason {
   /**
@@ -1097,6 +1146,8 @@ class NullErrorReason {
 if (!class_exists("Operator", FALSE)) {
 /**
  * This represents an operator that may be presented to an adsapi service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Operator {
   /**
@@ -1123,6 +1174,8 @@ class Operator {
 if (!class_exists("OperatorErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class OperatorErrorReason {
   /**
@@ -1149,6 +1202,8 @@ class OperatorErrorReason {
 if (!class_exists("PredicateOperator", FALSE)) {
 /**
  * Defines the valid set of operators.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PredicateOperator {
   /**
@@ -1176,6 +1231,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckErrorReason {
   /**
@@ -1202,6 +1259,8 @@ class QuotaCheckErrorReason {
 if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RangeErrorReason {
   /**
@@ -1228,6 +1287,8 @@ class RangeErrorReason {
 if (!class_exists("RateExceededErrorReason", FALSE)) {
 /**
  * The reason for the rate exceeded error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededErrorReason {
   /**
@@ -1254,6 +1315,8 @@ class RateExceededErrorReason {
 if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReadOnlyErrorReason {
   /**
@@ -1280,6 +1343,8 @@ class ReadOnlyErrorReason {
 if (!class_exists("ReportDefinitionDateRangeType", FALSE)) {
 /**
  * Enums for date range of report.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionDateRangeType {
   /**
@@ -1306,6 +1371,8 @@ class ReportDefinitionDateRangeType {
 if (!class_exists("ReportDefinitionReportType", FALSE)) {
 /**
  * Enums for report types.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionReportType {
   /**
@@ -1333,6 +1400,8 @@ if (!class_exists("ReportDefinitionErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * a {@link ReportDefinitionService#mutate(java.util.List)} operation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionErrorReason {
   /**
@@ -1359,6 +1428,8 @@ class ReportDefinitionErrorReason {
 if (!class_exists("RequestErrorReason", FALSE)) {
 /**
  * Error reason is unknown.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestErrorReason {
   /**
@@ -1385,6 +1456,8 @@ class RequestErrorReason {
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredErrorReason {
   /**
@@ -1411,6 +1484,8 @@ class RequiredErrorReason {
 if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitErrorReason {
   /**
@@ -1446,6 +1521,8 @@ if (!class_exists("ReportDefinitionServiceGet", FALSE)) {
  * @return A list of report definitions.
  * @throws ApiException if problems occurred while fetching report definitions
  * information.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionServiceGet {
   /**
@@ -1479,6 +1556,8 @@ class ReportDefinitionServiceGet {
 if (!class_exists("ReportDefinitionServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionServiceGetResponse {
   /**
@@ -1524,6 +1603,8 @@ if (!class_exists("getReportFields", FALSE)) {
  * {@code enum}).
  * @throws ApiException if a problem occurred while fetching the
  * ReportDefinitionField information.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class getReportFields {
   /**
@@ -1557,6 +1638,8 @@ class getReportFields {
 if (!class_exists("getReportFieldsResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class getReportFieldsResponse {
   /**
@@ -1605,6 +1688,8 @@ if (!class_exists("ReportDefinitionServiceMutate", FALSE)) {
  * order as the <code>operations</code> array.
  * @throws ApiException if an error occurred while updating report definitions
  * information.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionServiceMutate {
   /**
@@ -1638,6 +1723,8 @@ class ReportDefinitionServiceMutate {
 if (!class_exists("ReportDefinitionServiceMutateResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionServiceMutateResponse {
   /**
@@ -1671,6 +1758,8 @@ class ReportDefinitionServiceMutateResponse {
 if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationError extends ApiError {
   /**
@@ -1708,6 +1797,8 @@ class AuthenticationError extends ApiError {
 if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationError extends ApiError {
   /**
@@ -1745,6 +1836,8 @@ class AuthorizationError extends ApiError {
 if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsError extends ApiError {
   /**
@@ -1782,6 +1875,8 @@ class ClientTermsError extends ApiError {
 if (!class_exists("CollectionSizeError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsSize constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CollectionSizeError extends ApiError {
   /**
@@ -1819,6 +1914,8 @@ class CollectionSizeError extends ApiError {
 if (!class_exists("DateError", FALSE)) {
 /**
  * Errors associated with invalid dates and date ranges.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateError extends ApiError {
   /**
@@ -1856,6 +1953,8 @@ class DateError extends ApiError {
 if (!class_exists("DistinctError", FALSE)) {
 /**
  * Errors related to distinct ids or content.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DistinctError extends ApiError {
   /**
@@ -1895,6 +1994,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
  * client.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiError extends ApiError {
   /**
@@ -1932,6 +2033,8 @@ class InternalApiError extends ApiError {
 if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyError extends ApiError {
   /**
@@ -1969,6 +2072,8 @@ class NotEmptyError extends ApiError {
 if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -2006,6 +2111,8 @@ class NotWhitelistedError extends ApiError {
 if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NullError extends ApiError {
   /**
@@ -2043,6 +2150,8 @@ class NullError extends ApiError {
 if (!class_exists("OperatorError", FALSE)) {
 /**
  * A list of all errors associated with the @SupportedOperators constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class OperatorError extends ApiError {
   /**
@@ -2080,6 +2189,8 @@ class OperatorError extends ApiError {
 if (!class_exists("QuotaCheckError", FALSE)) {
 /**
  * Encapsulates the errors thrown during developer quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -2117,6 +2228,8 @@ class QuotaCheckError extends ApiError {
 if (!class_exists("RangeError", FALSE)) {
 /**
  * A list of all errors associated with the Range constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RangeError extends ApiError {
   /**
@@ -2154,6 +2267,8 @@ class RangeError extends ApiError {
 if (!class_exists("RateExceededError", FALSE)) {
 /**
  * Signals that a call failed because a measured rate exceeded.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededError extends ApiError {
   /**
@@ -2212,6 +2327,8 @@ class RateExceededError extends ApiError {
 if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReadOnlyError extends ApiError {
   /**
@@ -2250,6 +2367,8 @@ if (!class_exists("ReportDefinitionError", FALSE)) {
 /**
  * Encapsulates the errors that can be thrown during {@link ReportDefinition}
  * mutate operation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionError extends ApiError {
   /**
@@ -2288,6 +2407,8 @@ if (!class_exists("RequestError", FALSE)) {
 /**
  * Encapsulates the generic errors thrown when there's an error with user
  * request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestError extends ApiError {
   /**
@@ -2325,6 +2446,8 @@ class RequestError extends ApiError {
 if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredError extends ApiError {
   /**
@@ -2362,6 +2485,8 @@ class RequiredError extends ApiError {
 if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitError extends ApiError {
   /**
@@ -2399,6 +2524,8 @@ class SizeLimitError extends ApiError {
 if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiException extends ApplicationException {
   /**
@@ -2434,6 +2561,8 @@ class ApiException extends ApplicationException {
 if (!class_exists("ReportDefinitionOperation", FALSE)) {
 /**
  * Operations for adding/updating/removing report definitions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReportDefinitionOperation extends Operation {
   /**
@@ -2469,6 +2598,8 @@ class ReportDefinitionOperation extends Operation {
 if (!class_exists("ReportDefinitionService", FALSE)) {
 /**
  * ReportDefinitionService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  * @author WSDLInterpreter
  */
 class ReportDefinitionService extends AdWordsSoapClient {

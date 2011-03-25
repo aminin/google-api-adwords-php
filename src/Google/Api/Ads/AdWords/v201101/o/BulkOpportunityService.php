@@ -27,6 +27,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("ApiError", FALSE)) {
@@ -41,6 +42,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiError {
   /**
@@ -132,6 +135,8 @@ if (!class_exists("ApplicationException", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApplicationException {
   /**
@@ -209,6 +214,8 @@ if (!class_exists("AuthenticationError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationError extends ApiError {
   /**
@@ -251,6 +258,8 @@ if (!class_exists("AuthorizationError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationError extends ApiError {
   /**
@@ -294,6 +303,8 @@ if (!class_exists("BidLandscapeLandscapePoint", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BidLandscapeLandscapePoint {
   /**
@@ -360,6 +371,8 @@ if (!class_exists("ClientTermsError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsError extends ApiError {
   /**
@@ -402,6 +415,8 @@ if (!class_exists("ComparableValue", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ComparableValue {
   /**
@@ -473,6 +488,8 @@ if (!class_exists("Criterion", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Criterion {
   /**
@@ -550,6 +567,8 @@ if (!class_exists("DatabaseError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseError extends ApiError {
   /**
@@ -594,6 +613,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiError extends ApiError {
   /**
@@ -638,6 +659,8 @@ if (!class_exists("Keyword", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Keyword extends Criterion {
   /**
@@ -685,6 +708,8 @@ if (!class_exists("Money", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Money extends ComparableValue {
   /**
@@ -724,6 +749,8 @@ if (!class_exists("NotWhitelistedError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -766,6 +793,8 @@ if (!class_exists("NullError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NullError extends ApiError {
   /**
@@ -808,6 +837,8 @@ if (!class_exists("NumberValue", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NumberValue extends ComparableValue {
   /**
@@ -840,6 +871,8 @@ if (!class_exists("Paging", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Paging {
   /**
@@ -886,6 +919,8 @@ if (!class_exists("Placement", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Placement extends Criterion {
   /**
@@ -927,6 +962,8 @@ if (!class_exists("Product", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Product extends Criterion {
   /**
@@ -975,6 +1012,8 @@ if (!class_exists("ProductCondition", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProductCondition {
   /**
@@ -1022,6 +1061,8 @@ if (!class_exists("ProductConditionOperand", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProductConditionOperand {
   /**
@@ -1060,6 +1101,8 @@ if (!class_exists("QuotaCheckError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1102,6 +1145,8 @@ if (!class_exists("RateExceededError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededError extends ApiError {
   /**
@@ -1166,6 +1211,8 @@ if (!class_exists("RequestError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestError extends ApiError {
   /**
@@ -1208,6 +1255,8 @@ if (!class_exists("RequiredError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredError extends ApiError {
   /**
@@ -1250,6 +1299,8 @@ if (!class_exists("SizeLimitError", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitError extends ApiError {
   /**
@@ -1288,6 +1339,8 @@ if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapRequestHeader {
   /**
@@ -1364,6 +1417,8 @@ if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapResponseHeader {
   /**
@@ -1424,6 +1479,8 @@ if (!class_exists("DataEntry", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DataEntry {
   /**
@@ -1494,6 +1551,8 @@ if (!class_exists("CriterionUserInterest", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionUserInterest extends Criterion {
   /**
@@ -1541,6 +1600,8 @@ if (!class_exists("CriterionUserList", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionUserList extends Criterion {
   /**
@@ -1595,6 +1656,8 @@ if (!class_exists("Vertical", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Vertical extends Criterion {
   /**
@@ -1631,6 +1694,8 @@ if (!class_exists("AdGroupBidLandscapeType", FALSE)) {
 /**
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupBidLandscapeType {
   /**
@@ -1662,6 +1727,8 @@ if (!class_exists("AuthenticationErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationErrorReason {
   /**
@@ -1693,6 +1760,8 @@ if (!class_exists("AuthorizationErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationErrorReason {
   /**
@@ -1725,6 +1794,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsErrorReason {
   /**
@@ -1756,6 +1827,8 @@ if (!class_exists("DatabaseErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseErrorReason {
   /**
@@ -1787,6 +1860,8 @@ if (!class_exists("InternalApiErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiErrorReason {
   /**
@@ -1814,6 +1889,8 @@ if (!class_exists("KeywordMatchType", FALSE)) {
 /**
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class KeywordMatchType {
   /**
@@ -1845,6 +1922,8 @@ if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedErrorReason {
   /**
@@ -1876,6 +1955,8 @@ if (!class_exists("NullErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NullErrorReason {
   /**
@@ -1908,6 +1989,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckErrorReason {
   /**
@@ -1939,6 +2022,8 @@ if (!class_exists("RateExceededErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededErrorReason {
   /**
@@ -1970,6 +2055,8 @@ if (!class_exists("RequestErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestErrorReason {
   /**
@@ -2001,6 +2088,8 @@ if (!class_exists("RequiredErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredErrorReason {
   /**
@@ -2032,6 +2121,8 @@ if (!class_exists("SizeLimitErrorReason", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitErrorReason {
   /**
@@ -2059,6 +2150,8 @@ if (!class_exists("CriterionUserListMembershipStatus", FALSE)) {
 /**
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionUserListMembershipStatus {
   /**
@@ -2086,6 +2179,8 @@ if (!class_exists("AdFormatSpec", FALSE)) {
 /**
  * A placement response object which provides information about one of the ad formats
  * supported by a placement.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdFormatSpec {
   /**
@@ -2120,6 +2215,8 @@ if (!class_exists("Attribute", FALSE)) {
 /**
  * This field indicates the subtype of Attribute of this instance.  It is ignored
  * on input, and instead xsi:type should be specified.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Attribute {
   /**
@@ -2185,6 +2282,8 @@ class Attribute {
 if (!class_exists("BidLandscapeAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BidLandscapeAttribute extends Attribute {
   /**
@@ -2219,6 +2318,8 @@ class BidLandscapeAttribute extends Attribute {
 if (!class_exists("BooleanAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BooleanAttribute extends Attribute {
   /**
@@ -2253,6 +2354,8 @@ class BooleanAttribute extends Attribute {
 if (!class_exists("BulkOpportunityPage", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkOpportunityPage {
   /**
@@ -2294,6 +2397,8 @@ if (!class_exists("BulkOpportunitySelector", FALSE)) {
 /**
  * <span class="constraint ContentsNotNull">This field must not contain {@code null} elements.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkOpportunitySelector {
   /**
@@ -2341,6 +2446,8 @@ class BulkOpportunitySelector {
 if (!class_exists("BulkOpportunityServiceError", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkOpportunityServiceError extends ApiError {
   /**
@@ -2378,6 +2485,8 @@ class BulkOpportunityServiceError extends ApiError {
 if (!class_exists("CriterionAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionAttribute extends Attribute {
   /**
@@ -2412,6 +2521,8 @@ class CriterionAttribute extends Attribute {
 if (!class_exists("DoubleAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DoubleAttribute extends Attribute {
   /**
@@ -2446,6 +2557,8 @@ class DoubleAttribute extends Attribute {
 if (!class_exists("IdeaTypeAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class IdeaTypeAttribute extends Attribute {
   /**
@@ -2482,6 +2595,8 @@ if (!class_exists("InStreamAdInfo", FALSE)) {
  * Information specific to the instream ad format. Instream ads are video ads
  * which play as part of the delivery of video content, either before, during,
  * or after the content itself.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InStreamAdInfo {
   /**
@@ -2550,6 +2665,8 @@ class InStreamAdInfo {
 if (!class_exists("InStreamAdInfoAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InStreamAdInfoAttribute extends Attribute {
   /**
@@ -2584,6 +2701,8 @@ class InStreamAdInfoAttribute extends Attribute {
 if (!class_exists("IntegerAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class IntegerAttribute extends Attribute {
   /**
@@ -2618,6 +2737,8 @@ class IntegerAttribute extends Attribute {
 if (!class_exists("IntegerSetAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class IntegerSetAttribute extends Attribute {
   /**
@@ -2652,6 +2773,8 @@ class IntegerSetAttribute extends Attribute {
 if (!class_exists("KeywordAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class KeywordAttribute extends Attribute {
   /**
@@ -2686,6 +2809,8 @@ class KeywordAttribute extends Attribute {
 if (!class_exists("LongAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LongAttribute extends Attribute {
   /**
@@ -2720,6 +2845,8 @@ class LongAttribute extends Attribute {
 if (!class_exists("LongRangeAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LongRangeAttribute extends Attribute {
   /**
@@ -2754,6 +2881,8 @@ class LongRangeAttribute extends Attribute {
 if (!class_exists("MoneyAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MoneyAttribute extends Attribute {
   /**
@@ -2790,6 +2919,8 @@ if (!class_exists("MonthlySearchVolume", FALSE)) {
  * A keyword response value representing search volume for a single month. An
  * instance with a {@code null} count is valid, indicating that the information
  * is unavailable.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MonthlySearchVolume {
   /**
@@ -2837,6 +2968,8 @@ class MonthlySearchVolume {
 if (!class_exists("MonthlySearchVolumeAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MonthlySearchVolumeAttribute extends Attribute {
   /**
@@ -2871,6 +3004,8 @@ class MonthlySearchVolumeAttribute extends Attribute {
 if (!class_exists("Opportunity", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Opportunity {
   /**
@@ -2905,6 +3040,8 @@ if (!class_exists("OpportunityAttribute_AttributeMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type OpportunityAttribute
  * and value of type Attribute.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OpportunityAttribute_AttributeMapEntry {
   /**
@@ -2945,6 +3082,8 @@ class OpportunityAttribute_AttributeMapEntry {
 if (!class_exists("OpportunityError", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OpportunityError extends ApiError {
   /**
@@ -2982,6 +3121,8 @@ class OpportunityError extends ApiError {
 if (!class_exists("OpportunityIdea", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OpportunityIdea {
   /**
@@ -3015,6 +3156,8 @@ class OpportunityIdea {
 if (!class_exists("OpportunityIdeaTypeAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OpportunityIdeaTypeAttribute extends Attribute {
   /**
@@ -3049,6 +3192,8 @@ class OpportunityIdeaTypeAttribute extends Attribute {
 if (!class_exists("PlacementAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PlacementAttribute extends Attribute {
   /**
@@ -3083,6 +3228,8 @@ class PlacementAttribute extends Attribute {
 if (!class_exists("PlacementTypeAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PlacementTypeAttribute extends Attribute {
   /**
@@ -3117,6 +3264,8 @@ class PlacementTypeAttribute extends Attribute {
 if (!class_exists("Range", FALSE)) {
 /**
  * Represents a range of values that has either an upper or a lower bound.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Range {
   /**
@@ -3157,6 +3306,8 @@ class Range {
 if (!class_exists("StringAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class StringAttribute extends Attribute {
   /**
@@ -3191,6 +3342,8 @@ class StringAttribute extends Attribute {
 if (!class_exists("WebpageDescriptor", FALSE)) {
 /**
  * Basic information about a webpage.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class WebpageDescriptor {
   /**
@@ -3231,6 +3384,8 @@ class WebpageDescriptor {
 if (!class_exists("WebpageDescriptorAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class WebpageDescriptorAttribute extends Attribute {
   /**
@@ -3265,6 +3420,8 @@ class WebpageDescriptorAttribute extends Attribute {
 if (!class_exists("BulkOpportunityServiceErrorReason", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkOpportunityServiceErrorReason {
   /**
@@ -3291,6 +3448,8 @@ class BulkOpportunityServiceErrorReason {
 if (!class_exists("IdeaType", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class IdeaType {
   /**
@@ -3350,6 +3509,8 @@ if (!class_exists("OpportunityAttributeType", FALSE)) {
  * <li>{@link #IMPRESSIONS_CHANGE}</li>
  * <li>{@link #NEW_BUDGET}</li>
  * </ul>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OpportunityAttributeType {
   /**
@@ -3376,6 +3537,8 @@ class OpportunityAttributeType {
 if (!class_exists("OpportunityErrorReason", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OpportunityErrorReason {
   /**
@@ -3402,6 +3565,8 @@ class OpportunityErrorReason {
 if (!class_exists("OpportunityIdeaType", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OpportunityIdeaType {
   /**
@@ -3428,6 +3593,8 @@ class OpportunityIdeaType {
 if (!class_exists("SiteConstantsAdFormat", FALSE)) {
 /**
  * Enumerates the ad formats which can be reported in search results.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SiteConstantsAdFormat {
   /**
@@ -3455,6 +3622,8 @@ if (!class_exists("SiteConstantsPlacementType", FALSE)) {
 /**
  * A placement request and response value indicating the type of site or other medium
  * (for example, a web page, in a feed, in a video) where ads will appear.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SiteConstantsPlacementType {
   /**
@@ -3504,6 +3673,8 @@ if (!class_exists("BulkOpportunityServiceGet", FALSE)) {
  * list of possible opportunities meeting the criteria of the
  * {@link BulkOpportunitySelector}.
  * @throws ApiException If problems occurred while querying for opportunities.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkOpportunityServiceGet {
   /**
@@ -3537,6 +3708,8 @@ class BulkOpportunityServiceGet {
 if (!class_exists("BulkOpportunityServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkOpportunityServiceGetResponse {
   /**
@@ -3575,6 +3748,8 @@ if (!class_exists("ApiException", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiException extends ApplicationException {
   /**
@@ -3615,6 +3790,8 @@ if (!class_exists("BidLandscape", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BidLandscape extends DataEntry {
   /**
@@ -3682,6 +3859,8 @@ if (!class_exists("CriterionBidLandscape", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionBidLandscape extends BidLandscape {
   /**
@@ -3726,6 +3905,8 @@ if (!class_exists("DoubleValue", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DoubleValue extends NumberValue {
   /**
@@ -3765,6 +3946,8 @@ if (!class_exists("LongValue", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LongValue extends NumberValue {
   /**
@@ -3799,6 +3982,8 @@ class LongValue extends NumberValue {
 if (!class_exists("AdFormatSpecListAttribute", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdFormatSpecListAttribute extends Attribute {
   /**
@@ -3839,6 +4024,8 @@ if (!class_exists("AdGroupBidLandscape", FALSE)) {
  * 
  * <span class="constraint Selectable">This field can be selected using the value "LandscapeType".</span><span class="constraint Filterable">This field can be filtered on.</span>
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupBidLandscape extends BidLandscape {
   /**
@@ -3885,6 +4072,8 @@ class AdGroupBidLandscape extends BidLandscape {
 if (!class_exists("BulkOpportunityService", FALSE)) {
 /**
  * BulkOpportunityService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  * @author WSDLInterpreter
  */
 class BulkOpportunityService extends AdWordsSoapClient {

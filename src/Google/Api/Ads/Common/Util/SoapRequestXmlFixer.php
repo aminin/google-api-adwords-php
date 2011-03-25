@@ -29,11 +29,14 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required classes. **/
 require_once 'XmlUtils.php';
 
 /**
  * The SOAP XML request fixer used to fix some inconsistencies among the
  * different versions of the PHP SoapClient.
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class SoapRequestXmlFixer {
   private $addXsiTypes;

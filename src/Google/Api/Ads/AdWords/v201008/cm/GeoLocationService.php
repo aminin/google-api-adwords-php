@@ -27,11 +27,14 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("Address", FALSE)) {
 /**
  * Structure to specify an address location.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Address {
   /**
@@ -107,6 +110,8 @@ class Address {
 if (!class_exists("GeoLocationSelector", FALSE)) {
 /**
  * A selector used to fetch geographic coordinates for given addresses.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoLocationSelector {
   /**
@@ -140,6 +145,8 @@ class GeoLocationSelector {
 if (!class_exists("GeoPoint", FALSE)) {
 /**
  * Specifies a geo location with the supplied latitude/longitude.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoPoint {
   /**
@@ -180,6 +187,8 @@ class GeoPoint {
 if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapRequestHeader {
   /**
@@ -255,6 +264,8 @@ class SoapRequestHeader {
 if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapResponseHeader {
   /**
@@ -309,6 +320,8 @@ class SoapResponseHeader {
 if (!class_exists("GeoLocation", FALSE)) {
 /**
  * Class representing a location with its geographic coordinates.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoLocation {
   /**
@@ -399,6 +412,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * <p>The OGNL field path is provided for parsers to identify the request data
  * element that may have caused the error.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiError {
   /**
@@ -485,6 +500,8 @@ class ApiError {
 if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApplicationException {
   /**
@@ -557,6 +574,8 @@ class ApplicationException {
 if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationErrorReason {
   /**
@@ -583,6 +602,8 @@ class AuthenticationErrorReason {
 if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationErrorReason {
   /**
@@ -610,6 +631,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsErrorReason {
   /**
@@ -636,6 +659,8 @@ class ClientTermsErrorReason {
 if (!class_exists("GeoLocationErrorReason", FALSE)) {
 /**
  * The reasons for the geolocation errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoLocationErrorReason {
   /**
@@ -662,6 +687,8 @@ class GeoLocationErrorReason {
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiErrorReason {
   /**
@@ -688,6 +715,8 @@ class InternalApiErrorReason {
 if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyErrorReason {
   /**
@@ -714,6 +743,8 @@ class NotEmptyErrorReason {
 if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedErrorReason {
   /**
@@ -740,6 +771,8 @@ class NotWhitelistedErrorReason {
 if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NullErrorReason {
   /**
@@ -767,6 +800,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckErrorReason {
   /**
@@ -793,6 +828,8 @@ class QuotaCheckErrorReason {
 if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RangeErrorReason {
   /**
@@ -819,6 +856,8 @@ class RangeErrorReason {
 if (!class_exists("RateExceededErrorReason", FALSE)) {
 /**
  * The reason for the rate exceeded error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededErrorReason {
   /**
@@ -845,6 +884,8 @@ class RateExceededErrorReason {
 if (!class_exists("RegionCodeErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RegionCodeErrorReason {
   /**
@@ -871,6 +912,8 @@ class RegionCodeErrorReason {
 if (!class_exists("RequestErrorReason", FALSE)) {
 /**
  * Error reason is unknown.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestErrorReason {
   /**
@@ -897,6 +940,8 @@ class RequestErrorReason {
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredErrorReason {
   /**
@@ -923,6 +968,8 @@ class RequiredErrorReason {
 if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitErrorReason {
   /**
@@ -949,6 +996,8 @@ class SizeLimitErrorReason {
 if (!class_exists("StringLengthErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StringLengthErrorReason {
   /**
@@ -984,6 +1033,8 @@ if (!class_exists("GeoLocationServiceGet", FALSE)) {
  * @return list of {@link GeoLocation} objects. Returns {@link InvalidGeoLocation} object if
  * the address cannot be geocoded.
  * @throws ApiException if problems occurred while retrieving the location information
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoLocationServiceGet {
   /**
@@ -1017,6 +1068,8 @@ class GeoLocationServiceGet {
 if (!class_exists("GeoLocationServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoLocationServiceGetResponse {
   /**
@@ -1050,6 +1103,8 @@ class GeoLocationServiceGetResponse {
 if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationError extends ApiError {
   /**
@@ -1087,6 +1142,8 @@ class AuthenticationError extends ApiError {
 if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationError extends ApiError {
   /**
@@ -1124,6 +1181,8 @@ class AuthorizationError extends ApiError {
 if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsError extends ApiError {
   /**
@@ -1161,6 +1220,8 @@ class ClientTermsError extends ApiError {
 if (!class_exists("GeoLocationError", FALSE)) {
 /**
  * Errors for {@link GeoLocationService}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoLocationError extends ApiError {
   /**
@@ -1200,6 +1261,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
  * client.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiError extends ApiError {
   /**
@@ -1237,6 +1300,8 @@ class InternalApiError extends ApiError {
 if (!class_exists("InvalidGeoLocation", FALSE)) {
 /**
  * Invalid GeoLocation object.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InvalidGeoLocation extends GeoLocation {
   /**
@@ -1267,6 +1332,8 @@ class InvalidGeoLocation extends GeoLocation {
 if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyError extends ApiError {
   /**
@@ -1304,6 +1371,8 @@ class NotEmptyError extends ApiError {
 if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -1341,6 +1410,8 @@ class NotWhitelistedError extends ApiError {
 if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NullError extends ApiError {
   /**
@@ -1378,6 +1449,8 @@ class NullError extends ApiError {
 if (!class_exists("QuotaCheckError", FALSE)) {
 /**
  * Encapsulates the errors thrown during developer quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1415,6 +1488,8 @@ class QuotaCheckError extends ApiError {
 if (!class_exists("RangeError", FALSE)) {
 /**
  * A list of all errors associated with the Range constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RangeError extends ApiError {
   /**
@@ -1452,6 +1527,8 @@ class RangeError extends ApiError {
 if (!class_exists("RateExceededError", FALSE)) {
 /**
  * Signals that a call failed because a measured rate exceeded.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededError extends ApiError {
   /**
@@ -1510,6 +1587,8 @@ class RateExceededError extends ApiError {
 if (!class_exists("RegionCodeError", FALSE)) {
 /**
  * A list of all errors associated with the @RegionCode constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RegionCodeError extends ApiError {
   /**
@@ -1548,6 +1627,8 @@ if (!class_exists("RequestError", FALSE)) {
 /**
  * Encapsulates the generic errors thrown when there's an error with user
  * request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestError extends ApiError {
   /**
@@ -1585,6 +1666,8 @@ class RequestError extends ApiError {
 if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredError extends ApiError {
   /**
@@ -1622,6 +1705,8 @@ class RequiredError extends ApiError {
 if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitError extends ApiError {
   /**
@@ -1659,6 +1744,8 @@ class SizeLimitError extends ApiError {
 if (!class_exists("StringLengthError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsString constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StringLengthError extends ApiError {
   /**
@@ -1696,6 +1783,8 @@ class StringLengthError extends ApiError {
 if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiException extends ApplicationException {
   /**
@@ -1731,6 +1820,8 @@ class ApiException extends ApplicationException {
 if (!class_exists("GeoLocationService", FALSE)) {
 /**
  * GeoLocationService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  * @author WSDLInterpreter
  */
 class GeoLocationService extends AdWordsSoapClient {

@@ -29,6 +29,8 @@
 
 /**
  * A collection of utility methods for working with OGNL paths.
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class OgnlUtils {
   /**

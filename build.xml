@@ -465,7 +465,7 @@
     <phpdoc title="AdWords API Documentation"
         destdir="${docs.dir}"
         sourcecode="no"
-        output="HTML:Smarty:PHP">
+        output="HTML:frames:default">
       <fileset dir="${src.dir}">
         <include name="**/*.php" />
       </fileset>

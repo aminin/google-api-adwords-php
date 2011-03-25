@@ -29,6 +29,8 @@
 
 /**
  * A utility class for working with OAuth.
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class OAuthUtils {
   private static $REQUEST_ENDPOINT_FORMAT =

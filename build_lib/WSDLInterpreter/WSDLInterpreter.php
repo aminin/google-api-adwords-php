@@ -504,6 +504,8 @@ class WSDLInterpreter
     $return .= '/**'."\n";
     $return .= $this->_generateInnerDoc(
     $class->getElementsByTagName("documentation")->item(0)->nodeValue);
+    $return .= ' * @package '.$this->_package."\n";
+    $return .= ' * @subpackage '.$this->_version."\n";
     $return .= ' */'."\n";
     $return .= "class ".$class->getAttribute("validatedName");
     $extends = $class->getElementsByTagName("extends");
@@ -653,6 +655,8 @@ class WSDLInterpreter
     $return .= 'if (!class_exists("'.$service->getAttribute("validatedName").'", FALSE)) {'."\n";
     $return .= '/**'."\n";
     $return .= ' * '.$service->getAttribute("validatedName")."\n";
+    $return .= ' * @package '.$this->_package."\n";
+    $return .= ' * @subpackage '.$this->_version."\n";
     $return .= ' * @author WSDLInterpreter'."\n";
     $return .= ' */'."\n";
     $return .= "class ".$service->getAttribute("validatedName")." extends " .
@@ -748,7 +752,8 @@ class WSDLInterpreter
     if (sizeof($this->_servicePHPSources) == 0) {
       throw new WSDLInterpreterException("No services loaded");
     }
-    $require = 'require_once ' . $this->_soapClientClassPath . ';' . "\n\n";
+    $require = '/** Required classes. **/'."\n";
+    $require .= 'require_once ' . $this->_soapClientClassPath . ';' . "\n\n";
     $classSource = join("\n\n", $this->_classPHPSources);
     $outputFiles = array();
     foreach ($this->_servicePHPSources as $serviceName => $serviceCode) {

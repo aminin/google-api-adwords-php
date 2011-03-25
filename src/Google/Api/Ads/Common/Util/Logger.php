@@ -40,6 +40,9 @@
  *
  * A list of supported appenders (file handles) can be found here:
  * {@link http://us2.php.net/manual/en/wrappers.php}
+ *
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class Logger {
   /**

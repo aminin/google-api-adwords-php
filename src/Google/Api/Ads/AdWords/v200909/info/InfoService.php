@@ -27,6 +27,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("DateRange", FALSE)) {
@@ -37,6 +38,8 @@ if (!class_exists("DateRange", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class DateRange {
   /**
@@ -81,6 +84,8 @@ if (!class_exists("SoapRequestHeader", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class SoapRequestHeader {
   /**
@@ -160,6 +165,8 @@ if (!class_exists("SoapResponseHeader", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class SoapResponseHeader {
   /**
@@ -222,6 +229,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApiError {
   /**
@@ -305,6 +314,8 @@ if (!class_exists("ApplicationException", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApplicationException {
   /**
@@ -381,6 +392,8 @@ if (!class_exists("AuthenticationErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AuthenticationErrorReason {
   /**
@@ -411,6 +424,8 @@ if (!class_exists("AuthorizationErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AuthorizationErrorReason {
   /**
@@ -442,6 +457,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ClientTermsErrorReason {
   /**
@@ -473,6 +490,8 @@ if (!class_exists("EntityNotFoundReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class EntityNotFoundReason {
   /**
@@ -503,6 +522,8 @@ if (!class_exists("InternalApiErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class InternalApiErrorReason {
   /**
@@ -533,6 +554,8 @@ if (!class_exists("NotEmptyErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NotEmptyErrorReason {
   /**
@@ -563,6 +586,8 @@ if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NotWhitelistedErrorReason {
   /**
@@ -593,6 +618,8 @@ if (!class_exists("NullErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NullErrorReason {
   /**
@@ -623,6 +650,8 @@ if (!class_exists("Operator", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class Operator {
   /**
@@ -653,6 +682,8 @@ if (!class_exists("OperatorErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class OperatorErrorReason {
   /**
@@ -684,6 +715,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class QuotaCheckErrorReason {
   /**
@@ -714,6 +747,8 @@ if (!class_exists("QuotaExceededErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class QuotaExceededErrorReason {
   /**
@@ -744,6 +779,8 @@ if (!class_exists("ReadOnlyErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ReadOnlyErrorReason {
   /**
@@ -774,6 +811,8 @@ if (!class_exists("RequiredErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class RequiredErrorReason {
   /**
@@ -804,6 +843,8 @@ if (!class_exists("SizeLimitErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class SizeLimitErrorReason {
   /**
@@ -830,6 +871,8 @@ class SizeLimitErrorReason {
 if (!class_exists("ApiUsageError", FALSE)) {
 /**
  * Represents possible error codes in InfoService.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApiUsageError extends ApiError {
   /**
@@ -866,6 +909,8 @@ class ApiUsageError extends ApiError {
 if (!class_exists("ApiUsageRecord", FALSE)) {
 /**
  * Data record for per client API units.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApiUsageRecord {
   /**
@@ -940,6 +985,8 @@ if (!class_exists("InfoSelector", FALSE)) {
  * dateRange (start date and end date should be the same), serviceName, methodName,
  * operator parameters.</li>
  * </ul>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class InfoSelector {
   /**
@@ -1008,6 +1055,8 @@ class InfoSelector {
 if (!class_exists("ApiUsageInfo", FALSE)) {
 /**
  * Represents the API usage information.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApiUsageInfo {
   /**
@@ -1048,6 +1097,8 @@ class ApiUsageInfo {
 if (!class_exists("ApiUsageErrorReason", FALSE)) {
 /**
  * Enum used to represent the errors
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApiUsageErrorReason {
   /**
@@ -1074,6 +1125,8 @@ class ApiUsageErrorReason {
 if (!class_exists("ApiUsageType", FALSE)) {
 /**
  * Enum to represent the type of API usage.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApiUsageType {
   /**
@@ -1109,6 +1162,8 @@ if (!class_exists("InfoServiceGet", FALSE)) {
  * @param selector Specifies the type of usage information to return.
  * @return The API usage information.
  * @throws ApiException when there is at least one error with the request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class InfoServiceGet {
   /**
@@ -1142,6 +1197,8 @@ class InfoServiceGet {
 if (!class_exists("InfoServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class InfoServiceGetResponse {
   /**
@@ -1179,6 +1236,8 @@ if (!class_exists("AuthenticationError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AuthenticationError extends ApiError {
   /**
@@ -1219,6 +1278,8 @@ if (!class_exists("AuthorizationError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AuthorizationError extends ApiError {
   /**
@@ -1259,6 +1320,8 @@ if (!class_exists("ClientTermsError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ClientTermsError extends ApiError {
   /**
@@ -1300,6 +1363,8 @@ if (!class_exists("EntityNotFound", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class EntityNotFound extends ApiError {
   /**
@@ -1342,6 +1407,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class InternalApiError extends ApiError {
   /**
@@ -1382,6 +1449,8 @@ if (!class_exists("NotEmptyError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NotEmptyError extends ApiError {
   /**
@@ -1422,6 +1491,8 @@ if (!class_exists("NotWhitelistedError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -1462,6 +1533,8 @@ if (!class_exists("NullError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NullError extends ApiError {
   /**
@@ -1502,6 +1575,8 @@ if (!class_exists("OperatorError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class OperatorError extends ApiError {
   /**
@@ -1542,6 +1617,8 @@ if (!class_exists("QuotaCheckError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1582,6 +1659,8 @@ if (!class_exists("QuotaExceededError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class QuotaExceededError extends ApiError {
   /**
@@ -1622,6 +1701,8 @@ if (!class_exists("ReadOnlyError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ReadOnlyError extends ApiError {
   /**
@@ -1662,6 +1743,8 @@ if (!class_exists("RequiredError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class RequiredError extends ApiError {
   /**
@@ -1702,6 +1785,8 @@ if (!class_exists("SizeLimitError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class SizeLimitError extends ApiError {
   /**
@@ -1742,6 +1827,8 @@ if (!class_exists("ApiException", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApiException extends ApplicationException {
   /**
@@ -1777,6 +1864,8 @@ class ApiException extends ApplicationException {
 if (!class_exists("InfoService", FALSE)) {
 /**
  * InfoService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  * @author WSDLInterpreter
  */
 class InfoService extends AdWordsSoapClient {

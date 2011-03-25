@@ -30,12 +30,15 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required classes. **/
 require_once 'AuthTokenException.php';
 require_once 'CurlUtils.php';
 
 /**
  * Client used to retrieve an authentication token for the supplied credentials
  * with the client login API.
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class AuthToken {
   private $email;

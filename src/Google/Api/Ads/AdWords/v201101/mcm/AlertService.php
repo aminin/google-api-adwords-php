@@ -27,6 +27,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("Paging", FALSE)) {
@@ -38,6 +39,8 @@ if (!class_exists("Paging", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Paging {
   /**
@@ -82,6 +85,8 @@ if (!class_exists("SoapRequestHeader", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapRequestHeader {
   /**
@@ -161,6 +166,8 @@ if (!class_exists("SoapResponseHeader", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapResponseHeader {
   /**
@@ -223,6 +230,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiError {
   /**
@@ -313,6 +322,8 @@ if (!class_exists("ApplicationException", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApplicationException {
   /**
@@ -389,6 +400,8 @@ if (!class_exists("Page", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Page {
   /**
@@ -465,6 +478,8 @@ if (!class_exists("AuthenticationErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationErrorReason {
   /**
@@ -495,6 +510,8 @@ if (!class_exists("AuthorizationErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationErrorReason {
   /**
@@ -526,6 +543,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsErrorReason {
   /**
@@ -556,6 +575,8 @@ if (!class_exists("DatabaseErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseErrorReason {
   /**
@@ -586,6 +607,8 @@ if (!class_exists("DateErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DateErrorReason {
   /**
@@ -616,6 +639,8 @@ if (!class_exists("DistinctErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DistinctErrorReason {
   /**
@@ -646,6 +671,8 @@ if (!class_exists("InternalApiErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiErrorReason {
   /**
@@ -676,6 +703,8 @@ if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedErrorReason {
   /**
@@ -707,6 +736,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckErrorReason {
   /**
@@ -737,6 +768,8 @@ if (!class_exists("RateExceededErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededErrorReason {
   /**
@@ -767,6 +800,8 @@ if (!class_exists("RequestErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestErrorReason {
   /**
@@ -797,6 +832,8 @@ if (!class_exists("RequiredErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredErrorReason {
   /**
@@ -827,6 +864,8 @@ if (!class_exists("SizeLimitErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitErrorReason {
   /**
@@ -853,6 +892,8 @@ class SizeLimitErrorReason {
 if (!class_exists("AlertError", FALSE)) {
 /**
  * Errors that can occur when using {@link AlertService}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AlertError extends ApiError {
   /**
@@ -890,6 +931,8 @@ class AlertError extends ApiError {
 if (!class_exists("AlertQuery", FALSE)) {
 /**
  * Querying criteria for getting alerts.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AlertQuery {
   /**
@@ -965,6 +1008,8 @@ class AlertQuery {
 if (!class_exists("AlertSelector", FALSE)) {
 /**
  * Selector for querying for alerts.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AlertSelector {
   /**
@@ -1006,6 +1051,8 @@ if (!class_exists("Detail", FALSE)) {
 /**
  * Detail refers to a single event or condition that triggered its owning {@link Alert}.
  * Multiple details can cause the same {@code Alert} to occur.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Detail {
   /**
@@ -1040,6 +1087,8 @@ if (!class_exists("Alert", FALSE)) {
 /**
  * Alert for a single client. Triggering events are grouped by {@link AlertType} into the same alert
  * with multiple {@link Details}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Alert {
   /**
@@ -1094,6 +1143,8 @@ class Alert {
 if (!class_exists("NoStatsPage", FALSE)) {
 /**
  * Base class for Get results for a page of entities that do not use statistics.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NoStatsPage extends Page {
   /**
@@ -1122,6 +1173,8 @@ class NoStatsPage extends Page {
 if (!class_exists("AlertErrorReason", FALSE)) {
 /**
  * The possible reasons for an {@link AlertError} to occur.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AlertErrorReason {
   /**
@@ -1148,6 +1201,8 @@ class AlertErrorReason {
 if (!class_exists("AlertSeverity", FALSE)) {
 /**
  * Severity of an alert, represented as a "color".
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AlertSeverity {
   /**
@@ -1174,6 +1229,8 @@ class AlertSeverity {
 if (!class_exists("AlertType", FALSE)) {
 /**
  * Type of an alert.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AlertType {
   /**
@@ -1200,6 +1257,8 @@ class AlertType {
 if (!class_exists("ClientSpec", FALSE)) {
 /**
  * Specification of which managed accounts a client manager is interested in.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientSpec {
   /**
@@ -1227,6 +1286,8 @@ if (!class_exists("FilterSpec", FALSE)) {
 /**
  * Describes how a result set of alerts should be filtered based on the triggering account's
  * ability to manage clients.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class FilterSpec {
   /**
@@ -1253,6 +1314,8 @@ class FilterSpec {
 if (!class_exists("TriggerTimeSpec", FALSE)) {
 /**
  * Specification of what trigger time alerts should match.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TriggerTimeSpec {
   /**
@@ -1287,6 +1350,8 @@ if (!class_exists("AlertServiceGet", FALSE)) {
  * @param selector selects the alerts for which to search.
  * @return a page of alerts.
  * @throws ApiException if an error occurs
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AlertServiceGet {
   /**
@@ -1320,6 +1385,8 @@ class AlertServiceGet {
 if (!class_exists("AlertServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AlertServiceGetResponse {
   /**
@@ -1357,6 +1424,8 @@ if (!class_exists("AuthenticationError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationError extends ApiError {
   /**
@@ -1398,6 +1467,8 @@ if (!class_exists("AuthorizationError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationError extends ApiError {
   /**
@@ -1439,6 +1510,8 @@ if (!class_exists("ClientTermsError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsError extends ApiError {
   /**
@@ -1480,6 +1553,8 @@ if (!class_exists("DateError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DateError extends ApiError {
   /**
@@ -1521,6 +1596,8 @@ if (!class_exists("DistinctError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DistinctError extends ApiError {
   /**
@@ -1564,6 +1641,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiError extends ApiError {
   /**
@@ -1605,6 +1684,8 @@ if (!class_exists("NotWhitelistedError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -1646,6 +1727,8 @@ if (!class_exists("QuotaCheckError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1687,6 +1770,8 @@ if (!class_exists("RateExceededError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededError extends ApiError {
   /**
@@ -1750,6 +1835,8 @@ if (!class_exists("RequestError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestError extends ApiError {
   /**
@@ -1791,6 +1878,8 @@ if (!class_exists("RequiredError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredError extends ApiError {
   /**
@@ -1832,6 +1921,8 @@ if (!class_exists("SizeLimitError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitError extends ApiError {
   /**
@@ -1873,6 +1964,8 @@ if (!class_exists("DatabaseError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseError extends ApiError {
   /**
@@ -1914,6 +2007,8 @@ if (!class_exists("ApiException", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiException extends ApplicationException {
   /**
@@ -1950,6 +2045,8 @@ if (!class_exists("AlertPage", FALSE)) {
 /**
  * Contains a subset of {@link Alert}s resulting from the filtering and paging,
  * returned by {@link AlertService#get(AlertSelector)}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AlertPage extends NoStatsPage {
   /**
@@ -1985,6 +2082,8 @@ class AlertPage extends NoStatsPage {
 if (!class_exists("AlertService", FALSE)) {
 /**
  * AlertService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  * @author WSDLInterpreter
  */
 class AlertService extends AdWordsSoapClient {

@@ -27,11 +27,14 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("Address", FALSE)) {
 /**
  * Structure to specify an address location.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class Address {
   /**
@@ -108,6 +111,8 @@ if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
  * The format for the date is YYYYMMDD.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class DateRange {
   /**
@@ -148,6 +153,8 @@ class DateRange {
 if (!class_exists("GeoPoint", FALSE)) {
 /**
  * Specifies a geo location with the supplied latitude/longitude.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class GeoPoint {
   /**
@@ -190,6 +197,8 @@ if (!class_exists("Paging", FALSE)) {
  * Specifies the page of results to return in the response. A page is specified
  * by the result position to start at and the maximum number of results to
  * return.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class Paging {
   /**
@@ -230,6 +239,8 @@ class Paging {
 if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class SoapRequestHeader {
   /**
@@ -305,6 +316,8 @@ class SoapRequestHeader {
 if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class SoapResponseHeader {
   /**
@@ -359,6 +372,8 @@ class SoapResponseHeader {
 if (!class_exists("StatsSelector", FALSE)) {
 /**
  * Selects statistics for date range.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class StatsSelector {
   /**
@@ -435,6 +450,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * <p>The OGNL field path is provided for parsers to identify the request data
  * element that may have caused the error.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApiError {
   /**
@@ -514,6 +531,8 @@ class ApiError {
 if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApplicationException {
   /**
@@ -586,6 +605,8 @@ class ApplicationException {
 if (!class_exists("CampaignAdExtensionSelector", FALSE)) {
 /**
  * Specifies criteria for selecting a set of CampaignAdExtensions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionSelector {
   /**
@@ -643,6 +664,8 @@ if (!class_exists("AdExtension", FALSE)) {
  * an existing ad or metadata that will process into an extension.
  * The class is concrete, so ad extensions can be added/removed to campaigns
  * by referring to the id.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AdExtension {
   /**
@@ -716,6 +739,8 @@ if (!class_exists("CampaignAdExtension", FALSE)) {
 /**
  * Represents a campaign level ad extension. A campaign ad extension specifies
  * a campaign and an ad extension which can extend any ad under that campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtension {
   /**
@@ -770,6 +795,8 @@ class CampaignAdExtension {
 if (!class_exists("ListReturnValue", FALSE)) {
 /**
  * Base list return value type.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ListReturnValue {
   /**
@@ -836,6 +863,8 @@ if (!class_exists("Operation", FALSE)) {
 /**
  * This represents an operation that includes an operator and an operand
  * specified type.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class Operation {
   /**
@@ -908,6 +937,8 @@ class Operation {
 if (!class_exists("Page", FALSE)) {
 /**
  * Contains the results from a get call.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class Page {
   /**
@@ -980,6 +1011,8 @@ class Page {
 if (!class_exists("AdExtensionErrorReason", FALSE)) {
 /**
  * Account has been deleted
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AdExtensionErrorReason {
   /**
@@ -1006,6 +1039,8 @@ class AdExtensionErrorReason {
 if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AuthenticationErrorReason {
   /**
@@ -1032,6 +1067,8 @@ class AuthenticationErrorReason {
 if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AuthorizationErrorReason {
   /**
@@ -1058,6 +1095,8 @@ class AuthorizationErrorReason {
 if (!class_exists("CampaignAdExtensionApprovalStatus", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionApprovalStatus {
   /**
@@ -1084,6 +1123,8 @@ class CampaignAdExtensionApprovalStatus {
 if (!class_exists("CampaignAdExtensionStatus", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionStatus {
   /**
@@ -1110,6 +1151,8 @@ class CampaignAdExtensionStatus {
 if (!class_exists("CampaignAdExtensionErrorReason", FALSE)) {
 /**
  * Cannot operate on an adextensions under the wrong campaign
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionErrorReason {
   /**
@@ -1137,6 +1180,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ClientTermsErrorReason {
   /**
@@ -1163,6 +1208,8 @@ class ClientTermsErrorReason {
 if (!class_exists("DatabaseErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class DatabaseErrorReason {
   /**
@@ -1189,6 +1236,8 @@ class DatabaseErrorReason {
 if (!class_exists("DistinctErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class DistinctErrorReason {
   /**
@@ -1216,6 +1265,8 @@ if (!class_exists("EntityNotFoundReason", FALSE)) {
 /**
  * The specified id refered to an entity which either doesn't exist or is not accessible to the
  * customer. e.g. campaign belongs to another customer.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class EntityNotFoundReason {
   /**
@@ -1242,6 +1293,8 @@ class EntityNotFoundReason {
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class InternalApiErrorReason {
   /**
@@ -1268,6 +1321,8 @@ class InternalApiErrorReason {
 if (!class_exists("LocationExtensionSource", FALSE)) {
 /**
  * From manual entry in adwords frontend
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class LocationExtensionSource {
   /**
@@ -1294,6 +1349,8 @@ class LocationExtensionSource {
 if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NotEmptyErrorReason {
   /**
@@ -1320,6 +1377,8 @@ class NotEmptyErrorReason {
 if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NotWhitelistedErrorReason {
   /**
@@ -1346,6 +1405,8 @@ class NotWhitelistedErrorReason {
 if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NullErrorReason {
   /**
@@ -1372,6 +1433,8 @@ class NullErrorReason {
 if (!class_exists("OperationAccessDeniedReason", FALSE)) {
 /**
  * The reasons for the operation access error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class OperationAccessDeniedReason {
   /**
@@ -1398,6 +1461,8 @@ class OperationAccessDeniedReason {
 if (!class_exists("Operator", FALSE)) {
 /**
  * This represents an operator that may be presented to an adsapi service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class Operator {
   /**
@@ -1424,6 +1489,8 @@ class Operator {
 if (!class_exists("OperatorErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class OperatorErrorReason {
   /**
@@ -1450,6 +1517,8 @@ class OperatorErrorReason {
 if (!class_exists("PagingErrorReason", FALSE)) {
 /**
  * The reasons for errors when using pagination.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class PagingErrorReason {
   /**
@@ -1477,6 +1546,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class QuotaCheckErrorReason {
   /**
@@ -1503,6 +1574,8 @@ class QuotaCheckErrorReason {
 if (!class_exists("QuotaExceededErrorReason", FALSE)) {
 /**
  * The single reason for the quota error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class QuotaExceededErrorReason {
   /**
@@ -1529,6 +1602,8 @@ class QuotaExceededErrorReason {
 if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class RangeErrorReason {
   /**
@@ -1555,6 +1630,8 @@ class RangeErrorReason {
 if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ReadOnlyErrorReason {
   /**
@@ -1581,6 +1658,8 @@ class ReadOnlyErrorReason {
 if (!class_exists("RegionCodeErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class RegionCodeErrorReason {
   /**
@@ -1607,6 +1686,8 @@ class RegionCodeErrorReason {
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class RequiredErrorReason {
   /**
@@ -1633,6 +1714,8 @@ class RequiredErrorReason {
 if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class SizeLimitErrorReason {
   /**
@@ -1659,6 +1742,8 @@ class SizeLimitErrorReason {
 if (!class_exists("StringLengthErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class StringLengthErrorReason {
   /**
@@ -1693,6 +1778,8 @@ if (!class_exists("CampaignAdExtensionServiceGet", FALSE)) {
  * @param selector The selector specifying the query.
  * @return The page containing the {@link CampaignAdExtension}s which meet the
  * criteria specified by the selector.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionServiceGet {
   /**
@@ -1726,6 +1813,8 @@ class CampaignAdExtensionServiceGet {
 if (!class_exists("CampaignAdExtensionServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionServiceGetResponse {
   /**
@@ -1770,6 +1859,8 @@ if (!class_exists("CampaignAdExtensionServiceMutate", FALSE)) {
  * cannot be specified in more than one operation.
  * @return The applied {@link CampaignAdExtension}s. The {@link Operator#SET}
  * is not supported.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionServiceMutate {
   /**
@@ -1803,6 +1894,8 @@ class CampaignAdExtensionServiceMutate {
 if (!class_exists("CampaignAdExtensionServiceMutateResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionServiceMutateResponse {
   /**
@@ -1836,6 +1929,8 @@ class CampaignAdExtensionServiceMutateResponse {
 if (!class_exists("AdExtensionError", FALSE)) {
 /**
  * AdExtension errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AdExtensionError extends ApiError {
   /**
@@ -1872,6 +1967,8 @@ class AdExtensionError extends ApiError {
 if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AuthenticationError extends ApiError {
   /**
@@ -1908,6 +2005,8 @@ class AuthenticationError extends ApiError {
 if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class AuthorizationError extends ApiError {
   /**
@@ -1944,6 +2043,8 @@ class AuthorizationError extends ApiError {
 if (!class_exists("CampaignAdExtensionError", FALSE)) {
 /**
  * CampaignAdExtension errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionError extends ApiError {
   /**
@@ -1980,6 +2081,8 @@ class CampaignAdExtensionError extends ApiError {
 if (!class_exists("CampaignAdExtensionStatsSelector", FALSE)) {
 /**
  * Campaign Ad extension specific stats selector.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionStatsSelector extends StatsSelector {
   /**
@@ -2008,6 +2111,8 @@ class CampaignAdExtensionStatsSelector extends StatsSelector {
 if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ClientTermsError extends ApiError {
   /**
@@ -2044,6 +2149,8 @@ class ClientTermsError extends ApiError {
 if (!class_exists("DistinctError", FALSE)) {
 /**
  * Errors related to distinct ids or content.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class DistinctError extends ApiError {
   /**
@@ -2081,6 +2188,8 @@ if (!class_exists("EntityNotFound", FALSE)) {
 /**
  * An id did not correspond to an entity, or it referred to an entity which does not belong to the
  * customer.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class EntityNotFound extends ApiError {
   /**
@@ -2119,6 +2228,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
  * client.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class InternalApiError extends ApiError {
   /**
@@ -2155,6 +2266,8 @@ class InternalApiError extends ApiError {
 if (!class_exists("LocationExtension", FALSE)) {
 /**
  * Location based ad extension.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class LocationExtension extends AdExtension {
   /**
@@ -2239,6 +2352,8 @@ class LocationExtension extends AdExtension {
 if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NotEmptyError extends ApiError {
   /**
@@ -2275,6 +2390,8 @@ class NotEmptyError extends ApiError {
 if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -2311,6 +2428,8 @@ class NotWhitelistedError extends ApiError {
 if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class NullError extends ApiError {
   /**
@@ -2348,6 +2467,8 @@ if (!class_exists("OperationAccessDenied", FALSE)) {
 /**
  * Unauthorized access errors as determined by the invoked service's
  * access policy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class OperationAccessDenied extends ApiError {
   /**
@@ -2384,6 +2505,8 @@ class OperationAccessDenied extends ApiError {
 if (!class_exists("OperatorError", FALSE)) {
 /**
  * A list of all errors associated with the @SupportedOperators constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class OperatorError extends ApiError {
   /**
@@ -2421,6 +2544,8 @@ if (!class_exists("PagingError", FALSE)) {
 /**
  * Error codes for pagination.
  * See {@link com.google.ads.api.services.common.pagination.Paging}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class PagingError extends ApiError {
   /**
@@ -2457,6 +2582,8 @@ class PagingError extends ApiError {
 if (!class_exists("QuotaCheckError", FALSE)) {
 /**
  * Encapsulates the errors thrown during developer quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -2493,6 +2620,8 @@ class QuotaCheckError extends ApiError {
 if (!class_exists("QuotaExceededError", FALSE)) {
 /**
  * Represents Quota Exceeded Error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class QuotaExceededError extends ApiError {
   /**
@@ -2529,6 +2658,8 @@ class QuotaExceededError extends ApiError {
 if (!class_exists("RangeError", FALSE)) {
 /**
  * A list of all errors associated with the Range constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class RangeError extends ApiError {
   /**
@@ -2565,6 +2696,8 @@ class RangeError extends ApiError {
 if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ReadOnlyError extends ApiError {
   /**
@@ -2601,6 +2734,8 @@ class ReadOnlyError extends ApiError {
 if (!class_exists("RegionCodeError", FALSE)) {
 /**
  * A list of all errors associated with the @RegionCode constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class RegionCodeError extends ApiError {
   /**
@@ -2637,6 +2772,8 @@ class RegionCodeError extends ApiError {
 if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class RequiredError extends ApiError {
   /**
@@ -2673,6 +2810,8 @@ class RequiredError extends ApiError {
 if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class SizeLimitError extends ApiError {
   /**
@@ -2709,6 +2848,8 @@ class SizeLimitError extends ApiError {
 if (!class_exists("StringLengthError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsString constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class StringLengthError extends ApiError {
   /**
@@ -2745,6 +2886,8 @@ class StringLengthError extends ApiError {
 if (!class_exists("DatabaseError", FALSE)) {
 /**
  * Errors that are thrown due to a database access problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class DatabaseError extends ApiError {
   /**
@@ -2781,6 +2924,8 @@ class DatabaseError extends ApiError {
 if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class ApiException extends ApplicationException {
   /**
@@ -2816,6 +2961,8 @@ class ApiException extends ApplicationException {
 if (!class_exists("CampaignAdExtensionOperation", FALSE)) {
 /**
  * CampaignAdExtension service operation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionOperation extends Operation {
   /**
@@ -2852,6 +2999,8 @@ if (!class_exists("CampaignAdExtensionPage", FALSE)) {
 /**
  * Represents a page of {@link CampaignAdExtension}s resulting from the query
  * done by {@link CampaignAdExtensionService}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionPage extends Page {
   /**
@@ -2887,6 +3036,8 @@ class CampaignAdExtensionPage extends Page {
 if (!class_exists("CampaignAdExtensionReturnValue", FALSE)) {
 /**
  * A container for return values from the CampaignAdExtensionService.muate().
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  */
 class CampaignAdExtensionReturnValue extends ListReturnValue {
   /**
@@ -2921,6 +3072,8 @@ class CampaignAdExtensionReturnValue extends ListReturnValue {
 if (!class_exists("CampaignAdExtensionService", FALSE)) {
 /**
  * CampaignAdExtensionService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v200909
  * @author WSDLInterpreter
  */
 class CampaignAdExtensionService extends AdWordsSoapClient {

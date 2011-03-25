@@ -30,6 +30,7 @@
  * @see        AdsUser
  */
 
+/** Required classes. **/
 require_once dirname(__FILE__) . '/../../Common/Util/Logger.php';
 require_once dirname(__FILE__) . '/../../Common/Util/AuthToken.php';
 require_once dirname(__FILE__) . '/../../Common/Lib/AdsUser.php';
@@ -38,6 +39,8 @@ require_once 'AdWordsSoapClientFactory.php';
 /**
  * User class for the AdWords API to create SOAP clients to the available API
  * services.
+ * @package GoogleApiAdsAdWords
+ * @subpackage Lib
  */
 class AdWordsUser extends AdsUser {
   private static $LIB_VERSION = '2.5.1';

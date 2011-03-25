@@ -27,6 +27,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("Ad", FALSE)) {
@@ -34,6 +35,8 @@ if (!class_exists("Ad", FALSE)) {
  * The base class of all ad types. To update basic ad fields (such as
  * {@link #status status}), you can construct an {@code Ad} object (instead of
  * the ad's concrete type) with the appropriate fields set.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Ad {
   /**
@@ -144,6 +147,8 @@ if (!class_exists("AdExtension", FALSE)) {
  * an existing ad or metadata that will process into an extension.
  * The class is concrete, so ad extensions can be added/removed to campaigns
  * by referring to the id.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtension {
   /**
@@ -218,6 +223,8 @@ if (!class_exists("AdExtensionOverride", FALSE)) {
  * Represents an ad level ad extension override. An ad extension override
  * specifies the ad extension that must be used if the ad is served with
  * any ad extension data.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtensionOverride {
   /**
@@ -286,6 +293,8 @@ class AdExtensionOverride {
 if (!class_exists("AdGroup", FALSE)) {
 /**
  * Represents an ad group.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroup {
   /**
@@ -368,6 +377,8 @@ class AdGroup {
 if (!class_exists("AdGroupAd", FALSE)) {
 /**
  * Represents an ad in an ad group.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupAd {
   /**
@@ -429,6 +440,8 @@ class AdGroupAd {
 if (!class_exists("AdGroupAdExperimentData", FALSE)) {
 /**
  * Data associated with an advertiser experiment for an AdGroupAd
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupAdExperimentData {
   /**
@@ -477,6 +490,8 @@ if (!class_exists("AdGroupBids", FALSE)) {
 /**
  * Represents bids at the adgroup level, which could be of different subtypes based on
  * campaign's bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupBids {
   /**
@@ -542,6 +557,8 @@ class AdGroupBids {
 if (!class_exists("AdGroupCriterion", FALSE)) {
 /**
  * Represents a criterion in an ad group, used with AdGroupCriterionService.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupCriterion {
   /**
@@ -628,6 +645,8 @@ class AdGroupCriterion {
 if (!class_exists("AdGroupCriterionBids", FALSE)) {
 /**
  * Represents criterion level bids.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupCriterionBids {
   /**
@@ -694,6 +713,8 @@ if (!class_exists("AdGroupCriterionExperimentBidMultiplier", FALSE)) {
 /**
  * Bid multiplier used to modify the bid of a criterion while running
  * an experiment.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupCriterionExperimentBidMultiplier {
   /**
@@ -760,6 +781,8 @@ if (!class_exists("AdGroupExperimentBidMultipliers", FALSE)) {
 /**
  * Bid multiplier used to modify the bid of an adgroup while running
  * an experiment.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupExperimentBidMultipliers {
   /**
@@ -825,6 +848,8 @@ class AdGroupExperimentBidMultipliers {
 if (!class_exists("AdGroupExperimentData", FALSE)) {
 /**
  * Data associated with an advertiser experiment for this adgroup
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupExperimentData {
   /**
@@ -879,6 +904,8 @@ class AdGroupExperimentData {
 if (!class_exists("AdUnionId", FALSE)) {
 /**
  * Represents an id indicating a grouping of Ads under some heuristic.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdUnionId {
   /**
@@ -951,6 +978,8 @@ class AdUnionId {
 if (!class_exists("Address", FALSE)) {
 /**
  * Structure to specify an address location.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Address {
   /**
@@ -1030,6 +1059,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * <p>The OGNL field path is provided for parsers to identify the request data
  * element that may have caused the error.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiError {
   /**
@@ -1116,6 +1147,8 @@ class ApiError {
 if (!class_exists("ApiErrorReason", FALSE)) {
 /**
  * Interface that has a reason return an associated service error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiErrorReason {
   /**
@@ -1506,6 +1539,8 @@ class ApiErrorReason {
 if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApplicationException {
   /**
@@ -1578,6 +1613,8 @@ class ApplicationException {
 if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationError extends ApiError {
   /**
@@ -1615,6 +1652,8 @@ class AuthenticationError extends ApiError {
 if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationError extends ApiError {
   /**
@@ -1652,6 +1691,8 @@ class AuthorizationError extends ApiError {
 if (!class_exists("Bid", FALSE)) {
 /**
  * Represents a bid on a criterion.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Bid {
   /**
@@ -1686,6 +1727,8 @@ if (!class_exists("BidMultiplier", FALSE)) {
 /**
  * Represents a multiplier to modify a bid. The final value after
  * modification is represented by the multiplied bid value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BidMultiplier {
   /**
@@ -1726,6 +1769,8 @@ class BidMultiplier {
 if (!class_exists("BiddableAdGroupCriterion", FALSE)) {
 /**
  * A biddable (positive) criterion in an adgroup.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BiddableAdGroupCriterion extends AdGroupCriterion {
   /**
@@ -1819,6 +1864,8 @@ class BiddableAdGroupCriterion extends AdGroupCriterion {
 if (!class_exists("BiddableAdGroupCriterionExperimentData", FALSE)) {
 /**
  * Data associated with an advertiser experiment for this {@link BiddableAdGroupCriterion}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BiddableAdGroupCriterionExperimentData {
   /**
@@ -1873,6 +1920,8 @@ class BiddableAdGroupCriterionExperimentData {
 if (!class_exists("BiddingError", FALSE)) {
 /**
  * Represents bidding errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BiddingError extends ApiError {
   /**
@@ -1910,6 +1959,8 @@ class BiddingError extends ApiError {
 if (!class_exists("BiddingStrategy", FALSE)) {
 /**
  * A campaign's bidding strategy, such as manual CPC, manual CPM, budget optimizer, etc.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BiddingStrategy {
   /**
@@ -1975,6 +2026,8 @@ class BiddingStrategy {
 if (!class_exists("BiddingTransition", FALSE)) {
 /**
  * Used to switch a campaign's bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BiddingTransition {
   /**
@@ -2054,6 +2107,8 @@ class BiddingTransition {
 if (!class_exists("BiddingTransitionError", FALSE)) {
 /**
  * Bidding transition errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BiddingTransitionError extends ApiError {
   /**
@@ -2094,6 +2149,8 @@ if (!class_exists("BillingSummary", FALSE)) {
  * the job's operations, i.e., for the work done <i>by</i> the job. This
  * therefore excludes the cost of operating on the job itself - setting up the
  * job, polling for its status, retrieving the result, etc.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BillingSummary {
   /**
@@ -2134,6 +2191,8 @@ class BillingSummary {
 if (!class_exists("Budget", FALSE)) {
 /**
  * Data representing the budget for a campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Budget {
   /**
@@ -2181,6 +2240,8 @@ class Budget {
 if (!class_exists("BudgetError", FALSE)) {
 /**
  * A list of all the error codes being used by the common budget domain package.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BudgetError extends ApiError {
   /**
@@ -2219,6 +2280,8 @@ if (!class_exists("BudgetOptimizer", FALSE)) {
 /**
  * In budget optimizer, Google automatically places bids for the user
  * based on their daily/monthly budget.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BudgetOptimizer extends BiddingStrategy {
   /**
@@ -2260,6 +2323,8 @@ class BudgetOptimizer extends BiddingStrategy {
 if (!class_exists("BudgetOptimizerAdGroupBids", FALSE)) {
 /**
  * Adgroup level bids used in budget optimizer bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BudgetOptimizerAdGroupBids extends AdGroupBids {
   /**
@@ -2308,6 +2373,8 @@ class BudgetOptimizerAdGroupBids extends AdGroupBids {
 if (!class_exists("BudgetOptimizerAdGroupCriterionBids", FALSE)) {
 /**
  * AdGroupCriterion level bids used in budget optimizer bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BudgetOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
@@ -2349,6 +2416,8 @@ class BudgetOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
 if (!class_exists("BulkMutateJobError", FALSE)) {
 /**
  * Bulk mutate job handling errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobError extends ApiError {
   /**
@@ -2386,6 +2455,8 @@ class BulkMutateJobError extends ApiError {
 if (!class_exists("BulkMutateJobPolicy", FALSE)) {
 /**
  * A basic job policy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobPolicy {
   /**
@@ -2419,6 +2490,8 @@ class BulkMutateJobPolicy {
 if (!class_exists("BulkMutateRequest", FALSE)) {
 /**
  * A request part of a {@link BulkMutateJob}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateRequest {
   /**
@@ -2508,6 +2581,8 @@ if (!class_exists("BulkMutateResult", FALSE)) {
  * implicit index of 0. The subsequent operations in the batch have a
  * corresponding {@link BatchFailureResult} which explicitly specifies the
  * index of the operation within the batch.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateResult {
   /**
@@ -2548,6 +2623,8 @@ class BulkMutateResult {
 if (!class_exists("Campaign", FALSE)) {
 /**
  * Data representing an AdWords campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Campaign {
   /**
@@ -2673,6 +2750,8 @@ if (!class_exists("CampaignAdExtension", FALSE)) {
 /**
  * Represents a campaign level ad extension. A campaign ad extension specifies
  * a campaign and an ad extension which can extend any ad under that campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignAdExtension {
   /**
@@ -2734,6 +2813,8 @@ class CampaignAdExtension {
 if (!class_exists("CampaignAdExtensionError", FALSE)) {
 /**
  * CampaignAdExtension errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignAdExtensionError extends ApiError {
   /**
@@ -2771,6 +2852,8 @@ class CampaignAdExtensionError extends ApiError {
 if (!class_exists("CampaignCriterion", FALSE)) {
 /**
  * Represents a campaign level criterion (either keyword or placement).
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignCriterion {
   /**
@@ -2850,6 +2933,8 @@ class CampaignCriterion {
 if (!class_exists("CampaignCriterionError", FALSE)) {
 /**
  * Base error class for Campaign Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignCriterionError extends ApiError {
   /**
@@ -2887,6 +2972,8 @@ class CampaignCriterionError extends ApiError {
 if (!class_exists("CampaignError", FALSE)) {
 /**
  * Base error class for Campaign Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignError extends ApiError {
   /**
@@ -2924,6 +3011,8 @@ class CampaignError extends ApiError {
 if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsError extends ApiError {
   /**
@@ -2961,6 +3050,8 @@ class ClientTermsError extends ApiError {
 if (!class_exists("ComparableValue", FALSE)) {
 /**
  * Comparable types for constructing ranges with.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ComparableValue {
   /**
@@ -3026,6 +3117,8 @@ class ComparableValue {
 if (!class_exists("ConversionOptimizer", FALSE)) {
 /**
  * Conversion optimizer bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ConversionOptimizer extends BiddingStrategy {
   /**
@@ -3074,6 +3167,8 @@ class ConversionOptimizer extends BiddingStrategy {
 if (!class_exists("ConversionOptimizerAdGroupBids", FALSE)) {
 /**
  * Adgroup level bids used in conversion optimizer bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ConversionOptimizerAdGroupBids extends AdGroupBids {
   /**
@@ -3124,6 +3219,8 @@ if (!class_exists("ConversionOptimizerAdGroupCriterionBids", FALSE)) {
  * AdGroupCriterion level bids used in conversion optimizer bidding strategy.
  * This bidding strategy does not contain any bid information at the
  * AGC level.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ConversionOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
@@ -3151,6 +3248,8 @@ class ConversionOptimizerAdGroupCriterionBids extends AdGroupCriterionBids {
 if (!class_exists("ConversionOptimizerBiddingTransition", FALSE)) {
 /**
  * Used to switch a campaign's bidding strategy to conversion optimizer.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ConversionOptimizerBiddingTransition extends BiddingTransition {
   /**
@@ -3187,6 +3286,8 @@ class ConversionOptimizerBiddingTransition extends BiddingTransition {
 if (!class_exists("ConversionOptimizerEligibility", FALSE)) {
 /**
  * Eligibility data for Campaign to transition to Conversion Optimizer
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ConversionOptimizerEligibility {
   /**
@@ -3227,6 +3328,8 @@ class ConversionOptimizerEligibility {
 if (!class_exists("Criterion", FALSE)) {
 /**
  * Represents a criterion (such as a keyword, placement, or vertical).
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Criterion {
   /**
@@ -3299,6 +3402,8 @@ class Criterion {
 if (!class_exists("CriterionError", FALSE)) {
 /**
  * Error class used for reporting criteria related errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionError extends ApiError {
   /**
@@ -3336,6 +3441,8 @@ class CriterionError extends ApiError {
 if (!class_exists("DatabaseError", FALSE)) {
 /**
  * Errors that are thrown due to a database access problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseError extends ApiError {
   /**
@@ -3373,6 +3480,8 @@ class DatabaseError extends ApiError {
 if (!class_exists("DateError", FALSE)) {
 /**
  * Errors associated with invalid dates and date ranges.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DateError extends ApiError {
   /**
@@ -3412,6 +3521,8 @@ if (!class_exists("DeprecatedAd", FALSE)) {
  * Represents a deprecated ad.
  * 
  * Deprecated ads can be deleted, but cannot be created.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DeprecatedAd extends Ad {
   /**
@@ -3459,6 +3570,8 @@ class DeprecatedAd extends Ad {
 if (!class_exists("Dimensions", FALSE)) {
 /**
  * Represents a simple height-width dimension.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Dimensions {
   /**
@@ -3499,6 +3612,8 @@ class Dimensions {
 if (!class_exists("DistinctError", FALSE)) {
 /**
  * Errors related to distinct ids or content.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DistinctError extends ApiError {
   /**
@@ -3536,6 +3651,8 @@ class DistinctError extends ApiError {
 if (!class_exists("EntityAccessDenied", FALSE)) {
 /**
  * Reports permission problems trying to access an entity.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class EntityAccessDenied extends ApiError {
   /**
@@ -3574,6 +3691,8 @@ if (!class_exists("EntityCountLimitExceeded", FALSE)) {
 /**
  * Signals that an entity count limit was exceeded for some level.
  * For example, too many criteria for a campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class EntityCountLimitExceeded extends ApiError {
   /**
@@ -3626,6 +3745,8 @@ if (!class_exists("EntityId", FALSE)) {
 /**
  * A qualified long-valued identity that can identify different types of
  * AdWords entities such as campaigns and ad-groups.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class EntityId {
   /**
@@ -3667,6 +3788,8 @@ if (!class_exists("EntityNotFound", FALSE)) {
 /**
  * An id did not correspond to an entity, or it referred to an entity which does not belong to the
  * customer.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class EntityNotFound extends ApiError {
   /**
@@ -3704,6 +3827,8 @@ class EntityNotFound extends ApiError {
 if (!class_exists("ExemptionRequest", FALSE)) {
 /**
  * A request to be exempted from a {@link PolicyViolationError}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ExemptionRequest {
   /**
@@ -3738,6 +3863,8 @@ if (!class_exists("FrequencyCap", FALSE)) {
 /**
  * A frequency cap is the maximum number of times an ad (or some set of ads) can
  * be shown to a user over a particular time period.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class FrequencyCap {
   /**
@@ -3785,6 +3912,8 @@ class FrequencyCap {
 if (!class_exists("GeoPoint", FALSE)) {
 /**
  * Specifies a geo location with the supplied latitude/longitude.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class GeoPoint {
   /**
@@ -3825,6 +3954,8 @@ class GeoPoint {
 if (!class_exists("IdError", FALSE)) {
 /**
  * Errors associated with the ids.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class IdError extends ApiError {
   /**
@@ -3862,6 +3993,8 @@ class IdError extends ApiError {
 if (!class_exists("ImageAd", FALSE)) {
 /**
  * Represents an ImageAd.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ImageAd extends Ad {
   /**
@@ -3916,6 +4049,8 @@ class ImageAd extends Ad {
 if (!class_exists("ImageError", FALSE)) {
 /**
  * Error class for errors associated with parsing image data.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ImageError extends ApiError {
   /**
@@ -3955,6 +4090,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
  * client.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiError extends ApiError {
   /**
@@ -3992,6 +4129,8 @@ class InternalApiError extends ApiError {
 if (!class_exists("Job", FALSE)) {
 /**
  * Represents an asynchronous macro unit of work.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Job {
   /**
@@ -4092,6 +4231,8 @@ class Job {
 if (!class_exists("JobContext", FALSE)) {
 /**
  * Represents the request and processing context information of a job.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class JobContext {
   /**
@@ -4132,6 +4273,8 @@ class JobContext {
 if (!class_exists("JobError", FALSE)) {
 /**
  * Job handling errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class JobError extends ApiError {
   /**
@@ -4169,6 +4312,8 @@ class JobError extends ApiError {
 if (!class_exists("JobEvent", FALSE)) {
 /**
  * An event defined by a status change of a job.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class JobEvent {
   /**
@@ -4244,6 +4389,8 @@ if (!class_exists("JobSelector", FALSE)) {
  * of a job service.
  * 
  * <p>The selector is immutable so use the inner Builder class to create one.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class JobSelector {
   /**
@@ -4323,6 +4470,8 @@ class JobSelector {
 if (!class_exists("JobStats", FALSE)) {
 /**
  * Job-handling statistics.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class JobStats {
   /**
@@ -4409,6 +4558,8 @@ class JobStats {
 if (!class_exists("Keyword", FALSE)) {
 /**
  * Represents a keyword.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Keyword extends Criterion {
   /**
@@ -4451,6 +4602,8 @@ class Keyword extends Criterion {
 if (!class_exists("LocationExtension", FALSE)) {
 /**
  * Location based ad extension.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LocationExtension extends AdExtension {
   /**
@@ -4535,6 +4688,8 @@ class LocationExtension extends AdExtension {
 if (!class_exists("LocationOverrideInfo", FALSE)) {
 /**
  * Represents override info for ad level LocationExtension overrides.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LocationOverrideInfo {
   /**
@@ -4575,6 +4730,8 @@ class LocationOverrideInfo {
 if (!class_exists("LocationSyncExtension", FALSE)) {
 /**
  * Local business center(LBC) sync extension that ties a LBC account with a campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LocationSyncExtension extends AdExtension {
   /**
@@ -4631,6 +4788,8 @@ class LocationSyncExtension extends AdExtension {
 if (!class_exists("ManualCPC", FALSE)) {
 /**
  * Manual click based bidding where user pays per click.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ManualCPC extends BiddingStrategy {
   /**
@@ -4672,6 +4831,8 @@ class ManualCPC extends BiddingStrategy {
 if (!class_exists("ManualCPCAdGroupBids", FALSE)) {
 /**
  * Adgroup level bids used in manual CPC bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ManualCPCAdGroupBids extends AdGroupBids {
   /**
@@ -4727,6 +4888,8 @@ class ManualCPCAdGroupBids extends AdGroupBids {
 if (!class_exists("ManualCPCAdGroupCriterionBids", FALSE)) {
 /**
  * Data representing a criterion level cost-per-click bid.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
@@ -4782,6 +4945,8 @@ class ManualCPCAdGroupCriterionBids extends AdGroupCriterionBids {
 if (!class_exists("ManualCPCAdGroupCriterionExperimentBidMultiplier", FALSE)) {
 /**
  * AdGroupCriterion level bid multiplier used in manual cpc bidding strategy
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ManualCPCAdGroupCriterionExperimentBidMultiplier extends AdGroupCriterionExperimentBidMultiplier {
   /**
@@ -4823,6 +4988,8 @@ class ManualCPCAdGroupCriterionExperimentBidMultiplier extends AdGroupCriterionE
 if (!class_exists("ManualCPCAdGroupExperimentBidMultipliers", FALSE)) {
 /**
  * Adgroup level bid multipliers used in manual CPC bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ManualCPCAdGroupExperimentBidMultipliers extends AdGroupExperimentBidMultipliers {
   /**
@@ -4864,6 +5031,8 @@ class ManualCPCAdGroupExperimentBidMultipliers extends AdGroupExperimentBidMulti
 if (!class_exists("ManualCPM", FALSE)) {
 /**
  * Manual impression based bidding where user pays per thousand impressions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ManualCPM extends BiddingStrategy {
   /**
@@ -4891,6 +5060,8 @@ class ManualCPM extends BiddingStrategy {
 if (!class_exists("ManualCPMAdGroupBids", FALSE)) {
 /**
  * Adgroup level bids used in manual CPM bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ManualCPMAdGroupBids extends AdGroupBids {
   /**
@@ -4925,6 +5096,8 @@ class ManualCPMAdGroupBids extends AdGroupBids {
 if (!class_exists("ManualCPMAdGroupCriterionBids", FALSE)) {
 /**
  * Data representing a criterion-level CPM bid.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
@@ -4966,6 +5139,8 @@ class ManualCPMAdGroupCriterionBids extends AdGroupCriterionBids {
 if (!class_exists("ManualCPMAdGroupExperimentBidMultipliers", FALSE)) {
 /**
  * Adgroup level bid multipliers used in manual CPM bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ManualCPMAdGroupExperimentBidMultipliers extends AdGroupExperimentBidMultipliers {
   /**
@@ -5000,6 +5175,8 @@ class ManualCPMAdGroupExperimentBidMultipliers extends AdGroupExperimentBidMulti
 if (!class_exists("Media", FALSE)) {
 /**
  * Represents some kind of media.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Media {
   /**
@@ -5135,6 +5312,8 @@ class Media {
 if (!class_exists("MediaError", FALSE)) {
 /**
  * Error class for media related errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MediaError extends ApiError {
   /**
@@ -5173,6 +5352,8 @@ if (!class_exists("Media_Size_DimensionsMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Size
  * and value of type Dimensions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Media_Size_DimensionsMapEntry {
   /**
@@ -5214,6 +5395,8 @@ if (!class_exists("Media_Size_StringMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Size
  * and value of type String.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Media_Size_StringMapEntry {
   /**
@@ -5304,6 +5487,8 @@ if (!class_exists("MobileAd", FALSE)) {
  * markupLanguages <br />
  * </td></tr>
  * </table>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MobileAd extends Ad {
   /**
@@ -5396,6 +5581,8 @@ if (!class_exists("MobileExtension", FALSE)) {
  * <p>Learn more about phone extensions
  * <a href="https://adwords.google.com/support/aw/bin/answer.py?hl=en&answer=173346"> here </a>.
  * </p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MobileExtension extends AdExtension {
   /**
@@ -5449,6 +5636,8 @@ if (!class_exists("MobileImageAd", FALSE)) {
  * <p>For more information, see the
  * <a href="http://adwords.google.com/support/aw/bin/answer.py?answer=83248"
  * >mobile ads guidelines</a>.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MobileImageAd extends Ad {
   /**
@@ -5503,6 +5692,8 @@ class MobileImageAd extends Ad {
 if (!class_exists("Money", FALSE)) {
 /**
  * Represents a money amount.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Money extends ComparableValue {
   /**
@@ -5537,6 +5728,8 @@ class Money extends ComparableValue {
 if (!class_exists("NegativeAdGroupCriterion", FALSE)) {
 /**
  * A negative criterion in an adgroup.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NegativeAdGroupCriterion extends AdGroupCriterion {
   /**
@@ -5567,6 +5760,8 @@ class NegativeAdGroupCriterion extends AdGroupCriterion {
 if (!class_exists("NegativeCampaignCriterion", FALSE)) {
 /**
  * A negative campaign criterion.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NegativeCampaignCriterion extends CampaignCriterion {
   /**
@@ -5596,6 +5791,8 @@ class NegativeCampaignCriterion extends CampaignCriterion {
 if (!class_exists("NetworkSetting", FALSE)) {
 /**
  * Network settings for a Campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NetworkSetting {
   /**
@@ -5658,6 +5855,8 @@ if (!class_exists("NewEntityCreationError", FALSE)) {
 /**
  * Error associated with creation of new entities using
  * {@link com.google.ads.api.services.common.id.TempId}s.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NewEntityCreationError extends ApiError {
   /**
@@ -5695,6 +5894,8 @@ class NewEntityCreationError extends ApiError {
 if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotEmptyError extends ApiError {
   /**
@@ -5732,6 +5933,8 @@ class NotEmptyError extends ApiError {
 if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -5769,6 +5972,8 @@ class NotWhitelistedError extends ApiError {
 if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NullError extends ApiError {
   /**
@@ -5806,6 +6011,8 @@ class NullError extends ApiError {
 if (!class_exists("NumberValue", FALSE)) {
 /**
  * Number value types for constructing number valued ranges.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NumberValue extends ComparableValue {
   /**
@@ -5834,6 +6041,8 @@ if (!class_exists("Operand", FALSE)) {
 /**
  * A marker interface for entities that can be operated upon in mutate
  * operations.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Operand {
   /**
@@ -5945,6 +6154,8 @@ if (!class_exists("Operation", FALSE)) {
 /**
  * This represents an operation that includes an operator and an operand
  * specified type.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Operation {
   /**
@@ -6018,6 +6229,8 @@ if (!class_exists("OperationAccessDenied", FALSE)) {
 /**
  * Unauthorized access errors as determined by the invoked service's
  * access policy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperationAccessDenied extends ApiError {
   /**
@@ -6055,6 +6268,8 @@ class OperationAccessDenied extends ApiError {
 if (!class_exists("OperationResult", FALSE)) {
 /**
  * Represents the result of an individual mutate operation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperationResult {
   /**
@@ -6123,6 +6338,8 @@ if (!class_exists("OperationStream", FALSE)) {
  * Further, this operation stream must be processed serially with all other
  * operation streams in a bulk mutate job that specify the same scoping
  * entity.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperationStream {
   /**
@@ -6163,6 +6380,8 @@ class OperationStream {
 if (!class_exists("OperationStreamResult", FALSE)) {
 /**
  * The result of processing an {@link OperationStream}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperationStreamResult {
   /**
@@ -6196,6 +6415,8 @@ class OperationStreamResult {
 if (!class_exists("OperatorError", FALSE)) {
 /**
  * A list of all errors associated with the @SupportedOperators constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperatorError extends ApiError {
   /**
@@ -6234,6 +6455,8 @@ if (!class_exists("OverrideInfo", FALSE)) {
 /**
  * Represents additional override info with which to augment the override
  * extension.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OverrideInfo {
   /**
@@ -6268,6 +6491,8 @@ if (!class_exists("PagingError", FALSE)) {
 /**
  * Error codes for pagination.
  * See {@link com.google.ads.api.services.common.pagination.Paging}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PagingError extends ApiError {
   /**
@@ -6311,6 +6536,8 @@ if (!class_exists("PercentCPA", FALSE)) {
  * PercentCPA.
  * <p>Similarly, once created as a PercentCPA, a campaign cannot be transitioned to
  * any other bidding strategy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PercentCPA extends BiddingStrategy {
   /**
@@ -6340,6 +6567,8 @@ if (!class_exists("PercentCPAAdGroupBids", FALSE)) {
  * AdGroup level bids used in percent CPA bidding strategy.
  * {@link PercentCPA} bidding strategy and bids are available
  * only to some advertisers.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PercentCPAAdGroupBids extends AdGroupBids {
   /**
@@ -6376,6 +6605,8 @@ if (!class_exists("PercentCPAAdGroupCriterionBids", FALSE)) {
  * Criterion-level Percent cost-per-conversion(acquisition) bid for Product criteria type.
  * {@link PercentCPA} bidding strategy and bids are available only
  * to some advertisers.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PercentCPAAdGroupCriterionBids extends AdGroupCriterionBids {
   /**
@@ -6418,6 +6649,8 @@ if (!class_exists("Placement", FALSE)) {
 /**
  * A placement used for modifying bids for sites when targeting the content
  * network.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Placement extends Criterion {
   /**
@@ -6464,6 +6697,8 @@ if (!class_exists("PolicyViolationError", FALSE)) {
  * would be represented by one instance. If the ad also contains 'INC' which
  * also violates 'capitalization' it would be represented in a separate
  * instance.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PolicyViolationError extends ApiError {
   /**
@@ -6536,6 +6771,8 @@ class PolicyViolationError extends ApiError {
 if (!class_exists("PolicyViolationErrorPart", FALSE)) {
 /**
  * Points to a substring within an ad field or criterion.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PolicyViolationErrorPart {
   /**
@@ -6577,6 +6814,8 @@ if (!class_exists("PolicyViolationKey", FALSE)) {
 /**
  * Key of the violation. The key is used for referring to a violation when
  * filing an exemption request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PolicyViolationKey {
   /**
@@ -6618,6 +6857,8 @@ if (!class_exists("PositionPreferenceAdGroupCriterionBids", FALSE)) {
 /**
  * AdGroupCriterion level bids used in manual cpc bidding strategy
  * when position preference is turned on.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PositionPreferenceAdGroupCriterionBids {
   /**
@@ -6668,6 +6909,8 @@ if (!class_exists("Product", FALSE)) {
  * product feed that is defined by the advertiser. The criteria is used to
  * determine the products in a Merchant Center account to be used with the
  * ProductAds in the AdGroup. This criteria is available only to some advertisers.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Product extends Criterion {
   /**
@@ -6722,6 +6965,8 @@ if (!class_exists("ProductAd", FALSE)) {
  * <p class="caution"><b>Caution:</b> Product ads do not use {@link #url url} or
  * {@link #displayUrl displayUrl}; setting these fields on a product ad will
  * cause an error.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProductAd extends Ad {
   /**
@@ -6763,6 +7008,8 @@ if (!class_exists("ProductCondition", FALSE)) {
 /**
  * Conditions to filter the products defined in product feed for targeting.
  * The condition is defined as operand=argument.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProductCondition {
   /**
@@ -6804,6 +7051,8 @@ if (!class_exists("ProductConditionAndGroup", FALSE)) {
 /**
  * Groups a list of product conditions to be evaluated together as an AND condition
  * (ie. true if all conditions are true, false otherwise).
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProductConditionAndGroup {
   /**
@@ -6837,6 +7086,8 @@ class ProductConditionAndGroup {
 if (!class_exists("ProductConditionOperand", FALSE)) {
 /**
  * Attribute for the product condition.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProductConditionOperand {
   /**
@@ -6870,6 +7121,8 @@ class ProductConditionOperand {
 if (!class_exists("ProductExtension", FALSE)) {
 /**
  * Metadata to be used for retrieving offers from Google Base.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProductExtension extends AdExtension {
   /**
@@ -6919,6 +7172,8 @@ class ProductExtension extends AdExtension {
 if (!class_exists("QualityInfo", FALSE)) {
 /**
  * Container for criterion quality information.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QualityInfo {
   /**
@@ -6973,6 +7228,8 @@ class QualityInfo {
 if (!class_exists("QuotaCheckError", FALSE)) {
 /**
  * Encapsulates the errors thrown during developer quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -7010,6 +7267,8 @@ class QuotaCheckError extends ApiError {
 if (!class_exists("QuotaError", FALSE)) {
 /**
  * Errors that are thrown if a quota limit is exceeded.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaError extends ApiError {
   /**
@@ -7054,6 +7313,8 @@ class QuotaError extends ApiError {
 if (!class_exists("RangeError", FALSE)) {
 /**
  * A list of all errors associated with the Range constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RangeError extends ApiError {
   /**
@@ -7091,6 +7352,8 @@ class RangeError extends ApiError {
 if (!class_exists("RateExceededError", FALSE)) {
 /**
  * Signals that a call failed because a measured rate exceeded.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededError extends ApiError {
   /**
@@ -7149,6 +7412,8 @@ class RateExceededError extends ApiError {
 if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ReadOnlyError extends ApiError {
   /**
@@ -7186,6 +7451,8 @@ class ReadOnlyError extends ApiError {
 if (!class_exists("RegionCodeError", FALSE)) {
 /**
  * A list of all errors associated with the @RegionCode constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RegionCodeError extends ApiError {
   /**
@@ -7223,6 +7490,8 @@ class RegionCodeError extends ApiError {
 if (!class_exists("RejectedError", FALSE)) {
 /**
  * The error reason represented by an enum.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RejectedError extends ApiError {
   /**
@@ -7261,6 +7530,8 @@ if (!class_exists("RequestError", FALSE)) {
 /**
  * Encapsulates the generic errors thrown when there's an error with user
  * request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestError extends ApiError {
   /**
@@ -7298,6 +7569,8 @@ class RequestError extends ApiError {
 if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredError extends ApiError {
   /**
@@ -7336,6 +7609,8 @@ if (!class_exists("ReturnValueResult", FALSE)) {
 /**
  * Represents a success result of processing a mutate operation that returned
  * a value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ReturnValueResult extends OperationResult {
   /**
@@ -7370,6 +7645,8 @@ class ReturnValueResult extends OperationResult {
 if (!class_exists("RichMediaAd", FALSE)) {
 /**
  * Data associated with a rich media ad.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RichMediaAd extends Ad {
   /**
@@ -7438,6 +7715,8 @@ class RichMediaAd extends Ad {
 if (!class_exists("SelectorError", FALSE)) {
 /**
  * Represents possible error codes for {@link Selector}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SelectorError extends ApiError {
   /**
@@ -7475,6 +7754,8 @@ class SelectorError extends ApiError {
 if (!class_exists("Setting", FALSE)) {
 /**
  * Base type for AdWords campaign settings.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Setting {
   /**
@@ -7540,6 +7821,8 @@ class Setting {
 if (!class_exists("SettingError", FALSE)) {
 /**
  * Indicates a problem with campaign settings.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SettingError extends ApiError {
   /**
@@ -7577,6 +7860,8 @@ class SettingError extends ApiError {
 if (!class_exists("Sitelink", FALSE)) {
 /**
  * Class to represent a single sitelink
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Sitelink {
   /**
@@ -7617,6 +7902,8 @@ class Sitelink {
 if (!class_exists("SitelinksExtension", FALSE)) {
 /**
  * Class to represent a set of sitelinks and their order of preference.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SitelinksExtension extends AdExtension {
   /**
@@ -7652,6 +7939,8 @@ class SitelinksExtension extends AdExtension {
 if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitError extends ApiError {
   /**
@@ -7689,6 +7978,8 @@ class SizeLimitError extends ApiError {
 if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapRequestHeader {
   /**
@@ -7764,6 +8055,8 @@ class SoapRequestHeader {
 if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapResponseHeader {
   /**
@@ -7818,6 +8111,8 @@ class SoapResponseHeader {
 if (!class_exists("Stats", FALSE)) {
 /**
  * Statistics about an ad or criterion within an adgroup or campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Stats {
   /**
@@ -8037,6 +8332,8 @@ class Stats {
 if (!class_exists("StatsQueryError", FALSE)) {
 /**
  * Represents possible error codes when querying for stats.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class StatsQueryError extends ApiError {
   /**
@@ -8074,6 +8371,8 @@ class StatsQueryError extends ApiError {
 if (!class_exists("StringLengthError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsString constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class StringLengthError extends ApiError {
   /**
@@ -8111,6 +8410,8 @@ class StringLengthError extends ApiError {
 if (!class_exists("AdWordsTarget", FALSE)) {
 /**
  * Target abstract class.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdWordsTarget {
   /**
@@ -8176,6 +8477,8 @@ class AdWordsTarget {
 if (!class_exists("TargetError", FALSE)) {
 /**
  * A list of all the error codes being used by the common targeting package.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TargetError extends ApiError {
   /**
@@ -8213,6 +8516,8 @@ class TargetError extends ApiError {
 if (!class_exists("TargetList", FALSE)) {
 /**
  * Targets list abstract class (a list of a given type of targets along with their campaign ID).
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TargetList {
   /**
@@ -8286,6 +8591,8 @@ if (!class_exists("TempAdUnionId", FALSE)) {
 /**
  * Represents the temporary id for an ad union id, which the user can specify.
  * The temporary id can be used to group ads together during ad creation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TempAdUnionId extends AdUnionId {
   /**
@@ -8320,6 +8627,8 @@ if (!class_exists("TemplateAd", FALSE)) {
  * the template's fields. For a list of available templates and their required
  * fields, see the <a href=
  * "/apis/adwords/docs/appendix/templateads.html">Template Ads appendix</a>.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TemplateAd extends Ad {
   /**
@@ -8396,6 +8705,8 @@ if (!class_exists("TemplateElement", FALSE)) {
 /**
  * Represents an element in a template. Each template element is composed
  * of a list of fields (actual value data).
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TemplateElement {
   /**
@@ -8436,6 +8747,8 @@ class TemplateElement {
 if (!class_exists("TemplateElementField", FALSE)) {
 /**
  * Represents a field in a template element.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TemplateElementField {
   /**
@@ -8490,6 +8803,8 @@ class TemplateElementField {
 if (!class_exists("TextAd", FALSE)) {
 /**
  * Represents a TextAd.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TextAd extends Ad {
   /**
@@ -8544,6 +8859,8 @@ class TextAd extends Ad {
 if (!class_exists("ThirdPartyRedirectAd", FALSE)) {
 /**
  * Data associated with rich media extension attributes.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ThirdPartyRedirectAd extends RichMediaAd {
   /**
@@ -8613,6 +8930,8 @@ if (!class_exists("UnprocessedResult", FALSE)) {
  * if the job was aborted by the back-end workflow because the developer's API
  * quota was exceeded or if the job encountered some severe workflow system
  * failure.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UnprocessedResult extends OperationResult {
   /**
@@ -8642,6 +8961,8 @@ if (!class_exists("CriterionUserInterest", FALSE)) {
  * User Interest - represents a particular interest based vertical to be targeted.
  * Targeting UserInterest is currently in a limited beta.  If you'd like access
  * please speak with your account representative.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionUserInterest extends Criterion {
   /**
@@ -8684,6 +9005,8 @@ class CriterionUserInterest extends Criterion {
 if (!class_exists("CriterionUserList", FALSE)) {
 /**
  * UserList - represents a user list that is defined by the advertiser to be targeted.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionUserList extends Criterion {
   /**
@@ -8737,6 +9060,8 @@ if (!class_exists("Vertical", FALSE)) {
  * Animals/Pets/Dogs").
  * <a href="/apis/adwords/docs/appendix/verticals.html">View the complete list
  * of available vertical categories.</a>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Vertical extends Criterion {
   /**
@@ -8772,6 +9097,8 @@ class Vertical extends Criterion {
 if (!class_exists("Video", FALSE)) {
 /**
  * Encapsulates a Video media identified by a MediaId
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Video extends Media {
   /**
@@ -8851,6 +9178,8 @@ class Video extends Media {
 if (!class_exists("AdApprovalStatus", FALSE)) {
 /**
  * Represents the possible approval statuses.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdApprovalStatus {
   /**
@@ -8877,6 +9206,8 @@ class AdApprovalStatus {
 if (!class_exists("AdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdErrorReason {
   /**
@@ -8903,6 +9234,8 @@ class AdErrorReason {
 if (!class_exists("AdExtensionErrorReason", FALSE)) {
 /**
  * Account has been deleted
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtensionErrorReason {
   /**
@@ -8929,6 +9262,8 @@ class AdExtensionErrorReason {
 if (!class_exists("AdExtensionOverrideApprovalStatus", FALSE)) {
 /**
  * Approval status for the AdExtensionOverride
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtensionOverrideApprovalStatus {
   /**
@@ -8955,6 +9290,8 @@ class AdExtensionOverrideApprovalStatus {
 if (!class_exists("AdExtensionOverrideStatus", FALSE)) {
 /**
  * Status of the AdExtensionOverride
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtensionOverrideStatus {
   /**
@@ -8981,6 +9318,8 @@ class AdExtensionOverrideStatus {
 if (!class_exists("AdExtensionOverrideErrorReason", FALSE)) {
 /**
  * Cannot override an ad that is already overriden with an adextension
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtensionOverrideErrorReason {
   /**
@@ -9007,6 +9346,8 @@ class AdExtensionOverrideErrorReason {
 if (!class_exists("AdGroupStatus", FALSE)) {
 /**
  * Status of this ad group.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupStatus {
   /**
@@ -9033,6 +9374,8 @@ class AdGroupStatus {
 if (!class_exists("AdGroupAdStatus", FALSE)) {
 /**
  * The current status of an Ad.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupAdStatus {
   /**
@@ -9059,6 +9402,8 @@ class AdGroupAdStatus {
 if (!class_exists("AdGroupAdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupAdErrorReason {
   /**
@@ -9085,6 +9430,8 @@ class AdGroupAdErrorReason {
 if (!class_exists("AdGroupCriterionErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupCriterionErrorReason {
   /**
@@ -9111,6 +9458,8 @@ class AdGroupCriterionErrorReason {
 if (!class_exists("AdGroupCriterionLimitExceededCriteriaLimitType", FALSE)) {
 /**
  * The entity type that exceeded the limit.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupCriterionLimitExceededCriteriaLimitType {
   /**
@@ -9137,6 +9486,8 @@ class AdGroupCriterionLimitExceededCriteriaLimitType {
 if (!class_exists("AdGroupServiceErrorReason", FALSE)) {
 /**
  * The reasons for the adgroup service error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupServiceErrorReason {
   /**
@@ -9163,6 +9514,8 @@ class AdGroupServiceErrorReason {
 if (!class_exists("AdServingOptimizationStatus", FALSE)) {
 /**
  * Ad serving status of campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdServingOptimizationStatus {
   /**
@@ -9189,6 +9542,8 @@ class AdServingOptimizationStatus {
 if (!class_exists("AgeTargetAge", FALSE)) {
 /**
  * Age segments.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AgeTargetAge {
   /**
@@ -9216,6 +9571,8 @@ if (!class_exists("ApprovalStatus", FALSE)) {
 /**
  * Approval status for the criterion.
  * Note: there are more states involved but we only expose two to users.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApprovalStatus {
   /**
@@ -9242,6 +9599,8 @@ class ApprovalStatus {
 if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationErrorReason {
   /**
@@ -9268,6 +9627,8 @@ class AuthenticationErrorReason {
 if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationErrorReason {
   /**
@@ -9294,6 +9655,8 @@ class AuthorizationErrorReason {
 if (!class_exists("BasicJobStatus", FALSE)) {
 /**
  * A basic set of job statuses.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BasicJobStatus {
   /**
@@ -9321,6 +9684,8 @@ if (!class_exists("BidSource", FALSE)) {
 /**
  * Indicate where a criterion's bid came from: criterion or the adgroup it
  * belongs to.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BidSource {
   /**
@@ -9347,6 +9712,8 @@ class BidSource {
 if (!class_exists("BiddingErrorReason", FALSE)) {
 /**
  * Reason for bidding error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BiddingErrorReason {
   /**
@@ -9375,6 +9742,8 @@ if (!class_exists("BiddingTransitionErrorReason", FALSE)) {
  * Reason for bidding transition error.
  * It is used by capability service as denial reasons, for bidding transition
  * capability.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BiddingTransitionErrorReason {
   /**
@@ -9401,6 +9770,8 @@ class BiddingTransitionErrorReason {
 if (!class_exists("BudgetBudgetDeliveryMethod", FALSE)) {
 /**
  * Budget delivery methods.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BudgetBudgetDeliveryMethod {
   /**
@@ -9427,6 +9798,8 @@ class BudgetBudgetDeliveryMethod {
 if (!class_exists("BudgetBudgetPeriod", FALSE)) {
 /**
  * Budget periods.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BudgetBudgetPeriod {
   /**
@@ -9453,6 +9826,8 @@ class BudgetBudgetPeriod {
 if (!class_exists("BudgetErrorReason", FALSE)) {
 /**
  * The reasons for the budget error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BudgetErrorReason {
   /**
@@ -9479,6 +9854,8 @@ class BudgetErrorReason {
 if (!class_exists("BulkMutateJobErrorReason", FALSE)) {
 /**
  * The reasons for the bulk mutate job handling error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobErrorReason {
   /**
@@ -9505,6 +9882,8 @@ class BulkMutateJobErrorReason {
 if (!class_exists("CampaignAdExtensionApprovalStatus", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignAdExtensionApprovalStatus {
   /**
@@ -9531,6 +9910,8 @@ class CampaignAdExtensionApprovalStatus {
 if (!class_exists("CampaignAdExtensionStatus", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignAdExtensionStatus {
   /**
@@ -9557,6 +9938,8 @@ class CampaignAdExtensionStatus {
 if (!class_exists("CampaignAdExtensionErrorReason", FALSE)) {
 /**
  * Cannot operate on an adextensions under the wrong campaign
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignAdExtensionErrorReason {
   /**
@@ -9583,6 +9966,8 @@ class CampaignAdExtensionErrorReason {
 if (!class_exists("CampaignCriterionErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignCriterionErrorReason {
   /**
@@ -9609,6 +9994,8 @@ class CampaignCriterionErrorReason {
 if (!class_exists("CampaignCriterionLimitExceededCriteriaLimitType", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignCriterionLimitExceededCriteriaLimitType {
   /**
@@ -9635,6 +10022,8 @@ class CampaignCriterionLimitExceededCriteriaLimitType {
 if (!class_exists("CampaignErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignErrorReason {
   /**
@@ -9661,6 +10050,8 @@ class CampaignErrorReason {
 if (!class_exists("CampaignStatus", FALSE)) {
 /**
  * Campaign status.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignStatus {
   /**
@@ -9688,6 +10079,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsErrorReason {
   /**
@@ -9714,6 +10107,8 @@ class ClientTermsErrorReason {
 if (!class_exists("ContentLabelType", FALSE)) {
 /**
  * Content label type.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ContentLabelType {
   /**
@@ -9742,6 +10137,8 @@ if (!class_exists("ConversionDeduplicationMode", FALSE)) {
  * Conversion deduplication mode for conversion optimizer, that is
  * number of clicks that get at least one conversion
  * or total number of conversions per click
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ConversionDeduplicationMode {
   /**
@@ -9770,6 +10167,8 @@ if (!class_exists("ConversionOptimizerBidType", FALSE)) {
  * Bid type for the conversion optimizer bidding strategy
  * It classifies the adgroup level bid for the conversion optimizer
  * campaign as average cost-per-acquisition (targetCPA) bid or a Max CPA bid
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ConversionOptimizerBidType {
   /**
@@ -9796,6 +10195,8 @@ class ConversionOptimizerBidType {
 if (!class_exists("ConversionOptimizerEligibilityRejectionReason", FALSE)) {
 /**
  * Campaign is not active
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ConversionOptimizerEligibilityRejectionReason {
   /**
@@ -9822,6 +10223,8 @@ class ConversionOptimizerEligibilityRejectionReason {
 if (!class_exists("CriterionErrorReason", FALSE)) {
 /**
  * Concrete type of criterion is required for ADD and SET operations.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionErrorReason {
   /**
@@ -9848,6 +10251,8 @@ class CriterionErrorReason {
 if (!class_exists("CriterionUse", FALSE)) {
 /**
  * The way a criterion is used - biddable or negative.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionUse {
   /**
@@ -9874,6 +10279,8 @@ class CriterionUse {
 if (!class_exists("DatabaseErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseErrorReason {
   /**
@@ -9900,6 +10307,8 @@ class DatabaseErrorReason {
 if (!class_exists("DateErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DateErrorReason {
   /**
@@ -9926,6 +10335,8 @@ class DateErrorReason {
 if (!class_exists("DayOfWeek", FALSE)) {
 /**
  * Days of the week.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DayOfWeek {
   /**
@@ -9952,6 +10363,8 @@ class DayOfWeek {
 if (!class_exists("DeprecatedAdType", FALSE)) {
 /**
  * Video ad.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DeprecatedAdType {
   /**
@@ -9978,6 +10391,8 @@ class DeprecatedAdType {
 if (!class_exists("DistinctErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DistinctErrorReason {
   /**
@@ -10004,6 +10419,8 @@ class DistinctErrorReason {
 if (!class_exists("EntityAccessDeniedReason", FALSE)) {
 /**
  * User did not have read access.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class EntityAccessDeniedReason {
   /**
@@ -10030,6 +10447,8 @@ class EntityAccessDeniedReason {
 if (!class_exists("EntityCountLimitExceededReason", FALSE)) {
 /**
  * Limits at various levels of the account.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class EntityCountLimitExceededReason {
   /**
@@ -10056,6 +10475,8 @@ class EntityCountLimitExceededReason {
 if (!class_exists("EntityIdType", FALSE)) {
 /**
  * Type of entity identity.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class EntityIdType {
   /**
@@ -10083,6 +10504,8 @@ if (!class_exists("EntityNotFoundReason", FALSE)) {
 /**
  * The specified id refered to an entity which either doesn't exist or is not accessible to the
  * customer. e.g. campaign belongs to another customer.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class EntityNotFoundReason {
   /**
@@ -10109,6 +10532,8 @@ class EntityNotFoundReason {
 if (!class_exists("ExperimentDataStatus", FALSE)) {
 /**
  * Status of the experimental change associated with an entity.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ExperimentDataStatus {
   /**
@@ -10135,6 +10560,8 @@ class ExperimentDataStatus {
 if (!class_exists("ExperimentDeltaStatus", FALSE)) {
 /**
  * Status of an entity denoting its type of experimental change in a campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ExperimentDeltaStatus {
   /**
@@ -10161,6 +10588,8 @@ class ExperimentDeltaStatus {
 if (!class_exists("GenderTargetGender", FALSE)) {
 /**
  * Gender segments.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class GenderTargetGender {
   /**
@@ -10187,6 +10616,8 @@ class GenderTargetGender {
 if (!class_exists("GeoTargetTypeSettingNegativeGeoTargetType", FALSE)) {
 /**
  * The various signals a negative location target may use.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class GeoTargetTypeSettingNegativeGeoTargetType {
   /**
@@ -10213,6 +10644,8 @@ class GeoTargetTypeSettingNegativeGeoTargetType {
 if (!class_exists("GeoTargetTypeSettingPositiveGeoTargetType", FALSE)) {
 /**
  * The various signals a positive location target may use.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class GeoTargetTypeSettingPositiveGeoTargetType {
   /**
@@ -10239,6 +10672,8 @@ class GeoTargetTypeSettingPositiveGeoTargetType {
 if (!class_exists("IdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class IdErrorReason {
   /**
@@ -10265,6 +10700,8 @@ class IdErrorReason {
 if (!class_exists("ImageErrorReason", FALSE)) {
 /**
  * The image is not valid.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ImageErrorReason {
   /**
@@ -10291,6 +10728,8 @@ class ImageErrorReason {
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiErrorReason {
   /**
@@ -10317,6 +10756,8 @@ class InternalApiErrorReason {
 if (!class_exists("JobErrorReason", FALSE)) {
 /**
  * The reasons for the job handling error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class JobErrorReason {
   /**
@@ -10344,6 +10785,8 @@ if (!class_exists("KeywordMatchType", FALSE)) {
 /**
  * Match type of a keyword. i.e. the way we match a keyword string with
  * search queries.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class KeywordMatchType {
   /**
@@ -10370,6 +10813,8 @@ class KeywordMatchType {
 if (!class_exists("Level", FALSE)) {
 /**
  * The level on which the cap is to be applied.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Level {
   /**
@@ -10396,6 +10841,8 @@ class Level {
 if (!class_exists("LocationExtensionSource", FALSE)) {
 /**
  * From manual entry in adwords frontend
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LocationExtensionSource {
   /**
@@ -10422,6 +10869,8 @@ class LocationExtensionSource {
 if (!class_exists("LocationOverrideInfoRadiusUnits", FALSE)) {
 /**
  * Radius units
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LocationOverrideInfoRadiusUnits {
   /**
@@ -10448,6 +10897,8 @@ class LocationOverrideInfoRadiusUnits {
 if (!class_exists("MarkupLanguageType", FALSE)) {
 /**
  * Markup languages to use for mobile ads.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MarkupLanguageType {
   /**
@@ -10474,6 +10925,8 @@ class MarkupLanguageType {
 if (!class_exists("MediaMediaType", FALSE)) {
 /**
  * Media types
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MediaMediaType {
   /**
@@ -10500,6 +10953,8 @@ class MediaMediaType {
 if (!class_exists("MediaMimeType", FALSE)) {
 /**
  * Mime types
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MediaMimeType {
   /**
@@ -10526,6 +10981,8 @@ class MediaMimeType {
 if (!class_exists("MediaSize", FALSE)) {
 /**
  * Sizes for retrieving the original media
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MediaSize {
   /**
@@ -10552,6 +11009,8 @@ class MediaSize {
 if (!class_exists("MediaErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MediaErrorReason {
   /**
@@ -10578,6 +11037,8 @@ class MediaErrorReason {
 if (!class_exists("MinuteOfHour", FALSE)) {
 /**
  * Minutes in an hour.  Currently only 0, 15, 30, and 45 are supported
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MinuteOfHour {
   /**
@@ -10605,6 +11066,8 @@ if (!class_exists("MultiplierSource", FALSE)) {
 /**
  * Denotes whether the bid multiplier is derived from the adgroup
  * or the criterion
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MultiplierSource {
   /**
@@ -10631,6 +11094,8 @@ class MultiplierSource {
 if (!class_exists("NewEntityCreationErrorReason", FALSE)) {
 /**
  * Do not set the id field while creating new entities.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NewEntityCreationErrorReason {
   /**
@@ -10657,6 +11122,8 @@ class NewEntityCreationErrorReason {
 if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotEmptyErrorReason {
   /**
@@ -10683,6 +11150,8 @@ class NotEmptyErrorReason {
 if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedErrorReason {
   /**
@@ -10709,6 +11178,8 @@ class NotWhitelistedErrorReason {
 if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NullErrorReason {
   /**
@@ -10735,6 +11206,8 @@ class NullErrorReason {
 if (!class_exists("OperationAccessDeniedReason", FALSE)) {
 /**
  * The reasons for the operation access error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperationAccessDeniedReason {
   /**
@@ -10761,6 +11234,8 @@ class OperationAccessDeniedReason {
 if (!class_exists("Operator", FALSE)) {
 /**
  * This represents an operator that may be presented to an adsapi service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Operator {
   /**
@@ -10787,6 +11262,8 @@ class Operator {
 if (!class_exists("OperatorErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperatorErrorReason {
   /**
@@ -10813,6 +11290,8 @@ class OperatorErrorReason {
 if (!class_exists("PagingErrorReason", FALSE)) {
 /**
  * The reasons for errors when using pagination.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PagingErrorReason {
   /**
@@ -10839,6 +11318,8 @@ class PagingErrorReason {
 if (!class_exists("PlatformType", FALSE)) {
 /**
  * Platform types.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PlatformType {
   /**
@@ -10865,6 +11346,8 @@ class PlatformType {
 if (!class_exists("PolicyViolationErrorReason", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PolicyViolationErrorReason {
   /**
@@ -10891,6 +11374,8 @@ class PolicyViolationErrorReason {
 if (!class_exists("PositionPreference", FALSE)) {
 /**
  * Position preference settings for the Campaign
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PositionPreference {
   /**
@@ -10918,6 +11403,8 @@ if (!class_exists("PricingModel", FALSE)) {
 /**
  * Campaign's pricing model indicates whether it is a pay per clicks,
  * pay per impressions, or play per conversions campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PricingModel {
   /**
@@ -10944,6 +11431,8 @@ class PricingModel {
 if (!class_exists("ProximityTargetDistanceUnits", FALSE)) {
 /**
  * The radius distance is expressed in either kilometers or miles.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProximityTargetDistanceUnits {
   /**
@@ -10971,6 +11460,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckErrorReason {
   /**
@@ -10997,6 +11488,8 @@ class QuotaCheckErrorReason {
 if (!class_exists("QuotaErrorReason", FALSE)) {
 /**
  * The reasons for the quota error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaErrorReason {
   /**
@@ -11023,6 +11516,8 @@ class QuotaErrorReason {
 if (!class_exists("QuotaExceededErrorReason", FALSE)) {
 /**
  * The single reason for the quota error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaExceededErrorReason {
   /**
@@ -11049,6 +11544,8 @@ class QuotaExceededErrorReason {
 if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RangeErrorReason {
   /**
@@ -11075,6 +11572,8 @@ class RangeErrorReason {
 if (!class_exists("RateExceededErrorReason", FALSE)) {
 /**
  * The reason for the rate exceeded error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededErrorReason {
   /**
@@ -11101,6 +11600,8 @@ class RateExceededErrorReason {
 if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ReadOnlyErrorReason {
   /**
@@ -11127,6 +11628,8 @@ class ReadOnlyErrorReason {
 if (!class_exists("RegionCodeErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RegionCodeErrorReason {
   /**
@@ -11153,6 +11656,8 @@ class RegionCodeErrorReason {
 if (!class_exists("RejectedErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RejectedErrorReason {
   /**
@@ -11179,6 +11684,8 @@ class RejectedErrorReason {
 if (!class_exists("RequestErrorReason", FALSE)) {
 /**
  * Error reason is unknown.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestErrorReason {
   /**
@@ -11205,6 +11712,8 @@ class RequestErrorReason {
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredErrorReason {
   /**
@@ -11231,6 +11740,8 @@ class RequiredErrorReason {
 if (!class_exists("SelectorErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SelectorErrorReason {
   /**
@@ -11257,6 +11768,8 @@ class SelectorErrorReason {
 if (!class_exists("ServingStatus", FALSE)) {
 /**
  * Campaign serving status.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ServingStatus {
   /**
@@ -11283,6 +11796,8 @@ class ServingStatus {
 if (!class_exists("SettingErrorReason", FALSE)) {
 /**
  * The reasons for the setting error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SettingErrorReason {
   /**
@@ -11309,6 +11824,8 @@ class SettingErrorReason {
 if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitErrorReason {
   /**
@@ -11335,6 +11852,8 @@ class SizeLimitErrorReason {
 if (!class_exists("StatsNetwork", FALSE)) {
 /**
  * Ad network.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class StatsNetwork {
   /**
@@ -11361,6 +11880,8 @@ class StatsNetwork {
 if (!class_exists("StatsQueryErrorReason", FALSE)) {
 /**
  * The reasons for errors when querying for stats.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class StatsQueryErrorReason {
   /**
@@ -11387,6 +11908,8 @@ class StatsQueryErrorReason {
 if (!class_exists("StringLengthErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class StringLengthErrorReason {
   /**
@@ -11413,6 +11936,8 @@ class StringLengthErrorReason {
 if (!class_exists("SystemServingStatus", FALSE)) {
 /**
  * Reported by system to reflect the criterion's serving status.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SystemServingStatus {
   /**
@@ -11439,6 +11964,8 @@ class SystemServingStatus {
 if (!class_exists("TargetErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TargetErrorReason {
   /**
@@ -11465,6 +11992,8 @@ class TargetErrorReason {
 if (!class_exists("TemplateElementFieldType", FALSE)) {
 /**
  * Field types
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TemplateElementFieldType {
   /**
@@ -11491,6 +12020,8 @@ class TemplateElementFieldType {
 if (!class_exists("TimeUnit", FALSE)) {
 /**
  * Unit of time the cap is defined at.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class TimeUnit {
   /**
@@ -11517,6 +12048,8 @@ class TimeUnit {
 if (!class_exists("CriterionUserListMembershipStatus", FALSE)) {
 /**
  * Membership status of the user list.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionUserListMembershipStatus {
   /**
@@ -11543,6 +12076,8 @@ class CriterionUserListMembershipStatus {
 if (!class_exists("UserStatus", FALSE)) {
 /**
  * Specified by user to pause or unpause a criterion.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserStatus {
   /**
@@ -11570,6 +12105,8 @@ if (!class_exists("VideoType", FALSE)) {
 /**
  * VideoType enum values that are permitted for video filterable
  * creative attribute ids.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class VideoType {
   /**
@@ -11605,6 +12142,8 @@ if (!class_exists("BulkMutateJobServiceGet", FALSE)) {
  * If the selector is empty, all jobs are returned.
  * @return List of bulk mutate jobs meeting the {@code selector} criteria.
  * @throws ApiException if problems occurred while fetching the jobs
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobServiceGet {
   /**
@@ -11638,6 +12177,8 @@ class BulkMutateJobServiceGet {
 if (!class_exists("BulkMutateJobServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobServiceGetResponse {
   /**
@@ -11689,6 +12230,8 @@ if (!class_exists("BulkMutateJobServiceMutate", FALSE)) {
  * @param operation The operation to perform.
  * @throws ApiException if problems occurred while creating or updating jobs
  * @return The added or updated bulk mutate job.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobServiceMutate {
   /**
@@ -11722,6 +12265,8 @@ class BulkMutateJobServiceMutate {
 if (!class_exists("BulkMutateJobServiceMutateResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobServiceMutateResponse {
   /**
@@ -11755,6 +12300,8 @@ class BulkMutateJobServiceMutateResponse {
 if (!class_exists("AdError", FALSE)) {
 /**
  * Base error class for Ad Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdError extends ApiError {
   /**
@@ -11792,6 +12339,8 @@ class AdError extends ApiError {
 if (!class_exists("AdExtensionError", FALSE)) {
 /**
  * AdExtension errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtensionError extends ApiError {
   /**
@@ -11829,6 +12378,8 @@ class AdExtensionError extends ApiError {
 if (!class_exists("AdExtensionOverrideError", FALSE)) {
 /**
  * AdExtensionOverride errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtensionOverrideError extends ApiError {
   /**
@@ -11866,6 +12417,8 @@ class AdExtensionOverrideError extends ApiError {
 if (!class_exists("AdExtensionOverrideOperation", FALSE)) {
 /**
  * AdExtensionOverride service operation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtensionOverrideOperation extends Operation {
   /**
@@ -11901,6 +12454,8 @@ class AdExtensionOverrideOperation extends Operation {
 if (!class_exists("AdExtensionOverrideStats", FALSE)) {
 /**
  * Represents stats specific to AdExtensionOverrides.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdExtensionOverrideStats extends Stats {
   /**
@@ -11950,6 +12505,8 @@ class AdExtensionOverrideStats extends Stats {
 if (!class_exists("AdGroupAdCountLimitExceeded", FALSE)) {
 /**
  * Indicates too many ads were added/enabled under the specified adgroup.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupAdCountLimitExceeded extends EntityCountLimitExceeded {
   /**
@@ -11983,6 +12540,8 @@ class AdGroupAdCountLimitExceeded extends EntityCountLimitExceeded {
 if (!class_exists("AdGroupAdError", FALSE)) {
 /**
  * Error information for AdGroupAdService.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupAdError extends ApiError {
   /**
@@ -12020,6 +12579,8 @@ class AdGroupAdError extends ApiError {
 if (!class_exists("AdGroupAdOperation", FALSE)) {
 /**
  * AdGroupAd service operations.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupAdOperation extends Operation {
   /**
@@ -12062,6 +12623,8 @@ class AdGroupAdOperation extends Operation {
 if (!class_exists("AdGroupCriterionError", FALSE)) {
 /**
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupCriterionError extends ApiError {
   /**
@@ -12099,6 +12662,8 @@ class AdGroupCriterionError extends ApiError {
 if (!class_exists("AdGroupCriterionLimitExceeded", FALSE)) {
 /**
  * Signals that too many criteria were added to some ad group.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupCriterionLimitExceeded extends EntityCountLimitExceeded {
   /**
@@ -12139,6 +12704,8 @@ class AdGroupCriterionLimitExceeded extends EntityCountLimitExceeded {
 if (!class_exists("AdGroupCriterionOperation", FALSE)) {
 /**
  * Operation (add, remove and set) on adgroup criteria.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupCriterionOperation extends Operation {
   /**
@@ -12181,6 +12748,8 @@ class AdGroupCriterionOperation extends Operation {
 if (!class_exists("AdGroupOperation", FALSE)) {
 /**
  * AdGroup operations for adding/updating/removing adgroups.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupOperation extends Operation {
   /**
@@ -12216,6 +12785,8 @@ class AdGroupOperation extends Operation {
 if (!class_exists("AdGroupServiceError", FALSE)) {
 /**
  * Represents possible error codes in AdGroupService.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdGroupServiceError extends ApiError {
   /**
@@ -12260,6 +12831,8 @@ class AdGroupServiceError extends ApiError {
 if (!class_exists("AdScheduleTarget", FALSE)) {
 /**
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdScheduleTarget extends AdWordsTarget {
   /**
@@ -12329,6 +12902,8 @@ class AdScheduleTarget extends AdWordsTarget {
 if (!class_exists("AdScheduleTargetList", FALSE)) {
 /**
  * List of ad schedule targets.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdScheduleTargetList extends TargetList {
   /**
@@ -12364,6 +12939,8 @@ class AdScheduleTargetList extends TargetList {
 if (!class_exists("AdStats", FALSE)) {
 /**
  * Represents stats specific to Ads.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AdStats extends Stats {
   /**
@@ -12420,6 +12997,8 @@ class AdStats extends Stats {
 if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiException extends ApplicationException {
   /**
@@ -12455,6 +13034,8 @@ class ApiException extends ApplicationException {
 if (!class_exists("Audio", FALSE)) {
 /**
  * Encapsulates an Audio media identified by a MediaId.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Audio extends Media {
   /**
@@ -12516,6 +13097,8 @@ if (!class_exists("BatchFailureResult", FALSE)) {
  * transactional batch. It does not imply that the corresponding operation
  * for this result itself caused the failure. To determine that, please see
  * the {@link FailureResult} provided for the first operation of the batch.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BatchFailureResult extends OperationResult {
   /**
@@ -12585,6 +13168,8 @@ if (!class_exists("BulkMutateJob", FALSE)) {
  * <p><i>Note: A job may have no more than 100 request parts. Each part may
  * have no more than 25 operation streams and no more than 10,000 operations
  * in total.</i></p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJob extends Job {
   /**
@@ -12673,6 +13258,8 @@ class BulkMutateJob extends Job {
 if (!class_exists("BulkMutateJobEvent", FALSE)) {
 /**
  * An event defined by a status change of a bulk mutate job.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobEvent extends JobEvent {
   /**
@@ -12708,6 +13295,8 @@ class BulkMutateJobEvent extends JobEvent {
 if (!class_exists("BulkMutateJobSelector", FALSE)) {
 /**
  * Specifies additional criteria for selecting bulk mutate jobs.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobSelector extends JobSelector {
   /**
@@ -12758,6 +13347,8 @@ class BulkMutateJobSelector extends JobSelector {
 if (!class_exists("BulkMutateJobStats", FALSE)) {
 /**
  * Bulk mutate job-handling statistics.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class BulkMutateJobStats extends JobStats {
   /**
@@ -12809,6 +13400,8 @@ class BulkMutateJobStats extends JobStats {
 if (!class_exists("CampaignAdExtensionOperation", FALSE)) {
 /**
  * CampaignAdExtension service operation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignAdExtensionOperation extends Operation {
   /**
@@ -12844,6 +13437,8 @@ class CampaignAdExtensionOperation extends Operation {
 if (!class_exists("CampaignAdExtensionStats", FALSE)) {
 /**
  * Represents stats specific to CampaignAdExtensions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignAdExtensionStats extends Stats {
   /**
@@ -12893,6 +13488,8 @@ class CampaignAdExtensionStats extends Stats {
 if (!class_exists("CampaignCriterionLimitExceeded", FALSE)) {
 /**
  * Error to indicate that too many negative criteria added to some campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignCriterionLimitExceeded extends EntityCountLimitExceeded {
   /**
@@ -12933,6 +13530,8 @@ class CampaignCriterionLimitExceeded extends EntityCountLimitExceeded {
 if (!class_exists("CampaignCriterionOperation", FALSE)) {
 /**
  * Generic operation (add, remove and set) for campaign criteria.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignCriterionOperation extends Operation {
   /**
@@ -12971,6 +13570,8 @@ if (!class_exists("CampaignOperation", FALSE)) {
  * <p class="note"><b>Note:</b> The <code>REMOVE</code> operator is not
  * supported.  To remove a a campaign, set its {@link Campaign#status status}
  * to <code>DELETED</code>.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignOperation extends Operation {
   /**
@@ -13013,6 +13614,8 @@ class CampaignOperation extends Operation {
 if (!class_exists("CampaignStats", FALSE)) {
 /**
  * Represents stats specific to Campaigns.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignStats extends Stats {
   /**
@@ -13062,6 +13665,8 @@ class CampaignStats extends Stats {
 if (!class_exists("CampaignTargetOperation", FALSE)) {
 /**
  * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CampaignTargetOperation extends Operation {
   /**
@@ -13097,6 +13702,8 @@ class CampaignTargetOperation extends Operation {
 if (!class_exists("ContentLabel", FALSE)) {
 /**
  * Content Label for category exclusion.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ContentLabel extends Criterion {
   /**
@@ -13132,6 +13739,8 @@ class ContentLabel extends Criterion {
 if (!class_exists("CriterionPolicyError", FALSE)) {
 /**
  * Contains the policy violations for a single BiddableAdGroupCriterion.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CriterionPolicyError extends PolicyViolationError {
   /**
@@ -13168,6 +13777,8 @@ class CriterionPolicyError extends PolicyViolationError {
 if (!class_exists("DemographicTarget", FALSE)) {
 /**
  * Abstract class to identify a demographic target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DemographicTarget extends AdWordsTarget {
   /**
@@ -13202,6 +13813,8 @@ class DemographicTarget extends AdWordsTarget {
 if (!class_exists("DemographicTargetList", FALSE)) {
 /**
  * List of demographic targets.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DemographicTargetList extends TargetList {
   /**
@@ -13237,6 +13850,8 @@ class DemographicTargetList extends TargetList {
 if (!class_exists("DoubleValue", FALSE)) {
 /**
  * Number value type for constructing double valued ranges.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DoubleValue extends NumberValue {
   /**
@@ -13279,6 +13894,8 @@ if (!class_exists("FailureResult", FALSE)) {
  * the faulty operations in the batch. Please see the subsequent
  * {@link BatchFailureResult}s to determine the remaining operations that were
  * also applied in the batch and their positions within the batch.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class FailureResult extends OperationResult {
   /**
@@ -13313,6 +13930,8 @@ class FailureResult extends OperationResult {
 if (!class_exists("GenderTarget", FALSE)) {
 /**
  * Immutable structure to hold a gender target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class GenderTarget extends DemographicTarget {
   /**
@@ -13348,6 +13967,8 @@ class GenderTarget extends DemographicTarget {
 if (!class_exists("GeoTarget", FALSE)) {
 /**
  * Abstract class to identify a geographic target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class GeoTarget extends AdWordsTarget {
   /**
@@ -13382,6 +14003,8 @@ class GeoTarget extends AdWordsTarget {
 if (!class_exists("GeoTargetList", FALSE)) {
 /**
  * List of geographic targets.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class GeoTargetList extends TargetList {
   /**
@@ -13442,6 +14065,8 @@ if (!class_exists("GeoTargetTypeSetting", FALSE)) {
  * 
  * <p>This setting applies only to ads shown on the search network, and does
  * not affect ads shown on the Google Display Network.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class GeoTargetTypeSetting extends Setting {
   /**
@@ -13483,6 +14108,8 @@ class GeoTargetTypeSetting extends Setting {
 if (!class_exists("Image", FALSE)) {
 /**
  * Raw image data.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Image extends Media {
   /**
@@ -13531,6 +14158,8 @@ if (!class_exists("JobOperation", FALSE)) {
  * <li>ADD: submit a new job;
  * <li>SET: update a previously submitted job.
  * </ul>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class JobOperation extends Operation {
   /**
@@ -13569,6 +14198,8 @@ if (!class_exists("LanguageTarget", FALSE)) {
  * The list of languages available for targeting are listed
  * <a href = "http://code.google.com/apis/adwords/docs/appendix/languagecodes.html">
  * here.</a>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LanguageTarget extends AdWordsTarget {
   /**
@@ -13603,6 +14234,8 @@ class LanguageTarget extends AdWordsTarget {
 if (!class_exists("LanguageTargetList", FALSE)) {
 /**
  * List of language targets.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LanguageTargetList extends TargetList {
   /**
@@ -13638,6 +14271,8 @@ class LanguageTargetList extends TargetList {
 if (!class_exists("LongValue", FALSE)) {
 /**
  * Number value type for constructing long valued ranges.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LongValue extends NumberValue {
   /**
@@ -13677,6 +14312,8 @@ if (!class_exists("LostResult", FALSE)) {
  * <p>The operation is considered to have completed processing because it
  * either was successfully performed or failed with validation errors, and
  * cannot be retried without the risk of doing duplicate work.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LostResult extends OperationResult {
   /**
@@ -13707,6 +14344,8 @@ if (!class_exists("MetroTarget", FALSE)) {
  * The list of metros available for targeting are listed
  * <a href="http://code.google.com/apis/adwords/docs/appendix/metrocodes.html">
  * here.</a>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MetroTarget extends GeoTarget {
   /**
@@ -13742,6 +14381,8 @@ class MetroTarget extends GeoTarget {
 if (!class_exists("MobileTarget", FALSE)) {
 /**
  * Abstract class to identify a mobile target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MobileTarget extends AdWordsTarget {
   /**
@@ -13769,6 +14410,8 @@ class MobileTarget extends AdWordsTarget {
 if (!class_exists("MobileTargetList", FALSE)) {
 /**
  * List of mobile targets.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MobileTargetList extends TargetList {
   /**
@@ -13804,6 +14447,8 @@ class MobileTargetList extends TargetList {
 if (!class_exists("NetworkTargetList", FALSE)) {
 /**
  * List of network targets.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NetworkTargetList extends TargetList {
   /**
@@ -13833,6 +14478,8 @@ if (!class_exists("PlatformTarget", FALSE)) {
 /**
  * A platform target is used to discriminate among the potential devices from
  * which the users access the web (ie, desktops vs. mobile devices).
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PlatformTarget extends AdWordsTarget {
   /**
@@ -13867,6 +14514,8 @@ class PlatformTarget extends AdWordsTarget {
 if (!class_exists("PlatformTargetList", FALSE)) {
 /**
  * List of platform targets.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PlatformTargetList extends TargetList {
   /**
@@ -13910,6 +14559,8 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * for the value is 1 second which is equal to 277 microdegrees.
  * Polygon targets cannot be used for exclusion, and
  * other targets cannot be used to exclude regions of polygon targets.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PolygonTarget extends GeoTarget {
   /**
@@ -13948,6 +14599,8 @@ if (!class_exists("ProvinceTarget", FALSE)) {
  * The list of provinces available for targeting are listed
  * <a href="http://code.google.com/apis/adwords/docs/appendix/provincecodes.html">
  * here</a>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProvinceTarget extends GeoTarget {
   /**
@@ -13991,6 +14644,8 @@ if (!class_exists("ProximityTarget", FALSE)) {
  * to find a valid GeoPoint for an address that can be used with this service.
  * Proximity targets cannot be used for exclusion, and other targets cannot be used
  * to exclude regions of proximity targets.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ProximityTarget extends GeoTarget {
   /**
@@ -14055,6 +14710,8 @@ if (!class_exists("RealTimeBiddingSetting", FALSE)) {
 /**
  * Settings for Real-Time Bidding, a feature only available for campaigns
  * targeting the Ad Exchange network.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RealTimeBiddingSetting extends Setting {
   /**
@@ -14089,6 +14746,8 @@ class RealTimeBiddingSetting extends Setting {
 if (!class_exists("AgeTarget", FALSE)) {
 /**
  * Immutable structure to hold an age target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AgeTarget extends DemographicTarget {
   /**
@@ -14130,6 +14789,8 @@ if (!class_exists("CityTarget", FALSE)) {
  * The list of cities within US available for targeting are listed
  * <a href="http://code.google.com/apis/adwords/docs/appendix/cities_us.html">
  * here.</a>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CityTarget extends GeoTarget {
   /**
@@ -14182,6 +14843,8 @@ if (!class_exists("CountryTarget", FALSE)) {
  * The list of countries of the world available for targeting are listed
  * <a href="http://code.google.com/apis/adwords/docs/appendix/countrycodes.html">
  * here.</a>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CountryTarget extends GeoTarget {
   /**
@@ -14219,6 +14882,8 @@ if (!class_exists("MobileCarrierTarget", FALSE)) {
  * Represents a mobile carrier for a particular country. See
  * <a href="/apis/adwords/docs/appendix/mobilecarriers.html">
  * available carriers</a> for each country code.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MobileCarrierTarget extends MobileTarget {
   /**
@@ -14262,6 +14927,8 @@ if (!class_exists("MobilePlatformTarget", FALSE)) {
  * Represents a mobile operating system platform. See
  * <a href="/apis/adwords/docs/appendix/mobileplatforms.html">
  * available platforms</a>.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class MobilePlatformTarget extends MobileTarget {
   /**
@@ -14296,6 +14963,8 @@ class MobilePlatformTarget extends MobileTarget {
 if (!class_exists("BulkMutateJobService", FALSE)) {
 /**
  * BulkMutateJobService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  * @author WSDLInterpreter
  */
 class BulkMutateJobService extends AdWordsSoapClient {

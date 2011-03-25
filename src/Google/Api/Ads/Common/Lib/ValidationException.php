@@ -30,6 +30,8 @@
 
 /**
  * Exception class for any client library validation error.
+ * @package GoogleApiAdsCommon
+ * @subpackage Lib
  */
 class ValidationException extends Exception {
     /**

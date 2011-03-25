@@ -30,6 +30,8 @@
 
 /**
  * Exception class for any AuthToken (ClientLogin) error.
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class AuthTokenException extends Exception {
   private $error;

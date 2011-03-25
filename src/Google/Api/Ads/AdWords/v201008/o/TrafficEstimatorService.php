@@ -27,6 +27,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("Address", FALSE)) {
@@ -36,6 +37,8 @@ if (!class_exists("Address", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Address {
   /**
@@ -119,6 +122,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiError {
   /**
@@ -209,6 +214,8 @@ if (!class_exists("ApplicationException", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApplicationException {
   /**
@@ -285,6 +292,8 @@ if (!class_exists("AuthenticationError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationError extends ApiError {
   /**
@@ -326,6 +335,8 @@ if (!class_exists("AuthorizationError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationError extends ApiError {
   /**
@@ -367,6 +378,8 @@ if (!class_exists("ClientTermsError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsError extends ApiError {
   /**
@@ -408,6 +421,8 @@ if (!class_exists("ComparableValue", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ComparableValue {
   /**
@@ -477,6 +492,8 @@ if (!class_exists("Criterion", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Criterion {
   /**
@@ -553,6 +570,8 @@ if (!class_exists("DatabaseError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DatabaseError extends ApiError {
   /**
@@ -594,6 +613,8 @@ if (!class_exists("DateError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateError extends ApiError {
   /**
@@ -635,6 +656,8 @@ if (!class_exists("DistinctError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DistinctError extends ApiError {
   /**
@@ -676,6 +699,8 @@ if (!class_exists("EntityAccessDenied", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class EntityAccessDenied extends ApiError {
   /**
@@ -718,6 +743,8 @@ if (!class_exists("EntityNotFound", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class EntityNotFound extends ApiError {
   /**
@@ -759,6 +786,8 @@ if (!class_exists("GeoPoint", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoPoint {
   /**
@@ -803,6 +832,8 @@ if (!class_exists("IdError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class IdError extends ApiError {
   /**
@@ -846,6 +877,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiError extends ApiError {
   /**
@@ -887,6 +920,8 @@ if (!class_exists("Keyword", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Keyword extends Criterion {
   /**
@@ -933,6 +968,8 @@ if (!class_exists("Money", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Money extends ComparableValue {
   /**
@@ -971,6 +1008,8 @@ if (!class_exists("NotEmptyError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyError extends ApiError {
   /**
@@ -1012,6 +1051,8 @@ if (!class_exists("NotWhitelistedError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -1053,6 +1094,8 @@ if (!class_exists("NullError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NullError extends ApiError {
   /**
@@ -1094,6 +1137,8 @@ if (!class_exists("NumberValue", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NumberValue extends ComparableValue {
   /**
@@ -1126,6 +1171,8 @@ if (!class_exists("OperationAccessDenied", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class OperationAccessDenied extends ApiError {
   /**
@@ -1167,6 +1214,8 @@ if (!class_exists("OperatorError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class OperatorError extends ApiError {
   /**
@@ -1209,6 +1258,8 @@ if (!class_exists("Placement", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Placement extends Criterion {
   /**
@@ -1251,6 +1302,8 @@ if (!class_exists("Product", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Product extends Criterion {
   /**
@@ -1298,6 +1351,8 @@ if (!class_exists("ProductCondition", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProductCondition {
   /**
@@ -1342,6 +1397,8 @@ if (!class_exists("ProductConditionOperand", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProductConditionOperand {
   /**
@@ -1379,6 +1436,8 @@ if (!class_exists("QuotaCheckError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1420,6 +1479,8 @@ if (!class_exists("RangeError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RangeError extends ApiError {
   /**
@@ -1461,6 +1522,8 @@ if (!class_exists("RateExceededError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededError extends ApiError {
   /**
@@ -1523,6 +1586,8 @@ if (!class_exists("ReadOnlyError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReadOnlyError extends ApiError {
   /**
@@ -1564,6 +1629,8 @@ if (!class_exists("RegionCodeError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RegionCodeError extends ApiError {
   /**
@@ -1605,6 +1672,8 @@ if (!class_exists("RejectedError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RejectedError extends ApiError {
   /**
@@ -1647,6 +1716,8 @@ if (!class_exists("RequestError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestError extends ApiError {
   /**
@@ -1688,6 +1759,8 @@ if (!class_exists("RequiredError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredError extends ApiError {
   /**
@@ -1729,6 +1802,8 @@ if (!class_exists("SizeLimitError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitError extends ApiError {
   /**
@@ -1770,6 +1845,8 @@ if (!class_exists("SoapRequestHeader", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapRequestHeader {
   /**
@@ -1849,6 +1926,8 @@ if (!class_exists("SoapResponseHeader", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapResponseHeader {
   /**
@@ -1907,6 +1986,8 @@ if (!class_exists("StringLengthError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StringLengthError extends ApiError {
   /**
@@ -1948,6 +2029,8 @@ if (!class_exists("AdWordsTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdWordsTarget {
   /**
@@ -2017,6 +2100,8 @@ if (!class_exists("TargetError", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetError extends ApiError {
   /**
@@ -2060,6 +2145,8 @@ if (!class_exists("CriterionUserInterest", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CriterionUserInterest extends Criterion {
   /**
@@ -2106,6 +2193,8 @@ if (!class_exists("CriterionUserList", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CriterionUserList extends Criterion {
   /**
@@ -2170,6 +2259,8 @@ if (!class_exists("Vertical", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Vertical extends Criterion {
   /**
@@ -2209,6 +2300,8 @@ if (!class_exists("AgeTargetAge", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AgeTargetAge {
   /**
@@ -2239,6 +2332,8 @@ if (!class_exists("AuthenticationErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationErrorReason {
   /**
@@ -2269,6 +2364,8 @@ if (!class_exists("AuthorizationErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationErrorReason {
   /**
@@ -2300,6 +2397,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsErrorReason {
   /**
@@ -2330,6 +2429,8 @@ if (!class_exists("DatabaseErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DatabaseErrorReason {
   /**
@@ -2360,6 +2461,8 @@ if (!class_exists("DateErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateErrorReason {
   /**
@@ -2390,6 +2493,8 @@ if (!class_exists("DayOfWeek", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DayOfWeek {
   /**
@@ -2420,6 +2525,8 @@ if (!class_exists("DistinctErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DistinctErrorReason {
   /**
@@ -2450,6 +2557,8 @@ if (!class_exists("EntityAccessDeniedReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class EntityAccessDeniedReason {
   /**
@@ -2481,6 +2590,8 @@ if (!class_exists("EntityNotFoundReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class EntityNotFoundReason {
   /**
@@ -2511,6 +2622,8 @@ if (!class_exists("GenderTargetGender", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GenderTargetGender {
   /**
@@ -2541,6 +2654,8 @@ if (!class_exists("IdErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class IdErrorReason {
   /**
@@ -2571,6 +2686,8 @@ if (!class_exists("InternalApiErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiErrorReason {
   /**
@@ -2602,6 +2719,8 @@ if (!class_exists("KeywordMatchType", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class KeywordMatchType {
   /**
@@ -2632,6 +2751,8 @@ if (!class_exists("MinuteOfHour", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MinuteOfHour {
   /**
@@ -2662,6 +2783,8 @@ if (!class_exists("NetworkCoverageType", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NetworkCoverageType {
   /**
@@ -2692,6 +2815,8 @@ if (!class_exists("NotEmptyErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyErrorReason {
   /**
@@ -2722,6 +2847,8 @@ if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedErrorReason {
   /**
@@ -2752,6 +2879,8 @@ if (!class_exists("NullErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NullErrorReason {
   /**
@@ -2782,6 +2911,8 @@ if (!class_exists("OperationAccessDeniedReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class OperationAccessDeniedReason {
   /**
@@ -2812,6 +2943,8 @@ if (!class_exists("OperatorErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class OperatorErrorReason {
   /**
@@ -2842,6 +2975,8 @@ if (!class_exists("PlatformType", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PlatformType {
   /**
@@ -2872,6 +3007,8 @@ if (!class_exists("ProximityTargetDistanceUnits", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProximityTargetDistanceUnits {
   /**
@@ -2903,6 +3040,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckErrorReason {
   /**
@@ -2933,6 +3072,8 @@ if (!class_exists("RangeErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RangeErrorReason {
   /**
@@ -2963,6 +3104,8 @@ if (!class_exists("RateExceededErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededErrorReason {
   /**
@@ -2993,6 +3136,8 @@ if (!class_exists("ReadOnlyErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReadOnlyErrorReason {
   /**
@@ -3023,6 +3168,8 @@ if (!class_exists("RegionCodeErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RegionCodeErrorReason {
   /**
@@ -3053,6 +3200,8 @@ if (!class_exists("RejectedErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RejectedErrorReason {
   /**
@@ -3083,6 +3232,8 @@ if (!class_exists("RequestErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestErrorReason {
   /**
@@ -3113,6 +3264,8 @@ if (!class_exists("RequiredErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredErrorReason {
   /**
@@ -3143,6 +3296,8 @@ if (!class_exists("SizeLimitErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitErrorReason {
   /**
@@ -3173,6 +3328,8 @@ if (!class_exists("StringLengthErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StringLengthErrorReason {
   /**
@@ -3203,6 +3360,8 @@ if (!class_exists("TargetErrorReason", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetErrorReason {
   /**
@@ -3233,6 +3392,8 @@ if (!class_exists("CriterionUserListMembershipStatus", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CriterionUserListMembershipStatus {
   /**
@@ -3259,6 +3420,8 @@ class CriterionUserListMembershipStatus {
 if (!class_exists("CollectionSizeError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsSize constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CollectionSizeError extends ApiError {
   /**
@@ -3296,6 +3459,8 @@ class CollectionSizeError extends ApiError {
 if (!class_exists("Estimate", FALSE)) {
 /**
  * Abstract class representing an reply to an {@link EstimateRequest}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Estimate {
   /**
@@ -3361,6 +3526,8 @@ class Estimate {
 if (!class_exists("EstimateRequest", FALSE)) {
 /**
  * Abstract class representing a request to estimate stats.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class EstimateRequest {
   /**
@@ -3426,6 +3593,8 @@ class EstimateRequest {
 if (!class_exists("KeywordEstimate", FALSE)) {
 /**
  * Represents the traffic estimate result for a single keyword.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class KeywordEstimate extends Estimate {
   /**
@@ -3474,6 +3643,8 @@ class KeywordEstimate extends Estimate {
 if (!class_exists("KeywordEstimateRequest", FALSE)) {
 /**
  * Represents a keyword to be estimated.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class KeywordEstimateRequest extends EstimateRequest {
   /**
@@ -3517,6 +3688,8 @@ if (!class_exists("MatchesRegexError", FALSE)) {
  * A list of all errors associated with the
  * {@link com.google.ads.api.services.common.validation.constraints.MatchesRegex}
  * constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MatchesRegexError extends ApiError {
   /**
@@ -3554,6 +3727,8 @@ class MatchesRegexError extends ApiError {
 if (!class_exists("StatsEstimate", FALSE)) {
 /**
  * Represents a set of stats for a traffic estimate.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StatsEstimate {
   /**
@@ -3609,6 +3784,8 @@ if (!class_exists("TrafficEstimatorError", FALSE)) {
 /**
  * Base error class for
  * {@link com.google.ads.api.services.trafficestimator.TrafficEstimatorService}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TrafficEstimatorError extends ApiError {
   /**
@@ -3646,6 +3823,8 @@ class TrafficEstimatorError extends ApiError {
 if (!class_exists("TrafficEstimatorResult", FALSE)) {
 /**
  * Contains results of traffic estimation request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TrafficEstimatorResult {
   /**
@@ -3679,6 +3858,8 @@ class TrafficEstimatorResult {
 if (!class_exists("TrafficEstimatorSelector", FALSE)) {
 /**
  * Contains a list of campaigns to perform a traffic estimate on.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TrafficEstimatorSelector {
   /**
@@ -3712,6 +3893,8 @@ class TrafficEstimatorSelector {
 if (!class_exists("CollectionSizeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CollectionSizeErrorReason {
   /**
@@ -3738,6 +3921,8 @@ class CollectionSizeErrorReason {
 if (!class_exists("MatchesRegexErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MatchesRegexErrorReason {
   /**
@@ -3768,6 +3953,8 @@ if (!class_exists("TrafficEstimatorErrorReason", FALSE)) {
  * contains an
  * {@link com.google.ads.api.services.trafficestimator.AdGroupEstimateRequest}
  * with an ID.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TrafficEstimatorErrorReason {
   /**
@@ -3803,6 +3990,8 @@ if (!class_exists("TrafficEstimatorServiceGet", FALSE)) {
  * should be estimated.
  * @return Traffic estimation results.
  * @throws ApiException if problems occurred while retrieving estimates
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TrafficEstimatorServiceGet {
   /**
@@ -3836,6 +4025,8 @@ class TrafficEstimatorServiceGet {
 if (!class_exists("TrafficEstimatorServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TrafficEstimatorServiceGetResponse {
   /**
@@ -3873,6 +4064,8 @@ if (!class_exists("AdScheduleTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdScheduleTarget extends AdWordsTarget {
   /**
@@ -3946,6 +4139,8 @@ if (!class_exists("ApiException", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiException extends ApplicationException {
   /**
@@ -3985,6 +4180,8 @@ if (!class_exists("DemographicTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DemographicTarget extends AdWordsTarget {
   /**
@@ -4023,6 +4220,8 @@ if (!class_exists("DoubleValue", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DoubleValue extends NumberValue {
   /**
@@ -4061,6 +4260,8 @@ if (!class_exists("GenderTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GenderTarget extends DemographicTarget {
   /**
@@ -4100,6 +4301,8 @@ if (!class_exists("GeoTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoTarget extends AdWordsTarget {
   /**
@@ -4141,6 +4344,8 @@ if (!class_exists("LanguageTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class LanguageTarget extends AdWordsTarget {
   /**
@@ -4179,6 +4384,8 @@ if (!class_exists("LongValue", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class LongValue extends NumberValue {
   /**
@@ -4220,6 +4427,8 @@ if (!class_exists("MetroTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MetroTarget extends GeoTarget {
   /**
@@ -4259,6 +4468,8 @@ if (!class_exists("MobileTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MobileTarget extends AdWordsTarget {
   /**
@@ -4292,6 +4503,8 @@ if (!class_exists("NetworkTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NetworkTarget extends AdWordsTarget {
   /**
@@ -4331,6 +4544,8 @@ if (!class_exists("PlatformTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PlatformTarget extends AdWordsTarget {
   /**
@@ -4377,6 +4592,8 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PolygonTarget extends GeoTarget {
   /**
@@ -4419,6 +4636,8 @@ if (!class_exists("ProvinceTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProvinceTarget extends GeoTarget {
   /**
@@ -4466,6 +4685,8 @@ if (!class_exists("ProximityTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProximityTarget extends GeoTarget {
   /**
@@ -4529,6 +4750,8 @@ class ProximityTarget extends GeoTarget {
 if (!class_exists("AdGroupEstimate", FALSE)) {
 /**
  * Represents the estimate results for a single ad group.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdGroupEstimate extends Estimate {
   /**
@@ -4580,6 +4803,8 @@ if (!class_exists("AdGroupEstimateRequest", FALSE)) {
  * 
  * <p>For more details on usage, refer to document at
  * {@link CampaignEstimateRequest}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdGroupEstimateRequest extends EstimateRequest {
   /**
@@ -4628,6 +4853,8 @@ class AdGroupEstimateRequest extends EstimateRequest {
 if (!class_exists("CampaignEstimate", FALSE)) {
 /**
  * Represents the estimate results for a single campaign.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CampaignEstimate extends Estimate {
   /**
@@ -4684,6 +4911,8 @@ if (!class_exists("CampaignEstimateRequest", FALSE)) {
  * To make a keyword estimates request in which estimates do not consider
  * existing account information (e.g. historical ad group performance), set
  * {@link #campaignId} to {@code null}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CampaignEstimateRequest extends EstimateRequest {
   /**
@@ -4736,6 +4965,8 @@ if (!class_exists("AgeTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AgeTarget extends DemographicTarget {
   /**
@@ -4781,6 +5012,8 @@ if (!class_exists("CityTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CityTarget extends GeoTarget {
   /**
@@ -4837,6 +5070,8 @@ if (!class_exists("CountryTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CountryTarget extends GeoTarget {
   /**
@@ -4878,6 +5113,8 @@ if (!class_exists("MobileCarrierTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MobileCarrierTarget extends MobileTarget {
   /**
@@ -4925,6 +5162,8 @@ if (!class_exists("MobilePlatformTarget", FALSE)) {
  * 
  * 
  * Immutable structure to hold an ad schedule target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MobilePlatformTarget extends MobileTarget {
   /**
@@ -4959,6 +5198,8 @@ class MobilePlatformTarget extends MobileTarget {
 if (!class_exists("TrafficEstimatorService", FALSE)) {
 /**
  * TrafficEstimatorService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  * @author WSDLInterpreter
  */
 class TrafficEstimatorService extends AdWordsSoapClient {

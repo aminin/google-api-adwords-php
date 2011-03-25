@@ -28,6 +28,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required classes. **/
 require_once dirname(__FILE__) . '/../Util/Logger.php';
 require_once dirname(__FILE__) . '/../Util/OAuthUtils.php';
 require_once 'SoapClientFactory.php';
@@ -35,6 +36,8 @@ require_once 'ValidationException.php';
 
 /**
  * User class for all API modules using the Ads API.
+ * @package GoogleApiAdsCommon
+ * @subpackage Lib
  */
 abstract class AdsUser {
   private $requestHeaderElements;

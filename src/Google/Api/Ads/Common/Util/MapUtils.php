@@ -29,6 +29,8 @@
 
 /**
  * A collection of utility methods for working with maps (associative arrays).
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class MapUtils {
   /**

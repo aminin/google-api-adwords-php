@@ -28,11 +28,14 @@
  * @see        SoapClientFactory
  */
 
+/** Required classes. **/
 require_once dirname(__FILE__) . '/../../Common/Lib/AdsUser.php';
 require_once dirname(__FILE__) . '/../../Common/Lib/SoapClientFactory.php';
 
 /**
  * Factory class for SOAP clients for the AdWords API.
+ * @package GoogleApiAdsAdWords
+ * @subpackage Lib
  */
 class AdWordsSoapClientFactory extends SoapClientFactory {
   /**

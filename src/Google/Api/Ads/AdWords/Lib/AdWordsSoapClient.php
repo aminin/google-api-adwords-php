@@ -28,11 +28,14 @@
  * @see        AdsSoapClient
  */
 
+/** Required classes. **/
 require_once dirname(__FILE__) . '/../../Common/Lib/AdsSoapClient.php';
 require_once dirname(__FILE__) . '/../../Common/Util/OAuthUtils.php';
 
 /**
  * An extension of the {@link AdsSoapClient} for the AdWords API.
+ * @package GoogleApiAdsAdWords
+ * @subpackage Lib
  */
 class AdWordsSoapClient extends AdsSoapClient {
   /**

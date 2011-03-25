@@ -27,6 +27,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("ApiError", FALSE)) {
@@ -36,6 +37,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * <p>The OGNL field path is provided for parsers to identify the request data
  * element that may have caused the error.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiError {
   /**
@@ -122,6 +125,8 @@ class ApiError {
 if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApplicationException {
   /**
@@ -194,6 +199,8 @@ class ApplicationException {
 if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationError extends ApiError {
   /**
@@ -231,6 +238,8 @@ class AuthenticationError extends ApiError {
 if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationError extends ApiError {
   /**
@@ -268,6 +277,8 @@ class AuthorizationError extends ApiError {
 if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsError extends ApiError {
   /**
@@ -305,6 +316,8 @@ class ClientTermsError extends ApiError {
 if (!class_exists("UserListConversionType", FALSE)) {
 /**
  * Represents a conversion type used for building remarketing user lists.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListConversionType {
   /**
@@ -352,6 +365,8 @@ class UserListConversionType {
 if (!class_exists("DatabaseError", FALSE)) {
 /**
  * Errors that are thrown due to a database access problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseError extends ApiError {
   /**
@@ -390,6 +405,8 @@ if (!class_exists("DateRange", FALSE)) {
 /**
  * Represents a range of dates that has either an upper or a lower bound.
  * The format for the date is YYYYMMDD.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DateRange {
   /**
@@ -430,6 +447,8 @@ class DateRange {
 if (!class_exists("DistinctError", FALSE)) {
 /**
  * Errors related to distinct ids or content.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DistinctError extends ApiError {
   /**
@@ -469,6 +488,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
  * client.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiError extends ApiError {
   /**
@@ -506,6 +527,8 @@ class InternalApiError extends ApiError {
 if (!class_exists("ListReturnValue", FALSE)) {
 /**
  * Base list return value type.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ListReturnValue {
   /**
@@ -573,6 +596,8 @@ if (!class_exists("LogicalUserListOperand", FALSE)) {
  * An interface for a logical user list operand. A logical user list is a
  * combination of logical rules. Each rule is defined as a logical operator and
  * a list of operands. Those operands can be of type UserList or UserInterest.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LogicalUserListOperand {
   /**
@@ -613,6 +638,8 @@ class LogicalUserListOperand {
 if (!class_exists("NotEmptyError", FALSE)) {
 /**
  * A list of all errors associated with the @NotEmpty constraints.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotEmptyError extends ApiError {
   /**
@@ -650,6 +677,8 @@ class NotEmptyError extends ApiError {
 if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -688,6 +717,8 @@ if (!class_exists("Operation", FALSE)) {
 /**
  * This represents an operation that includes an operator and an operand
  * specified type.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Operation {
   /**
@@ -761,6 +792,8 @@ if (!class_exists("OperationAccessDenied", FALSE)) {
 /**
  * Unauthorized access errors as determined by the invoked service's
  * access policy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperationAccessDenied extends ApiError {
   /**
@@ -798,6 +831,8 @@ class OperationAccessDenied extends ApiError {
 if (!class_exists("OrderBy", FALSE)) {
 /**
  * Specifies how the resulting information should be sorted.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OrderBy {
   /**
@@ -838,6 +873,8 @@ class OrderBy {
 if (!class_exists("Page", FALSE)) {
 /**
  * Contains the results from a get call.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Page {
   /**
@@ -912,6 +949,8 @@ if (!class_exists("Paging", FALSE)) {
  * Specifies the page of results to return in the response. A page is specified
  * by the result position to start at and the maximum number of results to
  * return.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Paging {
   /**
@@ -952,6 +991,8 @@ class Paging {
 if (!class_exists("Predicate", FALSE)) {
 /**
  * Specifies how an entity (eg. adgroup, campaign, criterion, ad) should be filtered.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Predicate {
   /**
@@ -999,6 +1040,8 @@ class Predicate {
 if (!class_exists("QuotaCheckError", FALSE)) {
 /**
  * Encapsulates the errors thrown during developer quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1036,6 +1079,8 @@ class QuotaCheckError extends ApiError {
 if (!class_exists("RangeError", FALSE)) {
 /**
  * A list of all errors associated with the Range constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RangeError extends ApiError {
   /**
@@ -1073,6 +1118,8 @@ class RangeError extends ApiError {
 if (!class_exists("RateExceededError", FALSE)) {
 /**
  * Signals that a call failed because a measured rate exceeded.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededError extends ApiError {
   /**
@@ -1131,6 +1178,8 @@ class RateExceededError extends ApiError {
 if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ReadOnlyError extends ApiError {
   /**
@@ -1169,6 +1218,8 @@ if (!class_exists("RequestError", FALSE)) {
 /**
  * Encapsulates the generic errors thrown when there's an error with user
  * request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestError extends ApiError {
   /**
@@ -1206,6 +1257,8 @@ class RequestError extends ApiError {
 if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredError extends ApiError {
   /**
@@ -1243,6 +1296,8 @@ class RequiredError extends ApiError {
 if (!class_exists("Selector", FALSE)) {
 /**
  * A generic selector to specify the type of information to return.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Selector {
   /**
@@ -1304,6 +1359,8 @@ class Selector {
 if (!class_exists("SelectorError", FALSE)) {
 /**
  * Represents possible error codes for {@link Selector}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SelectorError extends ApiError {
   /**
@@ -1341,6 +1398,8 @@ class SelectorError extends ApiError {
 if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitError extends ApiError {
   /**
@@ -1378,6 +1437,8 @@ class SizeLimitError extends ApiError {
 if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapRequestHeader {
   /**
@@ -1453,6 +1514,8 @@ class SoapRequestHeader {
 if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapResponseHeader {
   /**
@@ -1508,6 +1571,8 @@ if (!class_exists("UserInterest", FALSE)) {
 /**
  * Represents a particular interest based vertical to be targeted.
  * User interest may be used for defining logical user lists.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserInterest {
   /**
@@ -1556,6 +1621,8 @@ if (!class_exists("UserList", FALSE)) {
 /**
  * Represents a UserList object that is sent over the wire.
  * This is a list of users an account may target.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserList {
   /**
@@ -1698,6 +1765,8 @@ class UserList {
 if (!class_exists("UserListError", FALSE)) {
 /**
  * Represents possible error codes in UserListService.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListError extends ApiError {
   /**
@@ -1736,6 +1805,8 @@ if (!class_exists("UserListLogicalRule", FALSE)) {
 /**
  * A user list logical rule. A rule has a logical operator (and/or/not) and a
  * list of operands that can be user lists or user interests.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListLogicalRule {
   /**
@@ -1776,6 +1847,8 @@ class UserListLogicalRule {
 if (!class_exists("UserListOperation", FALSE)) {
 /**
  * UserList operations for adding/updating UserList entities.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListOperation extends Operation {
   /**
@@ -1812,6 +1885,8 @@ if (!class_exists("UserListPage", FALSE)) {
 /**
  * Contains a list of user lists resulting from the filtering and paging of the
  * {@link UserListService#get} call.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListPage extends Page {
   /**
@@ -1847,6 +1922,8 @@ class UserListPage extends Page {
 if (!class_exists("UserListReturnValue", FALSE)) {
 /**
  * A container for return values from the UserListService.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListReturnValue extends ListReturnValue {
   /**
@@ -1882,6 +1959,8 @@ if (!class_exists("AccessReason", FALSE)) {
 /**
  * AccessReason in the AccountUserListStatus table. This indicates the way the userlist is
  * related to a user.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AccessReason {
   /**
@@ -1909,6 +1988,8 @@ if (!class_exists("AccountUserListStatus", FALSE)) {
 /**
  * Status in the AccountUserListStatus table. This indicates if the user list share or
  * the licensing of the userlist is still active.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AccountUserListStatus {
   /**
@@ -1935,6 +2016,8 @@ class AccountUserListStatus {
 if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationErrorReason {
   /**
@@ -1961,6 +2044,8 @@ class AuthenticationErrorReason {
 if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationErrorReason {
   /**
@@ -1988,6 +2073,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsErrorReason {
   /**
@@ -2015,6 +2102,8 @@ if (!class_exists("UserListConversionTypeCategory", FALSE)) {
 /**
  * User can create only BOOMERANG_EVENT conversion types. For all other types
  * UserListService service will return OTHER.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListConversionTypeCategory {
   /**
@@ -2041,6 +2130,8 @@ class UserListConversionTypeCategory {
 if (!class_exists("DatabaseErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseErrorReason {
   /**
@@ -2067,6 +2158,8 @@ class DatabaseErrorReason {
 if (!class_exists("DistinctErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DistinctErrorReason {
   /**
@@ -2093,6 +2186,8 @@ class DistinctErrorReason {
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiErrorReason {
   /**
@@ -2119,6 +2214,8 @@ class InternalApiErrorReason {
 if (!class_exists("NotEmptyErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotEmptyErrorReason {
   /**
@@ -2145,6 +2242,8 @@ class NotEmptyErrorReason {
 if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedErrorReason {
   /**
@@ -2171,6 +2270,8 @@ class NotWhitelistedErrorReason {
 if (!class_exists("OperationAccessDeniedReason", FALSE)) {
 /**
  * The reasons for the operation access error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperationAccessDeniedReason {
   /**
@@ -2197,6 +2298,8 @@ class OperationAccessDeniedReason {
 if (!class_exists("Operator", FALSE)) {
 /**
  * This represents an operator that may be presented to an adsapi service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Operator {
   /**
@@ -2223,6 +2326,8 @@ class Operator {
 if (!class_exists("PredicateOperator", FALSE)) {
 /**
  * Defines the valid set of operators.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class PredicateOperator {
   /**
@@ -2250,6 +2355,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckErrorReason {
   /**
@@ -2276,6 +2383,8 @@ class QuotaCheckErrorReason {
 if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RangeErrorReason {
   /**
@@ -2302,6 +2411,8 @@ class RangeErrorReason {
 if (!class_exists("RateExceededErrorReason", FALSE)) {
 /**
  * The reason for the rate exceeded error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededErrorReason {
   /**
@@ -2328,6 +2439,8 @@ class RateExceededErrorReason {
 if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ReadOnlyErrorReason {
   /**
@@ -2354,6 +2467,8 @@ class ReadOnlyErrorReason {
 if (!class_exists("RequestErrorReason", FALSE)) {
 /**
  * Error reason is unknown.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestErrorReason {
   /**
@@ -2380,6 +2495,8 @@ class RequestErrorReason {
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredErrorReason {
   /**
@@ -2406,6 +2523,8 @@ class RequiredErrorReason {
 if (!class_exists("SelectorErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SelectorErrorReason {
   /**
@@ -2432,6 +2551,8 @@ class SelectorErrorReason {
 if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitErrorReason {
   /**
@@ -2458,6 +2579,8 @@ class SizeLimitErrorReason {
 if (!class_exists("SizeRange", FALSE)) {
 /**
  * Size range in terms of number of users of a UserList/UserInterest.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeRange {
   /**
@@ -2484,6 +2607,8 @@ class SizeRange {
 if (!class_exists("SortOrder", FALSE)) {
 /**
  * Possible orders of sorting.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SortOrder {
   /**
@@ -2510,6 +2635,8 @@ class SortOrder {
 if (!class_exists("UserListType", FALSE)) {
 /**
  * The user list types
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListType {
   /**
@@ -2536,6 +2663,8 @@ class UserListType {
 if (!class_exists("UserListErrorReason", FALSE)) {
 /**
  * Creating and updating external remarketing user lists is not supported.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListErrorReason {
   /**
@@ -2562,6 +2691,8 @@ class UserListErrorReason {
 if (!class_exists("UserListLogicalRuleOperator", FALSE)) {
 /**
  * And - all of the operands.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListLogicalRuleOperator {
   /**
@@ -2589,6 +2720,8 @@ if (!class_exists("UserListMembershipStatus", FALSE)) {
 /**
  * Membership status of the user list. This status indicates whether a user list
  * can accumulate more users and may be targeted to.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListMembershipStatus {
   /**
@@ -2623,6 +2756,8 @@ if (!class_exists("UserListServiceGet", FALSE)) {
  * @param serviceSelector the selector specifying the {@link UserList}s to return.
  * @return a list of UserList entities which meet the selector criteria.
  * @throws ApiException if problems occurred while fetching UserList information.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListServiceGet {
   /**
@@ -2656,6 +2791,8 @@ class UserListServiceGet {
 if (!class_exists("UserListServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListServiceGetResponse {
   /**
@@ -2702,6 +2839,8 @@ if (!class_exists("UserListServiceMutate", FALSE)) {
  * {@link UserListMembershipStatus} to <code>CLOSED</code>.</p>
  * @param operations the operations to apply.
  * @return the mutated UserList entities.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListServiceMutate {
   /**
@@ -2735,6 +2874,8 @@ class UserListServiceMutate {
 if (!class_exists("UserListServiceMutateResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class UserListServiceMutateResponse {
   /**
@@ -2768,6 +2909,8 @@ class UserListServiceMutateResponse {
 if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiException extends ApplicationException {
   /**
@@ -2804,6 +2947,8 @@ if (!class_exists("ExternalRemarketingUserList", FALSE)) {
 /**
  * User lists created in the DoubleClick platform that are mapped
  * from DoubleClick to AdWords.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ExternalRemarketingUserList extends UserList {
   /**
@@ -2843,6 +2988,8 @@ if (!class_exists("LogicalUserList", FALSE)) {
 /**
  * Represents a user list that is a custom combination of user lists and user
  * interests.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LogicalUserList extends UserList {
   /**
@@ -2900,6 +3047,8 @@ if (!class_exists("RemarketingUserList", FALSE)) {
  * {@link ConversionTrackerService}.
  * </li>
  * </ul>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RemarketingUserList extends UserList {
   /**
@@ -2945,6 +3094,8 @@ class RemarketingUserList extends UserList {
 if (!class_exists("UserListService", FALSE)) {
 /**
  * UserListService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  * @author WSDLInterpreter
  */
 class UserListService extends AdWordsSoapClient {

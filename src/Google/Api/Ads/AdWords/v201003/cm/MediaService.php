@@ -27,11 +27,14 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("Dimensions", FALSE)) {
 /**
  * Represents a simple height-width dimension.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class Dimensions {
   /**
@@ -73,6 +76,8 @@ if (!class_exists("Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabili
 /**
  * This represents an entry in a map with a key of type MediaExtendedCapabilityType
  * and value of type MediaExtendedCapabilityState.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry {
   /**
@@ -114,6 +119,8 @@ if (!class_exists("Media_Size_DimensionsMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Size
  * and value of type Dimensions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class Media_Size_DimensionsMapEntry {
   /**
@@ -155,6 +162,8 @@ if (!class_exists("Media_Size_StringMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Size
  * and value of type String.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class Media_Size_StringMapEntry {
   /**
@@ -195,6 +204,8 @@ class Media_Size_StringMapEntry {
 if (!class_exists("SoapRequestHeader", FALSE)) {
 /**
  * Defines the required and optional elements within the header of a SOAP request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class SoapRequestHeader {
   /**
@@ -263,6 +274,8 @@ class SoapRequestHeader {
 if (!class_exists("SoapResponseHeader", FALSE)) {
 /**
  * Defines the elements within the header of a SOAP response.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class SoapResponseHeader {
   /**
@@ -317,6 +330,8 @@ class SoapResponseHeader {
 if (!class_exists("Media", FALSE)) {
 /**
  * Represents some kind of media.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class Media {
   /**
@@ -467,6 +482,8 @@ if (!class_exists("MediaPage", FALSE)) {
 /**
  * Page of media returned by the {@link MediaService} which includes
  * the media.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaPage {
   /**
@@ -507,6 +524,8 @@ class MediaPage {
 if (!class_exists("MediaSelector", FALSE)) {
 /**
  * Specifies criteria for selecting a set of Media for the account.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaSelector {
   /**
@@ -586,6 +605,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * <p>The OGNL field path is provided for parsers to identify the request data
  * element that may have caused the error.</p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class ApiError {
   /**
@@ -672,6 +693,8 @@ class ApiError {
 if (!class_exists("ApplicationException", FALSE)) {
 /**
  * Base class for exceptions.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class ApplicationException {
   /**
@@ -744,6 +767,8 @@ class ApplicationException {
 if (!class_exists("AudioErrorReason", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class AudioErrorReason {
   /**
@@ -770,6 +795,8 @@ class AudioErrorReason {
 if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class AuthenticationErrorReason {
   /**
@@ -796,6 +823,8 @@ class AuthenticationErrorReason {
 if (!class_exists("AuthorizationErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class AuthorizationErrorReason {
   /**
@@ -823,6 +852,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
 /**
  * Enums for the various reasons an error can be thrown as a result of
  * ClientTerms violation.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class ClientTermsErrorReason {
   /**
@@ -849,6 +880,8 @@ class ClientTermsErrorReason {
 if (!class_exists("DatabaseErrorReason", FALSE)) {
 /**
  * The reasons for the database error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class DatabaseErrorReason {
   /**
@@ -876,6 +909,8 @@ if (!class_exists("EntityNotFoundReason", FALSE)) {
 /**
  * The specified id refered to an entity which either doesn't exist or is not accessible to the
  * customer. e.g. campaign belongs to another customer.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class EntityNotFoundReason {
   /**
@@ -902,6 +937,8 @@ class EntityNotFoundReason {
 if (!class_exists("ImageErrorReason", FALSE)) {
 /**
  * The image is not valid.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class ImageErrorReason {
   /**
@@ -928,6 +965,8 @@ class ImageErrorReason {
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class InternalApiErrorReason {
   /**
@@ -954,6 +993,8 @@ class InternalApiErrorReason {
 if (!class_exists("MediaMediaExtendedCapabilityState", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaMediaExtendedCapabilityState {
   /**
@@ -980,6 +1021,8 @@ class MediaMediaExtendedCapabilityState {
 if (!class_exists("MediaMediaExtendedCapabilityType", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaMediaExtendedCapabilityType {
   /**
@@ -1006,6 +1049,8 @@ class MediaMediaExtendedCapabilityType {
 if (!class_exists("MediaMediaSubType", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaMediaSubType {
   /**
@@ -1032,6 +1077,8 @@ class MediaMediaSubType {
 if (!class_exists("MediaMediaType", FALSE)) {
 /**
  * Media types
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaMediaType {
   /**
@@ -1058,6 +1105,8 @@ class MediaMediaType {
 if (!class_exists("MediaMimeType", FALSE)) {
 /**
  * Mime types
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaMimeType {
   /**
@@ -1084,6 +1133,8 @@ class MediaMimeType {
 if (!class_exists("MediaSize", FALSE)) {
 /**
  * Sizes for retrieving the original media
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaSize {
   /**
@@ -1110,6 +1161,8 @@ class MediaSize {
 if (!class_exists("MediaErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaErrorReason {
   /**
@@ -1136,6 +1189,8 @@ class MediaErrorReason {
 if (!class_exists("NewEntityCreationErrorReason", FALSE)) {
 /**
  * Do not set the id field while creating new entities.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class NewEntityCreationErrorReason {
   /**
@@ -1162,6 +1217,8 @@ class NewEntityCreationErrorReason {
 if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
 /**
  * The single reason for the whitelist error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class NotWhitelistedErrorReason {
   /**
@@ -1188,6 +1245,8 @@ class NotWhitelistedErrorReason {
 if (!class_exists("NullErrorReason", FALSE)) {
 /**
  * The reasons for the validation error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class NullErrorReason {
   /**
@@ -1214,6 +1273,8 @@ class NullErrorReason {
 if (!class_exists("OperationAccessDeniedReason", FALSE)) {
 /**
  * The reasons for the operation access error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class OperationAccessDeniedReason {
   /**
@@ -1241,6 +1302,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
  * billing quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class QuotaCheckErrorReason {
   /**
@@ -1267,6 +1330,8 @@ class QuotaCheckErrorReason {
 if (!class_exists("RangeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class RangeErrorReason {
   /**
@@ -1293,6 +1358,8 @@ class RangeErrorReason {
 if (!class_exists("RateExceededErrorReason", FALSE)) {
 /**
  * The reason for the rate exceeded error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class RateExceededErrorReason {
   /**
@@ -1319,6 +1386,8 @@ class RateExceededErrorReason {
 if (!class_exists("ReadOnlyErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class ReadOnlyErrorReason {
   /**
@@ -1345,6 +1414,8 @@ class ReadOnlyErrorReason {
 if (!class_exists("RequestErrorReason", FALSE)) {
 /**
  * Error reason is unknown.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class RequestErrorReason {
   /**
@@ -1371,6 +1442,8 @@ class RequestErrorReason {
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class RequiredErrorReason {
   /**
@@ -1397,6 +1470,8 @@ class RequiredErrorReason {
 if (!class_exists("SizeLimitErrorReason", FALSE)) {
 /**
  * The reasons for Ad Scheduling errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class SizeLimitErrorReason {
   /**
@@ -1423,6 +1498,8 @@ class SizeLimitErrorReason {
 if (!class_exists("VideoErrorReason", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class VideoErrorReason {
   /**
@@ -1454,6 +1531,8 @@ if (!class_exists("MediaServiceGet", FALSE)) {
  * 
  * @param selector Selects which media objects to return.
  * @return A list of {@code Media} objects.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaServiceGet {
   /**
@@ -1487,6 +1566,8 @@ class MediaServiceGet {
 if (!class_exists("MediaServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaServiceGetResponse {
   /**
@@ -1524,6 +1605,8 @@ if (!class_exists("upload", FALSE)) {
  * @param media A list of {@code Media} objects, each containing the data to
  * be uploaded.
  * @return A list of uploaded media in the same order as the argument list.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class upload {
   /**
@@ -1557,6 +1640,8 @@ class upload {
 if (!class_exists("uploadResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class uploadResponse {
   /**
@@ -1590,6 +1675,8 @@ class uploadResponse {
 if (!class_exists("Audio", FALSE)) {
 /**
  * Encapsulates an Audio media identified by a MediaId.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class Audio extends Media {
   /**
@@ -1650,6 +1737,8 @@ class Audio extends Media {
 if (!class_exists("AudioError", FALSE)) {
 /**
  * Error class for errors associated with parsing audio data.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class AudioError extends ApiError {
   /**
@@ -1687,6 +1776,8 @@ class AudioError extends ApiError {
 if (!class_exists("AuthenticationError", FALSE)) {
 /**
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class AuthenticationError extends ApiError {
   /**
@@ -1724,6 +1815,8 @@ class AuthenticationError extends ApiError {
 if (!class_exists("AuthorizationError", FALSE)) {
 /**
  * Errors that are thrown due to an authorization problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class AuthorizationError extends ApiError {
   /**
@@ -1761,6 +1854,8 @@ class AuthorizationError extends ApiError {
 if (!class_exists("ClientTermsError", FALSE)) {
 /**
  * Encapsulates the errors thrown during client terms checks for adwords.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class ClientTermsError extends ApiError {
   /**
@@ -1799,6 +1894,8 @@ if (!class_exists("EntityNotFound", FALSE)) {
 /**
  * An id did not correspond to an entity, or it referred to an entity which does not belong to the
  * customer.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class EntityNotFound extends ApiError {
   /**
@@ -1836,6 +1933,8 @@ class EntityNotFound extends ApiError {
 if (!class_exists("Image", FALSE)) {
 /**
  * Raw image data.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class Image extends Media {
   /**
@@ -1882,6 +1981,8 @@ class Image extends Media {
 if (!class_exists("ImageError", FALSE)) {
 /**
  * Error class for errors associated with parsing image data.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class ImageError extends ApiError {
   /**
@@ -1921,6 +2022,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * Indicates that a server-side error has occured. {@code InternalApiError}s
  * are generally not the result of an invalid request or message sent by the
  * client.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class InternalApiError extends ApiError {
   /**
@@ -1958,6 +2061,8 @@ class InternalApiError extends ApiError {
 if (!class_exists("MediaError", FALSE)) {
 /**
  * Error class for media related errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class MediaError extends ApiError {
   /**
@@ -1996,6 +2101,8 @@ if (!class_exists("NewEntityCreationError", FALSE)) {
 /**
  * Error associated with creation of new entities using
  * {@link com.google.ads.api.services.common.id.TempId}s.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class NewEntityCreationError extends ApiError {
   /**
@@ -2033,6 +2140,8 @@ class NewEntityCreationError extends ApiError {
 if (!class_exists("NotWhitelistedError", FALSE)) {
 /**
  * Indicates that the customer is not whitelisted for accessing the API.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -2070,6 +2179,8 @@ class NotWhitelistedError extends ApiError {
 if (!class_exists("NullError", FALSE)) {
 /**
  * Errors associated with contents not null constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class NullError extends ApiError {
   /**
@@ -2108,6 +2219,8 @@ if (!class_exists("OperationAccessDenied", FALSE)) {
 /**
  * Unauthorized access errors as determined by the invoked service's
  * access policy.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class OperationAccessDenied extends ApiError {
   /**
@@ -2145,6 +2258,8 @@ class OperationAccessDenied extends ApiError {
 if (!class_exists("QuotaCheckError", FALSE)) {
 /**
  * Encapsulates the errors thrown during developer quota checks.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -2182,6 +2297,8 @@ class QuotaCheckError extends ApiError {
 if (!class_exists("RangeError", FALSE)) {
 /**
  * A list of all errors associated with the Range constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class RangeError extends ApiError {
   /**
@@ -2219,6 +2336,8 @@ class RangeError extends ApiError {
 if (!class_exists("RateExceededError", FALSE)) {
 /**
  * Signals that a call failed because a measured rate exceeded.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class RateExceededError extends ApiError {
   /**
@@ -2277,6 +2396,8 @@ class RateExceededError extends ApiError {
 if (!class_exists("ReadOnlyError", FALSE)) {
 /**
  * A list of all errors associated with the @ReadOnly constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class ReadOnlyError extends ApiError {
   /**
@@ -2315,6 +2436,8 @@ if (!class_exists("RequestError", FALSE)) {
 /**
  * Encapsulates the generic errors thrown when there's an error with user
  * request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class RequestError extends ApiError {
   /**
@@ -2352,6 +2475,8 @@ class RequestError extends ApiError {
 if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class RequiredError extends ApiError {
   /**
@@ -2389,6 +2514,8 @@ class RequiredError extends ApiError {
 if (!class_exists("SizeLimitError", FALSE)) {
 /**
  * Indicates that the number of entries in the request or response exceeds the system limit.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class SizeLimitError extends ApiError {
   /**
@@ -2426,6 +2553,8 @@ class SizeLimitError extends ApiError {
 if (!class_exists("Video", FALSE)) {
 /**
  * Encapsulates a Video media identified by a MediaId
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class Video extends Media {
   /**
@@ -2500,6 +2629,8 @@ class Video extends Media {
 if (!class_exists("VideoError", FALSE)) {
 /**
  * Error class for errors associated with parsing video data.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class VideoError extends ApiError {
   /**
@@ -2537,6 +2668,8 @@ class VideoError extends ApiError {
 if (!class_exists("DatabaseError", FALSE)) {
 /**
  * Errors that are thrown due to a database access problem.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class DatabaseError extends ApiError {
   /**
@@ -2574,6 +2707,8 @@ class DatabaseError extends ApiError {
 if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  */
 class ApiException extends ApplicationException {
   /**
@@ -2609,6 +2744,8 @@ class ApiException extends ApplicationException {
 if (!class_exists("MediaService", FALSE)) {
 /**
  * MediaService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201003
  * @author WSDLInterpreter
  */
 class MediaService extends AdWordsSoapClient {

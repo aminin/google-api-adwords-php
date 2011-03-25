@@ -27,6 +27,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("SoapRequestHeader", FALSE)) {
@@ -36,6 +37,8 @@ if (!class_exists("SoapRequestHeader", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapRequestHeader {
   /**
@@ -115,6 +118,8 @@ if (!class_exists("SoapResponseHeader", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SoapResponseHeader {
   /**
@@ -177,6 +182,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiError {
   /**
@@ -267,6 +274,8 @@ if (!class_exists("ApplicationException", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApplicationException {
   /**
@@ -343,6 +352,8 @@ if (!class_exists("AuthenticationErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationErrorReason {
   /**
@@ -373,6 +384,8 @@ if (!class_exists("AuthorizationErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationErrorReason {
   /**
@@ -404,6 +417,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsErrorReason {
   /**
@@ -434,6 +449,8 @@ if (!class_exists("DatabaseErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseErrorReason {
   /**
@@ -464,6 +481,8 @@ if (!class_exists("InternalApiErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiErrorReason {
   /**
@@ -494,6 +513,8 @@ if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedErrorReason {
   /**
@@ -524,6 +545,8 @@ if (!class_exists("OperatorErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperatorErrorReason {
   /**
@@ -555,6 +578,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckErrorReason {
   /**
@@ -585,6 +610,8 @@ if (!class_exists("RateExceededErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededErrorReason {
   /**
@@ -615,6 +642,8 @@ if (!class_exists("RequestErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestErrorReason {
   /**
@@ -645,6 +674,8 @@ if (!class_exists("RequiredErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredErrorReason {
   /**
@@ -675,6 +706,8 @@ if (!class_exists("SizeLimitErrorReason", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitErrorReason {
   /**
@@ -701,6 +734,8 @@ class SizeLimitErrorReason {
 if (!class_exists("Account", FALSE)) {
 /**
  * Represents a single AdWords account.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Account {
   /**
@@ -769,6 +804,8 @@ class Account {
 if (!class_exists("CustomerId", FALSE)) {
 /**
  * The 10-digit ID for identifying an AdWords account.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class CustomerId {
   /**
@@ -802,6 +839,8 @@ class CustomerId {
 if (!class_exists("ServicedAccountError", FALSE)) {
 /**
  * Errors that can occur when contacting {@link ServicedAccountService}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ServicedAccountError extends ApiError {
   /**
@@ -839,6 +878,8 @@ class ServicedAccountError extends ApiError {
 if (!class_exists("Link", FALSE)) {
 /**
  * Represents an AdWords manager-client link.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class Link {
   /**
@@ -939,6 +980,8 @@ class Link {
 if (!class_exists("ServicedAccountSelector", FALSE)) {
 /**
  * Selector for querying the ServicedAccount graph.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ServicedAccountSelector {
   /**
@@ -993,6 +1036,8 @@ class ServicedAccountSelector {
 if (!class_exists("ServicedAccountGraph", FALSE)) {
 /**
  * Represents a list of the requested managers and clients, and the relationships between them.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ServicedAccountGraph {
   /**
@@ -1034,6 +1079,8 @@ if (!class_exists("LinkType", FALSE)) {
 /**
  * Specifies whether the manager has an active relationship with the
  * client or if there is only an invitation awaiting acceptance.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class LinkType {
   /**
@@ -1060,6 +1107,8 @@ class LinkType {
 if (!class_exists("ServiceType", FALSE)) {
 /**
  * ServiceType represents the account access level defined for a particular manager-to-client link.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ServiceType {
   /**
@@ -1086,6 +1135,8 @@ class ServiceType {
 if (!class_exists("ServicedAccountErrorReason", FALSE)) {
 /**
  * Improper IDs were specified in the request
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ServicedAccountErrorReason {
   /**
@@ -1120,6 +1171,8 @@ if (!class_exists("ServicedAccountServiceGet", FALSE)) {
  * @param selector determines which accounts and links to retrieve
  * @return the selected list of accounts and serviced account links between them
  * @throws ApiException if an error occurs
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ServicedAccountServiceGet {
   /**
@@ -1153,6 +1206,8 @@ class ServicedAccountServiceGet {
 if (!class_exists("ServicedAccountServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ServicedAccountServiceGetResponse {
   /**
@@ -1190,6 +1245,8 @@ if (!class_exists("AuthenticationError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthenticationError extends ApiError {
   /**
@@ -1231,6 +1288,8 @@ if (!class_exists("AuthorizationError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class AuthorizationError extends ApiError {
   /**
@@ -1272,6 +1331,8 @@ if (!class_exists("ClientTermsError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ClientTermsError extends ApiError {
   /**
@@ -1315,6 +1376,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class InternalApiError extends ApiError {
   /**
@@ -1356,6 +1419,8 @@ if (!class_exists("NotWhitelistedError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -1397,6 +1462,8 @@ if (!class_exists("OperatorError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class OperatorError extends ApiError {
   /**
@@ -1438,6 +1505,8 @@ if (!class_exists("QuotaCheckError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1479,6 +1548,8 @@ if (!class_exists("RateExceededError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RateExceededError extends ApiError {
   /**
@@ -1542,6 +1613,8 @@ if (!class_exists("RequestError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequestError extends ApiError {
   /**
@@ -1583,6 +1656,8 @@ if (!class_exists("RequiredError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class RequiredError extends ApiError {
   /**
@@ -1624,6 +1699,8 @@ if (!class_exists("SizeLimitError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class SizeLimitError extends ApiError {
   /**
@@ -1665,6 +1742,8 @@ if (!class_exists("DatabaseError", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class DatabaseError extends ApiError {
   /**
@@ -1706,6 +1785,8 @@ if (!class_exists("ApiException", FALSE)) {
  * 
  * 
  * Errors returned when Authentication failed.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  */
 class ApiException extends ApplicationException {
   /**
@@ -1741,6 +1822,8 @@ class ApiException extends ApplicationException {
 if (!class_exists("ServicedAccountService", FALSE)) {
 /**
  * ServicedAccountService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201101
  * @author WSDLInterpreter
  */
 class ServicedAccountService extends AdWordsSoapClient {

@@ -27,10 +27,13 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required classes. **/
 require_once dirname(__FILE__) . '/../Lib/AdWordsUser.php';
 
 /**
  * A collection of utility methods for testing the API.
+ * @package GoogleApiAdsAdWords
+ * @subpackage Util
  */
 class TestUtils {
   /**

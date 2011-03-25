@@ -32,6 +32,8 @@
 /**
  * A utility class to handle data of media assets (such as image, SWF,
  * or video files).
+ * @package GoogleApiAdsCommon
+ * @subpackage Util
  */
 class MediaUtils {
   /**

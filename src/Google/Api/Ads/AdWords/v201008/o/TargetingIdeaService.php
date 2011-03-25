@@ -27,6 +27,7 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required the SoapClient class. **/
 require_once dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("Address", FALSE)) {
@@ -36,6 +37,8 @@ if (!class_exists("Address", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Address {
   /**
@@ -119,6 +122,8 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiError {
   /**
@@ -209,6 +214,8 @@ if (!class_exists("ApplicationException", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApplicationException {
   /**
@@ -285,6 +292,8 @@ if (!class_exists("AuthenticationError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationError extends ApiError {
   /**
@@ -326,6 +335,8 @@ if (!class_exists("AuthorizationError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationError extends ApiError {
   /**
@@ -367,6 +378,8 @@ if (!class_exists("BiddingError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class BiddingError extends ApiError {
   /**
@@ -408,6 +421,8 @@ if (!class_exists("BudgetError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class BudgetError extends ApiError {
   /**
@@ -449,6 +464,8 @@ if (!class_exists("ClientTermsError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsError extends ApiError {
   /**
@@ -490,6 +507,8 @@ if (!class_exists("ComparableValue", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ComparableValue {
   /**
@@ -559,6 +578,8 @@ if (!class_exists("Criterion", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Criterion {
   /**
@@ -635,6 +656,8 @@ if (!class_exists("DatabaseError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DatabaseError extends ApiError {
   /**
@@ -676,6 +699,8 @@ if (!class_exists("DateError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateError extends ApiError {
   /**
@@ -717,6 +742,8 @@ if (!class_exists("DistinctError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DistinctError extends ApiError {
   /**
@@ -759,6 +786,8 @@ if (!class_exists("EntityCountLimitExceeded", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class EntityCountLimitExceeded extends ApiError {
   /**
@@ -815,6 +844,8 @@ if (!class_exists("EntityNotFound", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class EntityNotFound extends ApiError {
   /**
@@ -856,6 +887,8 @@ if (!class_exists("GeoPoint", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoPoint {
   /**
@@ -902,6 +935,8 @@ if (!class_exists("InternalApiError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiError extends ApiError {
   /**
@@ -943,6 +978,8 @@ if (!class_exists("Keyword", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Keyword extends Criterion {
   /**
@@ -989,6 +1026,8 @@ if (!class_exists("Money", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Money extends ComparableValue {
   /**
@@ -1027,6 +1066,8 @@ if (!class_exists("NotEmptyError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyError extends ApiError {
   /**
@@ -1068,6 +1109,8 @@ if (!class_exists("NotWhitelistedError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedError extends ApiError {
   /**
@@ -1109,6 +1152,8 @@ if (!class_exists("NullError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NullError extends ApiError {
   /**
@@ -1150,6 +1195,8 @@ if (!class_exists("NumberValue", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NumberValue extends ComparableValue {
   /**
@@ -1183,6 +1230,8 @@ if (!class_exists("Paging", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Paging {
   /**
@@ -1228,6 +1277,8 @@ if (!class_exists("Placement", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Placement extends Criterion {
   /**
@@ -1278,6 +1329,8 @@ if (!class_exists("PolicyViolationError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PolicyViolationError extends ApiError {
   /**
@@ -1354,6 +1407,8 @@ if (!class_exists("PolicyViolationErrorPart", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PolicyViolationErrorPart {
   /**
@@ -1399,6 +1454,8 @@ if (!class_exists("PolicyViolationKey", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PolicyViolationKey {
   /**
@@ -1446,6 +1503,8 @@ if (!class_exists("Product", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Product extends Criterion {
   /**
@@ -1493,6 +1552,8 @@ if (!class_exists("ProductCondition", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProductCondition {
   /**
@@ -1537,6 +1598,8 @@ if (!class_exists("ProductConditionOperand", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProductConditionOperand {
   /**
@@ -1574,6 +1637,8 @@ if (!class_exists("QuotaCheckError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckError extends ApiError {
   /**
@@ -1615,6 +1680,8 @@ if (!class_exists("RangeError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RangeError extends ApiError {
   /**
@@ -1656,6 +1723,8 @@ if (!class_exists("RateExceededError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededError extends ApiError {
   /**
@@ -1718,6 +1787,8 @@ if (!class_exists("ReadOnlyError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReadOnlyError extends ApiError {
   /**
@@ -1759,6 +1830,8 @@ if (!class_exists("RegionCodeError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RegionCodeError extends ApiError {
   /**
@@ -1801,6 +1874,8 @@ if (!class_exists("RequestError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestError extends ApiError {
   /**
@@ -1842,6 +1917,8 @@ if (!class_exists("RequiredError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredError extends ApiError {
   /**
@@ -1883,6 +1960,8 @@ if (!class_exists("SizeLimitError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitError extends ApiError {
   /**
@@ -1924,6 +2003,8 @@ if (!class_exists("SoapRequestHeader", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapRequestHeader {
   /**
@@ -2003,6 +2084,8 @@ if (!class_exists("SoapResponseHeader", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SoapResponseHeader {
   /**
@@ -2061,6 +2144,8 @@ if (!class_exists("StatsQueryError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StatsQueryError extends ApiError {
   /**
@@ -2102,6 +2187,8 @@ if (!class_exists("StringLengthError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StringLengthError extends ApiError {
   /**
@@ -2143,6 +2230,8 @@ if (!class_exists("AdWordsTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdWordsTarget {
   /**
@@ -2212,6 +2301,8 @@ if (!class_exists("TargetError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetError extends ApiError {
   /**
@@ -2255,6 +2346,8 @@ if (!class_exists("CriterionUserInterest", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CriterionUserInterest extends Criterion {
   /**
@@ -2301,6 +2394,8 @@ if (!class_exists("CriterionUserList", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CriterionUserList extends Criterion {
   /**
@@ -2365,6 +2460,8 @@ if (!class_exists("Vertical", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Vertical extends Criterion {
   /**
@@ -2404,6 +2501,8 @@ if (!class_exists("AdGroupCriterionErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdGroupCriterionErrorReason {
   /**
@@ -2434,6 +2533,8 @@ if (!class_exists("AdGroupCriterionLimitExceededCriteriaLimitType", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdGroupCriterionLimitExceededCriteriaLimitType {
   /**
@@ -2464,6 +2565,8 @@ if (!class_exists("AgeTargetAge", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AgeTargetAge {
   /**
@@ -2494,6 +2597,8 @@ if (!class_exists("AuthenticationErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthenticationErrorReason {
   /**
@@ -2524,6 +2629,8 @@ if (!class_exists("AuthorizationErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AuthorizationErrorReason {
   /**
@@ -2554,6 +2661,8 @@ if (!class_exists("BiddingErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class BiddingErrorReason {
   /**
@@ -2584,6 +2693,8 @@ if (!class_exists("BudgetErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class BudgetErrorReason {
   /**
@@ -2615,6 +2726,8 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ClientTermsErrorReason {
   /**
@@ -2645,6 +2758,8 @@ if (!class_exists("DatabaseErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DatabaseErrorReason {
   /**
@@ -2675,6 +2790,8 @@ if (!class_exists("DateErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DateErrorReason {
   /**
@@ -2705,6 +2822,8 @@ if (!class_exists("DayOfWeek", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DayOfWeek {
   /**
@@ -2735,6 +2854,8 @@ if (!class_exists("DistinctErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DistinctErrorReason {
   /**
@@ -2765,6 +2886,8 @@ if (!class_exists("EntityCountLimitExceededReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class EntityCountLimitExceededReason {
   /**
@@ -2796,6 +2919,8 @@ if (!class_exists("EntityNotFoundReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class EntityNotFoundReason {
   /**
@@ -2826,6 +2951,8 @@ if (!class_exists("GenderTargetGender", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GenderTargetGender {
   /**
@@ -2856,6 +2983,8 @@ if (!class_exists("InternalApiErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InternalApiErrorReason {
   /**
@@ -2887,6 +3016,8 @@ if (!class_exists("KeywordMatchType", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class KeywordMatchType {
   /**
@@ -2917,6 +3048,8 @@ if (!class_exists("MinuteOfHour", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MinuteOfHour {
   /**
@@ -2947,6 +3080,8 @@ if (!class_exists("NetworkCoverageType", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NetworkCoverageType {
   /**
@@ -2977,6 +3112,8 @@ if (!class_exists("NotEmptyErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotEmptyErrorReason {
   /**
@@ -3007,6 +3144,8 @@ if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NotWhitelistedErrorReason {
   /**
@@ -3037,6 +3176,8 @@ if (!class_exists("NullErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NullErrorReason {
   /**
@@ -3067,6 +3208,8 @@ if (!class_exists("PlatformType", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PlatformType {
   /**
@@ -3097,6 +3240,8 @@ if (!class_exists("ProximityTargetDistanceUnits", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProximityTargetDistanceUnits {
   /**
@@ -3128,6 +3273,8 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class QuotaCheckErrorReason {
   /**
@@ -3158,6 +3305,8 @@ if (!class_exists("RangeErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RangeErrorReason {
   /**
@@ -3188,6 +3337,8 @@ if (!class_exists("RateExceededErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RateExceededErrorReason {
   /**
@@ -3218,6 +3369,8 @@ if (!class_exists("ReadOnlyErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ReadOnlyErrorReason {
   /**
@@ -3248,6 +3401,8 @@ if (!class_exists("RegionCodeErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RegionCodeErrorReason {
   /**
@@ -3278,6 +3433,8 @@ if (!class_exists("RequestErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestErrorReason {
   /**
@@ -3308,6 +3465,8 @@ if (!class_exists("RequiredErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequiredErrorReason {
   /**
@@ -3338,6 +3497,8 @@ if (!class_exists("SizeLimitErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SizeLimitErrorReason {
   /**
@@ -3368,6 +3529,8 @@ if (!class_exists("StatsQueryErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StatsQueryErrorReason {
   /**
@@ -3398,6 +3561,8 @@ if (!class_exists("StringLengthErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StringLengthErrorReason {
   /**
@@ -3428,6 +3593,8 @@ if (!class_exists("TargetErrorReason", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetErrorReason {
   /**
@@ -3458,6 +3625,8 @@ if (!class_exists("CriterionUserListMembershipStatus", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CriterionUserListMembershipStatus {
   /**
@@ -3485,6 +3654,8 @@ if (!class_exists("AdFormatSpec", FALSE)) {
 /**
  * A placement response object which provides information about one of the ad formats
  * supported by a placement.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdFormatSpec {
   /**
@@ -3525,6 +3696,8 @@ if (!class_exists("Attribute", FALSE)) {
  * example, {@link KeywordAttribute} wraps the keyword itself, while a
  * {@link BooleanAttribute} simply wraps a boolean describing some information
  * about the keyword idea.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Attribute {
   /**
@@ -3590,6 +3763,8 @@ class Attribute {
 if (!class_exists("BooleanAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a boolean value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class BooleanAttribute extends Attribute {
   /**
@@ -3624,6 +3799,8 @@ class BooleanAttribute extends Attribute {
 if (!class_exists("CollectionSizeError", FALSE)) {
 /**
  * A list of all errors associated with the @ContentsSize constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CollectionSizeError extends ApiError {
   /**
@@ -3661,6 +3838,8 @@ class CollectionSizeError extends ApiError {
 if (!class_exists("DoubleAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a double value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DoubleAttribute extends Attribute {
   /**
@@ -3699,6 +3878,8 @@ if (!class_exists("DoubleComparisonOperation", FALSE)) {
  * {@link com.google.ads.api.services.targetingideas.search.SearchParameter} to
  * specify the valid values requested for the specific
  * {@link com.google.ads.api.services.targetingideas.attributes.Attribute}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DoubleComparisonOperation {
   /**
@@ -3742,6 +3923,8 @@ if (!class_exists("IdeaTypeAttribute", FALSE)) {
  * if a {@link com.google.ads.api.services.targetingideas.TargetingIdea}
  * represents a keyword idea, its {@link IdeaTypeAttribute} would contain a
  * {@code KEYWORD} {@link IdeaType}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class IdeaTypeAttribute extends Attribute {
   /**
@@ -3778,6 +3961,8 @@ if (!class_exists("InStreamAdInfo", FALSE)) {
  * Information specific to the instream ad format. Instream ads are video ads
  * which play as part of the delivery of video content, either before, during,
  * or after the content itself.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InStreamAdInfo {
   /**
@@ -3846,6 +4031,8 @@ class InStreamAdInfo {
 if (!class_exists("InStreamAdInfoAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains an {@link InStreamAdInfo} value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class InStreamAdInfoAttribute extends Attribute {
   /**
@@ -3880,6 +4067,8 @@ class InStreamAdInfoAttribute extends Attribute {
 if (!class_exists("IntegerAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains an integer value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class IntegerAttribute extends Attribute {
   /**
@@ -3914,6 +4103,8 @@ class IntegerAttribute extends Attribute {
 if (!class_exists("IntegerSetAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a Set of integer values.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class IntegerSetAttribute extends Attribute {
   /**
@@ -3948,6 +4139,8 @@ class IntegerSetAttribute extends Attribute {
 if (!class_exists("KeywordAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link Keyword} value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class KeywordAttribute extends Attribute {
   /**
@@ -3982,6 +4175,8 @@ class KeywordAttribute extends Attribute {
 if (!class_exists("LongAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a long value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class LongAttribute extends Attribute {
   /**
@@ -4020,6 +4215,8 @@ if (!class_exists("LongComparisonOperation", FALSE)) {
  * {@link com.google.ads.api.services.targetingideas.search.SearchParameter} to
  * specify the valid values requested for the specific
  * {@link com.google.ads.api.services.targetingideas.attributes.Attribute}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class LongComparisonOperation {
   /**
@@ -4061,6 +4258,8 @@ if (!class_exists("LongRangeAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link Range} of {@link LongValue}
  * values.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class LongRangeAttribute extends Attribute {
   /**
@@ -4097,6 +4296,8 @@ if (!class_exists("MatchesRegexError", FALSE)) {
  * A list of all errors associated with the
  * {@link com.google.ads.api.services.common.validation.constraints.MatchesRegex}
  * constraint.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MatchesRegexError extends ApiError {
   /**
@@ -4134,6 +4335,8 @@ class MatchesRegexError extends ApiError {
 if (!class_exists("MoneyAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link Money} value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MoneyAttribute extends Attribute {
   /**
@@ -4170,6 +4373,8 @@ if (!class_exists("MonthlySearchVolume", FALSE)) {
  * A keyword response value representing search volume for a single month. An
  * instance with a {@code null} count is valid, indicating that the information
  * is unavailable.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MonthlySearchVolume {
   /**
@@ -4220,6 +4425,8 @@ if (!class_exists("MonthlySearchVolumeAttribute", FALSE)) {
  * values. The list contains the past 12 {@link MonthlySearchVolume}s
  * (excluding the current month). The first item is the data for the most
  * recent month and the last item is the data for the oldest month.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MonthlySearchVolumeAttribute extends Attribute {
   /**
@@ -4254,6 +4461,8 @@ class MonthlySearchVolumeAttribute extends Attribute {
 if (!class_exists("PlacementAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link Placement} value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PlacementAttribute extends Attribute {
   /**
@@ -4288,6 +4497,8 @@ class PlacementAttribute extends Attribute {
 if (!class_exists("PlacementTypeAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link PlacementType} value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PlacementTypeAttribute extends Attribute {
   /**
@@ -4322,6 +4533,8 @@ class PlacementTypeAttribute extends Attribute {
 if (!class_exists("Range", FALSE)) {
 /**
  * Represents a range of values that has either an upper or a lower bound.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Range {
   /**
@@ -4420,6 +4633,8 @@ if (!class_exists("SearchParameter", FALSE)) {
  * <li>{@link RelatedToKeywordSearchParameter}</li>
  * <li>{@link RelatedToUrlSearchParameter}</li>
  * </ul><p>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SearchParameter {
   /**
@@ -4492,6 +4707,8 @@ if (!class_exists("SearchShareSearchParameter", FALSE)) {
  * {@link com.google.ads.api.services.targetingideas.external.AttributeType#SEARCH_SHARE}.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SearchShareSearchParameter extends SearchParameter {
   /**
@@ -4531,6 +4748,8 @@ if (!class_exists("SeedAdGroupIdSearchParameter", FALSE)) {
  * would be used to generate new and related keywords.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SeedAdGroupIdSearchParameter extends SearchParameter {
   /**
@@ -4565,6 +4784,8 @@ class SeedAdGroupIdSearchParameter extends SearchParameter {
 if (!class_exists("StringAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a string value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class StringAttribute extends Attribute {
   /**
@@ -4600,6 +4821,8 @@ if (!class_exists("TargetingIdea", FALSE)) {
 /**
  * Represents a {@link TargetingIdea} returned by search criteria specified in
  * the {@link TargetingIdeaSelector}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetingIdea {
   /**
@@ -4634,6 +4857,8 @@ if (!class_exists("TargetingIdeaError", FALSE)) {
 /**
  * Base error class for the
  * {@link com.google.ads.api.services.targetingideas.TargetingIdeaService}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetingIdeaError extends ApiError {
   /**
@@ -4672,6 +4897,8 @@ if (!class_exists("TargetingIdeaPage", FALSE)) {
 /**
  * Contains a subset of {@link TargetingIdea}s from the search criteria
  * specified by a {@link TargetingIdeaSelector}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetingIdeaPage {
   /**
@@ -4713,6 +4940,8 @@ if (!class_exists("TargetingIdeaSelector", FALSE)) {
 /**
  * A descriptor for finding {@link TargetingIdea}s that match the specified
  * criteria.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetingIdeaSelector {
   /**
@@ -4789,6 +5018,8 @@ if (!class_exists("Type_AttributeMapEntry", FALSE)) {
 /**
  * This represents an entry in a map with a key of type Type
  * and value of type Attribute.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class Type_AttributeMapEntry {
   /**
@@ -4829,6 +5060,8 @@ class Type_AttributeMapEntry {
 if (!class_exists("WebpageDescriptor", FALSE)) {
 /**
  * Basic information about a webpage.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class WebpageDescriptor {
   /**
@@ -4869,6 +5102,8 @@ class WebpageDescriptor {
 if (!class_exists("WebpageDescriptorAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a {@link WebpageDescriptor} value.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class WebpageDescriptorAttribute extends Attribute {
   /**
@@ -4933,6 +5168,8 @@ if (!class_exists("AttributeType", FALSE)) {
  * <li>{@link #PUBLISHER_DESCRIPTION}</li>
  * <li>{@link #SAMPLE_URL}</li>
  * </ul>
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AttributeType {
   /**
@@ -4959,6 +5196,8 @@ class AttributeType {
 if (!class_exists("CollectionSizeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CollectionSizeErrorReason {
   /**
@@ -4987,6 +5226,8 @@ if (!class_exists("CompetitionSearchParameterLevel", FALSE)) {
  * An enumeration of possible values to be used in conjunction with the
  * {@link CompetitionSearchParameter} to specify the granularity of
  * competition to be filtered.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CompetitionSearchParameterLevel {
   /**
@@ -5013,6 +5254,8 @@ class CompetitionSearchParameterLevel {
 if (!class_exists("IdeaType", FALSE)) {
 /**
  * Represents the type of idea.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class IdeaType {
   /**
@@ -5039,6 +5282,8 @@ class IdeaType {
 if (!class_exists("MatchAction", FALSE)) {
 /**
  * Specifies the filtering action to take when matching a term to an idea.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MatchAction {
   /**
@@ -5065,6 +5310,8 @@ class MatchAction {
 if (!class_exists("MatchesRegexErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MatchesRegexErrorReason {
   /**
@@ -5091,6 +5338,8 @@ class MatchesRegexErrorReason {
 if (!class_exists("RequestType", FALSE)) {
 /**
  * Represents the type of the request.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RequestType {
   /**
@@ -5117,6 +5366,8 @@ class RequestType {
 if (!class_exists("SiteConstantsAdFormat", FALSE)) {
 /**
  * Enumerates the ad formats which can be reported in search results.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SiteConstantsAdFormat {
   /**
@@ -5144,6 +5395,8 @@ if (!class_exists("SiteConstantsAdType", FALSE)) {
 /**
  * Enumerates the ad types available for constraining searches.  Each corresponds
  * to one or more values from {@link AdFormat}.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SiteConstantsAdType {
   /**
@@ -5171,6 +5424,8 @@ if (!class_exists("SiteConstantsPlacementType", FALSE)) {
 /**
  * A placement request and response value indicating the type of site or other medium
  * (for example, a web page, in a feed, in a video) where ads will appear.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class SiteConstantsPlacementType {
   /**
@@ -5199,6 +5454,8 @@ if (!class_exists("TargetingIdeaErrorReason", FALSE)) {
  * An enumeration of
  * {@link com.google.ads.api.services.targetingideas.TargetingIdeaService}
  * specific errors.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetingIdeaErrorReason {
   /**
@@ -5246,6 +5503,8 @@ if (!class_exists("TargetingIdeaServiceGet", FALSE)) {
  * list of possible ideas meeting the criteria of the
  * {@link TargetingIdeaSelector}.
  * @throws ApiException If problems occurred while querying for ideas.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetingIdeaServiceGet {
   /**
@@ -5279,6 +5538,8 @@ class TargetingIdeaServiceGet {
 if (!class_exists("TargetingIdeaServiceGetResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class TargetingIdeaServiceGetResponse {
   /**
@@ -5343,6 +5604,8 @@ if (!class_exists("getBulkKeywordIdeas", FALSE)) {
  * list of possible ideas meeting the criteria of the
  * {@link TargetingIdeaSelector}.
  * @throws ApiException If problems occurred while querying for ideas.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class getBulkKeywordIdeas {
   /**
@@ -5376,6 +5639,8 @@ class getBulkKeywordIdeas {
 if (!class_exists("getBulkKeywordIdeasResponse", FALSE)) {
 /**
  * 
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class getBulkKeywordIdeasResponse {
   /**
@@ -5413,6 +5678,8 @@ if (!class_exists("AdGroupCriterionError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdGroupCriterionError extends ApiError {
   /**
@@ -5454,6 +5721,8 @@ if (!class_exists("AdGroupCriterionLimitExceeded", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdGroupCriterionLimitExceeded extends EntityCountLimitExceeded {
   /**
@@ -5498,6 +5767,8 @@ if (!class_exists("AdScheduleTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdScheduleTarget extends AdWordsTarget {
   /**
@@ -5571,6 +5842,8 @@ if (!class_exists("ApiException", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ApiException extends ApplicationException {
   /**
@@ -5610,6 +5883,8 @@ if (!class_exists("CriterionPolicyError", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CriterionPolicyError extends PolicyViolationError {
   /**
@@ -5650,6 +5925,8 @@ if (!class_exists("DemographicTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DemographicTarget extends AdWordsTarget {
   /**
@@ -5688,6 +5965,8 @@ if (!class_exists("DoubleValue", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class DoubleValue extends NumberValue {
   /**
@@ -5726,6 +6005,8 @@ if (!class_exists("GenderTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GenderTarget extends DemographicTarget {
   /**
@@ -5765,6 +6046,8 @@ if (!class_exists("GeoTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GeoTarget extends AdWordsTarget {
   /**
@@ -5806,6 +6089,8 @@ if (!class_exists("LanguageTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class LanguageTarget extends AdWordsTarget {
   /**
@@ -5844,6 +6129,8 @@ if (!class_exists("LongValue", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class LongValue extends NumberValue {
   /**
@@ -5885,6 +6172,8 @@ if (!class_exists("MetroTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MetroTarget extends GeoTarget {
   /**
@@ -5924,6 +6213,8 @@ if (!class_exists("MobileTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MobileTarget extends AdWordsTarget {
   /**
@@ -5957,6 +6248,8 @@ if (!class_exists("NetworkTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class NetworkTarget extends AdWordsTarget {
   /**
@@ -5996,6 +6289,8 @@ if (!class_exists("PlatformTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PlatformTarget extends AdWordsTarget {
   /**
@@ -6042,6 +6337,8 @@ if (!class_exists("PolygonTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PolygonTarget extends GeoTarget {
   /**
@@ -6084,6 +6381,8 @@ if (!class_exists("ProvinceTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProvinceTarget extends GeoTarget {
   /**
@@ -6131,6 +6430,8 @@ if (!class_exists("ProximityTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ProximityTarget extends GeoTarget {
   /**
@@ -6194,6 +6495,8 @@ class ProximityTarget extends GeoTarget {
 if (!class_exists("AdFormatSpecListAttribute", FALSE)) {
 /**
  * {@link Attribute} type that contains a list of {@link AdFormatSpec} values.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdFormatSpecListAttribute extends Attribute {
   /**
@@ -6235,6 +6538,8 @@ if (!class_exists("AdShareSearchParameter", FALSE)) {
  * {@link com.google.ads.api.services.targetingideas.external.AttributeType#AD_SHARE}.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdShareSearchParameter extends SearchParameter {
   /**
@@ -6272,6 +6577,8 @@ if (!class_exists("AdTypeSearchParameter", FALSE)) {
  * filter the results by the {@link AdType}.
  * <p>This element is supported by following {@link IdeaType}s: PLACEMENT.
  * <p>This element is supported by following {@link RequestType}s: IDEAS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AdTypeSearchParameter extends SearchParameter {
   /**
@@ -6313,6 +6620,8 @@ if (!class_exists("AverageTargetedMonthlySearchesSearchParameter", FALSE)) {
  * pecified.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AverageTargetedMonthlySearchesSearchParameter extends SearchParameter {
   /**
@@ -6350,6 +6659,8 @@ if (!class_exists("CompetitionSearchParameter", FALSE)) {
  * filter the results by the amount of competition (eg: LOW, MEDIUM, HIGH).
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CompetitionSearchParameter extends SearchParameter {
   /**
@@ -6392,6 +6703,8 @@ if (!class_exists("CountryTargetSearchParameter", FALSE)) {
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method. It must be single-valued when used in a call to that method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CountryTargetSearchParameter extends SearchParameter {
   /**
@@ -6467,6 +6780,8 @@ if (!class_exists("ExcludedKeywordSearchParameter", FALSE)) {
  * </table>
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class ExcludedKeywordSearchParameter extends SearchParameter {
   /**
@@ -6508,6 +6823,8 @@ if (!class_exists("GlobalMonthlySearchesSearchParameter", FALSE)) {
  * {@link com.google.ads.api.services.targetingideas.external.AttributeType#GLOBAL_MONTHLY_SEARCHES}.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class GlobalMonthlySearchesSearchParameter extends SearchParameter {
   /**
@@ -6547,6 +6864,8 @@ if (!class_exists("IdeaTextMatchesSearchParameter", FALSE)) {
  * at least one of the {@code included} values.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class IdeaTextMatchesSearchParameter extends SearchParameter {
   /**
@@ -6601,6 +6920,8 @@ if (!class_exists("IncludeAdultContentSearchParameter", FALSE)) {
  * to be included in the results.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class IncludeAdultContentSearchParameter extends SearchParameter {
   /**
@@ -6635,6 +6956,8 @@ if (!class_exists("KeywordCategoryIdSearchParameter", FALSE)) {
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class KeywordCategoryIdSearchParameter extends SearchParameter {
   /**
@@ -6677,6 +7000,8 @@ if (!class_exists("KeywordMatchTypeSearchParameter", FALSE)) {
  * match type to be returned.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class KeywordMatchTypeSearchParameter extends SearchParameter {
   /**
@@ -6719,6 +7044,8 @@ if (!class_exists("LanguageTargetSearchParameter", FALSE)) {
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method. It must be single-valued when used in a call to that method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class LanguageTargetSearchParameter extends SearchParameter {
   /**
@@ -6761,6 +7088,8 @@ if (!class_exists("MobileSearchParameter", FALSE)) {
  * search results. It is not necessary to set any properties.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MobileSearchParameter extends SearchParameter {
   /**
@@ -6794,6 +7123,8 @@ if (!class_exists("PlacementTypeSearchParameter", FALSE)) {
  * results that only appear within mobile websites or feeds.
  * <p>This element is supported by following {@link IdeaType}s: PLACEMENT.
  * <p>This element is supported by following {@link RequestType}s: IDEAS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class PlacementTypeSearchParameter extends SearchParameter {
   /**
@@ -6833,6 +7164,8 @@ if (!class_exists("RelatedToKeywordSearchParameter", FALSE)) {
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RelatedToKeywordSearchParameter extends SearchParameter {
   /**
@@ -6873,6 +7206,8 @@ if (!class_exists("RelatedToUrlSearchParameter", FALSE)) {
  * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method. It must be single-valued when used in a call to that method.
  * <p>This element is supported by following {@link IdeaType}s: KEYWORD, PLACEMENT.
  * <p>This element is supported by following {@link RequestType}s: IDEAS, STATS.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class RelatedToUrlSearchParameter extends SearchParameter {
   /**
@@ -6918,6 +7253,8 @@ if (!class_exists("AgeTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class AgeTarget extends DemographicTarget {
   /**
@@ -6963,6 +7300,8 @@ if (!class_exists("CityTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CityTarget extends GeoTarget {
   /**
@@ -7019,6 +7358,8 @@ if (!class_exists("CountryTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class CountryTarget extends GeoTarget {
   /**
@@ -7060,6 +7401,8 @@ if (!class_exists("MobileCarrierTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MobileCarrierTarget extends MobileTarget {
   /**
@@ -7107,6 +7450,8 @@ if (!class_exists("MobilePlatformTarget", FALSE)) {
  * 
  * 
  * Base error class for Ad Group Criterion Service.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  */
 class MobilePlatformTarget extends MobileTarget {
   /**
@@ -7141,6 +7486,8 @@ class MobilePlatformTarget extends MobileTarget {
 if (!class_exists("TargetingIdeaService", FALSE)) {
 /**
  * TargetingIdeaService
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201008
  * @author WSDLInterpreter
  */
 class TargetingIdeaService extends AdWordsSoapClient {
