@@ -68,6 +68,9 @@ class CurlUtils {
     // SSL options.
     if (defined('SSL_VERIFY_PEER') && SSL_VERIFY_PEER != '') {
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, SSL_VERIFY_PEER);
+    } else {
+      // Default to disabled, for backwards compatibility.
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
     }
     if (defined('SSL_CA_PATH') && SSL_CA_PATH != '') {
       curl_setopt($ch, CURLOPT_CAPATH, SSL_CA_PATH);
