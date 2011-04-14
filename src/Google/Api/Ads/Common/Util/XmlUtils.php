@@ -62,7 +62,50 @@ class XmlUtils {
       return $dom->saveXML();
     } catch (DOMException $e) {
       restore_error_handler();
-      return str_replace(array("\r\n", "\n", "\r"), ' ', $xml);
+      return str_replace(array("\r\n", "\n", "\r"), '', $xml);
+    }
+  }
+
+  /**
+   * Converts a DOMDocument to a stdClass object, where each element under
+   * the root node is a field. Atribute values are ignored.
+   * @param DOMDocument $document the document to convert
+   * @returns Object the converted object
+   */
+  public static function ConvertDocumentToObject($document) {
+    return XmlUtils::ConvertElementToObject($document->documentElement);
+  }
+
+  /**
+   * Converts a DOMElement to a stdClass object, where each child element is
+   * a field. Attribute values are ignored.
+   * @param DOMElement $element the element to convert
+   * @returns Object the converted object
+   */
+  public static function ConvertElementToObject($element) {
+    $result = array();
+    if ($element->hasChildNodes()) {
+      $numChildNodes = $element->childNodes->length;
+      for ($i = 0; $i < $numChildNodes; $i++) {
+        $childNode = $element->childNodes->item($i);
+        if ($childNode instanceof DOMElement) {
+          $name = $childNode->tagName;
+          $value = XmlUtils::ConvertElementToObject($childNode);
+          if (isset($result[$name])) {
+            if (!is_array($result[$name])) {
+              $result[$name] = array($result[$name]);
+            }
+            $result[$name][] = $value;
+          } else {
+            $result[$name] = $value;
+          }
+        }
+      }
+    }
+    if (sizeof($result) > 0) {
+      return (Object) $result;
+    } else {
+      return $element->nodeValue;
     }
   }
 }
