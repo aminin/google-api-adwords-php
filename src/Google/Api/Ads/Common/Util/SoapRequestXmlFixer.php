@@ -69,17 +69,22 @@ class SoapRequestXmlFixer {
    * Fixes the XML based on the parameters specified in the constructor.
    * @param string $request the raw request produced by the SOAP client
    * @param array $arguments the arguments passed to the SOAP method
+   * @param array $headers the headers used in the request
    * @return string the prepared request ready to be sent to the server
    */
-  public function FixXml($request, array $arguments) {
+  public function FixXml($request, array $arguments, array $headers) {
     $requestDom = XmlUtils::GetDomFromXml($request);
     $xpath = new DOMXPath($requestDom);
 
-    $argumentsDomNode = $xpath->query(
-        "//*[local-name()='Envelope']/*[local-name()='Body']/*")->item(0);
+    // Fix headers.
+    $headersDomNodes = $xpath->query(
+        "//*[local-name()='Envelope']/*[local-name()='Header']/*");
+    $this->FixXmlNodes($headersDomNodes, $headers, $xpath);
 
-    // Recrusivly fix all xml nodes, starting with the request wrapper.
-    $this->FixXmlNode($argumentsDomNode, $arguments[0], $xpath);
+    // Fix body.
+    $argumentsDomNodes = $xpath->query(
+        "//*[local-name()='Envelope']/*[local-name()='Body']/*");
+    $this->FixXmlNodes($argumentsDomNodes, $arguments, $xpath);
 
     // Remove empty headers.
     if ($this->removeEmptyElements) {
@@ -113,35 +118,41 @@ class SoapRequestXmlFixer {
    * @param DOMXPath $xpath the xpath object representing the DOM
    */
   private function FixXmlNode(DOMNode $node, $object, DOMXPath $xpath) {
-    if ($this->addXsiTypes && is_object($object)) {
-      $this->AddXsiType($node, $object);
-    }
+    if ($object instanceof SoapHeader) {
+      $this->FixXmlNode($node, $object->data, $xpath);
+    } elseif ($object instanceof SoapVar) {
+      $this->FixXmlNode($node, $object->enc_value, $xpath);
+    } else {
+      if ($this->addXsiTypes && is_object($object)) {
+        $this->AddXsiType($node, $object);
+      }
 
-    // Remove empty elements.
-    if ($this->removeEmptyElements && !isset($object)) {
-      $node->parentNode->removeChild($node);
-    }
+      // Remove empty elements.
+      if ($this->removeEmptyElements && !isset($object)) {
+        $node->parentNode->removeChild($node);
+      }
 
-    // Replace element references.
-    if ($this->replaceReferences && $node->hasAttribute('href')) {
-      $this->ReplaceElementReference($node, $xpath);
-    }
+      // Replace element references.
+      if ($this->replaceReferences && $node->hasAttribute('href')) {
+        $this->ReplaceElementReference($node, $xpath);
+      }
 
-    // Redeclare namespaces used in xsi:type attributes.
-    if ($this->redeclareXsiTypeNamespaceDefinitions
-        && $node->hasAttribute('xsi:type')) {
-      $this->RedeclareXsiTypeNamespaceDefinition($node);
-    }
+      // Redeclare namespaces used in xsi:type attributes.
+      if ($this->redeclareXsiTypeNamespaceDefinitions
+          && $node->hasAttribute('xsi:type')) {
+        $this->RedeclareXsiTypeNamespaceDefinition($node);
+      }
 
-    if (is_object($object)) {
-      foreach (get_object_vars($object) as $varName => $varValue) {
-        $nodeList =
-            $xpath->query("*[local-name() = '" . $varName . "']", $node);
+      if (is_object($object)) {
+        foreach (get_object_vars($object) as $varName => $varValue) {
+          $nodeList =
+              $xpath->query("*[local-name() = '" . $varName . "']", $node);
 
-        if (is_array($varValue)) {
-          $this->FixXmlNodes($nodeList, $varValue, $xpath);
-        } else if ($nodeList->length == 1) {
-          $this->FixXmlNode($nodeList->item(0), $varValue, $xpath);
+          if (is_array($varValue)) {
+            $this->FixXmlNodes($nodeList, $varValue, $xpath);
+          } else if ($nodeList->length == 1) {
+            $this->FixXmlNode($nodeList->item(0), $varValue, $xpath);
+          }
         }
       }
     }

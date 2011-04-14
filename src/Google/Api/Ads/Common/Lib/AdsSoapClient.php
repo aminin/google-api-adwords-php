@@ -129,6 +129,12 @@ abstract class AdsSoapClient extends SoapClient {
   protected $lastArguments;
 
   /**
+   * The last headers used in the request.
+   * @var array the last headers used in the request
+   */
+  protected $lastHeaders;
+
+  /**
    * The constructor intended to be called by all sub-classes.
    * @param string $wsdl URI of the WSDL file or NULL if working in non-WSDL
    *     mode
@@ -158,7 +164,8 @@ abstract class AdsSoapClient extends SoapClient {
    */
   function __doRequest($request , $location , $action , $version,
       $one_way = 0) {
-    $this->lastRequest = $this->PrepareRequest($request, $this->lastArguments);
+    $this->lastRequest = $this->PrepareRequest($request, $this->lastArguments,
+        $this->lastHeaders);
     return parent::__doRequest($this->lastRequest,
         $location, $action, $version);
   }
@@ -178,6 +185,7 @@ abstract class AdsSoapClient extends SoapClient {
       $input_headers = NULL, &$output_headers = NULL) {
     try {
       $input_headers[] = $this->GenerateSoapHeader();
+      $this->lastHeaders = $input_headers;
       $this->lastArguments = $arguments;
       $response = parent::__soapCall($function_name, $arguments, $options,
           $input_headers, $output_headers);
@@ -354,10 +362,12 @@ abstract class AdsSoapClient extends SoapClient {
    * these changes.
    * @param string $request the request to be modified
    * @param array $arguments the arguments passed to the SOAP method
+   * @param array $headers the headers used in the request
    * @return string the XML request ready to be sent to the server
    * @access protected
    */
-  protected function PrepareRequest($request, array $arguments) {
+  protected function PrepareRequest($request, array $arguments,
+      array $headers) {
     $addXsiTypes = false;
     $removeEmptyElements = false;
     $replaceReferences = false;
@@ -377,7 +387,7 @@ abstract class AdsSoapClient extends SoapClient {
         || $redeclareXsiTypeNamespaceDefinitions) {
       $fixer = new SoapRequestXmlFixer($addXsiTypes, $removeEmptyElements,
           $replaceReferences, $redeclareXsiTypeNamespaceDefinitions);
-      return $fixer->FixXml($request, $arguments);
+      return $fixer->FixXml($request, $arguments, $headers);
     } else {
       // Empty string is appended to "save" the XML from being deleted.
       return $request . '';
