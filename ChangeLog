@@ -1,3 +1,6 @@
+2.6.1:
+- Fixed build script to include build.properties for source distributions.
+
 2.6.0:
 - Added support for asyncronous (cross-client) report downloads.
 - Merged with the Ad Exchange Buyer client library.
