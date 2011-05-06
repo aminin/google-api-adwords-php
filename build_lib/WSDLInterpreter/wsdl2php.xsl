@@ -9,6 +9,9 @@
         <xsl:for-each
           select="*[local-name()='service' and namespace-uri()='http://schemas.xmlsoap.org/wsdl/']">
           <service name="{@name}">
+            <xsl:attribute name="endpoint">
+              <xsl:value-of select="*[local-name()='port' and namespace-uri()='http://schemas.xmlsoap.org/wsdl/']/*[local-name()='address' and namespace-uri()='http://schemas.xmlsoap.org/wsdl/soap/']/@location" />
+            </xsl:attribute>
             <functions>
               <xsl:for-each
                 select="*[local-name()='port' and namespace-uri()='http://schemas.xmlsoap.org/wsdl/']">

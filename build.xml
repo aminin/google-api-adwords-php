@@ -2,52 +2,20 @@
 <!-- ======================================================================= -->
 <!-- See README file for requirements                                        -->
 <!-- ======================================================================= -->
-<project basedir="." default="generate_php" name="aw_api_php_lib">
-  <property name="version" value="2.5.1"/>
-  <property name="package" value="GoogleApiAdsAdWords"/>
-  <property name="author" value="Eric Koleda &lt;api.ekoleda@gmail.com&gt;"/>
+<project basedir="." default="generate" name="aw_api_php_lib">
+  <property file="${project.basedir}/build.properties"/>
 
-  <property name="api.version.v200909" value="v200909"/>
-  <property name="api.version.v200909.cm.services"
-      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,GeoLocationService"/>
-  <property name="api.version.v200909.info.services" value="InfoService"/>
-  <property name="api.version.v200909.job.services" value="BulkMutateJobService"/>
-  <property name="api.version.v200909.o.services" value="TargetingIdeaService"/>
-
-  <property name="api.version.v201003" value="v201003"/>
-  <property name="api.version.v201003.cm.services"
-      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,BidLandscapeService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,GeoLocationService,MediaService,ReportDefinitionService"/>
-  <property name="api.version.v201003.info.services" value="InfoService"/>
-  <property name="api.version.v201003.job.services" value="BulkMutateJobService"/>
-  <property name="api.version.v201003.o.services" value="TargetingIdeaService"/>
-
-  <property name="api.version.v201008" value="v201008"/>
-  <property name="api.version.v201008.ch.services" value="CustomerSyncService"/>
-  <property name="api.version.v201008.cm.services"
-      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,BidLandscapeService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,ExperimentService,GeoLocationService,MediaService,ReportDefinitionService,UserListService"/>
-  <property name="api.version.v201008.info.services" value="InfoService"/>
-  <property name="api.version.v201008.job.services" value="BulkMutateJobService"/>
-  <property name="api.version.v201008.mcm.services" value="AlertService,ServicedAccountService"/>
-  <property name="api.version.v201008.o.services" value="TargetingIdeaService,TrafficEstimatorService"/>
-
-  <property name="api.version.v201101" value="v201101"/>
-  <property name="api.version.v201101.ch.services" value="CustomerSyncService"/>
-  <property name="api.version.v201101.cm.services"
-      value="AdExtensionOverrideService,AdGroupAdService,AdGroupCriterionService,AdGroupService,AdParamService,CampaignAdExtensionService,CampaignCriterionService,CampaignService,CampaignTargetService,ConversionTrackerService,DataService,ExperimentService,GeoLocationService,MediaService,ReportDefinitionService,UserListService"/>
-  <property name="api.version.v201101.info.services" value="InfoService"/>
-  <property name="api.version.v201101.job.services" value="BulkMutateJobService"/>
-  <property name="api.version.v201101.mcm.services" value="AlertService,ServicedAccountService"/>
-  <property name="api.version.v201101.o.services" value="BulkOpportunityService,TargetingIdeaService,TrafficEstimatorService"/>
-
-  <property name="src.dir" value="${project.basedir}/src"/>
-  <property name="examples.dir" value="${project.basedir}/examples"/>
-  <property name="tests.dir" value="${project.basedir}/tests"/>
-  <property name="data.dir" value="${project.basedir}/data"/>
-  <property name="test_data.dir" value="${project.basedir}/test_data"/>
-  <property name="build_lib.dir" value="${project.basedir}/build_lib"/>
-  <property name="logs.dir" value="${project.basedir}/logs"/>
+  <property name="adx-examples.dir" value="${project.basedir}/adx-examples"/>
   <property name="build.dir" value="${project.basedir}/build"/>
+  <property name="build_lib.dir" value="${project.basedir}/build_lib"/>
+  <property name="dist.dir" value="${project.basedir}/dist"/>
   <property name="docs.dir" value="${project.basedir}/docs"/>
+  <property name="examples.dir" value="${project.basedir}/examples"/>
+  <property name="logs.dir" value="${project.basedir}/logs"/>
+  <property name="report.dir" value="${project.basedir}/report"/>
+  <property name="src.dir" value="${project.basedir}/src"/>
+  <property name="test_data.dir" value="${project.basedir}/test_data"/>
+  <property name="tests.dir" value="${project.basedir}/tests"/>
 
   <taskdef name="wsdl2php" classname="build_lib.Wsdl2PhpTask" />
   <!-- Optionally specify a proxy to use when processing the WSDLs in the
@@ -58,349 +26,76 @@
   <!-- Initialization target                                               -->
   <!-- =================================================================== -->
   <target name="init">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${report.dir}"/>
   </target>
 
   <!-- =================================================================== -->
   <!-- Target: clean                                                       -->
   <!-- =================================================================== -->
   <target name="clean" depends="init">
-    <delete>
+    <delete quiet="true" includeemptydirs="true">
+      <fileset dir="${build.dir}" />
+      <fileset dir="${dist.dir}" />
       <fileset dir="${docs.dir}">
         <exclude name="README"/>
         <exclude name="**/.svn/**"/>
       </fileset>
-    </delete>
-    <delete>
       <fileset dir="${logs.dir}">
         <exclude name="README"/>
         <exclude name="**/.svn/**"/>
       </fileset>
+      <fileset dir="${report.dir}" />
     </delete>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: generate a version                                          -->
-  <!-- =================================================================== -->
-  <target name="generate_version_group">
-    <phingcall target="generate_services">
-      <property name="service.url.prefix"
-          value="${services.server}/api/adwords/${services.group.url}/${services.version}"/>
-      <property name="service.url.postfix" value="?wsdl"/>
-      <property name="service.outputDir"
-          value="${src.dir}/Google/Api/Ads/AdWords/${services.version}/${services.group}"/>
-      <property name="service.namespace"
-          value="https://adwords.google.com/api/adwords/${services.group}/${services.version}"/>
-      <property name="service.package" value="${package}"/>
-      <property name="service.author" value="${author}"/>
-    </phingcall>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: generate all services for a version                         -->
-  <!-- =================================================================== -->
-  <target name="generate_services">
-    <foreach list="${services}" param="service.name"
-        target="generate_service"/>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: generate a service for a version                            -->
-  <!-- =================================================================== -->
-  <target name="generate_service">
-    <mkdir dir="${service.outputDir}"/>
-    <wsdl2php
-        url="${service.url.prefix}/${service.name}${service.url.postfix}"
-        outputDir="${service.outputDir}" namespace="${service.namespace}"
-        classmap="$this->classmap = array('getResponse' => '${service.name}GetResponse',  'get' => '${service.name}Get', 'mutate' => '${service.name}Mutate', 'mutateResponse' => '${service.name}MutateResponse', 'DateTime' => 'AdWordsDateTime', 'Target' => 'AdWordsTarget', 'SoapHeader' => 'SoapRequestHeader');"
-        soapClientClassName="${service.soapClientClassName}"
-        soapClientClassPath="${service.soapClientClassPath}"
-        proxy="${wsdl2php.proxy}"
-        serviceName="${service.name}" version="${services.version}"
-        author="${service.author}" package="${service.package}"/>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: generates all php for v200909                               -->
-  <!-- =================================================================== -->
-  <target name="generate_v200909">
-    <property name="server" value="https://adwords.google.com"/>
-
-    <!-- cm -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="cm"/>
-      <property name="services.group.url" value="cm"/>
-      <property name="services.version" value="${api.version.v200909}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v200909.cm.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- info -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="info"/>
-      <property name="services.group.url" value="info"/>
-      <property name="services.version" value="${api.version.v200909}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v200909.info.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- job -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="cm"/>
-      <property name="services.group.url" value="job"/>
-      <property name="services.version" value="${api.version.v200909}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v200909.job.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- o -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="o"/>
-      <property name="services.group.url" value="o"/>
-      <property name="services.version" value="${api.version.v200909}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v200909.o.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: generates all php for v201003                               -->
-  <!-- =================================================================== -->
-  <target name="generate_v201003">
-    <property name="server" value="https://adwords.google.com"/>
-
-    <!-- cm -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="cm"/>
-      <property name="services.group.url" value="cm"/>
-      <property name="services.version" value="${api.version.v201003}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201003.cm.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- info -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="info"/>
-      <property name="services.group.url" value="info"/>
-      <property name="services.version" value="${api.version.v201003}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201003.info.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- job -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="cm"/>
-      <property name="services.group.url" value="job"/>
-      <property name="services.version" value="${api.version.v201003}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201003.job.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- o -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="o"/>
-      <property name="services.group.url" value="o"/>
-      <property name="services.version" value="${api.version.v201003}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201003.o.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: generates all php for v201008                               -->
-  <!-- =================================================================== -->
-  <target name="generate_v201008">
-    <property name="server" value="https://adwords.google.com"/>
-
-    <!-- ch -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="ch"/>
-      <property name="services.group.url" value="ch"/>
-      <property name="services.version" value="${api.version.v201008}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201008.ch.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- cm -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="cm"/>
-      <property name="services.group.url" value="cm"/>
-      <property name="services.version" value="${api.version.v201008}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201008.cm.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- info -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="info"/>
-      <property name="services.group.url" value="info"/>
-      <property name="services.version" value="${api.version.v201008}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201008.info.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- job -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="cm"/>
-      <property name="services.group.url" value="job"/>
-      <property name="services.version" value="${api.version.v201008}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201008.job.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- mcm -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="mcm"/>
-      <property name="services.group.url" value="mcm"/>
-      <property name="services.version" value="${api.version.v201008}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201008.mcm.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- o -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="o"/>
-      <property name="services.group.url" value="o"/>
-      <property name="services.version" value="${api.version.v201008}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201008.o.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: generates all php for v201101                               -->
-  <!-- =================================================================== -->
-  <target name="generate_v201101">
-    <property name="server" value="https://adwords.google.com"/>
-
-    <!-- ch -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="ch"/>
-      <property name="services.group.url" value="ch"/>
-      <property name="services.version" value="${api.version.v201101}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201101.ch.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- cm -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="cm"/>
-      <property name="services.group.url" value="cm"/>
-      <property name="services.version" value="${api.version.v201101}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201101.cm.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- info -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="info"/>
-      <property name="services.group.url" value="info"/>
-      <property name="services.version" value="${api.version.v201101}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201101.info.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- job -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="cm"/>
-      <property name="services.group.url" value="job"/>
-      <property name="services.version" value="${api.version.v201101}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201101.job.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- mcm -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="mcm"/>
-      <property name="services.group.url" value="mcm"/>
-      <property name="services.version" value="${api.version.v201101}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201101.mcm.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
-
-    <!-- o -->
-    <phingcall target="generate_version_group">
-      <property name="services.group" value="o"/>
-      <property name="services.group.url" value="o"/>
-      <property name="services.version" value="${api.version.v201101}"/>
-      <property name="services.server" value="${server}"/>
-      <property name="services" value="${api.version.v201101.o.services}"/>
-      <property name="service.soapClientClassName" value="AdWordsSoapClient"/>
-      <property name="service.soapClientClassPath"
-          value='dirname(__FILE__) . "/../../Lib/AdWordsSoapClient.php"'/>
-    </phingcall>
   </target>
 
   <!-- =================================================================== -->
   <!-- Target: generate php from wsdls                                     -->
   <!-- =================================================================== -->
-  <target name="generate_php" depends="init">
-    <phingcall target="generate_v200909"/>
-    <phingcall target="generate_v201003"/>
-    <phingcall target="generate_v201008"/>
-    <phingcall target="generate_v201101"/>
+  <target name="generate">
+    <foreach list="${api.versions}" param="version" target="generate-version"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: generate version                                            -->
+  <!-- =================================================================== -->
+  <target name="generate-version">
+    <property name="version.dir"
+        value="${src.dir}/Google/Api/Ads/AdWords/${version}"/>
+    <delete quiet="true" includeemptydirs="true">
+      <fileset dir="${version.dir}">
+        <exclude name="**/.svn/**"/>
+      </fileset>
+    </delete>
+    <mkdir dir="${version.dir}"/>
+    <foreach list="${api.versions.${version}.services}" param="service"
+        target="generate-service"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: generate service                                            -->
+  <!-- =================================================================== -->
+  <target name="generate-service">
+    <property name="service.wsdl"
+        value="${api.versions.${version}.services.${service}.wsdl}"/>
+    <wsdl2php
+        url="${service.wsdl}"
+        serviceName="${service}"
+        version="${version}"
+        author="${lib.author}"
+        package="${lib.package}"
+        outputDir="${version.dir}"
+        classmap="$this->classmap = array('getResponse' => '${service}GetResponse',  'get' => '${service}Get', 'mutate' => '${service}Mutate', 'mutateResponse' => '${service}MutateResponse', 'DateTime' => 'AdWordsDateTime', 'Target' => 'AdWordsTarget', 'SoapHeader' => 'SoapRequestHeader');"
+        soapClientClassName="AdWordsSoapClient"
+        soapClientClassPath='dirname(__FILE__) . "/../Lib/AdWordsSoapClient.php"'
+        proxy="${wsdl2php.proxy}" />
   </target>
 
   <!-- =================================================================== -->
   <!-- Target: run tests for v200909                                       -->
   <!-- =================================================================== -->
-  <target name="test_v200909" depends="init">
+  <target name="test-v200909" depends="init">
     <mkdir dir="report" />
     <phpunit haltonfailure="false" printsummary="true">
       <batchtest>
@@ -415,7 +110,7 @@
   <!-- =================================================================== -->
   <!-- Target: run tests for v201003                                       -->
   <!-- =================================================================== -->
-  <target name="test_v201003" depends="init">
+  <target name="test-v201003" depends="init">
     <mkdir dir="report" />
     <phpunit haltonfailure="false" printsummary="true">
       <batchtest>
@@ -430,7 +125,7 @@
   <!-- =================================================================== -->
   <!-- Target: run tests for v201008                                       -->
   <!-- =================================================================== -->
-  <target name="test_v201008" depends="init">
+  <target name="test-v201008" depends="init">
     <mkdir dir="report" />
     <phpunit haltonfailure="false" printsummary="true">
       <batchtest>
@@ -445,7 +140,7 @@
   <!-- =================================================================== -->
   <!-- Target: run tests for core library                                  -->
   <!-- =================================================================== -->
-  <target name="test_core" depends="init">
+  <target name="test-core" depends="init">
     <mkdir dir="report" />
     <phpunit haltonfailure="false" printsummary="true">
       <batchtest>
@@ -461,7 +156,7 @@
   <!-- =================================================================== -->
   <!-- Target: generates documentation                                     -->
   <!-- =================================================================== -->
-  <target name="generate_php_docs" depends="init">
+  <target name="docs" depends="init">
     <phpdoc title="AdWords API Documentation"
         destdir="${docs.dir}"
         sourcecode="no"
@@ -490,165 +185,31 @@
   </target>
 
   <!-- =================================================================== -->
-  <!-- Target: create release                                              -->
+  <!-- Target: create distributions                                        -->
   <!-- =================================================================== -->
-  <target name="create_release"
-      depends="init, clean, generate_php, generate_php_docs" >
-    <mkdir dir="${build.dir}"/>
-    <phingcall target="package_distribution"/>
-    <phingcall target="package_source_distribution"/>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: package source distribution                                 -->
-  <!-- =================================================================== -->
-  <target name="package_source_distribution">
-    <property name="prefix" value="aw_api_php_lib_${version}_src"/>
-    <property name="package.dir" value="${build.dir}/${prefix}"/>
-    <mkdir dir="${package.dir}"/>
-    <copy todir="${package.dir}/${prefix}/src">
-      <fileset dir="${src.dir}">
-        <include name="**/*.php"/>
-        <include name="**/*.ini"/>
-        <include name="README"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/examples">
-      <fileset dir="${examples.dir}">
-        <include name="**/*.php"/>
-        <include name="**/*.ini"/>
-        <include name="README"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/tests">
-      <fileset dir="${tests.dir}">
-        <include name="**/*.php"/>
-        <include name="README"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/test_data">
-      <fileset dir="${test_data.dir}">
-        <include name="*"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/logs">
-      <fileset dir="${logs.dir}">
-        <include name="README"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/data">
-      <fileset dir="${data.dir}">
-        <include name="*"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/docs">
-      <fileset dir="${docs.dir}">
-        <include name="**/*"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/build_lib">
-      <fileset dir="${build_lib.dir}">
-        <include name="**/*.php"/>
-        <include name="**/*.xsl"/>
-        <include name="**/*.tmpl"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}">
-      <fileset dir=".">
-        <include name="build.xml"/>
-        <include name="README"/>
-        <include name="ChangeLog"/>
-        <include name="COPYING"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <chmod mode="777">
-      <fileset dir="${package.dir}">
-        <include name="**/*"/>
-      </fileset>
-    </chmod>
-    <delete file="${build.dir}/${prefix}.tar.gz"/>
-    <tar destfile="${build.dir}/${prefix}.tar.gz"
-        compression="gzip">
-      <fileset dir="${package.dir}">
-        <include name="**/*"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </tar>
-    <delete dir="${package.dir}"/>
+  <target name="dist" depends="init">
+    <phingcall target="dist-lib"/>
+    <phingcall target="dist-source"/>
+    <phingcall target="dist-adx-lib"/>
+    <phingcall target="dist-adx-source"/>
   </target>
 
   <!-- =================================================================== -->
   <!-- Target: package distribution                                        -->
   <!-- =================================================================== -->
-  <target name="package_distribution">
-    <property name="prefix" value="aw_api_php_lib_${version}"/>
+  <target name="dist-lib" depends="init">
+    <property name="prefix" value="aw_api_php_lib_${lib.version}"/>
     <property name="package.dir" value="${build.dir}/${prefix}"/>
     <mkdir dir="${package.dir}"/>
-    <copy todir="${package.dir}/${prefix}/src">
-      <fileset dir="${src.dir}">
-        <include name="**/*.php"/>
-        <include name="**/*.ini"/>
-        <include name="README"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/examples">
-      <fileset dir="${examples.dir}">
-        <include name="**/*.php"/>
-        <include name="**/*.ini"/>
-        <include name="README"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/logs">
-      <fileset dir="${logs.dir}">
-        <include name="README"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/data">
-      <fileset dir="${data.dir}">
-        <include name="*"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dir}/${prefix}/docs">
-      <fileset dir="${docs.dir}">
-        <include name="**/*"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
-      </fileset>
-    </copy>
     <copy todir="${package.dir}/${prefix}">
-      <fileset dir=".">
-        <include name="README"/>
+      <fileset dir="${project.basedir}">
+        <include name="docs/**"/>
+        <include name="examples/**"/>
+        <include name="logs/README"/>
+        <include name="src/**"/>
         <include name="ChangeLog"/>
         <include name="COPYING"/>
-        <exclude name="**/.svn"/>
-        <exclude name="**/.svn/**"/>
+        <include name="README"/>
       </fileset>
     </copy>
     <chmod mode="777">
@@ -656,15 +217,130 @@
         <include name="**/*"/>
       </fileset>
     </chmod>
-    <delete file="${build.dir}/${prefix}.tar.gz"/>
-    <tar destfile="${build.dir}/${prefix}.tar.gz"
-        compression="gzip">
+    <tar destfile="${dist.dir}/${prefix}.tar.gz" compression="gzip">
       <fileset dir="${package.dir}">
         <include name="**/*"/>
         <exclude name="**/.svn"/>
         <exclude name="**/.svn/**"/>
       </fileset>
     </tar>
-    <delete dir="${package.dir}"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: package source distribution                                 -->
+  <!-- =================================================================== -->
+  <target name="dist-source" depends="init">
+    <property name="prefix" value="aw_api_php_lib_${lib.version}_src"/>
+    <property name="package.dir" value="${build.dir}/${prefix}"/>
+    <mkdir dir="${package.dir}"/>
+    <copy todir="${package.dir}/${prefix}">
+      <fileset dir="${project.basedir}">
+        <include name="build_lib/**"/>
+        <include name="data/**"/>
+        <include name="docs/**"/>
+        <include name="examples/**"/>
+        <include name="logs/README"/>
+        <include name="src/**"/>
+        <include name="tests/**"/>
+        <include name="test_data/**"/>
+        <include name="build.xml"/>
+        <include name="ChangeLog"/>
+        <include name="COPYING"/>
+        <include name="README"/>
+      </fileset>
+    </copy>
+    <chmod mode="777">
+      <fileset dir="${package.dir}">
+        <include name="**/*"/>
+      </fileset>
+    </chmod>
+    <tar destfile="${dist.dir}/${prefix}.tar.gz" compression="gzip">
+      <fileset dir="${package.dir}">
+        <include name="**/*"/>
+        <exclude name="**/.svn"/>
+        <exclude name="**/.svn/**"/>
+      </fileset>
+    </tar>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: package adx distribution                                    -->
+  <!-- =================================================================== -->
+  <target name="dist-adx-lib" depends="init">
+    <property name="prefix" value="adx_api_php_lib_${lib.version}"/>
+    <property name="package.dir" value="${build.dir}/${prefix}"/>
+    <mkdir dir="${package.dir}"/>
+    <copy todir="${package.dir}/${prefix}">
+      <fileset dir="${project.basedir}">
+        <include name="docs/**"/>
+        <include name="examples/**"/>
+        <include name="logs/README"/>
+        <include name="src/**"/>
+        <include name="ChangeLog"/>
+        <include name="COPYING"/>
+        <include name="README"/>
+        <not>
+          <containsregexp expression="Restriction:.*[ ,]adwords-only(?:[ ,]|$)" />
+        </not>
+      </fileset>
+    </copy>
+    <copy todir="${package.dir}/${prefix}/examples" overwrite="true">
+      <fileset dir="${adx-examples.dir}" />
+    </copy>
+    <chmod mode="777">
+      <fileset dir="${package.dir}">
+        <include name="**/*"/>
+      </fileset>
+    </chmod>
+    <tar destfile="${dist.dir}/${prefix}.tar.gz" compression="gzip">
+      <fileset dir="${package.dir}">
+        <include name="**/*"/>
+        <exclude name="**/.svn"/>
+        <exclude name="**/.svn/**"/>
+      </fileset>
+    </tar>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: package adx source distribution                             -->
+  <!-- =================================================================== -->
+  <target name="dist-adx-source" depends="init">
+    <property name="prefix" value="adx_api_php_lib_${lib.version}_src"/>
+    <property name="package.dir" value="${build.dir}/${prefix}"/>
+    <mkdir dir="${package.dir}"/>
+    <copy todir="${package.dir}/${prefix}">
+      <fileset dir="${project.basedir}">
+        <include name="build_lib/**"/>
+        <include name="data/**"/>
+        <include name="docs/**"/>
+        <include name="examples/**"/>
+        <include name="logs/README"/>
+        <include name="src/**"/>
+        <include name="tests/**"/>
+        <include name="test_data/**"/>
+        <include name="build.xml"/>
+        <include name="ChangeLog"/>
+        <include name="COPYING"/>
+        <include name="README"/>
+        <not>
+          <containsregexp expression="Restriction:.*[ ,]adwords-only(?:[ ,]|$)" />
+        </not>
+      </fileset>
+    </copy>
+    <copy todir="${package.dir}/${prefix}/examples" overwrite="true">
+      <fileset dir="${adx-examples.dir}" />
+    </copy>
+    <chmod mode="777">
+      <fileset dir="${package.dir}">
+        <include name="**/*"/>
+      </fileset>
+    </chmod>
+    <tar destfile="${dist.dir}/${prefix}.tar.gz" compression="gzip">
+      <fileset dir="${package.dir}">
+        <include name="**/*"/>
+        <exclude name="**/.svn"/>
+        <exclude name="**/.svn/**"/>
+      </fileset>
+    </tar>
   </target>
 </project>

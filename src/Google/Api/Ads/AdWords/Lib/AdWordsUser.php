@@ -168,8 +168,8 @@ class AdWordsUser extends AdsUser {
   public function GetAdExtensionOverrideService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('AdExtensionOverrideService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('AdExtensionOverrideService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -187,8 +187,8 @@ class AdWordsUser extends AdsUser {
   public function GetAdGroupAdService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('AdGroupAdService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('AdGroupAdService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -208,8 +208,8 @@ class AdWordsUser extends AdsUser {
   public function GetAdGroupCriterionService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL, $partialFailure = NULL) {
-    return $this->GetService('AdGroupCriterionService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly, $partialFailure);
+    return $this->GetService('AdGroupCriterionService', $version, $server,
+        $serviceFactory, $validateOnly, $partialFailure);
   }
 
   /**
@@ -227,8 +227,8 @@ class AdWordsUser extends AdsUser {
   public function GetAdGroupService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('AdGroupService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('AdGroupService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -246,8 +246,8 @@ class AdWordsUser extends AdsUser {
   public function GetAdParamService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('AdParamService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('AdParamService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -265,8 +265,8 @@ class AdWordsUser extends AdsUser {
   public function GetAlertService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('AlertService', 'mcm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('AlertService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -284,8 +284,8 @@ class AdWordsUser extends AdsUser {
   public function GetBidLandscapeService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('BidLandscapeService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('BidLandscapeService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -303,8 +303,8 @@ class AdWordsUser extends AdsUser {
   public function GetBulkMutateJobService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('BulkMutateJobService', 'cm', $version, $server,
-        $serviceFactory, 'job', NULL, $validateOnly);
+    return $this->GetService('BulkMutateJobService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -322,8 +322,8 @@ class AdWordsUser extends AdsUser {
   public function GetBulkOpportunityService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('BulkOpportunityService', 'o', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('BulkOpportunityService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -342,8 +342,8 @@ class AdWordsUser extends AdsUser {
   public function GetCampaignAdExtensionService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('CampaignAdExtensionService', 'cm', $version,
-        $server, $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('CampaignAdExtensionService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -362,8 +362,8 @@ class AdWordsUser extends AdsUser {
   public function GetCampaignCriterionService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('CampaignCriterionService', 'cm', $version,
-        $server, $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('CampaignCriterionService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -381,8 +381,8 @@ class AdWordsUser extends AdsUser {
   public function GetCampaignService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('CampaignService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('CampaignService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -400,8 +400,8 @@ class AdWordsUser extends AdsUser {
   public function GetCampaignTargetService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('CampaignTargetService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('CampaignTargetService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -420,8 +420,8 @@ class AdWordsUser extends AdsUser {
   public function GetConversionTrackerService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('ConversionTrackerService', 'cm', $version,
-        $server, $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('ConversionTrackerService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -439,8 +439,8 @@ class AdWordsUser extends AdsUser {
   public function GetCustomerSyncService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('CustomerSyncService', 'ch', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('CustomerSyncService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -458,8 +458,8 @@ class AdWordsUser extends AdsUser {
   public function GetDataService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('DataService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('DataService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -477,8 +477,8 @@ class AdWordsUser extends AdsUser {
   public function GetExperimentService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('ExperimentService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('ExperimentService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -496,8 +496,8 @@ class AdWordsUser extends AdsUser {
   public function GetGeoLocationService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('GeoLocationService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('GeoLocationService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -515,8 +515,8 @@ class AdWordsUser extends AdsUser {
   public function GetInfoService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('InfoService', 'info', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('InfoService', $version, $server, $serviceFactory,
+        $validateOnly);
   }
 
   /**
@@ -534,8 +534,8 @@ class AdWordsUser extends AdsUser {
   public function GetMediaService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('MediaService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('MediaService', $version, $server, $serviceFactory,
+        $validateOnly);
   }
 
   /**
@@ -553,8 +553,8 @@ class AdWordsUser extends AdsUser {
   public function GetReportDefinitionService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('ReportDefinitionService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('ReportDefinitionService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -572,8 +572,8 @@ class AdWordsUser extends AdsUser {
   public function GetServicedAccountService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('ServicedAccountService', 'mcm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('ServicedAccountService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -591,8 +591,8 @@ class AdWordsUser extends AdsUser {
   public function GetTargetingIdeaService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('TargetingIdeaService', 'o', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('TargetingIdeaService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -610,8 +610,8 @@ class AdWordsUser extends AdsUser {
   public function GetTrafficEstimatorService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('TrafficEstimatorService', 'o', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('TrafficEstimatorService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
@@ -629,24 +629,19 @@ class AdWordsUser extends AdsUser {
   public function GetUserListService($version = NULL,
       $server = NULL, SoapClientFactory $serviceFactory = NULL,
       $validateOnly = NULL) {
-    return $this->GetService('UserListService', 'cm', $version, $server,
-        $serviceFactory, NULL, NULL, $validateOnly);
+    return $this->GetService('UserListService', $version, $server,
+        $serviceFactory, $validateOnly);
   }
 
   /**
    * Gets the service by its service name and group.
    * @param $serviceName the service name
-   * @param $serviceGroup the service group
    * @param string $version the version of the service to get. If
    *     <var>NULL</var>, then the default version will be used
    * @param string $server the server to make the request to. If
    *     <var>NULL</var>, then the default server will be used
    * @param SoapClientFactory $serviceFactory the factory to create the client.
    *     If <var>NULL</var>, then the built-in SOAP client factory will be used
-   * @param string $serviceGroupUrlOverride the name of the service group to be
-   *     used in the location url
-   * @param string $serviceGroupHeaderNamespaceOverride the name of the service
-   *     group to use in the header namespace
    * @param bool $validateOnly if the service should be created in validateOnly
    *     mode
    * @param bool $partialFailure if the service should be created in
@@ -654,10 +649,8 @@ class AdWordsUser extends AdsUser {
    * @return SoapClient the instantiated service
    * @access private
    */
-  private function GetService($serviceName, $serviceGroup, $version = NULL,
-      $server = NULL, SoapClientFactory $serviceFactory = NULL,
-      $serviceGroupUrlOverride = NULL,
-      $serviceGroupHeaderNamespaceOverride = NULL, $validateOnly = NULL,
+  private function GetService($serviceName, $version = NULL, $server = NULL,
+      SoapClientFactory $serviceFactory = NULL, $validateOnly = NULL,
       $partialFailure = NULL) {
     $this->ValidateUser();
     if (!isset($serviceFactory)) {
@@ -673,9 +666,7 @@ class AdWordsUser extends AdsUser {
           $validateOnly, $partialFailure);
     }
 
-    return parent::GetServiceSoapClient($serviceName, $serviceFactory,
-        $serviceGroup, $serviceGroupUrlOverride,
-        $serviceGroupHeaderNamespaceOverride);
+    return parent::GetServiceSoapClient($serviceName, $serviceFactory);
   }
 
   /**

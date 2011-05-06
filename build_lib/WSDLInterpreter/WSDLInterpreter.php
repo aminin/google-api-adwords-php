@@ -75,13 +75,6 @@ class WSDLInterpreter
   private $_soapClientClassName = NULL;
 
   /**
-   * A SoapClient for loading the WSDL
-   * @var SoapClient
-   * @access private
-   */
-  private $_client = null;
-
-  /**
    * DOM document representation of the wsdl and its translation
    * @var DOMDocument
    * @access private
@@ -108,13 +101,6 @@ class WSDLInterpreter
    * @access private
    */
   private $_servicePHPSources = array();
-
-  /**
-   * SoapClient options
-   * @var array
-   * @access private
-   */
-  private $_options = array();
 
   /**
    * Class names.
@@ -183,7 +169,7 @@ class WSDLInterpreter
    * @param string $wsdl the URI of the wsdl to interpret
    * @param string $soapClientClassName the class name which the generated
    *     client will extend
-   * @param array $options the options array for {@link SoapClient}
+   * @param array $classmap the class map to use when generating classes
    * @param string $serviceName the name of the service being worked on
    * @param string $version the version of the service
    * @param string $author the author to be placed in the file header
@@ -195,20 +181,14 @@ class WSDLInterpreter
    *     problems
    * @todo Create plug in model to handle extendability of WSDL files
    */
-  public function __construct($wsdl, $soapClientClassName, $options = array(),
+  public function __construct($wsdl, $soapClientClassName, $classmap,
       $serviceName, $version, $author, $package, $soapClientClassPath, $proxy)
   {
     try {
       $this->_wsdl = $wsdl;
       $this->_soapClientClassName = $soapClientClassName;
-      $this->_client = new SoapClient(null, $options);
 
-      if (array_key_exists("classmap", $options)) {
-        $this->_classmap = $options["classmap"];
-      }
-
-      $this->_options = $options;
-
+      $this->_classmap = $classmap;
       $this->_serviceName = $serviceName;
       $this->_version = $version;
       $this->_author = $author;
@@ -676,6 +656,12 @@ class WSDLInterpreter
     }
 
     $return .= "  ".'/**'."\n";
+    $return .= "  ".' * The endpoint of the service'."\n";
+    $return .= "  ".' * @var string'."\n";
+    $return .= "  ".' */'."\n";
+    $return .= "  ".'public static $endpoint = "'.$service->getAttribute('endpoint').'";'."\n\n";
+
+    $return .= "  ".'/**'."\n";
     $return .= "  ".' * Constructor using wsdl location and options array'."\n";
     $return .= "  ".' * @param string $wsdl WSDL location for this service'."\n";
     $return .= "  ".' * @param array $options Options for the SoapClient'."\n";
@@ -767,15 +753,6 @@ class WSDLInterpreter
       throw new WSDLInterpreterException("Error writing PHP source files.");
     }
     return $outputFiles;
-  }
-
-  /**
-   * Gets the options for the SOAP client as a evalable string.
-   *
-   * @return string options for the SOAP client as a evalable string
-   */
-  private function _getOptions() {
-    return $this->_getArrayStr($this->_options);
   }
 
   /**

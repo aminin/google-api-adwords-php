@@ -119,20 +119,11 @@ abstract class AdsUser {
    * Gets the service by its service name.
    * @param string $serviceName the service name
    * @param SoapClientFactory $serviceFactory the service factory
-   * @param string $serviceGroup the service group. Can be <var>NULL</var>
-   *     if the product has not implemented service groups yet
-   * @param string $serviceGroupUrlOverride the name of the service group to be
-   *     used in the location url
-   * @param string $serviceGroupHeaderNamespaceOverride the name of the service
-   *     group to use in the header namespace
    * @return SoapClient the instantiated service
    */
   public function GetServiceSoapClient($serviceName,
-      SoapClientFactory $serviceFactory, $serviceGroup = NULL,
-      $serviceGroupUrlOverride = NULL,
-      $serviceGroupHeaderNamespaceOverride = NULL) {
-    return $serviceFactory->GenerateSoapClient($serviceName, $serviceGroup,
-        $serviceGroupUrlOverride, $serviceGroupHeaderNamespaceOverride);
+      SoapClientFactory $serviceFactory) {
+    return $serviceFactory->GenerateSoapClient($serviceName);
   }
 
   /**

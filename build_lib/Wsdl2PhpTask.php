@@ -63,13 +63,6 @@ class Wsdl2PhpTask extends Task {
   private $outputDir = NULL;
 
   /**
-   * The namespace for the WSDL.
-   * @var string the namespace for the WSDL
-   * @access private
-   */
-  private $namespace = NULL;
-
-  /**
    * The classmap of 'Wsdl Type => PHP Class' for the WSDL.
    * @var array the classmap for the WSDL type to PHP class
    * @access private
@@ -147,14 +140,6 @@ class Wsdl2PhpTask extends Task {
   }
 
   /**
-   * The setter for the attribute <var>$namespace</var>.
-   * @param string $namespace the target namespace of the WSDL
-   */
-  public function setNamespace($namespace) {
-    $this->namespace = $namespace;
-  }
-
-  /**
    * The setter for the attribute <var>$classmap</var>.
    * @param string $classmap code-string of the classmap of
    *     'Wsdl Type => PHP Class'
@@ -218,10 +203,8 @@ class Wsdl2PhpTask extends Task {
 
     $wsdlInterpreter =
         new WSDLInterpreter($this->url, $this->soapClientClassName,
-            array('location' => $this->url, 'uri' => $this->namespace,
-                'classmap' => $this->classmap),
-            $this->serviceName, $this->version, $this->author, $this->package,
-            $this->soapClientClassPath, $this->proxy);
+            $this->classmap, $this->serviceName, $this->version, $this->author,
+            $this->package, $this->soapClientClassPath, $this->proxy);
     $wsdlInterpreter->savePHP($this->outputDir);
     print 'Done: ' . $this->url . "\n";
   }

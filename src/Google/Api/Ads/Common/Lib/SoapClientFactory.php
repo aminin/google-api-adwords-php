@@ -44,6 +44,8 @@ abstract class SoapClientFactory {
   private $productName;
   private $headerOverrides;
 
+  private static $SERVER_REGEX = '/^\w*:\/\/[^\/]*/';
+
   /**
    * The constructor called by any sub-class.
    * @param AdsUser $user the user which the client will use for credentials
@@ -64,11 +66,9 @@ abstract class SoapClientFactory {
   /**
    * Initiates a require_once for the service.
    * @param string $serviceName the service to instantiate
-   * @param string $serviceGroup the service group to use. Can be
-   *     <var>NULL</var> if the product has not implemented service groups yet
    * @access protected
    */
-  abstract protected function DoRequireOnce($serviceName, $serviceGroup = NULL);
+  abstract protected function DoRequireOnce($serviceName);
 
   /**
    * Generates a SOAP client for the given service name. Generates a user level
@@ -77,20 +77,12 @@ abstract class SoapClientFactory {
    * @param string $serviceName the name of the service to generate a client for
    * @param string $serviceGroup the name of the service group. Can be
    *     <var>NULL</var> if the product has not implemented service groups yet
-   * @param string $serviceGroupUrlOverride the name of the service group to be
-   *     used in the location url
-   * @param string $serviceGroupHeaderNamespaceOverride the name of the service
-   *     group to use in the header namespace
    * @return AdsSoapClient an instantiated SOAP client
    */
-  public function GenerateSoapClient($serviceName, $serviceGroup = NULL,
-      $serviceGroupUrlOverride = NULL,
-      $serviceGroupHeaderNamespaceOverride = NULL) {
+  public function GenerateSoapClient($serviceName) {
     if (extension_loaded('soap')) {
-      $this->DoRequireOnce($serviceName, $serviceGroup);
-      $soapClient = $this->GenerateServiceClient($serviceName,
-          isset($serviceGroupUrlOverride)
-              ? $serviceGroupUrlOverride : $serviceGroup);
+      $this->DoRequireOnce($serviceName);
+      $soapClient = $this->GenerateServiceClient($serviceName);
       return $soapClient;
     } else {
       trigger_error('This client library requires the SOAP extension to be'
@@ -102,12 +94,11 @@ abstract class SoapClientFactory {
   /**
    * Generates the SOAP service client without the proper headers set yet.
    * @param string $serviceName the service to create a client for
-   * @param string $serviceGroupo the group of the service
    * @return AdsSoapClient the SOAP service client
    * @access protected
    */
-  protected function GenerateServiceClient($serviceName, $serviceGroup = NULL) {
-    $location = $this->GetServiceLocation($serviceName, $serviceGroup);
+  protected function GenerateServiceClient($serviceName) {
+    $location = $this->GetServiceLocation($serviceName);
     $wsdl = $location . '?wsdl';
     $options = array(
         'trace' => true,
@@ -182,10 +173,11 @@ abstract class SoapClientFactory {
    * @return string the end-point location of the service.
    * @access protected
    */
-  protected function GetServiceLocation($serviceName, $serviceGroup = NULL) {
-    return implode('/', array($this->GetServer(), 'api',
-        $this->GetProductName(), $serviceGroup, $this->GetVersion(),
-        $serviceName));
+  protected function GetServiceLocation($serviceName) {
+    $classVars = get_class_vars($serviceName);
+    $endpoint = $classVars['endpoint'];
+    return preg_replace(SoapClientFactory::$SERVER_REGEX, $this->GetServer(),
+        $endpoint);
   }
 
   /**
