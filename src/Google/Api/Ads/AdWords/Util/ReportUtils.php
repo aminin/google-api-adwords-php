@@ -317,7 +317,7 @@ class ReportDownloadResult {
 
   /**
    * @access public
-   * @var object the JSON response returned, if any
+   * @var object an object representing the XML response returned, if any
    */
   public $details = NULL;
 

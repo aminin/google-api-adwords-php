@@ -1,7 +1,7 @@
 <?php
 /**
- * This example adds geo, language, and network targeting to an existing
- * campaign. To get a campaign, run GetAllCampaigns.php.
+ * This example adds geo and language targeting to an existing campaign. To get
+ * a campaign, run GetAllCampaigns.php.
  *
  * Tags: CampaignTargetService.mutate
  *
@@ -74,10 +74,6 @@ try {
   $geoTargetOperation = new CampaignTargetOperation();
   $geoTargetOperation->operand = $geoTargetList;
   $geoTargetOperation->operator = 'SET';
-
-  $networkTargetOperation = new CampaignTargetOperation();
-  $networkTargetOperation->operand = $networkTargetList;
-  $networkTargetOperation->operator = 'SET';
 
   $operations = array($langTargetOperation, $geoTargetOperation);
 
