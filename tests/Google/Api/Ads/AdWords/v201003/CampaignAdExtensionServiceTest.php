@@ -31,7 +31,7 @@ error_reporting(E_STRICT | E_ALL);
 
 require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
 require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201003/cm/CampaignAdExtensionService.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201003/CampaignAdExtensionService.php';
 
 /**
  * Functional tests for CampaignAdExtensionService.
