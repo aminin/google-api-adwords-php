@@ -1,3 +1,9 @@
+2.6.0:
+- Added support for asyncronous (cross-client) report downloads.
+- Merged with the Ad Exchange Buyer client library.
+- Refactored build system to use properties file.
+- All generated service for a version are now stored in the same folder.
+
 2.5.1:
 - Added support for the ConversionTrackerService and BulkOpportunityService,
   including examples.
