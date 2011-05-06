@@ -4,6 +4,7 @@
  * group criteria, run GetAllAdGroupCriteria.php.
  *
  * Tags: AdParamService.mutate
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

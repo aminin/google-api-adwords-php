@@ -5,6 +5,7 @@
  * true.
  *
  * Tags: CampaignService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

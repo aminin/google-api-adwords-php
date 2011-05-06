@@ -4,6 +4,9 @@
  * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
  * Currently, there is only production support for report download.
  *
+ * Please note: This feature is still under development and may change before
+ * it is released.
+ *
  * PHP version 5
  *
  * Copyright 2011, Google Inc. All Rights Reserved.

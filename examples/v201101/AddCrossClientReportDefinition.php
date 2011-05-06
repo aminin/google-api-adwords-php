@@ -4,6 +4,9 @@
  * fields, run GetReportFields.php. To work correctly this example must
  * be run as an MCC account.
  *
+ * Please note: This feature is still under development and may change before
+ * it is released.
+ *
  * Tags: ReportDefinitionService.mutate
  *
  * PHP version 5
@@ -49,9 +52,6 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  // Insert client emails below to limit the report to only certain accounts.
-  $clientEmails = array();
-
   // Get the GetReportDefinitionService.
   $reportDefinitionService = $user->GetReportDefinitionService('v201101');
 
@@ -70,11 +70,6 @@ try {
   $reportDefinition->downloadFormat = 'XML';
   $reportDefinition->selector = $selector;
   $reportDefinition->crossClient = TRUE;
-  foreach ($clientEmails as $clientEmail) {
-    $clientSelector = new ClientSelector();
-    $clientSelector->login = $clientEmail;
-    $reportDefinition->clientSelectors[] = $clientSelector;
-  }
 
   // Create operations.
   $operation = new ReportDefinitionOperation();

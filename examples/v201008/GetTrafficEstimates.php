@@ -3,6 +3,7 @@
  * This example gets keyword traffic estimates.
  *
  * Tags: TrafficEstimatorService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

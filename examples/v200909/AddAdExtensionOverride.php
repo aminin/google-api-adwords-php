@@ -5,6 +5,7 @@
  * ad extensions, run GetAllCampaignAdExtensions.php.
  *
  * Tags: AdGroupCriterionService.mutate
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

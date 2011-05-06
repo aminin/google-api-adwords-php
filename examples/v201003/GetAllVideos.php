@@ -4,6 +4,7 @@
  * http://adwords.google.com/support/aw/bin/answer.py?hl=en&answer=39454.
  *
  * Tags: MediaService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

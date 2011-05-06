@@ -5,6 +5,7 @@
  * GetAllCampaigns.php.
  *
  * Tags: GeoLocationService.get, CampaignAdExtensionService.mutate
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

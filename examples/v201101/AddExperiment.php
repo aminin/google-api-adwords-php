@@ -8,6 +8,7 @@
  * criteria, run GetAllAdGroupCriteria.php.
  *
  * Tags: ExperimentService.mutate
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

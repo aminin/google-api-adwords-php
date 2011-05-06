@@ -3,6 +3,7 @@
  * This example gets keywords related to a seed keyword.
  *
  * Tags: TargetingIdeaService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

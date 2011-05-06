@@ -5,6 +5,7 @@
  * GetAllCampaigns.php.
  *
  * Tags: CampaignAdExtensionService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

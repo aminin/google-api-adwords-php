@@ -5,6 +5,7 @@
  * that owns the developer token.
  *
  * Tags: InfoService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

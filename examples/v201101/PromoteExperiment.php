@@ -6,6 +6,7 @@
  * AddExperiment.php.
  *
  * Tags: ExperimentService.mutate
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

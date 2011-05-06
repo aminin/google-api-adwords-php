@@ -5,6 +5,7 @@
  * get results.
  *
  * Tags: AlertService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

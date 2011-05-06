@@ -4,6 +4,7 @@
  * SetAdParamsExample.php. To get ad groups, run GetAllAdGroups.php.
  *
  * Tags: AdParamService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

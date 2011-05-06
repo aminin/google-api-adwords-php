@@ -4,6 +4,7 @@
  * AddExperiment.php. To get campaigns, run GetAllCampaigns.php.
  *
  * Tags: ExperimentService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

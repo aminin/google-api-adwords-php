@@ -5,6 +5,7 @@
  * Tags: TargetingIdeaService.get
  *
  * PHP version 5
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *

@@ -3,6 +3,7 @@
  * This example gets the account hierarchy under the current account.
  *
  * Tags: ServicedAccountService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

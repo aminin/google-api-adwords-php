@@ -4,6 +4,7 @@
  * examining the conversionOptimizerEligibility field of the Campaign.
  *
  * Tags: CampaignService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

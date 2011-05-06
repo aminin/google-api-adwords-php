@@ -4,6 +4,7 @@
  * GetAllExperiments.php. To add an experiment, run AddExperiment.php.
  *
  * Tags: ExperimentService.mutate
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

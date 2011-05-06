@@ -3,6 +3,7 @@
  * This example gets all keyword opportunities for the account.
  *
  * Tags: BulkOpportunityService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *
