@@ -79,13 +79,17 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																																																																								<div class="var-title">
+																																																																																																<div class="var-title">
 					<span class="var-type">array</span>
 					<a href="#$headers" title="details" class="var-name">$headers</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">array</span>
 					<a href="#$lastArguments" title="details" class="var-name">$lastArguments</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$lastHeaders" title="details" class="var-name">$lastHeaders</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">string</span>
@@ -221,7 +225,7 @@
 																<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#PrepareRequest" title="details" class="method-name">PrepareRequest</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$request</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$arguments</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$request</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$arguments</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$headers</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
@@ -262,7 +266,7 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$headers" id="$headers"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -285,7 +289,7 @@
 
 </div>
 <a name="var$lastArguments" id="$lastArguments"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -299,6 +303,29 @@
 <p class="short-description">The last arguments passed to the called SOAP method</p>
 	<ul class="tags">
 				<li><span class="field">var:</span> the last arguments passed to the called SOAP method</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$lastHeaders" id="$lastHeaders"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$lastHeaders</span>
+						(line <span class="line-number">135</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The last headers used in the request.</p>
+	<ul class="tags">
+				<li><span class="field">var:</span> the last headers used in the request</li>
 				<li><span class="field">access:</span> protected</li>
 			</ul>
 	
@@ -491,7 +518,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">142</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">148</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -535,63 +562,7 @@
 								: Constructor for the AdWords API SOAP client.
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/BulkMutateJobService.html#method__construct">BulkMutateJobService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/BidLandscapeService.html#method__construct">BidLandscapeService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/UserListService.html#method__construct">UserListService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/MediaService.html#method__construct">MediaService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/CampaignService.html#method__construct">CampaignService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/ExperimentService.html#method__construct">ExperimentService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/AdGroupCriterionService.html#method__construct">AdGroupCriterionService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/CampaignAdExtensionService.html#method__construct">CampaignAdExtensionService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
 				<a href="../../GoogleApiAdsAdWords/v201008/AdExtensionOverrideService.html#method__construct">AdExtensionOverrideService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/ReportDefinitionService.html#method__construct">ReportDefinitionService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/CampaignTargetService.html#method__construct">CampaignTargetService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/CampaignCriterionService.html#method__construct">CampaignCriterionService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/AdGroupService.html#method__construct">AdGroupService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/GeoLocationService.html#method__construct">GeoLocationService::__construct()</a>
-								: Constructor using wsdl location and options array
-							</li>
-					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/AdParamService.html#method__construct">AdParamService::__construct()</a>
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
@@ -599,15 +570,15 @@
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/CustomerSyncService.html#method__construct">CustomerSyncService::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/AdGroupCriterionService.html#method__construct">AdGroupCriterionService::__construct()</a>
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/InfoService.html#method__construct">InfoService::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/AdGroupService.html#method__construct">AdGroupService::__construct()</a>
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/ServicedAccountService.html#method__construct">ServicedAccountService::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/AdParamService.html#method__construct">AdParamService::__construct()</a>
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
@@ -615,7 +586,55 @@
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/TrafficEstimatorService.html#method__construct">TrafficEstimatorService::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/BidLandscapeService.html#method__construct">BidLandscapeService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/BulkMutateJobService.html#method__construct">BulkMutateJobService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/CampaignAdExtensionService.html#method__construct">CampaignAdExtensionService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/CampaignCriterionService.html#method__construct">CampaignCriterionService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/CampaignService.html#method__construct">CampaignService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/CampaignTargetService.html#method__construct">CampaignTargetService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/CustomerSyncService.html#method__construct">CustomerSyncService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/ExperimentService.html#method__construct">ExperimentService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/GeoLocationService.html#method__construct">GeoLocationService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/InfoService.html#method__construct">InfoService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/MediaService.html#method__construct">MediaService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/ReportDefinitionService.html#method__construct">ReportDefinitionService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/ServicedAccountService.html#method__construct">ServicedAccountService::__construct()</a>
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
@@ -623,7 +642,15 @@
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201101/DataService.html#method__construct">DataService::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/TrafficEstimatorService.html#method__construct">TrafficEstimatorService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201008/UserListService.html#method__construct">UserListService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201101/BulkOpportunityService.html#method__construct">BulkOpportunityService::__construct()</a>
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
@@ -631,7 +658,7 @@
 								: Constructor using wsdl location and options array
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201101/BulkOpportunityService.html#method__construct">BulkOpportunityService::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201101/DataService.html#method__construct">DataService::__construct()</a>
 								: Constructor using wsdl location and options array
 							</li>
 				</ul>
@@ -640,7 +667,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">CreateSoapHeader</span> (line <span class="line-number">436</span>)
+		<span class="method-title">CreateSoapHeader</span> (line <span class="line-number">446</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -679,7 +706,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GenerateRequestInfoMessage</span> (line <span class="line-number">477</span>)
+		<span class="method-title">GenerateRequestInfoMessage</span> (line <span class="line-number">487</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -714,7 +741,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GenerateSoapHeader</span> (line <span class="line-number">423</span>)
+		<span class="method-title">GenerateSoapHeader</span> (line <span class="line-number">433</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -748,7 +775,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetAdsUser</span> (line <span class="line-number">260</span>)
+		<span class="method-title">GetAdsUser</span> (line <span class="line-number">268</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -773,7 +800,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetEmail</span> (line <span class="line-number">279</span>)
+		<span class="method-title">GetEmail</span> (line <span class="line-number">287</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -798,7 +825,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetHeaderNames</span> (line <span class="line-number">391</span>)
+		<span class="method-title">GetHeaderNames</span> (line <span class="line-number">401</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -823,7 +850,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetHeaderValue</span> (line <span class="line-number">401</span>)
+		<span class="method-title">GetHeaderValue</span> (line <span class="line-number">411</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -853,7 +880,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastFaultMessage</span> (line <span class="line-number">346</span>)
+		<span class="method-title">GetLastFaultMessage</span> (line <span class="line-number">354</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -878,7 +905,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastMethodName</span> (line <span class="line-number">295</span>)
+		<span class="method-title">GetLastMethodName</span> (line <span class="line-number">303</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -903,7 +930,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastRequestDom</span> (line <span class="line-number">497</span>)
+		<span class="method-title">GetLastRequestDom</span> (line <span class="line-number">507</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -929,7 +956,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastRequestId</span> (line <span class="line-number">320</span>)
+		<span class="method-title">GetLastRequestId</span> (line <span class="line-number">328</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -954,7 +981,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastResponseDom</span> (line <span class="line-number">484</span>)
+		<span class="method-title">GetLastResponseDom</span> (line <span class="line-number">494</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -980,7 +1007,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastResponseTime</span> (line <span class="line-number">303</span>)
+		<span class="method-title">GetLastResponseTime</span> (line <span class="line-number">311</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1005,7 +1032,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetServer</span> (line <span class="line-number">268</span>)
+		<span class="method-title">GetServer</span> (line <span class="line-number">276</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1030,7 +1057,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetServiceName</span> (line <span class="line-number">287</span>)
+		<span class="method-title">GetServiceName</span> (line <span class="line-number">295</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1055,7 +1082,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">IsFault</span> (line <span class="line-number">338</span>)
+		<span class="method-title">IsFault</span> (line <span class="line-number">346</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1080,7 +1107,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">PrepareRequest</span> (line <span class="line-number">360</span>)
+		<span class="method-title">PrepareRequest</span> (line <span class="line-number">369</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1095,7 +1122,7 @@
 		<span class="method-name">
 			PrepareRequest
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$request</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$arguments</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$request</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$arguments</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$headers</span>)
 			</div>
 	
 			<ul class="parameters">
@@ -1105,6 +1132,9 @@
 					<li>
 				<span class="var-type">array</span>
 				<span class="var-name">$arguments</span><span class="var-description">: the arguments passed to the SOAP method</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$headers</span><span class="var-description">: the headers used in the request</span>			</li>
 				</ul>
 		
 			
@@ -1113,7 +1143,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">RemoveSensitiveInfo</span> (line <span class="line-number">467</span>)
+		<span class="method-title">RemoveSensitiveInfo</span> (line <span class="line-number">477</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1152,7 +1182,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetHeaderValue</span> (line <span class="line-number">414</span>)
+		<span class="method-title">SetHeaderValue</span> (line <span class="line-number">424</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1184,7 +1214,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__doRequest</span> (line <span class="line-number">159</span>)
+		<span class="method-title">__doRequest</span> (line <span class="line-number">165</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1238,7 +1268,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__soapCall</span> (line <span class="line-number">177</span>)
+		<span class="method-title">__soapCall</span> (line <span class="line-number">184</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->

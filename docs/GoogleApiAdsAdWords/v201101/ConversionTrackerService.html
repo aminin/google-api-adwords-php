@@ -27,7 +27,7 @@
 				<li><span class="field">author:</span> WSDLInterpreter</li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_AdWords---v201101---cm---ConversionTrackerService.php.html">/AdWords/v201101/cm/ConversionTrackerService.php</a> (line <span class="field">3006</span>)
+			Located in <a class="field" href="_AdWords---v201101---ConversionTrackerService.php.html">/AdWords/v201101/ConversionTrackerService.php</a> (line <span class="field">3073</span>)
 		</p>
 		
 				
@@ -60,7 +60,11 @@
 					static <span class="var-type">array</span>
 					<a href="#$classmap" title="details" class="var-name">$classmap</a>
 				</div>
-																							</div>
+																<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$endpoint" title="details" class="var-name">$endpoint</a>
+				</div>
+																															</div>
 		</div>
 	</div>
 
@@ -110,18 +114,40 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$classmap" id="$classmap"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			static <span class="var-type">array</span>
 			<span class="var-name">$classmap</span>
-			 = <span class="var-default">array(<br />    &quot;getResponse&quot; =&gt; &quot;ConversionTrackerServiceGetResponse&quot;,<br />    &quot;get&quot; =&gt; &quot;ConversionTrackerServiceGet&quot;,<br />    &quot;mutate&quot; =&gt; &quot;ConversionTrackerServiceMutate&quot;,<br />    &quot;mutateResponse&quot; =&gt; &quot;ConversionTrackerServiceMutateResponse&quot;,<br />    &quot;DateTime&quot; =&gt; &quot;AdWordsDateTime&quot;,<br />    &quot;Target&quot; =&gt; &quot;AdWordsTarget&quot;,<br />    &quot;SoapHeader&quot; =&gt; &quot;SoapRequestHeader&quot;,<br />    &quot;AdWordsConversionTracker&quot; =&gt; &quot;AdWordsConversionTracker&quot;,<br />    &quot;ConversionTracker&quot; =&gt; &quot;ConversionTracker&quot;,<br />    &quot;AuthenticationError&quot; =&gt; &quot;AuthenticationError&quot;,<br />    &quot;ApiError&quot; =&gt; &quot;ApiError&quot;,<br />    &quot;AuthorizationError&quot; =&gt; &quot;AuthorizationError&quot;,<br />    &quot;ClientTermsError&quot; =&gt; &quot;ClientTermsError&quot;,<br />    &quot;ConversionTrackingError&quot; =&gt; &quot;ConversionTrackingError&quot;,<br />    &quot;DateError&quot; =&gt; &quot;DateError&quot;,<br />    &quot;DateRange&quot; =&gt; &quot;DateRange&quot;,<br />    &quot;DistinctError&quot; =&gt; &quot;DistinctError&quot;,<br />    &quot;DoubleValue&quot; =&gt; &quot;DoubleValue&quot;,<br />    &quot;NumberValue&quot; =&gt; &quot;NumberValue&quot;,<br />    &quot;InternalApiError&quot; =&gt; &quot;InternalApiError&quot;,<br />    &quot;LongValue&quot; =&gt; &quot;LongValue&quot;,<br />    &quot;Money&quot; =&gt; &quot;Money&quot;,<br />    &quot;ComparableValue&quot; =&gt; &quot;ComparableValue&quot;,<br />    &quot;NotEmptyError&quot; =&gt; &quot;NotEmptyError&quot;,<br />    &quot;NotWhitelistedError&quot; =&gt; &quot;NotWhitelistedError&quot;,<br />    &quot;OrderBy&quot; =&gt; &quot;OrderBy&quot;,<br />    &quot;Paging&quot; =&gt; &quot;Paging&quot;,<br />    &quot;Predicate&quot; =&gt; &quot;Predicate&quot;,<br />    &quot;QuotaCheckError&quot; =&gt; &quot;QuotaCheckError&quot;,<br />    &quot;RangeError&quot; =&gt; &quot;RangeError&quot;,<br />    &quot;RateExceededError&quot; =&gt; &quot;RateExceededError&quot;,<br />    &quot;ReadOnlyError&quot; =&gt; &quot;ReadOnlyError&quot;,<br />    &quot;RequestError&quot; =&gt; &quot;RequestError&quot;,<br />    &quot;RequiredError&quot; =&gt; &quot;RequiredError&quot;,<br />    &quot;SizeLimitError&quot; =&gt; &quot;SizeLimitError&quot;,<br />    &quot;SoapResponseHeader&quot; =&gt; &quot;SoapResponseHeader&quot;,<br />    &quot;ConversionTrackerStats&quot; =&gt; &quot;ConversionTrackerStats&quot;,<br />    &quot;ConversionTrackerOperation&quot; =&gt; &quot;ConversionTrackerOperation&quot;,<br />    &quot;Operation&quot; =&gt; &quot;Operation&quot;,<br />    &quot;ConversionTrackerReturnValue&quot; =&gt; &quot;ConversionTrackerReturnValue&quot;,<br />    &quot;ListReturnValue&quot; =&gt; &quot;ListReturnValue&quot;,<br />    &quot;DatabaseError&quot; =&gt; &quot;DatabaseError&quot;,<br />    &quot;Selector&quot; =&gt; &quot;Selector&quot;,<br />    &quot;ApiException&quot; =&gt; &quot;ApiException&quot;,<br />    &quot;ApplicationException&quot; =&gt; &quot;ApplicationException&quot;,<br />    &quot;ConversionTrackerPage&quot; =&gt; &quot;ConversionTrackerPage&quot;,<br />    &quot;NoStatsPage&quot; =&gt; &quot;NoStatsPage&quot;,<br />    &quot;Page&quot; =&gt; &quot;Page&quot;,<br />    &quot;AdWordsConversionTracker.HttpProtocol&quot; =&gt; &quot;AdWordsConversionTrackerHttpProtocol&quot;,<br />    &quot;AdWordsConversionTracker.MarkupLanguage&quot; =&gt; &quot;AdWordsConversionTrackerMarkupLanguage&quot;,<br />    &quot;AdWordsConversionTracker.TextFormat&quot; =&gt; &quot;AdWordsConversionTrackerTextFormat&quot;,<br />    &quot;AuthenticationError.Reason&quot; =&gt; &quot;AuthenticationErrorReason&quot;,<br />    &quot;AuthorizationError.Reason&quot; =&gt; &quot;AuthorizationErrorReason&quot;,<br />    &quot;ClientTermsError.Reason&quot; =&gt; &quot;ClientTermsErrorReason&quot;,<br />    &quot;ConversionTracker.Category&quot; =&gt; &quot;ConversionTrackerCategory&quot;,<br />    &quot;ConversionTracker.Status&quot; =&gt; &quot;ConversionTrackerStatus&quot;,<br />    &quot;ConversionTrackingError.Reason&quot; =&gt; &quot;ConversionTrackingErrorReason&quot;,<br />    &quot;DatabaseError.Reason&quot; =&gt; &quot;DatabaseErrorReason&quot;,<br />    &quot;DateError.Reason&quot; =&gt; &quot;DateErrorReason&quot;,<br />    &quot;DistinctError.Reason&quot; =&gt; &quot;DistinctErrorReason&quot;,<br />    &quot;InternalApiError.Reason&quot; =&gt; &quot;InternalApiErrorReason&quot;,<br />    &quot;NotEmptyError.Reason&quot; =&gt; &quot;NotEmptyErrorReason&quot;,<br />    &quot;NotWhitelistedError.Reason&quot; =&gt; &quot;NotWhitelistedErrorReason&quot;,<br />    &quot;Operator&quot; =&gt; &quot;Operator&quot;,<br />    &quot;Predicate.Operator&quot; =&gt; &quot;PredicateOperator&quot;,<br />    &quot;QuotaCheckError.Reason&quot; =&gt; &quot;QuotaCheckErrorReason&quot;,<br />    &quot;RangeError.Reason&quot; =&gt; &quot;RangeErrorReason&quot;,<br />    &quot;RateExceededError.Reason&quot; =&gt; &quot;RateExceededErrorReason&quot;,<br />    &quot;ReadOnlyError.Reason&quot; =&gt; &quot;ReadOnlyErrorReason&quot;,<br />    &quot;RequestError.Reason&quot; =&gt; &quot;RequestErrorReason&quot;,<br />    &quot;RequiredError.Reason&quot; =&gt; &quot;RequiredErrorReason&quot;,<br />    &quot;SizeLimitError.Reason&quot; =&gt; &quot;SizeLimitErrorReason&quot;,<br />    &quot;SortOrder&quot; =&gt; &quot;SortOrder&quot;,<br />  )</span>			(line <span class="line-number">3012</span>)
+			 = <span class="var-default">array(<br />    &quot;getResponse&quot; =&gt; &quot;ConversionTrackerServiceGetResponse&quot;,<br />    &quot;get&quot; =&gt; &quot;ConversionTrackerServiceGet&quot;,<br />    &quot;mutate&quot; =&gt; &quot;ConversionTrackerServiceMutate&quot;,<br />    &quot;mutateResponse&quot; =&gt; &quot;ConversionTrackerServiceMutateResponse&quot;,<br />    &quot;DateTime&quot; =&gt; &quot;AdWordsDateTime&quot;,<br />    &quot;Target&quot; =&gt; &quot;AdWordsTarget&quot;,<br />    &quot;SoapHeader&quot; =&gt; &quot;SoapRequestHeader&quot;,<br />    &quot;AdWordsConversionTracker&quot; =&gt; &quot;AdWordsConversionTracker&quot;,<br />    &quot;ConversionTracker&quot; =&gt; &quot;ConversionTracker&quot;,<br />    &quot;AuthenticationError&quot; =&gt; &quot;AuthenticationError&quot;,<br />    &quot;ApiError&quot; =&gt; &quot;ApiError&quot;,<br />    &quot;AuthorizationError&quot; =&gt; &quot;AuthorizationError&quot;,<br />    &quot;ClientTermsError&quot; =&gt; &quot;ClientTermsError&quot;,<br />    &quot;ConversionTrackingError&quot; =&gt; &quot;ConversionTrackingError&quot;,<br />    &quot;DateError&quot; =&gt; &quot;DateError&quot;,<br />    &quot;DateRange&quot; =&gt; &quot;DateRange&quot;,<br />    &quot;DistinctError&quot; =&gt; &quot;DistinctError&quot;,<br />    &quot;DoubleValue&quot; =&gt; &quot;DoubleValue&quot;,<br />    &quot;NumberValue&quot; =&gt; &quot;NumberValue&quot;,<br />    &quot;InternalApiError&quot; =&gt; &quot;InternalApiError&quot;,<br />    &quot;LongValue&quot; =&gt; &quot;LongValue&quot;,<br />    &quot;Money&quot; =&gt; &quot;Money&quot;,<br />    &quot;ComparableValue&quot; =&gt; &quot;ComparableValue&quot;,<br />    &quot;NotEmptyError&quot; =&gt; &quot;NotEmptyError&quot;,<br />    &quot;NotWhitelistedError&quot; =&gt; &quot;NotWhitelistedError&quot;,<br />    &quot;OperatorError&quot; =&gt; &quot;OperatorError&quot;,<br />    &quot;OrderBy&quot; =&gt; &quot;OrderBy&quot;,<br />    &quot;Paging&quot; =&gt; &quot;Paging&quot;,<br />    &quot;Predicate&quot; =&gt; &quot;Predicate&quot;,<br />    &quot;QuotaCheckError&quot; =&gt; &quot;QuotaCheckError&quot;,<br />    &quot;RangeError&quot; =&gt; &quot;RangeError&quot;,<br />    &quot;RateExceededError&quot; =&gt; &quot;RateExceededError&quot;,<br />    &quot;ReadOnlyError&quot; =&gt; &quot;ReadOnlyError&quot;,<br />    &quot;RequestError&quot; =&gt; &quot;RequestError&quot;,<br />    &quot;RequiredError&quot; =&gt; &quot;RequiredError&quot;,<br />    &quot;SizeLimitError&quot; =&gt; &quot;SizeLimitError&quot;,<br />    &quot;SoapResponseHeader&quot; =&gt; &quot;SoapResponseHeader&quot;,<br />    &quot;ConversionTrackerStats&quot; =&gt; &quot;ConversionTrackerStats&quot;,<br />    &quot;ConversionTrackerOperation&quot; =&gt; &quot;ConversionTrackerOperation&quot;,<br />    &quot;Operation&quot; =&gt; &quot;Operation&quot;,<br />    &quot;ConversionTrackerReturnValue&quot; =&gt; &quot;ConversionTrackerReturnValue&quot;,<br />    &quot;ListReturnValue&quot; =&gt; &quot;ListReturnValue&quot;,<br />    &quot;DatabaseError&quot; =&gt; &quot;DatabaseError&quot;,<br />    &quot;Selector&quot; =&gt; &quot;Selector&quot;,<br />    &quot;ApiException&quot; =&gt; &quot;ApiException&quot;,<br />    &quot;ApplicationException&quot; =&gt; &quot;ApplicationException&quot;,<br />    &quot;ConversionTrackerPage&quot; =&gt; &quot;ConversionTrackerPage&quot;,<br />    &quot;NoStatsPage&quot; =&gt; &quot;NoStatsPage&quot;,<br />    &quot;Page&quot; =&gt; &quot;Page&quot;,<br />    &quot;AdWordsConversionTracker.HttpProtocol&quot; =&gt; &quot;AdWordsConversionTrackerHttpProtocol&quot;,<br />    &quot;AdWordsConversionTracker.MarkupLanguage&quot; =&gt; &quot;AdWordsConversionTrackerMarkupLanguage&quot;,<br />    &quot;AdWordsConversionTracker.TextFormat&quot; =&gt; &quot;AdWordsConversionTrackerTextFormat&quot;,<br />    &quot;AuthenticationError.Reason&quot; =&gt; &quot;AuthenticationErrorReason&quot;,<br />    &quot;AuthorizationError.Reason&quot; =&gt; &quot;AuthorizationErrorReason&quot;,<br />    &quot;ClientTermsError.Reason&quot; =&gt; &quot;ClientTermsErrorReason&quot;,<br />    &quot;ConversionTracker.Category&quot; =&gt; &quot;ConversionTrackerCategory&quot;,<br />    &quot;ConversionTracker.Status&quot; =&gt; &quot;ConversionTrackerStatus&quot;,<br />    &quot;ConversionTrackingError.Reason&quot; =&gt; &quot;ConversionTrackingErrorReason&quot;,<br />    &quot;DatabaseError.Reason&quot; =&gt; &quot;DatabaseErrorReason&quot;,<br />    &quot;DateError.Reason&quot; =&gt; &quot;DateErrorReason&quot;,<br />    &quot;DistinctError.Reason&quot; =&gt; &quot;DistinctErrorReason&quot;,<br />    &quot;InternalApiError.Reason&quot; =&gt; &quot;InternalApiErrorReason&quot;,<br />    &quot;NotEmptyError.Reason&quot; =&gt; &quot;NotEmptyErrorReason&quot;,<br />    &quot;NotWhitelistedError.Reason&quot; =&gt; &quot;NotWhitelistedErrorReason&quot;,<br />    &quot;Operator&quot; =&gt; &quot;Operator&quot;,<br />    &quot;OperatorError.Reason&quot; =&gt; &quot;OperatorErrorReason&quot;,<br />    &quot;Predicate.Operator&quot; =&gt; &quot;PredicateOperator&quot;,<br />    &quot;QuotaCheckError.Reason&quot; =&gt; &quot;QuotaCheckErrorReason&quot;,<br />    &quot;RangeError.Reason&quot; =&gt; &quot;RangeErrorReason&quot;,<br />    &quot;RateExceededError.Reason&quot; =&gt; &quot;RateExceededErrorReason&quot;,<br />    &quot;ReadOnlyError.Reason&quot; =&gt; &quot;ReadOnlyErrorReason&quot;,<br />    &quot;RequestError.Reason&quot; =&gt; &quot;RequestErrorReason&quot;,<br />    &quot;RequiredError.Reason&quot; =&gt; &quot;RequiredErrorReason&quot;,<br />    &quot;SizeLimitError.Reason&quot; =&gt; &quot;SizeLimitErrorReason&quot;,<br />    &quot;SortOrder&quot; =&gt; &quot;SortOrder&quot;,<br />  )</span>			(line <span class="line-number">3079</span>)
 		</span>
 	</div>
 
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Default class map for wsdl=&gt;php</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$endpoint" id="$endpoint"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$endpoint</span>
+			 = <span class="var-default"> &quot;https://adwords.google.com/api/adwords/cm/v201101/ConversionTrackerService&quot;</span>			(line <span class="line-number">3161</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The endpoint of the service</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -140,6 +166,9 @@
 							</span>
 													<span class="var-title">
 								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastHeaders">AdsSoapClient::$lastHeaders</a></span><br>
 							</span>
 													<span class="var-title">
 								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a></span><br>
@@ -183,7 +212,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">3093</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">3168</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -224,7 +253,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">get</span> (line <span class="line-number">3113</span>)
+		<span class="method-title">get</span> (line <span class="line-number">3188</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -256,7 +285,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">mutate</span> (line <span class="line-number">3137</span>)
+		<span class="method-title">mutate</span> (line <span class="line-number">3212</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->

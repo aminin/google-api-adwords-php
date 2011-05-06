@@ -27,7 +27,7 @@
 				<li><span class="field">author:</span> WSDLInterpreter</li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_AdWords---v201008---cm---MediaService.php.html">/AdWords/v201008/cm/MediaService.php</a> (line <span class="field">2646</span>)
+			Located in <a class="field" href="_AdWords---v201008---MediaService.php.html">/AdWords/v201008/MediaService.php</a> (line <span class="field">2646</span>)
 		</p>
 		
 				
@@ -60,7 +60,11 @@
 					static <span class="var-type">array</span>
 					<a href="#$classmap" title="details" class="var-name">$classmap</a>
 				</div>
-																							</div>
+																<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$endpoint" title="details" class="var-name">$endpoint</a>
+				</div>
+																															</div>
 		</div>
 	</div>
 
@@ -110,18 +114,40 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$classmap" id="$classmap"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			static <span class="var-type">array</span>
 			<span class="var-name">$classmap</span>
-			 = <span class="var-default">array(<br />    &quot;getResponse&quot; =&gt; &quot;MediaServiceGetResponse&quot;,<br />    &quot;get&quot; =&gt; &quot;MediaServiceGet&quot;,<br />    &quot;mutate&quot; =&gt; &quot;MediaServiceMutate&quot;,<br />    &quot;mutateResponse&quot; =&gt; &quot;MediaServiceMutateResponse&quot;,<br />    &quot;DateTime&quot; =&gt; &quot;AdWordsDateTime&quot;,<br />    &quot;Target&quot; =&gt; &quot;AdWordsTarget&quot;,<br />    &quot;SoapHeader&quot; =&gt; &quot;SoapRequestHeader&quot;,<br />    &quot;Audio&quot; =&gt; &quot;Audio&quot;,<br />    &quot;Media&quot; =&gt; &quot;Media&quot;,<br />    &quot;AudioError&quot; =&gt; &quot;AudioError&quot;,<br />    &quot;ApiError&quot; =&gt; &quot;ApiError&quot;,<br />    &quot;AuthenticationError&quot; =&gt; &quot;AuthenticationError&quot;,<br />    &quot;AuthorizationError&quot; =&gt; &quot;AuthorizationError&quot;,<br />    &quot;ClientTermsError&quot; =&gt; &quot;ClientTermsError&quot;,<br />    &quot;Dimensions&quot; =&gt; &quot;Dimensions&quot;,<br />    &quot;EntityNotFound&quot; =&gt; &quot;EntityNotFound&quot;,<br />    &quot;Image&quot; =&gt; &quot;Image&quot;,<br />    &quot;ImageError&quot; =&gt; &quot;ImageError&quot;,<br />    &quot;InternalApiError&quot; =&gt; &quot;InternalApiError&quot;,<br />    &quot;MediaError&quot; =&gt; &quot;MediaError&quot;,<br />    &quot;Media_Size_DimensionsMapEntry&quot; =&gt; &quot;Media_Size_DimensionsMapEntry&quot;,<br />    &quot;Media_Size_StringMapEntry&quot; =&gt; &quot;Media_Size_StringMapEntry&quot;,<br />    &quot;NewEntityCreationError&quot; =&gt; &quot;NewEntityCreationError&quot;,<br />    &quot;NotWhitelistedError&quot; =&gt; &quot;NotWhitelistedError&quot;,<br />    &quot;NullError&quot; =&gt; &quot;NullError&quot;,<br />    &quot;OperationAccessDenied&quot; =&gt; &quot;OperationAccessDenied&quot;,<br />    &quot;QuotaCheckError&quot; =&gt; &quot;QuotaCheckError&quot;,<br />    &quot;RangeError&quot; =&gt; &quot;RangeError&quot;,<br />    &quot;RateExceededError&quot; =&gt; &quot;RateExceededError&quot;,<br />    &quot;ReadOnlyError&quot; =&gt; &quot;ReadOnlyError&quot;,<br />    &quot;RequestError&quot; =&gt; &quot;RequestError&quot;,<br />    &quot;RequiredError&quot; =&gt; &quot;RequiredError&quot;,<br />    &quot;SizeLimitError&quot; =&gt; &quot;SizeLimitError&quot;,<br />    &quot;SoapResponseHeader&quot; =&gt; &quot;SoapResponseHeader&quot;,<br />    &quot;Video&quot; =&gt; &quot;Video&quot;,<br />    &quot;VideoError&quot; =&gt; &quot;VideoError&quot;,<br />    &quot;DatabaseError&quot; =&gt; &quot;DatabaseError&quot;,<br />    &quot;MediaPage&quot; =&gt; &quot;MediaPage&quot;,<br />    &quot;MediaSelector&quot; =&gt; &quot;MediaSelector&quot;,<br />    &quot;ApiException&quot; =&gt; &quot;ApiException&quot;,<br />    &quot;ApplicationException&quot; =&gt; &quot;ApplicationException&quot;,<br />    &quot;AudioError.Reason&quot; =&gt; &quot;AudioErrorReason&quot;,<br />    &quot;AuthenticationError.Reason&quot; =&gt; &quot;AuthenticationErrorReason&quot;,<br />    &quot;AuthorizationError.Reason&quot; =&gt; &quot;AuthorizationErrorReason&quot;,<br />    &quot;ClientTermsError.Reason&quot; =&gt; &quot;ClientTermsErrorReason&quot;,<br />    &quot;DatabaseError.Reason&quot; =&gt; &quot;DatabaseErrorReason&quot;,<br />    &quot;EntityNotFound.Reason&quot; =&gt; &quot;EntityNotFoundReason&quot;,<br />    &quot;ImageError.Reason&quot; =&gt; &quot;ImageErrorReason&quot;,<br />    &quot;InternalApiError.Reason&quot; =&gt; &quot;InternalApiErrorReason&quot;,<br />    &quot;Media.MediaExtendedCapabilityState&quot; =&gt; &quot;MediaMediaExtendedCapabilityState&quot;,<br />    &quot;Media.MediaType&quot; =&gt; &quot;MediaMediaType&quot;,<br />    &quot;Media.MimeType&quot; =&gt; &quot;MediaMimeType&quot;,<br />    &quot;Media.Size&quot; =&gt; &quot;MediaSize&quot;,<br />    &quot;MediaError.Reason&quot; =&gt; &quot;MediaErrorReason&quot;,<br />    &quot;NewEntityCreationError.Reason&quot; =&gt; &quot;NewEntityCreationErrorReason&quot;,<br />    &quot;NotWhitelistedError.Reason&quot; =&gt; &quot;NotWhitelistedErrorReason&quot;,<br />    &quot;NullError.Reason&quot; =&gt; &quot;NullErrorReason&quot;,<br />    &quot;OperationAccessDenied.Reason&quot; =&gt; &quot;OperationAccessDeniedReason&quot;,<br />    &quot;QuotaCheckError.Reason&quot; =&gt; &quot;QuotaCheckErrorReason&quot;,<br />    &quot;RangeError.Reason&quot; =&gt; &quot;RangeErrorReason&quot;,<br />    &quot;RateExceededError.Reason&quot; =&gt; &quot;RateExceededErrorReason&quot;,<br />    &quot;ReadOnlyError.Reason&quot; =&gt; &quot;ReadOnlyErrorReason&quot;,<br />    &quot;RequestError.Reason&quot; =&gt; &quot;RequestErrorReason&quot;,<br />    &quot;RequiredError.Reason&quot; =&gt; &quot;RequiredErrorReason&quot;,<br />    &quot;SizeLimitError.Reason&quot; =&gt; &quot;SizeLimitErrorReason&quot;,<br />    &quot;VideoError.Reason&quot; =&gt; &quot;VideoErrorReason&quot;,<br />    &quot;upload&quot; =&gt; &quot;upload&quot;,<br />    &quot;uploadResponse&quot; =&gt; &quot;uploadResponse&quot;,<br />  )</span>			(line <span class="line-number">2652</span>)
+			 = <span class="var-default">array(<br />    &quot;getResponse&quot; =&gt; &quot;MediaServiceGetResponse&quot;,<br />    &quot;get&quot; =&gt; &quot;MediaServiceGet&quot;,<br />    &quot;mutate&quot; =&gt; &quot;MediaServiceMutate&quot;,<br />    &quot;mutateResponse&quot; =&gt; &quot;MediaServiceMutateResponse&quot;,<br />    &quot;DateTime&quot; =&gt; &quot;AdWordsDateTime&quot;,<br />    &quot;Target&quot; =&gt; &quot;AdWordsTarget&quot;,<br />    &quot;SoapHeader&quot; =&gt; &quot;SoapRequestHeader&quot;,<br />    &quot;Audio&quot; =&gt; &quot;Audio&quot;,<br />    &quot;Media&quot; =&gt; &quot;Media&quot;,<br />    &quot;AudioError&quot; =&gt; &quot;AudioError&quot;,<br />    &quot;ApiError&quot; =&gt; &quot;ApiError&quot;,<br />    &quot;AuthenticationError&quot; =&gt; &quot;AuthenticationError&quot;,<br />    &quot;AuthorizationError&quot; =&gt; &quot;AuthorizationError&quot;,<br />    &quot;ClientTermsError&quot; =&gt; &quot;ClientTermsError&quot;,<br />    &quot;Dimensions&quot; =&gt; &quot;Dimensions&quot;,<br />    &quot;EntityNotFound&quot; =&gt; &quot;EntityNotFound&quot;,<br />    &quot;Image&quot; =&gt; &quot;Image&quot;,<br />    &quot;ImageError&quot; =&gt; &quot;ImageError&quot;,<br />    &quot;InternalApiError&quot; =&gt; &quot;InternalApiError&quot;,<br />    &quot;MediaError&quot; =&gt; &quot;MediaError&quot;,<br />    &quot;Media_Size_DimensionsMapEntry&quot; =&gt; &quot;Media_Size_DimensionsMapEntry&quot;,<br />    &quot;Media_Size_StringMapEntry&quot; =&gt; &quot;Media_Size_StringMapEntry&quot;,<br />    &quot;NewEntityCreationError&quot; =&gt; &quot;NewEntityCreationError&quot;,<br />    &quot;NotWhitelistedError&quot; =&gt; &quot;NotWhitelistedError&quot;,<br />    &quot;NullError&quot; =&gt; &quot;NullError&quot;,<br />    &quot;OperationAccessDenied&quot; =&gt; &quot;OperationAccessDenied&quot;,<br />    &quot;QuotaCheckError&quot; =&gt; &quot;QuotaCheckError&quot;,<br />    &quot;RangeError&quot; =&gt; &quot;RangeError&quot;,<br />    &quot;RateExceededError&quot; =&gt; &quot;RateExceededError&quot;,<br />    &quot;ReadOnlyError&quot; =&gt; &quot;ReadOnlyError&quot;,<br />    &quot;RequestError&quot; =&gt; &quot;RequestError&quot;,<br />    &quot;RequiredError&quot; =&gt; &quot;RequiredError&quot;,<br />    &quot;SizeLimitError&quot; =&gt; &quot;SizeLimitError&quot;,<br />    &quot;SoapResponseHeader&quot; =&gt; &quot;SoapResponseHeader&quot;,<br />    &quot;Video&quot; =&gt; &quot;Video&quot;,<br />    &quot;VideoError&quot; =&gt; &quot;VideoError&quot;,<br />    &quot;DatabaseError&quot; =&gt; &quot;DatabaseError&quot;,<br />    &quot;MediaSelector&quot; =&gt; &quot;MediaSelector&quot;,<br />    &quot;ApiException&quot; =&gt; &quot;ApiException&quot;,<br />    &quot;ApplicationException&quot; =&gt; &quot;ApplicationException&quot;,<br />    &quot;MediaPage&quot; =&gt; &quot;MediaPage&quot;,<br />    &quot;AudioError.Reason&quot; =&gt; &quot;AudioErrorReason&quot;,<br />    &quot;AuthenticationError.Reason&quot; =&gt; &quot;AuthenticationErrorReason&quot;,<br />    &quot;AuthorizationError.Reason&quot; =&gt; &quot;AuthorizationErrorReason&quot;,<br />    &quot;ClientTermsError.Reason&quot; =&gt; &quot;ClientTermsErrorReason&quot;,<br />    &quot;DatabaseError.Reason&quot; =&gt; &quot;DatabaseErrorReason&quot;,<br />    &quot;EntityNotFound.Reason&quot; =&gt; &quot;EntityNotFoundReason&quot;,<br />    &quot;ImageError.Reason&quot; =&gt; &quot;ImageErrorReason&quot;,<br />    &quot;InternalApiError.Reason&quot; =&gt; &quot;InternalApiErrorReason&quot;,<br />    &quot;Media.MediaExtendedCapabilityState&quot; =&gt; &quot;MediaMediaExtendedCapabilityState&quot;,<br />    &quot;Media.MediaType&quot; =&gt; &quot;MediaMediaType&quot;,<br />    &quot;Media.MimeType&quot; =&gt; &quot;MediaMimeType&quot;,<br />    &quot;Media.Size&quot; =&gt; &quot;MediaSize&quot;,<br />    &quot;MediaError.Reason&quot; =&gt; &quot;MediaErrorReason&quot;,<br />    &quot;NewEntityCreationError.Reason&quot; =&gt; &quot;NewEntityCreationErrorReason&quot;,<br />    &quot;NotWhitelistedError.Reason&quot; =&gt; &quot;NotWhitelistedErrorReason&quot;,<br />    &quot;NullError.Reason&quot; =&gt; &quot;NullErrorReason&quot;,<br />    &quot;OperationAccessDenied.Reason&quot; =&gt; &quot;OperationAccessDeniedReason&quot;,<br />    &quot;QuotaCheckError.Reason&quot; =&gt; &quot;QuotaCheckErrorReason&quot;,<br />    &quot;RangeError.Reason&quot; =&gt; &quot;RangeErrorReason&quot;,<br />    &quot;RateExceededError.Reason&quot; =&gt; &quot;RateExceededErrorReason&quot;,<br />    &quot;ReadOnlyError.Reason&quot; =&gt; &quot;ReadOnlyErrorReason&quot;,<br />    &quot;RequestError.Reason&quot; =&gt; &quot;RequestErrorReason&quot;,<br />    &quot;RequiredError.Reason&quot; =&gt; &quot;RequiredErrorReason&quot;,<br />    &quot;SizeLimitError.Reason&quot; =&gt; &quot;SizeLimitErrorReason&quot;,<br />    &quot;VideoError.Reason&quot; =&gt; &quot;VideoErrorReason&quot;,<br />    &quot;upload&quot; =&gt; &quot;upload&quot;,<br />    &quot;uploadResponse&quot; =&gt; &quot;uploadResponse&quot;,<br />  )</span>			(line <span class="line-number">2652</span>)
 		</span>
 	</div>
 
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Default class map for wsdl=&gt;php</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$endpoint" id="$endpoint"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$endpoint</span>
+			 = <span class="var-default"> &quot;https://adwords.google.com/api/adwords/cm/v201008/MediaService&quot;</span>			(line <span class="line-number">2727</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The endpoint of the service</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -140,6 +166,9 @@
 							</span>
 													<span class="var-title">
 								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastHeaders">AdsSoapClient::$lastHeaders</a></span><br>
 							</span>
 													<span class="var-title">
 								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a></span><br>
@@ -183,7 +212,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">2728</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">2734</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -224,7 +253,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">get</span> (line <span class="line-number">2741</span>)
+		<span class="method-title">get</span> (line <span class="line-number">2747</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -255,7 +284,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">upload</span> (line <span class="line-number">2755</span>)
+		<span class="method-title">upload</span> (line <span class="line-number">2761</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->

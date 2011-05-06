@@ -55,20 +55,6 @@
 						<span class="method-title">__construct</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/ValidationException.html#method__construct">ValidationException::__construct()</a> in ValidationException.php</div>
-							<div class="index-item-description">Constructor for ValidationException where the exception will appear  as &quot;Validation failed for [$trigger] with value [$value]: $message&quot;.</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">__construct</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/ReportDownloadException.html#method__construct">ReportDownloadException::__construct()</a> in ReportDownloadException.php</div>
-							<div class="index-item-description">Constructor for ReportDownloadException.</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">__construct</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsUser.html#method__construct">AdsUser::__construct()</a> in AdsUser.php</div>
 							<div class="index-item-description">Constructor for AdsUser.</div>
 					</dd>
@@ -78,6 +64,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__construct">AdsSoapClient::__construct()</a> in AdsSoapClient.php</div>
 							<div class="index-item-description">The constructor intended to be called by all sub-classes.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">__construct</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/ValidationException.html#method__construct">ValidationException::__construct()</a> in ValidationException.php</div>
+							<div class="index-item-description">Constructor for ValidationException where the exception will appear  as &quot;Validation failed for [$trigger] with value [$value]: $message&quot;.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">__doRequest</span>
@@ -207,6 +200,20 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/_Common---Util---CurlUtils.php.html">CurlUtils.php</a> in CurlUtils.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">ConvertDocumentToObject</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodConvertDocumentToObject">XmlUtils::ConvertDocumentToObject()</a> in XmlUtils.php</div>
+							<div class="index-item-description">Converts a DOMDocument to a stdClass object, where each element under  the root node is a field. Atribute values are ignored.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">ConvertElementToObject</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodConvertElementToObject">XmlUtils::ConvertElementToObject()</a> in XmlUtils.php</div>
+							<div class="index-item-description">Converts a DOMElement to a stdClass object, where each child element is  a field. Attribute values are ignored.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">CreateSession</span>
@@ -754,6 +761,13 @@
 							<div class="index-item-description">The last arguments passed to the called SOAP method</div>
 					</dd>
 			<dt class="field">
+						<span class="var-title">$lastHeaders</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastHeaders">AdsSoapClient::$lastHeaders</a> in AdsSoapClient.php</div>
+							<div class="index-item-description">The last headers used in the request.</div>
+					</dd>
+			<dt class="field">
 						<span class="var-title">$lastMethodName</span>
 					</dt>
 		<dd class="index-item-body">
@@ -928,24 +942,11 @@
 	</div>
 	<dl>
 			<dt class="field">
-						<span class="include-title">ReportDownloadException.php</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/_AdWords---Util---ReportDownloadException.php.html">ReportDownloadException.php</a> in ReportDownloadException.php</div>
-					</dd>
-			<dt class="field">
 						<span class="method-title">RemoveSensitiveInfo</span>
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a> in AdsSoapClient.php</div>
 							<div class="index-item-description">Removes any sensitive information from the request XML. This method is  called after the request has been made and before logging any XML.</div>
-					</dd>
-			<dt class="field">
-						ReportDownloadException
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/ReportDownloadException.html">ReportDownloadException</a> in ReportDownloadException.php</div>
-							<div class="index-item-description">Exception class for an error that occurs while downloading a report.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">RequestOAuthToken</span>

@@ -26,7 +26,7 @@
 <p class="short-description">Base class for AdExtension objects. An AdExtension is an extension to  an existing ad or metadata that will process into an extension.</p>
 <p class="description"><p>The class is concrete, so ad extensions can be added/removed to campaigns  by referring to the id.</p></p>
 		<p class="notes">
-			Located in <a class="field" href="_AdWords---v201008---cm---BulkMutateJobService.php.html">/AdWords/v201008/cm/BulkMutateJobService.php</a> (line <span class="field">153</span>)
+			Located in <a class="field" href="_AdWords---v201008---AdExtensionOverrideService.php.html">/AdWords/v201008/AdExtensionOverrideService.php</a> (line <span class="field">1075</span>)
 		</p>
 		
 				
@@ -58,16 +58,16 @@
 										</td>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201008/LocationSyncExtension.html">LocationSyncExtension</a></td>
-					<td>
-											Local business center(LBC) sync extension that ties a LBC account with a campaign.
-										</td>
-				</tr>
-								<tr>
 					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201008/MobileExtension.html">MobileExtension</a></td>
 					<td>
 											&lt;p&gt;
  Represents a phone extension. This type of ad extension attaches a phone number  to a text ad, which lets customers call the advertiser directly from the ad.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201008/SitelinksExtension.html">SitelinksExtension</a></td>
+					<td>
+											Class to represent a set of sitelinks and their order of preference.
 										</td>
 				</tr>
 								<tr>
@@ -77,9 +77,9 @@
 										</td>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201008/SitelinksExtension.html">SitelinksExtension</a></td>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201008/LocationSyncExtension.html">LocationSyncExtension</a></td>
 					<td>
-											Class to represent a set of sitelinks and their order of preference.
+											Local business center(LBC) sync extension that ties a LBC account with a campaign.
 										</td>
 				</tr>
 							</table>
@@ -181,7 +181,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$AdExtensionType</span>
-						(line <span class="line-number">164</span>)
+						(line <span class="line-number">1086</span>)
 		</span>
 	</div>
 
@@ -202,7 +202,7 @@
 		<span class="var-title">
 			<span class="var-type">integer</span>
 			<span class="var-name">$id</span>
-						(line <span class="line-number">158</span>)
+						(line <span class="line-number">1080</span>)
 		</span>
 	</div>
 
@@ -237,7 +237,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">214</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">1136</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -270,16 +270,16 @@
 				<a href="../../GoogleApiAdsAdWords/v201008/LocationExtension.html#method__construct">LocationExtension::__construct()</a>
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/LocationSyncExtension.html#method__construct">LocationSyncExtension::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/MobileExtension.html#method__construct">MobileExtension::__construct()</a>
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/MobileExtension.html#method__construct">MobileExtension::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/SitelinksExtension.html#method__construct">SitelinksExtension::__construct()</a>
 							</li>
 					<li>
 				<a href="../../GoogleApiAdsAdWords/v201008/ProductExtension.html#method__construct">ProductExtension::__construct()</a>
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/SitelinksExtension.html#method__construct">SitelinksExtension::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/LocationSyncExtension.html#method__construct">LocationSyncExtension::__construct()</a>
 							</li>
 				</ul>
 	</div>
@@ -287,7 +287,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getNamespace</span> (line <span class="line-number">202</span>)
+		<span class="method-title">getNamespace</span> (line <span class="line-number">1124</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -315,11 +315,11 @@
 								: Gets the namesapce of this class
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/LocationSyncExtension.html#methodgetNamespace">LocationSyncExtension::getNamespace()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/MobileExtension.html#methodgetNamespace">MobileExtension::getNamespace()</a>
 								: Gets the namesapce of this class
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/MobileExtension.html#methodgetNamespace">MobileExtension::getNamespace()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/SitelinksExtension.html#methodgetNamespace">SitelinksExtension::getNamespace()</a>
 								: Gets the namesapce of this class
 							</li>
 					<li>
@@ -327,7 +327,7 @@
 								: Gets the namesapce of this class
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/SitelinksExtension.html#methodgetNamespace">SitelinksExtension::getNamespace()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/LocationSyncExtension.html#methodgetNamespace">LocationSyncExtension::getNamespace()</a>
 								: Gets the namesapce of this class
 							</li>
 				</ul>
@@ -336,7 +336,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getParameterMap</span> (line <span class="line-number">194</span>)
+		<span class="method-title">getParameterMap</span> (line <span class="line-number">1116</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -361,7 +361,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">210</span>)
+		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">1132</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -389,11 +389,11 @@
 								: Gets the xsi:type name of this class
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/LocationSyncExtension.html#methodgetXsiTypeName">LocationSyncExtension::getXsiTypeName()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/MobileExtension.html#methodgetXsiTypeName">MobileExtension::getXsiTypeName()</a>
 								: Gets the xsi:type name of this class
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/MobileExtension.html#methodgetXsiTypeName">MobileExtension::getXsiTypeName()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/SitelinksExtension.html#methodgetXsiTypeName">SitelinksExtension::getXsiTypeName()</a>
 								: Gets the xsi:type name of this class
 							</li>
 					<li>
@@ -401,7 +401,7 @@
 								: Gets the xsi:type name of this class
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201008/SitelinksExtension.html#methodgetXsiTypeName">SitelinksExtension::getXsiTypeName()</a>
+				<a href="../../GoogleApiAdsAdWords/v201008/LocationSyncExtension.html#methodgetXsiTypeName">LocationSyncExtension::getXsiTypeName()</a>
 								: Gets the xsi:type name of this class
 							</li>
 				</ul>
@@ -410,7 +410,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__get</span> (line <span class="line-number">182</span>)
+		<span class="method-title">__get</span> (line <span class="line-number">1104</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -440,7 +440,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__set</span> (line <span class="line-number">175</span>)
+		<span class="method-title">__set</span> (line <span class="line-number">1097</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
