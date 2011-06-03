@@ -1,3 +1,8 @@
+2.6.2:
+- Made v201101 the default version.
+- Small documentation fixes.
+- Fixed issue with small reports being interpretted incorrectly. [Issue #58]
+
 2.6.1:
 - Fixed build script to include build.properties for source distributions.
 
