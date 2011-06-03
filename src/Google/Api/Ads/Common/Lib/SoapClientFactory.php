@@ -75,8 +75,6 @@ abstract class SoapClientFactory {
    * error if this instalation of PHP does not have the extension for SOAP
    * installed.
    * @param string $serviceName the name of the service to generate a client for
-   * @param string $serviceGroup the name of the service group. Can be
-   *     <var>NULL</var> if the product has not implemented service groups yet
    * @return AdsSoapClient an instantiated SOAP client
    */
   public function GenerateSoapClient($serviceName) {
@@ -168,8 +166,6 @@ abstract class SoapClientFactory {
   /**
    * Gets the end-point location of the service.
    * @param string $serviceName the service to instantiate
-   * @param string $serviceGroup the service group to use. Can be
-   *     <var>NULL</var> if the product has not implemented service groups yet
    * @return string the end-point location of the service.
    * @access protected
    */
