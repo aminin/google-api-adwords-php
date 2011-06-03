@@ -92,7 +92,7 @@ class ReportUtils {
     $url = ReportUtils::GetUrl($user, $params, $options);
     $result =
         ReportUtils::DownloadReportFromUrl($url, $user, $path, $extraHeaders);
-    if (isset($result->details)) {
+    if (isset($result->details->queryToken)) {
       throw new ReportDownloadException(
           'Asyncronous report found, use RunAsyncReport() instead.',
           $result->code);
@@ -122,7 +122,7 @@ class ReportUtils {
     $url = ReportUtils::GetUrl($user, $params, $options);
     $result =
         ReportUtils::DownloadReportFromUrl($url, $user, NULL, $extraHeaders);
-    if (!$result->details) {
+    if (!$result->details->queryToken) {
         throw new ReportDownloadException(
             'Syncronous report found, use DownloadReport() instead.',
             $result->code);
