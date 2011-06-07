@@ -30,7 +30,6 @@
 
 /** Required classes. **/
 require_once dirname(__FILE__) . '/../../Common/Lib/AdsSoapClient.php';
-require_once dirname(__FILE__) . '/../../Common/Util/OAuthUtils.php';
 
 /**
  * An extension of the {@link AdsSoapClient} for the AdWords API.
@@ -69,8 +68,10 @@ class AdWordsSoapClient extends AdsSoapClient {
     $oAuthInfo = $this->user->GetOAuthInfo();
     if ($oAuthInfo != NULL) {
       $oauthParameters =
-          OAuthUtils::GetSignedRequestParameters($oAuthInfo, $location);
-      $location .= '?' . OAuthUtils::FormatParametersForUrl($oauthParameters);
+          $this->user->GetOAuthHandler()->GetSignedRequestParameters(
+              $oAuthInfo, $location);
+      $location .= '?' . $this->user->GetOAuthHandler()->FormatParametersForUrl(
+          $oauthParameters);
     }
     return parent::__doRequest($request, $location, $action, $version);
   }

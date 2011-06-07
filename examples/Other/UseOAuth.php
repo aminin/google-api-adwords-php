@@ -80,8 +80,9 @@ try {
   print_r($oauthInfo);
 
   // Get all campaigns.
-  $campaignService = $user->GetCampaignService();
-  $selector = new CampaignSelector();
+  $campaignService = $user->GetCampaignService('v201101');
+  $selector = new Selector();
+  $selector->fields = array('Id', 'Name');
   $page = $campaignService->get($selector);
 
   // Display number of campaigns.

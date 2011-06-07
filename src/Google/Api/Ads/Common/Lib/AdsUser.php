@@ -30,7 +30,8 @@
 
 /** Required classes. **/
 require_once dirname(__FILE__) . '/../Util/Logger.php';
-require_once dirname(__FILE__) . '/../Util/OAuthUtils.php';
+require_once dirname(__FILE__) . '/../Util/PeclOAuthHandler.php';
+require_once dirname(__FILE__) . '/../Util/AndySmithOAuthHandler.php';
 require_once 'SoapClientFactory.php';
 require_once 'ValidationException.php';
 
@@ -49,6 +50,7 @@ abstract class AdsUser {
   private $wsdlCache;
   private $authServer;
   private $oauthInfo;
+  private $oauthHandler;
 
   /**
    * Constructor for AdsUser.
@@ -239,6 +241,17 @@ abstract class AdsUser {
         if (array_key_exists('AUTH_SERVER', $settingsIni['AUTH'])) {
           $this->authServer = $settingsIni['AUTH']['AUTH_SERVER'];
         }
+        if (array_key_exists('OAUTH_HANDLER_CLASS', $settingsIni['AUTH'])) {
+          $this->oauthHandler =
+              new $settingsIni['AUTH']['OAUTH_HANDLER_CLASS']();
+        } else {
+          $extensions = get_loaded_extensions();
+          if (in_array('OAuth', $extensions)) {
+            $this->oauthHandler = new PeclOAuthHandler();
+          } else {
+            $this->oauthHandler = new AndySmithOAuthHandler();
+          }
+        }
       }
 
       // SSL settings.
@@ -358,6 +371,22 @@ abstract class AdsUser {
   }
 
   /**
+   * Gets the OAuth handler for this user.
+   * @return OAuthHandler the OAuth handler for this user
+   */
+  public function GetOAuthHandler() {
+    return $this->oauthHandler;
+  }
+
+  /**
+   * Sets the OAuth handler for this user.
+   * @param array $oauthHandler the OAuth handler for this user
+   */
+  public function SetOAuthHandler($oauthHandler) {
+    $this->oauthHandler = $oauthHandler;
+  }
+
+  /**
    * Gets the client library identifier used for user-agent fields.
    * @return string a unique client library identifier
    */
@@ -371,8 +400,8 @@ abstract class AdsUser {
   public function RequestOAuthToken($callbackUrl = NULL, $server = NULL) {
     $server = isset($server) ? $server : $this->GetDefaultServer();
     $scope = $this->GetOAuthScope($server);
-    $this->oauthInfo = OAuthUtils::GetRequestToken($this->oauthInfo, $scope,
-        $this->GetAuthServer(), $callbackUrl);
+    $this->oauthInfo = $this->GetOAuthHandler()->GetRequestToken(
+        $this->oauthInfo, $scope, $this->GetAuthServer(), $callbackUrl);
   }
 
   /**
@@ -380,7 +409,7 @@ abstract class AdsUser {
    * @returns string the URL used to authorize the token
    */
   public function GetOAuthAuthorizationUrl() {
-    return OAuthUtils::GetAuthorizationUrl($this->oauthInfo,
+    return $this->GetOAuthHandler()->GetAuthorizationUrl($this->oauthInfo,
         $this->GetAuthServer());
   }
 
@@ -390,8 +419,8 @@ abstract class AdsUser {
    *     token
    */
   public function UpgradeOAuthToken($verifier) {
-    $this->oauthInfo = OAuthUtils::GetAccessToken($this->oauthInfo, $verifier,
-        $this->GetAuthServer());
+    $this->oauthInfo = $this->GetOAuthHandler()->GetAccessToken(
+        $this->oauthInfo, $verifier, $this->GetAuthServer());
   }
 
   /**
