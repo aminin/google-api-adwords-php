@@ -87,11 +87,10 @@ class ReportUtils {
       AdWordsUser $user, $server = NULL, $returnMoneyInMicros = NULL) {
     $options = array('returnMoneyInMicros' => $returnMoneyInMicros,
         'server' => $server);
-    $extraHeaders = ReportUtils::GetExtraHeaders($options);
+    $extraHeaders = self::GetExtraHeaders($options);
     $params = array('__rd' => $reportDefintionId);
-    $url = ReportUtils::GetUrl($user, $params, $options);
-    $result =
-        ReportUtils::DownloadReportFromUrl($url, $user, $path, $extraHeaders);
+    $url = self::GetUrl($user, $params, $options);
+    $result = self::DownloadReportFromUrl($url, $user, $path, $extraHeaders);
     if (isset($result->details->queryToken)) {
       throw new ReportDownloadException(
           'Asyncronous report found, use RunAsyncReport() instead.',
@@ -117,11 +116,10 @@ class ReportUtils {
    */
   public static function RunAsyncReport($reportDefintionId, $queryToken,
       AdWordsUser $user, $options = NULL) {
-    $extraHeaders = ReportUtils::GetExtraHeaders($options);
+    $extraHeaders = self::GetExtraHeaders($options);
     $params = array('__rd' => $reportDefintionId, 'qt' => $queryToken);
-    $url = ReportUtils::GetUrl($user, $params, $options);
-    $result =
-        ReportUtils::DownloadReportFromUrl($url, $user, NULL, $extraHeaders);
+    $url = self::GetUrl($user, $params, $options);
+    $result = self::DownloadReportFromUrl($url, $user, NULL, $extraHeaders);
     if (!$result->details->queryToken) {
         throw new ReportDownloadException(
             'Syncronous report found, use DownloadReport() instead.',
@@ -141,14 +139,14 @@ class ReportUtils {
    */
   public static function DownloadReportFromUrl($url, $user, $path = NULL,
       $extraHeaders = NULL) {
-    ReportUtils::$LAST_RESPONSE_HEADERS = NULL;
+    self::$LAST_RESPONSE_HEADERS = NULL;
 
     $ch = CurlUtils::CreateSession($url);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
     curl_setopt($ch, CURLOPT_HEADERFUNCTION,
         'ReportUtils::StoreResponseHeader');
 
-    $headers = ReportUtils::GetHeaders($user, $extraHeaders);
+    $headers = self::GetHeaders($user, $extraHeaders);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
     if (isset($path)) {
@@ -171,15 +169,15 @@ class ReportUtils {
     // Get the beginning of the response.
     if (isset($path)) {
       $file = fopen($path, 'r');
-      $snippet = fread($file, ReportUtils::$SNIPPET_LENGTH);
+      $snippet = fread($file, self::$SNIPPET_LENGTH);
       fclose($file);
     } else {
-      $snippet = substr($response, 0, $SNIPPET_LENGTH);
+      $snippet = substr($response, 0, self::$SNIPPET_LENGTH);
     }
 
     // Determine if an error occured.
     $matches = array();
-    if (preg_match(ReportUtils::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
+    if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
       throw new ReportDownloadException($matches[2], $result->code);
     }
 
@@ -202,8 +200,8 @@ class ReportUtils {
     }
 
     // Set the location.
-    if (isset(ReportUtils::$LAST_RESPONSE_HEADERS['Location'])) {
-      $result->location = ReportUtils::$LAST_RESPONSE_HEADERS['Location'];
+    if (isset(self::$LAST_RESPONSE_HEADERS['Location'])) {
+      $result->location = self::$LAST_RESPONSE_HEADERS['Location'];
     }
 
     return $result;
@@ -236,7 +234,7 @@ class ReportUtils {
     if (isset($server) && strpos($server, 'http') !== 0) {
       throw new ReportDownloadException('Invalid server: ' . $server);
     }
-    return sprintf(ReportUtils::$DOWNLOAD_URL_FORMAT, $server,
+    return sprintf(self::$DOWNLOAD_URL_FORMAT, $server,
         http_build_query($params, NULL, '&'));
   }
 
@@ -249,6 +247,7 @@ class ReportUtils {
   private static function GetHeaders($user, $extraHeaders) {
     $headers = array();
     $headers[]= 'Authorization: GoogleLogin auth=' . $user->GetAuthToken();
+    $email = $user->GetEmail();
     $clientId = $user->GetClientId();
     if (isset($clientId)) {
       if (strpos($clientId, '@') !== FALSE) {
@@ -256,6 +255,8 @@ class ReportUtils {
       } else {
         $headers[] = 'clientCustomerId: ' . $clientId;
       }
+    } else if (isset($email)) {
+      $headers[] = 'clientEmail: ' . $email;
     }
     if (isset($extraHeaders)) {
       foreach ($extraHeaders as $key => $value) {
@@ -273,12 +274,12 @@ class ReportUtils {
    * @return int the length of the header data that was processed
    */
   public static function StoreResponseHeader($ch, $header) {
-    if (!isset(ReportUtils::$LAST_RESPONSE_HEADERS)) {
-      ReportUtils::$LAST_RESPONSE_HEADERS = array();
+    if (!isset(self::$LAST_RESPONSE_HEADERS)) {
+      self::$LAST_RESPONSE_HEADERS = array();
     }
     if (strpos($header, ':') !== FALSE) {
       list($name, $value) = explode(': ', $header);
-      ReportUtils::$LAST_RESPONSE_HEADERS[$name] = $value;
+      self::$LAST_RESPONSE_HEADERS[$name] = $value;
     }
     return strlen($header);
   }
