@@ -73,7 +73,7 @@ class TestUtils {
     $campaignService = $this->user->GetCampaignService($this->version);
 
     $campaign = new Campaign();
-    $campaign->name = 'Campaign #' . time();
+    $campaign->name = 'Campaign #' . uniqid();
     $campaign->biddingStrategy = new ManualCPC();
     $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
     $campaign->status = 'PAUSED';
@@ -107,7 +107,7 @@ class TestUtils {
     $adGroupService = $this->user->GetAdGroupService($this->version);
 
     $adGroup = new AdGroup();
-    $adGroup->name = 'AdGroup #' . time();
+    $adGroup->name = 'AdGroup #' . uniqid();
     $adGroup->bids = new ManualCPCAdGroupBids(new Bid(new Money(1000000)));
     $adGroup->campaignId = $campaignId;
     $adGroup->status = 'PAUSED';
@@ -265,9 +265,12 @@ class TestUtils {
     $mediaService = $this->user->GetMediaService($this->version);
 
     $image = new Image();
-    $image->data = MediaUtils::GetBase64Data(
-        'https://sandbox.google.com/sandboximages/image.jpg');
-    $image->mediaTypeDb = 'IMAGE';
+    $image->data = MediaUtils::GetBase64Data('http://goo.gl/HJM3L');
+    if ($this->version <= 'v201003') {
+      $image->mediaTypeDb = 'IMAGE';
+    } else {
+      $image->type = 'IMAGE';
+    }
 
     $result = $mediaService->upload(array($image));
     return $result[0]->mediaId;
@@ -285,7 +288,7 @@ class TestUtils {
         new Selector(array('KeywordText', 'KeywordMatchType', 'Clicks'));
     $reportDefinition = new ReportDefinition();
     $reportDefinition->selector = $selector;
-    $reportDefinition->reportName = 'Test report #' . time();
+    $reportDefinition->reportName = 'Test report #' . uniqid();
     $reportDefinition->reportType = 'KEYWORDS_PERFORMANCE_REPORT';
     $reportDefinition->dateRangeType = 'YESTERDAY';
     $reportDefinition->downloadFormat = 'XML';
@@ -294,5 +297,61 @@ class TestUtils {
     $result = $reportDefinitionService->mutate(array($operation));
 
     return $result[0]->id;
+  }
+
+  /**
+   * Creates a user list.
+   * @return float the id of the user list
+   */
+  public function CreateUserList() {
+    $userListService = $this->user->GetUserListService($this->version);
+
+    $userList = new RemarketingUserList();
+    $userList->name = 'User List ' . uniqid();
+    $conversionType = new UserListConversionType();
+    $conversionType->name = 'User List Conversion ' . uniqid();
+    $userList->conversionTypes = array($conversionType);
+
+    $operation = new UserListOperation($userList, 'ADD');
+    $result = $userListService->mutate(array($operation));
+
+    return $result->value[0]->id;
+  }
+
+  /**
+   * Creates an experiment.
+   * @param float $campaignId the ID of the campaign to create the experiment
+   *     for
+   * @return float the ID of the experiment
+   */
+  public function CreateExperiment($campaignId) {
+    $experimentService = $this->user->GetExperimentService($this->version);
+
+    $experiment = new Experiment();
+    $experiment->campaignId = $campaignId;
+    $experiment->name = 'Experiment ' . uniqid();
+    $experiment->queryPercentage = 50;
+    $experiment->startDateTime = date('Ymd hms', strtotime('+1 day'));
+    $experiment->endDateTime = date('Ymd hms', strtotime('+2 day'));
+
+    $operation = new ExperimentOperation($experiment, 'ADD');
+    $result = $experimentService->mutate(array($operation));
+
+    return $result->value[0]->id;
+  }
+
+  /**
+   * Deletes an experiment.
+   * @param float $experimentId the ID of the experiment to delete
+   */
+  public function DeleteExperiment($experimentId) {
+    $experimentService = $this->user->GetExperimentService($this->version);
+
+    $experiment = new Experiment();
+    $experiment->id = $experimentId;
+    $experiment->status = 'DELETED';
+
+    $operation = new ExperimentOperation($experiment, 'SET');
+    $experimentService->mutate(array($operation));
   }
 }
