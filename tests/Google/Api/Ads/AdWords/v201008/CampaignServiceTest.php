@@ -24,310 +24,160 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
- * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
 error_reporting(E_STRICT | E_ALL);
 
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'PHPUnit/Framework.php';
+require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
+require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201008/CampaignService.php';
 
 /**
  * Functional tests for CampaignService.
- *
- * @author api.arogal@gmail.com
  */
-class CampaignServiceTest extends PHPUnit_Framework_TestCase {
-  private $version = 'v201008';
-  private $user;
+class CampaignServiceTest extends AdsTestCase {
   private $service;
+  private $testUtils;
 
-  private static $campaign1;
-  private static $campaign2;
+  private $campaignId;
+  private $newCampaignId;
 
-  protected function setUp() {
-    $authFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
-    $settingsFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
-    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
-        NULL, NULL, NULL, $settingsFile);
-    $this->user->LogDefaults();
-    $this->service =
-        $this->user->GetCampaignService($this->version);
+  /**
+   * Create the test suite.
+   */
+  public static function suite() {
+    $suite = new AdWordsTestSuite(__CLASS__);
+    $suite->SetVersion('v201008');
+    return $suite;
   }
 
   /**
-   * Test whether we can create a campaign using v201008.
+   * Set up the test fixtures.
    */
-  public function testCreateCampaign() {
+  protected function setUp() {
+    $user = $this->sharedFixture['user'];
+    $this->service = $user->GetCampaignService();
+
+    $this->testUtils = $this->sharedFixture['testUtils'];
+    $this->campaignId = $this->testUtils->CreateCampaign();
+  }
+
+  /**
+   * Tear down the test fixtures.
+   */
+  protected function tearDown() {
+    $this->testUtils->DeleteCampaign($this->campaignId);
+    if (isset($this->newCampaignId)) {
+      $this->testUtils->DeleteCampaign($this->newCampaignId);
+    }
+  }
+
+  /**
+   * Test adding a campaign.
+   * @covers CampaignService::mutate
+   */
+  public function testAdd() {
     $campaign = new Campaign();
     $campaign->name = 'Campaign #' . time();
     $campaign->status = 'PAUSED';
-    $campaign->biddingStrategy = new ManualCPC();
+    $campaign->startDate = date('Ymd', strtotime('+1 day'));
+    $campaign->endDate = date('Ymd', strtotime('+1 day'));
     $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
+    $campaign->biddingStrategy = new ManualCPC();
+    $campaign->adServingOptimizationStatus = 'OPTIMIZE';
+    $campaign->frequencyCap = new FrequencyCap(100, 'WEEK', 'CREATIVE');
 
     $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
+    $testCampaign = $this->service->mutate($operations)->value[0];
 
-    $campaignReturnValue = $this->service->mutate($operations);
-    $testCampaign = $campaignReturnValue->value[0];
+    // Exclude generated fields.
+    $excludeFields = array('id', 'budget->amount->ComparableValueType',
+        'biddingStrategy->BiddingStrategyType',
+        'biddingStrategy->positionPreference', 'conversionOptimizerEligibility',
+        'servingStatus');
+    $this->assertEqualsWithExclusions($campaign, $testCampaign, $excludeFields);
 
-    // Set the generated fields.
-    $campaign->id = $testCampaign->id;
-    $campaign->budget->amount->ComparableValueType =
-        $testCampaign->budget->amount->ComparableValueType;
-    $campaign->biddingStrategy->BiddingStrategyType =
-        $testCampaign->biddingStrategy->BiddingStrategyType;
-    $campaign->biddingStrategy->positionPreference =
-        $testCampaign->biddingStrategy->positionPreference;
-    $campaign->frequencyCap = $testCampaign->frequencyCap;
-    $campaign->startDate = $testCampaign->startDate;
-    $campaign->endDate = $testCampaign->endDate;
-    $campaign->servingStatus = $testCampaign->servingStatus;
-    $campaign->adServingOptimizationStatus =
-        $testCampaign->adServingOptimizationStatus;
-    $campaign->conversionOptimizerEligibility =
-        $testCampaign->conversionOptimizerEligibility;
-
-    $this->assertEquals($campaign, $testCampaign);
-
-    CampaignServiceTest::$campaign1 = $campaign;
+    $this->newCampaignId = $testCampaign->id;
   }
 
   /**
-   * Test whether we can create a campaign using v201008.
+   * Test updating a campaign.
+   * @covers CampaignService::mutate
    */
-  public function testCreateCampaigns() {
-    $campaign1 = new Campaign();
-    $campaign1->name = 'Campaign #' . time();
-    $campaign1->status = 'PAUSED';
-    $campaign1->biddingStrategy = new ManualCPC();
-    $campaign1->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
+  public function testUpdate() {
+    $campaign = new Campaign();
+    $campaign->id = $this->campaignId;
+    $campaign->budget = new Budget('DAILY', new Money(2000000), 'STANDARD');
 
-    $campaign2 = new Campaign();
-    $campaign2->name = 'Campaign #' . (time() + 1);
-    $campaign2->status = 'PAUSED';
-    $campaign2->biddingStrategy = new ManualCPC();
-    $campaign2->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
+    $operations = array(new CampaignOperation(NULL, $campaign, 'SET'));
+    $testCampaign = $this->service->mutate($operations)->value[0];
+
+    // Exclude generated fields.
+    $excludeFields = array('ComparableValueType');
+    $this->assertEqualsWithExclusions($campaign->budget->amount,
+        $testCampaign->budget->amount, $excludeFields);
+  }
+
+  /**
+   * Test transitioning the bidding strategy of a campaign.
+   * @covers CampaignService::mutate
+   */
+  public function testBiddingTransition() {
+    $campaign = new Campaign();
+    $campaign->id = $this->campaignId;
+
+    $biddingTransition = new BiddingTransition(new BudgetOptimizer());
 
     $operations = array(
-        new CampaignOperation(NULL, $campaign1, 'ADD'),
-        new CampaignOperation(NULL, $campaign2, 'ADD'));
+        new CampaignOperation($biddingTransition, $campaign, 'SET'));
+    $testCampaign = $this->service->mutate($operations)->value[0];
 
-    $testCampaigns = $this->service->mutate($operations)->value;
-
-    // Set the generated fields.
-    $campaign1->id = $testCampaigns[0]->id;
-    $campaign1->budget->amount->ComparableValueType =
-        $testCampaigns[0]->budget->amount->ComparableValueType;
-    $campaign1->biddingStrategy->BiddingStrategyType =
-        $testCampaigns[0]->biddingStrategy->BiddingStrategyType;
-    $campaign1->biddingStrategy->positionPreference =
-        $testCampaigns[0]->biddingStrategy->positionPreference;
-    $campaign1->frequencyCap = $testCampaigns[0]->frequencyCap;
-    $campaign1->startDate = $testCampaigns[0]->startDate;
-    $campaign1->endDate = $testCampaigns[0]->endDate;
-    $campaign1->servingStatus = $testCampaigns[0]->servingStatus;
-    $campaign1->adServingOptimizationStatus =
-        $testCampaigns[0]->adServingOptimizationStatus;
-    $campaign1->conversionOptimizerEligibility =
-        $testCampaigns[0]->conversionOptimizerEligibility;
-
-    $campaign2->id = $testCampaigns[1]->id;
-    $campaign2->budget->amount->ComparableValueType =
-        $testCampaigns[1]->budget->amount->ComparableValueType;
-    $campaign2->biddingStrategy->BiddingStrategyType =
-        $testCampaigns[1]->biddingStrategy->BiddingStrategyType;
-    $campaign2->biddingStrategy->positionPreference =
-        $testCampaigns[1]->biddingStrategy->positionPreference;
-    $campaign2->frequencyCap = $testCampaigns[1]->frequencyCap;
-    $campaign2->startDate = $testCampaigns[1]->startDate;
-    $campaign2->endDate = $testCampaigns[1]->endDate;
-    $campaign2->servingStatus = $testCampaigns[1]->servingStatus;
-    $campaign2->adServingOptimizationStatus =
-        $testCampaigns[1]->adServingOptimizationStatus;
-    $campaign2->conversionOptimizerEligibility =
-        $testCampaigns[1]->conversionOptimizerEligibility;
-
-
-    $this->assertEquals($campaign1, $testCampaigns[0]);
-    $this->assertEquals($campaign2, $testCampaigns[1]);
-
-    CampaignServiceTest::$campaign1 = $campaign1;
-    CampaignServiceTest::$campaign2 = $campaign2;
+    $this->assertType("BudgetOptimizer", $testCampaign->biddingStrategy);
   }
 
   /**
-   * Test whether we can fetch an existing campaign using v201008.
+   * Test deleting a campaign.
+   * @covers CampaignService::mutate
    */
-  public function testGetCampaign() {
-    if (!isset(CampaignServiceTest::$campaign1)) {
-      $this->testCreateCampaign();
-    }
+  public function testDelete() {
+    $campaign = new Campaign();
+    $campaign->id = $this->campaignId;
+    $campaign->status = 'DELETED';
 
+    $operations = array(new CampaignOperation(NULL, $campaign, 'SET'));
+    $testCampaign = $this->service->mutate($operations)->value[0];
+
+    $this->assertEquals($campaign->status, $testCampaign->status);
+  }
+
+  /**
+   * Test getting a campaign.
+   * @covers CampaignService::get
+   */
+  public function testGet() {
     $selector = new CampaignSelector();
-    $selector->ids = array(CampaignServiceTest::$campaign1->id);
+    $selector->ids = array($this->campaignId);
     $selector->statsSelector =
-        new StatsSelector(new DateRange('20090101', '20090131'));
+        new StatsSelector(new DateRange(date('Ym01'), date('Ymd')));
 
     $page = $this->service->get($selector);
-    $testCampaign = $page->entries[0];
 
-    // Set the generated fields.
-    CampaignServiceTest::$campaign1->campaignStats =
-        $testCampaign->campaignStats;
-    CampaignServiceTest::$campaign1->adServingOptimizationStatus =
-        $testCampaign->adServingOptimizationStatus;
-    CampaignServiceTest::$campaign1->conversionOptimizerEligibility =
-        $testCampaign->conversionOptimizerEligibility;
-
-    $this->assertEquals(CampaignServiceTest::$campaign1, $testCampaign);
+    $this->assertNotNull($page);
+    $this->assertEquals(1, sizeof($page->entries));
+    $this->assertNotNull($page->entries[0]->campaignStats);
   }
 
   /**
-   * Test whether we can fetch an existing campaign using v201008.
+   * Test getting all campaigns.
+   * @covers CampaignService::get
    */
-  public function testGetAllCampaigns() {
-    if (!isset(CampaignServiceTest::$campaign1)
-        || !isset(CampaignServiceTest::$campaign2)) {
-      $this->testCreateCampaigns();
-    }
-
+  public function testGetAll() {
     $selector = new CampaignSelector();
 
-    $page = $this->service->get(new CampaignSelector());
+    $page = $this->service->get($selector);
 
-    $found1 = FALSE;
-    $found2 = FALSE;
-
-    foreach ($page->entries as $campaign) {
-      if ($campaign->id == CampaignServiceTest::$campaign1->id) {
-        // Set the generated fields.
-        CampaignServiceTest::$campaign1->campaignStats =
-            $campaign->campaignStats;
-        CampaignServiceTest::$campaign1->adServingOptimizationStatus =
-            $campaign->adServingOptimizationStatus;
-        CampaignServiceTest::$campaign1->conversionOptimizerEligibility =
-            $campaign->conversionOptimizerEligibility;
-
-        $this->assertEquals(CampaignServiceTest::$campaign1, $campaign);
-
-        CampaignServiceTest::$campaign1 = $campaign;
-
-        $found1 = TRUE;
-      } else if ($campaign->id == CampaignServiceTest::$campaign2->id) {
-        // Set the generated fields.
-        CampaignServiceTest::$campaign2->campaignStats =
-            $campaign->campaignStats;
-        CampaignServiceTest::$campaign2->adServingOptimizationStatus =
-            $campaign->adServingOptimizationStatus;
-        CampaignServiceTest::$campaign2->conversionOptimizerEligibility =
-            $campaign->conversionOptimizerEligibility;
-
-        $this->assertEquals(CampaignServiceTest::$campaign2, $campaign);
-
-        CampaignServiceTest::$campaign2 = $campaign;
-
-        $found2 = TRUE;
-      }
-    }
-
-    $this->assertTrue($found1, 'Campaign 1 not found.');
-    $this->assertTrue($found2, 'Campaign 2 not found.');
-  }
-
-  /**
-   * Test whether we can update a campaign using v201008.
-   */
-  public function testUpdateCampaign() {
-    if (!isset(CampaignServiceTest::$campaign1)) {
-      $this->testCreateCampaign();
-    }
-
-    $campaign = new Campaign();
-    $campaign->id = CampaignServiceTest::$campaign1->id;
-    $campaign->status = 'ACTIVE';
-    $campaign->budget = new Budget('DAILY', new Money('2000000'), 'STANDARD');
-
-    $operations = array(
-        new CampaignOperation(NULL, $campaign, 'SET'));
-
-    $testCampaigns = $this->service->mutate($operations)->value;
-
-    // Set the updated fields.
-    CampaignServiceTest::$campaign1->status = 'ACTIVE';
-    CampaignServiceTest::$campaign1->budget =
-        new Budget('DAILY',
-            new Money('2000000', 'Money'), 'STANDARD');
-
-    // Set the generated fields.
-    CampaignServiceTest::$campaign1->campaignStats =
-        $testCampaigns[0]->campaignStats;
-    CampaignServiceTest::$campaign1->adServingOptimizationStatus =
-        $testCampaigns[0]->adServingOptimizationStatus;
-    CampaignServiceTest::$campaign1->servingStatus =
-        $testCampaigns[0]->servingStatus;
-    CampaignServiceTest::$campaign1->conversionOptimizerEligibility =
-        $testCampaigns[0]->conversionOptimizerEligibility;
-
-    $this->assertEquals(CampaignServiceTest::$campaign1, $testCampaigns[0]);
-  }
-
-  /**
-   * Test whether we can update campaigns using v201008.
-   */
-  public function testUpdateCampaigns() {
-    if (!isset(CampaignServiceTest::$campaign1)
-        || !isset(CampaignServiceTest::$campaign2)) {
-      $this->testCreateCampaigns();
-    }
-    $campaign1 = new Campaign();
-    $campaign1->id = CampaignServiceTest::$campaign1->id;
-    $campaign1->status = 'DELETED';
-    $campaign1->budget = new Budget('DAILY', new Money('3000000'), 'STANDARD');
-
-    $campaign2 = new Campaign();
-    $campaign2->id = CampaignServiceTest::$campaign2->id;
-    $campaign2->status = 'DELETED';
-    $campaign2->budget = new Budget('DAILY', new Money('3000000'), 'STANDARD');
-
-    $operations = array(
-        new CampaignOperation(NULL, $campaign1, 'SET'),
-        new CampaignOperation(NULL, $campaign2, 'SET'));
-
-    $testCampaigns = $this->service->mutate($operations)->value;
-
-    // Set the updated fields.
-    CampaignServiceTest::$campaign1->status = 'DELETED';
-    CampaignServiceTest::$campaign1->budget =
-        new Budget('DAILY',
-            new Money('3000000', 'Money'), 'STANDARD');
-
-    CampaignServiceTest::$campaign2->status = 'DELETED';
-    CampaignServiceTest::$campaign2->budget =
-        new Budget('DAILY',
-            new Money('3000000', 'Money'), 'STANDARD');
-
-    // Set the generated fields.
-    CampaignServiceTest::$campaign1->campaignStats =
-        $testCampaigns[0]->campaignStats;
-    CampaignServiceTest::$campaign1->adServingOptimizationStatus =
-        $testCampaigns[0]->adServingOptimizationStatus;
-    CampaignServiceTest::$campaign1->servingStatus =
-        $testCampaigns[0]->servingStatus;
-    CampaignServiceTest::$campaign1->conversionOptimizerEligibility =
-        $testCampaigns[0]->conversionOptimizerEligibility;
-
-    CampaignServiceTest::$campaign2->campaignStats =
-        $testCampaigns[1]->campaignStats;
-    CampaignServiceTest::$campaign2->adServingOptimizationStatus =
-        $testCampaigns[1]->adServingOptimizationStatus;
-    CampaignServiceTest::$campaign2->servingStatus =
-        $testCampaigns[1]->servingStatus;
-    CampaignServiceTest::$campaign2->conversionOptimizerEligibility =
-        $testCampaigns[1]->conversionOptimizerEligibility;
-
-    $this->assertEquals(CampaignServiceTest::$campaign1, $testCampaigns[0]);
-    $this->assertEquals(CampaignServiceTest::$campaign2, $testCampaigns[1]);
+    $this->assertNotNull($page);
+    $this->assertGreaterThanOrEqual(1, sizeof($page->entries));
   }
 }

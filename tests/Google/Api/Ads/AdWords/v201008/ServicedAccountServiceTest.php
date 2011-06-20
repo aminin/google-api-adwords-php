@@ -1,6 +1,6 @@
 <?php
 /**
- * Functional tests for the validateOnly header.
+ * Functional tests for ServicedAccountService.
  *
  * PHP version 5
  *
@@ -31,15 +31,14 @@ error_reporting(E_STRICT | E_ALL);
 
 require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
 require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201008/CampaignService.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201008/BidLandscapeService.php';
 
 /**
- * Functional tests for the validateOnly header.
- *
- * @author api.ekoleda@gmail.com
+ * Functional tests for ServicedAccountService.
  */
-class ValidateOnlyTest extends AdsTestCase {
+class ServicedAccountServiceTest extends AdsTestCase {
   private $service;
+  private $testUtils;
 
   /**
    * Create the test suite.
@@ -55,36 +54,34 @@ class ValidateOnlyTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service =
-        $user->GetCampaignService(NULL, NULL, NULL, true);
+    $user->SetClientId(NULL);
+    $this->service = $user->GetServicedAccountService();
   }
 
   /**
-   * Test whether we can validate a correctly formed create campaign request.
+   * Test getting serviced accounts with links.
+   * @covers ServicedAccountService::get
    */
-  public function testValidCreateCampaign() {
-    $campaign = new Campaign();
-    $campaign->name = 'Campaign #' . time();
-    $campaign->status = 'PAUSED';
-    $campaign->biddingStrategy = new ManualCPC();
-    $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
+  public function testGetWithLinks() {
+    $selector = new ServicedAccountSelector();
+    $selector->enablePaging = FALSE;
 
-    $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
+    $graph = $this->service->get($selector);
 
-    $campaignReturnValue = $this->service->mutate($operations);
-
-    $this->assertNull($campaignReturnValue);
+    $this->assertGreaterThanOrEqual(1, sizeof($graph->accounts));
+    $this->assertGreaterThanOrEqual(1, sizeof($graph->links));
   }
 
   /**
-   * Test whether we can validate an incorrectly formed create campaign request.
-   * @expectedException SoapFault
+   * Test getting serviced accounts without links.
+   * @covers ServicedAccountService::get
    */
-  public function testInvalidCreateCampaign() {
-    $campaign = new Campaign();
+  public function testGetWithoutLinks() {
+    $selector = new ServicedAccountSelector();
+    $selector->enablePaging = TRUE;
 
-    $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
+    $graph = $this->service->get($selector);
 
-    $campaignReturnValue = $this->service->mutate($operations);
+    $this->assertGreaterThanOrEqual(1, sizeof($graph->accounts));
   }
 }

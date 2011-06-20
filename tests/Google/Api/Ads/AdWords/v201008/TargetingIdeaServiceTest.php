@@ -29,397 +29,396 @@
 
 error_reporting(E_STRICT | E_ALL);
 
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'PHPUnit/Framework.php';
+require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
+require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201008/TargetingIdeaService.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/Common/Util/MapUtils.php';
 
 /**
  * Functional tests for TargetingIdeaService.
  *
  * @author api.ekoleda@gmail.com
  */
-class TargetingIdeaServiceTest extends PHPUnit_Framework_TestCase {
-  private $version = 'v201008';
-  private $user;
+class TargetingIdeaServiceTest extends AdsTestCase {
   private $service;
 
-  private static $adGroupId;
+  private $adGroupId;
 
+  /**
+   * Create the test suite.
+   */
+  public static function suite() {
+    $suite = new AdWordsTestSuite(__CLASS__);
+    $suite->SetVersion('v201008');
+    $suite->SetRequires(array('AD_GROUP', 'KEYWORD'));
+    return $suite;
+  }
+
+  /**
+   * Set up the test fixtures.
+   */
   protected function setUp() {
-    $authFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
-    $settingsFile =
-        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
-    $this->user = new AdWordsUser($authFile, NULL, NULL, NULL,
-        NULL, NULL, NULL, $settingsFile);
-    $this->user->LogDefaults();
+    $user = $this->sharedFixture['user'];
+    $this->service = $user->GetTargetingIdeaService();
 
-    $this->service =
-        $this->user->GetTargetingIdeaService($this->version);
-
-    if (!isset(TargetingIdeaServiceTest::$adGroupId)) {
-      $campaignService =
-          $this->user->GetCampaignService($this->version);
-      $campaign = new Campaign();
-      $campaign->name = 'Campaign #' . time();
-      $campaign->status = 'PAUSED';
-      $campaign->biddingStrategy = new ManualCPC();
-      $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
-
-      $campaignId = $campaignService->mutate(
-          array(new CampaignOperation(NULL, $campaign, 'ADD')))->value[0]->id;
-
-      $adGroupService =
-          $this->user->GetAdGroupService($this->version);
-
-      $adGroup = new AdGroup();
-      $adGroup->name = 'AdGroup #' . time();
-      $adGroup->bids = new ManualCPCAdGroupBids(new Bid(new Money(1000000)));
-      $adGroup->campaignId = $campaignId;
-
-      TargetingIdeaServiceTest::$adGroupId = $adGroupService->mutate(
-          array(new AdGroupOperation($adGroup, 'ADD')))->value[0]->id;
-    }
+    $this->adGroupId = $this->sharedFixture['adGroupId'];
   }
 
   /**
-   * Test whether we can catch required search parameter error in selector using
-   * v201008.
+   * Test getting keyword ideas.
+   * @param array $searchParameters an array of search parameters to use
+   * @param boolean $expectResults whether to expect results
+   * @dataProvider keywordIdeasSearchParametersProvider
+   * @covers TargetingIdeaService::get
    */
-  public function testGetEmptySelector() {
-    try {
-      $this->service->get(new TargetingIdeaSelector());
-    } catch (SoapFault $e) {
-      $actualErrors = explode(', ', trim($e->getMessage(), ']['));
-      $this->assertGreaterThanOrEqual(1, sizeof($actualErrors),
-          'Did not receive enough errors.');
-    }
-  }
+  public function testGetKeywordIdeas($searchParameters, $expectResults) {
+    $this->InsertSearchParameterIds($searchParameters);
 
-  /**
-   * Test whether we can catch required search parameter error in selector using
-   * v201008.
-   */
-  public function testGetAdTypeSearchParameter() {
     $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new AdTypeSearchParameter(array('DISPLAY')),
-        new RelatedToUrlSearchParameter(array('http://news.google.com')));
-    $selector->ideaType = 'PLACEMENT';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request average targeted monthly search parameter using
-   * v201008.
-   */
-  public function testGetAverageTargetedMonthlySearchesSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new AverageTargetedMonthlySearchesSearchParameter(
-            new LongComparisonOperation(1, 50)),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('election', 'BROAD'))));
+    $selector->searchParameters = $searchParameters;
+    $selector->requestedAttributeTypes = array('AD_SHARE',
+        'AVERAGE_TARGETED_MONTHLY_SEARCHES', 'COMPETITION',
+        'EXTRACTED_FROM_WEBPAGE', 'GLOBAL_MONTHLY_SEARCHES', 'IDEA_TYPE',
+        'KEYWORD', 'KEYWORD_CATEGORY', 'NGRAM_GROUP', 'SEARCH_SHARE',
+        'TARGETED_MONTHLY_SEARCHES');
     $selector->ideaType = 'KEYWORD';
     $selector->requestType = 'IDEAS';
     $selector->paging = new Paging(0, 1);
 
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request competition search parameter using v201008.
-   */
-  public function testGetCompetitionSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new CompetitionSearchParameter(
-            array('MEDIUM', 'HIGH')),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('election', 'BROAD'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request country target search parameter using v201008.
-   */
-  public function testGetCountryTargetSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new CountryTargetSearchParameter(
-            array(new CountryTarget('US'),
-                new CountryTarget('CN'), new CountryTarget('JP'))),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('election', 'BROAD'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request excluded keyword search parameter using
-   * v201008.
-   */
-  public function testGetExcludedKeywordSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new ExcludedKeywordSearchParameter(array(
-            new Keyword('media player', 'EXACT'))),
-        new KeywordMatchTypeSearchParameter(array('BROAD', 'EXACT')),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('dvd player', 'EXACT'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request global monthly search parameter using v201008.
-   */
-  public function testGlobalMonthlySearchesSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new GlobalMonthlySearchesSearchParameter(
-            new LongComparisonOperation(1000, 10000)),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('dvd player', 'EXACT'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request keyword category id search parameter using
-   * v201008.
-   */
-  public function testGetIncludeAdultContentSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new KeywordCategoryIdSearchParameter(5),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('presidential vote', 'EXACT'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request keyword match type search parameter using
-   * v201008.
-   */
-  public function testGetKeywordMatchTypeSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new KeywordMatchTypeSearchParameter(array('BROAD', 'EXACT')),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('presidential vote', 'EXACT'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request language target search parameter using
-   * v201008.
-   */
-  public function testGetLanguageTargetSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new LanguageTargetSearchParameter(
-            array(new LanguageTarget('cn'), new LanguageTarget('jp'))),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('presidential vote', 'EXACT'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request mobile search parameter using v201008.
-   */
-  public function testGetMobileSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new MobileSearchParameter(),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('presidential vote', 'EXACT'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request idea text matches search parameter using
-   * v201008.
-   */
-  public function testGetIdeaTextMatchesSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new IdeaTextMatchesSearchParameter(array('presidential vote')),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('presidential vote', 'EXACT'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request placement type search parameter using v201008.
-   */
-  public function testGetPlacementTypeSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new PlacementTypeSearchParameter(array('VIDEO', 'GAME')),
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('iron man', 'EXACT'))));
-    $selector->ideaType = 'PLACEMENT';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request related to keyword search parameter using
-   * v201008.
-   */
-  public function testGetRelatedToKeywordSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('flowers', 'EXACT'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
-
-    $result = $this->service->get($selector);
-
-    // TODO(api.ekoleda): validate result.
-  }
-
-  /**
-   * Test whether we can request related to keyword search parameter and
-   * retrieve complete set of resulting pages using v201008.
-   */
-  public function testGetRelatedToKeywordSearchParameterAllPages() {
-    $index = 0;
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('flowers', 'BROAD'))));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging($index, 100);
-
-    $results = array();
     $page = $this->service->get($selector);
 
-    while (($selector->paging->startIndex + 100) <= $page->totalNumEntries) {
-      $results = array_merge($results, $page->entries);
-      $selector->paging->startIndex += 100;
-      $page = $this->service->get($selector);
+    $this->assertNotNull($page);
+    if ($expectResults) {
+      $this->assertEquals(1, sizeof($page->entries));
     }
-
-    $this->assertEquals($page->totalNumEntries, sizeof($results));
+    if (sizeof($page->entries) > 0) {
+      $attributes = MapUtils::GetMap($page->entries[0]->data);
+      foreach ($selector->requestedAttributeTypes as $attributeType) {
+        $this->assertTrue(array_key_exists($attributeType, $attributes));
+        $this->assertNotNull($attributes[$attributeType]);
+      }
+    }
   }
 
   /**
-   * Test whether we can request related to url search parameter using
-   * v201008.
+   * Test getting keyword stats.
+   * @param array $searchParameters an array of search parameters to use
+   * @param boolean $expectResults whether to expect results
+   * @dataProvider keywordStatsSearchParametersProvider
+   * @covers TargetingIdeaService::get
    */
-  public function testGetRelatedToUrlSearchParameter() {
+  public function testGetKeywordStats($searchParameters, $expectResults) {
+    $this->InsertSearchParameterIds($searchParameters);
+
     $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new RelatedToUrlSearchParameter(array(
-            'http://finance.google.com'), false));
+    $selector->searchParameters = $searchParameters;
+    $selector->requestedAttributeTypes = array('AD_SHARE',
+        'AVERAGE_TARGETED_MONTHLY_SEARCHES', 'COMPETITION',
+        'EXTRACTED_FROM_WEBPAGE', 'GLOBAL_MONTHLY_SEARCHES', 'IDEA_TYPE',
+        'KEYWORD', 'KEYWORD_CATEGORY', 'NGRAM_GROUP', 'SEARCH_SHARE',
+        'TARGETED_MONTHLY_SEARCHES');
+    $selector->ideaType = 'KEYWORD';
+    $selector->requestType = 'STATS';
+    $selector->paging = new Paging(0, 1);
+
+    $page = $this->service->get($selector);
+
+    $this->assertNotNull($page);
+    if ($expectResults) {
+      $this->assertEquals(1, sizeof($page->entries));
+    }
+    if (sizeof($page->entries) > 0) {
+      $attributes = MapUtils::GetMap($page->entries[0]->data);
+      foreach ($selector->requestedAttributeTypes as $attributeType) {
+        $this->assertTrue(array_key_exists($attributeType, $attributes));
+        $this->assertNotNull($attributes[$attributeType]);
+      }
+    }
+  }
+
+  /**
+   * Test getting placement ideas.
+   * @param array $searchParameters an array of search parameters to use
+   * @param boolean $expectResults whether to expect results
+   * @dataProvider placementIdeasSearchParametersProvider
+   * @covers TargetingIdeaService::get
+   */
+  public function testGetPlacementIdeas($searchParameters, $expectResults) {
+    $selector = new TargetingIdeaSelector();
+    $selector->searchParameters = $searchParameters;
+    $selector->requestedAttributeTypes = array(
+        'APPROX_CONTENT_IMPRESSIONS_PER_DAY', 'FORMATS', 'IDEA_TYPE',
+        'IN_STREAM_AD_INFO', 'PLACEMENT', 'PLACEMENT_CATEGORY',
+        'PLACEMENT_NAME', 'PLACEMENT_TYPE', 'SAMPLE_URL');
     $selector->ideaType = 'PLACEMENT';
     $selector->requestType = 'IDEAS';
     $selector->paging = new Paging(0, 1);
 
-    $result = $this->service->get($selector);
+    $page = $this->service->get($selector);
 
-    // TODO(api.ekoleda): validate result.
+    $this->assertNotNull($page);
+    if ($expectResults) {
+      $this->assertEquals(1, sizeof($page->entries));
+    }
+    if (sizeof($page->entries) > 0) {
+      $attributes = MapUtils::GetMap($page->entries[0]->data);
+      foreach ($selector->requestedAttributeTypes as $attributeType) {
+        $this->assertTrue(array_key_exists($attributeType, $attributes));
+        $this->assertNotNull($attributes[$attributeType]);
+      }
+    }
   }
 
   /**
-   * Test whether we can request seed ad group id search parameter using
-   * v201008.
+   * Test getting bulk keyword ideas.
+   * @param array $searchParameters an array of search parameters to use
+   * @param boolean $expectResults whether to expect results
+   * @dataProvider bulkKeywordIdeasSearchParametersProvider
+   * @covers TargetingIdeaService::getBulkKeywordIdeas
    */
-  public function testGetSeedAdGroupIdSearchParameter() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new SeedAdGroupIdSearchParameter(TargetingIdeaServiceTest::$adGroupId));
+  public function testGetBulkKeywordIdeas($searchParameters, $expectResults) {
+      $selector = new TargetingIdeaSelector();
+    $selector->searchParameters = $searchParameters;
+    // These five attributes are always returned regardles.
+    $selector->requestedAttributeTypes = array('AD_SHARE',
+        'EXTRACTED_FROM_WEBPAGE', 'IDEA_TYPE', 'KEYWORD', 'SEARCH_SHARE');
     $selector->ideaType = 'KEYWORD';
     $selector->requestType = 'IDEAS';
     $selector->paging = new Paging(0, 1);
 
-    $result = $this->service->get($selector);
+    $page = $this->service->getBulkKeywordIdeas($selector);
 
-    // TODO(api.ekoleda): validate result.
+    $this->assertNotNull($page);
+    if ($expectResults) {
+      $this->assertEquals(1, sizeof($page->entries));
+    }
+    if (sizeof($page->entries) > 0) {
+      $attributes = MapUtils::GetMap($page->entries[0]->data);
+      foreach ($selector->requestedAttributeTypes as $attributeType) {
+        $this->assertTrue(array_key_exists($attributeType, $attributes),
+            'Missing attribute in response: ' . $attributeType);
+        $this->assertNotNull($attributes[$attributeType]);
+      }
+    }
   }
 
   /**
-   * Test whether we can request bulk keyword ideas using v201008.
+   * Provides search parameters for use with keyword idea requests.
+   * @return array an array of search parameters (as an array) and if results
+   *     are expected.
    */
-  public function testGetBulkKeywordIdeas() {
-    $selector = new TargetingIdeaSelector();
-    $selector->searchParameters = array(
-        new RelatedToKeywordSearchParameter(array(
-            new Keyword('presidential vote', 'EXACT'))),
-        new RelatedToUrlSearchParameter(array(
-            'http://finance.google.com'), false));
-    $selector->ideaType = 'KEYWORD';
-    $selector->requestType = 'IDEAS';
-    $selector->paging = new Paging(0, 1);
+  public function keywordIdeasSearchParametersProvider() {
+    $data = array();
 
-    $result = $this->service->get($selector);
+    // Related to keyword.
+    $keyword = new Keyword('mars cruise', 'EXACT');
+    $rtksp = new RelatedToKeywordSearchParameter(array($keyword));
+    $data[] = array(array($rtksp), TRUE);
 
-    // TODO(api.ekoleda): validate result.
+    // Related to URL.
+    $url = 'mars.google.com';
+    $rtusp = new RelatedToUrlSearchParameter(array($url), TRUE);
+    $data[] = array(array($rtusp), TRUE);
+
+    // Relates to keyword and URL.
+    $data[] = array(array($rtksp, $rtusp), TRUE);
+
+    // Keyword Category Id.
+    $kcidsp = new KeywordCategoryIdSearchParameter(198484);
+    $data[] = array(array($kcidsp), TRUE);
+
+    // Seed ad group ID.
+    $sagsp = new SeedAdGroupIdSearchParameter('ID INSERTED LATER');
+    $data[] = array(array($sagsp), TRUE);
+
+    // Ad share.
+    $assp = new AdShareSearchParameter(new DoubleComparisonOperation(0,1));
+    $data[] = array(array($rtksp, $assp), FALSE);
+
+    // Average targeted monthly searches.
+    $atmssp = new AverageTargetedMonthlySearchesSearchParameter(
+            new LongComparisonOperation(0, 1000000));
+    $data[] = array(array($rtksp, $atmssp), TRUE);
+
+    // Competition.
+    $csp = new CompetitionSearchParameter(array('MEDIUM', 'HIGH'));
+    $data[] = array(array($rtksp, $csp), TRUE);
+
+    // Country target.
+    $ctsp = new CountryTargetSearchParameter(array(new CountryTarget('US'),
+        new CountryTarget('CN'), new CountryTarget('JP')));
+    $data[] = array(array($rtksp, $ctsp), TRUE);
+
+    // Excluded keyword.
+    $eksp = new ExcludedKeywordSearchParameter(array(
+        new Keyword('jupiter', 'BROAD')));
+    $data[] = array(array($rtksp, $eksp), TRUE);
+
+    // Global monthly searches.
+    $gmssp = new GlobalMonthlySearchesSearchParameter(
+        new LongComparisonOperation(0, 1000000));
+    $data[] = array(array($rtksp, $gmssp), TRUE);
+
+    // Idea text matches.
+    $itmsp = new IdeaTextMatchesSearchParameter(array('mars'), array('candy'));
+    $data[] = array(array($rtksp, $itmsp), TRUE);
+
+    // Include adult content.
+    $iacsp = new IncludeAdultContentSearchParameter();
+    $data[] = array(array($rtksp, $iacsp), TRUE);
+
+    // Keyword match type.
+    $kmtsp = new KeywordMatchTypeSearchParameter(array('BROAD', 'EXACT'));
+    $data[] = array(array($rtksp, $kmtsp), TRUE);
+
+    // Language target.
+    $ltsp = new LanguageTargetSearchParameter(array(new LanguageTarget('en'),
+        new LanguageTarget('zh_CN'), new LanguageTarget('ja')));
+    $data[] = array(array($rtksp, $ltsp), TRUE);
+
+    // Mobile.
+    $msp = new MobileSearchParameter();
+    $data[] = array(array($rtksp, $msp), TRUE);
+
+    // Search share.
+    $sssp = new SearchShareSearchParameter(new DoubleComparisonOperation(0,1));
+    $data[] = array(array($rtksp, $sssp), FALSE);
+
+    return $data;
+  }
+
+  /**
+   * Provides search parameters for use with keyword stats requests.
+   * @return array an array of search parameters (as an array) and if results
+   *     are expected.
+   */
+  public function keywordStatsSearchParametersProvider() {
+    $data = array();
+
+    // Related to keyword.
+    $keyword = new Keyword('mars cruise', 'BROAD');
+    $rtksp = new RelatedToKeywordSearchParameter(array($keyword));
+    $data[] = array(array($rtksp), TRUE);
+
+    // Ad share.
+    $assp = new AdShareSearchParameter(new DoubleComparisonOperation(0,1));
+    $data[] = array(array($rtksp, $assp), FALSE);
+
+    // Country target.
+    $ctsp = new CountryTargetSearchParameter(array(new CountryTarget('US'),
+        new CountryTarget('CN'), new CountryTarget('JP')));
+    $data[] = array(array($rtksp, $ctsp), TRUE);
+
+    // Global monthly searches.
+    $gmssp = new GlobalMonthlySearchesSearchParameter(
+        new LongComparisonOperation(0, 1000000));
+    $data[] = array(array($rtksp, $gmssp), TRUE);
+
+    // Language target.
+    $ltsp = new LanguageTargetSearchParameter(array(
+        new LanguageTarget('zh_CN'), new LanguageTarget('ja')));
+    $data[] = array(array($rtksp, $ltsp), TRUE);
+
+    // Mobile.
+    $msp = new MobileSearchParameter();
+    $data[] = array(array($rtksp, $msp), TRUE);
+
+    // Search share.
+    $sssp = new SearchShareSearchParameter(new DoubleComparisonOperation(0,1));
+    $data[] = array(array($rtksp, $sssp), FALSE);
+
+    // Seed ad group ID.
+    $sagsp = new SeedAdGroupIdSearchParameter('ID INSERTED LATER');
+    $data[] = array(array($rtksp, $sagsp), TRUE);
+
+    return $data;
+  }
+
+  /**
+   * Provides search parameters for use with placement idea requests.
+   * @return array an array of search parameters (as an array) and if results
+   *     are expected.
+   */
+  public function placementIdeasSearchParametersProvider() {
+    $data = array();
+
+    // Related to keyword.
+    $keyword = new Keyword('mars cruise', 'BROAD');
+    $rtksp = new RelatedToKeywordSearchParameter(array($keyword));
+    $data[] = array(array($rtksp), TRUE);
+
+    // Related to URL.
+    $url = 'mars.google.com';
+    $rtusp = new RelatedToUrlSearchParameter(array($url), TRUE);
+    $data[] = array(array($rtusp), TRUE);
+
+    // Relates to keyword and URL.
+    $data[] = array(array($rtksp, $rtusp), TRUE);
+
+    // Ad type.
+    $atsp = new AdTypeSearchParameter(array('DISPLAY'));
+    $data[] = array(array($rtksp, $atsp), TRUE);
+
+    // Country target.
+    $ctsp = new CountryTargetSearchParameter(array(new CountryTarget('US'),
+        new CountryTarget('CN'), new CountryTarget('JP')));
+    $data[] = array(array($rtksp, $ctsp), TRUE);
+
+    // Language target.
+    $ltsp = new LanguageTargetSearchParameter(array(new LanguageTarget('en'),
+        new LanguageTarget('zh_CN'), new LanguageTarget('ja')));
+    $data[] = array(array($rtksp, $ltsp), TRUE);
+
+    // Placement type.
+    $ptsp = new PlacementTypeSearchParameter(array('VIDEO', 'GAME'));
+    $data[] = array(array($rtksp, $ptsp), TRUE);
+
+    return $data;
+  }
+
+  /**
+   * Provides search parameters for use with bulk keyword idea requests.
+   * @return array an array of search parameters (as an array) and if results
+   *     are expected.
+   */
+  public function bulkKeywordIdeasSearchParametersProvider() {
+    $data = array();
+
+    // Related to URL.
+    $url = 'foodnetwork.com';
+    $rtusp = new RelatedToUrlSearchParameter(array($url), TRUE);
+    $data[] = array(array($rtusp), TRUE);
+
+    // Relates to keyword and URL.
+    $keyword = new Keyword('html', 'BROAD');
+    $rtksp = new RelatedToKeywordSearchParameter(array($keyword));
+    $data[] = array(array($rtusp, $rtksp), TRUE);
+
+    // Keyword Category Id.
+    $kcidsp = new KeywordCategoryIdSearchParameter(198484);
+    $data[] = array(array($rtusp, $kcidsp), TRUE);
+
+    // Country target, single value only.
+    $ctsp = new CountryTargetSearchParameter(array(new CountryTarget('US')));
+    $data[] = array(array($rtusp, $ctsp), TRUE);
+
+    // Language target, single value only.
+    $ltsp =
+        new LanguageTargetSearchParameter(array(new LanguageTarget('en')));
+    $data[] = array(array($rtusp, $ltsp), TRUE);
+
+    return $data;
+  }
+
+  /**
+   * Insert ids into search parameters.
+   * @param array $searchParameters an array of search parameters
+   */
+  private function InsertSearchParameterIds($searchParameters) {
+    foreach ($searchParameters as $searchParameter) {
+      if ($searchParameter instanceof SeedAdGroupIdSearchParameter) {
+        $searchParameter->adGroupId = $this->adGroupId;
+      }
+    }
   }
 }

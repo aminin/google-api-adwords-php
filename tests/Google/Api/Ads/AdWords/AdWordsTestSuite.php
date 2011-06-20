@@ -61,6 +61,7 @@ class AdWordsTestSuite extends PHPUnit_Framework_TestSuite {
   private $keywordId;
   private $adId;
   private $adExtensionId;
+  private $userListId;
 
   /**
    * Sets up the test suite, created required entities.
@@ -113,6 +114,10 @@ class AdWordsTestSuite extends PHPUnit_Framework_TestSuite {
       $this->adExtensionId =
           $testUtils->CreateLocationExtension($this->campaignId);
       $this->sharedFixture['adExtensionId'] = $this->adExtensionId;
+    }
+    if ($this->IsRequired('USER_LIST')) {
+      $this->userListId = $testUtils->CreateUserList();
+      $this->sharedFixture['userListId'] = $this->userListId;
     }
   }
 

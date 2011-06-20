@@ -1,6 +1,6 @@
 <?php
 /**
- * Functional tests for the validateOnly header.
+ * Functional tests for CustomerSyncService.
  *
  * PHP version 5
  *
@@ -31,15 +31,17 @@ error_reporting(E_STRICT | E_ALL);
 
 require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
 require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201008/CampaignService.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201008/AdGroupAdService.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/Common/Util/MediaUtils.php';
 
 /**
- * Functional tests for the validateOnly header.
- *
- * @author api.ekoleda@gmail.com
+ * Functional tests for CustomerSyncService.
  */
-class ValidateOnlyTest extends AdsTestCase {
+class CustomerSyncServiceTest extends AdsTestCase {
   private $service;
+  private $testUtils;
+
+  private $campaignId;
 
   /**
    * Create the test suite.
@@ -47,6 +49,7 @@ class ValidateOnlyTest extends AdsTestCase {
   public static function suite() {
     $suite = new AdWordsTestSuite(__CLASS__);
     $suite->SetVersion('v201008');
+    $suite->SetRequires(array('CAMPAIGN'));
     return $suite;
   }
 
@@ -55,36 +58,31 @@ class ValidateOnlyTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service =
-        $user->GetCampaignService(NULL, NULL, NULL, true);
+    $this->service = $user->GetCustomerSyncService();
+
+    $this->campaignId = $this->sharedFixture['campaignId'];
+
+    $this->testUtils = $this->sharedFixture['testUtils'];
   }
 
   /**
-   * Test whether we can validate a correctly formed create campaign request.
+   * Test getting changes for a campaign.
+   * @covers CustomerSyncService::get
    */
-  public function testValidCreateCampaign() {
-    $campaign = new Campaign();
-    $campaign->name = 'Campaign #' . time();
-    $campaign->status = 'PAUSED';
-    $campaign->biddingStrategy = new ManualCPC();
-    $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
+  public function testGet() {
+    $selector = new CustomerSyncSelector();
+    $selector->campaignIds = array($this->campaignId);
 
-    $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
+    $dateTimeRange = new DateTimeRange();
+    $dateTimeRange->min = date('Ymd hms', strtotime('-1 day'));
+    $dateTimeRange->max = date('Ymd hms');
+    $selector->dateTimeRange = $dateTimeRange;
 
-    $campaignReturnValue = $this->service->mutate($operations);
+    $result = $this->service->get($selector);
 
-    $this->assertNull($campaignReturnValue);
-  }
-
-  /**
-   * Test whether we can validate an incorrectly formed create campaign request.
-   * @expectedException SoapFault
-   */
-  public function testInvalidCreateCampaign() {
-    $campaign = new Campaign();
-
-    $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
-
-    $campaignReturnValue = $this->service->mutate($operations);
+    $this->assertNotNull($result);
+    $this->assertEquals(1, sizeof($result->changedCampaigns));
+    $this->assertEquals($this->campaignId,
+        $result->changedCampaigns[0]->campaignId);
   }
 }

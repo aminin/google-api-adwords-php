@@ -1,6 +1,6 @@
 <?php
 /**
- * Functional tests for the validateOnly header.
+ * Functional tests for AlertService.
  *
  * PHP version 5
  *
@@ -31,15 +31,15 @@ error_reporting(E_STRICT | E_ALL);
 
 require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
 require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201008/CampaignService.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v201008/AdGroupAdService.php';
+require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/Common/Util/MediaUtils.php';
 
 /**
- * Functional tests for the validateOnly header.
- *
- * @author api.ekoleda@gmail.com
+ * Functional tests for AlertService.
  */
-class ValidateOnlyTest extends AdsTestCase {
+class AlertServiceTest extends AdsTestCase {
   private $service;
+  private $testUtils;
 
   /**
    * Create the test suite.
@@ -55,36 +55,27 @@ class ValidateOnlyTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service =
-        $user->GetCampaignService(NULL, NULL, NULL, true);
+    $this->service = $user->GetAlertService();
+
+    $this->testUtils = $this->sharedFixture['testUtils'];
   }
 
   /**
-   * Test whether we can validate a correctly formed create campaign request.
+   * Test getting all alerts.
+   * @covers AlertService::get
    */
-  public function testValidCreateCampaign() {
-    $campaign = new Campaign();
-    $campaign->name = 'Campaign #' . time();
-    $campaign->status = 'PAUSED';
-    $campaign->biddingStrategy = new ManualCPC();
-    $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
+  public function testGetAll() {
+    $query = new AlertQuery();
+    $query->clientSpec = 'ALL';
+    $query->filterSpec = 'ALL';
+    $query->triggerTimeSpec = 'ALL_TIME';
 
-    $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
+    $selector = new AlertSelector();
+    $selector->query = $query;
+    $selector->paging = new Paging(0, 10);
 
-    $campaignReturnValue = $this->service->mutate($operations);
+    $page = $this->service->get($selector);
 
-    $this->assertNull($campaignReturnValue);
-  }
-
-  /**
-   * Test whether we can validate an incorrectly formed create campaign request.
-   * @expectedException SoapFault
-   */
-  public function testInvalidCreateCampaign() {
-    $campaign = new Campaign();
-
-    $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
-
-    $campaignReturnValue = $this->service->mutate($operations);
+    $this->assertNotNull($page);
   }
 }
