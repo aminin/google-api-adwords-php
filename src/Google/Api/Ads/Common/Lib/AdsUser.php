@@ -129,16 +129,45 @@ abstract class AdsUser {
   }
 
   /**
-   * Initiates the default logging behavior of logging all HTTP headers and
-   * SOAP XML to the soap_xml.log file and all request information to the
-   * request_info.log file under the logs directory.
+   * Initializes the logging mechanism used by services created by this user.
+   * HTTP headers and SOAP XML are logged to the soap_xml.log file and all
+   * request information is logged to the request_info.log file under the logs
+   * directory.
+   */
+  protected function InitLogs() {
+    Logger::LogToFile(Logger::$SOAP_XML_LOG,
+        $this->logsDirectory . "/soap_xml.log");
+    Logger::LogToFile(Logger::$REQUEST_INFO_LOG,
+        $this->logsDirectory . "/request_info.log");
+    Logger::SetLogLevel(Logger::$SOAP_XML_LOG, Logger::$FATAL);
+    Logger::SetLogLevel(Logger::$REQUEST_INFO_LOG, Logger::$FATAL);
+  }
+
+  /**
+   * Configures the library to log basic information about all requests and
+   * the full SOAP XML request and response only when an error occurs.
    */
   public function LogDefaults() {
-    Logger::logToFile(Logger::$SOAP_XML_LOG,
-        $this->logsDirectory . "/soap_xml.log");
-    Logger::logToFile(Logger::$REQUEST_INFO_LOG,
-        $this->logsDirectory . "/request_info.log");
+    Logger::SetLogLevel(Logger::$SOAP_XML_LOG, Logger::$ERROR);
+    Logger::SetLogLevel(Logger::$REQUEST_INFO_LOG, Logger::$INFO);
   }
+
+  /**
+   * Configures the library to only log requests that return an error.
+   */
+  public function LogErrors() {
+    Logger::SetLogLevel(Logger::$SOAP_XML_LOG, Logger::$ERROR);
+    Logger::SetLogLevel(Logger::$REQUEST_INFO_LOG, Logger::$ERROR);
+  }
+
+  /**
+   * Configures the library to log all requests.
+   */
+  public function LogAll() {
+    Logger::SetLogLevel(Logger::$SOAP_XML_LOG, Logger::$INFO);
+    Logger::SetLogLevel(Logger::$REQUEST_INFO_LOG, Logger::$INFO);
+  }
+
 
   /**
    * Loads the settings for this client library. If the settings INI file
@@ -176,6 +205,7 @@ abstract class AdsUser {
       } else {
         $this->logsDirectory = $settingsIni['LOGGING']['LIB_LOG_DIR_PATH'];
       }
+      $this->InitLogs();
 
       // Server settings.
       if (array_key_exists('SERVER', $settingsIni)

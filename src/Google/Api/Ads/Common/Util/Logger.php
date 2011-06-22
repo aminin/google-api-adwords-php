@@ -59,14 +59,14 @@ class Logger {
 
   /**
    * Standard out stream for use with the LogToStream method.
-   * @see Logger::LogToStream()
+   * @see self::LogToStream()
    * @var string stream for stdout
    */
   public static $STD_OUT_STREAM = 'php://stdout';
 
   /**
    * Standard error stream for use with the LogToStream method.
-   * @see Logger::LogToStream()
+   * @see self::LogToStream()
    * @var string stream for stderr
    */
   public static $STD_ERR_STREAM = 'php://stderr';
@@ -96,6 +96,7 @@ class Logger {
   public static $FATAL = 'FATAL';
 
   private static $logToMap = array();
+  private static $logLevelMap = array();
   private static $timeFormat = 'M d Y H:i:s.u';
 
   /**
@@ -110,7 +111,7 @@ class Logger {
    * @param string $filePath the location of the file to append the log to
    */
   public static function LogToFile($log, $filePath) {
-    Logger::LogTo($log, $filePath);
+    self::LogTo($log, $filePath);
   }
 
   /**
@@ -123,11 +124,11 @@ class Logger {
    * provided for your convenience.
    * @param string $log the unique name of the log
    * @param string $phpIoStream the php I/O stream of the form php://*
-   * @see Logger::$STD_OUT_STREAM
-   * @see Logger::$STD_ERR_STREAM
+   * @see self::$STD_OUT_STREAM
+   * @see self::$STD_ERR_STREAM
    */
   public static function LogToStream($log, $phpIoStream) {
-    Logger::LogTo($log, $phpIoStream);
+    self::LogTo($log, $phpIoStream);
   }
 
   /**
@@ -137,17 +138,27 @@ class Logger {
    * @access private
    */
   private static function LogTo($log, $handleLocation) {
-    if (!array_key_exists($log, Logger::$logToMap)) {
-      Logger::$logToMap[$log] = array();
+    if (!array_key_exists($log, self::$logToMap)) {
+      self::$logToMap[$log] = array();
     }
 
-    $appenders = Logger::$logToMap[$log];
+    $appenders = self::$logToMap[$log];
 
     if (array_search($handleLocation, $appenders) === FALSE) {
       array_push($appenders, $handleLocation);
     }
 
-    Logger::$logToMap[$log] = $appenders;
+    self::$logToMap[$log] = $appenders;
+  }
+
+  /**
+   * Sets the logging level for a given log. Only messages at that log level
+   * or higher will be written to the log.
+   * @param string $log the unique name of the log
+   * @param string $level the level to filter for
+   */
+  public static function SetLogLevel($log, $level) {
+    self::$logLevelMap[$log] = $level;
   }
 
   /**
@@ -158,10 +169,10 @@ class Logger {
    */
   public static function Log($log, $message, $level = NULL) {
     if (!isset($level)) {
-      $level = Logger::$INFO;
+      $level = self::$INFO;
     }
 
-    Logger::LogToAllAppenders($log, $message, $level);
+    self::LogToAllAppenders($log, $message, $level);
   }
 
   /**
@@ -172,11 +183,27 @@ class Logger {
    * @access private
    */
   private static function LogToAllAppenders($log, $message, $level) {
-    if (array_key_exists($log, Logger::$logToMap)) {
-      $appenders = Logger::$logToMap[$log];
-
-      Logger::LogToAppenders($appenders, $message, $level);
+    if (array_key_exists($log, self::$logToMap)) {
+      $logLevel = array_key_exists($log, self::$logLevelMap) ?
+          self::$logLevelMap[$log] : self::$INFO;
+      if (self::ShouldLog($logLevel, $level)) {
+        $appenders = self::$logToMap[$log];
+        self::LogToAppenders($appenders, $message, $level);
+      }
     }
+  }
+
+  /**
+   * Determines if a message of a given level should be written to a log of a
+   * given level.
+   * @param string $logLevel the level of the log
+   * @param string $messageLevel the level of the message
+   */
+  private static function ShouldLog($logLevel, $messageLevel) {
+    $levelPriority =
+        array(self::$DEBUG, self::$INFO, self::$ERROR, self::$FATAL);
+    return array_search($logLevel, $levelPriority) <=
+        array_search($messageLevel, $levelPriority);
   }
 
   /**
@@ -189,7 +216,7 @@ class Logger {
    */
   private static function LogToAppenders(array $appenders, $message, $level) {
     foreach ($appenders as $handle) {
-      Logger::WriteMessage($handle, $message, $level);
+      self::WriteMessage($handle, $message, $level);
     }
   }
 
@@ -204,7 +231,7 @@ class Logger {
    */
   private static function WriteMessage($handleLocation, $message, $level) {
     $fp = fopen($handleLocation, 'a');
-    $line = '[' . date(Logger::$timeFormat, time()) . ' - ' . $level . '] '
+    $line = '[' . date(self::$timeFormat, time()) . ' - ' . $level . '] '
         . $message . "\n";
     fwrite($fp, $line);
     fclose($fp);

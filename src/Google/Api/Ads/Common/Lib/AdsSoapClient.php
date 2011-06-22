@@ -228,37 +228,42 @@ abstract class AdsSoapClient extends SoapClient {
       //TODO(api.arogal): Log warning that DOM could not be created.
     }
 
-    $this->LogSoapXml();
-    $this->LogRequestInfo();
+    $level = isset($e) ? Logger::$ERROR : Logger::$INFO;
+    $this->LogSoapXml($level);
+    $this->LogRequestInfo($level);
   }
 
   /**
    * Logs the SOAP XML to the Logger::$SOAP_XML_LOG log after the request has
    * transformed by PrepareRequest() and both the request and response have
    * been sanitized by RemoveSensitiveInfo().
+   * @param string $level the log level to use
    * @see PrepareRequest()
    * @see RemoveSensitiveInfo()
    * @access private
    */
-  private function LogSoapXml() {
-    Logger::log(Logger::$SOAP_XML_LOG, $this->__getLastRequestHeaders()
-        . XmlUtils::PrettyPrint($this->lastRequest) . "\n\n"
-        . $this->__getLastResponseHeaders() . "\n"
-        . XmlUtils::PrettyPrint($this->lastResponse));
+  private function LogSoapXml($level) {
+    $message = sprintf("%s\n\n%s\n%s\n\n%s",
+        trim($this->__getLastRequestHeaders()),
+        XmlUtils::PrettyPrint($this->lastRequest),
+        trim($this->__getLastResponseHeaders()),
+        XmlUtils::PrettyPrint($this->lastResponse));
+    Logger::log(Logger::$SOAP_XML_LOG, $message, $level);
   }
 
   /**
    * Logs the request info to the Logger::$REQUEST_INFO_LOG log the request has
    * transformed by PrepareRequest() and both the request has been sanitized by
    * RemoveSensitiveInfo().
+   * @param string $level the log level to use
    * @see PrepareRequest()
    * @see RemoveSensitiveInfo()
    * @access private
    */
-  private function LogRequestInfo() {
-    Logger::log(Logger::$REQUEST_INFO_LOG,
-        $this->GenerateRequestInfoMessage($this->lastRequest,
-            $this->lastResponse, $this->lastSoapFault));
+  private function LogRequestInfo($level) {
+    $message = $this->GenerateRequestInfoMessage($this->lastRequest,
+        $this->lastResponse, $this->lastSoapFault);
+    Logger::log(Logger::$REQUEST_INFO_LOG, $message, $level);
   }
 
   /**

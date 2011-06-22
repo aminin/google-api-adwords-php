@@ -31,7 +31,6 @@
  */
 
 /** Required classes. **/
-require_once dirname(__FILE__) . '/../../Common/Util/Logger.php';
 require_once dirname(__FILE__) . '/../../Common/Util/AuthToken.php';
 require_once dirname(__FILE__) . '/../../Common/Lib/AdsUser.php';
 require_once 'AdWordsSoapClientFactory.php';
