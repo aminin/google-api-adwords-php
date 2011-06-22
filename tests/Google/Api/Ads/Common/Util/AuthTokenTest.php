@@ -33,7 +33,7 @@ $path = dirname(__FILE__) . '/../../../../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'PHPUnit/Framework.php';
-require_once dirname(__FILE__) . 'Google/Api/Ads/Common/Util/AuthToken.php';
+require_once 'Google/Api/Ads/Common/Util/AuthToken.php';
 
 /**
  * Unit tests for AuthToken.
