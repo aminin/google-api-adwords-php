@@ -29,10 +29,13 @@
 
 error_reporting(E_STRICT | E_ALL);
 
+$path = dirname(__FILE__) . '/../../../../../../src';
+set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+
 require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
 require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/AdWords/v200909/AdGroupAdService.php';
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/Common/Util/MediaUtils.php';
+require_once 'Google/Api/Ads/AdWords/v200909/AdGroupAdService.php';
+require_once 'Google/Api/Ads/Common/Util/MediaUtils.php';
 
 /**
  * Functional tests for AdGroupAdService.
@@ -200,8 +203,7 @@ class AdGroupAdServiceTest extends AdsTestCase {
     $ad = new ImageAd();
     $ad->url = 'http://www.example.com';
     $ad->displayUrl = 'www.example.com';
-    $ad->image = new Image(MediaUtils::GetBase64Data(
-        'https://sandbox.google.com/sandboximages/image.jpg'));
+    $ad->image = new Image(MediaUtils::GetBase64Data('http://goo.gl/HJM3L'));
     $ad->name = 'Image Ad';
     $data[] = array($ad);
 

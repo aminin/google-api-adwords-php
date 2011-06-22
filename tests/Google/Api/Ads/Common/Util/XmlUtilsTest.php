@@ -29,8 +29,11 @@
 
 error_reporting(E_STRICT | E_ALL);
 
+$path = dirname(__FILE__) . '/../../../../../../src';
+set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+
 require_once 'PHPUnit/Framework.php';
-require_once dirname(__FILE__) . '/../../../../../../src/Google/Api/Ads/Common/Util/XmlUtils.php';
+require_once 'Google/Api/Ads/Common/Util/XmlUtils.php';
 
 /**
  * Unit tests for XmlUtils.
