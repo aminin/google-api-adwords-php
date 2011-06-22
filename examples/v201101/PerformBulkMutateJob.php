@@ -82,8 +82,7 @@ function CreateAdGroupAdOperations($adGroupId1, $adGroupId2) {
 
   // Create image.
   $image = new Image();
-  $image->data = MediaUtils::GetBase64Data(
-      'https://sandbox.google.com/sandboximages/image.jpg');
+  $image->data = MediaUtils::GetBase64Data('http://goo.gl/HJM3L');
   $imageAd->image = $image;
 
   // Create ad group ad.

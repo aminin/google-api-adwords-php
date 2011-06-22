@@ -59,8 +59,7 @@ try {
   $thirdPartyRedirectAd->url = 'http://www.example.com';
   $thirdPartyRedirectAd->dimensions = new Dimensions(300, 250);
   // This field normally contains the javascript ad tag.
-  $thirdPartyRedirectAd->snippet =
-      '<img src="https://sandbox.google.com/sandboximages/image.jpg"/>';
+  $thirdPartyRedirectAd->snippet = '<img src="http://goo.gl/HJM3L"/>';
   $thirdPartyRedirectAd->impressionBeaconUrl = 'http://www.examples.com/beacon';
   // Image & Flash format id.
   $thirdPartyRedirectAd->certifiedVendorFormatId = 119;

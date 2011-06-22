@@ -78,8 +78,7 @@ try {
 
   // Create image.
   $image = new Image();
-  $image->data = MediaUtils::GetBase64Data(
-      'https://sandbox.google.com/sandboximages/image.jpg');
+  $image->data = MediaUtils::GetBase64Data('http://goo.gl/HJM3L');
   $imageAd->image = $image;
 
   // Create ad group ad.
@@ -97,8 +96,7 @@ try {
 
   // Create template ad data.
   $startImage = new Image();
-  $startImage->data = MediaUtils::GetBase64Data(
-      'https://sandbox.google.com/sandboximages/image.jpg');
+  $startImage->data = MediaUtils::GetBase64Data('http://goo.gl/HJM3L');
   $startImage->type = 'IMAGE';
   $video = new Video();
   $video->mediaId = $videoMediaId;
