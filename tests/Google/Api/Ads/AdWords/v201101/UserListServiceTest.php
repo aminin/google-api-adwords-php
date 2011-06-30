@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v201008
+ * @subpackage v201101
  * @category   WebServices
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
@@ -49,7 +49,7 @@ class UserListServiceTest extends AdsTestCase {
    */
   public static function suite() {
     $suite = new AdWordsTestSuite(__CLASS__);
-    $suite->SetVersion('v201008');
+    $suite->SetVersion('v201101');
     return $suite;
   }
 
@@ -124,12 +124,10 @@ class UserListServiceTest extends AdsTestCase {
    * @covers UserListService::get
    */
   public function testGet() {
-    $selector = new UserListSelector();
-    $selector->userListIds = array($this->userListId);
-    $selector->userListTypes = array('EXTERNAL_REMARKETING', 'LOGICAL',
-        'REMARKETING');
-    $selector->userListStatuses = array('OPEN', 'CLOSED');
-    $selector->paging = new Paging(0, 10);
+    $selector = new Selector();
+    $selector->fields = $this->getAllFields();
+    $selector->predicates[] =
+        new Predicate('Id', 'IN', array($this->userListId));
 
     $page = $this->service->get($selector);
 
@@ -142,11 +140,44 @@ class UserListServiceTest extends AdsTestCase {
    * @covers UserListService::get
    */
   public function testGetAll() {
-    $selector = new UserListSelector();
+    $selector = new Selector();
+    $selector->fields = $this->getAllFields();
+    $selector->paging = new Paging(0, 100);
+    $selector->ordering = array(new OrderBy('Id', 'ASCENDING'));
 
     $page = $this->service->get($selector);
 
     $this->assertNotNull($page);
     $this->assertGreaterThanOrEqual(1, sizeof($page->entries));
+    $this->assertLessThanOrEqual(100, sizeof($page->entries));
+
+    // Assert that the order is correct.
+    $lastId = 0;
+    foreach($page->entries as $userList) {
+      $this->assertGreaterThanOrEqual($lastId, $userList->id);
+      $lastId = $userList->id;
+    }
+  }
+
+  /**
+   * Returns all the selectable fields for the service.
+   * @return array the selectable fields available
+   */
+  function getAllFields() {
+    return array(
+        'AccessReason',
+        'AccountUserListStatus',
+        'ConversionTypes',
+        'Description',
+        'Id',
+        'IsReadOnly',
+        'MembershipLifeSpan',
+        'Name',
+        'Rules',
+        'Size',
+        'SizeRange',
+        'Status',
+        'Type'
+    );
   }
 }

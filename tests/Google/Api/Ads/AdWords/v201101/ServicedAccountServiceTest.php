@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v201008
+ * @subpackage v201101
  * @category   WebServices
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
@@ -47,7 +47,7 @@ class ServicedAccountServiceTest extends AdsTestCase {
    */
   public static function suite() {
     $suite = new AdWordsTestSuite(__CLASS__);
-    $suite->SetVersion('v201008');
+    $suite->SetVersion('v201101');
     return $suite;
   }
 

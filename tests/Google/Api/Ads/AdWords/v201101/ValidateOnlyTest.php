@@ -1,6 +1,6 @@
 <?php
 /**
- * Functional tests for ServicedAccountService.
+ * Functional tests for the validateOnly header.
  *
  * PHP version 5
  *
@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v201008
+ * @subpackage v201101
  * @category   WebServices
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
@@ -34,20 +34,22 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
 require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
+require_once 'Google/Api/Ads/AdWords/v201101/CampaignService.php';
 
 /**
- * Functional tests for ServicedAccountService.
+ * Functional tests for the validateOnly header.
+ *
+ * @author api.ekoleda@gmail.com
  */
-class ServicedAccountServiceTest extends AdsTestCase {
+class ValidateOnlyTest extends AdsTestCase {
   private $service;
-  private $testUtils;
 
   /**
    * Create the test suite.
    */
   public static function suite() {
     $suite = new AdWordsTestSuite(__CLASS__);
-    $suite->SetVersion('v201008');
+    $suite->SetVersion('v201101');
     return $suite;
   }
 
@@ -56,34 +58,36 @@ class ServicedAccountServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $user->SetClientId(NULL);
-    $this->service = $user->GetServicedAccountService();
+    $this->service =
+        $user->GetCampaignService(NULL, NULL, NULL, true);
   }
 
   /**
-   * Test getting serviced accounts with links.
-   * @covers ServicedAccountService::get
+   * Test whether we can validate a correctly formed create campaign request.
    */
-  public function testGetWithLinks() {
-    $selector = new ServicedAccountSelector();
-    $selector->enablePaging = FALSE;
+  public function testValidCreateCampaign() {
+    $campaign = new Campaign();
+    $campaign->name = 'Campaign #' . time();
+    $campaign->status = 'PAUSED';
+    $campaign->biddingStrategy = new ManualCPC();
+    $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
 
-    $graph = $this->service->get($selector);
+    $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
 
-    $this->assertGreaterThanOrEqual(1, sizeof($graph->accounts));
-    $this->assertGreaterThanOrEqual(1, sizeof($graph->links));
+    $campaignReturnValue = $this->service->mutate($operations);
+
+    $this->assertNull($campaignReturnValue);
   }
 
   /**
-   * Test getting serviced accounts without links.
-   * @covers ServicedAccountService::get
+   * Test whether we can validate an incorrectly formed create campaign request.
+   * @expectedException SoapFault
    */
-  public function testGetWithoutLinks() {
-    $selector = new ServicedAccountSelector();
-    $selector->enablePaging = TRUE;
+  public function testInvalidCreateCampaign() {
+    $campaign = new Campaign();
 
-    $graph = $this->service->get($selector);
+    $operations = array(new CampaignOperation(NULL, $campaign, 'ADD'));
 
-    $this->assertGreaterThanOrEqual(1, sizeof($graph->accounts));
+    $campaignReturnValue = $this->service->mutate($operations);
   }
 }

@@ -354,4 +354,21 @@ class TestUtils {
     $operation = new ExperimentOperation($experiment, 'SET');
     $experimentService->mutate(array($operation));
   }
+
+  /**
+   * Creates a conversion tracker.
+   * @return float the id of the conversion tracker
+   */
+  public function CreateConversionTracker() {
+    $conversionTrackerService =
+        $this->user->GetConversionTrackerService($this->version);
+
+    $conversionTracker = new AdWordsConversionTracker();
+    $conversionTracker->name = 'Conversion ' . uniqid();
+
+    $operation = new ConversionTrackerOperation($conversionTracker, 'ADD');
+    $result = $conversionTrackerService->mutate(array($operation));
+
+    return $result->value[0]->id;
+  }
 }

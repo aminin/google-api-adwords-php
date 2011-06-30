@@ -1,6 +1,6 @@
 <?php
 /**
- * Functional tests for ServicedAccountService.
+ * Functional tests for AlertService.
  *
  * PHP version 5
  *
@@ -19,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v201008
+ * @subpackage v201101
  * @category   WebServices
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
@@ -34,11 +34,13 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once dirname(__FILE__) . '/../AdWordsTestSuite.php';
 require_once dirname(__FILE__) . '/../../Common/AdsTestCase.php';
+require_once 'Google/Api/Ads/AdWords/v201101/AdGroupAdService.php';
+require_once 'Google/Api/Ads/Common/Util/MediaUtils.php';
 
 /**
- * Functional tests for ServicedAccountService.
+ * Functional tests for AlertService.
  */
-class ServicedAccountServiceTest extends AdsTestCase {
+class AlertServiceTest extends AdsTestCase {
   private $service;
   private $testUtils;
 
@@ -47,7 +49,7 @@ class ServicedAccountServiceTest extends AdsTestCase {
    */
   public static function suite() {
     $suite = new AdWordsTestSuite(__CLASS__);
-    $suite->SetVersion('v201008');
+    $suite->SetVersion('v201101');
     return $suite;
   }
 
@@ -56,34 +58,28 @@ class ServicedAccountServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $user->SetClientId(NULL);
-    $this->service = $user->GetServicedAccountService();
+    $this->service = $user->GetAlertService();
+
+    $this->testUtils = $this->sharedFixture['testUtils'];
   }
 
   /**
-   * Test getting serviced accounts with links.
-   * @covers ServicedAccountService::get
+   * Test getting all alerts.
+   * @covers AlertService::get
    */
-  public function testGetWithLinks() {
-    $selector = new ServicedAccountSelector();
-    $selector->enablePaging = FALSE;
+  public function testGetAll() {
+    $query = new AlertQuery();
+    $query->clientSpec = 'ALL';
+    $query->filterSpec = 'ALL';
+    $query->triggerTimeSpec = 'ALL_TIME';
 
-    $graph = $this->service->get($selector);
+    $selector = new AlertSelector();
+    $selector->query = $query;
+    $selector->paging = new Paging(0, 100);
 
-    $this->assertGreaterThanOrEqual(1, sizeof($graph->accounts));
-    $this->assertGreaterThanOrEqual(1, sizeof($graph->links));
-  }
+    $page = $this->service->get($selector);
 
-  /**
-   * Test getting serviced accounts without links.
-   * @covers ServicedAccountService::get
-   */
-  public function testGetWithoutLinks() {
-    $selector = new ServicedAccountSelector();
-    $selector->enablePaging = TRUE;
-
-    $graph = $this->service->get($selector);
-
-    $this->assertGreaterThanOrEqual(1, sizeof($graph->accounts));
+    $this->assertNotNull($page);
+    $this->assertLessThanOrEqual(100, sizeof($page->entries));
   }
 }

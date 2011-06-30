@@ -138,6 +138,21 @@
   </target>
 
   <!-- =================================================================== -->
+  <!-- Target: run tests for v201101                                       -->
+  <!-- =================================================================== -->
+  <target name="test-v201101" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="**/v201101/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report" outfile="test_results_v201101.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
   <!-- Target: run tests for core library                                  -->
   <!-- =================================================================== -->
   <target name="test-core" depends="init">
