@@ -52,8 +52,12 @@ class PeclOAuthHandler extends OAuthHandler {
         // Must use URI auth type due to bug in version 1.1.0.
         OAUTH_AUTH_TYPE_URI);
     $oauth->setRequestEngine(OAUTH_REQENGINE_CURL);
+    $oauth->setVersion('1.0a');
 
     $params = array('scope' => $scope);
+    if (!isset($callbackUrl)) {
+      $callbackUrl = parent::$DEFAULT_CALLBACK_URL;
+    }
     if (isset($applicationName)) {
       $params['xoauth_displayname'] = $applicationName;
     }
@@ -74,6 +78,7 @@ class PeclOAuthHandler extends OAuthHandler {
         // Must use URI auth type due to bug in version 1.1.0.
         OAUTH_AUTH_TYPE_URI);
     $oauth->setRequestEngine(OAUTH_REQENGINE_CURL);
+    $oauth->setVersion('1.0a');
     $oauth->setToken($credentials['oauth_token'],
         $credentials['oauth_token_secret']);
 
@@ -95,7 +100,7 @@ class PeclOAuthHandler extends OAuthHandler {
     $params['oauth_signature_method'] = 'HMAC-SHA1';
     $params['oauth_timestamp'] = time();
     $params['oauth_nonce'] = uniqid();
-    $params['oauth_version'] = '1.0';
+    $params['oauth_version'] = '1.0a';
 
     // This
     $oauth = new OAuth($credentials['oauth_consumer_key'],
@@ -103,6 +108,7 @@ class PeclOAuthHandler extends OAuthHandler {
         // Must *NOT* use URI auth type due to bug in version 1.1.0.
         OAUTH_AUTH_TYPE_AUTHORIZATION);
     $oauth->setRequestEngine(OAUTH_REQENGINE_CURL);
+    $oauth->setVersion('1.0a');
     $oauth->setToken($credentials['oauth_token'],
         $credentials['oauth_token_secret']);
     $oauth->setTimestamp($params['oauth_timestamp']);

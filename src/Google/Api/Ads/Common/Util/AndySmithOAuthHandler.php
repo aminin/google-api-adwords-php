@@ -60,6 +60,7 @@ class AndySmithOAuthHandler extends OAuthHandler {
     $consumer = new OAuthConsumer($credentials['oauth_consumer_key'],
         $credentials['oauth_consumer_secret']);
     $signatureMethod = new OAuthSignatureMethod_HMAC_SHA1();
+    $params['version'] = '1.0a';
 
     $params = array('scope' => $scope);
     if (isset($applicationName)) {
@@ -67,6 +68,8 @@ class AndySmithOAuthHandler extends OAuthHandler {
     }
     if (isset($callbackUrl)) {
       $params['oauth_callback'] = $callbackUrl;
+    } else {
+      $params['oauth_callback'] = parent::$DEFAULT_CALLBACK_URL;
     }
     $endpoint = $this->GetRequestEndpoint($server);
 
@@ -90,6 +93,7 @@ class AndySmithOAuthHandler extends OAuthHandler {
     $token = new OAuthToken($credentials['oauth_token'],
         $credentials['oauth_token_secret']);
     $signatureMethod = new OAuthSignatureMethod_HMAC_SHA1();
+    $params['version'] = '1.0a';
 
     $params = array('oauth_verifier' => $verifier);
     $endpoint = $this->GetAccessEndpoint($server);
@@ -114,6 +118,7 @@ class AndySmithOAuthHandler extends OAuthHandler {
     $token = new OAuthToken($credentials['oauth_token'],
         $credentials['oauth_token_secret']);
     $signatureMethod = new OAuthSignatureMethod_HMAC_SHA1();
+    $params['version'] = '1.0a';
 
     $request = OAuthRequest::from_consumer_and_token($consumer, $token, 'POST',
         $url, array());

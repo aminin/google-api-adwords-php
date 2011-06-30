@@ -51,9 +51,8 @@ try {
   $user->LogDefaults();
   $user->SetOAuthInfo($oauthInfo);
 
-  // Request a new OAuth token. For a web application, pass in the optional
-  // callbackUrl parameter to have the user automatically redirected back
-  // to your application after authorizing the token.
+  // Request a new OAuth token. Web applications should pass in a callback URL
+  // to redirect the user to after authorizing the token.
   $user->RequestOAuthToken();
 
   // Get the authorization URL for the OAuth token.
@@ -61,8 +60,9 @@ try {
 
   // In a web application you would redirect the user to the authorization URL
   // and after approving the token they would be redirected back to the
-  // callbackUrl. For desktop application spawn a browser to the URL and
-  // then have the user enter the generated verification code.
+  // callback URL, with the URL parameter "oauth_verifier" added. For desktop
+  // or server applications, spawn a browser to the URL and then have the user
+  // enter the verification code that is displayed.
   printf("Log in to your AdWords account and open the following URL: %s\n",
       $authorizationUrl);
   print 'After approving the token enter the verification code here: ';

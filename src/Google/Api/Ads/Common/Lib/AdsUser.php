@@ -426,12 +426,16 @@ abstract class AdsUser {
    * Requests a new OAuth token.
    * @param $callbackUrl the URL to return to after the token is authorized
    * @param $server the AdWords API server that requests will be made to
+   * @param $applicationName the optional application name to present to the
+   *     user during token authorization
    */
-  public function RequestOAuthToken($callbackUrl = NULL, $server = NULL) {
+  public function RequestOAuthToken($callbackUrl = NULL, $server = NULL,
+      $applicationName = NULL) {
     $server = isset($server) ? $server : $this->GetDefaultServer();
     $scope = $this->GetOAuthScope($server);
     $this->oauthInfo = $this->GetOAuthHandler()->GetRequestToken(
-        $this->oauthInfo, $scope, $this->GetAuthServer(), $callbackUrl);
+        $this->oauthInfo, $scope, $this->GetAuthServer(), $callbackUrl,
+        $applicationName);
   }
 
   /**

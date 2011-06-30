@@ -33,6 +33,8 @@
  * @subpackage Util
  */
 abstract class OAuthHandler {
+  public static $DEFAULT_CALLBACK_URL = 'oob';
+
   private static $REQUEST_ENDPOINT =
       'https://www.google.com/accounts/OAuthGetRequestToken';
   private static $AUTHORIZE_ENDPOINT =
