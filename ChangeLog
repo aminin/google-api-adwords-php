@@ -1,3 +1,12 @@
+2.6.3:
+- Updated OAuth implementation to allow for alternative OAuth libraries,
+  including the bundled Andy Smith library. Updated to use OAuth version 1.0a.
+- Updated the logging functionality to support filtering for levels. Changed the
+  default logging behavior to only log SOAP XML if an error occurred. Added new
+  methods to AdWordsUser for additional logging configuration.
+- Fixed issue with cross-client report download. (Issue #59)
+- Updated and added functional tests for v201008 and v201101.
+
 2.6.2:
 - Made v201101 the default version.
 - Small documentation fixes.
