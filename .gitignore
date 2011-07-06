@@ -1,0 +1,8 @@
+logs/*
+!logs/README
+docs/*
+src/Google/Api/Ads/AdWords/*
+!src/Google/Api/Ads/AdWords/auth.ini
+!src/Google/Api/Ads/AdWords/settings.ini
+!src/Google/Api/Ads/AdWords/Lib
+!src/Google/Api/Ads/AdWords/Utils
