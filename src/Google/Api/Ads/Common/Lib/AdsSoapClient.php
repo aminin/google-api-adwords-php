@@ -150,6 +150,7 @@ abstract class AdsSoapClient extends SoapClient {
     $this->user = $user;
     $this->serviceName = $serviceName;
     $this->serviceNamespace = $serviceNamespace;
+    $options['typemap'] = $this->GetTypemaps();
     parent::__construct($wsdl, $options);
   }
 
@@ -279,10 +280,13 @@ abstract class AdsSoapClient extends SoapClient {
    * @return string the server that the request was made to
    */
   public function GetServer() {
-    $hostMatches = array();
     preg_match('/^.*Host:\\s(.*)Connection:.*$/s',
        $this->__getLastRequestHeaders(), $hostMatches);
-    return trim($hostMatches[1]);
+    if (sizeof($hostMatches) >= 2) {
+      return trim($hostMatches[1]);
+    } else {
+      return NULL;
+    }
   }
 
   /**
@@ -515,5 +519,50 @@ abstract class AdsSoapClient extends SoapClient {
     }
 
     return $this->lastRequestDom;
+  }
+
+  /**
+   * Returns the typemaps to be used when constructing the SOAP client.
+   * @return array the typemap entries
+   */
+  protected function GetTypemaps() {
+    $typemaps = array();
+    // Convert longs more intelligently, due to overflow issue in 32 bit
+    // environments.
+    $typemaps[] = array(
+        'type_ns' => 'http://www.w3.org/2001/XMLSchema',
+        'type_name' => 'long',
+        'from_xml' => 'AdsSoapClient::TypemapLongFromXml',
+        'to_xml' => 'AdsSoapClient::TypemapLongToXml');
+    return $typemaps;
+  }
+
+  /**
+   * A typemap conversion function for parsing long values in SOAP responses.
+   * @param string $xml the XML snippet containing the long value.
+   * @return mixed the inner long value as an integer, float, or string
+   */
+  public static function TypemapLongFromXml($xml) {
+    $value = strip_tags($xml);
+    if (strval(intval($value)) == $value) {
+      return intval($value);
+    } elseif (sprintf('%.0f', floatval($value)) === $value) {
+      return floatval($value);
+    } else {
+      return $value;
+    }
+  }
+
+  /**
+   * A typemap conversion function for serializing long values in SOAP requests.
+   * @param mixed $value the long value
+   * @return string an XML snippet with the serialized value
+   */
+  public static function TypemapLongToXml($value) {
+    if (is_float($value)) {
+      $value = sprintf('%.0f', $value);
+    }
+    // Any outer XML tag can be used here, as it is later removed by SoapClient.
+    return sprintf('<value>%s</value>', $value);
   }
 }
