@@ -377,11 +377,11 @@ abstract class AdsSoapClient extends SoapClient {
    */
   protected function PrepareRequest($request, array $arguments,
       array $headers) {
-    $addXsiTypes = false;
-    $removeEmptyElements = false;
-    $replaceReferences = false;
+    $addXsiTypes = FALSE;
+    $removeEmptyElements = FALSE;
+    $replaceReferences = FALSE;
     // Needed for AdWords API XML validation.
-    $redeclareXsiTypeNamespaceDefinitions = true;
+    $redeclareXsiTypeNamespaceDefinitions = TRUE;
 
     if (version_compare(PHP_VERSION, '5.2.0', '<')) {
       trigger_error('The minimum required version of this client library'
@@ -472,7 +472,7 @@ abstract class AdsSoapClient extends SoapClient {
             $requestHeader->getNamespace());
 
     return new SoapHeader($namespace, $soapHeaderElementName,
-        $soapRequestHeader, false);
+        $soapRequestHeader, FALSE);
   }
 
   /**

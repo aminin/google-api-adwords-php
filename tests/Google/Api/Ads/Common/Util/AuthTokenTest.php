@@ -56,8 +56,8 @@ class AuthTokenTest extends PHPUnit_Framework_TestCase {
         dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
     $settingsIniPath =
         dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
-    $authIni = parse_ini_file($authIniPath, true);
-    $settingsIni = parse_ini_file($settingsIniPath, true);
+    $authIni = parse_ini_file($authIniPath, TRUE);
+    $settingsIni = parse_ini_file($settingsIniPath, TRUE);
     $this->assertNotNull($authIni, 'The file test_auth.ini was not found.');
     $this->assertNotNull($settingsIni,
         'The file test_settings.ini was not found.');

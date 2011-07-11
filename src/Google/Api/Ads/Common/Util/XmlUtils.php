@@ -126,6 +126,6 @@ function HandleXmlError($errno, $errstr, $errfile, $errline) {
       && substr_count($errstr, 'DOMDocument::loadXML()') > 0) {
     throw new DOMException($errstr);
   } else {
-    return false;
+    return FALSE;
   }
 }

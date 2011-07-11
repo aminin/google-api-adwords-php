@@ -231,7 +231,7 @@ class SoapRequestXmlFixer {
    */
   private function RedeclareXsiTypeNamespaceDefinition(DOMElement $element) {
     $type = $element->getAttribute('xsi:type');
-    if (isset($type) && strpos($type, ':') !== false) {
+    if (isset($type) && strpos($type, ':') !== FALSE) {
       $parts = explode(':', $type, 2);
       $prefix = $parts[0];
       $uri = $element->lookupNamespaceURI($prefix);
