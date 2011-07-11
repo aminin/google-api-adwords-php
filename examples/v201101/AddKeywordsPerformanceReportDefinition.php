@@ -49,7 +49,8 @@ try {
   $user->LogDefaults();
 
   // Get the GetReportDefinitionService.
-  $reportDefinitionService = $user->GetReportDefinitionService('v201101');
+  $reportDefinitionService =
+      $user->GetService('ReportDefinitionService', 'v201101');
 
   $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
   $startDate = 'INSERT_START_DATE_HERE';

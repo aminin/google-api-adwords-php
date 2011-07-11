@@ -51,10 +51,11 @@ try {
   $user->LogDefaults();
 
   // Get the CampaignAdExtensionService.
-  $campaignAdExtensionService = $user->GetCampaignAdExtensionService('v200909');
+  $campaignAdExtensionService =
+      $user->GetService('CampaignAdExtensionService', 'v200909');
 
   // Get the GeoLocationService.
-  $geoLocationService = $user->GetGeoLocationService('v200909');
+  $geoLocationService = $user->GetService('GeoLocationService', 'v200909');
 
   $campaignId = (float) 'INSERT_CAMPAIGN_ID_HERE';
 

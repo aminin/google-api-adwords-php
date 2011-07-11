@@ -61,7 +61,7 @@ class AdGroupServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetAdGroupService();
+    $this->service = $user->GetService('AdGroupService');
     $this->campaignId = $this->sharedFixture['campaignId'];
 
     $this->testUtils = $this->sharedFixture['testUtils'];

@@ -50,7 +50,8 @@ try {
   $user->LogDefaults();
 
   // Get the ConversionTrackerService.get.
-  $conversionTrackerService = $user->GetConversionTrackerService('v201101');
+  $conversionTrackerService =
+      $user->GetService('ConversionTrackerService', 'v201101');
 
   // Create selector.
   $selector = new Selector();

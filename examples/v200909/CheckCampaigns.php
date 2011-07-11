@@ -48,10 +48,10 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  // Get the validation CampaignService by passing 'true' for the parameter
+  // Get the validation CampaignService by passing true for the parameter
   // $validateOnly.
-  $campaignValidationService = $user->GetCampaignService('v200909', NULL,
-      NULL, true);
+  $campaignValidationService =
+      $user->GetService('CampaignService', 'v200909', NULL, NULL, TRUE);
 
   // Create campaign.
   $goodCampaign = new Campaign();

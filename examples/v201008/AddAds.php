@@ -52,7 +52,7 @@ try {
   $user->LogDefaults();
 
   // Get the AdGroupAdService.
-  $adGroupAdService = $user->GetAdGroupAdService('v201008');
+  $adGroupAdService = $user->GetService('AdGroupAdService', 'v201008');
 
   $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
   $videoMediaId = (float) 'INSERT_VIDEO_MEDIA_ID_HERE';

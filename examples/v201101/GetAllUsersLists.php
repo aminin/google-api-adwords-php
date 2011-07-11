@@ -48,7 +48,7 @@ try {
   $user->LogDefaults();
 
   // Get the UserListService.
-  $userListService = $user->GetUserListService('v201101');
+  $userListService = $user->GetService('UserListService', 'v201101');
 
   // Create selector.
   $selector = new Selector();

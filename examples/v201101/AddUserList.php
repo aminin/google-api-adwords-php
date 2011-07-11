@@ -48,8 +48,9 @@ try {
   $user->LogDefaults();
 
   // Get the services.
-  $userListService = $user->GetUserListService('v201101');
-  $conversionTrackerService = $user->GetConversionTrackerService('v201101');
+  $userListService = $user->GetService('UserListService', 'v201101');
+  $conversionTrackerService =
+      $user->GetService('ConversionTrackerService', 'v201101');
 
   // Create conversion type (tag).
   $conversionType = new UserListConversionType();

@@ -51,7 +51,7 @@ try {
   $user->LogDefaults();
 
   // Get the InfoService.
-  $infoService = $user->GetInfoService('v201003');
+  $infoService = $user->GetService('InfoService', 'v201003');
 
   // Create selector.
   $selector = new InfoSelector();

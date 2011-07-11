@@ -48,7 +48,8 @@ try {
   $user->LogDefaults();
 
   // Get the GetReportDefinitionService.
-  $reportDefinitionService = $user->GetReportDefinitionService('v201008');
+  $reportDefinitionService =
+      $user->GetService('ReportDefinitionService', 'v201008');
 
   // The type of the report to get fields for. Ex: KEYWORDS_PERFORMANCE_REPORT
   $reportType = 'INSERT_REPORT_TYPE_HERE';

@@ -49,7 +49,8 @@ try {
   $user->LogDefaults();
 
   // Get the GetReportDefinitionService.
-  $reportDefinitionService = $user->GetReportDefinitionService('v201008');
+  $reportDefinitionService =
+      $user->GetService('ReportDefinitionService', 'v201008');
 
   // Create selector.
   $selector = new ReportDefinitionSelector();

@@ -58,7 +58,7 @@ class AlertServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetAlertService();
+    $this->service = $user->GetService('AlertService');
 
     $this->testUtils = $this->sharedFixture['testUtils'];
   }

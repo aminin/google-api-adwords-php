@@ -51,7 +51,8 @@ try {
   $user->LogDefaults();
 
   // Get the CampaignTargetService.
-  $campaignTargetService = $user->GetCampaignTargetService('v201008');
+  $campaignTargetService =
+      $user->GetService('CampaignTargetService', 'v201008');
 
   $campaignId = (float) 'INSERT_CAMPAIGN_ID_HERE';
 

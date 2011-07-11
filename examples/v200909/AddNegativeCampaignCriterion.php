@@ -49,7 +49,8 @@ try {
   $user->LogDefaults();
 
   // Get the CampaignCriterionService.
-  $campaignCriterionService = $user->GetCampaignCriterionService('v200909');
+  $campaignCriterionService =
+      $user->GetService('CampaignCriterionService', 'v200909');
 
   $campaignId = (float) 'INSERT_CAMPAIGN_ID_HERE';
 

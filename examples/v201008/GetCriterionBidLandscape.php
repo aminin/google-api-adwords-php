@@ -50,7 +50,7 @@ try {
   $user->LogDefaults();
 
   // Get the BidLandscapeService.
-  $bidLandscapeService = $user->GetBidLandscapeService('v201008');
+  $bidLandscapeService = $user->GetService('BidLandscapeService', 'v201008');
 
   $adGroupId = (float) 'INSERT_ADGROUP_ID_HERE';
   $criterionId = (float) 'INSERT_CRITERION_ID_HERE';

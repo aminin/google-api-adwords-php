@@ -62,8 +62,8 @@ class CampaignAdExtensionServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetCampaignAdExtensionService();
-    $this->geoLocationService = $user->GetGeoLocationService();
+    $this->service = $user->GetService('CampaignAdExtensionService');
+    $this->geoLocationService = $user->GetService('GeoLocationService');
 
     $this->campaignId = $this->sharedFixture['campaignId'];
 

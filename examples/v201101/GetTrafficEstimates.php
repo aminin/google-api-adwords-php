@@ -49,7 +49,8 @@ try {
   $user->LogDefaults();
 
   // Get the TrafficEstimatorService.
-  $trafficEstimatorService = $user->GetTrafficEstimatorService('v201101');
+  $trafficEstimatorService =
+      $user->GetService('TrafficEstimatorService', 'v201101');
 
   // Create keywords. Up to 2000 keywords can be passed in a single request.
   $keywords = array();

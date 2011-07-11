@@ -59,7 +59,7 @@ class ValidateOnlyTest extends AdsTestCase {
   protected function setUp() {
     $user = $this->sharedFixture['user'];
     $this->service =
-        $user->GetCampaignService(NULL, NULL, NULL, true);
+        $user->GetService('CampaignService', NULL, NULL, NULL, TRUE);
   }
 
   /**

@@ -58,7 +58,7 @@ class UserListServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetUserListService();
+    $this->service = $user->GetService('UserListService');
     $this->testUtils = $this->sharedFixture['testUtils'];
 
     $this->userListId = $this->testUtils->CreateUserList();

@@ -50,7 +50,7 @@ try {
   $user->LogDefaults();
 
   // Get the services.
-  $experimentService = $user->GetExperimentService('v201101');
+  $experimentService = $user->GetService('ExperimentService', 'v201101');
 
   $experimentId = "INSERT_EXPERIMENT_ID_HERE";
 

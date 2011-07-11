@@ -61,7 +61,7 @@ class MediaServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetMediaService();
+    $this->service = $user->GetService('MediaService');
 
     $testUtils = $this->sharedFixture['testUtils'];
     $this->mediaId = $testUtils->UploadImage();

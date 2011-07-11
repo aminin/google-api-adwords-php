@@ -50,7 +50,7 @@ try {
   $user->LogDefaults();
 
   // Get the MediaService.
-  $mediaService = $user->GetMediaService('v201008');
+  $mediaService = $user->GetService('MediaService', 'v201008');
 
   // Create image.
   $image = new Image();

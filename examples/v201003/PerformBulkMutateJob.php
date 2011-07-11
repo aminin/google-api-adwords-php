@@ -305,7 +305,7 @@ try {
   $user->LogDefaults();
 
   // Get the BulkMutateJobService.
-  $bulkMutateJobService = $user->GetBulkMutateJobService('v201003');
+  $bulkMutateJobService = $user->GetService('BulkMutateJobService', 'v201003');
 
   // Set scope of jobs.
   $scopingEntityId = new EntityId('CAMPAIGN_ID', $campaignId);

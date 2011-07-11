@@ -70,7 +70,8 @@ class TestUtils {
    * @return float the id of the campaign
    */
   public function CreateCampaign() {
-    $campaignService = $this->user->GetCampaignService($this->version);
+    $campaignService =
+        $this->user->GetService('CampaignService', $this->version);
 
     $campaign = new Campaign();
     $campaign->name = 'Campaign #' . uniqid();
@@ -88,7 +89,8 @@ class TestUtils {
    * @param float $campaignId the id of the campaign
    */
   public function DeleteCampaign($campaignId) {
-    $campaignService = $this->user->GetCampaignService($this->version);
+    $campaignService =
+        $this->user->GetService('CampaignService', $this->version);
 
     $campaign = new Campaign();
     $campaign->id = $campaignId;
@@ -104,7 +106,7 @@ class TestUtils {
    * @return float the id of the ad group
    */
   public function CreateAdGroup($campaignId) {
-    $adGroupService = $this->user->GetAdGroupService($this->version);
+    $adGroupService = $this->user->GetService('AdGroupService', $this->version);
 
     $adGroup = new AdGroup();
     $adGroup->name = 'AdGroup #' . uniqid();
@@ -124,7 +126,7 @@ class TestUtils {
    */
   public function CreateTextAd($adGroupId) {
     $adGroupAdService =
-        $this->user->GetAdGroupAdService($this->version);
+        $this->user->GetService('AdGroupAdService', $this->version);
 
     $textAd = new TextAd();
     $textAd->headline = 'Luxury Cruise to Mars';
@@ -147,7 +149,7 @@ class TestUtils {
    */
   public function CreateKeyword($adGroupId) {
     $adGroupCriterionService =
-        $this->user->GetAdGroupCriterionService($this->version);
+        $this->user->GetService('AdGroupCriterionService', $this->version);
 
     $keyword = new Keyword('mars cruise', 'BROAD');
 
@@ -168,7 +170,7 @@ class TestUtils {
    */
   public function CreateNegativeCampaignKeyword($campaignId) {
     $campaignCriterionService =
-        $this->user->GetCampaignCriterionService($this->version);
+        $this->user->GetService('CampaignCriterionService', $this->version);
 
     $keyword = new Keyword('jupiter cruise', 'BROAD');
 
@@ -188,7 +190,7 @@ class TestUtils {
    * @param float $criterionId the id of the keyword criterion
    */
   public function SetAdParam($adGroupId, $criterionId) {
-    $adParamService = $this->user->GetAdParamService($this->version);
+    $adParamService = $this->user->GetService('AdParamService', $this->version);
 
     $adParam = new AdParam($adGroupId, $criterionId, '1', 1);
 
@@ -203,8 +205,9 @@ class TestUtils {
    */
   public function CreateLocationExtension($campaignId) {
     $campaignAdExtensionService =
-        $this->user->GetCampaignAdExtensionService($this->version);
-    $geoLocationService = $this->user->GetGeoLocationService($this->version);
+        $this->user->GetService('CampaignAdExtensionService', $this->version);
+    $geoLocationService =
+        $this->user->GetService('GeoLocationService', $this->version);
 
     $address = new Address('1600 Amphitheatre Parkway', NULL, 'Mountain View',
         'US-CA', NULL, '94043', 'US');
@@ -231,7 +234,7 @@ class TestUtils {
    */
   public function CreateAdExtensionOverride($adId, $adExtensionId) {
     $adExtensionOverrideService =
-        $this->user->GetAdExtensionOverrideService($this->version);
+        $this->user->GetService('AdExtensionOverrideService', $this->version);
 
     $adExtension = new AdExtension($adExtensionId);
     $adExtensionOverride = new AdExtensionOverride($adId, $adExtension);
@@ -247,7 +250,7 @@ class TestUtils {
    */
   public function RemoveAdExtensionOverride($adId, $adExtensionId) {
     $adExtensionOverrideService =
-        $this->user->GetAdExtensionOverrideService($this->version);
+        $this->user->GetService('AdExtensionOverrideService', $this->version);
 
     $adExtension = new AdExtension($adExtensionId);
     $adExtensionOverride = new AdExtensionOverride($adId, $adExtension);
@@ -262,7 +265,7 @@ class TestUtils {
    * @return float the id of the image media
    */
   public function UploadImage() {
-    $mediaService = $this->user->GetMediaService($this->version);
+    $mediaService = $this->user->GetService('MediaService', $this->version);
 
     $image = new Image();
     $image->data = MediaUtils::GetBase64Data('http://goo.gl/HJM3L');
@@ -282,7 +285,7 @@ class TestUtils {
    */
   public function AddReportDefinition() {
     $reportDefinitionService =
-        $this->user->GetReportDefinitionService($this->version);
+        $this->user->GetService('ReportDefinitionService', $this->version);
 
     $selector =
         new Selector(array('KeywordText', 'KeywordMatchType', 'Clicks'));
@@ -304,7 +307,8 @@ class TestUtils {
    * @return float the id of the user list
    */
   public function CreateUserList() {
-    $userListService = $this->user->GetUserListService($this->version);
+    $userListService =
+        $this->user->GetService('UserListService', $this->version);
 
     $userList = new RemarketingUserList();
     $userList->name = 'User List ' . uniqid();
@@ -325,7 +329,8 @@ class TestUtils {
    * @return float the ID of the experiment
    */
   public function CreateExperiment($campaignId) {
-    $experimentService = $this->user->GetExperimentService($this->version);
+    $experimentService =
+        $this->user->GetService('ExperimentService', $this->version);
 
     $experiment = new Experiment();
     $experiment->campaignId = $campaignId;
@@ -345,7 +350,8 @@ class TestUtils {
    * @param float $experimentId the ID of the experiment to delete
    */
   public function DeleteExperiment($experimentId) {
-    $experimentService = $this->user->GetExperimentService($this->version);
+    $experimentService =
+        $this->user->GetService('ExperimentService', $this->version);
 
     $experiment = new Experiment();
     $experiment->id = $experimentId;
@@ -361,7 +367,7 @@ class TestUtils {
    */
   public function CreateConversionTracker() {
     $conversionTrackerService =
-        $this->user->GetConversionTrackerService($this->version);
+        $this->user->GetService('ConversionTrackerService', $this->version);
 
     $conversionTracker = new AdWordsConversionTracker();
     $conversionTracker->name = 'Conversion ' . uniqid();

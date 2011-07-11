@@ -63,9 +63,9 @@ class AdGroupCriterionServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetAdGroupCriterionService();
-    $this->partialFailureService =
-        $user->GetAdGroupCriterionService(NULL, NULL, NULL, NULL, TRUE);
+    $this->service = $user->GetService('AdGroupCriterionService');
+    $this->partialFailureService = $user->GetService('AdGroupCriterionService',
+        NULL, NULL, NULL, NULL, TRUE);
 
     $this->campaignId = $this->sharedFixture['campaignId'];
     $this->adGroupId = $this->sharedFixture['adGroupId'];

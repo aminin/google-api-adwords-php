@@ -50,7 +50,8 @@ try {
   $user->LogDefaults();
 
   // Get the ConversionTrackerService.
-  $conversionTrackerService = $user->GetConversionTrackerService('v201101');
+  $conversionTrackerService =
+      $user->GetService('ConversionTrackerService', 'v201101');
 
   $conversionTrackerId = (float) 'INSERT_CONVERSION_TRACKER_ID_HERE';
 
