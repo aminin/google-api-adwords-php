@@ -33,6 +33,7 @@
 /** Required classes. **/
 require_once 'AdsUser.php';
 require_once dirname(__FILE__) . '/../Util/Logger.php';
+require_once dirname(__FILE__) . '/../Util/MapUtils.php';
 require_once dirname(__FILE__) . '/../Util/SoapRequestXmlFixer.php';
 require_once dirname(__FILE__) . '/../Util/XmlUtils.php';
 
@@ -44,6 +45,13 @@ require_once dirname(__FILE__) . '/../Util/XmlUtils.php';
  * @subpackage Lib
  */
 abstract class AdsSoapClient extends SoapClient {
+  /**
+   * The SoapClient options used to construct this class.
+   * @var array
+   * @access protected
+   */
+  protected $options;
+
   /**
    * The {@link AdsUser} which generated this client.
    * @var AdsUser the user that generated this client
@@ -151,6 +159,7 @@ abstract class AdsSoapClient extends SoapClient {
     $this->serviceName = $serviceName;
     $this->serviceNamespace = $serviceNamespace;
     $options['typemap'] = $this->GetTypemaps();
+    $this->options = $options;
     parent::__construct($wsdl, $options);
   }
 
@@ -564,5 +573,34 @@ abstract class AdsSoapClient extends SoapClient {
     }
     // Any outer XML tag can be used here, as it is later removed by SoapClient.
     return sprintf('<value>%s</value>', $value);
+  }
+
+  /**
+   * Creates a new object of the given type, using the optional parameters.
+   * When pseudo-namespace support is enabled class names can become very long,
+   * and this function provides an alternative way to create objects that is
+   * more readable.
+   * @param string $type the type of object to create
+   * @param array $params parameters to pass into the constructor, as either
+   *     flat array in the correct order for the constructor or as an
+   *     associative array from parameter name to value
+   * @return mixed a new instance of a class that represents that type
+   */
+  public function Create($type, $params = NULL) {
+    if (array_key_exists($type, $this->options['classmap'])) {
+      $class = $this->options['classmap'][$type];
+      $reflectionClass = new ReflectionClass($class);
+      if (isset($params)) {
+        if (MapUtils::IsMap($params)) {
+          $params = MapUtils::MapToMethodParameters($params,
+              $reflectionClass->getConstructor());
+        }
+        return $reflectionClass->newInstanceArgs($params);
+      } else {
+        return $reflectionClass->newInstance();
+      }
+    } else {
+      trigger_error('Unknown type: ' . $type, E_USER_ERROR);
+    }
   }
 }

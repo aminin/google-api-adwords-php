@@ -92,17 +92,25 @@ class Wsdl2PhpTask extends Task {
 
   /**
    * The package name to be included in the file header.
-   * @var the package name to be included in the file header
+   * @var string the package name to be included in the file header
    * @access private
    */
   private $package = NULL;
 
   /**
    * The proxy URL to use when downloading WSDLs.
-   * @var the proxy URL to use when downloading WSDLs
+   * @var string the proxy URL to use when downloading WSDLs
    * @access private
    */
   private $proxy = NULL;
+
+  /**
+   * Whether or not to enable psuedo namespaces in the generated class names.
+   * @var boolean whether or not to enable psuedo namespaces in the generated
+   *     class names
+   * @access private
+   */
+  private $enablePseudoNamescapes = FALSE;
 
   /**
    * The setter for the attribute <var>$url</var>.
@@ -181,6 +189,15 @@ class Wsdl2PhpTask extends Task {
   }
 
   /**
+   * The setter for the attribute <var>$enablePseudoNamespaces</var>.
+   * @param boolean $enablePseudoNamespaces whether or not to enable psuedo
+   *     namespaces in the generated class names.
+   */
+  public function SetEnablePseudoNamespaces($enablePseudoNamespaces) {
+    $this->enablePseudoNamespaces = $enablePseudoNamespaces;
+  }
+
+  /**
    * The setter of the attribute <var>$serviceName</var>.
    * @param string $serviceName the name of the generated service
    */
@@ -204,7 +221,8 @@ class Wsdl2PhpTask extends Task {
     $wsdlInterpreter =
         new WSDLInterpreter($this->url, $this->soapClientClassName,
             $this->classmap, $this->serviceName, $this->version, $this->author,
-            $this->package, $this->soapClientClassPath, $this->proxy);
+            $this->package, $this->soapClientClassPath, $this->proxy,
+            $this->enablePseudoNamespaces);
     $wsdlInterpreter->savePHP($this->outputDir);
     print 'Done: ' . $this->url . "\n";
   }

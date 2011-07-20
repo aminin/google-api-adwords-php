@@ -152,6 +152,13 @@ class WSDLInterpreter
   private $_package = NULL;
 
   /**
+   * Whether or not to enable psuedo namespaces in the generated class names.
+   * @var string
+   * @access private
+   */
+  private $_enablePseudoNamespaces = NULL;
+
+  /**
    * The class path of the SOAP client to require in the PHP file.
    * @var string
    * @access private
@@ -182,7 +189,8 @@ class WSDLInterpreter
    * @todo Create plug in model to handle extendability of WSDL files
    */
   public function __construct($wsdl, $soapClientClassName, $classmap,
-      $serviceName, $version, $author, $package, $soapClientClassPath, $proxy)
+      $serviceName, $version, $author, $package, $soapClientClassPath, $proxy,
+      $enablePseudoNamespaces)
   {
     try {
       $this->_wsdl = $wsdl;
@@ -193,6 +201,8 @@ class WSDLInterpreter
       $this->_version = $version;
       $this->_author = $author;
       $this->_package = $package;
+      $this->_enablePseudoNamespaces = isset($enablePseudoNamespaces) ?
+          $enablePseudoNamespaces : false;
       $this->_soapClientClassPath = $soapClientClassPath;
 
       // Set proxy.
@@ -296,16 +306,22 @@ class WSDLInterpreter
    *
    * @param string $className the name of the class to test
    * @param boolean $addToClassMap whether to add this class name to the classmap
+   * @param boolean $preventPseudoNamespaces whether to prevent
+   *     pseudo-namespaces from being used
    *
    * @return string the validated version of the submitted class name
    *
    * @access private
    * @todo Add reserved keyword checks
    */
-  private function _validateClassName($className, $addToClassMap = true)
+  private function _validateClassName($className, $addToClassMap = true,
+      $preventPseudoNamespaces = false)
   {
     if (!array_key_exists($className, $this->_classmap)) {
       $validClassName = $this->_validateNamingConvention($className);
+      if ($this->_enablePseudoNamespaces && !$preventPseudoNamespaces) {
+        $validClassName = $this->_package . '_' . $validClassName;
+      }
 
       if (class_exists($validClassName)) {
         throw new Exception("Class ".$validClassName." already defined.".
@@ -595,7 +611,8 @@ class WSDLInterpreter
     $services = $this->_dom->getElementsByTagName("service");
     foreach ($services as $service) {
       $service->setAttribute("validatedName",
-      $this->_validateClassName($service->getAttribute("name"), false));
+          $this->_validateClassName(
+              $service->getAttribute("name"), false, true));
       $functions = $service->getElementsByTagName("function");
       foreach ($functions as $function) {
         $function->setAttribute("validatedName",
@@ -837,7 +854,7 @@ class WSDLInterpreter
 
     if ($class->getElementsByTagName("extends")->length > 0) {
       $extends = $class->getElementsByTagName("extends");
-      $parentClassName = $extends->item(0)->nodeValue;
+      $parentClassName = $this->_classmap[$extends->item(0)->nodeValue];
       $params = array_merge($params,
           $this->_getTopDownConstructorArguments(
               $this->_classes[$parentClassName]));

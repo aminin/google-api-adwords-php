@@ -18,9 +18,6 @@
   <property name="tests.dir" value="${project.basedir}/tests"/>
 
   <taskdef name="wsdl2php" classname="build_lib.Wsdl2PhpTask" />
-  <!-- Optionally specify a proxy to use when processing the WSDLs in the
-      format tcp://host:port. -->
-  <property name="wsdl2php.proxy" value=""/>
 
   <!-- =================================================================== -->
   <!-- Initialization target                                               -->
@@ -89,7 +86,8 @@
         classmap="$this->classmap = array('getResponse' => '${service}GetResponse',  'get' => '${service}Get', 'mutate' => '${service}Mutate', 'mutateResponse' => '${service}MutateResponse', 'DateTime' => 'AdWordsDateTime', 'Target' => 'AdWordsTarget', 'SoapHeader' => 'SoapRequestHeader');"
         soapClientClassName="AdWordsSoapClient"
         soapClientClassPath='dirname(__FILE__) . "/../Lib/AdWordsSoapClient.php"'
-        proxy="${wsdl2php.proxy}" />
+        proxy="${wsdl2php.proxy}"
+        enablePseudoNamespaces="${wsdl2php.enablePseudoNamespaces}"/>
   </target>
 
   <!-- =================================================================== -->
