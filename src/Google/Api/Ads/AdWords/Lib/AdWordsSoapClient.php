@@ -82,8 +82,12 @@ class AdWordsSoapClient extends AdsSoapClient {
    * @access protected
    */
   protected function GenerateSoapHeader() {
-    return parent::CreateSoapHeader('SoapRequestHeader', 'RequestHeader',
-        NULL);
+    $headerObject = $this->Create('SoapHeader');
+    foreach (get_object_vars($headerObject) as $var => $value) {
+      $headerObject->$var = $this->GetHeaderValue($var);
+    }
+    return new SoapHeader($this->serviceNamespace, 'RequestHeader',
+        $headerObject, FALSE);
   }
 
   /**

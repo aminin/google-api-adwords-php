@@ -149,11 +149,15 @@ class Wsdl2PhpTask extends Task {
 
   /**
    * The setter for the attribute <var>$classmap</var>.
-   * @param string $classmap code-string of the classmap of
-   *     'Wsdl Type => PHP Class'
+   * @param string $classmap JSON representation of the classmap, as a mapping
+   *     from WSDL type to PHP class name
    */
   public function setClassmap($classmap) {
-    $this->classmap = $classmap;
+    $this->classmap = json_decode($classmap, true);
+    if (!isset($this->classmap) && !empty($classmap)) {
+      trigger_error('Unable to parse classmap as JSON.', E_USER_ERROR);
+      die;
+    }
   }
 
   /**
@@ -214,8 +218,6 @@ class Wsdl2PhpTask extends Task {
    * The main entry point method for the task.
    */
   public function main() {
-    eval($this->classmap);
-
     print 'Starting: ' . $this->url . ' to ' . $this->outputDir . "\n";
 
     $wsdlInterpreter =

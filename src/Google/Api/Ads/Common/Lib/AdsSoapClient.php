@@ -451,40 +451,6 @@ abstract class AdsSoapClient extends SoapClient {
   protected abstract function GenerateSoapHeader();
 
   /**
-   * Creates a SOAP header for the client given the user. It assumes that
-   * each element within the header to be filled in is a publicly acessible
-   * feild of the SOAP header element.
-   * @param string $soapHeaderClassName the class of the SOAP header to
-   *     instantiate
-   * @param string $soapHeaderElementName the SOAP element name of the header
-   * @param string $namespace the namespace of the header
-   * @return SoapHeader the wrapped SOAP header ready to be set
-   * @access protected
-   */
-  protected function CreateSoapHeader($soapHeaderClassName,
-      $soapHeaderElementName, $headersOverrides) {
-    $requestHeader = new $soapHeaderClassName();
-    $namespace = $this->serviceNamespace;
-
-    foreach (get_class_vars($soapHeaderClassName) as $classVar => $value) {
-      if (isset($headersOverrides)
-          && array_key_exists($classVar, $headersOverrides)) {
-        $requestHeader->$classVar = $headersOverrides[$classVar];
-      } elseif (isset($this->headers)
-          && array_key_exists($classVar, $this->headers)) {
-        $requestHeader->$classVar = $this->headers[$classVar];
-      }
-    }
-
-    $soapRequestHeader =
-        new SoapVar($requestHeader, SOAP_ENC_OBJECT, $soapHeaderElementName,
-            $requestHeader->getNamespace());
-
-    return new SoapHeader($namespace, $soapHeaderElementName,
-        $soapRequestHeader, FALSE);
-  }
-
-  /**
    * Removes any sensitive information from the request XML. This method is
    * called after the request has been made and before logging any XML.
    * @param string $request the request just made to the server
@@ -553,13 +519,15 @@ abstract class AdsSoapClient extends SoapClient {
    */
   public static function TypemapLongFromXml($xml) {
     $value = strip_tags($xml);
-    if (strval(intval($value)) == $value) {
-      return intval($value);
-    } elseif (sprintf('%.0f', floatval($value)) === $value) {
-      return floatval($value);
-    } else {
-      return $value;
+    $isIdField = preg_match('/^<([^ ]*?(Id|ID)|id) /', $xml);
+    if (!$isIdField) {
+      if (strval(intval($value)) == $value) {
+        return intval($value);
+      } elseif (sprintf('%.0f', floatval($value)) === $value) {
+        return floatval($value);
+      }
     }
+    return $value;
   }
 
   /**

@@ -196,13 +196,16 @@ class WSDLInterpreter
       $this->_wsdl = $wsdl;
       $this->_soapClientClassName = $soapClientClassName;
 
-      $this->_classmap = $classmap;
       $this->_serviceName = $serviceName;
       $this->_version = $version;
       $this->_author = $author;
       $this->_package = $package;
       $this->_enablePseudoNamespaces = isset($enablePseudoNamespaces) ?
           $enablePseudoNamespaces : false;
+      if (!$this->_enablePseudoNamespaces) {
+        // Only use the classmap if pseudo-namespaces aren't enabled.
+        $this->_classmap = $classmap;
+      }
       $this->_soapClientClassPath = $soapClientClassPath;
 
       // Set proxy.
@@ -418,7 +421,7 @@ class WSDLInterpreter
     $classes = $this->_dom->getElementsByTagName("class");
     foreach ($classes as $class) {
       $this->_classes[$class->getAttribute("name")] = $class;
-      if (array_key_exists($class->getAttribute("name"), $this->_classes)) {
+      if (array_key_exists($class->getAttribute("name"), $this->_classmap)) {
         $this->_classes[$this->_classmap[$class->getAttribute("name")]] = $class;
       }
     }
@@ -442,9 +445,9 @@ class WSDLInterpreter
       $this->_validateClassName($class->getAttribute("name")));
       $extends = $class->getElementsByTagName("extends");
       if ($extends->length > 0) {
-        $extends->item(0)->nodeValue =
-        $this->_validateClassName($extends->item(0)->nodeValue);
-        $classExtension = $extends->item(0)->nodeValue;
+        $extends->item(0)->setAttribute("validatedName",
+            $this->_validateClassName($extends->item(0)->nodeValue));
+        $classExtension = $extends->item(0)->getAttribute("validatedName");
       } else {
         $classExtension = false;
       }
@@ -507,7 +510,7 @@ class WSDLInterpreter
     $extends = $class->getElementsByTagName("extends");
     $hasExtend = false;
     if ($extends->length > 0) {
-      $return .= " extends ".$extends->item(0)->nodeValue;
+      $return .= " extends ".$extends->item(0)->getAttribute("validatedName");
       $hasExtend = true;
     }
     $return .= " {\n";
@@ -854,7 +857,7 @@ class WSDLInterpreter
 
     if ($class->getElementsByTagName("extends")->length > 0) {
       $extends = $class->getElementsByTagName("extends");
-      $parentClassName = $this->_classmap[$extends->item(0)->nodeValue];
+      $parentClassName = $extends->item(0)->nodeValue;
       $params = array_merge($params,
           $this->_getTopDownConstructorArguments(
               $this->_classes[$parentClassName]));

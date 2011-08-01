@@ -396,7 +396,7 @@ class AdWordsUser extends AdsUser {
    */
   public function __call($name, $arguments) {
     // Handle calls to legacy Get*Service() methods.
-    if (preg_match('/^Get(\w+Service)$/', $name, $matches)) {
+    if (preg_match('/^Get(\w+Service)$/i', $name, $matches)) {
       $serviceName = $matches[1];
       array_unshift($arguments, $serviceName);
       return call_user_func_array(array($this, 'GetService'), $arguments);
