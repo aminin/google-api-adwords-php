@@ -229,13 +229,15 @@ abstract class AdsSoapClient extends SoapClient {
     try {
       $this->GetLastResponseDom();
     } catch (DOMException $domException) {
-      //TODO(api.arogal): Log warning that DOM could not be created.
+      trigger_error('Failed to load response into DOM: '
+          . $domException->getMessage(), E_USER_NOTICE);
     }
 
     try {
       $this->GetLastRequestDom();
     } catch (DOMException $domException) {
-      //TODO(api.arogal): Log warning that DOM could not be created.
+      trigger_error('Failed to load request into DOM: '
+          . $domException->getMessage(), E_USER_NOTICE);
     }
 
     $level = isset($e) ? Logger::$ERROR : Logger::$INFO;
@@ -334,7 +336,8 @@ abstract class AdsSoapClient extends SoapClient {
         return $responseTimeElement->nodeValue;
       }
     } catch (DOMException $e) {
-      // TODO(api.arogal): Log failures to retrieve headers.
+      trigger_error('Failed to load response into DOM: '
+          . $domException->getMessage(), E_USER_NOTICE);
       return "null";
     }
   }
@@ -351,7 +354,8 @@ abstract class AdsSoapClient extends SoapClient {
         return $requestIdElement->nodeValue;
       }
     } catch (DOMException $e) {
-      // TODO(api.arogal): Log failures to retrieve headers.
+      trigger_error('Failed to load response into DOM: '
+          . $domException->getMessage(), E_USER_NOTICE);
       return 'null';
     }
   }
@@ -389,8 +393,6 @@ abstract class AdsSoapClient extends SoapClient {
     $addXsiTypes = FALSE;
     $removeEmptyElements = FALSE;
     $replaceReferences = FALSE;
-    // Needed for AdWords API XML validation.
-    $redeclareXsiTypeNamespaceDefinitions = TRUE;
 
     if (version_compare(PHP_VERSION, '5.2.0', '<')) {
       trigger_error('The minimum required version of this client library'
@@ -401,10 +403,9 @@ abstract class AdsSoapClient extends SoapClient {
     $removeEmptyElements = version_compare(PHP_VERSION, '5.2.3', '<');
     $replaceReferences = version_compare(PHP_VERSION, '5.2.2', '>=');
 
-    if ($addXsiTypes || $removeEmptyElements || $replaceReferences
-        || $redeclareXsiTypeNamespaceDefinitions) {
+    if ($addXsiTypes || $removeEmptyElements || $replaceReferences) {
       $fixer = new SoapRequestXmlFixer($addXsiTypes, $removeEmptyElements,
-          $replaceReferences, $redeclareXsiTypeNamespaceDefinitions);
+          $replaceReferences);
       return $fixer->FixXml($request, $arguments, $headers);
     } else {
       // Empty string is appended to "save" the XML from being deleted.
@@ -518,12 +519,14 @@ abstract class AdsSoapClient extends SoapClient {
    * @return mixed the inner long value as an integer, float, or string
    */
   public static function TypemapLongFromXml($xml) {
-    $value = strip_tags($xml);
-    $isIdField = preg_match('/^<([^ ]*?(Id|ID)|id) /', $xml);
+    $document = XmlUtils::GetDomFromXml($xml);
+    $tag = $document->documentElement->localName;
+    $value = $document->documentElement->nodeValue;
+    $isIdField = preg_match('/^id$|Id$|ID$/', $tag);
     if (!$isIdField) {
-      if (strval(intval($value)) == $value) {
+      if (strcmp(strval(intval($value)), $value) === 0) {
         return intval($value);
-      } elseif (sprintf('%.0f', floatval($value)) === $value) {
+      } elseif (strcmp(sprintf('%.0f', floatval($value)), $value) === 0) {
         return floatval($value);
       }
     }

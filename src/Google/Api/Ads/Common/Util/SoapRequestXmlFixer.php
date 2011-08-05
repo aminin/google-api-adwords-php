@@ -39,10 +39,11 @@ require_once 'XmlUtils.php';
  * @subpackage Util
  */
 class SoapRequestXmlFixer {
+  private static $XSI_NAMESPACE = 'http://www.w3.org/2001/XMLSchema-instance';
+
   private $addXsiTypes;
   private $removeEmptyElements;
   private $replaceReferences;
-  private $redeclareXsiTypeNamespaceDefinitions;
 
   /**
    * Constructor to determine how the XML should be fixed.
@@ -52,17 +53,12 @@ class SoapRequestXmlFixer {
    *     should be removed from the XML request
    * @param boolean $replaceReferences <var>TRUE</var> if element references
    *     should be replaced with a copy of the element.
-   * @param boolean $redeclareXsiTypeNamespaceDefinitions <var>TRUE</var> if the
-   *     namespace prefixes used in xsi:type values should be redeclared on
-   *     the element.
    */
   public function __construct($addXsiTypes, $removeEmptyElements,
-      $replaceReferences, $redeclareXsiTypeNamespaceDefinitions) {
+      $replaceReferences) {
     $this->addXsiTypes = $addXsiTypes;
     $this->removeEmptyElements = $removeEmptyElements;
     $this->replaceReferences = $replaceReferences;
-    $this->redeclareXsiTypeNamespaceDefinitions =
-        $redeclareXsiTypeNamespaceDefinitions;
   }
 
   /**
@@ -137,12 +133,6 @@ class SoapRequestXmlFixer {
         $this->ReplaceElementReference($node, $xpath);
       }
 
-      // Redeclare namespaces used in xsi:type attributes.
-      if ($this->redeclareXsiTypeNamespaceDefinitions
-          && $node->hasAttribute('xsi:type')) {
-        $this->RedeclareXsiTypeNamespaceDefinition($node);
-      }
-
       if (is_object($object)) {
         foreach (get_object_vars($object) as $varName => $varValue) {
           $nodeList =
@@ -165,15 +155,15 @@ class SoapRequestXmlFixer {
    * @access private
    */
   private function AddXsiType(DOMNode $domNode, $object) {
-    $xsiType = $domNode->getAttribute('xsi:type');
+    $xsiType = $domNode->getAttributeNS(self::$XSI_NAMESPACE, 'xsi:type');
     if (method_exists($object, 'getXsiTypeName')
         && method_exists($object, 'getNamespace')
         && empty($xsiType)) {
       $xsiTypeName = $object->getXsiTypeName();
       if (isset($xsiTypeName) && $xsiTypeName != '') {
         $prefix = $domNode->lookupPrefix($object->getNamespace());
-        $domNode->setAttribute('xsi:type', (isset($prefix) ? $prefix . ':' : '')
-            . $xsiTypeName);
+        $domNode->setAttributeNS(self::$XSI_NAMESPACE, 'xsi:type',
+            (isset($prefix) ? $prefix . ':' : '') . $xsiTypeName);
       }
     }
   }
@@ -220,22 +210,6 @@ class SoapRequestXmlFixer {
       if ($childNode->nodeValue == NULL) {
         $requestHeaderDom->removeChild($childNode);
       }
-    }
-  }
-
-  /**
-   * For a given element, redeclare locally any namespaces used in the xsi:type
-   * value.
-   * @param DOMXElement $element the element to operate on
-   * @access private
-   */
-  private function RedeclareXsiTypeNamespaceDefinition(DOMElement $element) {
-    $type = $element->getAttribute('xsi:type');
-    if (isset($type) && strpos($type, ':') !== FALSE) {
-      $parts = explode(':', $type, 2);
-      $prefix = $parts[0];
-      $uri = $element->lookupNamespaceURI($prefix);
-      $element->setAttribute('xmlns:' . $prefix, $uri);
     }
   }
 }
