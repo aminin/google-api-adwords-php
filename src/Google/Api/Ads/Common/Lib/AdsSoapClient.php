@@ -255,7 +255,7 @@ abstract class AdsSoapClient extends SoapClient {
    * @access private
    */
   private function LogSoapXml($level) {
-    $message = sprintf("%s\n\n%s\n%s\n\n%s",
+    $message = sprintf("%s\n\n%s\n\n%s\n\n%s\n",
         trim($this->__getLastRequestHeaders()),
         XmlUtils::PrettyPrint($this->lastRequest),
         trim($this->__getLastResponseHeaders()),

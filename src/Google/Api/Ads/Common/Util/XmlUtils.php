@@ -28,6 +28,9 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
+/** Required classes. **/
+require_once 'MapUtils.php';
+
 /**
  * A collection of utility methods for working with XML.
  * @package GoogleApiAdsCommon
@@ -41,12 +44,21 @@ class XmlUtils {
    * @throws DOMException if the DOM could not be loaded
    */
   public static function GetDomFromXml($xml) {
-    set_error_handler('HandleXmlError');
+    set_error_handler(array('XmlUtils', 'HandleXmlError'));
     $dom = new DOMDocument();
     $dom->loadXML($xml,
         LIBXML_DTDLOAD | LIBXML_DTDATTR | LIBXML_NOENT | LIBXML_XINCLUDE);
     restore_error_handler();
     return $dom;
+  }
+
+  /**
+   * Gets the XML represenation of the document.
+   * @param DOMDocument $document the document to convert
+   * @return string the XML represenation of the document
+   */
+  public static function GetXmlFromDom($document) {
+    return trim($document->saveXml());
   }
 
   /**
@@ -57,9 +69,9 @@ class XmlUtils {
    */
   public static function PrettyPrint($xml) {
     try {
-      $dom = XmlUtils::GetDomFromXml($xml);
+      $dom = self::GetDomFromXml($xml);
       $dom->formatOutput = true;
-      return $dom->saveXML();
+      return self::GetXmlFromDom($dom);
     } catch (DOMException $e) {
       restore_error_handler();
       return str_replace(array("\r\n", "\n", "\r"), '', $xml);
@@ -73,7 +85,7 @@ class XmlUtils {
    * @returns Object the converted object
    */
   public static function ConvertDocumentToObject($document) {
-    return XmlUtils::ConvertElementToObject($document->documentElement);
+    return self::ConvertElementToObject($document->documentElement);
   }
 
   /**
@@ -82,7 +94,7 @@ class XmlUtils {
    * @param DOMElement $element the element to convert
    * @returns Object the converted object
    */
-  public static function ConvertElementToObject($element) {
+  private static function ConvertElementToObject($element) {
     $result = array();
     if ($element->hasChildNodes()) {
       $numChildNodes = $element->childNodes->length;
@@ -90,7 +102,7 @@ class XmlUtils {
         $childNode = $element->childNodes->item($i);
         if ($childNode instanceof DOMElement) {
           $name = $childNode->tagName;
-          $value = XmlUtils::ConvertElementToObject($childNode);
+          $value = self::ConvertElementToObject($childNode);
           if (isset($result[$name])) {
             if (!is_array($result[$name])) {
               $result[$name] = array($result[$name]);
@@ -108,24 +120,84 @@ class XmlUtils {
       return $element->nodeValue;
     }
   }
-}
 
-/**
- * Caputures the warnings thrown by the loadXML function to create a proper
- * DOMException.
- * @param string $errno contains the level of the error raised, as an integer
- * @param string $errstr contains the error message, as a string
- * @param string $errfile contains the filename that the error was raised in,
- *     as a string
- * @param integer $errline contains the line number the error was raised at, as
- *     an integer
- * @return boolean <var>FALSE</var> if the normal error handler should continue
- */
-function HandleXmlError($errno, $errstr, $errfile, $errline) {
-  if ($errno == E_WARNING
-      && substr_count($errstr, 'DOMDocument::loadXML()') > 0) {
-    throw new DOMException($errstr);
-  } else {
-    return FALSE;
+  /**
+   * Converts an object to a DOMDocument. The root element name is passed in as
+   * a parameter, and each field of the object becomes a child element. Array
+   * values are represented by multiples instances of that element. Methods on
+   * the object are ignored. There is no support for XML attributes.
+   * @param Object $object the object to serialize
+   * @param string $rootElementName the name of the root element
+   * @return DOMDocument the document representing the object
+   */
+  public static function ConvertObjectToDocument($object, $rootElementName) {
+    $document = new DOMDocument();
+    $document->appendChild(
+        self::ConvertObjectToElement($object, $rootElementName, $document));
+    return $document;
+  }
+
+  /**
+   * Converts an object to an DOMElement.
+   * @param Object $object the object to serialize
+   * @param string $elementName the name of the element to serialize
+   * @param DOMDocument $document the document that the element will be added to
+   * @return DOMElement the element representing the object
+   */
+  private static function ConvertObjectToElement($object, $elementName,
+      $document) {
+    if (!isset($object)) {
+      return NULL;
+    }
+    $element = $document->createElement($elementName);
+    $children = array();
+    if (is_array($object) && MapUtils::IsMap($object)) {
+      $object = (Object) $object;
+    }
+    if (is_object($object)) {
+      foreach(get_object_vars($object) as $field => $value) {
+        if (is_array($value) && !MapUtils::IsMap($value)) {
+          foreach($value as $item) {
+            $children[] =
+                self::ConvertObjectToElement($item, $field, $document);
+          }
+        } else {
+          $children[] =
+              self::ConvertObjectToElement($value, $field, $document);
+        }
+      }
+      foreach ($children as $child) {
+        if (isset($child)) {
+          $element->appendChild($child);
+        }
+      }
+    } else {
+      if (is_float($object)) {
+        $strval = sprintf('%.0f', $object);
+      }
+      $element->nodeValue = strval($object);
+    }
+    return $element;
+  }
+
+  /**
+   * Caputures the warnings thrown by the loadXML function to create a proper
+   * DOMException.
+   * @param string $errno contains the level of the error raised, as an integer
+   * @param string $errstr contains the error message, as a string
+   * @param string $errfile contains the filename that the error was raised in,
+   *     as a string
+   * @param integer $errline contains the line number the error was raised at,
+   *     as an integer
+   * @return boolean <var>FALSE</var> if the normal error handler should
+   *     continue
+   */
+  public static function HandleXmlError($errno, $errstr, $errfile, $errline) {
+    if ($errno == E_WARNING
+        && substr_count($errstr, 'DOMDocument::loadXML()') > 0) {
+      throw new DOMException($errstr);
+    } else {
+      return FALSE;
+    }
   }
 }
