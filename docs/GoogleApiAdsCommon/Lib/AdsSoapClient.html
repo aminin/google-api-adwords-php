@@ -28,7 +28,7 @@
 				<li><span class="field">abstract:</span> </li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Ads---Common---Lib---AdsSoapClient.php.html">/Ads/Common/Lib/AdsSoapClient.php</a> (line <span class="field">46</span>)
+			Located in <a class="field" href="_Ads---Common---Lib---AdsSoapClient.php.html">/Ads/Common/Lib/AdsSoapClient.php</a> (line <span class="field">47</span>)
 		</p>
 		
 				
@@ -79,7 +79,7 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																																																																																<div class="var-title">
+																																																																																																								<div class="var-title">
 					<span class="var-type">array</span>
 					<a href="#$headers" title="details" class="var-name">$headers</a>
 				</div>
@@ -106,6 +106,10 @@
 																<div class="var-title">
 					<span class="var-type">SOAPFault</span>
 					<a href="#$lastSoapFault" title="details" class="var-name">$lastSoapFault</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$options" title="details" class="var-name">$options</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">string</span>
@@ -136,16 +140,26 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																				
+																																																																																																																																																																																				<div class="method-definition">
+					static 						<span class="method-result">mixed</span>
+										<a href="#TypemapLongFromXml" title="details" class="method-name">TypemapLongFromXml</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$xml</span>)
+									</div>
+																<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#TypemapLongToXml" title="details" class="method-name">TypemapLongToXml</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																								
 												<div class="method-definition">
 											<span class="method-result">AdsSoapClient</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a></span>&nbsp;<span class="var-name">$user</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceNamespace</span>)
 									</div>
 																<div class="method-definition">
-											<span class="method-result">SoapHeader</span>
-										<a href="#CreateSoapHeader" title="details" class="method-name">CreateSoapHeader</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$soapHeaderClassName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$soapHeaderElementName</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$headersOverrides</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$namespace</span>)
+											<span class="method-result">mixed</span>
+										<a href="#Create" title="details" class="method-name">Create</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">NULL</span>])
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
@@ -218,6 +232,11 @@
 										()
 									</div>
 																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#GetTypemaps" title="details" class="method-name">GetTypemaps</a>
+										()
+									</div>
+																<div class="method-definition">
 											<span class="method-result">boolean</span>
 										<a href="#IsFault" title="details" class="method-name">IsFault</a>
 										()
@@ -237,7 +256,7 @@
 										<a href="#SetHeaderValue" title="details" class="method-name">SetHeaderValue</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
 									</div>
-																<div class="method-definition">
+																																<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#__doRequest" title="details" class="method-name">__doRequest</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$request</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$location</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$action</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$version</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$one_way</span> = <span class="var-default">0</span>])
@@ -272,7 +291,7 @@
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$headers</span>
-						(line <span class="line-number">59</span>)
+						(line <span class="line-number">67</span>)
 		</span>
 	</div>
 
@@ -295,7 +314,7 @@
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$lastArguments</span>
-						(line <span class="line-number">129</span>)
+						(line <span class="line-number">137</span>)
 		</span>
 	</div>
 
@@ -318,7 +337,7 @@
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$lastHeaders</span>
-						(line <span class="line-number">135</span>)
+						(line <span class="line-number">143</span>)
 		</span>
 	</div>
 
@@ -341,7 +360,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$lastMethodName</span>
-						(line <span class="line-number">123</span>)
+						(line <span class="line-number">131</span>)
 		</span>
 	</div>
 
@@ -364,7 +383,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$lastRequest</span>
-						(line <span class="line-number">83</span>)
+						(line <span class="line-number">91</span>)
 		</span>
 	</div>
 
@@ -389,7 +408,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$lastResponse</span>
-						(line <span class="line-number">101</span>)
+						(line <span class="line-number">109</span>)
 		</span>
 	</div>
 
@@ -412,7 +431,7 @@
 		<span class="var-title">
 			<span class="var-type">SOAPFault</span>
 			<span class="var-name">$lastSoapFault</span>
-						(line <span class="line-number">116</span>)
+						(line <span class="line-number">124</span>)
 		</span>
 	</div>
 
@@ -428,14 +447,36 @@
 		
 
 </div>
-<a name="var$serviceName" id="$serviceName"><!-- --></A>
+<a name="var$options" id="$options"><!-- --></A>
 <div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$options</span>
+						(line <span class="line-number">53</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The SoapClient options used to construct this class.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$serviceName" id="$serviceName"><!-- --></A>
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$serviceName</span>
-						(line <span class="line-number">66</span>)
+						(line <span class="line-number">74</span>)
 		</span>
 	</div>
 
@@ -452,13 +493,13 @@
 
 </div>
 <a name="var$serviceNamespace" id="$serviceNamespace"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$serviceNamespace</span>
-						(line <span class="line-number">73</span>)
+						(line <span class="line-number">81</span>)
 		</span>
 	</div>
 
@@ -475,13 +516,13 @@
 
 </div>
 <a name="var$user" id="$user"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a></span>
 			<span class="var-name">$user</span>
-						(line <span class="line-number">52</span>)
+						(line <span class="line-number">60</span>)
 		</span>
 	</div>
 
@@ -513,12 +554,74 @@
 		</div>
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
-
-<a name="method__construct" id="__construct"><!-- --></a>
+<a name="methodTypemapLongFromXml" id="TypemapLongFromXml"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method TypemapLongFromXml</span> (line <span class="line-number">521</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A typemap conversion function for parsing long values in SOAP responses.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the inner long value as an integer, float, or string</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			TypemapLongFromXml
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$xml</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$xml</span><span class="var-description">: the XML snippet containing the long value.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodTypemapLongToXml" id="TypemapLongToXml"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">148</span>)
+		<span class="method-title">static method TypemapLongToXml</span> (line <span class="line-number">541</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A typemap conversion function for serializing long values in SOAP requests.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> an XML snippet with the serialized value</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">string</span>
+		<span class="method-name">
+			TypemapLongToXml
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: the long value</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">156</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -663,50 +766,45 @@
 							</li>
 				</ul>
 	</div>
-<a name="methodCreateSoapHeader" id="CreateSoapHeader"><!-- --></a>
-<div class="evenrow">
+<a name="methodCreate" id="Create"><!-- --></a>
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">CreateSoapHeader</span> (line <span class="line-number">451</span>)
+		<span class="method-title">Create</span> (line <span class="line-number">560</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Creates a SOAP header for the client given the user. It assumes that  each element within the header to be filled in is a publicly acessible  feild of the SOAP header element.</p>
+<p class="short-description">Creates a new object of the given type, using the optional parameters.</p>
+<p class="description"><p>When pseudo-namespace support is enabled class names can become very long,  and this function provides an alternative way to create objects that is  more readable.</p></p>
 	<ul class="tags">
-				<li><span class="field">return:</span> the wrapped SOAP header ready to be set</li>
-				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">return:</span> a new instance of a class that represents that type</li>
+				<li><span class="field">access:</span> public</li>
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">SoapHeader</span>
+		<span class="method-result">mixed</span>
 		<span class="method-name">
-			CreateSoapHeader
+			Create
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$soapHeaderClassName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$soapHeaderElementName</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$headersOverrides</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$namespace</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">NULL</span>])
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$soapHeaderClassName</span><span class="var-description">: the class of the SOAP header to      instantiate</span>			</li>
+				<span class="var-name">$type</span><span class="var-description">: the type of object to create</span>			</li>
 					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$soapHeaderElementName</span><span class="var-description">: the SOAP element name of the header</span>			</li>
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$namespace</span><span class="var-description">: the namespace of the header</span>			</li>
-					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$headersOverrides</span>			</li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span><span class="var-description">: parameters to pass into the constructor, as either      flat array in the correct order for the constructor or as an      associative array from parameter name to value</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodGenerateRequestInfoMessage" id="GenerateRequestInfoMessage"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GenerateRequestInfoMessage</span> (line <span class="line-number">492</span>)
+		<span class="method-title">GenerateRequestInfoMessage</span> (line <span class="line-number">472</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -738,10 +836,10 @@
 				</ul>
 	</div>
 <a name="methodGenerateSoapHeader" id="GenerateSoapHeader"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GenerateSoapHeader</span> (line <span class="line-number">438</span>)
+		<span class="method-title">GenerateSoapHeader</span> (line <span class="line-number">452</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -772,10 +870,10 @@
 				</ul>
 	</div>
 <a name="methodGetAdsUser" id="GetAdsUser"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetAdsUser</span> (line <span class="line-number">273</span>)
+		<span class="method-title">GetAdsUser</span> (line <span class="line-number">285</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -797,10 +895,10 @@
 			
 	</div>
 <a name="methodGetEmail" id="GetEmail"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetEmail</span> (line <span class="line-number">292</span>)
+		<span class="method-title">GetEmail</span> (line <span class="line-number">307</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -822,10 +920,10 @@
 			
 	</div>
 <a name="methodGetHeaderNames" id="GetHeaderNames"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetHeaderNames</span> (line <span class="line-number">406</span>)
+		<span class="method-title">GetHeaderNames</span> (line <span class="line-number">420</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -847,10 +945,10 @@
 			
 	</div>
 <a name="methodGetHeaderValue" id="GetHeaderValue"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetHeaderValue</span> (line <span class="line-number">416</span>)
+		<span class="method-title">GetHeaderValue</span> (line <span class="line-number">430</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -877,10 +975,10 @@
 			
 	</div>
 <a name="methodGetLastFaultMessage" id="GetLastFaultMessage"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastFaultMessage</span> (line <span class="line-number">359</span>)
+		<span class="method-title">GetLastFaultMessage</span> (line <span class="line-number">376</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -902,10 +1000,10 @@
 			
 	</div>
 <a name="methodGetLastMethodName" id="GetLastMethodName"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastMethodName</span> (line <span class="line-number">308</span>)
+		<span class="method-title">GetLastMethodName</span> (line <span class="line-number">323</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -927,10 +1025,10 @@
 			
 	</div>
 <a name="methodGetLastRequestDom" id="GetLastRequestDom"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastRequestDom</span> (line <span class="line-number">512</span>)
+		<span class="method-title">GetLastRequestDom</span> (line <span class="line-number">492</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -953,10 +1051,10 @@
 			
 	</div>
 <a name="methodGetLastRequestId" id="GetLastRequestId"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastRequestId</span> (line <span class="line-number">333</span>)
+		<span class="method-title">GetLastRequestId</span> (line <span class="line-number">349</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -978,10 +1076,10 @@
 			
 	</div>
 <a name="methodGetLastResponseDom" id="GetLastResponseDom"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastResponseDom</span> (line <span class="line-number">499</span>)
+		<span class="method-title">GetLastResponseDom</span> (line <span class="line-number">479</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1004,10 +1102,10 @@
 			
 	</div>
 <a name="methodGetLastResponseTime" id="GetLastResponseTime"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLastResponseTime</span> (line <span class="line-number">316</span>)
+		<span class="method-title">GetLastResponseTime</span> (line <span class="line-number">331</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1029,10 +1127,10 @@
 			
 	</div>
 <a name="methodGetServer" id="GetServer"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetServer</span> (line <span class="line-number">281</span>)
+		<span class="method-title">GetServer</span> (line <span class="line-number">293</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1054,10 +1152,10 @@
 			
 	</div>
 <a name="methodGetServiceName" id="GetServiceName"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetServiceName</span> (line <span class="line-number">300</span>)
+		<span class="method-title">GetServiceName</span> (line <span class="line-number">315</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1078,11 +1176,36 @@
 		
 			
 	</div>
+<a name="methodGetTypemaps" id="GetTypemaps"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetTypemaps</span> (line <span class="line-number">504</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the typemaps to be used when constructing the SOAP client.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the typemap entries</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			GetTypemaps
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodIsFault" id="IsFault"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">IsFault</span> (line <span class="line-number">351</span>)
+		<span class="method-title">IsFault</span> (line <span class="line-number">368</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1107,7 +1230,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">PrepareRequest</span> (line <span class="line-number">374</span>)
+		<span class="method-title">PrepareRequest</span> (line <span class="line-number">391</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1143,7 +1266,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">RemoveSensitiveInfo</span> (line <span class="line-number">482</span>)
+		<span class="method-title">RemoveSensitiveInfo</span> (line <span class="line-number">462</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1182,7 +1305,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetHeaderValue</span> (line <span class="line-number">429</span>)
+		<span class="method-title">SetHeaderValue</span> (line <span class="line-number">443</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1214,7 +1337,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__doRequest</span> (line <span class="line-number">165</span>)
+		<span class="method-title">__doRequest</span> (line <span class="line-number">175</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1268,7 +1391,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__soapCall</span> (line <span class="line-number">184</span>)
+		<span class="method-title">__soapCall</span> (line <span class="line-number">194</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->

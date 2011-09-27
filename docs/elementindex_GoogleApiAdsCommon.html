@@ -32,6 +32,7 @@
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#p">p</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#r">r</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#s">s</a>
+	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#t">t</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#u">u</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#v">v</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#x">x</a>
@@ -211,11 +212,11 @@
 	</div>
 	<dl>
 			<dt class="field">
-						<span class="method-title">CreateSoapHeader</span>
+						<span class="method-title">Create</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodCreateSoapHeader">AdsSoapClient::CreateSoapHeader()</a> in AdsSoapClient.php</div>
-							<div class="index-item-description">Creates a SOAP header for the client given the user. It assumes that  each element within the header to be filled in is a publicly acessible  feild of the SOAP header element.</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodCreate">AdsSoapClient::Create()</a> in AdsSoapClient.php</div>
+							<div class="index-item-description">Creates a new object of the given type, using the optional parameters.</div>
 					</dd>
 			<dt class="field">
 						<span class="include-title">ChoiceUtils.php</span>
@@ -244,11 +245,11 @@
 							<div class="index-item-description">Converts a DOMDocument to a stdClass object, where each element under  the root node is a field. Atribute values are ignored.</div>
 					</dd>
 			<dt class="field">
-						<span class="method-title">ConvertElementToObject</span>
+						<span class="method-title">ConvertObjectToDocument</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodConvertElementToObject">XmlUtils::ConvertElementToObject()</a> in XmlUtils.php</div>
-							<div class="index-item-description">Converts a DOMElement to a stdClass object, where each child element is  a field. Attribute values are ignored.</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodConvertObjectToDocument">XmlUtils::ConvertObjectToDocument()</a> in XmlUtils.php</div>
+							<div class="index-item-description">Converts an object to a DOMDocument. The root element name is passed in as  a parameter, and each field of the object becomes a child element. Array  values are represented by multiples instances of that element. Methods on  the object are ignored. There is no support for XML attributes.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">CreateSession</span>
@@ -564,15 +565,15 @@
 						<span class="method-title">GetServer</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServer">SoapClientFactory::GetServer()</a> in SoapClientFactory.php</div>
-							<div class="index-item-description">Gets the server associated with this factory.</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a> in AdsSoapClient.php</div>
+							<div class="index-item-description">Gets the server that the request was made to.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">GetServer</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a> in AdsSoapClient.php</div>
-							<div class="index-item-description">Gets the server that the request was made to.</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/SoapClientFactory.html#methodGetServer">SoapClientFactory::GetServer()</a> in SoapClientFactory.php</div>
+							<div class="index-item-description">Gets the server associated with this factory.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">GetServiceLocation</span>
@@ -601,6 +602,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsUser.html#methodGetSoapCompressionLevel">AdsUser::GetSoapCompressionLevel()</a> in AdsUser.php</div>
 							<div class="index-item-description">Gets the SOAP compression level.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">GetTypemaps</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetTypemaps">AdsSoapClient::GetTypemaps()</a> in AdsSoapClient.php</div>
+							<div class="index-item-description">Returns the typemaps to be used when constructing the SOAP client.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">GetVersion</span>
@@ -730,7 +738,8 @@
 						<span class="method-title">GetRequestToken</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/PeclOAuthHandler.html#methodGetRequestToken">PeclOAuthHandler::GetRequestToken()</a> in PeclOAuthHandler.php</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/OAuthHandler.html#methodGetRequestToken">OAuthHandler::GetRequestToken()</a> in OAuthHandler.php</div>
+							<div class="index-item-description">Gets a request token.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">GetRequestToken</span>
@@ -742,8 +751,7 @@
 						<span class="method-title">GetRequestToken</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/OAuthHandler.html#methodGetRequestToken">OAuthHandler::GetRequestToken()</a> in OAuthHandler.php</div>
-							<div class="index-item-description">Gets a request token.</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/PeclOAuthHandler.html#methodGetRequestToken">PeclOAuthHandler::GetRequestToken()</a> in PeclOAuthHandler.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">GetServer</span>
@@ -762,14 +770,14 @@
 						<span class="method-title">GetSignedRequestParameters</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/OAuthHandler.html#methodGetSignedRequestParameters">OAuthHandler::GetSignedRequestParameters()</a> in OAuthHandler.php</div>
-							<div class="index-item-description">Gets the signed OAuth parameters needed to make a request against the  given URL.</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/AndySmithOAuthHandler.html#methodGetSignedRequestParameters">AndySmithOAuthHandler::GetSignedRequestParameters()</a> in AndySmithOAuthHandler.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">GetSignedRequestParameters</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/AndySmithOAuthHandler.html#methodGetSignedRequestParameters">AndySmithOAuthHandler::GetSignedRequestParameters()</a> in AndySmithOAuthHandler.php</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/OAuthHandler.html#methodGetSignedRequestParameters">OAuthHandler::GetSignedRequestParameters()</a> in OAuthHandler.php</div>
+							<div class="index-item-description">Gets the signed OAuth parameters needed to make a request against the  given URL.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">GetSourceOperationIndex</span>
@@ -789,15 +797,22 @@
 						<span class="method-title">GetValue</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/ChoiceUtils.html#methodGetValue">ChoiceUtils::GetValue()</a> in ChoiceUtils.php</div>
-							<div class="index-item-description">Gets the value of a choice object.</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/OgnlUtils.html#methodGetValue">OgnlUtils::GetValue()</a> in OgnlUtils.php</div>
+							<div class="index-item-description">Gets the value of an OGNL expression in the given context.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">GetValue</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/OgnlUtils.html#methodGetValue">OgnlUtils::GetValue()</a> in OgnlUtils.php</div>
-							<div class="index-item-description">Gets the value of an OGNL expression in the given context.</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/ChoiceUtils.html#methodGetValue">ChoiceUtils::GetValue()</a> in ChoiceUtils.php</div>
+							<div class="index-item-description">Gets the value of a choice object.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">GetXmlFromDom</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodGetXmlFromDom">XmlUtils::GetXmlFromDom()</a> in XmlUtils.php</div>
+							<div class="index-item-description">Gets the XML represenation of the document.</div>
 					</dd>
 		</dl>
 	<a name="h"></a>
@@ -818,7 +833,7 @@
 						<span class="method-title">HandleXmlError</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/_Ads---Common---Util---XmlUtils.php.html#functionHandleXmlError">HandleXmlError()</a> in XmlUtils.php</div>
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/XmlUtils.html#methodHandleXmlError">XmlUtils::HandleXmlError()</a> in XmlUtils.php</div>
 							<div class="index-item-description">Caputures the warnings thrown by the loadXML function to create a proper  DOMException.</div>
 					</dd>
 		</dl>
@@ -856,6 +871,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/Logger.html#var$INFO">Logger::$INFO</a> in Logger.php</div>
 							<div class="index-item-description">INFO level.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">IsMap</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/MapUtils.html#methodIsMap">MapUtils::IsMap()</a> in MapUtils.php</div>
+							<div class="index-item-description">Determines if an array is a map (associative array) vs. a flat,  numerically indexed array.</div>
 					</dd>
 		</dl>
 	<a name="l"></a>
@@ -990,6 +1012,13 @@
 			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/_Ads---Common---Util---MediaUtils.php.html">MediaUtils.php</a> in MediaUtils.php</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">MapToMethodParameters</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Util/MapUtils.html#methodMapToMethodParameters">MapUtils::MapToMethodParameters()</a> in MapUtils.php</div>
+							<div class="index-item-description">Converts a map (associative array) to a flat, numerically indexed array  of method parameters. The method is used to determine the order of the  parameters, and NULL values are using for missing parameters.</div>
+					</dd>
+			<dt class="field">
 						MapUtils
 					</dt>
 		<dd class="index-item-body">
@@ -1011,6 +1040,13 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<span class="var-title">$options</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$options">AdsSoapClient::$options</a> in AdsSoapClient.php</div>
+							<div class="index-item-description">The SoapClient options used to construct this class.</div>
+					</dd>
 			<dt class="field">
 						<span class="include-title">OAuthHandler.php</span>
 					</dt>
@@ -1227,6 +1263,28 @@
 							<div class="index-item-description">The SOAP XML request fixer used to fix some inconsistencies among the  different versions of the PHP SoapClient.</div>
 					</dd>
 		</dl>
+	<a name="t"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">t</div>
+		<div style="float: right"><a href="#top">top</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<dl>
+			<dt class="field">
+						<span class="method-title">TypemapLongFromXml</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodTypemapLongFromXml">AdsSoapClient::TypemapLongFromXml()</a> in AdsSoapClient.php</div>
+							<div class="index-item-description">A typemap conversion function for parsing long values in SOAP responses.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">TypemapLongToXml</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodTypemapLongToXml">AdsSoapClient::TypemapLongToXml()</a> in AdsSoapClient.php</div>
+							<div class="index-item-description">A typemap conversion function for serializing long values in SOAP requests.</div>
+					</dd>
+		</dl>
 	<a name="u"></a>
 	<div class="index-letter-section">
 		<div style="float: left" class="index-letter-title">u</div>
@@ -1314,6 +1372,7 @@
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#p">p</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#r">r</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#s">s</a>
+	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#t">t</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#u">u</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#v">v</a>
 	<a class="index-letter" href="elementindex_GoogleApiAdsCommon.html#x">x</a>
