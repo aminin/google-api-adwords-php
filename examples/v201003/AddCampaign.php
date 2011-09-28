@@ -49,7 +49,7 @@ try {
   $user->LogDefaults();
 
   // Get the CampaignService.
-  $campaignService = $user->GetCampaignService('v201003');
+  $campaignService = $user->GetService('CampaignService', 'v201003');
 
   // Create campaign.
   $campaign = new Campaign();

@@ -60,7 +60,7 @@ class InfoServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['mccUser'];
-    $this->service = $user->GetInfoService();
+    $this->service = $user->GetService('InfoService');
 
     $this->clientId = $this->sharedFixture['clientId'];
   }

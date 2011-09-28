@@ -50,7 +50,7 @@ try {
   $user->LogDefaults();
 
   // Get the MediaService.
-  $mediaService = $user->GetMediaService('v201003');
+  $mediaService = $user->GetService('MediaService', 'v201003');
 
   // Create selector.
   $selector = new MediaSelector();

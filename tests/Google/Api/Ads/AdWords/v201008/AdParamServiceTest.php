@@ -61,7 +61,7 @@ class AdParamServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetAdParamService();
+    $this->service = $user->GetService('AdParamService');
 
     $this->adGroupId = $this->sharedFixture['adGroupId'];
     $this->criterionId = $this->sharedFixture['keywordId'];

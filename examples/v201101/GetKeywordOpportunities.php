@@ -50,7 +50,8 @@ try {
   $user->LogDefaults();
 
   // Get the BulkOpportunityService.
-  $bulkOpportunityService = $user->GetBulkOpportunityService('v201101');
+  $bulkOpportunityService =
+      $user->GetService('BulkOpportunityService', 'v201101');
 
   // Create selector.
   $selector = new BulkOpportunitySelector();

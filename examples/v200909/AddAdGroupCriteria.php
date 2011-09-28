@@ -49,7 +49,8 @@ try {
   $user->LogDefaults();
 
   // Get the AdGroupCriterionService.
-  $adGroupCriterionService = $user->GetAdGroupCriterionService('v200909');
+  $adGroupCriterionService =
+      $user->GetService('AdGroupCriterionService', 'v200909');
 
   $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
 

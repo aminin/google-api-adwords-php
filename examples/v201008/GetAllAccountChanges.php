@@ -56,8 +56,8 @@ try {
   $user->LogDefaults();
 
   // Get the services.
-  $campaignService = $user->GetCampaignService('v201008');
-  $customerSyncService = $user->GetCustomerSyncService('v201008');
+  $campaignService = $user->GetService('CampaignService', 'v201008');
+  $customerSyncService = $user->GetService('CustomerSyncService', 'v201008');
 
   // Get an array of all campaign ids.
   $campaignIds = array();

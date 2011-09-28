@@ -48,9 +48,11 @@ class CurlUtils {
     $ch = curl_init($url);
 
     // Default options.
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
+    curl_setopt($ch, CURLOPT_USERAGENT, 'curl, gzip');
 
     // Proxy options.
     if (defined('HTTP_PROXY_HOST') && HTTP_PROXY_HOST != '') {
@@ -70,7 +72,7 @@ class CurlUtils {
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, SSL_VERIFY_PEER);
     } else {
       // Default to disabled, for backwards compatibility.
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
     }
     if (defined('SSL_CA_PATH') && SSL_CA_PATH != '') {
       curl_setopt($ch, CURLOPT_CAPATH, SSL_CA_PATH);

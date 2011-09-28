@@ -50,8 +50,8 @@ try {
   $user->LogDefaults();
 
   // Get the AdGroupCriterionService with partial failure support enabled.
-  $adGroupCriterionService =
-      $user->GetAdGroupCriterionService('v201101', NULL, NULL, NULL, TRUE);
+  $adGroupCriterionService = $user->GetService('AdGroupCriterionService',
+      'v201101', NULL, NULL, NULL, TRUE);
 
   $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
 

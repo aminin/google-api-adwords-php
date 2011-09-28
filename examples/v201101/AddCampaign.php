@@ -49,7 +49,7 @@ try {
   $user->LogDefaults();
 
   // Get the CampaignService.
-  $campaignService = $user->GetCampaignService('v201101');
+  $campaignService = $user->GetService('CampaignService', 'v201101');
 
   // Create campaign.
   $campaign = new Campaign();
@@ -65,11 +65,11 @@ try {
 
   // Set the campaign network options to Google Search and Search Network.
   $networkSetting = new NetworkSetting();
-  $networkSetting->targetGoogleSearch = true;
-  $networkSetting->targetSearchNetwork = true;
-  $networkSetting->targetContentNetwork = false;
-  $networkSetting->targetContentContextual = false;
-  $networkSetting->targetPartnerSearchNetwork = false;
+  $networkSetting->targetGoogleSearch = TRUE;
+  $networkSetting->targetSearchNetwork = TRUE;
+  $networkSetting->targetContentNetwork = FALSE;
+  $networkSetting->targetContentContextual = FALSE;
+  $networkSetting->targetPartnerSearchNetwork = FALSE;
   $campaign->networkSetting = $networkSetting;
 
   // Create operations.

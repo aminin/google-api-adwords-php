@@ -64,6 +64,18 @@ class XmlUtilsTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
+   * Test getting an XML string from a DOM document.
+   * @param string $xml the XML string to use
+   * @covers XmlUtils::GetXmlFromDom
+   * @dataProvider ValidXmlProvider
+   */
+  public function testGetXmlFromDom($xml) {
+    $document = XmlUtils::GetDomFromXml($xml);
+    $result = XmlUtils::GetXmlFromDom($document);
+    $this->assertTrue(!empty($result));
+  }
+
+  /**
    * Test pretty printing an XML string.
    * @param string $xml the XML string to pretty print
    * @param string $expected the expected result of pretty printing the XML
@@ -89,16 +101,15 @@ class XmlUtilsTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * Test converting a DOM element to an object.
-   * @param string $xml the XML to convert
-   * @param Object $expected the expected result of the conversion
-   * @covers XmlUtils::ConvertElementToObject
-   * @dataProvider XmlToObjectProvider
+   * Test converting an object to a DOM document.
+   * @param string $expected the expected XML
+   * @param Object $object the object to convert
+   * @covers XmlUtils::ConvertObjectToDocument
+   * @dataProvider ObjectToXmlProvider
    */
-  public function testConvertElementToObject($xml, $expected) {
-    $document = XmlUtils::GetDomFromXml($xml);
-    $element = $document->documentElement;
-    $result = XmlUtils::ConvertElementToObject($element);
+  public function testConvertObjectToDocument($object, $expected) {
+    $document = XmlUtils::ConvertObjectToDocument($object, 'root');
+    $result = XmlUtils::GetXmlFromDom($document);
     $this->assertEquals($expected, $result);
   }
 
@@ -157,12 +168,12 @@ class XmlUtilsTest extends PHPUnit_Framework_TestCase {
     $data = array();
 
     // Insert XML declaration.
-    $data[] = array('<root/>', "<?xml version=\"1.0\"?>\n<root/>\n");
+    $data[] = array('<root/>', "<?xml version=\"1.0\"?>\n<root/>");
     // Collapse empty tags.
-    $data[] = array('<root></root>', "<?xml version=\"1.0\"?>\n<root/>\n");
+    $data[] = array('<root></root>', "<?xml version=\"1.0\"?>\n<root/>");
     // Tab in child elements.
     $data[] = array('<root><a>apple</a></root>',
-        "<?xml version=\"1.0\"?>\n<root>\n  <a>apple</a>\n</root>\n");
+        "<?xml version=\"1.0\"?>\n<root>\n  <a>apple</a>\n</root>");
     // Invalid XML should have line breaks removed.
     $data[] = array("<root>\n\n<a>apple\n", "<root><a>apple");
 
@@ -170,7 +181,7 @@ class XmlUtilsTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
-   * Provides XML strings and the expect value after being converted to an
+   * Provides XML strings and the expected value after being converted to an
    * object.
    * @return array an array of arrays of XML strings and resulting objects
    */
@@ -182,11 +193,40 @@ class XmlUtilsTest extends PHPUnit_Framework_TestCase {
     // String value.
     $data[] = array('<root>value</root>', 'value');
     // Nested elements.
-    $data[] =
-        array('<root><a>apple</a></root>', (Object) array('a' => 'apple'));
+    $data[] = array('<root><a>apple</a></root>',
+        (Object) array('a' => 'apple'));
     // Nested elements with the same name.
     $data[] = array('<root><a>apple</a><a>artichoke</a></root>',
         (Object) array('a' => array('apple', 'artichoke')));
+
+    return $data;
+  }
+
+  /**
+   * Provides objects and the expected XML strings after being converted to a
+   * document.
+   * @return array an array of arrays of objects and the resulting XML strings
+   */
+  public function ObjectToXmlProvider() {
+    $data = array();
+
+    // Empty string.
+    $data[] = array('', "<?xml version=\"1.0\"?>\n<root></root>");
+    // String value.
+    $data[] = array('value', "<?xml version=\"1.0\"?>\n<root>value</root>");
+    // Integer value.
+    $data[] = array(15, "<?xml version=\"1.0\"?>\n<root>15</root>");
+    // Float value.
+    $data[] = array(4.7, "<?xml version=\"1.0\"?>\n<root>4.7</root>");
+    // Simple object.
+    $data[] = array((Object) array('a' => 'apple'),
+        "<?xml version=\"1.0\"?>\n<root><a>apple</a></root>");
+    // Associative array.
+    $data[] = array(array('a' => 'apple'),
+        "<?xml version=\"1.0\"?>\n<root><a>apple</a></root>");
+    // Object with array value.
+    $data[] = array((Object) array('a' => array('apple', 'artichoke')),
+        "<?xml version=\"1.0\"?>\n<root><a>apple</a><a>artichoke</a></root>");
 
     return $data;
   }

@@ -48,7 +48,8 @@ try {
   $user->LogDefaults();
 
   // Get the GetReportDefinitionService.
-  $reportDefinitionService = $user->GetReportDefinitionService('v201101');
+  $reportDefinitionService =
+      $user->GetService('ReportDefinitionService', 'v201101');
 
   // The type of the report to get fields for.
   // Ex: MANAGED_PLACEMENTS_PERFORMANCE_REPORT

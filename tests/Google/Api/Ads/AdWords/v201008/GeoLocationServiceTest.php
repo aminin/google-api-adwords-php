@@ -58,7 +58,7 @@ class GeoLocationServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetGeoLocationService();
+    $this->service = $user->GetService('GeoLocationService');
   }
 
   /**

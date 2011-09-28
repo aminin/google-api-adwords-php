@@ -50,7 +50,7 @@ try {
   $user->LogDefaults();
 
   // Get the TargetingIdeaService.
-  $targetingIdeaService = $user->GetTargetingIdeaService('v201101');
+  $targetingIdeaService = $user->GetService('TargetingIdeaService', 'v201101');
 
   // Create seed keyword.
   $keyword = new Keyword();

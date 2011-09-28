@@ -59,7 +59,7 @@ class ConversionTrackerServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetConversionTrackerService();
+    $this->service = $user->GetService('ConversionTrackerService');
     $this->testUtils = $this->sharedFixture['testUtils'];
 
     $this->conversionTrackerId = $this->testUtils->CreateConversionTracker();

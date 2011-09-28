@@ -62,7 +62,7 @@ class DataServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetDataService();
+    $this->service = $user->GetService('DataService');
 
     $this->campaignId = $this->sharedFixture['campaignId'];
     $this->adGroupId = $this->sharedFixture['adGroupId'];
@@ -177,7 +177,8 @@ class DataServiceTest extends AdsTestCase {
       // Assert that the order is correct.
       $lastId = 0;
       foreach($page->entries as $adGroupBidLandscape) {
-        $this->assertGreaterThanOrEqual($lastId, $adGroupBidLandscape->adGroupId);
+        $this->assertGreaterThanOrEqual($lastId,
+            $adGroupBidLandscape->adGroupId);
         $lastId = $adGroupBidLandscape->adGroupId;
       }
     }

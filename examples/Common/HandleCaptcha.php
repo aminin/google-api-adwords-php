@@ -58,7 +58,7 @@ try {
 
   try {
     print 'Requesting AuthTokens ';
-    while (true) {
+    while (TRUE) {
       // Repeatedly request new authTokens, to trigger a CAPTCHA challenge.
       $authToken = new AuthToken($email, $password, $service, $source);
       $value = $authToken->GetAuthToken();

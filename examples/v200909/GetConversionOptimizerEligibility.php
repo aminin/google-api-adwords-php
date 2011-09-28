@@ -53,8 +53,8 @@ try {
 
   // Get the validation CampaignService by passing 'true' for the parameter
   // $validateOnly.
-  $campaignValidationService = $user->GetCampaignService('v200909', NULL,
-      NULL, true);
+  $campaignValidationService =
+      $user->GetService('CampaignService', 'v200909', NULL, NULL, TRUE);
 
   $campaignId = (float) 'INSERT_CAMPAIGN_ID_HERE';
 

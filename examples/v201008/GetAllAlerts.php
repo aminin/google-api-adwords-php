@@ -51,7 +51,7 @@ try {
   $user->LogDefaults();
 
   // Get the AlertService.
-  $alertService = $user->GetAlertService('v201008');
+  $alertService = $user->GetService('AlertService', 'v201008');
 
   // Create alert query.
   $alertQuery = new AlertQuery();

@@ -33,6 +33,7 @@
 /** Required classes. **/
 require_once 'AdsUser.php';
 require_once dirname(__FILE__) . '/../Util/Logger.php';
+require_once dirname(__FILE__) . '/../Util/MapUtils.php';
 require_once dirname(__FILE__) . '/../Util/SoapRequestXmlFixer.php';
 require_once dirname(__FILE__) . '/../Util/XmlUtils.php';
 
@@ -44,6 +45,13 @@ require_once dirname(__FILE__) . '/../Util/XmlUtils.php';
  * @subpackage Lib
  */
 abstract class AdsSoapClient extends SoapClient {
+  /**
+   * The SoapClient options used to construct this class.
+   * @var array
+   * @access protected
+   */
+  protected $options;
+
   /**
    * The {@link AdsUser} which generated this client.
    * @var AdsUser the user that generated this client
@@ -150,6 +158,8 @@ abstract class AdsSoapClient extends SoapClient {
     $this->user = $user;
     $this->serviceName = $serviceName;
     $this->serviceNamespace = $serviceNamespace;
+    $options['typemap'] = $this->GetTypemaps();
+    $this->options = $options;
     parent::__construct($wsdl, $options);
   }
 
@@ -219,13 +229,15 @@ abstract class AdsSoapClient extends SoapClient {
     try {
       $this->GetLastResponseDom();
     } catch (DOMException $domException) {
-      //TODO(api.arogal): Log warning that DOM could not be created.
+      trigger_error('Failed to load response into DOM: '
+          . $domException->getMessage(), E_USER_NOTICE);
     }
 
     try {
       $this->GetLastRequestDom();
     } catch (DOMException $domException) {
-      //TODO(api.arogal): Log warning that DOM could not be created.
+      trigger_error('Failed to load request into DOM: '
+          . $domException->getMessage(), E_USER_NOTICE);
     }
 
     $level = isset($e) ? Logger::$ERROR : Logger::$INFO;
@@ -243,7 +255,7 @@ abstract class AdsSoapClient extends SoapClient {
    * @access private
    */
   private function LogSoapXml($level) {
-    $message = sprintf("%s\n\n%s\n%s\n\n%s",
+    $message = sprintf("%s\n\n%s\n\n%s\n\n%s\n",
         trim($this->__getLastRequestHeaders()),
         XmlUtils::PrettyPrint($this->lastRequest),
         trim($this->__getLastResponseHeaders()),
@@ -279,10 +291,13 @@ abstract class AdsSoapClient extends SoapClient {
    * @return string the server that the request was made to
    */
   public function GetServer() {
-    $hostMatches = array();
     preg_match('/^.*Host:\\s(.*)Connection:.*$/s',
        $this->__getLastRequestHeaders(), $hostMatches);
-    return trim($hostMatches[1]);
+    if (sizeof($hostMatches) >= 2) {
+      return trim($hostMatches[1]);
+    } else {
+      return NULL;
+    }
   }
 
   /**
@@ -321,7 +336,8 @@ abstract class AdsSoapClient extends SoapClient {
         return $responseTimeElement->nodeValue;
       }
     } catch (DOMException $e) {
-      // TODO(api.arogal): Log failures to retrieve headers.
+      trigger_error('Failed to load response into DOM: '
+          . $domException->getMessage(), E_USER_NOTICE);
       return "null";
     }
   }
@@ -338,7 +354,8 @@ abstract class AdsSoapClient extends SoapClient {
         return $requestIdElement->nodeValue;
       }
     } catch (DOMException $e) {
-      // TODO(api.arogal): Log failures to retrieve headers.
+      trigger_error('Failed to load response into DOM: '
+          . $domException->getMessage(), E_USER_NOTICE);
       return 'null';
     }
   }
@@ -373,11 +390,9 @@ abstract class AdsSoapClient extends SoapClient {
    */
   protected function PrepareRequest($request, array $arguments,
       array $headers) {
-    $addXsiTypes = false;
-    $removeEmptyElements = false;
-    $replaceReferences = false;
-    // Needed for AdWords API XML validation.
-    $redeclareXsiTypeNamespaceDefinitions = true;
+    $addXsiTypes = FALSE;
+    $removeEmptyElements = FALSE;
+    $replaceReferences = FALSE;
 
     if (version_compare(PHP_VERSION, '5.2.0', '<')) {
       trigger_error('The minimum required version of this client library'
@@ -388,10 +403,9 @@ abstract class AdsSoapClient extends SoapClient {
     $removeEmptyElements = version_compare(PHP_VERSION, '5.2.3', '<');
     $replaceReferences = version_compare(PHP_VERSION, '5.2.2', '>=');
 
-    if ($addXsiTypes || $removeEmptyElements || $replaceReferences
-        || $redeclareXsiTypeNamespaceDefinitions) {
+    if ($addXsiTypes || $removeEmptyElements || $replaceReferences) {
       $fixer = new SoapRequestXmlFixer($addXsiTypes, $removeEmptyElements,
-          $replaceReferences, $redeclareXsiTypeNamespaceDefinitions);
+          $replaceReferences);
       return $fixer->FixXml($request, $arguments, $headers);
     } else {
       // Empty string is appended to "save" the XML from being deleted.
@@ -438,40 +452,6 @@ abstract class AdsSoapClient extends SoapClient {
   protected abstract function GenerateSoapHeader();
 
   /**
-   * Creates a SOAP header for the client given the user. It assumes that
-   * each element within the header to be filled in is a publicly acessible
-   * feild of the SOAP header element.
-   * @param string $soapHeaderClassName the class of the SOAP header to
-   *     instantiate
-   * @param string $soapHeaderElementName the SOAP element name of the header
-   * @param string $namespace the namespace of the header
-   * @return SoapHeader the wrapped SOAP header ready to be set
-   * @access protected
-   */
-  protected function CreateSoapHeader($soapHeaderClassName,
-      $soapHeaderElementName, $headersOverrides) {
-    $requestHeader = new $soapHeaderClassName();
-    $namespace = $this->serviceNamespace;
-
-    foreach (get_class_vars($soapHeaderClassName) as $classVar => $value) {
-      if (isset($headersOverrides)
-          && array_key_exists($classVar, $headersOverrides)) {
-        $requestHeader->$classVar = $headersOverrides[$classVar];
-      } elseif (isset($this->headers)
-          && array_key_exists($classVar, $this->headers)) {
-        $requestHeader->$classVar = $this->headers[$classVar];
-      }
-    }
-
-    $soapRequestHeader =
-        new SoapVar($requestHeader, SOAP_ENC_OBJECT, $soapHeaderElementName,
-            $requestHeader->getNamespace());
-
-    return new SoapHeader($namespace, $soapHeaderElementName,
-        $soapRequestHeader, false);
-  }
-
-  /**
    * Removes any sensitive information from the request XML. This method is
    * called after the request has been made and before logging any XML.
    * @param string $request the request just made to the server
@@ -515,5 +495,83 @@ abstract class AdsSoapClient extends SoapClient {
     }
 
     return $this->lastRequestDom;
+  }
+
+  /**
+   * Returns the typemaps to be used when constructing the SOAP client.
+   * @return array the typemap entries
+   */
+  protected function GetTypemaps() {
+    $typemaps = array();
+    // Convert longs more intelligently, due to overflow issue in 32 bit
+    // environments.
+    $typemaps[] = array(
+        'type_ns' => 'http://www.w3.org/2001/XMLSchema',
+        'type_name' => 'long',
+        'from_xml' => 'AdsSoapClient::TypemapLongFromXml',
+        'to_xml' => 'AdsSoapClient::TypemapLongToXml');
+    return $typemaps;
+  }
+
+  /**
+   * A typemap conversion function for parsing long values in SOAP responses.
+   * @param string $xml the XML snippet containing the long value.
+   * @return mixed the inner long value as an integer, float, or string
+   */
+  public static function TypemapLongFromXml($xml) {
+    $document = XmlUtils::GetDomFromXml($xml);
+    $tag = $document->documentElement->localName;
+    $value = $document->documentElement->nodeValue;
+    $isIdField = preg_match('/^id$|Id$|ID$/', $tag);
+    if (!$isIdField) {
+      if (strcmp(strval(intval($value)), $value) === 0) {
+        return intval($value);
+      } elseif (strcmp(sprintf('%.0f', floatval($value)), $value) === 0) {
+        return floatval($value);
+      }
+    }
+    return $value;
+  }
+
+  /**
+   * A typemap conversion function for serializing long values in SOAP requests.
+   * @param mixed $value the long value
+   * @return string an XML snippet with the serialized value
+   */
+  public static function TypemapLongToXml($value) {
+    if (is_float($value)) {
+      $value = sprintf('%.0f', $value);
+    }
+    // Any outer XML tag can be used here, as it is later removed by SoapClient.
+    return sprintf('<value>%s</value>', $value);
+  }
+
+  /**
+   * Creates a new object of the given type, using the optional parameters.
+   * When pseudo-namespace support is enabled class names can become very long,
+   * and this function provides an alternative way to create objects that is
+   * more readable.
+   * @param string $type the type of object to create
+   * @param array $params parameters to pass into the constructor, as either
+   *     flat array in the correct order for the constructor or as an
+   *     associative array from parameter name to value
+   * @return mixed a new instance of a class that represents that type
+   */
+  public function Create($type, $params = NULL) {
+    if (array_key_exists($type, $this->options['classmap'])) {
+      $class = $this->options['classmap'][$type];
+      $reflectionClass = new ReflectionClass($class);
+      if (isset($params)) {
+        if (MapUtils::IsMap($params)) {
+          $params = MapUtils::MapToMethodParameters($params,
+              $reflectionClass->getConstructor());
+        }
+        return $reflectionClass->newInstanceArgs($params);
+      } else {
+        return $reflectionClass->newInstance();
+      }
+    } else {
+      trigger_error('Unknown type: ' . $type, E_USER_ERROR);
+    }
   }
 }

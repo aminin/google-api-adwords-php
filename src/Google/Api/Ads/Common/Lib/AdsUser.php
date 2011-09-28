@@ -190,14 +190,14 @@ abstract class AdsUser {
 
     ini_set('default_socket_timeout', 480);
 
-    $settingsIni = parse_ini_file($settingsIniPath, true);
+    $settingsIni = parse_ini_file($settingsIniPath, TRUE);
 
     if (isset($settingsIni)) {
       // Logging settings.
       if ($settingsIni['LOGGING']['PATH_RELATIVE'] == 1) {
         $path = realpath($logsRelativePathBase . '/'
             . $settingsIni['LOGGING']['LIB_LOG_DIR_PATH']);
-        if ($path === false) {
+        if ($path === FALSE) {
           $this->logsDirectory = $defaultLogsDir;
         } else {
           $this->logsDirectory = $path;

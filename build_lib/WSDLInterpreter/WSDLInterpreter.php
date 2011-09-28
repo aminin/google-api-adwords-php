@@ -152,6 +152,13 @@ class WSDLInterpreter
   private $_package = NULL;
 
   /**
+   * Whether or not to enable psuedo namespaces in the generated class names.
+   * @var string
+   * @access private
+   */
+  private $_enablePseudoNamespaces = NULL;
+
+  /**
    * The class path of the SOAP client to require in the PHP file.
    * @var string
    * @access private
@@ -182,17 +189,23 @@ class WSDLInterpreter
    * @todo Create plug in model to handle extendability of WSDL files
    */
   public function __construct($wsdl, $soapClientClassName, $classmap,
-      $serviceName, $version, $author, $package, $soapClientClassPath, $proxy)
+      $serviceName, $version, $author, $package, $soapClientClassPath, $proxy,
+      $enablePseudoNamespaces)
   {
     try {
       $this->_wsdl = $wsdl;
       $this->_soapClientClassName = $soapClientClassName;
 
-      $this->_classmap = $classmap;
       $this->_serviceName = $serviceName;
       $this->_version = $version;
       $this->_author = $author;
       $this->_package = $package;
+      $this->_enablePseudoNamespaces = isset($enablePseudoNamespaces) ?
+          $enablePseudoNamespaces : false;
+      if (!$this->_enablePseudoNamespaces) {
+        // Only use the classmap if pseudo-namespaces aren't enabled.
+        $this->_classmap = $classmap;
+      }
       $this->_soapClientClassPath = $soapClientClassPath;
 
       // Set proxy.
@@ -296,16 +309,22 @@ class WSDLInterpreter
    *
    * @param string $className the name of the class to test
    * @param boolean $addToClassMap whether to add this class name to the classmap
+   * @param boolean $preventPseudoNamespaces whether to prevent
+   *     pseudo-namespaces from being used
    *
    * @return string the validated version of the submitted class name
    *
    * @access private
    * @todo Add reserved keyword checks
    */
-  private function _validateClassName($className, $addToClassMap = true)
+  private function _validateClassName($className, $addToClassMap = true,
+      $preventPseudoNamespaces = false)
   {
     if (!array_key_exists($className, $this->_classmap)) {
       $validClassName = $this->_validateNamingConvention($className);
+      if ($this->_enablePseudoNamespaces && !$preventPseudoNamespaces) {
+        $validClassName = $this->_package . '_' . $validClassName;
+      }
 
       if (class_exists($validClassName)) {
         throw new Exception("Class ".$validClassName." already defined.".
@@ -402,7 +421,7 @@ class WSDLInterpreter
     $classes = $this->_dom->getElementsByTagName("class");
     foreach ($classes as $class) {
       $this->_classes[$class->getAttribute("name")] = $class;
-      if (array_key_exists($class->getAttribute("name"), $this->_classes)) {
+      if (array_key_exists($class->getAttribute("name"), $this->_classmap)) {
         $this->_classes[$this->_classmap[$class->getAttribute("name")]] = $class;
       }
     }
@@ -426,9 +445,9 @@ class WSDLInterpreter
       $this->_validateClassName($class->getAttribute("name")));
       $extends = $class->getElementsByTagName("extends");
       if ($extends->length > 0) {
-        $extends->item(0)->nodeValue =
-        $this->_validateClassName($extends->item(0)->nodeValue);
-        $classExtension = $extends->item(0)->nodeValue;
+        $extends->item(0)->setAttribute("validatedName",
+            $this->_validateClassName($extends->item(0)->nodeValue));
+        $classExtension = $extends->item(0)->getAttribute("validatedName");
       } else {
         $classExtension = false;
       }
@@ -491,7 +510,7 @@ class WSDLInterpreter
     $extends = $class->getElementsByTagName("extends");
     $hasExtend = false;
     if ($extends->length > 0) {
-      $return .= " extends ".$extends->item(0)->nodeValue;
+      $return .= " extends ".$extends->item(0)->getAttribute("validatedName");
       $hasExtend = true;
     }
     $return .= " {\n";
@@ -595,7 +614,8 @@ class WSDLInterpreter
     $services = $this->_dom->getElementsByTagName("service");
     foreach ($services as $service) {
       $service->setAttribute("validatedName",
-      $this->_validateClassName($service->getAttribute("name"), false));
+          $this->_validateClassName(
+              $service->getAttribute("name"), false, true));
       $functions = $service->getElementsByTagName("function");
       foreach ($functions as $function) {
         $function->setAttribute("validatedName",

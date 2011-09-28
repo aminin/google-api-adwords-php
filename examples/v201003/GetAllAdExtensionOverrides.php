@@ -51,7 +51,8 @@ try {
   $user->LogDefaults();
 
   // Get the AdExtensionOverrideService.
-  $adExtensionOverrideService = $user->GetAdExtensionOverrideService('v201003');
+  $adExtensionOverrideService =
+      $user->GetService('AdExtensionOverrideService', 'v201003');
 
   $campaignId = (float) 'INSERT_CAMPAIGN_ID_HERE';
 

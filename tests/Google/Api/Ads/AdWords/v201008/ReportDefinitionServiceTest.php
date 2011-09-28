@@ -60,7 +60,7 @@ class ReportDefinitionServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetReportDefinitionService();
+    $this->service = $user->GetService('ReportDefinitionService');
 
     $testUtils = $this->sharedFixture['testUtils'];
     $this->reportDefinitionId = $testUtils->AddReportDefinition();

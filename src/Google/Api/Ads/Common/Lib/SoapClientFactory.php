@@ -99,7 +99,7 @@ abstract class SoapClientFactory {
     $location = $this->GetServiceLocation($serviceName);
     $wsdl = $location . '?wsdl';
     $options = array(
-        'trace' => true,
+        'trace' => TRUE,
         'encoding' => 'utf-8',
         'connection_timeout' => 0,
         'features' => SOAP_SINGLE_ELEMENT_ARRAYS);

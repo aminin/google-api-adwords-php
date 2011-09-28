@@ -60,7 +60,7 @@ class CampaignServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetCampaignService();
+    $this->service = $user->GetService('CampaignService');
 
     $this->testUtils = $this->sharedFixture['testUtils'];
     $this->campaignId = $this->testUtils->CreateCampaign();

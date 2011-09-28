@@ -54,9 +54,10 @@ try {
   $user->LogDefaults();
 
   // Get the services.
-  $experimentService = $user->GetExperimentService('v201008');
-  $adGroupService = $user->GetAdGroupService('v201008');
-  $adGroupCriterionService = $user->GetAdGroupCriterionService('v201008');
+  $experimentService = $user->GetService('ExperimentService', 'v201008');
+  $adGroupService = $user->GetService('AdGroupService', 'v201008');
+  $adGroupCriterionService =
+      $user->GetService('AdGroupCriterionService', 'v201008');
 
   $campaignId = (float) "INSERT_CAMPAIGN_ID_HERE";
   $adGroupId = (float) "INSERT_AD_GROUP_ID_HERE";

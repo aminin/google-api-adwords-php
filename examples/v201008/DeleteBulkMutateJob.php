@@ -51,7 +51,7 @@ try {
   $user->LogDefaults();
 
   // Get the BulkMutateJobService.
-  $bulkMutateJobService = $user->GetBulkMutateJobService('v201008');
+  $bulkMutateJobService = $user->GetService('BulkMutateJobService', 'v201008');
 
   $bulkMutateJobId = (float) 'INSERT_BULK_MUTATE_JOB_ID_HERE';
 

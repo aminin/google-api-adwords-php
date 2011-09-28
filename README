@@ -319,31 +319,61 @@ More information is available here: http://www.php.net/manual/en/timezones.php
 Already defined classes
 -----------------------
 
-Since PHP 5.2.x does not have namespaces, you may find that some classes
-are already defined in the service files. Some classes have been renamed already
-to prevent conflicts with the native PHP library, those have been prepended
-with AdWords*, such as AdWordsDateTime.
+Since PHP 5.2 does not have namespaces, there is the possibility that one
+of the automatically generated classes used by the API has the same name as an
+existing class in your environment. Classes that were found to conflict with
+PHP native classes have already been renamed:
 
-You may run into two separate problems:
+  'DateTime' => 'AdWordsDateTime'
+  'Target' => 'AdWordsTarget'
 
-  1) You discover that a class used by the API is not being defined correctly,
-     i.e. you are receiving errors while performing SOAP requests. In this case,
-     you may have defined a class with a similar name already. To remedy this,
-     navigate the correct *Service.php file depending on the version and service
-     name to find a class that you may have defined previously. You can then
-     rename the class and modify the classmap array as well. Alternatively, you
-     can modify the build.xml file (particularly the "service.classmap"
-     property), to avoid using this class name.
+If you find that there are additional conflicts in your environment you have
+the following options:
 
-  2) You are getting errors that a class cannot be declared more than once. In
-     this case, you may be declaring a class after instantiating the service.
-     Your options are to rename the problematic API class, as shown above, or to
-     rename your local class in your software.
+  1) Rename the class in the corresponding *Service.php file and update the
+     mapping in *Service::$classmap to reference the new class name. Be aware
+     that the same type can be defined in multiple services.
 
-Below is a list of API changes for this library:
+  2) Rename the conflicting class in your system. This will likely not be
+     possible if the class is part of another library.
 
-  'DateTime' => 'AdWordsDateTime',
-  'Target' => 'AdWordsTarget',
+  3) Regenerate the classes from the WSDLs using pseudo-namespace support. See
+     the section "Pseudo-namespace support" for more information.
+
+
+Pseudo-namespace support
+------------------------
+
+Pseudo-namespaces can be used to help avoid class or function name conflicts
+due to PHP 5.2's lack of native namespace support. This involves prepending
+all class names with a unique string. When generating classes from the WSDLs
+you have the option to enable pseudo-namespaces, so for example the type
+"Campaign" would produce a class called "GoogleApiAdsAdWords_Campaign".
+
+For the sake of backwards compatibility this feature is not enabled by default.
+It can be enabled by setting wsdl2php.enablePseudoNamespaces to "true" in the
+build.properties file and running the "generate" target in build.xml. This
+requires the source build of the library.
+
+Enabling pseudo-namespaces for an existing application make cause your code to
+break, as class names have changed. To avoid this you should use the following
+practices when writing your application:
+
+  - Instead of calling the constructor directly, use the service's Create()
+    method to construct new objects. This method only requires that you enter
+    the original type name, and it takes an optional array or parameters which
+    can be flat or associative.
+
+      $keyword1 = $service->Create('Keyword');
+      $keyword2 = $service->Create('Keyword', array('mars', 'BROAD'));
+      $keyword3 = $service->Create('Keyword',
+          array('text' => 'jupiter', 'matchType' => 'BROAD'));
+
+  - Instead of using "instanceof" to determine the type of an object returned
+    by the API, test the value of its *Type field. All classes that extend
+    a base class have this field available.
+
+      if ($criterion->CriterionType == 'Keyword') { ... }
 
 
 PHP Suhosin Patch

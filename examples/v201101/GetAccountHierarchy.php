@@ -74,12 +74,13 @@ try {
   $user->LogDefaults();
 
   // Get the ServicedAccountService.
-  $servicedAccountService = $user->GetServicedAccountService('v201101');
+  $servicedAccountService =
+      $user->GetService('ServicedAccountService', 'v201101');
 
   // Create selector.
   $selector = new ServicedAccountSelector();
   // To get the links paging must be disabled.
-  $selector->enablePaging = false;
+  $selector->enablePaging = FALSE;
 
   // Get serviced account graph.
   $graph = $servicedAccountService->get($selector);

@@ -78,4 +78,33 @@ class MapUtils {
     }
     return $result;
   }
+
+  /**
+   * Determines if an array is a map (associative array) vs. a flat,
+   * numerically indexed array.
+   * @param array $array the array to evaluate
+   * @return bool true if the array is a map, false otherwise
+   */
+  public static function IsMap(array $array) {
+    return (bool) sizeof(array_filter(array_keys($array), 'is_string'));
+  }
+
+  /**
+   * Converts a map (associative array) to a flat, numerically indexed array
+   * of method parameters. The method is used to determine the order of the
+   * parameters, and NULL values are using for missing parameters.
+   * @param array $map the map of parameter names to values
+   * @param ReflectionMethod $method the method to use for the mapping
+   * @return array the parameter values as a flat array
+   */
+  public static function MapToMethodParameters($map, $method) {
+    $params = $method->getParameters();
+    $result = array_fill(0, sizeof($params), NULL);
+    foreach ($params as $param) {
+      if (isset($map[$param->getName()])) {
+        $result[$param->getPosition()] = $map[$param->getName()];
+      }
+    }
+    return $result;
+  }
 }

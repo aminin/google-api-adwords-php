@@ -49,7 +49,8 @@ try {
   $user->LogDefaults();
 
   // Get the ConversionTrackerService.
-  $conversionTrackerService = $user->GetConversionTrackerService('v201101');
+  $conversionTrackerService =
+      $user->GetService('ConversionTrackerService', 'v201101');
 
   // Create AdWords conversion tracker.
   $conversionTracker = new AdWordsConversionTracker();

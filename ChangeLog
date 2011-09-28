@@ -1,3 +1,26 @@
+2.6.4:
+- Fixed long type conversion issue with 32-bit machines. (Issue #55)
+- Fixed 1.0a support in AndySmithOAuthHander.
+- Replaced AdWordsUser Get*Service() methods with a single GetService() method.
+  Backwards compatability maintained using __call(). All examples and tests
+  updated to use the new method.
+- Fixed capitalization of TRUE and FALSE in various files.
+- Added support for pseudo-namespaces on generated classes. (Issue #4)
+- Changed WSDL2PHP to ignore classmap when pseudonamespaces are enabled.
+- Moved header generation to API-specific SOAP client classes.
+- Made AdWordsUser->__call() method case insensitive when matching for
+  Get*Service() method calls.
+- Added logic to pass ID values as strings to avoid any precision issues.
+  (Issue #62)
+- Fixed long field conversion code and added tests.
+- Fixed issue with missing xsi namespace declaration when adding xsi types.
+- Removed option to redeclare namespace definitions, as the API was updated to
+  no longer require this.
+- Improved error handling when DOM fails to load.
+- Enabled gzip compression of inbound non-SOAP HTTP requests.
+- Added XML serializtion functionality to XmlUtils, and various cleanup.
+- Fixed build file, specifing class map as JSON.
+
 2.6.3:
 - Updated OAuth implementation to allow for alternative OAuth libraries,
   including the bundled Andy Smith library. Updated to use OAuth version 1.0a.

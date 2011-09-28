@@ -60,7 +60,7 @@ class TrafficEstimatorServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetTrafficEstimatorService();
+    $this->service = $user->GetService('TrafficEstimatorService');
   }
 
   /**

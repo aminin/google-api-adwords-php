@@ -57,7 +57,7 @@ class ServicedAccountServiceTest extends AdsTestCase {
   protected function setUp() {
     $user = $this->sharedFixture['user'];
     $user->SetClientId(NULL);
-    $this->service = $user->GetServicedAccountService();
+    $this->service = $user->GetService('ServicedAccountService');
   }
 
   /**

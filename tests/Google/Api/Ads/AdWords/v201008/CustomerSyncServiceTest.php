@@ -61,7 +61,7 @@ class CustomerSyncServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetCustomerSyncService();
+    $this->service = $user->GetService('CustomerSyncService');
 
     $this->campaignId = $this->sharedFixture['campaignId'];
 

@@ -48,7 +48,7 @@ try {
   $user->LogDefaults();
 
   // Get the GeoLocationService.
-  $getLocationService = $user->GetGeoLocationService('v201101');
+  $getLocationService = $user->GetService('GeoLocationService', 'v201101');
 
   // Create addresses.
   $address1 = new Address();

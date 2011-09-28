@@ -50,7 +50,7 @@ try {
   $user->LogDefaults();
 
   // Get the AdParamService.
-  $adParamService = $user->GetAdParamService('v201008');
+  $adParamService = $user->GetService('AdParamService', 'v201008');
 
   $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
 

@@ -49,7 +49,7 @@ try {
   $user->LogDefaults();
 
   // Get the UserListService.
-  $userListService = $user->GetUserListService('v201101');
+  $userListService = $user->GetService('UserListService', 'v201101');
 
   $userListId = (float) 'INSERT_USER_LIST_ID_HERE';
 

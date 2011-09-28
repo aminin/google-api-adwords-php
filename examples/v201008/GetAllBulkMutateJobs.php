@@ -50,7 +50,7 @@ try {
   $user->LogDefaults();
 
   // Get the BulkMutateJobService.
-  $bulkMutateJobService = $user->GetBulkMutateJobService('v201008');
+  $bulkMutateJobService = $user->GetService('BulkMutateJobService', 'v201008');
 
   // Create selector.
   $selector = new BulkMutateJobSelector();

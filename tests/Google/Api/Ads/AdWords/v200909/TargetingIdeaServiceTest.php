@@ -62,7 +62,7 @@ class TargetingIdeaServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetTargetingIdeaService();
+    $this->service = $user->GetService('TargetingIdeaService');
 
     $this->adGroupId = $this->sharedFixture['adGroupId'];
   }

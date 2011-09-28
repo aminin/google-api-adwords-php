@@ -49,7 +49,7 @@ try {
   $user->LogDefaults();
 
   // Get the AdGroupService.
-  $adGroupService = $user->GetAdGroupService('v200909');
+  $adGroupService = $user->GetService('AdGroupService', 'v200909');
 
   $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
 

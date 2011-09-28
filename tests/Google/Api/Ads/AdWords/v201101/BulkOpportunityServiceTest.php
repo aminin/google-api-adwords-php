@@ -61,7 +61,7 @@ class BulkOpportunityServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetBulkOpportunityService();
+    $this->service = $user->GetService('BulkOpportunityService');
   }
 
   /**

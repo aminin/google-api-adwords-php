@@ -49,11 +49,11 @@ try {
   $user->LogDefaults();
 
   // Get the AdGroupAdService.
-  $adGroupAdService = $user->GetAdGroupAdService('v201008');
+  $adGroupAdService = $user->GetService('AdGroupAdService', 'v201008');
 
   // Get validateOnly version of the AdGroupAdService.
   $adGroupAdValidationService =
-      $user->GetAdGroupAdService('v201008', NULL, NULL, TRUE);
+      $user->GetService('AdGroupAdService', 'v201008', NULL, NULL, TRUE);
 
   $adGroupId = (float) 'INSERT_AD_GROUP_ID_HERE';
 

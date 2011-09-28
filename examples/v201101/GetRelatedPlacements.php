@@ -49,7 +49,7 @@ try {
   $user->LogDefaults();
 
   // Get the TargetingIdeaService.
-  $targetingIdeaService = $user->GetTargetingIdeaService('v201101');
+  $targetingIdeaService = $user->GetService('TargetingIdeaService', 'v201101');
 
   // Create seed url.
   $url = 'mars.google.com';
@@ -69,7 +69,7 @@ try {
   // Create related to url search parameter.
   $relatedToUrlSearchParameter = new RelatedToUrlSearchParameter();
   $relatedToUrlSearchParameter->urls = array($url);
-  $relatedToUrlSearchParameter->includeSubUrls = false;
+  $relatedToUrlSearchParameter->includeSubUrls = FALSE;
   $selector->searchParameters = array($relatedToUrlSearchParameter);
 
   // Get related placements.

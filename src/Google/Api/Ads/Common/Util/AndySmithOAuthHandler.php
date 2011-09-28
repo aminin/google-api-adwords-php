@@ -60,9 +60,8 @@ class AndySmithOAuthHandler extends OAuthHandler {
     $consumer = new OAuthConsumer($credentials['oauth_consumer_key'],
         $credentials['oauth_consumer_secret']);
     $signatureMethod = new OAuthSignatureMethod_HMAC_SHA1();
-    $params['version'] = '1.0a';
 
-    $params = array('scope' => $scope);
+    $params = array('oauth_version' => '1.0a', 'scope' => $scope);
     if (isset($applicationName)) {
       $params['xoauth_displayname'] = $applicationName;
     }
@@ -93,9 +92,8 @@ class AndySmithOAuthHandler extends OAuthHandler {
     $token = new OAuthToken($credentials['oauth_token'],
         $credentials['oauth_token_secret']);
     $signatureMethod = new OAuthSignatureMethod_HMAC_SHA1();
-    $params['version'] = '1.0a';
 
-    $params = array('oauth_verifier' => $verifier);
+    $params = array('oauth_version' => '1.0a', 'oauth_verifier' => $verifier);
     $endpoint = $this->GetAccessEndpoint($server);
 
     $request = OAuthRequest::from_consumer_and_token($consumer, $token, 'GET',
@@ -118,10 +116,10 @@ class AndySmithOAuthHandler extends OAuthHandler {
     $token = new OAuthToken($credentials['oauth_token'],
         $credentials['oauth_token_secret']);
     $signatureMethod = new OAuthSignatureMethod_HMAC_SHA1();
-    $params['version'] = '1.0a';
 
+    $params = array('oauth_version' => '1.0a');
     $request = OAuthRequest::from_consumer_and_token($consumer, $token, 'POST',
-        $url, array());
+        $url, $params);
     $request->sign_request($signatureMethod, $consumer, $token);
     return $request->get_parameters();
   }

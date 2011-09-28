@@ -61,7 +61,7 @@ class BulkMutateJobServiceTest extends AdsTestCase {
    */
   protected function setUp() {
     $user = $this->sharedFixture['user'];
-    $this->service = $user->GetBulkMutateJobService();
+    $this->service = $user->GetService('BulkMutateJobService');
 
     $this->campaignId = $this->sharedFixture['campaignId'];
     $this->adGroupId = $this->sharedFixture['adGroupId'];
