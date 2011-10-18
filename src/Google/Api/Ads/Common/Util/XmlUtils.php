@@ -117,7 +117,28 @@ class XmlUtils {
     if (sizeof($result) > 0) {
       return (Object) $result;
     } else {
-      return $element->nodeValue;
+      return self::ConvertNodeValueToObject($element->nodeValue);
+    }
+  }
+
+  /**
+   * Converts a node value to a PHP value of the appropriate type.
+   * @param string $value the value of the node
+   * @return mixed the PHP value as the appropriate type
+   */
+  private static function ConvertNodeValueToObject($value) {
+    if (is_numeric($value)) {
+      if (strcmp(strval(intval($value)), $value) === 0) {
+        return intval($value);
+      } elseif (strcmp(sprintf('%.0f', floatval($value)), $value) === 0) {
+        return floatval($value);
+      } else {
+        return $value;
+      }
+    } else if (strtolower($value) == 'true' || strtolower($value) == 'false') {
+      return filter_var($value, FILTER_VALIDATE_BOOLEAN);
+    } else {
+      return $value;
     }
   }
 
@@ -172,12 +193,28 @@ class XmlUtils {
         }
       }
     } else {
-      if (is_float($object)) {
-        $strval = sprintf('%.0f', $object);
-      }
-      $element->nodeValue = strval($object);
+      $element->nodeValue = self::ConvertObjectToNodeValue($object);
     }
     return $element;
+  }
+
+  /**
+   * Converts a PHP value to a string for use in an XML node value.
+   * @param mixed $object the PHP value
+   * @returns string the string value of the object
+   */
+  private static function ConvertObjectToNodeValue($object) {
+    if (is_float($object)) {
+      if (floatval(strval($object)) == $object) {
+        return strval($object);
+      } else {
+        return sprintf('%.0f', $object);
+      }
+    } else if (is_bool($object)) {
+      return $object ? 'true': 'false';
+    } else {
+      return strval($object);
+    }
   }
 
   /**
