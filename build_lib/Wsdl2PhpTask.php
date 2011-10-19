@@ -70,6 +70,15 @@ class Wsdl2PhpTask extends Task {
   private $classmap = NULL;
 
   /**
+   * The WSDL types that shouldn't have their class names checked for
+   * uniqueness.
+   * @var array the WSDL types that shouldn't have their class names checked for
+   *     uniqueness.
+   * @access private
+   */
+  private $skipClassNameCheckTypes = NULL;
+
+  /**
    * The author of the service to be included in the file header.
    * @var string the author of the service
    * @access private
@@ -161,6 +170,18 @@ class Wsdl2PhpTask extends Task {
   }
 
   /**
+   * The setter for the attribute <var>$skipClassNameCheckTypes</var>.
+   * @param string $skipClassNameCheckTypes comma separated list of the type
+   *     names
+   */
+  public function setSkipClassNameCheckTypes($skipClassNameCheckTypes) {
+    if (!empty($skipClassNameCheckTypes)) {
+      $this->skipClassNameCheckTypes = array_map('trim',
+          explode(',', $skipClassNameCheckTypes));
+    }
+  }
+
+  /**
    * The setter for the attribute <var>$author</var>.
    * @param string $author the author for the file header of the generated file
    */
@@ -224,7 +245,7 @@ class Wsdl2PhpTask extends Task {
         new WSDLInterpreter($this->url, $this->soapClientClassName,
             $this->classmap, $this->serviceName, $this->version, $this->author,
             $this->package, $this->soapClientClassPath, $this->proxy,
-            $this->enablePseudoNamespaces);
+            $this->enablePseudoNamespaces, $this->skipClassNameCheckTypes);
     $wsdlInterpreter->savePHP($this->outputDir);
     print 'Done: ' . $this->url . "\n";
   }
