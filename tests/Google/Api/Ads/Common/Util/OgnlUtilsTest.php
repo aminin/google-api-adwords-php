@@ -55,6 +55,18 @@ class OgnlUtilsTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
+   * Test getting the operation index referenced in an expression.
+   * @param string $expression the OGNL expression to evaluate
+   * @param mixed $expected the expected operation index
+   * @covers OgnlUtils::GetOperationIndex
+   * @dataProvider OperationIndexProvider
+   */
+  public function testGetOperationIndex($expression, $expected) {
+    $index = OgnlUtils::GetOperationIndex($expression);
+    $this->assertEquals($expected, $index);
+  }
+
+  /**
    * Provides OGNL expressions and contexts along with the expected value.
    * @return array an array of arrays of expression, context, and value
    */
@@ -97,6 +109,29 @@ class OgnlUtilsTest extends PHPUnit_Framework_TestCase {
     $data[] = array('[abc]', array('value'), NULL);
     // Missing dot.
     $data[] = array('foo[0]bar', array('foo' => array('bar' => 'value')), NULL);
+
+    return $data;
+  }
+
+  /**
+   * Provides OGNL expressions the expected operation index.
+   * @return array an array of arrays of expression and operation index
+   */
+  public function OperationIndexProvider() {
+    $data = array();
+
+    // Expressions that reference an index.
+    $data[] = array('operations[0]', 0);
+    $data[] = array('operations[123]', 123);
+
+    // Expressions that don't reference an index.
+    $data[] = array('operations', NULL);
+    $data[] = array('operations.foo', NULL);
+    $data[] = array('foo', NULL);
+
+    // Invalid expressions.
+    $data[] = array(NULL, NULL);
+    $data[] = array('', NULL);
 
     return $data;
   }

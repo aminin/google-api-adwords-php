@@ -41,6 +41,11 @@ class OgnlUtils {
       '/^(?:(\w+)|\[(\d+)\])(?:$|\.|(?=\[))/';
 
   /**
+   * Matches the operation index within an OGNL expression.
+   */
+  private static $OPERATION_INDEX_REGEX = '/^operations\[(\d+)\]/';
+
+  /**
    * The OgnlUtils class is not meant to have any instances.
    * @access private
    */
@@ -58,7 +63,7 @@ class OgnlUtils {
     }
     while(strlen($expression) > 0) {
       $matches = array();
-      if (preg_match(OgnlUtils::$OGNL_TOKEN_REGEX, $expression, $matches)) {
+      if (preg_match(self::$OGNL_TOKEN_REGEX, $expression, $matches)) {
         $token = array_shift($matches);
         $expression = substr($expression, strlen($token));
         // Remove empty matches.
@@ -79,5 +84,21 @@ class OgnlUtils {
       }
     }
     return $context;
+  }
+
+  /**
+   * Retrieves the operation index from an OGNL expression that references an
+   * operation.
+   * @param string $expression the OGNL expression
+   * @return int the operation index referenced, or NULL if no operation was
+   *     references
+   */
+  public static function GetOperationIndex($expression) {
+    $matches = array();
+    if (preg_match(self::$OPERATION_INDEX_REGEX, $expression, $matches)) {
+      return $matches[1];
+    } else {
+      return NULL;
+    }
   }
 }
