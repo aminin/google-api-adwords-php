@@ -61,9 +61,8 @@ class AdWordsSoapClientFactory extends SoapClientFactory {
   /**
    * Initiates a require_once for the service.
    * @param string $serviceName the service to instantiate
-   * @access protected
    */
-  protected function DoRequireOnce($serviceName) {
+  public function DoRequireOnce($serviceName) {
     require_once implode("/", array(dirname(__FILE__), '..',
         $this->GetVersion(), $serviceName . '.php'));
   }

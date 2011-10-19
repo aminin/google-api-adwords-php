@@ -33,6 +33,7 @@
 /** Required classes. **/
 require_once dirname(__FILE__) . '/../../Common/Util/AuthToken.php';
 require_once dirname(__FILE__) . '/../../Common/Lib/AdsUser.php';
+require_once dirname(__FILE__) . '/../Util/ReportUtils.php';
 require_once 'AdWordsSoapClientFactory.php';
 
 /**
@@ -152,6 +153,44 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
+   * Overrides AdsUser::InitLogs(), adding an additional log for report
+   * download requests.
+   */
+  protected function InitLogs() {
+    parent::InitLogs();
+    Logger::LogToFile(ReportUtils::$LOG_NAME,
+        $this->GetLogsDirectory() . "/report_download.log");
+    Logger::SetLogLevel(ReportUtils::$LOG_NAME, Logger::$FATAL);
+  }
+
+  /**
+   * Overrides AdsUser::LogDefaults(), setting an additional log level for
+   * report download requests.
+   */
+  public function LogDefaults() {
+    parent::LogDefaults();
+    Logger::SetLogLevel(ReportUtils::$LOG_NAME, Logger::$ERROR);
+  }
+
+  /**
+   * Overrides AdsUser::LogErrors(), setting an additional log level for report
+   * download requests.
+   */
+  public function LogErrors() {
+    parent::LogErrors();
+    Logger::SetLogLevel(ReportUtils::$LOG_NAME, Logger::$ERROR);
+  }
+
+  /**
+   * Overrides AdsUser::LogAll(), setting an additional log level for report
+   * download requests.
+   */
+  public function LogAll() {
+    parent::LogAll();
+    Logger::SetLogLevel(ReportUtils::$LOG_NAME, Logger::$INFO);
+  }
+
+  /**
    * Gets the service by its service name and group.
    * @param $serviceName the service name
    * @param string $version the version of the service to get. If
@@ -184,6 +223,22 @@ class AdWordsUser extends AdsUser {
     }
 
     return parent::GetServiceSoapClient($serviceName, $serviceFactory);
+  }
+
+  /**
+   * Loads the classes within a service, so they can be used before the service
+   * is constructed.
+   * @param $serviceName the service name
+   * @param string $version the version of the service to get. If
+   *     <var>NULL</var>, then the default version will be used
+   */
+  public function LoadService($serviceName, $version = NULL) {
+    if (!isset($version)) {
+      $version = $this->GetDefaultVersion();
+    }
+    $serviceFactory = new AdWordsSoapClientFactory($this, $version, NULL, NULL,
+        NULL);
+    $serviceFactory->DoRequireOnce($serviceName);
   }
 
   /**
