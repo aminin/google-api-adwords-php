@@ -50,6 +50,10 @@ class AdWordsSoapClientFactory extends SoapClientFactory {
    */
   public function __construct(AdsUser $user, $version, $server, $validateOnly,
       $partialFailure) {
+    if ($version >= 'v201109' && $user->GetHeaderValue('clientEmail') != NULL) {
+      throw new Exception('The header "clientEmail" is not compatible with '
+          . 'versions v201109 and later. Use clientCustomerId instead.');
+    }
     $headerOverrides = array();
     if (isset($validateOnly) || isset($partialFailure)) {
       $headerOverrides['validateOnly'] = $validateOnly;
