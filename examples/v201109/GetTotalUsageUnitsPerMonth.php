@@ -1,7 +1,11 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets the total number of API units that can be used in a month
+ * for a given developer token. This example must be run as the MCC user that
+ * owns the developer token.
+ *
+ * Tags: InfoService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *
@@ -37,7 +41,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +50,23 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the InfoService.
+  $infoService = $user->GetService('InfoService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  // Create selector.
+  $selector = new InfoSelector();
+  $selector->apiUsageType = 'TOTAL_USAGE_API_UNITS_PER_MONTH';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Get api usage info.
+  $apiUsageInfo = $infoService->get($selector);
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Display api usage info.
+  if (isset($apiUsageInfo)) {
+    print 'The total number of API units available per month is "'
+        . $apiUsageInfo->cost . "\".\n";
+  } else {
+    print "No api usage information was returned.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

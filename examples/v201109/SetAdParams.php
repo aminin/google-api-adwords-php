@@ -1,7 +1,10 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example sets ad parameters for a keyword ad group criterion. To get ad
+ * group criteria, run GetAllAdGroupCriteria.php.
+ *
+ * Tags: AdParamService.mutate
+ * Restriction: adwords-only
  *
  * PHP version 5
  *
@@ -37,7 +40,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +49,42 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the AdParamService.
+  $adParamService = $user->GetService('AdParamService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
+  $keywordId = 'INSERT_KEYWORD_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create ad parameters.
+  $adParam1 = new AdParam($adGroupId, $keywordId, '100', 1);
+  $adParam2 = new AdParam($adGroupId, $keywordId, '$40', 2);
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create operations.
+  $adParamOperation1 = new AdParamOperation();
+  $adParamOperation1->operand = $adParam1;
+  $adParamOperation1->operator = 'SET';
+
+  $adParamOperation2 = new AdParamOperation();
+  $adParamOperation2->operand = $adParam2;
+  $adParamOperation2->operator = 'SET';
+
+  $operations = array($adParamOperation1, $adParamOperation2);
+
+  // Set ad parameters.
+  $adParams = $adParamService->mutate($operations);
+
+  // Display ad parameters.
+  if (isset($adParams)) {
+    foreach ($adParams as $adParam) {
+      print 'Ad parameter with ad group id "' . $adParam->adGroupId
+          . '", criterion id "' . $adParam->criterionId
+          . '", insertion text "' . $adParam->insertionText
+          . '", and parameter index "' . $adParam->paramIndex
+          . "\" was set.\n";
+    }
+  } else {
+    print "No ad parameters were set.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

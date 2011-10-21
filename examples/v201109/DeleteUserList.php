@@ -1,7 +1,9 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example deletes a user list by setting the status to 'CLOSED'. To get
+ * user lists, run GetAllUserLists.php.
+ *
+ * Tags: UserListService.mutate
  *
  * PHP version 5
  *
@@ -37,7 +39,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +48,35 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the UserListService.
+  $userListService = $user->GetService('UserListService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $userListId = 'INSERT_USER_LIST_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create user list with CLOSED status.
+  $userList = new UserList();
+  $userList->id = $userListId;
+  $userList->status = 'CLOSED';
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create operations.
+  $operation = new UserListOperation();
+  $operation->operand = $userList;
+  $operation->operator = 'SET';
+
+  $operations = array($operation);
+
+  // Delete user list.
+  $result = $userListService->mutate($operations);
+
+  // Display user lists.
+  if (isset($result->value)) {
+    foreach ($result->value as $userList) {
+      printf("User list with name '%s' and id '%.0f' was deleted (closed).\n",
+          $userList->name, $userList->id);
+    }
+  } else {
+    print "No users lists were deleted.";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

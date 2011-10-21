@@ -1,7 +1,8 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets report fields.
+ *
+ * Tags: ReportDefinitionService.getReportFields
  *
  * PHP version 5
  *
@@ -37,7 +38,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +47,28 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the GetReportDefinitionService.
+  $reportDefinitionService =
+      $user->GetService('ReportDefinitionService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  // The type of the report to get fields for. Ex: KEYWORDS_PERFORMANCE_REPORT
+  $reportType = 'INSERT_REPORT_TYPE_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Get report fields.
+  $reportDefinitionFields =
+      $reportDefinitionService->getReportFields($reportType);
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Display report fields.
+  printf("The report type '%s' contains the following fields:\n", $reportType);
+
+  foreach ($reportDefinitionFields as $reportDefinitionField) {
+    printf('- %s (%s)', $reportDefinitionField->fieldName,
+        $reportDefinitionField->fieldType);
+    if (isset($reportDefinitionField->enumValues)) {
+      printf(' := [%s]', implode(', ', $reportDefinitionField->enumValues));
+    }
+    print "\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

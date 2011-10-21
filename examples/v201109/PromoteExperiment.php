@@ -1,7 +1,12 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example promotes an experiment, which permanently applies all the
+ * experimental changes made to its related ad groups, criteria and ads.
+ * To get experiments, run GetAllExperiments.php. To add an experiment, run
+ * AddExperiment.php.
+ *
+ * Tags: ExperimentService.mutate
+ * Restriction: adwords-only
  *
  * PHP version 5
  *
@@ -37,7 +42,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +51,35 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the services.
+  $experimentService = $user->GetService('ExperimentService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $experimentId = "INSERT_EXPERIMENT_ID_HERE";
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create experiment with PROMOTED status.
+  $experiment = new Experiment();
+  $experiment->id = $experimentId;
+  $experiment->status = 'PROMOTED';
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create operations.
+  $operation = new ExperimentOperation();
+  $operation->operand = $experiment;
+  $operation->operator = 'SET';
+
+  $operations = array($operation);
+
+  // Promote experiment.
+  $result = $experimentService->mutate($operations);
+
+  // Display experiments.
+  if (isset($result->value)) {
+    foreach ($result->value as $experiment) {
+      printf ("Experiment with name '%s' and id '%.0f' was promoted.\n",
+          $experiment->name, $experiment->id);
+    }
+  } else {
+    print "No experiments were deleted.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

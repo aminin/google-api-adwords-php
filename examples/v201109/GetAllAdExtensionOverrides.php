@@ -1,7 +1,11 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets all ad extension overrides for a campaign. To add ad
+ * extension overrides, run AddAdExtensionOverride.php. To get campaigns, run
+ * GetAllCampaigns.php.
+ *
+ * Tags: AdExtensionOverrideService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *
@@ -37,7 +41,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +50,30 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the AdExtensionOverrideService.
+  $adExtensionOverrideService =
+      $user->GetService('AdExtensionOverrideService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $campaignId = 'INSERT_CAMPAIGN_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create selector.
+  $selector = new AdExtensionOverrideSelector();
+  $selector->campaignIds = array($campaignId);
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Get all ad extension overrides.
+  $page = $adExtensionOverrideService->get($selector);
+
+  // Display ad extension overrides.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $adExtensionOverride) {
+      print 'Ad extension override with ad id "' . $adExtensionOverride->adId
+          . '", ad extension id "' . $adExtensionOverride->adExtension->id
+          . '", and type "' . $adExtensionOverride->adExtension->AdExtensionType
+          . "\" was found.\n";
+    }
+  } else {
+    print "No ad extension overrides were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

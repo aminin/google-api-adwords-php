@@ -1,7 +1,8 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets placements related to a seed url.
+ *
+ * Tags: TargetingIdeaService.get
  *
  * PHP version 5
  *
@@ -37,7 +38,7 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
+require_once 'Google/Api/Ads/Common/Util/MapUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +48,45 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the TargetingIdeaService.
+  $targetingIdeaService = $user->GetService('TargetingIdeaService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  // Create seed url.
+  $url = 'mars.google.com';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create selector.
+  $selector = new TargetingIdeaSelector();
+  $selector->requestType = 'IDEAS';
+  $selector->ideaType = 'PLACEMENT';
+  $selector->requestedAttributeTypes = array('CRITERION', 'PLACEMENT_TYPE');
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Set selector paging (required for targeting idea service).
+  $paging = new Paging();
+  $paging->startIndex = 0;
+  $paging->numberResults = 10;
+  $selector->paging = $paging;
+
+  // Create related to url search parameter.
+  $relatedToUrlSearchParameter = new RelatedToUrlSearchParameter();
+  $relatedToUrlSearchParameter->urls = array($url);
+  $relatedToUrlSearchParameter->includeSubUrls = FALSE;
+  $selector->searchParameters = array($relatedToUrlSearchParameter);
+
+  // Get related placements.
+  $page = $targetingIdeaService->get($selector);
+
+  // Display related placements.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $targetingIdea) {
+      $data = MapUtils::GetMap($targetingIdea->data);
+      $placement = $data['CRITERION']->value;
+      $placementType = $data['PLACEMENT_TYPE']->value;
+      printf("Placement with url '%s' and type '%s' was found.\n",
+          $placement->url, $placementType);
+    }
+  } else {
+    print "No related placements were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

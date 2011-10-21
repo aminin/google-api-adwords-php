@@ -1,7 +1,11 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example deletes a bulk mutate job using the 'REMOVE' operator. Jobs may
+ * only deleted if they are in the 'PENDING' state and have not yet receieved
+ * all of their request parts. To get bulk mutate jobs,
+ * run GetAllBulkMutateJobs.php.
+ *
+ * Tags: BulkMutateJobService.mutate
  *
  * PHP version 5
  *
@@ -37,7 +41,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +50,29 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the BulkMutateJobService.
+  $bulkMutateJobService = $user->GetService('BulkMutateJobService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $bulkMutateJobId = 'INSERT_BULK_MUTATE_JOB_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create BulkMutateJob.
+  $bulkMutateJob = new BulkMutateJob();
+  $bulkMutateJob->id = $bulkMutateJobId;
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create operation.
+  $operation = new JobOperation();
+  $operation->operand = $bulkMutateJob;
+  $operation->operator = 'REMOVE';
+
+  // Delete bulk mutate job.
+  $bulkMutateJob = $bulkMutateJobService->mutate($operation);
+
+  // Display bulk mutate jobs.
+  if (isset($bulkMutateJob)) {
+    printf("Bulk mutate job with id '%.0f' was deleted.\n", $bulkMutateJob->id);
+  } else {
+    print "No bulk mutate jobs were deleted.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

@@ -1,7 +1,8 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets all campaigns. To add a campaign, run AddCampaign.php.
+ *
+ * Tags: CampaignService.get
  *
  * PHP version 5
  *
@@ -25,6 +26,7 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
+ * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
@@ -37,7 +39,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +48,26 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the CampaignService.
+  $campaignService = $user->GetService('CampaignService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  // Create selector.
+  $selector = new Selector();
+  $selector->fields = array('Id', 'Name');
+  $selector->ordering = array(new OrderBy('Name', 'ASCENDING'));
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Get all campaigns.
+  $page = $campaignService->get($selector);
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Display campaigns.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $campaign) {
+      print 'Campaign with name "' . $campaign->name . '" and id "'
+          . $campaign->id . "\" was found.\n";
+    }
+  } else {
+    print "No campaigns were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

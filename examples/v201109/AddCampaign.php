@@ -1,7 +1,8 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example adds a campaign.
+ *
+ * Tags: CampaignService.mutate
  *
  * PHP version 5
  *
@@ -25,6 +26,7 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
+ * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
@@ -37,7 +39,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +48,49 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the CampaignService.
+  $campaignService = $user->GetService('CampaignService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  // Create campaign.
+  $campaign = new Campaign();
+  $campaign->name = 'Interplanetary Cruise #' . time();
+  $campaign->status = 'PAUSED';
+  $campaign->biddingStrategy = new ManualCPC();
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  $budget = new Budget();
+  $budget->period = 'DAILY';
+  $budget->amount = new Money(50000000);
+  $budget->deliveryMethod = 'STANDARD';
+  $campaign->budget = $budget;
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Set the campaign network options to Google Search and Search Network.
+  $networkSetting = new NetworkSetting();
+  $networkSetting->targetGoogleSearch = TRUE;
+  $networkSetting->targetSearchNetwork = TRUE;
+  $networkSetting->targetContentNetwork = FALSE;
+  $networkSetting->targetContentContextual = FALSE;
+  $networkSetting->targetPartnerSearchNetwork = FALSE;
+  $campaign->networkSetting = $networkSetting;
+
+  // Create operations.
+  $operation = new CampaignOperation();
+  $operation->operand = $campaign;
+  $operation->operator = 'ADD';
+
+  $operations = array($operation);
+
+  // Add campaign.
+  $result = $campaignService->mutate($operations);
+
+  // Display campaigns.
+  if (isset($result->value)) {
+    foreach ($result->value as $campaign) {
+      print 'Campaign with name "' . $campaign->name . '" and id "'
+          . $campaign->id . "\" was added.\n";
+    }
+  } else {
+    print "No campaigns were added.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

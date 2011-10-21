@@ -1,7 +1,9 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets all conversions trackers. To add a conversion tracker, run
+ * AddConversionTracker.php.
+ *
+ * Tags: ConversionTrackerService.get
  *
  * PHP version 5
  *
@@ -25,6 +27,7 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
+ * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
@@ -37,7 +40,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +49,29 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the ConversionTrackerService.get.
+  $conversionTrackerService =
+      $user->GetService('ConversionTrackerService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  // Create selector.
+  $selector = new Selector();
+  $selector->fields = array('Name', 'Status', 'Category');
+  $selector->ordering = array(new OrderBy('Name', 'ASCENDING'));
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Get all conversion trackers.
+  $page = $conversionTrackerService->get($selector);
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Display conversion trackers.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $conversionTracker) {
+      printf("Conversion tracker with name '%s', id '%.0f', status '%s', and "
+          . "category '%s' was found.\n", $conversionTracker->name,
+          $conversionTracker->id, $conversionTracker->status,
+          $conversionTracker->category);
+    }
+  } else {
+    print "No conversion trackers were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

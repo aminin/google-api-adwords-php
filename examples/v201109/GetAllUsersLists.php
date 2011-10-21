@@ -1,7 +1,8 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets all users lists. To add a user list, run AddUserList.php.
+ *
+ * Tags: UserListService.get
  *
  * PHP version 5
  *
@@ -37,7 +38,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +47,27 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the UserListService.
+  $userListService = $user->GetService('UserListService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  // Create selector.
+  $selector = new Selector();
+  $selector->fields = array('Id', 'Name', 'Status', 'Size');
+  $selector->ordering = array(new OrderBy('Name', 'ASCENDING'));
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Get all user lists.
+  $page = $userListService->get($selector);
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Display user lists.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $userList) {
+      printf("User list with name '%s', id '%.0f', status '%s', and number of "
+          . "users '%d' was found.\n", $userList->name, $userList->id,
+          $userList->status, $userList->size);
+    }
+  } else {
+    print "No user lists were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

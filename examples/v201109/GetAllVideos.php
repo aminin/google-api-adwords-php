@@ -1,7 +1,10 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets all videos. To upload a video, see
+ * http://adwords.google.com/support/aw/bin/answer.py?hl=en&answer=39454.
+ *
+ * Tags: MediaService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *
@@ -37,7 +40,8 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
+require_once 'Google/Api/Ads/Common/Util/MediaUtils.php';
+require_once 'Google/Api/Ads/Common/Util/MapUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +51,30 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the MediaService.
+  $mediaService = $user->GetService('MediaService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  // Create selector.
+  $selector = new Selector();
+  $selector->fields = array('MediaId', 'Name');
+  $selector->ordering = array(new OrderBy('Name', 'ASCENDING'));
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create predicates.
+  $typePredicate = new Predicate('Type', 'IN', array('VIDEO'));
+  $selector->predicates = array($typePredicate);
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Get all videos.
+  $page = $mediaService->get($selector);
+
+  // Display videos.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $video) {
+      printf("Video with id '%s' and name '%s' was found.\n", $video->mediaId,
+          $video->name);
+    }
+  } else {
+    print "No videos were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

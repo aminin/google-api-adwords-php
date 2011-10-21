@@ -1,7 +1,9 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets all disapproved ads in an ad group. To add ads, run
+ * AddAds.php. To get ad groups, run GetAllAdGroups.php.
+ *
+ * Tags: AdGroupAdService.get
  *
  * PHP version 5
  *
@@ -37,7 +39,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +48,37 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the AdGroupAdService.
+  $adGroupAdService = $user->GetService('AdGroupAdService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create selector.
+  $selector = new Selector();
+  $selector->fields = array('Id', 'DisapprovalReasons');
+  $selector->ordering = array(new OrderBy('Id', 'ASCENDING'));
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create predicates.
+  $adGroupIdPredicate = new Predicate('AdGroupId', 'IN', array($adGroupId));
+  $approvalStatusPredicate =
+      new Predicate('CreativeApprovalStatus', 'IN', array('DISAPPROVED'));
+  $selector->predicates = array($adGroupIdPredicate, $approvalStatusPredicate);
+
+  // Get all ads.
+  $page = $adGroupAdService->get($selector);
+
+  // Display ads.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $adGroupAd) {
+      printf("Ad with id '%.0f', and type '%s' was disapproved for the "
+          . "following reasons:\n", $adGroupAd->ad->id, $adGroupAd->ad->AdType);
+      foreach ($adGroupAd->ad->disapprovalReasons as $reason) {
+        printf("\t'%s'\n", $reason);
+      }
+    }
+  } else {
+    print "No disapproved ads were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

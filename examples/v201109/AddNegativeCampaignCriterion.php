@@ -1,7 +1,9 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example adds a negative keyword to a campaign. To get campaigns, run
+ * GetAllCampaigns.php.
+ *
+ * Tags: CampaignCriterionService.mutate
  *
  * PHP version 5
  *
@@ -37,7 +39,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +48,43 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the CampaignCriterionService.
+  $campaignCriterionService =
+      $user->GetService('CampaignCriterionService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $campaignId = 'INSERT_CAMPAIGN_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create keyword.
+  $keyword = new Keyword();
+  $keyword->text = 'jupiter cruise';
+  $keyword->matchType = 'BROAD';
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create negative campaign criterion.
+  $negativeCampaignCriterion = new NegativeCampaignCriterion();
+  $negativeCampaignCriterion->campaignId = $campaignId;
+  $negativeCampaignCriterion->criterion = $keyword;
+
+  // Create operations.
+  $operation = new CampaignCriterionOperation();
+  $operation->operand = $negativeCampaignCriterion;
+  $operation->operator = 'ADD';
+
+  $operations = array($operation);
+
+  // Add campaign criteria.
+  $result = $campaignCriterionService->mutate($operations);
+
+  // Display campaign criteria.
+  if (isset($result->value)) {
+    foreach ($result->value as $campaignCriterion) {
+      print 'Campaign criterion with campaign id "'
+          . $campaignCriterion->campaignId . '", criterion id "'
+          . $campaignCriterion->criterion->id . ', and type "'
+          . $campaignCriterion->criterion->CriterionType . "\" was added.\n";
+    }
+  } else {
+    print "No campaign criteria were added.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

@@ -1,7 +1,8 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets all images. To upload an image, run UploadImage.php.
+ *
+ * Tags: MediaService.get
  *
  * PHP version 5
  *
@@ -37,7 +38,8 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
+require_once 'Google/Api/Ads/Common/Util/MediaUtils.php';
+require_once 'Google/Api/Ads/Common/Util/MapUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +49,33 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the MediaService.
+  $mediaService = $user->GetService('MediaService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  // Create selector.
+  $selector = new Selector();
+  $selector->fields = array('MediaId', 'Width', 'Height', 'MimeType');
+  $selector->ordering = array(new OrderBy('MediaId', 'ASCENDING'));
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create predicates.
+  $typePredicate = new Predicate('Type', 'IN', array('IMAGE'));
+  $selector->predicates = array($typePredicate);
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Get all images.
+  $page = $mediaService->get($selector);
+
+  // Display images.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $image) {
+      $dimensions = MapUtils::GetMap($image->dimensions);
+      printf("Image with id '%s', dimensions '%dx%d', and MIME type '%s' was "
+          . "found.\n",
+          $image->mediaId, $dimensions['FULL']->width,
+          $dimensions['FULL']->height, $image->mimeType);
+    }
+  } else {
+    print "No images were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

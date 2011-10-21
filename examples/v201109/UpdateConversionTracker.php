@@ -1,7 +1,9 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example updates a conversion tracker by setting its status to
+ * 'DISABLED'. To get conversion trackers, run GetAllConversionTrackers.php.
+ *
+ * Tags: ConversionTrackerService.mutate
  *
  * PHP version 5
  *
@@ -25,6 +27,7 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
+ * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
@@ -37,7 +40,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +49,39 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the ConversionTrackerService.
+  $conversionTrackerService =
+      $user->GetService('ConversionTrackerService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $conversionTrackerId = 'INSERT_CONVERSION_TRACKER_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create conversion tracker with updated status.
+  $conversionTracker = new AdWordsConversionTracker();
+  $conversionTracker->id = $conversionTrackerId;
+  $conversionTracker->status = 'DISABLED';
+  $conversionTracker->name = 'Disabled Interplanetary Cruise Conversion #'
+      . uniqid();
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create operations.
+  $operation = new ConversionTrackerOperation();
+  $operation->operand = $conversionTracker;
+  $operation->operator = 'SET';
+
+  $operations = array($operation);
+
+  // Update conversion tracker.
+  $result = $conversionTrackerService->mutate($operations);
+
+  // Display conversion trackers.
+  if (isset($result->value)) {
+    foreach ($result->value as $conversionTracker) {
+      printf("Conversion tracker with name '%s', id '%.0f', and status '%s' "
+          . "was updated.\n", $conversionTracker->name, $conversionTracker->id,
+          $conversionTracker->status);
+    }
+  } else {
+    print "No conversion trackers were updated.";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

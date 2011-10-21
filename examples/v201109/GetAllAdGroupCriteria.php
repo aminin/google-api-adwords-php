@@ -1,7 +1,10 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets all ad group criteria in an ad group. To add ad
+ * group criteria, run AddAdGroupCriteria.php. To get ad groups, run
+ * GetAllAdGroups.php.
+ *
+ * Tags: AdGroupCriterionService.get
  *
  * PHP version 5
  *
@@ -37,7 +40,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +49,35 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the AdGroupCriterionService.
+  $adGroupCriterionService =
+      $user->GetService('AdGroupCriterionService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create selector.
+  $selector = new Selector();
+  $selector->fields = array('Id', 'AdGroupId');
+  $selector->ordering = array(new OrderBy('AdGroupId', 'ASCENDING'));
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create predicates.
+  $adGroupIdPredicate = new Predicate('AdGroupId', 'IN', array($adGroupId));
+  $selector->predicates = array($adGroupIdPredicate);
+
+  // Get all ad group criteria.
+  $page = $adGroupCriterionService->get($selector);
+
+  // Display ad group criteria.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $adGroupCriterion) {
+      print 'Ad group criterion with ad group id "'
+          . $adGroupCriterion->adGroupId . '", criterion id "'
+          . $adGroupCriterion->criterion->id . ', and type "'
+          . $adGroupCriterion->criterion->CriterionType . "\" was found.\n";
+    }
+  } else {
+    print "No ad group criteria were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

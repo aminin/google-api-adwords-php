@@ -1,7 +1,9 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example updates an ad by setting the status to 'PAUSED'. To get ads,
+ * run GetAllAds.php.
+ *
+ * Tags: AdGroupAdService.mutate
  *
  * PHP version 5
  *
@@ -37,7 +39,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +48,42 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the AdGroupAdService.
+  $adGroupAdService = $user->GetService('AdGroupAdService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
+  $adId = 'INSERT_AD_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create ad with updated status.
+  $ad = new Ad();
+  $ad->id = $adId;
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  $adGroupAd = new AdGroupAd();
+  $adGroupAd->adGroupId = $adGroupId;
+  $adGroupAd->ad = $ad;
+  $adGroupAd->status = 'PAUSED';
+
+  // Create operations.
+  $operation = new AdGroupAdOperation();
+  $operation->operand = $adGroupAd;
+  $operation->operator = 'SET';
+
+  $operations = array($operation);
+
+  // Update ad.
+  $result = $adGroupAdService->mutate($operations);
+
+  // Display ads.
+  if (isset($result->value)) {
+    foreach ($result->value as $adGroupAd) {
+      print 'Ad with id "' . $adGroupAd->ad->id . '", type "'
+          . $adGroupAd->ad->AdType . '", and status "' . $adGroupAd->status
+          . "\" was updated.\n";
+    }
+  } else {
+    print "No ads were updated.";
+  }
+
 } catch (Exception $e) {
   print $e->getMessage();
 }

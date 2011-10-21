@@ -1,7 +1,9 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example deletes an ad group criterion using the 'REMOVE' operator. To
+ * get ad group criteria, run GetAllAdGroupCriteria.php.
+ *
+ * Tags: AdGroupCriterionService.mutate
  *
  * PHP version 5
  *
@@ -37,7 +39,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +48,44 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the AdGroupCriterionService.
+  $adGroupCriterionService =
+      $user->GetService('AdGroupCriterionService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
+  $criterionId = 'INSERT_CRITERION_ID_HERE';
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create base class criterion to avoid setting keyword and placement specific
+  // fields.
+  $criterion = new Criterion();
+  $criterion->id = $criterionId;
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create ad group criterion.
+  $adGroupCriterion = new AdGroupCriterion();
+  $adGroupCriterion->adGroupId = $adGroupId;
+  $adGroupCriterion->criterion = new Criterion($criterionId);
+
+  // Create operations.
+  $operation = new AdGroupCriterionOperation();
+  $operation->operand = $adGroupCriterion;
+  $operation->operator = 'REMOVE';
+
+  $operations = array($operation);
+
+  // Delete ad group criteria.
+  $result = $adGroupCriterionService->mutate($operations);
+
+  // Display ad group criteria.
+  if (isset($result->value)) {
+    foreach ($result->value as $adGroupCriterion) {
+      print 'Ad group criterion with ad group id "'
+          . $adGroupCriterion->adGroupId . '", criterion id "'
+          . $adGroupCriterion->criterion->id . ', and type "'
+          . $adGroupCriterion->criterion->CriterionType . "\" was deleted.\n";
+    }
+  } else {
+    print "No ad group criteria were deleted.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }

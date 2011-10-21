@@ -1,7 +1,10 @@
 <?php
 /**
- * This example gets and downloads a report from a report definition.
- * To get a report definition, run AddKeywordsPerformanceReportDefinition.php.
+ * This example gets all experiments in a campaign. To add an experiment, run
+ * AddExperiment.php. To get campaigns, run GetAllCampaigns.php.
+ *
+ * Tags: ExperimentService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *
@@ -37,7 +40,6 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -47,17 +49,37 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';
-  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
+  // Get the services.
+  $experimentService = $user->GetService('ExperimentService', 'v201109');
 
-  $path = dirname(__FILE__) . '/' . $fileName;
-  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
+  $campaignId = "INSERT_CAMPAIGN_ID_HERE";
 
-  // Download report.
-  ReportUtils::DownloadReport($reportDefinitionId, $path, $user, $options);
+  // Create selector.
+  $selector = new Selector();
+  $selector->fields = array('Name', 'Id', 'ControlId', 'AdGroupsCount',
+      'AdGroupCriteriaCount', 'AdGroupAdsCount');
+  $selector->ordering = array(new OrderBy('Name', 'ASCENDING'));
 
-  printf("Report with definition id '%s' was downloaded to '%s'.\n",
-      $reportDefinitionId, $fileName);
+  // Create predicates.
+  $campaignIdPredicate = new Predicate('CampaignId', 'IN', array($campaignId));
+  $selector->predicates = array($campaignIdPredicate);
+
+  // Get all experiments.
+  $page = $experimentService->get($selector);
+
+  // Display experiments.
+  if (isset($page->entries)) {
+    foreach ($page->entries as $experiment) {
+      printf("Experiment with name '%s', id '%.0f', and control id '%.0f' was "
+          . "found. It includes %d ad groups, %d criteria, and %d ads. \n",
+          $experiment->name, $experiment->id, $experiment->controlId,
+          $experiment->experimentSummaryStats->adGroupsCount,
+          $experiment->experimentSummaryStats->adGroupCriteriaCount,
+          $experiment->experimentSummaryStats->adGroupAdsCount);
+    }
+  } else {
+    print "No experiments were found.\n";
+  }
 } catch (Exception $e) {
   print $e->getMessage();
 }
