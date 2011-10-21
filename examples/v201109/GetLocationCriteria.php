@@ -60,34 +60,43 @@ try {
   $locationCriterionService =
       $user->GetService('LocationCriterionService', 'v201109');
 
+  // Location names to look up.
   $locationNames = array('Paris', 'Quebec', 'Spain', 'Deutschland');
+  // Locale to retrieve location names in.
+  $locale = 'en';
 
   $selector = new Selector();
   $selector->fields = array('Id', 'LocationName', 'CanonicalName',
       'DisplayType',  'ParentLocations', 'Reach');
   // Location names must match exactly, only EQUALS and IN are supported.
   $selector->predicates[] = new Predicate('LocationName', 'IN', $locationNames);
-  // Set the locale of the returned location names.
-  $selector->predicates[] = new Predicate('Locale', 'EQUALS', 'en');
+  // Only one locale can be used in a request.
+  $selector->predicates[] = new Predicate('Locale', 'EQUALS', $locale);
 
   // Make the get request.
   $locationCriteria = $locationCriterionService->get($selector);
 
   // Display the resulting location criteria.
-  foreach ($locationCriteria as $locationCriterion) {
-    if (isset($locationCriterion->location->parentLocations)) {
-      $parentLocations = implode(', ',
-          array_map('GetLocationString',
-              $locationCriterion->location->parentLocations));
-    } else {
-      $parentLocations = 'N/A';
+  if (isset($locationCriteria)) {
+    foreach ($locationCriteria as $locationCriterion) {
+      if (isset($locationCriterion->location->parentLocations)) {
+        $parentLocations = implode(', ',
+            array_map('GetLocationString',
+                $locationCriterion->location->parentLocations));
+      } else {
+        $parentLocations = 'N/A';
+      }
+      printf("The search term '%s' returned the location '%s' of type '%s' "
+          . "with ID '%s', parent locations '%s', and reach '%d'.\n",
+          $locationCriterion->searchTerm,
+          $locationCriterion->location->locationName,
+          $locationCriterion->location->displayType,
+          $locationCriterion->location->id,
+          $parentLocations,
+          $locationCriterion->reach);
     }
-    printf("The search term '%s' returned the location '%s' of type '%s' "
-        . "with parent locations '%s' and reach '%d'.\n",
-        $locationCriterion->searchTerm,
-        $locationCriterion->location->locationName,
-        $locationCriterion->location->displayType,
-        $parentLocations, $locationCriterion->reach);
+  } else {
+    print "No location criteria were found.\n";
   }
 } catch (Exception $e) {
   print $e->getMessage();
