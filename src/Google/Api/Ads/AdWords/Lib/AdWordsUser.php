@@ -43,14 +43,14 @@ require_once 'AdWordsSoapClientFactory.php';
  * @subpackage Lib
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = '2.6.4';
+  private static $LIB_VERSION = '2.7.0';
   private static $LIB_NAME = 'AwApi';
 
   /**
    * The default version that is loaded if the settings INI cannot be loaded.
    * @var string default version of the API
    */
-  private static $DEFAULT_VERSION = 'v201101';
+  private static $DEFAULT_VERSION = 'v201109';
 
   /**
    * The default server that is loaded if the settings INI cannot be loaded.
