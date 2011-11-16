@@ -1,3 +1,6 @@
+2.7.1:
+- Added developer token to report download requests and updated error handling.
+
 2.7.0:
 - Added support and examples for v201109.
 - Added support and example for downloading ad hoc reports.
