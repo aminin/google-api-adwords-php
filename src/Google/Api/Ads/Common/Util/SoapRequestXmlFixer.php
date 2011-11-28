@@ -87,6 +87,11 @@ class SoapRequestXmlFixer {
       $this->RemoveEmptyHeaderElements($xpath);
     }
 
+    // Remove id attributes.
+    if ($this->replaceReferences) {
+      $this->RemoveIdAttributes($xpath);
+    }
+
     return $requestDom->saveXML();
   }
 
@@ -191,6 +196,19 @@ class SoapRequestXmlFixer {
         $elementReference->appendChild($childNode->cloneNode(true));
       }
       $elementReference->removeAttribute('href');
+    }
+  }
+
+  /**
+   * Removed id attributes leftover after reference replacement.
+   * @param DOMXPath $xpath the xpath object representing the DOM
+   * @access private
+   */
+  private function RemoveIdAttributes(DOMXPath $xpath) {
+    $elements = $xpath->query('//*[@id]');
+    for ($i = 0; $i < $elements->length; $i++) {
+      $element = $elements->item($i);
+      $element->removeAttribute('id');
     }
   }
 
