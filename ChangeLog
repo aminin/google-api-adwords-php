@@ -1,3 +1,7 @@
+2.7.2:
+- Added support and example for CreateAccountService.
+- Fixed issue with incorrect exception variable name.
+
 2.7.1:
 - Added developer token to report download requests and updated error handling.
 
