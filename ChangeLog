@@ -1,6 +1,9 @@
 2.7.2:
 - Added support and example for CreateAccountService.
 - Fixed issue with incorrect exception variable name.
+- Fixed issue with GetAccountHeirarchy.php when used in the sandbox.
+- Fixed issue with lingering "id" attribute after reference replacement. Added
+  tests for SoapXmlFixer.
 
 2.7.1:
 - Added developer token to report download requests and updated error handling.
