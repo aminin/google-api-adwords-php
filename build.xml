@@ -83,7 +83,8 @@
         author="${lib.author}"
         package="${lib.package}"
         outputDir="${version.dir}"
-        classmap='{"getResponse":"${service}GetResponse", "get":"${service}Get", "mutate":"${service}Mutate", "mutateResponse":"${service}MutateResponse", "DateTime":"AdWordsDateTime", "SoapHeader":"SoapRequestHeader"}'
+        classmap='{"getResponse":"${service}GetResponse", "get":"${service}Get", "mutate":"${service}Mutate", "mutateResponse":"${service}MutateResponse"}'
+        conflictClassmap='{"DateTime":"AdWordsDateTime", "SoapHeader":"SoapRequestHeader"}'
         skipClassNameCheckTypes="Target, Location"
         soapClientClassName="AdWordsSoapClient"
         soapClientClassPath='dirname(__FILE__) . "/../Lib/AdWordsSoapClient.php"'

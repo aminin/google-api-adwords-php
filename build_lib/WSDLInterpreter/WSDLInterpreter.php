@@ -196,8 +196,9 @@ class WSDLInterpreter
    * @todo Create plug in model to handle extendability of WSDL files
    */
   public function __construct($wsdl, $soapClientClassName, $classmap,
-      $serviceName, $version, $author, $package, $soapClientClassPath, $proxy,
-      $enablePseudoNamespaces, $skipClassNameCheckTypes)
+      $conflictClassmap, $serviceName, $version, $author, $package,
+      $soapClientClassPath, $proxy, $enablePseudoNamespaces,
+      $skipClassNameCheckTypes)
   {
     try {
       $this->_wsdl = $wsdl;
@@ -207,12 +208,13 @@ class WSDLInterpreter
       $this->_version = $version;
       $this->_author = $author;
       $this->_package = $package;
+      $this->_classmap = $classmap;
       $this->_enablePseudoNamespaces = isset($enablePseudoNamespaces) ?
           $enablePseudoNamespaces : false;
       if (!$this->_enablePseudoNamespaces) {
         // Only use if pseudo-namespaces aren't enabled.
-        if (isset($classmap)) {
-          $this->_classmap = $classmap;
+        if (isset($conflictClassmap)) {
+          $this->_classmap = array_merge($this->_classmap, $conflictClassmap);
         }
         if (isset($skipClassNameCheckTypes)) {
           $this->_skipClassNameCheckTypes = $skipClassNameCheckTypes;
