@@ -83,7 +83,8 @@
         author="${lib.author}"
         package="${lib.package}"
         outputDir="${version.dir}"
-        classmap='{"getResponse":"${service}GetResponse",  "get":"${service}Get", "mutate":"${service}Mutate", "mutateResponse":"${service}MutateResponse", "DateTime":"AdWordsDateTime", "Target":"AdWordsTarget", "SoapHeader":"SoapRequestHeader", "Location":"AdWordsLocation"}'
+        classmap='{"getResponse":"${service}GetResponse", "get":"${service}Get", "mutate":"${service}Mutate", "mutateResponse":"${service}MutateResponse", "DateTime":"AdWordsDateTime", "SoapHeader":"SoapRequestHeader"}'
+        skipClassNameCheckTypes="Target, Location"
         soapClientClassName="AdWordsSoapClient"
         soapClientClassPath='dirname(__FILE__) . "/../Lib/AdWordsSoapClient.php"'
         proxy="${wsdl2php.proxy}"
@@ -147,6 +148,21 @@
         </fileset>
       </batchtest>
       <formatter type="xml" todir="report" outfile="test_results_v201101.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: run tests for v201109                                       -->
+  <!-- =================================================================== -->
+  <target name="test-v201109" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="**/v201109/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report" outfile="test_results_v201109.xml"/>
     </phpunit>
   </target>
 

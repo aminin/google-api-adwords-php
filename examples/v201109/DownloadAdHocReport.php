@@ -1,13 +1,6 @@
 <?php
 /**
- * This example adds a cross-client (MCC) report definition. To get report
- * fields, run GetReportFields.php. To work correctly this example must
- * be run as an MCC account.
- *
- * Please note: This feature is still under development and may change before
- * it is released.
- *
- * Tags: ReportDefinitionService.mutate
+ * This example downloads an ad hoc report.
  *
  * PHP version 5
  *
@@ -26,7 +19,7 @@
  * limitations under the License.
  *
  * @package    GoogleApiAdsAdWords
- * @subpackage v201101
+ * @subpackage v201109
  * @category   WebServices
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
@@ -43,6 +36,7 @@ $path = dirname(__FILE__) . '/../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
 
 try {
   // Get AdWordsUser from credentials in "../auth.ini"
@@ -52,45 +46,35 @@ try {
   // Log SOAP XML request and response.
   $user->LogDefaults();
 
-  // Get the GetReportDefinitionService.
-  $reportDefinitionService =
-      $user->GetService('ReportDefinitionService', 'v201101');
+  // Load ReportDefinitionService so that the required classes are available.
+  $user->LoadService('ReportDefinitionService', 'v201109');
+
+  $fileName = 'INSERT_OUTPUT_FILE_NAME_HERE';
 
   // Create selector.
   $selector = new Selector();
-  $selector->fields = array('ExternalCustomerId', 'AccountDescriptiveName',
-      'PrimaryUserLogin', 'Date', 'Id', 'Name', 'Impressions', 'Clicks',
-      'Cost');
+  $selector->fields =
+      array('CampaignId', 'Id', 'Name', 'Impressions', 'Clicks', 'Cost');
+  $selector->predicates[] =
+      new Predicate('Status', 'IN', array('ENABLED', 'PAUSED'));
 
   // Create report definition.
   $reportDefinition = new ReportDefinition();
-  $reportDefinition->reportName = 'Cross-client campaign performance report #'
-      . uniqid();
-  $reportDefinition->dateRangeType = 'LAST_7_DAYS';
-  $reportDefinition->reportType = 'CAMPAIGN_PERFORMANCE_REPORT';
-  $reportDefinition->downloadFormat = 'XML';
   $reportDefinition->selector = $selector;
-  $reportDefinition->crossClient = TRUE;
+  $reportDefinition->reportName = 'Ad group performance report #' . time();
+  $reportDefinition->dateRangeType = 'LAST_7_DAYS';
+  $reportDefinition->reportType = 'ADGROUP_PERFORMANCE_REPORT';
+  $reportDefinition->downloadFormat = 'CSV';
+  $reportDefinition->includeZeroImpressions = FALSE;
 
-  // Create operations.
-  $operation = new ReportDefinitionOperation();
-  $operation->operand = $reportDefinition;
-  $operation->operator = 'ADD';
+  $path = dirname(__FILE__) . '/' . $fileName;
+  $options = array('version' => 'v201109', 'returnMoneyInMicros' => TRUE);
 
-  $operations = array($operation);
+  // Download report.
+  ReportUtils::DownloadReport($reportDefinition, $path, $user, $options);
 
-  // Add report definition.
-  $result = $reportDefinitionService->mutate($operations);
-
-  // Display report definitions.
-  if ($result != null) {
-    foreach ($result as $reportDefinition) {
-      printf("Report definition with name '%s' and id '%s' was added.\n",
-          $reportDefinition->reportName, $reportDefinition->id);
-    }
-  } else {
-    print "No report definitions were added.\n";
-  }
+  printf("Report with name '%s' was downloaded to '%s'.\n",
+      $reportDefinition->reportName, $fileName);
 } catch (Exception $e) {
   print $e->getMessage();
 }

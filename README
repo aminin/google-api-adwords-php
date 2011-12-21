@@ -57,13 +57,12 @@ includes:
 Basic usage
 -----------
 
-For those of you who have already built PHP clients without
-using the client library, the AdWordsUser class has methods for
-setting username, password, client ID (clientEmail or clientCustomerId),
-application token, developer token, and useragent so that you
-don't have to write the code to set the request headers. The methods for
-creating new instances of service classes takes the place of the code
-for instantiating the stubs that connect to the web services.
+For those of you who have already built PHP clients without using the client
+library, the AdWordsUser class has methods for setting username, password,
+client customer ID, application token, developer token, and useragent so that
+you don't have to write the code to set the request headers. The methods for
+creating new instances of service classes takes the place of the code for
+instantiating the stubs that connect to the web services.
 
 In the following example, for using the default constructor,
 

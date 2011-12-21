@@ -1,3 +1,11 @@
+2.7.0:
+- Added support and examples for v201109.
+- Added support and example for downloading ad hoc reports.
+- Deprecated support for clientEmail in v201109.
+- Added operation index parsing for OGNL expressions.
+- Improved type handling during XML serialization and deserialization.
+- Added option for HTTP method to OAuth handlers.
+
 2.6.4:
 - Fixed long type conversion issue with 32-bit machines. (Issue #55)
 - Fixed 1.0a support in AndySmithOAuthHander.

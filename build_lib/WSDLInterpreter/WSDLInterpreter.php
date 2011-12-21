@@ -89,6 +89,13 @@ class WSDLInterpreter
   private $_classmap = array();
 
   /**
+   * Array of types that shouldn't be checked for class name uniqueness
+   * @var array
+   * @access private
+   */
+  private $_skipClassNameCheckTypes = array();
+
+  /**
    * Array of sources for WSDL message classes
    * @var array
    * @access private
@@ -190,7 +197,7 @@ class WSDLInterpreter
    */
   public function __construct($wsdl, $soapClientClassName, $classmap,
       $serviceName, $version, $author, $package, $soapClientClassPath, $proxy,
-      $enablePseudoNamespaces)
+      $enablePseudoNamespaces, $skipClassNameCheckTypes)
   {
     try {
       $this->_wsdl = $wsdl;
@@ -203,8 +210,13 @@ class WSDLInterpreter
       $this->_enablePseudoNamespaces = isset($enablePseudoNamespaces) ?
           $enablePseudoNamespaces : false;
       if (!$this->_enablePseudoNamespaces) {
-        // Only use the classmap if pseudo-namespaces aren't enabled.
-        $this->_classmap = $classmap;
+        // Only use if pseudo-namespaces aren't enabled.
+        if (isset($classmap)) {
+          $this->_classmap = $classmap;
+        }
+        if (isset($skipClassNameCheckTypes)) {
+          $this->_skipClassNameCheckTypes = $skipClassNameCheckTypes;
+        }
       }
       $this->_soapClientClassPath = $soapClientClassPath;
 
@@ -326,7 +338,8 @@ class WSDLInterpreter
         $validClassName = $this->_package . '_' . $validClassName;
       }
 
-      if (class_exists($validClassName)) {
+      if (!in_array($validClassName, $this->_skipClassNameCheckTypes)
+          && class_exists($validClassName)) {
         throw new Exception("Class ".$validClassName." already defined.".
                   " Cannot redefine class with class loaded.");
       }

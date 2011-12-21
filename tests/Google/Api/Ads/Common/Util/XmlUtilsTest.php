@@ -192,6 +192,19 @@ class XmlUtilsTest extends PHPUnit_Framework_TestCase {
     $data[] = array('<root/>', '');
     // String value.
     $data[] = array('<root>value</root>', 'value');
+    // Integer value.
+    $data[] = array('<root>15</root>', 15);
+    // Float value.
+    $data[] = array('<root>4.7</root>', 4.7);
+    // Long value.
+    if (PHP_INT_SIZE == 4) {
+      $data[] = array('<root>2147483648</root>', 2147483648);
+    } else {
+      $data[] = array('<root>9223372036854775808</root>', 9223372036854775808);
+    }
+    // Boolean values.
+    $data[] = array('<root>true</root>', TRUE);
+    $data[] = array('<root>false</root>', FALSE);
     // Nested elements.
     $data[] = array('<root><a>apple</a></root>',
         (Object) array('a' => 'apple'));
@@ -218,6 +231,17 @@ class XmlUtilsTest extends PHPUnit_Framework_TestCase {
     $data[] = array(15, "<?xml version=\"1.0\"?>\n<root>15</root>");
     // Float value.
     $data[] = array(4.7, "<?xml version=\"1.0\"?>\n<root>4.7</root>");
+    // Long value.
+    if (PHP_INT_SIZE == 4) {
+      $data[] =
+          array(2147483648, "<?xml version=\"1.0\"?>\n<root>2147483648</root>");
+    } else {
+      $data[] = array(9223372036854775808,
+          "<?xml version=\"1.0\"?>\n<root>9223372036854775808</root>");
+    }
+    // Boolean values.
+    $data[] = array(TRUE, "<?xml version=\"1.0\"?>\n<root>true</root>");
+    $data[] = array(FALSE, "<?xml version=\"1.0\"?>\n<root>false</root>");
     // Simple object.
     $data[] = array((Object) array('a' => 'apple'),
         "<?xml version=\"1.0\"?>\n<root><a>apple</a></root>");

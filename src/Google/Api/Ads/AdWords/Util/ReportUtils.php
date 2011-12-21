@@ -30,6 +30,7 @@
 /** Required classes. **/
 require_once dirname(__FILE__) . '/../Lib/AdWordsUser.php';
 require_once dirname(__FILE__) . '/../../Common/Util/CurlUtils.php';
+require_once dirname(__FILE__) . '/../../Common/Util/Logger.php';
 require_once dirname(__FILE__) . '/../../Common/Util/XmlUtils.php';
 
 /**
@@ -38,6 +39,11 @@ require_once dirname(__FILE__) . '/../../Common/Util/XmlUtils.php';
  * @subpackage Util
  */
 class ReportUtils {
+  /**
+   * The log name to use when logging requests.
+   */
+  public static $LOG_NAME = 'report_download';
+
   /**
    * Regular expression used to detect errors messages in a response.
    * @access private
@@ -48,7 +54,7 @@ class ReportUtils {
    * The format of the report download URL, for use with sprintf.
    * @access private
    */
-  private static $DOWNLOAD_URL_FORMAT = '%s/api/adwords/reportdownload?%s';
+  private static $DOWNLOAD_URL_FORMAT = '%s/api/adwords/reportdownload/%s';
 
   /**
    * The length of the snippet to read from the request to determine if there
@@ -56,12 +62,6 @@ class ReportUtils {
    * @access private
    */
   private static $SNIPPET_LENGTH = 1024;
-
-  /**
-   * The HTTP headers from the last report download response.
-   * @access private
-   */
-  private static $LAST_RESPONSE_HEADERS = NULL;
 
   /**
    * The ReportUtils class is not meant to have any instances.
@@ -73,93 +73,65 @@ class ReportUtils {
    * Downloads a new instance of an existing report definition. If the path
    * parameter is specified it will be downloaded to the file at that path,
    * otherwise it will be downloaded to memory and be returned as a string.
-   * @param float $reportDefintionId the id of the ReportDefinition to download
+   * @param mixed $reportDefinition the ReportDefinition to download or the id
+   *     of a stored report definition
    * @param string $path an optional path of the file to download the report to
-   * @param AdWordsUser $user the user that created the ReportDefinition
-   * @param string $server the server to make the request to. If
-   *     <var>NULL</var>, then the default server will be used
-   * @param boolean $returnMoneyInMicros if the money values in the report
-   *     should be returned in micros
-   * @return mixed if path isn't specified the contents of the report,
-   *     otherwise the size in bytes of the downloaded report
-   */
-  public static function DownloadReport($reportDefintionId, $path = NULL,
-      AdWordsUser $user, $server = NULL, $returnMoneyInMicros = NULL) {
-    $options = array('returnMoneyInMicros' => $returnMoneyInMicros,
-        'server' => $server);
-    $extraHeaders = self::GetExtraHeaders($options);
-    $params = array('__rd' => $reportDefintionId);
-    $url = self::GetUrl($user, $params, $options);
-    $result = self::DownloadReportFromUrl($url, $user, $path, $extraHeaders);
-    if (isset($result->details->queryToken)) {
-      throw new ReportDownloadException(
-          'Asyncronous report found, use RunAsyncReport() instead.',
-          $result->code);
-    }
-    return isset($result->data) ? $result->data : $result->downloadSize;
-  }
-
-  /**
-   * Runs a report using the report definition ID given. The query
-   * token should be 'new' for the first request, and then use the value
-   * returned in the result for the following requests.
-   * @param float $reportDefintionId the id of the ReportDefinition to download
-   * @param string $queryToken the query token, either 'new' or the value
-   *     returned in the previous response
    * @param AdWordsUser $user the user that created the ReportDefinition
    * @param array $options the option to use when downloading the report:
    *     {boolean} returnMoneyInMicros: if the money values in the report
    *         should be returned in micros
    *     {string} server: the server to make the request to. If <var>NULL</var>,
    *         then the default server will be used
-   * @return ReportDownloadResult the result of the download attempt
+   *     {string} version: the version to make the request against. If
+   *         <var>NULL</var>, then the default version will be used
+   * @return mixed if path isn't specified the contents of the report,
+   *     otherwise the size in bytes of the downloaded report
    */
-  public static function RunAsyncReport($reportDefintionId, $queryToken,
-      AdWordsUser $user, $options = NULL) {
-    $extraHeaders = self::GetExtraHeaders($options);
-    $params = array('__rd' => $reportDefintionId, 'qt' => $queryToken);
-    $url = self::GetUrl($user, $params, $options);
-    $result = self::DownloadReportFromUrl($url, $user, NULL, $extraHeaders);
-    if (!$result->details->queryToken) {
-        throw new ReportDownloadException(
-            'Syncronous report found, use DownloadReport() instead.',
-            $result->code);
-    }
-    return $result;
+  public static function DownloadReport($reportDefinition, $path = NULL,
+      AdWordsUser $user, array $options = NULL) {
+    $url = self::GetUrl($user, $options);
+    $headers = self::GetHeaders($user, $url, $options);
+    $params = self::GetParams($reportDefinition);
+    return self::DownloadReportFromUrl($url, $headers, $params, $path);
   }
 
   /**
-   * Downloads a report using the URL provided.  For ansyncronous reports use
-   * the location returned along with a SUCCESS response.
+   * Downloads a report using the URL provided.
    * @param string $url the URL to make the request to
-   * @param AdWordsUser $user the AdWords user to use
+   * @param array $headers the headers to use in the request
+   * @param array $params the parameters to pass in the request
    * @param string $path the optional path to download the report to
-   * @param array $extraHeaders a hash of HTTP header names to values
-   * @return ReportDownloadResult the result of the request
+   * @return mixed if path isn't specified the contents of the report,
+   *     otherwise the size in bytes of the downloaded report
    */
-  public static function DownloadReportFromUrl($url, $user, $path = NULL,
-      $extraHeaders = NULL) {
-    self::$LAST_RESPONSE_HEADERS = NULL;
+  private static function DownloadReportFromUrl($url, $headers, $params,
+      $path = NULL) {
 
     $ch = CurlUtils::CreateSession($url);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-    curl_setopt($ch, CURLOPT_HEADERFUNCTION,
-        'ReportUtils::StoreResponseHeader');
+    curl_setopt($ch, CURLOPT_POST, TRUE);
+    curl_setopt($ch, CURLINFO_HEADER_OUT, TRUE);
 
-    $headers = self::GetHeaders($user, $extraHeaders);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $flatHeaders = array();
+    foreach($headers as $name => $value) {
+      $flatHeaders[] = sprintf('%s: %s', $name, $value);
+    }
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $flatHeaders);
+
+    if (isset($params)) {
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+    }
 
     if (isset($path)) {
       $file = fopen($path, 'w');
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, FALSE);
       curl_setopt($ch, CURLOPT_FILE, $file);
     }
 
     $response = curl_exec($ch);
-
-    $result = new ReportDownloadResult();
-    $result->code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $result->downloadSize = curl_getinfo($ch, CURLINFO_SIZE_DOWNLOAD);
+    $error = curl_error($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $downloadSize = curl_getinfo($ch, CURLINFO_SIZE_DOWNLOAD);
+    $request = curl_getinfo($ch, CURLINFO_HEADER_OUT);
 
     curl_close($ch);
     if (isset($file)) {
@@ -176,112 +148,143 @@ class ReportUtils {
     }
 
     // Determine if an error occured.
+    $exception = NULL;
     $matches = array();
     if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
-      throw new ReportDownloadException($matches[2], $result->code);
+      $exception = new ReportDownloadException($matches[2], $code);
+    } else if (isset($code) && $code != 200) {
+      $exception =
+          new ReportDownloadException('Report download failed.', $code);
+    } else if (!empty($error)) {
+      $exception = new ReportDownloadException($error);
     }
 
-    // Set the response data.
-    if (!isset($path)) {
-      $result->data = $response;
-    }
+    self::LogRequest($request, $code, $params, $exception);
 
-    // Set the response details.
-    try {
-      $document = XmlUtils::GetDomFromXml($snippet);
-      $result->details = XmlUtils::ConvertDocumentToObject($document);
-      if (isset($result->details->failures)
-          && !is_array($result->details->failures->account)) {
-        $result->details->failures->account =
-            array($result->details->failures->account);
-      }
-    } catch (DOMException $e) {
-      // The body is not an XML document, so don't set the details.
+    if (isset($exception)) {
+      throw $exception;
+    } else if (isset($path)) {
+      return $downloadSize;
+    } else {
+      return $response;
     }
-
-    // Set the location.
-    if (isset(self::$LAST_RESPONSE_HEADERS['Location'])) {
-      $result->location = self::$LAST_RESPONSE_HEADERS['Location'];
-    }
-
-    return $result;
-  }
-
-  /**
-   * Generates an array of extra headers to pass with the request.
-   * @param array $options the options for the download
-   * @return array the extra headers to set on the request
-   */
-  private static function GetExtraHeaders($options) {
-    $extraHeaders = array();
-    if (isset($options['returnMoneyInMicros'])) {
-      $extraHeaders['returnMoneyInMicros'] =
-          $options['returnMoneyInMicros'] ? 'true' : 'false';
-    }
-    return $extraHeaders;
   }
 
   /**
    * Generates the URL to use for the download request.
    * @param AdWordsUser $user the AdWordsUser to make the request for
-   * @param array $params the query parameters to use for the request
    * @param array $options the options configured for the download
    * @return string the download URL
    */
-  private static function GetUrl($user, $params, $options) {
+  private static function GetUrl($user, array $options = NULL) {
     $server = !empty($options['server']) ? $options['server'] :
         $user->GetDefaultServer();
+    $version = !empty($options['version']) ? $options['version'] : NULL;
+    if (!isset($version) && $user->GetDefaultVersion() >= 'v201109') {
+      $version = $user->GetDefaultVersion();
+    }
     if (isset($server) && strpos($server, 'http') !== 0) {
       throw new ReportDownloadException('Invalid server: ' . $server);
     }
-    return sprintf(self::$DOWNLOAD_URL_FORMAT, $server,
-        http_build_query($params, NULL, '&'));
+    return sprintf(self::$DOWNLOAD_URL_FORMAT, $server, $version);
+  }
+
+  /**
+   * Generates the parameters to use for the download request.
+   * @param mixed $reportDefinition the report definition, as an ID or object
+   * @return array the parameters
+   */
+  private static function GetParams($reportDefinition) {
+    $params = array();
+    if (is_numeric($reportDefinition)) {
+      $params['__rd'] = $reportDefinition;
+    } else if (is_object($reportDefinition) || is_array($reportDefinition)) {
+      $document = XmlUtils::ConvertObjectToDocument($reportDefinition,
+          'reportDefinition');
+      $document->formatOutput = TRUE;
+      $params['__rdxml'] = XmlUtils::GetXmlFromDom($document);
+    } else {
+      throw new ReportDownloadException('Invalid report definition type: '
+          . $reportDefinition);
+    }
+    return $params;
   }
 
   /**
    * Gets the HTTP headers for the report download request.
    * @param AdWordsUser $user the AdWordsUser to get credentials from
-   * @param array $extraHeaders a hash of HTTP header names to values
+   * @param string $url the URL the request will be made to
+   * @param array $options the options for the download
    * @return array and array of strings, which are header names and values
    */
-  private static function GetHeaders($user, $extraHeaders) {
+  private static function GetHeaders($user, $url, array $options = NULL) {
     $headers = array();
-    $headers[]= 'Authorization: GoogleLogin auth=' . $user->GetAuthToken();
+    $version = !empty($options['version']) ? $options['version'] :
+        $user->GetDefaultVersion();
+    // Authorization.
+    if ($user->GetOAuthInfo()) {
+      $oauthParams = $user->GetOAuthHandler()->GetSignedRequestParameters(
+          $user->GetOAuthInfo(), $url, 'POST');
+      $headers['Authorization'] = 'OAuth '
+          . $user->GetOAuthHandler()->FormatParametersForHeader($oauthParams);
+    } else {
+      $headers['Authorization']= 'GoogleLogin auth=' . $user->GetAuthToken();
+    }
+    // Target client.
     $email = $user->GetEmail();
     $clientId = $user->GetClientId();
     if (isset($clientId)) {
       if (strpos($clientId, '@') !== FALSE) {
-        $headers[] = 'clientEmail: ' . $clientId;
+        if ($version < 'v201109') {
+          $headers['clientEmail'] = $clientId;
+        } else {
+          throw new ReportDownloadException('Client emails are not supported '
+              . 'in versions v201109 and later.');
+        }
       } else {
-        $headers[] = 'clientCustomerId: ' . $clientId;
+        $headers['clientCustomerId'] = $clientId;
       }
-    } else if (isset($email)) {
-      $headers[] = 'clientEmail: ' . $email;
+    } else {
+      if ($version < 'v201109' && isset($email)) {
+        $headers['clientEmail'] = $email;
+      } else {
+          throw new ReportDownloadException('The client customer ID must be '
+          . 'specified for report downloads.');
+      }
     }
-    if (isset($extraHeaders)) {
-      foreach ($extraHeaders as $key => $value) {
-        $headers[] = sprintf('%s: %s', $key, $value);
-      }
+    // Flags.
+    if (isset($options['returnMoneyInMicros'])) {
+      $headers['returnMoneyInMicros'] =
+          $options['returnMoneyInMicros'] ? 'true' : 'false';
     }
     return $headers;
   }
 
   /**
-   * A callback function for cURL's CURLOPT_HEADERFUNCTION option, which records
-   * the response headers and stores them in a static variable for later access.
-   * @param resource $ch the cURL handler
-   * @param string $header the header to store
-   * @return int the length of the header data that was processed
+   * Logs the report download request.
+   * @param string $requestHeaders the HTTP request headers
+   * @param integer $responseCode the HTTP response code
+   * @param array $params the parameters that were sent, if any
+   * @param Exception $exception the exception that will be thrown, if any
    */
-  public static function StoreResponseHeader($ch, $header) {
-    if (!isset(self::$LAST_RESPONSE_HEADERS)) {
-      self::$LAST_RESPONSE_HEADERS = array();
+  private static function LogRequest($requestHeaders, $responseCode,
+      $params = NULL, $exception = NULL) {
+    $level = isset($exception) ? Logger::$ERROR : Logger::$INFO;
+    $messageParts = array();
+    $messageParts[] = trim($requestHeaders);
+    $messageParts[] = ''; // Blank line for readability.
+    $messageParts[] = "Parameters:";
+    foreach ($params as $name => $value) {
+      $messageParts[] = sprintf('%s: %s', $name, $value);
     }
-    if (strpos($header, ':') !== FALSE) {
-      list($name, $value) = explode(': ', $header);
-      self::$LAST_RESPONSE_HEADERS[$name] = $value;
+    $messageParts[] = ''; // Blank line for readability.
+    $messageParts[] = sprintf('Response Code: %s', $responseCode);
+    if (isset($exception)) {
+      $messageParts[] = sprintf('Error Message: %s', $exception->GetMessage());
     }
-    return strlen($header);
+    $messageParts[] = ''; // Blank line for readability.
+    $message = implode("\n", $messageParts);
+    Logger::Log(self::$LOG_NAME, $message, $level);
   }
 }
 
@@ -302,48 +305,4 @@ class ReportDownloadException extends Exception {
     }
     parent::__construct($error, $httpCode);
   }
-}
-
-/**
- * A class that holds the result of a report download.
- * @package GoogleApiAdsAdWords
- * @subpackage Util
- */
-class ReportDownloadResult {
-  /**
-   * @access public
-   * @var string the HTTP code returned
-   */
-  public $code = NULL;
-
-  /**
-   * @access public
-   * @var object an object representing the XML response returned, if any
-   */
-  public $details = NULL;
-
-  /**
-   * @access public
-   * @var string the returned report data, if the report was downloaded to
-   *     memory
-   */
-  public $data = NULL;
-
-  /**
-   * @access public
-   * @var int the size of the returned report data
-   */
-  public $downloadSize = NULL;
-
-  /**
-   * @access public
-   * @var string the Location http header returned along with the request,
-   *     if any
-   */
-  public $location = NUll;
-
-  /**
-   * Constructor for ReportDownloadResult.
-   */
-  public function __construct() {}
 }

@@ -66,9 +66,8 @@ abstract class SoapClientFactory {
   /**
    * Initiates a require_once for the service.
    * @param string $serviceName the service to instantiate
-   * @access protected
    */
-  abstract protected function DoRequireOnce($serviceName);
+  abstract public function DoRequireOnce($serviceName);
 
   /**
    * Generates a SOAP client for the given service name. Generates a user level
