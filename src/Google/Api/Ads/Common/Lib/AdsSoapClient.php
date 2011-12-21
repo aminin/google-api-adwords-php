@@ -337,7 +337,7 @@ abstract class AdsSoapClient extends SoapClient {
       }
     } catch (DOMException $e) {
       trigger_error('Failed to load response into DOM: '
-          . $domException->getMessage(), E_USER_NOTICE);
+          . $e->getMessage(), E_USER_NOTICE);
       return "null";
     }
   }
@@ -355,7 +355,7 @@ abstract class AdsSoapClient extends SoapClient {
       }
     } catch (DOMException $e) {
       trigger_error('Failed to load response into DOM: '
-          . $domException->getMessage(), E_USER_NOTICE);
+          . $e->getMessage(), E_USER_NOTICE);
       return 'null';
     }
   }

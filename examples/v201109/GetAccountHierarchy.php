@@ -103,8 +103,14 @@ try {
         $rootAccount = $account;
       }
     }
+    // The root account may not be returned in the sandbox.
+    if (!isset($rootAccount)) {
+      $rootAccount = new Account();
+      $rootAccount->customerId = 0;
+      $rootAccount->login = $user->GetEmail();
+    }
     // Display account tree.
-    print "Customer Id, Account Name/Login, Link Status)\n";
+    print "(Customer Id, Account Name/Login, Link Status)\n";
     DisplayAccountTree($rootAccount, NULL, $accounts, $childLinks, 0);
   } else {
     print "No serviced accounts were found.\n";
