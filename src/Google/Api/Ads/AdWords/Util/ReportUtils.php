@@ -138,25 +138,26 @@ class ReportUtils {
       fclose($file);
     }
 
-    // Get the beginning of the response.
-    if (isset($path)) {
-      $file = fopen($path, 'r');
-      $snippet = fread($file, self::$SNIPPET_LENGTH);
-      fclose($file);
-    } else {
-      $snippet = substr($response, 0, self::$SNIPPET_LENGTH);
-    }
+    $exception = null;
+    if ($code != 200) {
+      // Get the beginning of the response.
+      if (isset($path)) {
+        $file = fopen($path, 'r');
+        $snippet = fread($file, self::$SNIPPET_LENGTH);
+        fclose($file);
+      } else {
+        $snippet = substr($response, 0, self::$SNIPPET_LENGTH);
+      }
 
-    // Determine if an error occured.
-    $exception = NULL;
-    $matches = array();
-    if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
-      $exception = new ReportDownloadException($matches[2], $code);
-    } else if (isset($code) && $code != 200) {
-      $exception =
-          new ReportDownloadException('Report download failed.', $code);
-    } else if (!empty($error)) {
-      $exception = new ReportDownloadException($error);
+      // Create exception.
+      if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
+        $exception = new ReportDownloadException($matches[2], $code);
+      } else if (isset($code)) {
+        $exception =
+            new ReportDownloadException('Report download failed.', $code);
+      } else if (!empty($error)) {
+        $exception = new ReportDownloadException($error);
+      }
     }
 
     self::LogRequest($request, $code, $params, $exception);
@@ -230,6 +231,8 @@ class ReportUtils {
     } else {
       $headers['Authorization']= 'GoogleLogin auth=' . $user->GetAuthToken();
     }
+    // Developer token.
+    $headers['developerToken'] = $user->GetDeveloperToken();
     // Target client.
     $email = $user->GetEmail();
     $clientId = $user->GetClientId();
