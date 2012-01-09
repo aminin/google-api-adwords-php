@@ -29,7 +29,7 @@
 
 error_reporting(E_STRICT | E_ALL);
 
-$path = dirname(__FILE__) . '/../../../../../../src';
+$path = dirname(__FILE__) . '/../../../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
