@@ -208,7 +208,9 @@ class WSDLInterpreter
       $this->_version = $version;
       $this->_author = $author;
       $this->_package = $package;
-      $this->_classmap = $classmap;
+      if (isset($classmap)) {
+        $this->_classmap = $classmap;
+      }
       $this->_enablePseudoNamespaces = isset($enablePseudoNamespaces) ?
           $enablePseudoNamespaces : false;
       if (!$this->_enablePseudoNamespaces) {
