@@ -47,12 +47,8 @@ class PeclOAuthHandler extends OAuthHandler {
    */
   public function GetRequestToken($credentials, $scope, $server = NULL,
       $callbackUrl = NULL, $applicationName = NULL) {
-    $oauth = new OAuth($credentials['oauth_consumer_key'],
-        $credentials['oauth_consumer_secret'], OAUTH_SIG_METHOD_HMACSHA1,
-        // Must use URI auth type due to bug in version 1.1.0.
-        OAUTH_AUTH_TYPE_URI);
-    $oauth->setRequestEngine(OAUTH_REQENGINE_CURL);
-    $oauth->setVersion('1.0a');
+    // Must use URI auth type due to bug in version 1.1.0 and earlier.
+    $client = $this->GetClient($credentials, OAUTH_AUTH_TYPE_URI);
 
     $params = array('scope' => $scope);
     if (!isset($callbackUrl)) {
@@ -62,8 +58,13 @@ class PeclOAuthHandler extends OAuthHandler {
       $params['xoauth_displayname'] = $applicationName;
     }
     $endpoint = $this->GetRequestEndpoint($server, $params);
-
-    $response = $oauth->getRequestToken($endpoint, $callbackUrl);
+    $response = $client->getRequestToken($endpoint, $callbackUrl);
+    if (!isset($response['oauth_token']) ||
+        !isset($response['oauth_token_secret'])) {
+      $exception = new OAuthException('Invalid OAuth response.');
+      $exception->lastResponse = $client->getLastResponse();
+      throw $exception;
+    }
     $credentials['oauth_token'] = $response['oauth_token'];
     $credentials['oauth_token_secret'] = $response['oauth_token_secret'];
     return $credentials;
@@ -73,18 +74,16 @@ class PeclOAuthHandler extends OAuthHandler {
    * @see OAuthHanlder::GetAccessToken()
    */
   public function GetAccessToken($credentials, $verifier, $server = NULL) {
-    $oauth = new OAuth($credentials['oauth_consumer_key'],
-        $credentials['oauth_consumer_secret'], OAUTH_SIG_METHOD_HMACSHA1,
-        // Must use URI auth type due to bug in version 1.1.0.
-        OAUTH_AUTH_TYPE_URI);
-    $oauth->setRequestEngine(OAUTH_REQENGINE_CURL);
-    $oauth->setVersion('1.0a');
-    $oauth->setToken($credentials['oauth_token'],
-        $credentials['oauth_token_secret']);
-
+    // Must use URI auth type due to bug in version 1.1.0 and earlier.
+    $client = $this->GetClient($credentials, OAUTH_AUTH_TYPE_URI);
     $endpoint = $this->GetAccessEndpoint($server);
-
-    $response = $oauth->getAccessToken($endpoint, NULL, $verifier);
+    $response = $client->getAccessToken($endpoint, NULL, $verifier);
+    if (!isset($response['oauth_token']) ||
+        !isset($response['oauth_token_secret'])) {
+      $exception = new OAuthException('Invalid OAuth response.');
+      $exception->lastResponse = $client->getLastResponse();
+      throw $exception;
+    }
     $credentials['oauth_token'] = $response['oauth_token'];
     $credentials['oauth_token_secret'] = $response['oauth_token_secret'];
     return $credentials;
@@ -102,22 +101,58 @@ class PeclOAuthHandler extends OAuthHandler {
     $params['oauth_nonce'] = uniqid();
     $params['oauth_version'] = '1.0a';
 
-    // This
-    $oauth = new OAuth($credentials['oauth_consumer_key'],
-        $credentials['oauth_consumer_secret'], OAUTH_SIG_METHOD_HMACSHA1,
-        // Must *NOT* use URI auth type due to bug in version 1.1.0.
-        OAUTH_AUTH_TYPE_AUTHORIZATION);
-    $oauth->setRequestEngine(OAUTH_REQENGINE_CURL);
-    $oauth->setVersion('1.0a');
-    $oauth->setToken($credentials['oauth_token'],
-        $credentials['oauth_token_secret']);
-    $oauth->setTimestamp($params['oauth_timestamp']);
-    $oauth->setNonce($params['oauth_nonce']);
-    $oauth->setVersion($params['oauth_version']);
+    // Must *NOT* use URI auth type due to bug in version 1.1.0 and earlier.
+    $client = $this->GetClient($credentials, OAUTH_AUTH_TYPE_AUTHORIZATION);
+    $client->setTimestamp($params['oauth_timestamp']);
+    $client->setNonce($params['oauth_nonce']);
+    $client->setVersion($params['oauth_version']);
 
-    $signature = $oauth->generateSignature(OAUTH_HTTP_METHOD_POST, $url);
+    $signature =
+        $client->generateSignature(self::$OAUTH_METHOD_ENUMS[$method], $url);
     $params['oauth_signature'] = $signature;
 
     return $params;
+  }
+
+  /**
+   * Constructs a new OAuth client object.
+   * @param array $credentials the credentials to use
+   * @param string $authorizationType the authorization type to use
+   * @return OAuth a new OAuth client
+   */
+  private function GetClient($credentials, $authorizationType = NULL) {
+    $client = new OAuth($credentials['oauth_consumer_key'],
+        $credentials['oauth_consumer_secret'], OAUTH_SIG_METHOD_HMACSHA1,
+        $authorizationType);
+    $client->setRequestEngine(OAUTH_REQENGINE_CURL);
+    $client->setVersion('1.0a');
+    if (isset($credentials['oauth_token']) &&
+        isset($credentials['oauth_token_secret'])) {
+      $client->setToken($credentials['oauth_token'],
+          $credentials['oauth_token_secret']);
+    }
+
+    // SSL settings.
+    if (defined('SSL_VERIFY_PEER') && SSL_VERIFY_PEER) {
+      $client->setSSLChecks(OAUTH_SSLCHECK_PEER);
+    } else {
+      $client->setSSLChecks(OAUTH_SSLCHECK_NONE);
+    }
+    if (defined('SSL_VERIFY_HOST') && SSL_VERIFY_HOST) {
+      if ($client->sslChecks == OAUTH_SSLCHECK_PEER) {
+        $client->setSSLChecks(OAUTH_SSLCHECK_BOTH);
+      } else {
+        $client->setSSLChecks(OAUTH_SSLCHECK_HOST);
+      }
+    }
+    if (defined('SSL_CA_PATH') && SSL_CA_PATH != '') {
+      // The second parameter must be explicitly set to NULL due to a bug in
+      // version 1.2.2 and earlier. See https://bugs.php.net/bug.php?id=60226
+      $client->setCAPath(SSL_CA_PATH, NULL);
+    }
+    if (defined('SSL_CA_FILE') && SSL_CA_FILE != '') {
+      $client->setCAPath(NULL, SSL_CA_FILE);
+    }
+    return $client;
   }
 }

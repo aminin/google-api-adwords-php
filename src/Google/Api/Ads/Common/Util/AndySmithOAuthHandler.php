@@ -133,11 +133,15 @@ class AndySmithOAuthHandler extends OAuthHandler {
   private function GetTokenFromUrl($url) {
     $ch = CurlUtils::CreateSession($url);
     $response = curl_exec($ch);
-    $headers = curl_getinfo($ch);
+    $error = curl_error($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
 
-    if ($headers['http_code'] != 200) {
-      throw new Exception($response);
+    if (!empty($error)) {
+      throw new OAuthException($error, $httpCode);
+    }
+    if ($httpCode != 200) {
+      throw new Exception($response, $httpCode);
     }
 
     return self::GetTokenFromQueryString($response);

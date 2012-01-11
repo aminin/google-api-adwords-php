@@ -74,6 +74,17 @@ class CurlUtils {
       // Default to disabled, for backwards compatibility.
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
     }
+    if (defined('SSL_VERIFY_HOST') && SSL_VERIFY_HOST != '') {
+      if (SSL_VERIFY_HOST) {
+        // Verify that the host exists in the certificate and matches the
+        // host in the request.
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+      } else {
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+      }
+    } else {
+      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+    }
     if (defined('SSL_CA_PATH') && SSL_CA_PATH != '') {
       curl_setopt($ch, CURLOPT_CAPATH, SSL_CA_PATH);
     }

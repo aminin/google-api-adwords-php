@@ -289,6 +289,9 @@ abstract class AdsUser {
         if (array_key_exists('VERIFY_PEER', $settingsIni['SSL'])) {
           $this->Define('SSL_VERIFY_PEER', $settingsIni['SSL']['VERIFY_PEER']);
         }
+        if (array_key_exists('VERIFY_HOST', $settingsIni['SSL'])) {
+          $this->Define('SSL_VERIFY_HOST', $settingsIni['SSL']['VERIFY_HOST']);
+        }
         if (array_key_exists('CA_PATH', $settingsIni['SSL'])) {
           $this->Define('SSL_CA_PATH', $settingsIni['SSL']['CA_PATH']);
         }

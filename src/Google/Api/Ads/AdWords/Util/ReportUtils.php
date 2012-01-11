@@ -152,11 +152,11 @@ class ReportUtils {
       // Create exception.
       if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
         $exception = new ReportDownloadException($matches[2], $code);
+      } else if (!empty($error)) {
+        $exception = new ReportDownloadException($error);
       } else if (isset($code)) {
         $exception =
             new ReportDownloadException('Report download failed.', $code);
-      } else if (!empty($error)) {
-        $exception = new ReportDownloadException($error);
       }
     }
 
