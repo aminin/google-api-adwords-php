@@ -137,7 +137,7 @@ accounts using the client library, do the following:
      will be loaded.
 
      $campaignService =
-         $user->getCampaignService('v200909', 'https://adwords.google.com');
+         $user->getCampaignService('v201109', 'https://adwords.google.com');
 
      or
 
@@ -148,7 +148,7 @@ accounts using the client library, do the following:
 
      // Uses the sandbox environment.
      $campaignService =
-         $user->GetCampaignService('v200909',
+         $user->GetCampaignService('v201109',
              'https://adwords-sandbox.google.com');
 
   5) Create data objects and invoke methods on the service class instance. The
@@ -202,7 +202,7 @@ To run in this enviroment, you can make one of two changes to your library:
 
      // Uses the sandbox environment.
      $campaignService =
-         $user->GetCampaignService('v200909',
+         $user->GetCampaignService('v201109',
              'https://adwords-sandbox.google.com');
 
 

@@ -269,11 +269,7 @@ class TestUtils {
 
     $image = new Image();
     $image->data = MediaUtils::GetBase64Data('http://goo.gl/HJM3L');
-    if ($this->version <= 'v201003') {
-      $image->mediaTypeDb = 'IMAGE';
-    } else {
-      $image->type = 'IMAGE';
-    }
+    $image->type = 'IMAGE';
 
     $result = $mediaService->upload(array($image));
     return $result[0]->mediaId;
