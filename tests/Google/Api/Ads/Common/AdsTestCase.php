@@ -24,7 +24,7 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
- * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @author     Eric Koleda <eric.koleda@google.com>
  */
 
 error_reporting(E_STRICT | E_ALL);
@@ -34,7 +34,7 @@ require_once 'PHPUnit/Framework.php';
 /**
  * Test case base class.
  *
- * @author api.ekoleda@gmail.com
+ * @author eric.koleda@google.com
  */
 class AdsTestCase extends PHPUnit_Framework_TestCase {
   /**
