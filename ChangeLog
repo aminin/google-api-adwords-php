@@ -1,3 +1,16 @@
+3.0.0:
+- Removed support, examples, and tests for API versions v200909, v201003,
+  v201008, and v201101.
+- Reorganized and updated the v201109 examples.
+- Added support for SSL host verification and added SSL verification to OAuth
+  flow.
+- Updated auth files to remove application token and client email.
+- Fix for issue #67. Ensuring the request wrapper object has a unique name
+  per-service, even though other class renaming rules should be ignored,
+  when psuedo-namespaces are enabled.
+- Fixed WSDL interpretter to handle missing class map correctly.
+- Fixed include path in AdWordsTestSuite.php.
+
 2.7.2:
 - Added support and example for CreateAccountService.
 - Fixed issue with incorrect exception variable name.
