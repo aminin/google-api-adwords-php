@@ -70,8 +70,16 @@ class Wsdl2PhpTask extends Task {
   private $classmap = NULL;
 
   /**
+   * A classmap of 'Wsdl Type => PHP Class' for the WSDL, to be used
+   * to avoid class name conflicts when pseudo namespaces are not enabled.
+   * @var array the classmap for the WSDL type to PHP class
+   * @access private
+   */
+  private $conflictClassmap = NULL;
+
+  /**
    * The WSDL types that shouldn't have their class names checked for
-   * uniqueness.
+   * uniqueness. This option will be ignored when pseudo namespaces are enabled.
    * @var array the WSDL types that shouldn't have their class names checked for
    *     uniqueness.
    * @access private
@@ -114,8 +122,8 @@ class Wsdl2PhpTask extends Task {
   private $proxy = NULL;
 
   /**
-   * Whether or not to enable psuedo namespaces in the generated class names.
-   * @var boolean whether or not to enable psuedo namespaces in the generated
+   * Whether or not to enable pseudo namespaces in the generated class names.
+   * @var boolean whether or not to enable pseudo namespaces in the generated
    *     class names
    * @access private
    */
@@ -170,6 +178,20 @@ class Wsdl2PhpTask extends Task {
   }
 
   /**
+   * The setter for the attribute <var>$conflictClassmap</var>.
+   * @param string $conflictClassmap JSON representation of a classmap, as a
+   *     mapping from WSDL type to PHP class name, to be used to avoid name
+   *     conflicts when pseudo namespaces aren't enabled
+   */
+  public function setConflictClassmap($conflictClassmap) {
+    $this->conflictClassmap = json_decode($conflictClassmap, true);
+    if (!isset($this->conflictClassmap) && !empty($conflictClassmap)) {
+      trigger_error('Unable to parse the conflict classmap as JSON.', E_USER_ERROR);
+      die;
+    }
+  }
+
+  /**
    * The setter for the attribute <var>$skipClassNameCheckTypes</var>.
    * @param string $skipClassNameCheckTypes comma separated list of the type
    *     names
@@ -215,7 +237,7 @@ class Wsdl2PhpTask extends Task {
 
   /**
    * The setter for the attribute <var>$enablePseudoNamespaces</var>.
-   * @param boolean $enablePseudoNamespaces whether or not to enable psuedo
+   * @param boolean $enablePseudoNamespaces whether or not to enable pseudo
    *     namespaces in the generated class names.
    */
   public function SetEnablePseudoNamespaces($enablePseudoNamespaces) {
@@ -243,8 +265,9 @@ class Wsdl2PhpTask extends Task {
 
     $wsdlInterpreter =
         new WSDLInterpreter($this->url, $this->soapClientClassName,
-            $this->classmap, $this->serviceName, $this->version, $this->author,
-            $this->package, $this->soapClientClassPath, $this->proxy,
+            $this->classmap, $this->conflictClassmap, $this->serviceName,
+            $this->version, $this->author, $this->package,
+            $this->soapClientClassPath, $this->proxy,
             $this->enablePseudoNamespaces, $this->skipClassNameCheckTypes);
     $wsdlInterpreter->savePHP($this->outputDir);
     print 'Done: ' . $this->url . "\n";

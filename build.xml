@@ -83,72 +83,13 @@
         author="${lib.author}"
         package="${lib.package}"
         outputDir="${version.dir}"
-        classmap='{"getResponse":"${service}GetResponse", "get":"${service}Get", "mutate":"${service}Mutate", "mutateResponse":"${service}MutateResponse", "DateTime":"AdWordsDateTime", "SoapHeader":"SoapRequestHeader"}'
+        classmap='{"getResponse":"${service}GetResponse", "get":"${service}Get", "mutate":"${service}Mutate", "mutateResponse":"${service}MutateResponse"}'
+        conflictClassmap='{"DateTime":"AdWordsDateTime", "SoapHeader":"SoapRequestHeader"}'
         skipClassNameCheckTypes="Target, Location"
         soapClientClassName="AdWordsSoapClient"
         soapClientClassPath='dirname(__FILE__) . "/../Lib/AdWordsSoapClient.php"'
         proxy="${wsdl2php.proxy}"
         enablePseudoNamespaces="${wsdl2php.enablePseudoNamespaces}"/>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: run tests for v200909                                       -->
-  <!-- =================================================================== -->
-  <target name="test-v200909" depends="init">
-    <mkdir dir="report" />
-    <phpunit haltonfailure="false" printsummary="true">
-      <batchtest>
-        <fileset dir="${tests.dir}">
-          <include name="**/v200909/*Test.php"/>
-        </fileset>
-      </batchtest>
-      <formatter type="xml" todir="report" outfile="test_results_v200909.xml"/>
-    </phpunit>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: run tests for v201003                                       -->
-  <!-- =================================================================== -->
-  <target name="test-v201003" depends="init">
-    <mkdir dir="report" />
-    <phpunit haltonfailure="false" printsummary="true">
-      <batchtest>
-        <fileset dir="${tests.dir}">
-          <include name="**/v201003/*Test.php"/>
-        </fileset>
-      </batchtest>
-      <formatter type="xml" todir="report" outfile="test_results_v201003.xml"/>
-    </phpunit>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: run tests for v201008                                       -->
-  <!-- =================================================================== -->
-  <target name="test-v201008" depends="init">
-    <mkdir dir="report" />
-    <phpunit haltonfailure="false" printsummary="true">
-      <batchtest>
-        <fileset dir="${tests.dir}">
-          <include name="**/v201008/*Test.php"/>
-        </fileset>
-      </batchtest>
-      <formatter type="xml" todir="report" outfile="test_results_v201008.xml"/>
-    </phpunit>
-  </target>
-
-  <!-- =================================================================== -->
-  <!-- Target: run tests for v201101                                       -->
-  <!-- =================================================================== -->
-  <target name="test-v201101" depends="init">
-    <mkdir dir="report" />
-    <phpunit haltonfailure="false" printsummary="true">
-      <batchtest>
-        <fileset dir="${tests.dir}">
-          <include name="**/v201101/*Test.php"/>
-        </fileset>
-      </batchtest>
-      <formatter type="xml" todir="report" outfile="test_results_v201101.xml"/>
-    </phpunit>
   </target>
 
   <!-- =================================================================== -->

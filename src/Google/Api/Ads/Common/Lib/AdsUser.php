@@ -25,7 +25,7 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
- * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @author     Eric Koleda <eric.koleda@google.com>
  */
 
 /** Required classes. **/
@@ -288,6 +288,9 @@ abstract class AdsUser {
       if (array_key_exists('SSL', $settingsIni)) {
         if (array_key_exists('VERIFY_PEER', $settingsIni['SSL'])) {
           $this->Define('SSL_VERIFY_PEER', $settingsIni['SSL']['VERIFY_PEER']);
+        }
+        if (array_key_exists('VERIFY_HOST', $settingsIni['SSL'])) {
+          $this->Define('SSL_VERIFY_HOST', $settingsIni['SSL']['VERIFY_HOST']);
         }
         if (array_key_exists('CA_PATH', $settingsIni['SSL'])) {
           $this->Define('SSL_CA_PATH', $settingsIni['SSL']['CA_PATH']);

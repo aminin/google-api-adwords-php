@@ -25,7 +25,7 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
- * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @author     Eric Koleda <eric.koleda@google.com>
  */
 
 /** Required classes. **/
@@ -133,6 +133,9 @@ abstract class SoapClientFactory {
     // SSL settings.
     if (defined('SSL_VERIFY_PEER') && SSL_VERIFY_PEER != '') {
       $contextOptions['ssl']['verify_peer'] = SSL_VERIFY_PEER;
+    }
+    if (defined('SSL_VERIFY_HOST') && SSL_VERIFY_HOST) {
+      $contextOptions['ssl']['CN_match'] = parse_url($location, PHP_URL_HOST);
     }
     if (defined('SSL_CA_PATH') && SSL_CA_PATH != '') {
       $contextOptions['ssl']['capath'] = SSL_CA_PATH;

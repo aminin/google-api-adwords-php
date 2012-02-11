@@ -24,7 +24,7 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
- * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @author     Eric Koleda <eric.koleda@google.com>
  */
 
 /** Required classes. **/
@@ -152,11 +152,11 @@ class ReportUtils {
       // Create exception.
       if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
         $exception = new ReportDownloadException($matches[2], $code);
+      } else if (!empty($error)) {
+        $exception = new ReportDownloadException($error);
       } else if (isset($code)) {
         $exception =
             new ReportDownloadException('Report download failed.', $code);
-      } else if (!empty($error)) {
-        $exception = new ReportDownloadException($error);
       }
     }
 

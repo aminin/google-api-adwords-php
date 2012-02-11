@@ -25,7 +25,7 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
- * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @author     Eric Koleda <eric.koleda@google.com>
  * @link       http://oauth.googlecode.com/svn/code/php/OAuth.php
  */
 
@@ -133,11 +133,15 @@ class AndySmithOAuthHandler extends OAuthHandler {
   private function GetTokenFromUrl($url) {
     $ch = CurlUtils::CreateSession($url);
     $response = curl_exec($ch);
-    $headers = curl_getinfo($ch);
+    $error = curl_error($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
 
-    if ($headers['http_code'] != 200) {
-      throw new Exception($response);
+    if (!empty($error)) {
+      throw new OAuthException($error, $httpCode);
+    }
+    if ($httpCode != 200) {
+      throw new Exception($response, $httpCode);
     }
 
     return self::GetTokenFromQueryString($response);

@@ -26,7 +26,7 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
- * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @author     Eric Koleda <eric.koleda@google.com>
  * @see        AdsUser
  */
 
@@ -43,7 +43,7 @@ require_once 'AdWordsSoapClientFactory.php';
  * @subpackage Lib
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = '2.7.2';
+  private static $LIB_VERSION = '3.0.0';
   private static $LIB_NAME = 'AwApi';
 
   /**
