@@ -35,6 +35,7 @@ require_once dirname(__FILE__) . '/../../Common/Util/AuthToken.php';
 require_once dirname(__FILE__) . '/../../Common/Lib/AdsUser.php';
 require_once dirname(__FILE__) . '/../Util/ReportUtils.php';
 require_once 'AdWordsSoapClientFactory.php';
+require_once 'AdWordsConstants.php';
 
 /**
  * User class for the AdWords API to create SOAP clients to the available API
