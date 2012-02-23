@@ -37,9 +37,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-// Constants used in the example.
-define('NUM_KEYWORDS', 5);
-
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
@@ -54,8 +51,9 @@ function AddKeywordsExample(AdWordsUser $user, $adGroupId) {
       $user->GetService('AdGroupCriterionService', 'v201109');
 
   // Create keyword criteria.
+  $numKeywords = 5;
   $criteria = array();
-  for ($i = 0; $i < NUM_KEYWORDS; $i++) {
+  for ($i = 0; $i < $numKeywords; $i++) {
     $keyword = new Keyword();
     $keyword->text = 'mars cruise ' . uniqid();
     $keyword->matchType = 'BROAD';

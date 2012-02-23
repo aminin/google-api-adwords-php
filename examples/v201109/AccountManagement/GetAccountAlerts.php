@@ -40,9 +40,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-// Constants used in the example.
-define('PAGE_SIZE', 500);
-
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
@@ -70,7 +67,7 @@ function GetAccountAlertsExample(AdWordsUser $user) {
   $selector->query = $alertQuery;
 
   // Create paging controls.
-  $selector->paging = new Paging(0, PAGE_SIZE);
+  $selector->paging = new Paging(0, AdWordsConstants::RECOMMENDED_PAGE_SIZE);
 
   do {
     // Make the get request.
@@ -88,7 +85,7 @@ function GetAccountAlertsExample(AdWordsUser $user) {
     }
 
     // Advance the paging index.
-    $selector->paging->startIndex += PAGE_SIZE;
+    $selector->paging->startIndex += AdWordsConstants::RECOMMENDED_PAGE_SIZE;
   } while ($page->totalNumEntries > $selector->paging->startIndex);
 }
 

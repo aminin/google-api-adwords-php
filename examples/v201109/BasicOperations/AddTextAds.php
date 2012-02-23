@@ -38,9 +38,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 require_once 'Google/Api/Ads/Common/Util/MediaUtils.php';
 
-// Constants used in the example.
-define('NUM_ADS', 5);
-
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
@@ -54,8 +51,9 @@ function AddTextAdsExample(AdWordsUser $user, $adGroupId) {
   $adGroupAdService = $user->GetService('AdGroupAdService', 'v201109');
 
   // Create text ads.
+  $numAds = 5;
   $ads = array();
-  for ($i = 0; $i < NUM_ADS; $i++) {
+  for ($i = 0; $i < $numAds; $i++) {
     $textAd = new TextAd();
     $textAd->headline = 'Cruise #' . uniqid();
     $textAd->description1 = 'Visit the Red Planet in style.';

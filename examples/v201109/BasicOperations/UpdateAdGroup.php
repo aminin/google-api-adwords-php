@@ -37,9 +37,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-// Constants used in the example.
-define('MICROS_PER_DOLLAR', 1000000);
-
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
@@ -60,7 +57,8 @@ function UpdateAdGroupExample(AdWordsUser $user, $adGroupId) {
   $adGroup->bids = new ManualCPCAdGroupBids();
   // Money amounts are specified in micros, which are millionths of the
   // fundamental currency. Ex) 1 dollar = 1M micros.
-  $adGroup->bids->keywordMaxCpc = new Bid(new Money(0.75 * MICROS_PER_DOLLAR));
+  $adGroup->bids->keywordMaxCpc = new Bid(
+      new Money(0.75 * AdWordsConstants::MICROS_PER_DOLLAR));
 
   // Create operation.
   $operation = new AdGroupOperation();
@@ -75,7 +73,8 @@ function UpdateAdGroupExample(AdWordsUser $user, $adGroupId) {
   // Display result.
   $adGroup = $result->value[0];
   printf("Ad group with id '%s' has updated default bid '$%s'.\n", $adGroup->id,
-      $adGroup->bids->keywordMaxCpc->amount->microAmount / MICROS_PER_DOLLAR);
+      $adGroup->bids->keywordMaxCpc->amount->microAmount /
+          AdWordsConstants::MICROS_PER_DOLLAR);
 
 }
 

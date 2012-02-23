@@ -38,11 +38,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 require_once 'Google/Api/Ads/Common/Util/MapUtils.php';
 
-// Constants used in the example.
-// Use a low page size with this service, as each opportunity can contain many
-// ideas.
-define('PAGE_SIZE', 20);
-
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
@@ -58,8 +53,9 @@ function GetKeywordOpportunitiesExample(AdWordsUser $user) {
   $selector->requestedAttributeTypes =
       array('CAMPAIGN_ID', 'ADGROUP_ID', 'KEYWORD', 'AVERAGE_MONTHLY_SEARCHES');
 
-  // Set selector paging (required by this service).
-  $selector->paging = new Paging(0, PAGE_SIZE);
+  // Set selector paging (required by this service). Use a low page size with
+  // this service, as each opportunity can contain many ideas.
+  $selector->paging = new Paging(0, 20);
 
   do {
     // Make the get request.
@@ -89,7 +85,7 @@ function GetKeywordOpportunitiesExample(AdWordsUser $user) {
     }
 
     // Advance the paging index.
-    $selector->paging->startIndex += PAGE_SIZE;
+    $selector->paging->startIndex += 20;
   } while ($page->totalNumEntries > $selector->paging->startIndex);
 }
 

@@ -40,11 +40,6 @@ require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 require_once 'Google/Api/Ads/Common/Util/ChoiceUtils.php';
 require_once 'Google/Api/Ads/Common/Util/OgnlUtils.php';
 
-// Define constants used in the example.
-define('KEYWORD_COUNT', 100);
-define('MAX_RETRIES', 100);
-define('RETRY_INTERVAL', 10);
-
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
@@ -58,8 +53,9 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
   $mutateJobService = $user->GetService('MutateJobService', 'v201109');
 
   // Generate operations.
+  $numKeywords = 100;
   $operations = array();
-  for ($i = 0; $i < KEYWORD_COUNT; $i++) {
+  for ($i = 0; $i < $numKeywords; $i++) {
     $keyword = new Keyword();
     // Randomly add invalid characters to keywords.
     if (rand(0, 9) == 0) {
@@ -96,8 +92,10 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
   $selector->includeHistory = TRUE;
 
   $numRetries = 0;
+  $maxRetries = 100;
+  $retryInterval = 10;
   do {
-    sleep(RETRY_INTERVAL);
+    sleep($retryInterval);
     $jobs = $mutateJobService->get($selector);
     $job = $jobs[0];
     switch ($job->status) {
@@ -120,7 +118,7 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
     }
     $numRetries++;
   } while (($job->status == 'PENDING' || $job->status == 'PROCESSING') &&
-        $numRetries < MAX_RETRIES);
+        $numRetries < $maxRetries);
 
   if ($job->status == 'COMPLETED') {
     // Retrieve the results of the job.

@@ -39,9 +39,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-// Constants used in the example.
-define('WAIT_TIME', 1);
-
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
@@ -75,7 +72,7 @@ function AddAudienceExample(AdWordsUser $user) {
   $userList = $result->value[0];
 
   // Wait a moment before retrieving the conversion snippet.
-  sleep(WAIT_TIME);
+  sleep(1);
 
   // Create the selector.
   $selector = new Selector();
