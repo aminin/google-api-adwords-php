@@ -32,8 +32,8 @@ require_once dirname(__FILE__) . "/../Lib/AdWordsSoapClient.php";
 
 if (!class_exists("Ad", FALSE)) {
 /**
- * The base class of all ad types. To update basic ad fields (such as
- * {@link #status status}), you can construct an {@code Ad} object (instead of
+ * The base class of all ad types. To update basic ad fields,
+ * you can construct an {@code Ad} object (instead of
  * the ad's concrete type) with the appropriate fields set.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
@@ -2190,7 +2190,7 @@ class BillingSummary {
 
 if (!class_exists("Budget", FALSE)) {
 /**
- * Data representing the budget for a campaign.
+ * Budgets are used for managing the amount of money spent on AdWords.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3921,7 +3921,7 @@ class FrequencyCap {
 if (!class_exists("Gender", FALSE)) {
 /**
  * Represents a Gender criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only excludable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -4602,7 +4602,7 @@ class Keyword extends Criterion {
 if (!class_exists("Language", FALSE)) {
 /**
  * Represents a Language criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -4648,7 +4648,7 @@ class Language extends Criterion {
 if (!class_exists("Location", FALSE)) {
 /**
  * Represents Location criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type can be either targeted or excluded.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -5406,7 +5406,7 @@ class Media {
 
 if (!class_exists("MediaError", FALSE)) {
 /**
- * 
+ * Error class for media related errors.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -5542,9 +5542,8 @@ if (!class_exists("MobileAd", FALSE)) {
  * </p>
  * <p>
  * For more information, see
- * <a href=
- * "http://adwords.google.com/support/aw/bin/static.py?hl=en&amp;topic=28428&gamp;uide=28427&amp;page=guide.cs"
- * target="_blank">Mobile Ads Requirements</a>.
+ * <a href="http://adwords.google.com/support/aw/bin/answer.py?answer=176117">
+ * Mobile Ads Requirements</a>.
  * </p>
  * 
  * <table summary="" style="clear: none">
@@ -6172,6 +6171,12 @@ class Operand {
 
   /**
    * @access public
+   * @var Budget
+   */
+  public $Budget;
+
+  /**
+   * @access public
    * @var CampaignAdExtension
    */
   public $CampaignAdExtension;
@@ -6202,6 +6207,12 @@ class Operand {
 
   /**
    * @access public
+   * @var PlaceHolder
+   */
+  public $PlaceHolder;
+
+  /**
+   * @access public
    * @var TargetList
    */
   public $TargetList;
@@ -6228,18 +6239,20 @@ class Operand {
     return "Operand";
   }
 
-  public function __construct($AdExtensionOverride = NULL, $AdGroupAd = NULL, $AdGroupCriterion = NULL, $AdGroup = NULL, $Ad = NULL, $CampaignAdExtension = NULL, $CampaignCriterion = NULL, $Campaign = NULL, $Job = NULL, $Media = NULL, $TargetList = NULL, $Target = NULL) {
+  public function __construct($AdExtensionOverride = NULL, $AdGroupAd = NULL, $AdGroupCriterion = NULL, $AdGroup = NULL, $Ad = NULL, $Budget = NULL, $CampaignAdExtension = NULL, $CampaignCriterion = NULL, $Campaign = NULL, $Job = NULL, $Media = NULL, $PlaceHolder = NULL, $TargetList = NULL, $Target = NULL) {
     if(get_parent_class('Operand')) parent::__construct();
     $this->AdExtensionOverride = $AdExtensionOverride;
     $this->AdGroupAd = $AdGroupAd;
     $this->AdGroupCriterion = $AdGroupCriterion;
     $this->AdGroup = $AdGroup;
     $this->Ad = $Ad;
+    $this->Budget = $Budget;
     $this->CampaignAdExtension = $CampaignAdExtension;
     $this->CampaignCriterion = $CampaignCriterion;
     $this->Campaign = $Campaign;
     $this->Job = $Job;
     $this->Media = $Media;
+    $this->PlaceHolder = $PlaceHolder;
     $this->TargetList = $TargetList;
     $this->Target = $Target;
   }
@@ -6248,7 +6261,7 @@ class Operand {
 if (!class_exists("OperatingSystemVersion", FALSE)) {
 /**
  * Represents a Operating System Version Criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -6771,6 +6784,34 @@ class PercentCPAAdGroupCriterionBids extends AdGroupCriterionBids {
   }
 }}
 
+if (!class_exists("PlaceHolder", FALSE)) {
+/**
+ * A place holder for a result which is not available.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201109
+ */
+class PlaceHolder {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201109";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "PlaceHolder";
+  }
+
+  public function __construct() {
+    if(get_parent_class('PlaceHolder')) parent::__construct();
+  }
+}}
+
 if (!class_exists("Placement", FALSE)) {
 /**
  * A placement used for modifying bids for sites when targeting the content
@@ -6813,6 +6854,7 @@ class Placement extends Criterion {
 if (!class_exists("Platform", FALSE)) {
 /**
  * Represents Platform criterion.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -7025,7 +7067,11 @@ if (!class_exists("Polygon", FALSE)) {
  * A polygon is described by a list of at least three points, where each point is a
  * (<var>latitude</var>, <var>longitude</var>) ordered pair. No point can be more than 400km
  * from the center of the polygon. The points are specified in microdegrees, the precison
- * for the value is 1 second of angle which is equal to 277 microdegrees.
+ * for the value is 1 second of angle which is equal to 277 microdegrees.<p>
+ * 
+ * <p>Please note that Polygons are deprecated. This means that Polygon targets cannot be added
+ * through the API, though existing targets can be retrieved and deleted.
+ * <p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -7334,7 +7380,9 @@ if (!class_exists("Proximity", FALSE)) {
  * 
  * A proximity is an area within a certain radius of a point with the center point being described
  * by a lat/long pair. The caller may also alternatively provide address fields which will be
- * geocoded into a lat/long pair.
+ * geocoded into a lat/long pair. Note: If a geoPoint value is provided, the address is not
+ * used for calculating the lat/long to target.
+ * <p> A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -9010,8 +9058,7 @@ class TemplateElement {
 
 if (!class_exists("TemplateElementField", FALSE)) {
 /**
- * <span class="constraint Selectable">This field can be selected using the value "TemplateElementFieldName".</span>
- * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * Represents a field in a template element.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -13250,7 +13297,7 @@ class AdStats extends Stats {
 if (!class_exists("AgeRange", FALSE)) {
 /**
  * Represents an Age Range criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only excludable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -13964,7 +14011,8 @@ class CampaignStats extends Stats {
 
 if (!class_exists("CampaignTargetOperation", FALSE)) {
 /**
- * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * Sets a list of targets on a specified campaign.
+ * <p class="note"><b>Note:</b> Only the <code>SET</code> operator is supported.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -14002,7 +14050,7 @@ class CampaignTargetOperation extends Operation {
 if (!class_exists("Carrier", FALSE)) {
 /**
  * Represents a Carrier Criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -14647,6 +14695,7 @@ class BulkMutateJobService extends AdWordsSoapClient {
     "PercentCPA" => "PercentCPA",
     "PercentCPAAdGroupBids" => "PercentCPAAdGroupBids",
     "PercentCPAAdGroupCriterionBids" => "PercentCPAAdGroupCriterionBids",
+    "PlaceHolder" => "PlaceHolder",
     "Placement" => "Placement",
     "Platform" => "Platform",
     "PolicyViolationError.Part" => "PolicyViolationErrorPart",

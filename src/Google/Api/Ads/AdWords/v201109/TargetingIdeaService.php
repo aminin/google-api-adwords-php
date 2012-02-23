@@ -30,87 +30,6 @@
 /** Required classes. **/
 require_once dirname(__FILE__) . "/../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("Address", FALSE)) {
-/**
- * Structure to specify an address location.
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Address {
-  /**
-   * @access public
-   * @var string
-   */
-  public $streetAddress;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $streetAddress2;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $cityName;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $provinceCode;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $provinceName;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $postalCode;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $countryCode;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Address";
-  }
-
-  public function __construct($streetAddress = NULL, $streetAddress2 = NULL, $cityName = NULL, $provinceCode = NULL, $provinceName = NULL, $postalCode = NULL, $countryCode = NULL) {
-    if(get_parent_class('Address')) parent::__construct();
-    $this->streetAddress = $streetAddress;
-    $this->streetAddress2 = $streetAddress2;
-    $this->cityName = $cityName;
-    $this->provinceCode = $provinceCode;
-    $this->provinceName = $provinceName;
-    $this->postalCode = $postalCode;
-    $this->countryCode = $countryCode;
-  }
-}}
-
 if (!class_exists("ApiError", FALSE)) {
 /**
  * The API error base class that provides details about an error that occurred
@@ -414,12 +333,6 @@ class BidLandscapeLandscapePoint {
   public $impressions;
 
   /**
-   * @access public
-   * @var integer
-   */
-  public $promotedImpressions;
-
-  /**
    * Gets the namesapce of this class
    * @return the namespace of this class
    */
@@ -435,14 +348,13 @@ class BidLandscapeLandscapePoint {
     return "BidLandscape.LandscapePoint";
   }
 
-  public function __construct($bid = NULL, $clicks = NULL, $cost = NULL, $marginalCpc = NULL, $impressions = NULL, $promotedImpressions = NULL) {
+  public function __construct($bid = NULL, $clicks = NULL, $cost = NULL, $marginalCpc = NULL, $impressions = NULL) {
     if(get_parent_class('BidLandscapeLandscapePoint')) parent::__construct();
     $this->bid = $bid;
     $this->clicks = $clicks;
     $this->cost = $cost;
     $this->marginalCpc = $marginalCpc;
     $this->impressions = $impressions;
-    $this->promotedImpressions = $promotedImpressions;
   }
 }}
 
@@ -1005,94 +917,6 @@ class EntityNotFound extends ApiError {
   }
 }}
 
-if (!class_exists("Gender", FALSE)) {
-/**
- * Represents a Gender criterion.
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Gender extends Criterion {
-  /**
-   * @access public
-   * @var tnsGenderGenderType
-   */
-  public $genderType;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Gender";
-  }
-
-  public function __construct($genderType = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Gender')) parent::__construct();
-    $this->genderType = $genderType;
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
-if (!class_exists("GeoPoint", FALSE)) {
-/**
- * Specifies a geo location with the supplied latitude/longitude.
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class GeoPoint {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $latitudeInMicroDegrees;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $longitudeInMicroDegrees;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "GeoPoint";
-  }
-
-  public function __construct($latitudeInMicroDegrees = NULL, $longitudeInMicroDegrees = NULL) {
-    if(get_parent_class('GeoPoint')) parent::__construct();
-    $this->latitudeInMicroDegrees = $latitudeInMicroDegrees;
-    $this->longitudeInMicroDegrees = $longitudeInMicroDegrees;
-  }
-}}
-
 if (!class_exists("InternalApiError", FALSE)) {
 /**
  * Indicates that a server-side error has occured. {@code InternalApiError}s
@@ -1190,6 +1014,7 @@ class Keyword extends Criterion {
 if (!class_exists("Language", FALSE)) {
 /**
  * Represents a Language criterion.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * 
  * 
  * 
@@ -1203,6 +1028,12 @@ class Language extends Criterion {
    * @var string
    */
   public $code;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $name;
 
   /**
    * Gets the namesapce of this class
@@ -1220,9 +1051,10 @@ class Language extends Criterion {
     return "Language";
   }
 
-  public function __construct($code = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
+  public function __construct($code = NULL, $name = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
     if(get_parent_class('Language')) parent::__construct();
     $this->code = $code;
+    $this->name = $name;
     $this->id = $id;
     $this->type = $type;
     $this->CriterionType = $CriterionType;
@@ -1232,6 +1064,7 @@ class Language extends Criterion {
 if (!class_exists("Location", FALSE)) {
 /**
  * Represents Location criterion.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type can be either targeted or excluded.
  * 
  * 
  * 
@@ -1491,41 +1324,6 @@ class NumberValue extends ComparableValue {
   public function __construct($ComparableValueType = NULL) {
     if(get_parent_class('NumberValue')) parent::__construct();
     $this->ComparableValueType = $ComparableValueType;
-  }
-}}
-
-if (!class_exists("OperatingSystemVersion", FALSE)) {
-/**
- * Represents a Operating System Version Criterion.
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class OperatingSystemVersion extends Criterion {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "OperatingSystemVersion";
-  }
-
-  public function __construct($id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('OperatingSystemVersion')) parent::__construct();
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
   }
 }}
 
@@ -1845,53 +1643,6 @@ class PolicyViolationKey {
   }
 }}
 
-if (!class_exists("Polygon", FALSE)) {
-/**
- * Represents a Polygon Criterion.
- * 
- * A polygon is described by a list of at least three points, where each point is a
- * (<var>latitude</var>, <var>longitude</var>) ordered pair. No point can be more than 400km
- * from the center of the polygon. The points are specified in microdegrees, the precison
- * for the value is 1 second of angle which is equal to 277 microdegrees.
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Polygon extends Criterion {
-  /**
-   * @access public
-   * @var GeoPoint[]
-   */
-  public $vertices;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Polygon";
-  }
-
-  public function __construct($vertices = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Polygon')) parent::__construct();
-    $this->vertices = $vertices;
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("Product", FALSE)) {
 /**
  * Product targeting criteria, represents a filter for products in the
@@ -2027,73 +1778,6 @@ class ProductConditionOperand {
   public function __construct($operand = NULL) {
     if(get_parent_class('ProductConditionOperand')) parent::__construct();
     $this->operand = $operand;
-  }
-}}
-
-if (!class_exists("Proximity", FALSE)) {
-/**
- * Represents a Proximity Criterion.
- * 
- * A proximity is an area within a certain radius of a point with the center point being described
- * by a lat/long pair. The caller may also alternatively provide address fields which will be
- * geocoded into a lat/long pair.
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Proximity extends Criterion {
-  /**
-   * @access public
-   * @var GeoPoint
-   */
-  public $geoPoint;
-
-  /**
-   * @access public
-   * @var tnsProximityDistanceUnits
-   */
-  public $radiusDistanceUnits;
-
-  /**
-   * @access public
-   * @var double
-   */
-  public $radiusInUnits;
-
-  /**
-   * @access public
-   * @var Address
-   */
-  public $address;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Proximity";
-  }
-
-  public function __construct($geoPoint = NULL, $radiusDistanceUnits = NULL, $radiusInUnits = NULL, $address = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Proximity')) parent::__construct();
-    $this->geoPoint = $geoPoint;
-    $this->radiusDistanceUnits = $radiusDistanceUnits;
-    $this->radiusInUnits = $radiusInUnits;
-    $this->address = $address;
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
   }
 }}
 
@@ -3060,38 +2744,6 @@ class AdGroupCriterionLimitExceededCriteriaLimitType {
   }
 }}
 
-if (!class_exists("AgeRangeAgeRangeType", FALSE)) {
-/**
- * <span class="constraint Rejected">Used for return value only. An enumeration could not be processed, typically due to incompatibility with your WSDL version.</span>
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class AgeRangeAgeRangeType {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AgeRange.AgeRangeType";
-  }
-
-  public function __construct() {
-    if(get_parent_class('AgeRangeAgeRangeType')) parent::__construct();
-  }
-}}
-
 if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
@@ -3478,34 +3130,6 @@ class EntityNotFoundReason {
   }
 }}
 
-if (!class_exists("GenderGenderType", FALSE)) {
-/**
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class GenderGenderType {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Gender.GenderType";
-  }
-
-  public function __construct() {
-    if(get_parent_class('GenderGenderType')) parent::__construct();
-  }
-}}
-
 if (!class_exists("InternalApiErrorReason", FALSE)) {
 /**
  * The single reason for the internal API error.
@@ -3696,38 +3320,6 @@ class OperationAccessDeniedReason {
 
   public function __construct() {
     if(get_parent_class('OperationAccessDeniedReason')) parent::__construct();
-  }
-}}
-
-if (!class_exists("ProximityDistanceUnits", FALSE)) {
-/**
- * The radius distance is expressed in either kilometers or miles.
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class ProximityDistanceUnits {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Proximity.DistanceUnits";
-  }
-
-  public function __construct() {
-    if(get_parent_class('ProximityDistanceUnits')) parent::__construct();
   }
 }}
 
@@ -5795,7 +5387,7 @@ class WebpageDescriptorAttribute extends Attribute {
 if (!class_exists("AttributeType", FALSE)) {
 /**
  * Represents the type of
- * {@link com.google.ads.api.services.targetingideas.attributes.Attribute}.
+ * {@link com.google.ads.api.services.common.optimization.attributes.Attribute}.
  * <p><b>{@link IdeaType} KEYWORD supports the following {@link AttributeType}s:</b><br/>
  * <ul><li>{@link #AD_SHARE}</li>
  * <li>{@link #AVERAGE_TARGETED_MONTHLY_SEARCHES}</li>
@@ -5992,34 +5584,6 @@ class IdeaType {
 
   public function __construct() {
     if(get_parent_class('IdeaType')) parent::__construct();
-  }
-}}
-
-if (!class_exists("MatchAction", FALSE)) {
-/**
- * Specifies the filtering action to take when matching a term to an idea.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class MatchAction {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/o/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "MatchAction";
-  }
-
-  public function __construct() {
-    if(get_parent_class('MatchAction')) parent::__construct();
   }
 }}
 
@@ -6536,48 +6100,6 @@ class AdGroupCriterionLimitExceeded extends EntityCountLimitExceeded {
   }
 }}
 
-if (!class_exists("AgeRange", FALSE)) {
-/**
- * Represents an Age Range criterion.
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class AgeRange extends Criterion {
-  /**
-   * @access public
-   * @var tnsAgeRangeAgeRangeType
-   */
-  public $ageRangeType;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AgeRange";
-  }
-
-  public function __construct($ageRangeType = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('AgeRange')) parent::__construct();
-    $this->ageRangeType = $ageRangeType;
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
@@ -6684,41 +6206,6 @@ class BidLandscape extends DataEntry {
     $this->endDate = $endDate;
     $this->landscapePoints = $landscapePoints;
     $this->DataEntryType = $DataEntryType;
-  }
-}}
-
-if (!class_exists("Carrier", FALSE)) {
-/**
- * Represents a Carrier Criterion.
- * 
- * 
- * 
- * Represents data about a bidlandscape for an adgroup.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Carrier extends Criterion {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Carrier";
-  }
-
-  public function __construct($id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Carrier')) parent::__construct();
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
   }
 }}
 
@@ -7344,61 +6831,6 @@ class IdeaTextFilterSearchParameter extends SearchParameter {
   }
 }}
 
-if (!class_exists("IdeaTextMatchesSearchParameter", FALSE)) {
-/**
- * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s that
- * specifies a collection of strings by which the results should be
- * constrained. This guarantees that each idea in the result will match
- * at least one of the {@code included} values.
- * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
- * <p>This element is supported by following {@link RequestType}s: IDEAS.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class IdeaTextMatchesSearchParameter extends SearchParameter {
-  /**
-   * @access public
-   * @var string[]
-   */
-  public $included;
-
-  /**
-   * @access public
-   * @var string[]
-   */
-  public $excluded;
-
-  /**
-   * @access public
-   * @var tnsMatchAction
-   */
-  public $priorityAction;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/o/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "IdeaTextMatchesSearchParameter";
-  }
-
-  public function __construct($included = NULL, $excluded = NULL, $priorityAction = NULL, $SearchParameterType = NULL) {
-    if(get_parent_class('IdeaTextMatchesSearchParameter')) parent::__construct();
-    $this->included = $included;
-    $this->excluded = $excluded;
-    $this->priorityAction = $priorityAction;
-    $this->SearchParameterType = $SearchParameterType;
-  }
-}}
-
 if (!class_exists("IncludeAdultContentSearchParameter", FALSE)) {
 /**
  * {@link SearchParameter} that specifies whether adult content should be
@@ -7430,46 +6862,6 @@ class IncludeAdultContentSearchParameter extends SearchParameter {
 
   public function __construct($SearchParameterType = NULL) {
     if(get_parent_class('IncludeAdultContentSearchParameter')) parent::__construct();
-    $this->SearchParameterType = $SearchParameterType;
-  }
-}}
-
-if (!class_exists("KeywordCategoryIdSearchParameter", FALSE)) {
-/**
- * A {@link SearchParameter} for {@code KEYWORD} {@link IdeaType}s that
- * sets a keyword category that all search results should belong to.
- * <p>This search parameter can be used in bulk keyword requests through the {@link com.google.ads.api.services.targetingideas.TargetingIdeaService#getBulkKeywordIdeas(TargetingIdeaSelector)} method.
- * <p>This element is supported by following {@link IdeaType}s: KEYWORD.
- * <p>This element is supported by following {@link RequestType}s: IDEAS.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class KeywordCategoryIdSearchParameter extends SearchParameter {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $categoryId;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/o/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "KeywordCategoryIdSearchParameter";
-  }
-
-  public function __construct($categoryId = NULL, $SearchParameterType = NULL) {
-    if(get_parent_class('KeywordCategoryIdSearchParameter')) parent::__construct();
-    $this->categoryId = $categoryId;
     $this->SearchParameterType = $SearchParameterType;
   }
 }}
@@ -7816,9 +7208,6 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "ApiError" => "ApiError",
     "AdGroupCriterionLimitExceeded" => "AdGroupCriterionLimitExceeded",
     "EntityCountLimitExceeded" => "EntityCountLimitExceeded",
-    "Address" => "Address",
-    "AgeRange" => "AgeRange",
-    "Criterion" => "Criterion",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
     "AuthenticationError" => "AuthenticationError",
@@ -7827,9 +7216,9 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "BidLandscape.LandscapePoint" => "BidLandscapeLandscapePoint",
     "BiddingError" => "BiddingError",
     "BudgetError" => "BudgetError",
-    "Carrier" => "Carrier",
     "ClientTermsError" => "ClientTermsError",
     "ComparableValue" => "ComparableValue",
+    "Criterion" => "Criterion",
     "CriterionBidLandscape" => "CriterionBidLandscape",
     "CriterionError" => "CriterionError",
     "CriterionPolicyError" => "CriterionPolicyError",
@@ -7840,8 +7229,6 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "DoubleValue" => "DoubleValue",
     "NumberValue" => "NumberValue",
     "EntityNotFound" => "EntityNotFound",
-    "Gender" => "Gender",
-    "GeoPoint" => "GeoPoint",
     "InternalApiError" => "InternalApiError",
     "Keyword" => "Keyword",
     "Language" => "Language",
@@ -7851,17 +7238,14 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "NotEmptyError" => "NotEmptyError",
     "NotWhitelistedError" => "NotWhitelistedError",
     "NullError" => "NullError",
-    "OperatingSystemVersion" => "OperatingSystemVersion",
     "OperationAccessDenied" => "OperationAccessDenied",
     "Paging" => "Paging",
     "Placement" => "Placement",
     "PolicyViolationError.Part" => "PolicyViolationErrorPart",
     "PolicyViolationKey" => "PolicyViolationKey",
-    "Polygon" => "Polygon",
     "Product" => "Product",
     "ProductCondition" => "ProductCondition",
     "ProductConditionOperand" => "ProductConditionOperand",
-    "Proximity" => "Proximity",
     "QuotaCheckError" => "QuotaCheckError",
     "RangeError" => "RangeError",
     "RateExceededError" => "RateExceededError",
@@ -7880,7 +7264,6 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "AdGroupBidLandscape.Type" => "AdGroupBidLandscapeType",
     "AdGroupCriterionError.Reason" => "AdGroupCriterionErrorReason",
     "AdGroupCriterionLimitExceeded.CriteriaLimitType" => "AdGroupCriterionLimitExceededCriteriaLimitType",
-    "AgeRange.AgeRangeType" => "AgeRangeAgeRangeType",
     "AuthenticationError.Reason" => "AuthenticationErrorReason",
     "AuthorizationError.Reason" => "AuthorizationErrorReason",
     "BiddingError.Reason" => "BiddingErrorReason",
@@ -7893,14 +7276,12 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "DistinctError.Reason" => "DistinctErrorReason",
     "EntityCountLimitExceeded.Reason" => "EntityCountLimitExceededReason",
     "EntityNotFound.Reason" => "EntityNotFoundReason",
-    "Gender.GenderType" => "GenderGenderType",
     "InternalApiError.Reason" => "InternalApiErrorReason",
     "KeywordMatchType" => "KeywordMatchType",
     "NotEmptyError.Reason" => "NotEmptyErrorReason",
     "NotWhitelistedError.Reason" => "NotWhitelistedErrorReason",
     "NullError.Reason" => "NullErrorReason",
     "OperationAccessDenied.Reason" => "OperationAccessDeniedReason",
-    "Proximity.DistanceUnits" => "ProximityDistanceUnits",
     "QuotaCheckError.Reason" => "QuotaCheckErrorReason",
     "RangeError.Reason" => "RangeErrorReason",
     "RateExceededError.Reason" => "RateExceededErrorReason",
@@ -7933,7 +7314,6 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "ExcludedKeywordSearchParameter" => "ExcludedKeywordSearchParameter",
     "GlobalMonthlySearchesSearchParameter" => "GlobalMonthlySearchesSearchParameter",
     "IdeaTextFilterSearchParameter" => "IdeaTextFilterSearchParameter",
-    "IdeaTextMatchesSearchParameter" => "IdeaTextMatchesSearchParameter",
     "IdeaTypeAttribute" => "IdeaTypeAttribute",
     "InStreamAdInfo" => "InStreamAdInfo",
     "InStreamAdInfoAttribute" => "InStreamAdInfoAttribute",
@@ -7941,7 +7321,6 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "IntegerAttribute" => "IntegerAttribute",
     "IntegerSetAttribute" => "IntegerSetAttribute",
     "KeywordAttribute" => "KeywordAttribute",
-    "KeywordCategoryIdSearchParameter" => "KeywordCategoryIdSearchParameter",
     "KeywordMatchTypeSearchParameter" => "KeywordMatchTypeSearchParameter",
     "LanguageSearchParameter" => "LanguageSearchParameter",
     "LocationSearchParameter" => "LocationSearchParameter",
@@ -7976,7 +7355,6 @@ class TargetingIdeaService extends AdWordsSoapClient {
     "CurrencyCodeError.Reason" => "CurrencyCodeErrorReason",
     "DeviceType" => "DeviceType",
     "IdeaType" => "IdeaType",
-    "MatchAction" => "MatchAction",
     "MatchesRegexError.Reason" => "MatchesRegexErrorReason",
     "OpportunityIdeaType" => "OpportunityIdeaType",
     "RequestType" => "RequestType",

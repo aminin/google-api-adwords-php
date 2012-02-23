@@ -1159,7 +1159,7 @@ class Bid {
 
 if (!class_exists("Budget", FALSE)) {
 /**
- * Data representing the budget for a campaign.
+ * Budgets are used for managing the amount of money spent on AdWords.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */

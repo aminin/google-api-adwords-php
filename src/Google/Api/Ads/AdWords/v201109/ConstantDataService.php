@@ -1299,7 +1299,7 @@ class AuthorizationError extends ApiError {
 if (!class_exists("Carrier", FALSE)) {
 /**
  * Represents a Carrier Criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1548,7 +1548,7 @@ class Keyword extends Criterion {
 if (!class_exists("Language", FALSE)) {
 /**
  * Represents a Language criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1705,6 +1705,38 @@ class NullError extends ApiError {
     $this->trigger = $trigger;
     $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("OperatingSystemVersion", FALSE)) {
+/**
+ * Represents a Operating System Version Criterion.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
+ * @package GoogleApiAdsAdWords
+ * @subpackage v201109
+ */
+class OperatingSystemVersion extends Criterion {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://adwords.google.com/api/adwords/cm/v201109";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OperatingSystemVersion";
+  }
+
+  public function __construct($id = NULL, $type = NULL, $CriterionType = NULL) {
+    if(get_parent_class('OperatingSystemVersion')) parent::__construct();
+    $this->id = $id;
+    $this->type = $type;
+    $this->CriterionType = $CriterionType;
   }
 }}
 
@@ -2380,6 +2412,7 @@ class ConstantDataService extends AdWordsSoapClient {
     "NotEmptyError" => "NotEmptyError",
     "NotWhitelistedError" => "NotWhitelistedError",
     "NullError" => "NullError",
+    "OperatingSystemVersion" => "OperatingSystemVersion",
     "Placement" => "Placement",
     "ProductConditionOperand" => "ProductConditionOperand",
     "QuotaCheckError" => "QuotaCheckError",

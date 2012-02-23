@@ -2181,7 +2181,7 @@ class InternalApiError extends ApiError {
 
 if (!class_exists("MediaError", FALSE)) {
 /**
- * 
+ * Error class for media related errors.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */

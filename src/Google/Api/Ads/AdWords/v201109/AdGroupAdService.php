@@ -1410,8 +1410,7 @@ class Stats {
 
 if (!class_exists("TemplateElementField", FALSE)) {
 /**
- * <span class="constraint Selectable">This field can be selected using the value "TemplateElementFieldName".</span>
- * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * Represents a field in a template element.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1510,8 +1509,8 @@ class TemplateElement {
 
 if (!class_exists("Ad", FALSE)) {
 /**
- * The base class of all ad types. To update basic ad fields (such as
- * {@link #status status}), you can construct an {@code Ad} object (instead of
+ * The base class of all ad types. To update basic ad fields,
+ * you can construct an {@code Ad} object (instead of
  * the ad's concrete type) with the appropriate fields set.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
@@ -4073,7 +4072,7 @@ class InternalApiError extends ApiError {
 
 if (!class_exists("MediaError", FALSE)) {
 /**
- * 
+ * Error class for media related errors.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -4123,9 +4122,8 @@ if (!class_exists("MobileAd", FALSE)) {
  * </p>
  * <p>
  * For more information, see
- * <a href=
- * "http://adwords.google.com/support/aw/bin/static.py?hl=en&amp;topic=28428&gamp;uide=28427&amp;page=guide.cs"
- * target="_blank">Mobile Ads Requirements</a>.
+ * <a href="http://adwords.google.com/support/aw/bin/answer.py?answer=176117">
+ * Mobile Ads Requirements</a>.
  * </p>
  * 
  * <table summary="" style="clear: none">
