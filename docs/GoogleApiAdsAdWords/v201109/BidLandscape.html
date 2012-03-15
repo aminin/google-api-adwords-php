@@ -23,10 +23,9 @@
 					</div>
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">&lt;span class=&quot;constraint Selectable&quot;&gt;This field can be selected using the value &quot;CampaignId&quot;.&lt;/span&gt;&lt;span class=&quot;constraint Filterable&quot;&gt;This field can be filtered on.&lt;/span&gt;</p>
-<p class="description"><p>&lt;span class=&quot;constraint Selectable&quot;&gt;This field can be selected using the value &quot;LandscapeType&quot;.&lt;/span&gt;&lt;span class=&quot;constraint Filterable&quot;&gt;This field can be filtered on.&lt;/span&gt;  &lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;</p></p>
+<p class="short-description">Represents data about a bid landscape for an ad group or criterion.</p>
 		<p class="notes">
-			Located in <a class="field" href="_Ads---AdWords---v201109---BulkOpportunityService.php.html">/Ads/AdWords/v201109/BulkOpportunityService.php</a> (line <span class="field">4460</span>)
+			Located in <a class="field" href="_Ads---AdWords---v201109---DataService.php.html">/Ads/AdWords/v201109/DataService.php</a> (line <span class="field">2499</span>)
 		</p>
 		
 				
@@ -54,15 +53,15 @@
 					<th class="class-table-header">Description</th>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201109/CriterionBidLandscape.html">CriterionBidLandscape</a></td>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201109/AdGroupBidLandscape.html">AdGroupBidLandscape</a></td>
 					<td>
-											&lt;span class=&quot;constraint Selectable&quot;&gt;This field can be selected using the value &quot;CriterionId&quot;.&lt;/span&gt;&lt;span class=&quot;constraint Filterable&quot;&gt;This field can be filtered on.&lt;/span&gt;
+											Represents data about a bidlandscape for an adgroup.
 										</td>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201109/AdGroupBidLandscape.html">AdGroupBidLandscape</a></td>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201109/CriterionBidLandscape.html">CriterionBidLandscape</a></td>
 					<td>
-											&lt;span class=&quot;constraint Selectable&quot;&gt;This field can be selected using the value &quot;LandscapeType&quot;.&lt;/span&gt;&lt;span class=&quot;constraint Filterable&quot;&gt;This field can be filtered on.&lt;/span&gt;  &lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;
+											The bid landscape for a criterion.  A bid landscape estimates how a  a criterion will perform based on different bid amounts.
 										</td>
 				</tr>
 							</table>
@@ -161,7 +160,7 @@
 		<span class="var-title">
 			<span class="var-type">integer</span>
 			<span class="var-name">$adGroupId</span>
-						(line <span class="line-number">4471</span>)
+						(line <span class="line-number">2510</span>)
 		</span>
 	</div>
 
@@ -182,7 +181,7 @@
 		<span class="var-title">
 			<span class="var-type">integer</span>
 			<span class="var-name">$campaignId</span>
-						(line <span class="line-number">4465</span>)
+						(line <span class="line-number">2504</span>)
 		</span>
 	</div>
 
@@ -203,7 +202,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$endDate</span>
-						(line <span class="line-number">4483</span>)
+						(line <span class="line-number">2522</span>)
 		</span>
 	</div>
 
@@ -224,7 +223,7 @@
 		<span class="var-title">
 			<span class="var-type">BidLandscapeLandscapePoint[]</span>
 			<span class="var-name">$landscapePoints</span>
-						(line <span class="line-number">4489</span>)
+						(line <span class="line-number">2528</span>)
 		</span>
 	</div>
 
@@ -245,7 +244,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$startDate</span>
-						(line <span class="line-number">4477</span>)
+						(line <span class="line-number">2516</span>)
 		</span>
 	</div>
 
@@ -288,7 +287,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">4507</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">2546</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -335,10 +334,10 @@
 		<div class="notes">Redefined in descendants as:</div>
 		<ul class="redefinitions">
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201109/CriterionBidLandscape.html#method__construct">CriterionBidLandscape::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201109/AdGroupBidLandscape.html#method__construct">AdGroupBidLandscape::__construct()</a>
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201109/AdGroupBidLandscape.html#method__construct">AdGroupBidLandscape::__construct()</a>
+				<a href="../../GoogleApiAdsAdWords/v201109/CriterionBidLandscape.html#method__construct">CriterionBidLandscape::__construct()</a>
 							</li>
 				</ul>
 	</div>
@@ -346,7 +345,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getNamespace</span> (line <span class="line-number">4495</span>)
+		<span class="method-title">getNamespace</span> (line <span class="line-number">2534</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -376,11 +375,11 @@
 		<div class="notes">Redefined in descendants as:</div>
 		<ul class="redefinitions">
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201109/CriterionBidLandscape.html#methodgetNamespace">CriterionBidLandscape::getNamespace()</a>
+				<a href="../../GoogleApiAdsAdWords/v201109/AdGroupBidLandscape.html#methodgetNamespace">AdGroupBidLandscape::getNamespace()</a>
 								: Gets the namesapce of this class
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201109/AdGroupBidLandscape.html#methodgetNamespace">AdGroupBidLandscape::getNamespace()</a>
+				<a href="../../GoogleApiAdsAdWords/v201109/CriterionBidLandscape.html#methodgetNamespace">CriterionBidLandscape::getNamespace()</a>
 								: Gets the namesapce of this class
 							</li>
 				</ul>
@@ -389,7 +388,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">4503</span>)
+		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">2542</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -419,11 +418,11 @@
 		<div class="notes">Redefined in descendants as:</div>
 		<ul class="redefinitions">
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201109/CriterionBidLandscape.html#methodgetXsiTypeName">CriterionBidLandscape::getXsiTypeName()</a>
+				<a href="../../GoogleApiAdsAdWords/v201109/AdGroupBidLandscape.html#methodgetXsiTypeName">AdGroupBidLandscape::getXsiTypeName()</a>
 								: Gets the xsi:type name of this class
 							</li>
 					<li>
-				<a href="../../GoogleApiAdsAdWords/v201109/AdGroupBidLandscape.html#methodgetXsiTypeName">AdGroupBidLandscape::getXsiTypeName()</a>
+				<a href="../../GoogleApiAdsAdWords/v201109/CriterionBidLandscape.html#methodgetXsiTypeName">CriterionBidLandscape::getXsiTypeName()</a>
 								: Gets the xsi:type name of this class
 							</li>
 				</ul>

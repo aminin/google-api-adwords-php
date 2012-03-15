@@ -25,7 +25,7 @@
 <p class="short-description">A {@code BulkMutateJob} is essentially a mixed collection of mutate</p>
 <p class="description"><p>operations from the following AdWords API campaign management services:  <ul><li><a href="../../GoogleApiAdsAdWords/v201109/CampaignService.html">CampaignService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/CampaignTargetService.html">CampaignTargetService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/CampaignCriterionService.html">CampaignCriterionService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/AdGroupService.html">AdGroupService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/AdGroupAdService.html">AdGroupAdService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/AdGroupCriterionService.html">AdGroupCriterionService</a></li></ul></p><p>&lt;p&gt;The mutate operations in a job's request are constructed in exactly the  same way as they are for synchronous calls to these services.&lt;/p&gt;</p><p>&lt;p&gt;The mutate operations are grouped by their scoping entity in the  AdWords customer tree. Currently, mutate operations can be grouped either  by the customer or by their parent campaign. However, they cannot be  grouped both ways - some by customer and others by campaigns - in the same  job.&lt;/p&gt;</p><p>&lt;p class=&quot;note&quot;&gt;<strong>Note:</strong> A job may have no more than 500,000 mutate  operations in total, and no more than 10 different scoping campaigns.&lt;/p&gt;</p><p>&lt;p&gt;The mutate operations must be packaged into containers called  {@code Operation Streams}, each tagged with the ID of the scoping entity of  its operations.&lt;/p&gt;</p><p>&lt;p&gt;To facilitate the building of very large bulk mutate jobs, the operation  streams of a job can be submitted using multiple request parts. A job is  queued for processing as soon as it can be determined that all of its  request parts have been received.&lt;/p&gt;</p><p>&lt;p class=&quot;note&quot;&gt;<strong>Note:</strong> A job may have no more than 100 request parts.  Each part may have no more than 25 operation streams and no more than 10,000  operations in total.&lt;/p&gt;</p></p>
 		<p class="notes">
-			Located in <a class="field" href="_Ads---AdWords---v201109---BulkMutateJobService.php.html">/Ads/AdWords/v201109/BulkMutateJobService.php</a> (line <span class="field">13465</span>)
+			Located in <a class="field" href="_Ads---AdWords---v201109---BulkMutateJobService.php.html">/Ads/AdWords/v201109/BulkMutateJobService.php</a> (line <span class="field">13512</span>)
 		</p>
 		
 				
@@ -138,7 +138,7 @@
 		<span class="var-title">
 			<span class="var-type">BulkMutateJobEvent[]</span>
 			<span class="var-name">$history</span>
-						(line <span class="line-number">13494</span>)
+						(line <span class="line-number">13541</span>)
 		</span>
 	</div>
 
@@ -159,7 +159,7 @@
 		<span class="var-title">
 			<span class="var-type">integer</span>
 			<span class="var-name">$id</span>
-						(line <span class="line-number">13470</span>)
+						(line <span class="line-number">13517</span>)
 		</span>
 	</div>
 
@@ -180,7 +180,7 @@
 		<span class="var-title">
 			<span class="var-type">integer</span>
 			<span class="var-name">$numRequestParts</span>
-						(line <span class="line-number">13506</span>)
+						(line <span class="line-number">13553</span>)
 		</span>
 	</div>
 
@@ -201,7 +201,7 @@
 		<span class="var-title">
 			<span class="var-type">integer</span>
 			<span class="var-name">$numRequestPartsReceived</span>
-						(line <span class="line-number">13512</span>)
+						(line <span class="line-number">13559</span>)
 		</span>
 	</div>
 
@@ -222,7 +222,7 @@
 		<span class="var-title">
 			<span class="var-type"><a href="../../GoogleApiAdsAdWords/v201109/BulkMutateJobPolicy.html">BulkMutateJobPolicy</a></span>
 			<span class="var-name">$policy</span>
-						(line <span class="line-number">13476</span>)
+						(line <span class="line-number">13523</span>)
 		</span>
 	</div>
 
@@ -243,7 +243,7 @@
 		<span class="var-title">
 			<span class="var-type"><a href="../../GoogleApiAdsAdWords/v201109/BulkMutateRequest.html">BulkMutateRequest</a></span>
 			<span class="var-name">$request</span>
-						(line <span class="line-number">13482</span>)
+						(line <span class="line-number">13529</span>)
 		</span>
 	</div>
 
@@ -264,7 +264,7 @@
 		<span class="var-title">
 			<span class="var-type"><a href="../../GoogleApiAdsAdWords/v201109/BulkMutateResult.html">BulkMutateResult</a></span>
 			<span class="var-name">$result</span>
-						(line <span class="line-number">13500</span>)
+						(line <span class="line-number">13547</span>)
 		</span>
 	</div>
 
@@ -285,7 +285,7 @@
 		<span class="var-title">
 			<span class="var-type">tnsBasicJobStatus</span>
 			<span class="var-name">$status</span>
-						(line <span class="line-number">13488</span>)
+						(line <span class="line-number">13535</span>)
 		</span>
 	</div>
 
@@ -339,7 +339,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">13530</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">13577</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -408,7 +408,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getNamespace</span> (line <span class="line-number">13518</span>)
+		<span class="method-title">getNamespace</span> (line <span class="line-number">13565</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -439,7 +439,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">13526</span>)
+		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">13573</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
