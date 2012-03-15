@@ -100,10 +100,27 @@
     <phpunit haltonfailure="false" printsummary="true">
       <batchtest>
         <fileset dir="${tests.dir}">
-          <include name="**/v201109/*Test.php"/>
+          <include name="Google/Api/Ads/AdWords/v201109/*Test.php"/>
+          <include name="examples/v201109/*Test.php"/>
         </fileset>
       </batchtest>
       <formatter type="xml" todir="report" outfile="test_results_v201109.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: run tests for AdX v201109                                   -->
+  <!-- =================================================================== -->
+  <target name="test-adx-v201109" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="adx-examples/v201109/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report"
+          outfile="test_results_adx_v201109.xml"/>
     </phpunit>
   </target>
 
