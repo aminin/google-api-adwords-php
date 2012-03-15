@@ -4,6 +4,7 @@
  * run GetAdGroups.php.
  *
  * Tags: AdGroupAdService.mutate
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -50,25 +51,24 @@ function AddTextAdsExample(AdWordsUser $user, $adGroupId) {
   // Get the service, which loads the required classes.
   $adGroupAdService = $user->GetService('AdGroupAdService', 'v201109');
 
-  // Create text ads.
   $numAds = 5;
-  $ads = array();
+  $operations = array();
   for ($i = 0; $i < $numAds; $i++) {
+    // Create text ad.
     $textAd = new TextAd();
     $textAd->headline = 'Cruise #' . uniqid();
     $textAd->description1 = 'Visit the Red Planet in style.';
     $textAd->description2 = 'Low-gravity fun for everyone!';
     $textAd->displayUrl = 'www.example.com';
     $textAd->url = 'http://www.example.com';
-    $ads[] = $textAd;
-  }
 
-  // Create ad group ads and operations.
-  $operations = array();
-  foreach ($ads as $ad) {
+    // Create ad group ad.
     $adGroupAd = new AdGroupAd();
     $adGroupAd->adGroupId = $adGroupId;
-    $adGroupAd->ad = $ad;
+    $adGroupAd->ad = $textAd;
+
+    // Set additional settings (optional).
+    $adGroupAd->status = 'PAUSED';
 
     // Create operation.
     $operation = new AdGroupAdOperation();

@@ -37,7 +37,7 @@ require_once $testsPath . 'Google/Api/Ads/Common/AdsTestCase.php';
 $examplesPath = dirname(__FILE__) . '/../../../examples/';
 foreach (glob($examplesPath . 'v201109/Targeting/*.php') as $filename)
 {
-    require_once $filename;
+  require_once $filename;
 }
 
 /**

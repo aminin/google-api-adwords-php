@@ -65,7 +65,10 @@ function AddExperimentExample(AdWordsUser $user, $campaignId, $adGroupId) {
   $experiment->campaignId = $campaignId;
   $experiment->name = 'Interplanetary Experiment #' . uniqid();
   $experiment->queryPercentage = 10;
-  $experiment->startDateTime = date('Ymd His');
+
+  // Set additional settings (optional).
+  $experiment->startDateTime = date('Ymd His', strtotime('+1 day'));
+  $experiment->endDateTime = date('Ymd His', strtotime('+1 month'));
 
   // Create operation.
   $experimentOperation = new ExperimentOperation();

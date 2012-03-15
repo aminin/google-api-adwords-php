@@ -88,9 +88,11 @@ function AddLocationExtensionExample(AdWordsUser $user, $campaignId) {
   $locationExtension->address = $geoLocation->address;
   $locationExtension->geoPoint = $geoLocation->geoPoint;
   $locationExtension->encodedLocation = $geoLocation->encodedLocation;
-  $locationExtension->companyName = 'Google';
-  $locationExtension->phoneNumber = '650-253-0000';
   $locationExtension->source = 'ADWORDS_FRONTEND';
+
+  // Set additional settings (optional).
+  $locationExtension->companyName = 'ACME Inc.';
+  $locationExtension->phoneNumber = '(650) 253-0000';
 
   // Create campaign ad extension.
   $campaignAdExtension = new CampaignAdExtension();

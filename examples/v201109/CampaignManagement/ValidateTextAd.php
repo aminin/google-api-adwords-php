@@ -4,6 +4,7 @@
  * when checking for policy violations.
  *
  * Tags: CampaignService.mutate
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *

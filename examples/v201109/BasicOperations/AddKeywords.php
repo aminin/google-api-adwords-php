@@ -4,6 +4,7 @@
  * GetAdGroups.php.
  *
  * Tags: AdGroupCriterionService.mutate
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -50,23 +51,31 @@ function AddKeywordsExample(AdWordsUser $user, $adGroupId) {
   $adGroupCriterionService =
       $user->GetService('AdGroupCriterionService', 'v201109');
 
-  // Create keyword criteria.
   $numKeywords = 5;
-  $criteria = array();
+  $operations = array();
   for ($i = 0; $i < $numKeywords; $i++) {
+    // Create keyword criterion.
     $keyword = new Keyword();
     $keyword->text = 'mars cruise ' . uniqid();
     $keyword->matchType = 'BROAD';
-    $criteria[] = $keyword;
-  }
 
-  // Create ad group criteria and operations.
-  $operations = array();
-  foreach ($criteria as $criterion) {
+    // Create biddable ad group criterion.
     $adGroupCriterion = new BiddableAdGroupCriterion();
     $adGroupCriterion->adGroupId = $adGroupId;
-    $adGroupCriterion->criterion = $criterion;
+    $adGroupCriterion->criterion = $keyword;
 
+    // Set additional settings (optional).
+    $adGroupCriterion->userStatus = 'PAUSED';
+    $adGroupCriterion->destinationUrl = 'http://www.example.com/mars';
+
+    // Set bids (optional).
+    $bids = new ManualCPCAdGroupCriterionBids();
+    $bids->maxCpc = new Bid(new Money(500000));
+    $adGroupCriterion->bids = $bids;
+
+    $adGroupCriteria[] = $adGroupCriterion;
+
+    // Create operation.
     $operation = new AdGroupCriterionOperation();
     $operation->operand = $adGroupCriterion;
     $operation->operator = 'ADD';

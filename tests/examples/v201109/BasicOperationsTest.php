@@ -37,7 +37,7 @@ require_once $testsPath . 'Google/Api/Ads/Common/AdsTestCase.php';
 $examplesPath = dirname(__FILE__) . '/../../../examples/';
 foreach (glob($examplesPath . 'v201109/BasicOperations/*.php') as $filename)
 {
-    require_once $filename;
+  require_once $filename;
 }
 
 /**
@@ -77,12 +77,12 @@ class BasicOperationsTest extends AdsTestCase {
     sleep(5);
   }
 
-  public function testAddAdGroupExample() {
-    AddAdGroupExample($this->user, $this->campaignId);
+  public function testAddAdGroupsExample() {
+    AddAdGroupsExample($this->user, $this->campaignId);
   }
 
-  public function testAddCampaignExample() {
-    AddCampaignExample($this->user);
+  public function testAddCampaignsExample() {
+    AddCampaignsExample($this->user);
   }
 
   public function testAddKeywordsExample() {

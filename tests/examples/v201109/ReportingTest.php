@@ -37,7 +37,7 @@ require_once $testsPath . 'Google/Api/Ads/Common/AdsTestCase.php';
 $examplesPath = dirname(__FILE__) . '/../../../examples/';
 foreach (glob($examplesPath . 'v201109/Reporting/*.php') as $filename)
 {
-    require_once $filename;
+  require_once $filename;
 }
 
 /**
@@ -76,6 +76,10 @@ class ReportingTest extends AdsTestCase {
 
   // DownloadDefinedReport can't be tested because new reports cannot be
   // defined.
+
+  public function testGetCampaignStatsExample() {
+    GetCampaignStatsExample($this->user);
+  }
 
   public function testGetDefinedReportsExample() {
     GetDefinedReportsExample($this->user);

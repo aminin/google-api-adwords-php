@@ -4,6 +4,7 @@
  * GetKeywords.php.
  *
  * Tags: AdGroupCriterionService.mutate
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -53,7 +54,7 @@ function UpdateKeywordExample(AdWordsUser $user, $adGroupId, $criterionId) {
       $user->GetService('AdGroupCriterionService', 'v201109');
 
   // Create criterion using an existing ID. Use the base class Criterion
-  // instead of Keyword to avoid having to set ad-specific fields.
+  // instead of Keyword to avoid having to set keyword-specific fields.
   $criterion = new Criterion();
   $criterion->id = $criterionId;
 
@@ -63,7 +64,7 @@ function UpdateKeywordExample(AdWordsUser $user, $adGroupId, $criterionId) {
   $adGroupCriterion->criterion = new Criterion($criterionId);
 
   // Update destination URL.
-  $adGroupCriterion->destinationUrl = 'http://www.example.com';
+  $adGroupCriterion->destinationUrl = 'http://www.example.com/new';
 
   // Create operation.
   $operation = new AdGroupCriterionOperation();

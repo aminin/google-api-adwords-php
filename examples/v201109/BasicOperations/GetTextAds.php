@@ -4,6 +4,7 @@
  * AddTextAds.php. To get ad groups, run GetAdGroups.php
  *
  * Tags: AdGroupAdService.get
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *

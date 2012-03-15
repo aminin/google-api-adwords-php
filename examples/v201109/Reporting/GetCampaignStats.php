@@ -1,12 +1,11 @@
 <?php
 /**
- * This example gets all available keyword bid simulations within an ad group.
- * To get ad groups, run BasicOperation/GetAdGroups.php.
+ * This example gets various statistics for campaigns that received at least one
+ * impression during the last week. To get campaigns, run GetCampaigns.php.
  *
- * Tags: DataService.getCriterionBidLandscape
- * Restriction: adwords-only
+ * Tags: CampaignService.get
  *
- * Copyright 2011, Google Inc. All Rights Reserved.
+ * Copyright 2012, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +22,7 @@
  * @package    GoogleApiAdsAdWords
  * @subpackage v201109
  * @category   WebServices
- * @copyright  2011, Google Inc. All Rights Reserved.
+ * @copyright  2012, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
@@ -38,53 +37,48 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-// Enter parameters required by the code example.
-$adGroupId = 'INSERT_ADGROUP_ID_HERE';
-
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
- * @param string $adGroupId the id the ad group containing keyword bid
- *     simulations
+ * @param string $campaignId the ID of the campaign to get stats for
  */
-function GetKeywordBidSimulationsExample(AdWordsUser $user, $adGroupId) {
+function GetCampaignStatsExample(AdWordsUser $user) {
   // Get the service, which loads the required classes.
-  $dataService = $user->GetService('DataService', 'v201109');
+  $campaignService = $user->GetService('CampaignService', 'v201109');
 
   // Create selector.
   $selector = new Selector();
-  $selector->fields = array('AdGroupId', 'CriterionId', 'StartDate', 'EndDate',
-      'Bid', 'LocalClicks', 'LocalCost', 'MarginalCpc', 'LocalImpressions');
+  $selector->fields =
+      array('Id', 'Name', 'Impressions', 'Clicks', 'Cost', 'Ctr');
+  $selector->predicates[] =
+      new Predicate('Impressions', 'GREATER_THAN', array(0));
 
-  // Create predicates.
-  $selector->predicates[] = new Predicate('AdGroupId', 'IN', array($adGroupId));
+  // Set date range to request stats for.
+  $dateRange = new DateRange();
+  $dateRange->min = date('Ymd', strtotime('-1 week'));
+  $dateRange->max = date('Ymd', strtotime('-1 day'));
+  $selector->dateRange = $dateRange;
 
   // Create paging controls.
   $selector->paging = new Paging(0, AdWordsConstants::RECOMMENDED_PAGE_SIZE);
 
-  do{
-    // Make the getCriterionBidLandscape request.
-    $page = $dataService->getCriterionBidLandscape($selector);
+  do {
+    // Make the get request.
+    $page = $campaignService->get($selector);
 
     // Display results.
     if (isset($page->entries)) {
-      foreach ($page->entries as $bidLandscape) {
-        printf("Found criterion bid landscape for keyword with id '%s', start "
-            . "date '%s', end date '%s', and landscape points:\n",
-            $bidLandscape->criterionId, $bidLandscape->startDate,
-            $bidLandscape->endDate);
-        foreach ($bidLandscape->landscapePoints as $bidLandscapePoint) {
-          printf("  bid: %.0f => clicks: %d, cost: %.0f, marginalCpc: %.0f, "
-              . "impressions: %d\n",
-              $bidLandscapePoint->bid->microAmount, $bidLandscapePoint->clicks,
-              $bidLandscapePoint->cost->microAmount,
-              $bidLandscapePoint->marginalCpc->microAmount,
-              $bidLandscapePoint->impressions);
-        }
-        print "\n";
+      foreach ($page->entries as $campaign) {
+        printf("Campaign with name '%s' and id '%s' had the following stats "
+            . "during the last week:\n", $campaign->name, $campaign->id);
+        printf("  Impressions: %d\n", $campaign->campaignStats->impressions);
+        printf("  Clicks: %d\n", $campaign->campaignStats->clicks);
+        printf("  Cost: $%.2f\n", $campaign->campaignStats->cost->microAmount
+            / AdWordsConstants::MICROS_PER_DOLLAR);
+        printf("  CTR: %.2f%%\n", $campaign->campaignStats->ctr * 100);
       }
     } else {
-      print "No criterion bid landscapes were found.\n";
+      print "No matching campaigns were found.\n";
     }
 
     // Advance the paging index.
@@ -106,7 +100,7 @@ try {
   $user->LogAll();
 
   // Run the example.
-  GetKeywordBidSimulationsExample($user, $adGroupId);
+  GetCampaignStatsExample($user);
 } catch (Exception $e) {
   printf("An error has occurred: %s\n", $e->getMessage());
 }

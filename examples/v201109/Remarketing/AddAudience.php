@@ -56,9 +56,12 @@ function AddAudienceExample(AdWordsUser $user) {
   // Create remarketing user list.
   $userList = new RemarketingUserList();
   $userList->name = 'Mars cruise customers #' . uniqid();
-  $userList->description = 'A list of mars cruise customers in the last year';
-  $userList->membershipLifeSpan = 365;
   $userList->conversionTypes = array($conversionType);
+
+  // Set additional settings (optional).
+  $userList->description = 'A list of mars cruise customers in the last year';
+  $userList->status = 'OPEN';
+  $userList->membershipLifeSpan = 365;
 
   // Create operation.
   $operation = new UserListOperation();

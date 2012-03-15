@@ -65,6 +65,14 @@ function AddLocationExtensionOverrideExample(AdWordsUser $user, $adId,
   $adExtension->id = $campaignAdExtensionId;
   $adExtensionOverride->adExtension = $adExtension;
 
+  // Set override info (optional).
+  $locationOverrideInfo = new LocationOverrideInfo();
+  $locationOverrideInfo->radius = 5;
+  $locationOverrideInfo->radiusUnits = 'MILES';
+  $overrideInfo = new OverrideInfo();
+  $overrideInfo->LocationOverrideInfo = $locationOverrideInfo;
+  $adExtensionOverride->overrideInfo = $overrideInfo;
+
   // Create operations.
   $operation = new AdExtensionOverrideOperation();
   $operation->operand = $adExtensionOverride;

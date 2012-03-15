@@ -1,9 +1,10 @@
 <?php
 /**
- * This example gets keywords in an ad group. To add keywords, run
+ * This example gets all keywords in an ad group. To add keywords, run
  * AddKeywords.php. To get ad groups, run GetAdGroups.php.
  *
  * Tags: AdGroupCriterionService.get
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *

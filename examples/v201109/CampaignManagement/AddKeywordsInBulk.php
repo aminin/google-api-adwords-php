@@ -5,6 +5,7 @@
  *
  * Tags: MutateJobService.mutate, MutateJobService.get
  * Tags: MutateJobService.getResults
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -59,9 +60,9 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
     $keyword = new Keyword();
     // Randomly add invalid characters to keywords.
     if (rand(0, 9) == 0) {
-      $keyword->text = uniqid('keyword!!!');
+      $keyword->text = 'keyword!!!' . uniqid();
     } else {
-      $keyword->text = uniqid('keyword');
+      $keyword->text = 'keyword' . uniqid();
     }
     $keyword->matchType = 'BROAD';
 
@@ -136,27 +137,27 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
     foreach ($jobResult->errors as $error) {
       $index = OgnlUtils::GetOperationIndex($error->fieldPath);
       if (isset($index)) {
-        $keyword = $operations[$index]->operand->criterion->text;
+        $keywordText = $operations[$index]->operand->criterion->text;
         switch ($error->reason) {
           case 'LOST_RESULT':
-            $lost[] = $keyword;
+            $lost[] = $keywordText;
             break;
           case 'UNPROCESSED_RESULT':
           case 'BATCH_FAILURE':
-            $skipped[] = $keyword;
+            $skipped[] = $keywordText;
             break;
           default:
-            if (!in_array($keyword, $failed)) {
-              $failed[] = $keyword;
+            if (!in_array($keywordText, $failed)) {
+              $failed[] = $keywordText;
             }
-            $errors[$keyword][] = $error;
+            $errors[$keywordText][] = $error;
         }
       } else {
         $genericErrors[] = $error;
       }
     }
 
-    // Examples the results to determine which keywords were added successfully.
+    // Examine the results to determine which keywords were added successfully.
     $succeeded = array();
     for ($i = 0; $i < sizeof($jobResult->results); $i++) {
       $operation = $operations[$i];
@@ -174,12 +175,12 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
         sizeof($skipped), implode(', ', $skipped));
 
     printf("%d keywords were not added due to errors:\n", sizeof($failed));
-    foreach ($failed as $keyword) {
+    foreach ($failed as $keywordText) {
       $errorStrings = array();
-      foreach ($errors[$keyword] as $error) {
+      foreach ($errors[$keywordText] as $error) {
         $errorStrings[] = $error->errorString;
       }
-      printf("- %s: %s\n", $keyword, implode(', ', $errorStrings));
+      printf("- %s: %s\n", $keywordText, implode(', ', $errorStrings));
     }
 
     printf("%d generic errors were encountered:\n", sizeof($genericErrors));

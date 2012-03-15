@@ -1,8 +1,9 @@
 <?php
 /**
- * This example adds a campaign.
+ * This example adds ad groups to a campaign. To get campaigns, run
+ * GetCampaigns.php.
  *
- * Tags: CampaignService.mutate
+ * Tags: AdGroupService.mutate
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -24,7 +25,6 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
- * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <eric.koleda@google.com>
  */
 
@@ -37,49 +37,51 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
+// Enter parameters required by the code example.
+$campaignId = 'INSERT_CAMPAIGN_ID_HERE';
+
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
+ * @param string $campaignId the ID of the campaign to add the ad group to
  */
-function AddCampaignExample(AdWordsUser $user) {
+function AddAdGroupsExample(AdWordsUser $user, $campaignId) {
   // Get the service, which loads the required classes.
-  $campaignService = $user->GetService('CampaignService', 'v201109');
+  $adGroupService = $user->GetService('AdGroupService', 'v201109');
 
-  // Create campaign.
-  $campaign = new Campaign();
-  $campaign->name = 'Interplanetary Cruise #' . uniqid();
-  $campaign->status = 'PAUSED';
-  $campaign->biddingStrategy = new ManualCPC();
+  $numAdGroups = 2;
+  $operations = array();
+  for ($i = 0; $i < $numAdGroups; $i++) {
+    // Create ad group.
+    $adGroup = new AdGroup();
+    $adGroup->campaignId = $campaignId;
+    $adGroup->name = 'Earth to Mars Cruise #' . uniqid();
 
-  $budget = new Budget();
-  $budget->period = 'DAILY';
-  $budget->amount = new Money(50000000);
-  $budget->deliveryMethod = 'STANDARD';
-  $campaign->budget = $budget;
+    // Set bids (required).
+    $bids = new ManualCPCAdGroupBids();
+    $bids->keywordMaxCpc = new Bid(new Money(1000000));
+    $bids->keywordContentMaxCpc = new Bid(new Money(750000));
+    $adGroup->bids = $bids;
 
-  // Set the campaign network options to Google Search and Search Network.
-  $networkSetting = new NetworkSetting();
-  $networkSetting->targetGoogleSearch = TRUE;
-  $networkSetting->targetSearchNetwork = TRUE;
-  $networkSetting->targetContentNetwork = FALSE;
-  $networkSetting->targetContentContextual = FALSE;
-  $networkSetting->targetPartnerSearchNetwork = FALSE;
-  $campaign->networkSetting = $networkSetting;
+    // Set additional settings (optional).
+    $adGroup->status = 'ENABLED';
 
-  // Create operation.
-  $operation = new CampaignOperation();
-  $operation->operand = $campaign;
-  $operation->operator = 'ADD';
-
-  $operations = array($operation);
+    // Create operation.
+    $operation = new AdGroupOperation();
+    $operation->operand = $adGroup;
+    $operation->operator = 'ADD';
+    $operations[] = $operation;
+  }
 
   // Make the mutate request.
-  $result = $campaignService->mutate($operations);
+  $result = $adGroupService->mutate($operations);
 
   // Display result.
-  $campaign = $result->value[0];
-  printf("Campaign with name '%s' and id '%s' was added.\n", $campaign->name,
-      $campaign->id);
+  $adGroups = $result->value;
+  foreach ($adGroups as $adGroup) {
+    printf("Ad group with name '%s' and id '%s' was added.\n", $adGroup->name,
+        $adGroup->id);
+  }
 }
 
 // Don't run the example if the file is being included.
@@ -96,7 +98,7 @@ try {
   $user->LogAll();
 
   // Run the example.
-  AddCampaignExample($user);
+  AddAdGroupsExample($user, $campaignId);
 } catch (Exception $e) {
   printf("An error has occurred: %s\n", $e->getMessage());
 }
