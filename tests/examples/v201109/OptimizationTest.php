@@ -37,7 +37,7 @@ require_once $testsPath . 'Google/Api/Ads/Common/AdsTestCase.php';
 $examplesPath = dirname(__FILE__) . '/../../../examples/';
 foreach (glob($examplesPath . 'v201109/Optimization/*.php') as $filename)
 {
-    require_once $filename;
+  require_once $filename;
 }
 
 /**
@@ -81,10 +81,6 @@ class OptimizationTest extends AdsTestCase {
 
   public function testGetKeywordIdeasExample() {
     GetKeywordIdeasExample($this->user);
-  }
-
-  public function testGetKeywordOpportunitiesExample() {
-    GetKeywordOpportunitiesExample($this->user);
   }
 
   public function testGetPlacementIdeasExample() {
