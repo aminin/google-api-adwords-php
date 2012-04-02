@@ -3,6 +3,7 @@
  * This example deletes a keyword. To get keywords, run GetKeywords.php.
  *
  * Tags: AdGroupCriterionService.mutate
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -51,8 +52,8 @@ function DeleteKeywordExample(AdWordsUser $user, $adGroupId, $criterionId) {
   $adGroupCriterionService =
       $user->GetService('AdGroupCriterionService', 'v201109');
 
-  // Create base class criterion to avoid setting keyword and placement specific
-  // fields.
+  // Create criterion using an existing ID. Use the base class Criterion
+  // instead of Keyword to avoid having to set keyword-specific fields.
   $criterion = new Criterion();
   $criterion->id = $criterionId;
 

@@ -30,87 +30,6 @@
 /** Required classes. **/
 require_once dirname(__FILE__) . "/../Lib/AdWordsSoapClient.php";
 
-if (!class_exists("Address", FALSE)) {
-/**
- * Structure to specify an address location.
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Address {
-  /**
-   * @access public
-   * @var string
-   */
-  public $streetAddress;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $streetAddress2;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $cityName;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $provinceCode;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $provinceName;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $postalCode;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $countryCode;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Address";
-  }
-
-  public function __construct($streetAddress = NULL, $streetAddress2 = NULL, $cityName = NULL, $provinceCode = NULL, $provinceName = NULL, $postalCode = NULL, $countryCode = NULL) {
-    if(get_parent_class('Address')) parent::__construct();
-    $this->streetAddress = $streetAddress;
-    $this->streetAddress2 = $streetAddress2;
-    $this->cityName = $cityName;
-    $this->provinceCode = $provinceCode;
-    $this->provinceName = $provinceName;
-    $this->postalCode = $postalCode;
-    $this->countryCode = $countryCode;
-  }
-}}
-
 if (!class_exists("ApiError", FALSE)) {
 /**
  * The API error base class that provides details about an error that occurred
@@ -121,7 +40,11 @@ if (!class_exists("ApiError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -213,7 +136,11 @@ if (!class_exists("ApplicationException", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -291,7 +218,11 @@ if (!class_exists("AuthenticationError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -334,7 +265,11 @@ if (!class_exists("AuthorizationError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -377,7 +312,11 @@ if (!class_exists("ClientTermsError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -420,7 +359,11 @@ if (!class_exists("ComparableValue", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -491,7 +434,11 @@ if (!class_exists("Criterion", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -576,7 +523,11 @@ if (!class_exists("DatabaseError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -619,7 +570,11 @@ if (!class_exists("DateError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -662,7 +617,11 @@ if (!class_exists("DistinctError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -705,7 +664,11 @@ if (!class_exists("EntityAccessDenied", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -749,7 +712,11 @@ if (!class_exists("EntityNotFound", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -786,101 +753,17 @@ class EntityNotFound extends ApiError {
   }
 }}
 
-if (!class_exists("Gender", FALSE)) {
-/**
- * Represents a Gender criterion.
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Gender extends Criterion {
-  /**
-   * @access public
-   * @var tnsGenderGenderType
-   */
-  public $genderType;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Gender";
-  }
-
-  public function __construct($genderType = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Gender')) parent::__construct();
-    $this->genderType = $genderType;
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
-if (!class_exists("GeoPoint", FALSE)) {
-/**
- * Specifies a geo location with the supplied latitude/longitude.
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class GeoPoint {
-  /**
-   * @access public
-   * @var integer
-   */
-  public $latitudeInMicroDegrees;
-
-  /**
-   * @access public
-   * @var integer
-   */
-  public $longitudeInMicroDegrees;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "GeoPoint";
-  }
-
-  public function __construct($latitudeInMicroDegrees = NULL, $longitudeInMicroDegrees = NULL) {
-    if(get_parent_class('GeoPoint')) parent::__construct();
-    $this->latitudeInMicroDegrees = $latitudeInMicroDegrees;
-    $this->longitudeInMicroDegrees = $longitudeInMicroDegrees;
-  }
-}}
-
 if (!class_exists("IdError", FALSE)) {
 /**
  * Errors associated with the ids.
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -925,7 +808,11 @@ if (!class_exists("InternalApiError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -968,7 +855,11 @@ if (!class_exists("Keyword", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1014,10 +905,15 @@ class Keyword extends Criterion {
 if (!class_exists("Language", FALSE)) {
 /**
  * Represents a Language criterion.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1027,6 +923,12 @@ class Language extends Criterion {
    * @var string
    */
   public $code;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $name;
 
   /**
    * Gets the namesapce of this class
@@ -1044,9 +946,10 @@ class Language extends Criterion {
     return "Language";
   }
 
-  public function __construct($code = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
+  public function __construct($code = NULL, $name = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
     if(get_parent_class('Language')) parent::__construct();
     $this->code = $code;
+    $this->name = $name;
     $this->id = $id;
     $this->type = $type;
     $this->CriterionType = $CriterionType;
@@ -1056,10 +959,15 @@ class Language extends Criterion {
 if (!class_exists("Location", FALSE)) {
 /**
  * Represents Location criterion.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type can be either targeted or excluded.
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1122,7 +1030,11 @@ if (!class_exists("Money", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1162,7 +1074,11 @@ if (!class_exists("NetworkSetting", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1229,7 +1145,11 @@ if (!class_exists("NotEmptyError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1272,7 +1192,11 @@ if (!class_exists("NotWhitelistedError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1315,7 +1239,11 @@ if (!class_exists("NullError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1358,7 +1286,11 @@ if (!class_exists("NumberValue", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1385,48 +1317,17 @@ class NumberValue extends ComparableValue {
   }
 }}
 
-if (!class_exists("OperatingSystemVersion", FALSE)) {
-/**
- * Represents a Operating System Version Criterion.
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class OperatingSystemVersion extends Criterion {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "OperatingSystemVersion";
-  }
-
-  public function __construct($id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('OperatingSystemVersion')) parent::__construct();
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("OperationAccessDenied", FALSE)) {
 /**
  * Operation not permitted due to the invoked service's access policy.
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1469,7 +1370,11 @@ if (!class_exists("OperatorError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1513,7 +1418,11 @@ if (!class_exists("Placement", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1549,53 +1458,6 @@ class Placement extends Criterion {
   }
 }}
 
-if (!class_exists("Polygon", FALSE)) {
-/**
- * Represents a Polygon Criterion.
- * 
- * A polygon is described by a list of at least three points, where each point is a
- * (<var>latitude</var>, <var>longitude</var>) ordered pair. No point can be more than 400km
- * from the center of the polygon. The points are specified in microdegrees, the precison
- * for the value is 1 second of angle which is equal to 277 microdegrees.
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Polygon extends Criterion {
-  /**
-   * @access public
-   * @var GeoPoint[]
-   */
-  public $vertices;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Polygon";
-  }
-
-  public function __construct($vertices = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Polygon')) parent::__construct();
-    $this->vertices = $vertices;
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("Product", FALSE)) {
 /**
  * Product targeting criteria, represents a filter for products in the
@@ -1605,7 +1467,11 @@ if (!class_exists("Product", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1655,7 +1521,11 @@ if (!class_exists("ProductCondition", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1701,7 +1571,11 @@ if (!class_exists("ProductConditionOperand", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1734,80 +1608,17 @@ class ProductConditionOperand {
   }
 }}
 
-if (!class_exists("Proximity", FALSE)) {
-/**
- * Represents a Proximity Criterion.
- * 
- * A proximity is an area within a certain radius of a point with the center point being described
- * by a lat/long pair. The caller may also alternatively provide address fields which will be
- * geocoded into a lat/long pair.
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Proximity extends Criterion {
-  /**
-   * @access public
-   * @var GeoPoint
-   */
-  public $geoPoint;
-
-  /**
-   * @access public
-   * @var tnsProximityDistanceUnits
-   */
-  public $radiusDistanceUnits;
-
-  /**
-   * @access public
-   * @var double
-   */
-  public $radiusInUnits;
-
-  /**
-   * @access public
-   * @var Address
-   */
-  public $address;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Proximity";
-  }
-
-  public function __construct($geoPoint = NULL, $radiusDistanceUnits = NULL, $radiusInUnits = NULL, $address = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Proximity')) parent::__construct();
-    $this->geoPoint = $geoPoint;
-    $this->radiusDistanceUnits = $radiusDistanceUnits;
-    $this->radiusInUnits = $radiusInUnits;
-    $this->address = $address;
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("QuotaCheckError", FALSE)) {
 /**
  * Encapsulates the errors thrown during developer quota checks.
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1850,7 +1661,11 @@ if (!class_exists("RangeError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1893,7 +1708,11 @@ if (!class_exists("RateExceededError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1957,7 +1776,11 @@ if (!class_exists("ReadOnlyError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2000,7 +1823,11 @@ if (!class_exists("RegionCodeError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2043,7 +1870,11 @@ if (!class_exists("RejectedError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2087,7 +1918,11 @@ if (!class_exists("RequestError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2130,7 +1965,11 @@ if (!class_exists("RequiredError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2173,7 +2012,11 @@ if (!class_exists("SizeLimitError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2216,7 +2059,11 @@ if (!class_exists("SoapRequestHeader", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2290,7 +2137,11 @@ if (!class_exists("SoapResponseHeader", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2364,7 +2215,11 @@ if (!class_exists("StringLengthError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2407,7 +2262,11 @@ if (!class_exists("TargetError", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2452,7 +2311,11 @@ if (!class_exists("CriterionUserInterest", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2501,7 +2364,11 @@ if (!class_exists("CriterionUserList", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2561,7 +2428,11 @@ if (!class_exists("Vertical", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2597,45 +2468,17 @@ class Vertical extends Criterion {
   }
 }}
 
-if (!class_exists("AgeRangeAgeRangeType", FALSE)) {
-/**
- * <span class="constraint Rejected">Used for return value only. An enumeration could not be processed, typically due to incompatibility with your WSDL version.</span>
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class AgeRangeAgeRangeType {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AgeRange.AgeRangeType";
-  }
-
-  public function __construct() {
-    if(get_parent_class('AgeRangeAgeRangeType')) parent::__construct();
-  }
-}}
-
 if (!class_exists("AuthenticationErrorReason", FALSE)) {
 /**
  * The single reason for the authentication failure.
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2667,7 +2510,11 @@ if (!class_exists("AuthorizationErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2700,7 +2547,11 @@ if (!class_exists("ClientTermsErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2732,7 +2583,11 @@ if (!class_exists("CriterionType", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2764,7 +2619,11 @@ if (!class_exists("DatabaseErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2796,7 +2655,11 @@ if (!class_exists("DateErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2828,7 +2691,11 @@ if (!class_exists("DistinctErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2860,7 +2727,11 @@ if (!class_exists("EntityAccessDeniedReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2893,7 +2764,11 @@ if (!class_exists("EntityNotFoundReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2919,41 +2794,17 @@ class EntityNotFoundReason {
   }
 }}
 
-if (!class_exists("GenderGenderType", FALSE)) {
-/**
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class GenderGenderType {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Gender.GenderType";
-  }
-
-  public function __construct() {
-    if(get_parent_class('GenderGenderType')) parent::__construct();
-  }
-}}
-
 if (!class_exists("IdErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2985,7 +2836,11 @@ if (!class_exists("InternalApiErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3018,7 +2873,11 @@ if (!class_exists("KeywordMatchType", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3050,7 +2909,11 @@ if (!class_exists("NotEmptyErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3082,7 +2945,11 @@ if (!class_exists("NotWhitelistedErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3114,7 +2981,11 @@ if (!class_exists("NullErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3146,7 +3017,11 @@ if (!class_exists("OperationAccessDeniedReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3178,7 +3053,11 @@ if (!class_exists("OperatorErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3204,38 +3083,6 @@ class OperatorErrorReason {
   }
 }}
 
-if (!class_exists("ProximityDistanceUnits", FALSE)) {
-/**
- * The radius distance is expressed in either kilometers or miles.
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class ProximityDistanceUnits {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Proximity.DistanceUnits";
-  }
-
-  public function __construct() {
-    if(get_parent_class('ProximityDistanceUnits')) parent::__construct();
-  }
-}}
-
 if (!class_exists("QuotaCheckErrorReason", FALSE)) {
 /**
  * Enums for all the reasons an error can be thrown to the user during
@@ -3243,7 +3090,11 @@ if (!class_exists("QuotaCheckErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3275,7 +3126,11 @@ if (!class_exists("RangeErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3307,7 +3162,11 @@ if (!class_exists("RateExceededErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3339,7 +3198,11 @@ if (!class_exists("ReadOnlyErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3371,7 +3234,11 @@ if (!class_exists("RegionCodeErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3403,7 +3270,11 @@ if (!class_exists("RejectedErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3435,7 +3306,11 @@ if (!class_exists("RequestErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3467,7 +3342,11 @@ if (!class_exists("RequiredErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3499,7 +3378,11 @@ if (!class_exists("SizeLimitErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3531,7 +3414,11 @@ if (!class_exists("StringLengthErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3563,7 +3450,11 @@ if (!class_exists("TargetErrorReason", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -3595,7 +3486,11 @@ if (!class_exists("CriterionUserListMembershipStatus", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -4335,55 +4230,17 @@ class TrafficEstimatorServiceGetResponse {
   }
 }}
 
-if (!class_exists("AgeRange", FALSE)) {
-/**
- * Represents an Age Range criterion.
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class AgeRange extends Criterion {
-  /**
-   * @access public
-   * @var tnsAgeRangeAgeRangeType
-   */
-  public $ageRangeType;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "AgeRange";
-  }
-
-  public function __construct($ageRangeType = NULL, $id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('AgeRange')) parent::__construct();
-    $this->ageRangeType = $ageRangeType;
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("ApiException", FALSE)) {
 /**
  * Exception class for holding a list of service errors.
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -4418,48 +4275,17 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("Carrier", FALSE)) {
-/**
- * Represents a Carrier Criterion.
- * 
- * 
- * 
- * Structure to specify an address location.
- * @package GoogleApiAdsAdWords
- * @subpackage v201109
- */
-class Carrier extends Criterion {
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://adwords.google.com/api/adwords/cm/v201109";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "Carrier";
-  }
-
-  public function __construct($id = NULL, $type = NULL, $CriterionType = NULL) {
-    if(get_parent_class('Carrier')) parent::__construct();
-    $this->id = $id;
-    $this->type = $type;
-    $this->CriterionType = $CriterionType;
-  }
-}}
-
 if (!class_exists("DoubleValue", FALSE)) {
 /**
  * Number value type for constructing double valued ranges.
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -4499,7 +4325,11 @@ if (!class_exists("LongValue", FALSE)) {
  * 
  * 
  * 
- * Structure to specify an address location.
+ * The API error base class that provides details about an error that occurred
+ * while processing a service request.
+ * 
+ * <p>The OGNL field path is provided for parsers to identify the request data
+ * element that may have caused the error.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -4778,17 +4608,14 @@ class TrafficEstimatorService extends AdWordsSoapClient {
     "mutateResponse" => "TrafficEstimatorServiceMutateResponse",
     "DateTime" => "AdWordsDateTime",
     "SoapHeader" => "SoapRequestHeader",
-    "Address" => "Address",
-    "AgeRange" => "AgeRange",
-    "Criterion" => "Criterion",
     "ApiError" => "ApiError",
     "ApiException" => "ApiException",
     "ApplicationException" => "ApplicationException",
     "AuthenticationError" => "AuthenticationError",
     "AuthorizationError" => "AuthorizationError",
-    "Carrier" => "Carrier",
     "ClientTermsError" => "ClientTermsError",
     "ComparableValue" => "ComparableValue",
+    "Criterion" => "Criterion",
     "DatabaseError" => "DatabaseError",
     "DateError" => "DateError",
     "DistinctError" => "DistinctError",
@@ -4796,8 +4623,6 @@ class TrafficEstimatorService extends AdWordsSoapClient {
     "NumberValue" => "NumberValue",
     "EntityAccessDenied" => "EntityAccessDenied",
     "EntityNotFound" => "EntityNotFound",
-    "Gender" => "Gender",
-    "GeoPoint" => "GeoPoint",
     "IdError" => "IdError",
     "InternalApiError" => "InternalApiError",
     "Keyword" => "Keyword",
@@ -4809,15 +4634,12 @@ class TrafficEstimatorService extends AdWordsSoapClient {
     "NotEmptyError" => "NotEmptyError",
     "NotWhitelistedError" => "NotWhitelistedError",
     "NullError" => "NullError",
-    "OperatingSystemVersion" => "OperatingSystemVersion",
     "OperationAccessDenied" => "OperationAccessDenied",
     "OperatorError" => "OperatorError",
     "Placement" => "Placement",
-    "Polygon" => "Polygon",
     "Product" => "Product",
     "ProductCondition" => "ProductCondition",
     "ProductConditionOperand" => "ProductConditionOperand",
-    "Proximity" => "Proximity",
     "QuotaCheckError" => "QuotaCheckError",
     "RangeError" => "RangeError",
     "RateExceededError" => "RateExceededError",
@@ -4833,7 +4655,6 @@ class TrafficEstimatorService extends AdWordsSoapClient {
     "CriterionUserInterest" => "CriterionUserInterest",
     "CriterionUserList" => "CriterionUserList",
     "Vertical" => "Vertical",
-    "AgeRange.AgeRangeType" => "AgeRangeAgeRangeType",
     "AuthenticationError.Reason" => "AuthenticationErrorReason",
     "AuthorizationError.Reason" => "AuthorizationErrorReason",
     "ClientTermsError.Reason" => "ClientTermsErrorReason",
@@ -4843,7 +4664,6 @@ class TrafficEstimatorService extends AdWordsSoapClient {
     "DistinctError.Reason" => "DistinctErrorReason",
     "EntityAccessDenied.Reason" => "EntityAccessDeniedReason",
     "EntityNotFound.Reason" => "EntityNotFoundReason",
-    "Gender.GenderType" => "GenderGenderType",
     "IdError.Reason" => "IdErrorReason",
     "InternalApiError.Reason" => "InternalApiErrorReason",
     "KeywordMatchType" => "KeywordMatchType",
@@ -4852,7 +4672,6 @@ class TrafficEstimatorService extends AdWordsSoapClient {
     "NullError.Reason" => "NullErrorReason",
     "OperationAccessDenied.Reason" => "OperationAccessDeniedReason",
     "OperatorError.Reason" => "OperatorErrorReason",
-    "Proximity.DistanceUnits" => "ProximityDistanceUnits",
     "QuotaCheckError.Reason" => "QuotaCheckErrorReason",
     "RangeError.Reason" => "RangeErrorReason",
     "RateExceededError.Reason" => "RateExceededErrorReason",

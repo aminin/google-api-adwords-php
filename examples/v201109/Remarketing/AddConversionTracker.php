@@ -51,10 +51,20 @@ function AddConversionTrackerExample(AdWordsUser $user) {
   // Create conversion tracker.
   $conversionTracker = new AdWordsConversionTracker();
   $conversionTracker->name = 'Interplanetary Cruise Conversion #' . uniqid();
+
+  // Set additional settings (optional).
+  $conversionTracker->status = 'ENABLED';
   $conversionTracker->category = 'DEFAULT';
+  $conversionTracker->viewthroughLookbackWindow = 15;
+  $conversionTracker->viewthroughConversionDeDupSearch = TRUE;
+  $conversionTracker->isProductAdsChargeable = TRUE;
+  $conversionTracker->productAdsChargeableConversionWindow = 15;
   $conversionTracker->markupLanguage = 'HTML';
   $conversionTracker->httpProtocol = 'HTTP';
   $conversionTracker->textFormat = 'HIDDEN';
+  $conversionTracker->conversionPageLanguage = 'en';
+  $conversionTracker->backgroundColor = '#0000FF';
+  $conversionTracker->userRevenueValue = 'someJavascriptVariable';
 
   // Create operation.
   $operation = new ConversionTrackerOperation();

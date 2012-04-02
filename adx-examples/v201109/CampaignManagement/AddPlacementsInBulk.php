@@ -1,12 +1,10 @@
 <?php
 /**
  * This code sample illustrates how to perform asynchronous requests using the
- * MutateJobService
+ * MutateJobService. To get ad groups, run BasicOperations/GetAdGroups.php.
  *
- * Tags: MutateJobService.mutate, MutateJobService.get,
+ * Tags: MutateJobService.mutate, MutateJobService.get
  * Tags: MutateJobService.getResults
- *
- * PHP version 5
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -33,43 +31,37 @@
 
 error_reporting(E_STRICT | E_ALL);
 
-// You can set the include path to src directory or reference
-// AdWordsUser.php directly via require_once.
-// $path = '/path/to/aw_api_php_lib/src';
-$path = dirname(__FILE__) . '/../../src';
+// Add the library to the include path. This is not neccessary if you've already
+// done so in your php.ini file.
+$path = dirname(__FILE__) . '/../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 require_once 'Google/Api/Ads/Common/Util/ChoiceUtils.php';
 require_once 'Google/Api/Ads/Common/Util/OgnlUtils.php';
 
-// Define constants used in the example.
-define('PLACEMENT_COUNT', 100);
-define('MAX_RETRIES', 100);
-define('RETRY_INTERVAL', 10);
+// Enter parameters required by the code example.
+$adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
-try {
-  // Get AdWordsUser from credentials in "../auth.ini"
-  // relative to the AdWordsUser.php file's directory.
-  $user = new AdWordsUser();
-
-  // Log SOAP XML request and response.
-  $user->LogDefaults();
-
-  $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
-
-  // Get the MutateJobService.
+/**
+ * Runs the example.
+ * @param AdWordsUser $user the user to run the example with
+ * @param string $adGroupId the ID of the ad group to add placements to
+ */
+function AddPlacementsInBulkExample(AdWordsUser $user, $adGroupId) {
+  // Get the service, which loads the required classes.
   $mutateJobService = $user->GetService('MutateJobService', 'v201109');
 
   // Generate operations.
+  $numPlacements = 100;
   $operations = array();
-  for ($i = 0; $i < PLACEMENT_COUNT; $i++) {
+  for ($i = 0; $i < $numPlacements; $i++) {
     $placement = new Placement();
-    // Randomly add invalid characters to URLs.
+    // Randomly add invalid characters to placement URLs.
     if (rand(0, 9) == 0) {
-      $placement->url = uniqid('httpwwwexamplecom^');
+      $placement->url = 'mars.google.com/<' . uniqid();
     } else {
-      $placement->url = uniqid('http://www.example.com/');
+      $placement->url = 'mars.google.com/' . uniqid();
     }
 
     $adGroupCriterion = new BiddableAdGroupCriterion();
@@ -99,8 +91,10 @@ try {
   $selector->includeHistory = TRUE;
 
   $numRetries = 0;
+  $maxRetries = 100;
+  $retryInterval = 10;
   do {
-    sleep(RETRY_INTERVAL);
+    sleep($retryInterval);
     $jobs = $mutateJobService->get($selector);
     $job = $jobs[0];
     switch ($job->status) {
@@ -123,7 +117,7 @@ try {
     }
     $numRetries++;
   } while (($job->status == 'PENDING' || $job->status == 'PROCESSING') &&
-        $numRetries < MAX_RETRIES);
+        $numRetries < $maxRetries);
 
   if ($job->status == 'COMPLETED') {
     // Retrieve the results of the job.
@@ -141,27 +135,27 @@ try {
     foreach ($jobResult->errors as $error) {
       $index = OgnlUtils::GetOperationIndex($error->fieldPath);
       if (isset($index)) {
-        $placement = $operations[$index]->operand->criterion->url;
+        $placementUrl = $operations[$index]->operand->criterion->url;
         switch ($error->reason) {
           case 'LOST_RESULT':
-            $lost[] = $placement;
+            $lost[] = $placementUrl;
             break;
           case 'UNPROCESSED_RESULT':
           case 'BATCH_FAILURE':
-            $skipped[] = $placement;
+            $skipped[] = $placementUrl;
             break;
           default:
-            if (!in_array($placement, $failed)) {
-              $failed[] = $placement;
+            if (!in_array($placementUrl, $failed)) {
+              $failed[] = $placementUrl;
             }
-            $errors[$placement][] = $error;
+            $errors[$placementUrl][] = $error;
         }
       } else {
         $genericErrors[] = $error;
       }
     }
 
-    // Examples the results to determine which placements were added
+    // Examine the results to determine which placements were added
     // successfully.
     $succeeded = array();
     for ($i = 0; $i < sizeof($jobResult->results); $i++) {
@@ -180,12 +174,12 @@ try {
         sizeof($skipped), implode(', ', $skipped));
 
     printf("%d placements were not added due to errors:\n", sizeof($failed));
-    foreach ($failed as $placement) {
+    foreach ($failed as $placementUrl) {
       $errorStrings = array();
-      foreach ($errors[$placement] as $error) {
+      foreach ($errors[$placementUrl] as $error) {
         $errorStrings[] = $error->errorString;
       }
-      printf("- %s: %s\n", $placement, implode(', ', $errorStrings));
+      printf("- %s: %s\n", $placementUrl, implode(', ', $errorStrings));
     }
 
     printf("%d generic errors were encountered:\n", sizeof($genericErrors));
@@ -193,6 +187,23 @@ try {
       printf("- %s\n", $error->errorString);
     }
   }
+}
+
+// Don't run the example if the file is being included.
+if (__FILE__ != realpath($_SERVER['PHP_SELF'])) {
+  return;
+}
+
+try {
+  // Get AdWordsUser from credentials in "../auth.ini"
+  // relative to the AdWordsUser.php file's directory.
+  $user = new AdWordsUser();
+
+  // Log every SOAP XML request and response.
+  $user->LogAll();
+
+  // Run the example.
+  AddPlacementsInBulkExample($user, $adGroupId);
 } catch (Exception $e) {
-  print $e->getMessage();
+  printf("An error has occurred: %s\n", $e->getMessage());
 }

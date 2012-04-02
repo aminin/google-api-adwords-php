@@ -40,9 +40,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-// Constants used in the example.
-define('PAGE_SIZE', 500);
-
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
@@ -56,7 +53,7 @@ function GetAccountChangesExample(AdWordsUser $user) {
   $campaignIds = array();
   $selector = new Selector();
   $selector->fields = array('Id');
-  $selector->paging = new Paging(0, PAGE_SIZE);
+  $selector->paging = new Paging(0, AdWordsConstants::RECOMMENDED_PAGE_SIZE);
   do {
     $page = $campaignService->get($selector);
     if (isset($page->entries)) {
@@ -64,7 +61,7 @@ function GetAccountChangesExample(AdWordsUser $user) {
         $campaignIds[] = $campaign->id;
       }
     }
-    $selector->paging->startIndex += PAGE_SIZE;
+    $selector->paging->startIndex += AdWordsConstants::RECOMMENDED_PAGE_SIZE;
   } while ($page->totalNumEntries > $selector->paging->startIndex);
 
   // Set the date time range, from 24 hours ago until now.

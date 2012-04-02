@@ -2831,7 +2831,8 @@ class ApiException extends ApplicationException {
 
 if (!class_exists("CampaignTargetOperation", FALSE)) {
 /**
- * <span class="constraint Required">This field is required and should not be {@code null}.</span>
+ * Sets a list of targets on a specified campaign.
+ * <p class="note"><b>Note:</b> Only the <code>SET</code> operator is supported.</p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */

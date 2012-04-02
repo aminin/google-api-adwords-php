@@ -39,9 +39,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-// Constants used in the example.
-define('WAIT_TIME', 1);
-
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
@@ -59,9 +56,12 @@ function AddAudienceExample(AdWordsUser $user) {
   // Create remarketing user list.
   $userList = new RemarketingUserList();
   $userList->name = 'Mars cruise customers #' . uniqid();
-  $userList->description = 'A list of mars cruise customers in the last year';
-  $userList->membershipLifeSpan = 365;
   $userList->conversionTypes = array($conversionType);
+
+  // Set additional settings (optional).
+  $userList->description = 'A list of mars cruise customers in the last year';
+  $userList->status = 'OPEN';
+  $userList->membershipLifeSpan = 365;
 
   // Create operation.
   $operation = new UserListOperation();
@@ -75,7 +75,7 @@ function AddAudienceExample(AdWordsUser $user) {
   $userList = $result->value[0];
 
   // Wait a moment before retrieving the conversion snippet.
-  sleep(WAIT_TIME);
+  sleep(1);
 
   // Create the selector.
   $selector = new Selector();

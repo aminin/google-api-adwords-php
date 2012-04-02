@@ -5,6 +5,7 @@
  * account will only be accessible via the parent MCC account.
  *
  * Tags: CreateAccountService.mutate
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

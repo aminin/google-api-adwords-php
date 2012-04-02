@@ -67,17 +67,22 @@ class TestUtils {
 
   /**
    * Creates a new campaign.
+   * @param string $biddingStrategy the type of bidding strategy to use
    * @return float the id of the campaign
    */
-  public function CreateCampaign() {
+  public function CreateCampaign($biddingStrategyType = NULL) {
     $campaignService =
         $this->user->GetService('CampaignService', $this->version);
 
     $campaign = new Campaign();
     $campaign->name = 'Campaign #' . uniqid();
-    $campaign->biddingStrategy = new ManualCPC();
     $campaign->budget = new Budget('DAILY', new Money(50000000), 'STANDARD');
     $campaign->status = 'PAUSED';
+
+    if (!isset($biddingStrategyType)) {
+      $biddingStrategyType = 'ManualCPC';
+    }
+    $campaign->biddingStrategy = new $biddingStrategyType;
 
     $operation = new CampaignOperation(NULL, $campaign, 'ADD');
     $campaign = $campaignService->mutate(array($operation))->value[0];
@@ -103,16 +108,21 @@ class TestUtils {
   /**
    * Creates an ad group.
    * @param float $campaignId the id of the parent campaign
+   * @param string $bidsType the type of bids to use
    * @return float the id of the ad group
    */
-  public function CreateAdGroup($campaignId) {
+  public function CreateAdGroup($campaignId, $bidsType = NULL) {
     $adGroupService = $this->user->GetService('AdGroupService', $this->version);
 
     $adGroup = new AdGroup();
     $adGroup->name = 'AdGroup #' . uniqid();
-    $adGroup->bids = new ManualCPCAdGroupBids(new Bid(new Money(1000000)));
     $adGroup->campaignId = $campaignId;
     $adGroup->status = 'PAUSED';
+
+    if (!isset($bidsType)) {
+      $bidsType = 'ManualCPCAdGroupBids';
+    }
+    $adGroup->bids = new $bidsType(new Bid(new Money(1000000)));
 
     $operation = new AdGroupOperation($adGroup, 'ADD');
     $adGroup = $adGroupService->mutate(array($operation))->value[0];
@@ -156,6 +166,27 @@ class TestUtils {
     $adGroupCriterion = new BiddableAdGroupCriterion();
     $adGroupCriterion->adGroupId = $adGroupId;
     $adGroupCriterion->criterion = $keyword;
+
+    $operation = new AdGroupCriterionOperation($adGroupCriterion, NULL, 'ADD');
+    $adGroupCriterion =
+        $adGroupCriterionService->mutate(array($operation))->value[0];
+    return $adGroupCriterion->criterion->id;
+  }
+
+  /**
+   * Creates a placement criterion.
+   * @param float $adGroupId the id of the parent ad group
+   * @return float the id of the criterion
+   */
+  public function CreatePlacement($adGroupId) {
+    $adGroupCriterionService =
+        $this->user->GetService('AdGroupCriterionService', $this->version);
+
+    $placement = new Placement('mars.google.com');
+
+    $adGroupCriterion = new BiddableAdGroupCriterion();
+    $adGroupCriterion->adGroupId = $adGroupId;
+    $adGroupCriterion->criterion = $placement;
 
     $operation = new AdGroupCriterionOperation($adGroupCriterion, NULL, 'ADD');
     $adGroupCriterion =

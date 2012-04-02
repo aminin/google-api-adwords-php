@@ -2,8 +2,7 @@
 /**
  * This example illustrates how to find a client customer ID for a client email.
  * We recommend to use this script as a one off to convert your identifiers to
- * IDs and store them for future use. Note: this example must be run using the
- * credentials of an MCC account.
+ * IDs and store them for future use.
  *
  * Tags: InfoService.get
  *

@@ -848,7 +848,7 @@ class EntityNotFound extends ApiError {
 if (!class_exists("Gender", FALSE)) {
 /**
  * Represents a Gender criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only excludable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1015,7 +1015,7 @@ class Keyword extends Criterion {
 if (!class_exists("Language", FALSE)) {
 /**
  * Represents a Language criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1128,7 +1128,7 @@ class ListReturnValue {
 if (!class_exists("Location", FALSE)) {
 /**
  * Represents Location criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type can be either targeted or excluded.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1376,7 +1376,7 @@ class NullError extends ApiError {
 if (!class_exists("OperatingSystemVersion", FALSE)) {
 /**
  * Represents a Operating System Version Criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1800,6 +1800,7 @@ class Placement extends Criterion {
 if (!class_exists("Platform", FALSE)) {
 /**
  * Represents Platform criterion.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -1842,7 +1843,11 @@ if (!class_exists("Polygon", FALSE)) {
  * A polygon is described by a list of at least three points, where each point is a
  * (<var>latitude</var>, <var>longitude</var>) ordered pair. No point can be more than 400km
  * from the center of the polygon. The points are specified in microdegrees, the precison
- * for the value is 1 second of angle which is equal to 277 microdegrees.
+ * for the value is 1 second of angle which is equal to 277 microdegrees.<p>
+ * 
+ * <p>Please note that Polygons are deprecated. This means that Polygon targets cannot be added
+ * through the API, though existing targets can be retrieved and deleted.
+ * <p>
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -2059,7 +2064,9 @@ if (!class_exists("Proximity", FALSE)) {
  * 
  * A proximity is an area within a certain radius of a point with the center point being described
  * by a lat/long pair. The caller may also alternatively provide address fields which will be
- * geocoded into a lat/long pair.
+ * geocoded into a lat/long pair. Note: If a geoPoint value is provided, the address is not
+ * used for calculating the lat/long to target.
+ * <p> A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -4102,7 +4109,7 @@ class CampaignCriterionServiceMutateResponse {
 if (!class_exists("AgeRange", FALSE)) {
 /**
  * Represents an Age Range criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only excludable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */
@@ -4331,7 +4338,7 @@ class CampaignCriterionReturnValue extends ListReturnValue {
 if (!class_exists("Carrier", FALSE)) {
 /**
  * Represents a Carrier Criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type is only targetable.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */

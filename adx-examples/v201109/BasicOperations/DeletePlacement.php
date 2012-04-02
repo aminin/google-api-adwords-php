@@ -1,8 +1,8 @@
 <?php
 /**
- * This example adds a campaign.
+ * This example deletes a placement. To get placements, run GetPlacements.php.
  *
- * Tags: CampaignService.mutate
+ * Tags: AdGroupCriterionService.mutate
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -24,7 +24,6 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
- * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <eric.koleda@google.com>
  */
 
@@ -37,49 +36,45 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
+// Enter parameters required by the code example.
+$adGroupId = 'INSERT_AD_GROUP_ID_HERE';
+$criterionId = 'INSERT_PLACEMENT_CRITERION_ID_HERE';
+
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
+ * @param string $adGroupId the id of the ad group that the placement is in
+ * @param string $criterionId the id of the placement to delete
  */
-function AddCampaignExample(AdWordsUser $user) {
+function DeletePlacementExample(AdWordsUser $user, $adGroupId, $criterionId) {
   // Get the service, which loads the required classes.
-  $campaignService = $user->GetService('CampaignService', 'v201109');
+  $adGroupCriterionService =
+      $user->GetService('AdGroupCriterionService', 'v201109');
 
-  // Create campaign.
-  $campaign = new Campaign();
-  $campaign->name = 'Interplanetary Cruise #' . uniqid();
-  $campaign->status = 'PAUSED';
-  $campaign->biddingStrategy = new ManualCPC();
+  // Create criterion using an existing ID. Use the base class Criterion
+  // instead of Placement to avoid having to set placement-specific fields.
+  $criterion = new Criterion();
+  $criterion->id = $criterionId;
 
-  $budget = new Budget();
-  $budget->period = 'DAILY';
-  $budget->amount = new Money(50000000);
-  $budget->deliveryMethod = 'STANDARD';
-  $campaign->budget = $budget;
-
-  // Set the campaign network options to Google Search and Search Network.
-  $networkSetting = new NetworkSetting();
-  $networkSetting->targetGoogleSearch = TRUE;
-  $networkSetting->targetSearchNetwork = TRUE;
-  $networkSetting->targetContentNetwork = FALSE;
-  $networkSetting->targetContentContextual = FALSE;
-  $networkSetting->targetPartnerSearchNetwork = FALSE;
-  $campaign->networkSetting = $networkSetting;
+  // Create ad group criterion.
+  $adGroupCriterion = new AdGroupCriterion();
+  $adGroupCriterion->adGroupId = $adGroupId;
+  $adGroupCriterion->criterion = new Criterion($criterionId);
 
   // Create operation.
-  $operation = new CampaignOperation();
-  $operation->operand = $campaign;
-  $operation->operator = 'ADD';
+  $operation = new AdGroupCriterionOperation();
+  $operation->operand = $adGroupCriterion;
+  $operation->operator = 'REMOVE';
 
   $operations = array($operation);
 
   // Make the mutate request.
-  $result = $campaignService->mutate($operations);
+  $result = $adGroupCriterionService->mutate($operations);
 
   // Display result.
-  $campaign = $result->value[0];
-  printf("Campaign with name '%s' and id '%s' was added.\n", $campaign->name,
-      $campaign->id);
+  $adGroupCriterion = $result->value[0];
+  printf("Placement with id '%s' was deleted.\n",
+      $adGroupCriterion->criterion->id);
 }
 
 // Don't run the example if the file is being included.
@@ -96,7 +91,7 @@ try {
   $user->LogAll();
 
   // Run the example.
-  AddCampaignExample($user);
+  DeletePlacementExample($user, $adGroupId, $criterionId);
 } catch (Exception $e) {
   printf("An error has occurred: %s\n", $e->getMessage());
 }

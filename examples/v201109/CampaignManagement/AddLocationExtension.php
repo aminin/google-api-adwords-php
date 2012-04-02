@@ -39,9 +39,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-// Define constants used in the example.
-define('MICRO_DEGREES_PER_DEGREE', 1000000);
-
 // Enter parameters required by the code example.
 $campaignId = 'INSERT_CAMPAIGN_ID_HERE';
 
@@ -75,9 +72,9 @@ function AddLocationExtensionExample(AdWordsUser $user, $campaignId) {
   $geoLocation = $result[0];
   if ($geoLocation->GeoLocationType != 'InvalidGeoLocation') {
     $lat = $geoLocation->geoPoint->latitudeInMicroDegrees /
-        MICRO_DEGREES_PER_DEGREE;
+        AdWordsConstants::MICRO_DEGREES_PER_DEGREE;
     $long = $geoLocation->geoPoint->longitudeInMicroDegrees /
-        MICRO_DEGREES_PER_DEGREE;
+        AdWordsConstants::MICRO_DEGREES_PER_DEGREE;
     printf("Address with street '%s' and lat/long '%s/%s' was found.\n",
         $geoLocation->address->streetAddress, $lat, $long);
   } else {
@@ -91,9 +88,11 @@ function AddLocationExtensionExample(AdWordsUser $user, $campaignId) {
   $locationExtension->address = $geoLocation->address;
   $locationExtension->geoPoint = $geoLocation->geoPoint;
   $locationExtension->encodedLocation = $geoLocation->encodedLocation;
-  $locationExtension->companyName = 'Google';
-  $locationExtension->phoneNumber = '650-253-0000';
   $locationExtension->source = 'ADWORDS_FRONTEND';
+
+  // Set additional settings (optional).
+  $locationExtension->companyName = 'ACME Inc.';
+  $locationExtension->phoneNumber = '(650) 253-0000';
 
   // Create campaign ad extension.
   $campaignAdExtension = new CampaignAdExtension();

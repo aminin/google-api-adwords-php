@@ -1,9 +1,9 @@
 <?php
 /**
- * This example adds an ad group to a campaign. To get campaigns, run
- * GetCampaigns.php.
+ * This example updates the destination URL of a placement. To get placements,
+ * run GetPlacements.php.
  *
- * Tags: AdGroupService.mutate
+ * Tags: AdGroupCriterionService.mutate
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -38,42 +38,47 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
 // Enter parameters required by the code example.
-$campaignId = 'INSERT_CAMPAIGN_ID_HERE';
+$adGroupId = 'INSERT_AD_GROUP_ID_HERE';
+$criterionId = 'INSERT_PLACEMENT_CRITERION_ID_HERE';
 
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
- * @param string $campaignId the ID of the campaign to add the ad group to
+ * @param string $adGroupId the id of the ad group that contains the placement
+ * @param string $criterionId the id of the placement
  */
-function AddAdGroupExample(AdWordsUser $user, $campaignId) {
+function UpdatePlacementExample(AdWordsUser $user, $adGroupId, $criterionId) {
   // Get the service, which loads the required classes.
-  $adGroupService = $user->GetService('AdGroupService', 'v201109');
+  $adGroupCriterionService =
+      $user->GetService('AdGroupCriterionService', 'v201109');
 
-  // Create ad group.
-  $adGroup = new AdGroup();
-  $adGroup->name = 'Earth to Mars Cruise #' . uniqid();
-  $adGroup->status = 'ENABLED';
-  $adGroup->campaignId = $campaignId;
+  // Create criterion using an existing ID. Use the base class Criterion
+  // instead of Placement to avoid having to set placement-specific fields.
+  $criterion = new Criterion();
+  $criterion->id = $criterionId;
 
-  // Create ad group bid.
-  $adGroupBids = new ManualCPCAdGroupBids();
-  $adGroupBids->keywordMaxCpc = new Bid(new Money(1000000));
-  $adGroup->bids = $adGroupBids;
+  // Create ad group criterion.
+  $adGroupCriterion = new BiddableAdGroupCriterion();
+  $adGroupCriterion->adGroupId = $adGroupId;
+  $adGroupCriterion->criterion = new Criterion($criterionId);
+
+  // Update destination URL.
+  $adGroupCriterion->destinationUrl = 'http://www.example.com/new';
 
   // Create operation.
-  $operation = new AdGroupOperation();
-  $operation->operand = $adGroup;
-  $operation->operator = 'ADD';
+  $operation = new AdGroupCriterionOperation();
+  $operation->operand = $adGroupCriterion;
+  $operation->operator = 'SET';
 
   $operations = array($operation);
 
   // Make the mutate request.
-  $result = $adGroupService->mutate($operations);
+  $result = $adGroupCriterionService->mutate($operations);
 
   // Display result.
-  $adGroup = $result->value[0];
-  printf("Ad group with name '%s' and id '%s' was added.\n", $adGroup->name,
-      $adGroup->id);
+  $adGroupCriterion = $result->value[0];
+  printf("Placement with id '%s' has updated destination URL '%s'.\n",
+      $adGroupCriterion->criterion->id, $adGroupCriterion->destinationUrl);
 }
 
 // Don't run the example if the file is being included.
@@ -90,7 +95,7 @@ try {
   $user->LogAll();
 
   // Run the example.
-  AddAdGroupExample($user, $campaignId);
+  UpdatePlacementExample($user, $adGroupId, $criterionId);
 } catch (Exception $e) {
   printf("An error has occurred: %s\n", $e->getMessage());
 }

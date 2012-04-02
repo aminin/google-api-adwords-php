@@ -1,9 +1,10 @@
 <?php
 /**
- * This example gets keyword opportunities for all ad groups in the account.
+ * This example gets all third party redirect ads in an ad group. To add
+ * third party redirect ads, run AddThirdPartyRedirectAd.php. To get ad groups,
+ * run GetAdGroups.php
  *
- * Tags: BulkOpportunityService.get
- * Restriction: adwords-only
+ * Tags: AdGroupAdService.get
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -36,60 +37,52 @@ $path = dirname(__FILE__) . '/../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/Common/Util/MapUtils.php';
 
-// Constants used in the example.
-// Use a low page size with this service, as each opportunity can contain many
-// ideas.
-define('PAGE_SIZE', 20);
+// Enter parameters required by the code example.
+$adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
 /**
  * Runs the example.
  * @param AdWordsUser $user the user to run the example with
+ * @param string $adGroupId the id of the parent ad group
  */
-function GetKeywordOpportunitiesExample(AdWordsUser $user) {
+function GetThirdPartyRedirectAdsExample(AdWordsUser $user, $adGroupId) {
   // Get the service, which loads the required classes.
-  $bulkOpportunityService =
-      $user->GetService('BulkOpportunityService', 'v201109');
+  $adGroupAdService = $user->GetService('AdGroupAdService', 'v201109');
 
   // Create selector.
-  $selector = new BulkOpportunitySelector();
-  $selector->ideaTypes = array('KEYWORD');
-  $selector->requestedAttributeTypes =
-      array('CAMPAIGN_ID', 'ADGROUP_ID', 'KEYWORD', 'AVERAGE_MONTHLY_SEARCHES');
+  $selector = new Selector();
+  $selector->fields = array('RichMediaAdName', 'Id');
+  $selector->ordering[] = new OrderBy('Id', 'ASCENDING');
 
-  // Set selector paging (required by this service).
-  $selector->paging = new Paging(0, PAGE_SIZE);
+  // Create predicates.
+  $selector->predicates[] = new Predicate('AdGroupId', 'IN', array($adGroupId));
+  $selector->predicates[] =
+      new Predicate('AdType', 'IN', array('THIRD_PARTY_REDIRECT_AD'));
+  // By default disabled ads aren't returned by the selector. To return them
+  // include the DISABLED status in a predicate.
+  $selector->predicates[] =
+      new Predicate('Status', 'IN', array('ENABLED', 'PAUSED', 'DISABLED'));
+
+  // Create paging controls.
+  $selector->paging = new Paging(0, AdWordsConstants::RECOMMENDED_PAGE_SIZE);
 
   do {
     // Make the get request.
-    $page = $bulkOpportunityService->get($selector);
+    $page = $adGroupAdService->get($selector);
 
     // Display results.
     if (isset($page->entries)) {
-      foreach ($page->entries as $opportunity) {
-        $data = MapUtils::GetMap($opportunity->opportunityIdeas[0]->data);
-        $campaignId = $data['CAMPAIGN_ID']->value;
-        $adGroupId = $data['ADGROUP_ID']->value;
-        printf("Opportunities found for campaign id '%s' and ad group id "
-            . "'%s':\n", $campaignId, $adGroupId);
-        foreach ($opportunity->opportunityIdeas as $opportunityIdea) {
-          $data = MapUtils::GetMap($opportunityIdea->data);
-          $keyword = $data['KEYWORD']->value;
-          $averageMonthlySearches =
-              isset($data['AVERAGE_MONTHLY_SEARCHES']->value)
-              ? $data['AVERAGE_MONTHLY_SEARCHES']->value : 0;
-          printf("\tKeyword idea with text '%s', match type '%s', and "
-              . "average monthly search volume '%d' was found.\n",
-              $keyword->text, $keyword->matchType, $averageMonthlySearches);
-        }
+      foreach ($page->entries as $adGroupAd) {
+        printf("Third party redirect ad with name '%s' and id '%s' was "
+            . "found.\n", $adGroupAd->ad->name, $adGroupAd->ad->id);
       }
     } else {
-      print "No keyword opportunities were found.\n";
+      print "No third party redirect ads were found.\n";
     }
 
     // Advance the paging index.
-    $selector->paging->startIndex += PAGE_SIZE;
+    $selector->paging->startIndex += AdWordsConstants::RECOMMENDED_PAGE_SIZE;
   } while ($page->totalNumEntries > $selector->paging->startIndex);
 }
 
@@ -107,7 +100,7 @@ try {
   $user->LogAll();
 
   // Run the example.
-  GetKeywordOpportunitiesExample($user);
+  GetThirdPartyRedirectAdsExample($user, $adGroupId);
 } catch (Exception $e) {
   printf("An error has occurred: %s\n", $e->getMessage());
 }

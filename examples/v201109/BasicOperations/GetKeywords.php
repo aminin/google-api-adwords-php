@@ -1,9 +1,10 @@
 <?php
 /**
- * This example gets keywords in an ad group. To add keywords, run
+ * This example gets all keywords in an ad group. To add keywords, run
  * AddKeywords.php. To get ad groups, run GetAdGroups.php.
  *
  * Tags: AdGroupCriterionService.get
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -37,9 +38,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 
-// Constants used in the example.
-define('PAGE_SIZE', 500);
-
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
@@ -64,7 +62,7 @@ function GetKeywordsExample(AdWordsUser $user, $adGroupId) {
       new Predicate('CriteriaType', 'IN', array('KEYWORD'));
 
   // Create paging controls.
-  $selector->paging = new Paging(0, PAGE_SIZE);
+  $selector->paging = new Paging(0, AdWordsConstants::RECOMMENDED_PAGE_SIZE);
 
   do {
     // Make the get request.
@@ -83,7 +81,7 @@ function GetKeywordsExample(AdWordsUser $user, $adGroupId) {
     }
 
     // Advance the paging index.
-    $selector->paging->startIndex += PAGE_SIZE;
+    $selector->paging->startIndex += AdWordsConstants::RECOMMENDED_PAGE_SIZE;
   } while ($page->totalNumEntries > $selector->paging->startIndex);
 }
 

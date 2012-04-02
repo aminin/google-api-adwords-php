@@ -692,7 +692,7 @@ class Keyword extends Criterion {
 if (!class_exists("Location", FALSE)) {
 /**
  * Represents Location criterion.
- * <p>A criterion of this type can only be created using an ID.
+ * <p>A criterion of this type can only be created using an ID. A criterion of this type can be either targeted or excluded.
  * @package GoogleApiAdsAdWords
  * @subpackage v201109
  */

@@ -5,6 +5,7 @@
  *
  * Tags: MutateJobService.mutate, MutateJobService.get
  * Tags: MutateJobService.getResults
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -40,11 +41,6 @@ require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 require_once 'Google/Api/Ads/Common/Util/ChoiceUtils.php';
 require_once 'Google/Api/Ads/Common/Util/OgnlUtils.php';
 
-// Define constants used in the example.
-define('KEYWORD_COUNT', 100);
-define('MAX_RETRIES', 100);
-define('RETRY_INTERVAL', 10);
-
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
@@ -58,14 +54,15 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
   $mutateJobService = $user->GetService('MutateJobService', 'v201109');
 
   // Generate operations.
+  $numKeywords = 100;
   $operations = array();
-  for ($i = 0; $i < KEYWORD_COUNT; $i++) {
+  for ($i = 0; $i < $numKeywords; $i++) {
     $keyword = new Keyword();
     // Randomly add invalid characters to keywords.
     if (rand(0, 9) == 0) {
-      $keyword->text = uniqid('keyword!!!');
+      $keyword->text = 'keyword!!!' . uniqid();
     } else {
-      $keyword->text = uniqid('keyword');
+      $keyword->text = 'keyword' . uniqid();
     }
     $keyword->matchType = 'BROAD';
 
@@ -96,8 +93,10 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
   $selector->includeHistory = TRUE;
 
   $numRetries = 0;
+  $maxRetries = 100;
+  $retryInterval = 10;
   do {
-    sleep(RETRY_INTERVAL);
+    sleep($retryInterval);
     $jobs = $mutateJobService->get($selector);
     $job = $jobs[0];
     switch ($job->status) {
@@ -120,7 +119,7 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
     }
     $numRetries++;
   } while (($job->status == 'PENDING' || $job->status == 'PROCESSING') &&
-        $numRetries < MAX_RETRIES);
+        $numRetries < $maxRetries);
 
   if ($job->status == 'COMPLETED') {
     // Retrieve the results of the job.
@@ -138,27 +137,27 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
     foreach ($jobResult->errors as $error) {
       $index = OgnlUtils::GetOperationIndex($error->fieldPath);
       if (isset($index)) {
-        $keyword = $operations[$index]->operand->criterion->text;
+        $keywordText = $operations[$index]->operand->criterion->text;
         switch ($error->reason) {
           case 'LOST_RESULT':
-            $lost[] = $keyword;
+            $lost[] = $keywordText;
             break;
           case 'UNPROCESSED_RESULT':
           case 'BATCH_FAILURE':
-            $skipped[] = $keyword;
+            $skipped[] = $keywordText;
             break;
           default:
-            if (!in_array($keyword, $failed)) {
-              $failed[] = $keyword;
+            if (!in_array($keywordText, $failed)) {
+              $failed[] = $keywordText;
             }
-            $errors[$keyword][] = $error;
+            $errors[$keywordText][] = $error;
         }
       } else {
         $genericErrors[] = $error;
       }
     }
 
-    // Examples the results to determine which keywords were added successfully.
+    // Examine the results to determine which keywords were added successfully.
     $succeeded = array();
     for ($i = 0; $i < sizeof($jobResult->results); $i++) {
       $operation = $operations[$i];
@@ -176,12 +175,12 @@ function AddKeywordsInBulkExample(AdWordsUser $user, $adGroupId) {
         sizeof($skipped), implode(', ', $skipped));
 
     printf("%d keywords were not added due to errors:\n", sizeof($failed));
-    foreach ($failed as $keyword) {
+    foreach ($failed as $keywordText) {
       $errorStrings = array();
-      foreach ($errors[$keyword] as $error) {
+      foreach ($errors[$keywordText] as $error) {
         $errorStrings[] = $error->errorString;
       }
-      printf("- %s: %s\n", $keyword, implode(', ', $errorStrings));
+      printf("- %s: %s\n", $keywordText, implode(', ', $errorStrings));
     }
 
     printf("%d generic errors were encountered:\n", sizeof($genericErrors));

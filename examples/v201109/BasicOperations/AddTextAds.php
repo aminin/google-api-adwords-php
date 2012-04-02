@@ -4,6 +4,7 @@
  * run GetAdGroups.php.
  *
  * Tags: AdGroupAdService.mutate
+ * Restriction: adwords-only
  *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
@@ -38,9 +39,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 require_once 'Google/Api/Ads/Common/Util/MediaUtils.php';
 
-// Constants used in the example.
-define('NUM_ADS', 5);
-
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
 
@@ -53,24 +51,24 @@ function AddTextAdsExample(AdWordsUser $user, $adGroupId) {
   // Get the service, which loads the required classes.
   $adGroupAdService = $user->GetService('AdGroupAdService', 'v201109');
 
-  // Create text ads.
-  $ads = array();
-  for ($i = 0; $i < NUM_ADS; $i++) {
+  $numAds = 5;
+  $operations = array();
+  for ($i = 0; $i < $numAds; $i++) {
+    // Create text ad.
     $textAd = new TextAd();
     $textAd->headline = 'Cruise #' . uniqid();
     $textAd->description1 = 'Visit the Red Planet in style.';
     $textAd->description2 = 'Low-gravity fun for everyone!';
     $textAd->displayUrl = 'www.example.com';
     $textAd->url = 'http://www.example.com';
-    $ads[] = $textAd;
-  }
 
-  // Create ad group ads and operations.
-  $operations = array();
-  foreach ($ads as $ad) {
+    // Create ad group ad.
     $adGroupAd = new AdGroupAd();
     $adGroupAd->adGroupId = $adGroupId;
-    $adGroupAd->ad = $ad;
+    $adGroupAd->ad = $textAd;
+
+    // Set additional settings (optional).
+    $adGroupAd->status = 'PAUSED';
 
     // Create operation.
     $operation = new AdGroupAdOperation();
