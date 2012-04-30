@@ -1,3 +1,8 @@
+3.0.3:
+- Fixed issue with improper loading of settings and added tests. (Issue #68)
+- Fixed invalid date range issue with GetClientCustomerId example. (Issue #74)
+- Small updates and enhancements to tests.
+
 3.0.2:
 - Added support for the whitelist-only BudgetOrderService.
 
