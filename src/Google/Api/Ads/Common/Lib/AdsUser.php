@@ -58,8 +58,6 @@ abstract class AdsUser {
    */
   protected function __construct() {
     $this->requestHeaderElements = array();
-    $this->logsDirectory = '.';
-    $this->authServer = 'https://www.google.com';
   }
 
   /**
@@ -187,119 +185,114 @@ abstract class AdsUser {
       $defaultServer, $defaultLogsDir, $logsRelativePathBase) {
     // Set no time limit for PHP operations.
     set_time_limit(0);
-
     ini_set('default_socket_timeout', 480);
 
     $settingsIni = parse_ini_file($settingsIniPath, TRUE);
 
-    if (isset($settingsIni)) {
-      // Logging settings.
-      if ($settingsIni['LOGGING']['PATH_RELATIVE'] == 1) {
-        $path = realpath($logsRelativePathBase . '/'
-            . $settingsIni['LOGGING']['LIB_LOG_DIR_PATH']);
-        if ($path === FALSE) {
-          $this->logsDirectory = $defaultLogsDir;
-        } else {
-          $this->logsDirectory = $path;
-        }
-      } else {
-        $this->logsDirectory = $settingsIni['LOGGING']['LIB_LOG_DIR_PATH'];
-      }
-      $this->InitLogs();
+    // Logging settings.
+    $pathRelative = $this->GetSetting($settingsIni, 'LOGGING',
+        'PATH_RELATIVE', FALSE);
+    $libLogDirPath = $this->GetSetting($settingsIni, 'LOGGING',
+        'LIB_LOG_DIR_PATH', $defaultLogsDir);
+    $relativePath = realpath($logsRelativePathBase . '/' . $libLogDirPath);
+    if ($pathRelative && $relativePath) {
+      $this->logsDirectory = $relativePath;
+    } elseif (!$pathRelative && $libLogDirPath) {
+      $this->logsDirectory = $libLogDirPath;
+    } else {
+      $this->logsDirectory = $defaultLogsDir;
+    }
+    $this->InitLogs();
 
-      // Server settings.
-      if (array_key_exists('SERVER', $settingsIni)
-          && array_key_exists('DEFAULT_VERSION', $settingsIni['SERVER'])) {
-        $this->defaultVersion = $settingsIni['SERVER']['DEFAULT_VERSION'];
-      } else {
-        $this->defaultVersion = $defaultVersion;
-      }
-      if (array_key_exists('SERVER', $settingsIni)
-          && array_key_exists('DEFAULT_SERVER', $settingsIni['SERVER'])) {
-        $this->defaultServer = $settingsIni['SERVER']['DEFAULT_SERVER'];
-      } else {
-        $this->defaultServer = $defaultServer;
-      }
+    // Server settings.
+    $this->defaultVersion = $this->GetSetting($settingsIni, 'SERVER',
+        'DEFAULT_VERSION', $defaultVersion);
+    $this->defaultServer = $this->GetSetting($settingsIni, 'SERVER',
+        'DEFAULT_SERVER', $defaultServer);
 
-      // SOAP settings.
-      if (array_key_exists('SOAP', $settingsIni)
-          && array_key_exists('COMPRESSION', $settingsIni['SOAP'])) {
-        $this->soapCompression = (bool) $settingsIni['SOAP']['COMPRESSION'];
-      } else {
-        // Default to using compression.
-        $this->soapCompression = TRUE;
-      }
-      if (array_key_exists('SOAP', $settingsIni)
-          && array_key_exists('COMPRESSION_LEVEL', $settingsIni['SOAP'])
-          && $settingsIni['SOAP']['COMPRESSION_LEVEL'] >= 1
-          && $settingsIni['SOAP']['COMPRESSION_LEVEL'] <= 9) {
-        $this->soapCompressionLevel =
-            (int) $settingsIni['SOAP']['COMPRESSION_LEVEL'];
-      } else {
-        // Default to using compression level 1.
-        $this->soapCompressionLevel = 1;
-      }
-      if (array_key_exists('SOAP', $settingsIni)
-          && array_key_exists('WSDL_CACHE', $settingsIni['SOAP'])
-          && $settingsIni['SOAP']['WSDL_CACHE'] >= 0
-          && $settingsIni['SOAP']['WSDL_CACHE'] <= 3) {
-        $this->wsdlCache = (int) $settingsIni['SOAP']['WSDL_CACHE'];
-      } else {
-        // Default to none.
-        $this->wsdlCache = WSDL_CACHE_NONE;
-      }
+    // SOAP settings.
+    $this->soapCompression = (bool) $this->GetSetting($settingsIni, 'SOAP',
+        'COMPRESSION', TRUE);
+    $this->soapCompressionLevel = $this->GetSetting($settingsIni, 'SOAP',
+        'COMPRESSION_LEVEL', 1);
+    if ($this->soapCompressionLevel < 1 || $this->soapCompressionLevel > 9) {
+      $this->soapCompressionLevel = 1;
+    }
+    $this->wsdlCache = (int) $this->GetSetting($settingsIni, 'SOAP',
+        'WSDL_CACHE', WSDL_CACHE_NONE);
+    if ($this->wsdlCache < 0 || $this->wsdlCache > 3) {
+      $this->wsdlCache = WSDL_CACHE_NONE;
+    }
 
-      // Proxy settings.
-      if (array_key_exists('PROXY', $settingsIni)) {
-        if (array_key_exists('HOST', $settingsIni['PROXY'])) {
-          $this->Define('HTTP_PROXY_HOST', $settingsIni['PROXY']['HOST']);
-        }
-        if (array_key_exists('PORT', $settingsIni['PROXY'])) {
-          $this->Define('HTTP_PROXY_PORT', (int) $settingsIni['PROXY']['PORT']);
-        }
-        if (array_key_exists('USER', $settingsIni['PROXY'])) {
-          $this->Define('HTTP_PROXY_USER', $settingsIni['PROXY']['USER']);
-        }
-        if (array_key_exists('PASSWORD', $settingsIni['PROXY'])) {
-          $this->Define('HTTP_PROXY_PASSWORD',
-              $settingsIni['PROXY']['PASSWORD']);
-        }
-      }
+    // Proxy settings.
+    $proxyHost = $this->GetSetting($settingsIni, 'PROXY', 'HOST');
+    if (isset($proxyHost)) {
+      $this->Define('HTTP_PROXY_HOST', $proxyHost);
+    }
+    $proxyPort = $this->GetSetting($settingsIni, 'PROXY', 'PORT');
+    if (isset($proxyPort)) {
+      $this->Define('HTTP_PROXY_PORT', (int) $proxyPort);
+    }
+    $proxyUser = $this->GetSetting($settingsIni, 'PROXY', 'USER');
+    if (isset($proxyUser)) {
+      $this->Define('HTTP_PROXY_USER', $proxyUser);
+    }
+    $proxyPassword = $this->GetSetting($settingsIni, 'PROXY', 'PASSWORD');
+    if (isset($proxyPassword)) {
+      $this->Define('HTTP_PROXY_PASSWORD', $proxyPassword);
+    }
 
-      // Auth settings.
-      if (array_key_exists('AUTH', $settingsIni)) {
-        if (array_key_exists('AUTH_SERVER', $settingsIni['AUTH'])) {
-          $this->authServer = $settingsIni['AUTH']['AUTH_SERVER'];
-        }
-        if (array_key_exists('OAUTH_HANDLER_CLASS', $settingsIni['AUTH'])) {
-          $this->oauthHandler =
-              new $settingsIni['AUTH']['OAUTH_HANDLER_CLASS']();
-        } else {
-          $extensions = get_loaded_extensions();
-          if (in_array('OAuth', $extensions)) {
-            $this->oauthHandler = new PeclOAuthHandler();
-          } else {
-            $this->oauthHandler = new AndySmithOAuthHandler();
-          }
-        }
-      }
-
-      // SSL settings.
-      if (array_key_exists('SSL', $settingsIni)) {
-        if (array_key_exists('VERIFY_PEER', $settingsIni['SSL'])) {
-          $this->Define('SSL_VERIFY_PEER', $settingsIni['SSL']['VERIFY_PEER']);
-        }
-        if (array_key_exists('VERIFY_HOST', $settingsIni['SSL'])) {
-          $this->Define('SSL_VERIFY_HOST', $settingsIni['SSL']['VERIFY_HOST']);
-        }
-        if (array_key_exists('CA_PATH', $settingsIni['SSL'])) {
-          $this->Define('SSL_CA_PATH', $settingsIni['SSL']['CA_PATH']);
-        }
-        if (array_key_exists('CA_FILE', $settingsIni['SSL'])) {
-          $this->Define('SSL_CA_FILE', $settingsIni['SSL']['CA_FILE']);
-        }
+    // Auth settings.
+    $this->authServer = $this->GetSetting($settingsIni, 'AUTH', 'AUTH_SERVER',
+        'https://www.google.com');
+    $oauthHandlerClass = $this->GetSetting($settingsIni, 'AUTH',
+        'OAUTH_HANDLER_CLASS');
+    if (!isset($oauthHandlerClass)) {
+      $extensions = get_loaded_extensions();
+      if (in_array('OAuth', $extensions)) {
+        $oauthHandlerClass = 'PeclOAuthHandler';
+      } else {
+        $oauthHandlerClass = 'AndySmithOAuthHandler';
       }
     }
+    $this->oauthHandler = new $oauthHandlerClass();
+
+    // SSL settings.
+    $sslVerifyPeer = $this->GetSetting($settingsIni, 'SSL', 'VERIFY_PEER');
+    if (isset($sslVerifyPeer)) {
+      $this->Define('SSL_VERIFY_PEER', $sslVerifyPeer);
+    }
+    $sslVerifyHost = $this->GetSetting($settingsIni, 'SSL', 'VERIFY_HOST');
+    if (isset($sslVerifyHost)) {
+      $this->Define('SSL_VERIFY_HOST', (int) $sslVerifyHost);
+    }
+    $sslCaPath = $this->GetSetting($settingsIni, 'SSL', 'CA_PATH');
+    if (isset($sslCaPath)) {
+      $this->Define('SSL_CA_PATH', $sslCaPath);
+    }
+    $sslCaFile = $this->GetSetting($settingsIni, 'SSL', 'CA_FILE');
+    if (isset($sslCaFile)) {
+      $this->Define('SSL_CA_FILE', $sslCaFile);
+    }
+  }
+
+  /**
+   * Gets the value for a given setting based on the contents of the parsed INI
+   * file.
+   * @param array $settings the parsed settings INI file
+   * @param string $section the name of the section containing the setting
+   * @param string $name the name of the setting
+   * @param mixed $default the default value of the setting
+   * @return string the value of the setting
+   */
+  private function GetSetting($settings, $section, $name, $default = NULL) {
+    if (!$settings || !array_key_exists($section, $settings)
+        || !array_key_exists($name, $settings[$section])
+        || $settings[$section][$name] == NULL
+        || $settings[$section][$name] == '') {
+      return $default;
+    }
+    return $settings[$section][$name];
   }
 
   /**
@@ -311,7 +304,7 @@ abstract class AdsUser {
    */
   private function Define($name, $value) {
     if (!defined($name) || (constant($name) != $value)) {
-      define ($name, $value);
+      define($name, $value);
     }
   }
 
