@@ -1,3 +1,6 @@
+3.0.2:
+- Added support for the whitelist-only BudgetOrderService.
+
 3.0.1:
 - Removed support and examples for the sunset BulkOpportunityService.
 - Regenerated service stub classes.
