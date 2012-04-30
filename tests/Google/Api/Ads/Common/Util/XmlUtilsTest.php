@@ -92,6 +92,8 @@ class XmlUtilsTest extends PHPUnit_Framework_TestCase {
    * @param string $xml the XML to convert
    * @param Object $expected the expected result of the conversion
    * @covers XmlUtils::ConvertDocumentToObject
+   * @covers XmlUtils::ConvertElementToObject
+   * @covers XmlUtils::ConvertNodeValueToObject
    * @dataProvider XmlToObjectProvider
    */
   public function testConvertDocumentToObject($xml, $expected) {
@@ -105,6 +107,8 @@ class XmlUtilsTest extends PHPUnit_Framework_TestCase {
    * @param string $expected the expected XML
    * @param Object $object the object to convert
    * @covers XmlUtils::ConvertObjectToDocument
+   * @covers XmlUtils::ConvertObjectToElement
+   * @covers XmlUtils::ConvertObjectToNodeValue
    * @dataProvider ObjectToXmlProvider
    */
   public function testConvertObjectToDocument($object, $expected) {

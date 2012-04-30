@@ -44,7 +44,6 @@ require_once 'Google/Api/Ads/Common/Util/XmlUtils.php';
 class SoapRequestXmlFixerTest extends PHPUnit_Framework_TestCase {
   /**
    * Tests adding XSI types.
-   * @covers SoapRequestXmlFixer::FixXml
    */
   public function testAddXsiTypes() {
     $request = <<<EOT
@@ -90,7 +89,6 @@ EOT;
 
   /**
    * Tests removing empty elements.
-   * @covers SoapRequestXmlFixer::FixXml
    */
   public function testRemoveEmptyElements() {
     $request = <<<EOT
@@ -134,7 +132,6 @@ EOT;
 
   /**
    * Tests replacing element references.
-   * @covers SoapRequestXmlFixer::FixXml
    */
   public function testReplaceElementReference() {
     $request = <<<EOT
