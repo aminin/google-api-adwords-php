@@ -133,11 +133,14 @@ class AdWordsUser extends AdsUser {
         $authenticationIni);
     $oauthInfo = $this->GetAuthVarValue($oauthInfo, 'OAUTH',
         $authenticationIni);
+    $oauth2Info = $this->GetAuthVarValue($oauthInfo, 'OAUTH2',
+        $authenticationIni);
 
     $this->SetEmail($email);
     $this->SetPassword($password);
     $this->SetAuthToken($authToken);
     $this->SetOAuthInfo($oauthInfo);
+    $this->SetOAuth2Info($oauth2Info);
     $this->SetClientLibraryUserAgent($userAgent);
     $this->SetClientId($clientId);
     $this->SetDeveloperToken($developerToken);
@@ -405,6 +408,8 @@ class AdWordsUser extends AdsUser {
   public function ValidateUser() {
     if ($this->GetOAuthInfo() != NULL) {
       parent::ValidateOAuthInfo();
+    } else if ($this->GetOAuth2Info() != NULL) {
+      parent::ValidateOAuth2Info();
     } else if ($this->GetAuthToken() == NULL) {
       if (!isset($this->email)) {
         throw new ValidationException('email', NULL,
@@ -431,9 +436,7 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
-   * Gets the OAuth scope for this user.
-   * @param string $server the AdWords API server that requests will be made to
-   * @return string the OAuth scope to use when requesting the token
+   * @see AdsUser::GetOAuthScope()
    */
   protected function GetOAuthScope($server = NULL) {
     $server = isset($server) ? $server : $this->GetDefaultServer();
@@ -441,6 +444,13 @@ class AdWordsUser extends AdsUser {
       $server = substr($server, 0, -1);
     }
     return $server . '/api/adwords/';
+  }
+
+  /**
+   * @see AdsUser::GetOAuth2Scope()
+   */
+  protected function GetOAuth2Scope($server = NULL) {
+    return $this->GetOAuthScope($server);
   }
 
   /**

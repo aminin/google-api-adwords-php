@@ -27,6 +27,9 @@
  * @author     Eric Koleda <eric.koleda@google.com>
  */
 
+/** Required classes. **/
+require_once 'UrlUtils.php';
+
 /**
  * An abstract class for Google OAuth flow.
  * @package GoogleApiAdsCommon
@@ -36,11 +39,11 @@ abstract class OAuthHandler {
   public static $DEFAULT_CALLBACK_URL = 'oob';
 
   private static $REQUEST_ENDPOINT =
-      'https://www.google.com/accounts/OAuthGetRequestToken';
+      'https://accounts.google.com/accounts/OAuthGetRequestToken';
   private static $AUTHORIZE_ENDPOINT =
-      'https://www.google.com/accounts/OAuthAuthorizeToken';
+      'https://accounts.google.com/accounts/OAuthAuthorizeToken';
   private static $ACCESS_ENDPOINT =
-      'https://www.google.com/accounts/OAuthGetAccessToken';
+      'https://accounts.google.com/accounts/OAuthGetAccessToken';
 
   /**
    * Gets a request token.
@@ -157,42 +160,10 @@ abstract class OAuthHandler {
    * @return string the endpoint
    */
   private function GetEndpoint($endpoint, $server = NULL, $params = NULL) {
-    $endpoint = $this->AddParamsToUrl($endpoint, $params);
+    $endpoint = UrlUtils::AddParamsToUrl($endpoint, $params);
     if (!empty($server)) {
-      $endpoint = $this->ReplaceServerInUrl($endpoint, $server);
+      $endpoint = UrlUtils::ReplaceServerInUrl($endpoint, $server);
     }
     return $endpoint;
-  }
-
-  /**
-   * Replaces the protocol and server portion of a URL with another.
-   * @param string $url the full URL
-   * @param string $server the protocol and server to replace with
-   * @return string the URL with the protocol and server replaced
-   */
-  protected function ReplaceServerInUrl($url, $server) {
-    $urlParts = parse_url($url);
-    $url = $server . $urlParts['path'];
-    if (!empty($urlParts['query'])) {
-      $url = $url . '?' . $urlParts['query'];
-    }
-    return $url;
-  }
-
-  /**
-   * Adds parameters to a URL.
-   * @param string $url the URL
-   * @param array $params the parameters to add
-   * @return string the new URL with the parameters added
-   */
-  protected function AddParamsToUrl($url, $params) {
-    if (!isset($params) || sizeof($params) == 0) {
-      return $url;
-    } else {
-      $paramString = http_build_query($params, NULL, '&');
-      $query = parse_url($url, PHP_URL_QUERY);
-      $separator = empty($query) ? '?' : '&';
-      return $url . $separator . $paramString;
-    }
   }
 }

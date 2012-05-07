@@ -320,10 +320,12 @@ class AdsUserTest extends PHPUnit_Framework_TestCase {
   public function testLoadSettings_Auth() {
     $server = 'http://localhost';
     $oAuthHanderlClass = 'AndySmithOAuthHandler';
+    $oAuth2HandlerClass = 'SimpleOAuth2Handler';
     $settings = array(
         'AUTH' => array(
             'AUTH_SERVER' => $server,
             'OAUTH_HANDLER_CLASS' => $oAuthHanderlClass,
+            'OAUTH2_HANDLER_CLASS' => $oAuth2HanderlClass,
         ),
     );
     $settingsFilePath = $this->createTempSettingsFile($settings);
@@ -334,6 +336,8 @@ class AdsUserTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals($server, $user->GetAuthServer());
     $this->assertEquals($oAuthHanderlClass,
         get_class($user->GetOAuthHandler()));
+    $this->assertEquals($oAuth2HanderlClass,
+        get_class($user->GetOAuth2Handler()));
   }
 
   /**
@@ -358,6 +362,8 @@ class AdsUserTest extends PHPUnit_Framework_TestCase {
       $this->assertEquals('AndySmithOAuthHanlder',
           get_class($user->GetOAuthHandler()));
     }
+    $this->assertEquals('SimpleOAuth2Handler',
+        get_class($user->GetOAuth2Handler()));
   }
 
   /**
