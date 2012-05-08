@@ -78,11 +78,9 @@ class AdWordsSoapClient extends AdsSoapClient {
           $this->user->CanRefreshOAuth2AccessToken()) {
         $oAuth2Info = $this->user->RefreshOAuth2AccessToken();
       }
-      if ($this->user->IsOAuth2AccessTokenValid()) {
-        $oauth2Parameters =
-            $this->user->GetOAuth2Handler()->FormatCredentialsForUrl($oAuth2Info);
-        $location .= '?' . $oauth2Parameters;
-      }
+      $oauth2Parameters =
+          $this->user->GetOAuth2Handler()->FormatCredentialsForUrl($oAuth2Info);
+      $location .= '?' . $oauth2Parameters;
     }
     return parent::__doRequest($request, $location, $action, $version);
   }
