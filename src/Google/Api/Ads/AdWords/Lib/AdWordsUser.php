@@ -51,7 +51,7 @@ class AdWordsUser extends AdsUser {
    * The default version that is loaded if the settings INI cannot be loaded.
    * @var string default version of the API
    */
-  private static $DEFAULT_VERSION = 'v201109';
+  private static $DEFAULT_VERSION = 'v201109_1';
 
   /**
    * The default server that is loaded if the settings INI cannot be loaded.
