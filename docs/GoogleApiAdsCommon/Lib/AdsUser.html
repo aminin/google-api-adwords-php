@@ -27,7 +27,7 @@
 				<li><span class="field">abstract:</span> </li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Ads---Common---Lib---AdsUser.php.html">/Ads/Common/Lib/AdsUser.php</a> (line <span class="field">43</span>)
+			Located in <a class="field" href="_Ads---Common---Lib---AdsUser.php.html">/Ads/Common/Lib/AdsUser.php</a> (line <span class="field">44</span>)
 		</p>
 		
 				
@@ -73,10 +73,15 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																																																				
+																																																																																																																																																																																																																																																																																																																																												
 												<div class="method-definition">
 											<span class="method-result">AdsUser</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#CanRefreshOAuth2AccessToken" title="details" class="method-name">CanRefreshOAuth2AccessToken</a>
 										()
 									</div>
 																<div class="method-definition">
@@ -120,6 +125,31 @@
 										()
 									</div>
 																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#GetOAuth2AccessToken" title="details" class="method-name">GetOAuth2AccessToken</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$redirectUri</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetOAuth2AuthorizationUrl" title="details" class="method-name">GetOAuth2AuthorizationUrl</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$redirectUri</span> = <span class="var-default">NULL</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$offline</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../GoogleApiAdsCommon/Util/OAuth2Handler.html">OAuth2Handler</a></span>
+										<a href="#GetOAuth2Handler" title="details" class="method-name">GetOAuth2Handler</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#GetOAuth2Info" title="details" class="method-name">GetOAuth2Info</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetOAuth2Scope" title="details" class="method-name">GetOAuth2Scope</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#GetOAuthAuthorizationUrl" title="details" class="method-name">GetOAuthAuthorizationUrl</a>
 										()
@@ -160,6 +190,11 @@
 										()
 									</div>
 																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#IsOAuth2AccessTokenValid" title="details" class="method-name">IsOAuth2AccessTokenValid</a>
+										()
+									</div>
+																<div class="method-definition">
 											<span class="method-result">bool</span>
 										<a href="#IsSoapCompressionEnabled" title="details" class="method-name">IsSoapCompressionEnabled</a>
 										()
@@ -185,6 +220,11 @@
 										()
 									</div>
 																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#RefreshOAuth2AccessToken" title="details" class="method-name">RefreshOAuth2AccessToken</a>
+										()
+									</div>
+																<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#RequestOAuthToken" title="details" class="method-name">RequestOAuthToken</a>
 											([<span class="var-type">$callbackUrl</span>&nbsp;<span class="var-name">$callbackUrl</span> = <span class="var-default">NULL</span>], [<span class="var-type">$server</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>], [<span class="var-type">$applicationName</span>&nbsp;<span class="var-name">$applicationName</span> = <span class="var-default">NULL</span>])
@@ -206,6 +246,16 @@
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
+										<a href="#SetOAuth2Handler" title="details" class="method-name">SetOAuth2Handler</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$oauth2Handler</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetOAuth2Info" title="details" class="method-name">SetOAuth2Info</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$oauth2Info</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
 										<a href="#SetOAuthHandler" title="details" class="method-name">SetOAuthHandler</a>
 											(<span class="var-type">array</span>&nbsp;<span class="var-name">$oauthHandler</span>)
 									</div>
@@ -218,6 +268,11 @@
 											<span class="method-result">void</span>
 										<a href="#UpgradeOAuthToken" title="details" class="method-name">UpgradeOAuthToken</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$verifier</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#ValidateOAuth2Info" title="details" class="method-name">ValidateOAuth2Info</a>
+										()
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
@@ -242,10 +297,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">59</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">61</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -273,11 +328,36 @@
 							</li>
 				</ul>
 	</div>
+<a name="methodCanRefreshOAuth2AccessToken" id="CanRefreshOAuth2AccessToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">CanRefreshOAuth2AccessToken</span> (line <span class="line-number">563</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines if the OAuth2 access token can be refreshed.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the access token can be refreshed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			CanRefreshOAuth2AccessToken
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodGetAuthServer" id="GetAuthServer"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetAuthServer</span> (line <span class="line-number">386</span>)
+		<span class="method-title">GetAuthServer</span> (line <span class="line-number">389</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -338,7 +418,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetClientLibraryIdentifier</span> (line <span class="line-number">426</span>)
+		<span class="method-title">GetClientLibraryIdentifier</span> (line <span class="line-number">461</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -372,7 +452,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetDefaultServer</span> (line <span class="line-number">322</span>)
+		<span class="method-title">GetDefaultServer</span> (line <span class="line-number">325</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -397,7 +477,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetDefaultVersion</span> (line <span class="line-number">338</span>)
+		<span class="method-title">GetDefaultVersion</span> (line <span class="line-number">341</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -477,7 +557,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLogsDirectory</span> (line <span class="line-number">354</span>)
+		<span class="method-title">GetLogsDirectory</span> (line <span class="line-number">357</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -498,11 +578,168 @@
 		
 			
 	</div>
-<a name="methodGetOAuthAuthorizationUrl" id="GetOAuthAuthorizationUrl"><!-- --></a>
+<a name="methodGetOAuth2AccessToken" id="GetOAuth2AccessToken"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetOAuthAuthorizationUrl</span> (line <span class="line-number">448</span>)
+		<span class="method-title">GetOAuth2AccessToken</span> (line <span class="line-number">545</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets an OAuth2 access token after it's been authorized, also saving it  on the user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the updated OAuth2 info</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			GetOAuth2AccessToken
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$redirectUri</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$code</span><span class="var-description">: the authorization code returned in the response</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$redirectUri</span><span class="var-description">: optional callback URL</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodGetOAuth2AuthorizationUrl" id="GetOAuth2AuthorizationUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetOAuth2AuthorizationUrl</span> (line <span class="line-number">530</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the OAuth2 authorization URL.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the URL used to redirect the user to to authorize the token</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetOAuth2AuthorizationUrl
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$redirectUri</span> = <span class="var-default">NULL</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$offline</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$redirectUri</span><span class="var-description">: optional callback URL</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$offline</span><span class="var-description">: if offline mode is requested, false by default</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span><span class="var-description">: optional array of additional parameters to include      in the URL</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodGetOAuth2Handler" id="GetOAuth2Handler"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetOAuth2Handler</span> (line <span class="line-number">445</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the OAuth2 handler for this user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the OAuth2 handler for this user</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../GoogleApiAdsCommon/Util/OAuth2Handler.html">OAuth2Handler</a></span>
+		<span class="method-name">
+			GetOAuth2Handler
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetOAuth2Info" id="GetOAuth2Info"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetOAuth2Info</span> (line <span class="line-number">429</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the OAuth2 info for this user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the OAuth2 info for this user</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			GetOAuth2Info
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetOAuth2Scope" id="GetOAuth2Scope"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetOAuth2Scope</span> (line <span class="line-number">610</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the OAuth2 scope for this user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the scope to use when requesting an OAuth2 token</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetOAuth2Scope
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server</span><span class="var-description">: the API server that requests will be made to</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html#methodGetOAuth2Scope">AdWordsUser::GetOAuth2Scope()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodGetOAuthAuthorizationUrl" id="GetOAuthAuthorizationUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetOAuthAuthorizationUrl</span> (line <span class="line-number">483</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -524,10 +761,10 @@
 			
 	</div>
 <a name="methodGetOAuthHandler" id="GetOAuthHandler"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetOAuthHandler</span> (line <span class="line-number">410</span>)
+		<span class="method-title">GetOAuthHandler</span> (line <span class="line-number">413</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -549,10 +786,10 @@
 			
 	</div>
 <a name="methodGetOAuthInfo" id="GetOAuthInfo"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetOAuthInfo</span> (line <span class="line-number">394</span>)
+		<span class="method-title">GetOAuthInfo</span> (line <span class="line-number">397</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -574,10 +811,10 @@
 			
 	</div>
 <a name="methodGetOAuthScope" id="GetOAuthScope"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetOAuthScope</span> (line <span class="line-number">492</span>)
+		<span class="method-title">GetOAuthScope</span> (line <span class="line-number">603</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -599,7 +836,7 @@
 			<ul class="parameters">
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$server</span><span class="var-description">: the AdWords API server that requests will be made to</span>			</li>
+				<span class="var-name">$server</span><span class="var-description">: the API server that requests will be made to</span>			</li>
 				</ul>
 		
 			
@@ -608,12 +845,11 @@
 		<ul class="redefinitions">
 					<li>
 				<a href="../../GoogleApiAdsAdWords/Lib/AdWordsUser.html#methodGetOAuthScope">AdWordsUser::GetOAuthScope()</a>
-								: Gets the OAuth scope for this user.
 							</li>
 				</ul>
 	</div>
 <a name="methodGetServiceSoapClient" id="GetServiceSoapClient"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">GetServiceSoapClient</span> (line <span class="line-number">126</span>)
@@ -646,10 +882,10 @@
 			
 	</div>
 <a name="methodGetSoapCompressionLevel" id="GetSoapCompressionLevel"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetSoapCompressionLevel</span> (line <span class="line-number">370</span>)
+		<span class="method-title">GetSoapCompressionLevel</span> (line <span class="line-number">373</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -671,10 +907,10 @@
 			
 	</div>
 <a name="methodGetWsdlCacheType" id="GetWsdlCacheType"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetWsdlCacheType</span> (line <span class="line-number">378</span>)
+		<span class="method-title">GetWsdlCacheType</span> (line <span class="line-number">381</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -696,7 +932,7 @@
 			
 	</div>
 <a name="methodInitLogs" id="InitLogs"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">InitLogs</span> (line <span class="line-number">137</span>)
@@ -728,11 +964,36 @@
 							</li>
 				</ul>
 	</div>
+<a name="methodIsOAuth2AccessTokenValid" id="IsOAuth2AccessTokenValid"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">IsOAuth2AccessTokenValid</span> (line <span class="line-number">555</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines if the OAuth2 access token is still valid.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the access token is still valid</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			IsOAuth2AccessTokenValid
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodIsSoapCompressionEnabled" id="IsSoapCompressionEnabled"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">IsSoapCompressionEnabled</span> (line <span class="line-number">362</span>)
+		<span class="method-title">IsSoapCompressionEnabled</span> (line <span class="line-number">365</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -890,11 +1151,36 @@
 							</li>
 				</ul>
 	</div>
-<a name="methodRequestOAuthToken" id="RequestOAuthToken"><!-- --></a>
+<a name="methodRefreshOAuth2AccessToken" id="RefreshOAuth2AccessToken"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">RequestOAuthToken</span> (line <span class="line-number">435</span>)
+		<span class="method-title">RefreshOAuth2AccessToken</span> (line <span class="line-number">571</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Refreshes the access token, saving it on the user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the updated OAuth2 info</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			RefreshOAuth2AccessToken
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodRequestOAuthToken" id="RequestOAuthToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">RequestOAuthToken</span> (line <span class="line-number">470</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -926,10 +1212,10 @@
 			
 	</div>
 <a name="methodSetDefaultServer" id="SetDefaultServer"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetDefaultServer</span> (line <span class="line-number">330</span>)
+		<span class="method-title">SetDefaultServer</span> (line <span class="line-number">333</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -955,10 +1241,10 @@
 			
 	</div>
 <a name="methodSetDefaultVersion" id="SetDefaultVersion"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetDefaultVersion</span> (line <span class="line-number">346</span>)
+		<span class="method-title">SetDefaultVersion</span> (line <span class="line-number">349</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -984,7 +1270,7 @@
 			
 	</div>
 <a name="methodSetHeaderValue" id="SetHeaderValue"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">SetHeaderValue</span> (line <span class="line-number">116</span>)
@@ -1015,11 +1301,69 @@
 		
 			
 	</div>
-<a name="methodSetOAuthHandler" id="SetOAuthHandler"><!-- --></a>
+<a name="methodSetOAuth2Handler" id="SetOAuth2Handler"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetOAuth2Handler</span> (line <span class="line-number">453</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the OAuth2 handler for this user.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetOAuth2Handler
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$oauth2Handler</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$oauth2Handler</span><span class="var-description">: the OAuth2 handler for this user</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetOAuth2Info" id="SetOAuth2Info"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetOAuthHandler</span> (line <span class="line-number">418</span>)
+		<span class="method-title">SetOAuth2Info</span> (line <span class="line-number">437</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the OAuth2 info for this user.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetOAuth2Info
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$oauth2Info</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$oauth2Info</span><span class="var-description">: the OAuth2 info for this user</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetOAuthHandler" id="SetOAuthHandler"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetOAuthHandler</span> (line <span class="line-number">421</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1045,10 +1389,10 @@
 			
 	</div>
 <a name="methodSetOAuthInfo" id="SetOAuthInfo"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetOAuthInfo</span> (line <span class="line-number">402</span>)
+		<span class="method-title">SetOAuthInfo</span> (line <span class="line-number">405</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1074,10 +1418,10 @@
 			
 	</div>
 <a name="methodUpgradeOAuthToken" id="UpgradeOAuthToken"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">UpgradeOAuthToken</span> (line <span class="line-number">458</span>)
+		<span class="method-title">UpgradeOAuthToken</span> (line <span class="line-number">493</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1102,11 +1446,36 @@
 		
 			
 	</div>
+<a name="methodValidateOAuth2Info" id="ValidateOAuth2Info"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ValidateOAuth2Info</span> (line <span class="line-number">582</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Validates that the OAuth2 info is complete.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> ValidationException if there are any validation errors</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ValidateOAuth2Info
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodValidateOAuthInfo" id="ValidateOAuthInfo"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">ValidateOAuthInfo</span> (line <span class="line-number">468</span>)
+		<span class="method-title">ValidateOAuthInfo</span> (line <span class="line-number">503</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->

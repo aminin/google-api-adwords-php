@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class BulkMutateJobService</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class BulkMutateJobService</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">BulkMutateJobService</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> WSDLInterpreter</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Ads---AdWords---v201109_1---BulkMutateJobService.php.html">/Ads/AdWords/v201109_1/BulkMutateJobService.php</a> (line <span class="field">14935</span>)
+		</p>
+		
+				
+		<pre>SoapClient
+   |
+   --<a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a>
+      |
+      --<a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a>
+         |
+         --BulkMutateJobService</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+												<div class="var-title">
+					static <span class="var-type">array</span>
+					<a href="#$classmap" title="details" class="var-name">$classmap</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$endpoint" title="details" class="var-name">$endpoint</a>
+				</div>
+																															</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																												
+												<div class="method-definition">
+											<span class="method-result">BulkMutateJobService</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span> = <span class="var-default">null</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">List</span>
+										<a href="#get" title="details" class="method-name">get</a>
+											(<span class="var-type">selector</span>&nbsp;<span class="var-name">$selector</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">The</span>
+										<a href="#mutate" title="details" class="method-name">mutate</a>
+											(<span class="var-type">operation</span>&nbsp;<span class="var-name">$operation</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$classmap" id="$classmap"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">array</span>
+			<span class="var-name">$classmap</span>
+			 = <span class="var-default">array(<br />    &quot;getResponse&quot; =&gt; &quot;BulkMutateJobServiceGetResponse&quot;,<br />    &quot;get&quot; =&gt; &quot;BulkMutateJobServiceGet&quot;,<br />    &quot;mutate&quot; =&gt; &quot;BulkMutateJobServiceMutate&quot;,<br />    &quot;mutateResponse&quot; =&gt; &quot;BulkMutateJobServiceMutateResponse&quot;,<br />    &quot;DateTime&quot; =&gt; &quot;AdWordsDateTime&quot;,<br />    &quot;SoapHeader&quot; =&gt; &quot;SoapRequestHeader&quot;,<br />    &quot;Ad&quot; =&gt; &quot;Ad&quot;,<br />    &quot;AdError&quot; =&gt; &quot;AdError&quot;,<br />    &quot;ApiError&quot; =&gt; &quot;ApiError&quot;,<br />    &quot;AdExtension&quot; =&gt; &quot;AdExtension&quot;,<br />    &quot;AdExtensionError&quot; =&gt; &quot;AdExtensionError&quot;,<br />    &quot;AdExtensionOverride&quot; =&gt; &quot;AdExtensionOverride&quot;,<br />    &quot;AdExtensionOverrideError&quot; =&gt; &quot;AdExtensionOverrideError&quot;,<br />    &quot;AdExtensionOverrideOperation&quot; =&gt; &quot;AdExtensionOverrideOperation&quot;,<br />    &quot;Operation&quot; =&gt; &quot;Operation&quot;,<br />    &quot;AdExtensionOverrideStats&quot; =&gt; &quot;AdExtensionOverrideStats&quot;,<br />    &quot;Stats&quot; =&gt; &quot;Stats&quot;,<br />    &quot;AdGroup&quot; =&gt; &quot;AdGroup&quot;,<br />    &quot;AdGroupAd&quot; =&gt; &quot;AdGroupAd&quot;,<br />    &quot;AdGroupAdCountLimitExceeded&quot; =&gt; &quot;AdGroupAdCountLimitExceeded&quot;,<br />    &quot;EntityCountLimitExceeded&quot; =&gt; &quot;EntityCountLimitExceeded&quot;,<br />    &quot;AdGroupAdError&quot; =&gt; &quot;AdGroupAdError&quot;,<br />    &quot;AdGroupAdExperimentData&quot; =&gt; &quot;AdGroupAdExperimentData&quot;,<br />    &quot;AdGroupAdOperation&quot; =&gt; &quot;AdGroupAdOperation&quot;,<br />    &quot;AdGroupBids&quot; =&gt; &quot;AdGroupBids&quot;,<br />    &quot;AdGroupCriterion&quot; =&gt; &quot;AdGroupCriterion&quot;,<br />    &quot;AdGroupCriterionBids&quot; =&gt; &quot;AdGroupCriterionBids&quot;,<br />    &quot;AdGroupCriterionError&quot; =&gt; &quot;AdGroupCriterionError&quot;,<br />    &quot;AdGroupCriterionExperimentBidMultiplier&quot; =&gt; &quot;AdGroupCriterionExperimentBidMultiplier&quot;,<br />    &quot;AdGroupCriterionLimitExceeded&quot; =&gt; &quot;AdGroupCriterionLimitExceeded&quot;,<br />    &quot;AdGroupCriterionOperation&quot; =&gt; &quot;AdGroupCriterionOperation&quot;,<br />    &quot;AdGroupExperimentBidMultipliers&quot; =&gt; &quot;AdGroupExperimentBidMultipliers&quot;,<br />    &quot;AdGroupExperimentData&quot; =&gt; &quot;AdGroupExperimentData&quot;,<br />    &quot;AdGroupOperation&quot; =&gt; &quot;AdGroupOperation&quot;,<br />    &quot;AdGroupServiceError&quot; =&gt; &quot;AdGroupServiceError&quot;,<br />    &quot;AdScheduleTarget&quot; =&gt; &quot;AdScheduleTarget&quot;,<br />    &quot;Target&quot; =&gt; &quot;Target&quot;,<br />    &quot;AdScheduleTargetList&quot; =&gt; &quot;AdScheduleTargetList&quot;,<br />    &quot;TargetList&quot; =&gt; &quot;TargetList&quot;,<br />    &quot;AdStats&quot; =&gt; &quot;AdStats&quot;,<br />    &quot;AdUnionId&quot; =&gt; &quot;AdUnionId&quot;,<br />    &quot;Address&quot; =&gt; &quot;Address&quot;,<br />    &quot;AgeRange&quot; =&gt; &quot;AgeRange&quot;,<br />    &quot;Criterion&quot; =&gt; &quot;Criterion&quot;,<br />    &quot;ApiErrorReason&quot; =&gt; &quot;ApiErrorReason&quot;,<br />    &quot;ApiException&quot; =&gt; &quot;ApiException&quot;,<br />    &quot;ApplicationException&quot; =&gt; &quot;ApplicationException&quot;,<br />    &quot;Audio&quot; =&gt; &quot;Audio&quot;,<br />    &quot;Media&quot; =&gt; &quot;Media&quot;,<br />    &quot;AuthenticationError&quot; =&gt; &quot;AuthenticationError&quot;,<br />    &quot;AuthorizationError&quot; =&gt; &quot;AuthorizationError&quot;,<br />    &quot;BatchFailureResult&quot; =&gt; &quot;BatchFailureResult&quot;,<br />    &quot;OperationResult&quot; =&gt; &quot;OperationResult&quot;,<br />    &quot;BetaError&quot; =&gt; &quot;BetaError&quot;,<br />    &quot;Bid&quot; =&gt; &quot;Bid&quot;,<br />    &quot;BidMultiplier&quot; =&gt; &quot;BidMultiplier&quot;,<br />    &quot;BiddableAdGroupCriterion&quot; =&gt; &quot;BiddableAdGroupCriterion&quot;,<br />    &quot;BiddableAdGroupCriterionExperimentData&quot; =&gt; &quot;BiddableAdGroupCriterionExperimentData&quot;,<br />    &quot;BiddingError&quot; =&gt; &quot;BiddingError&quot;,<br />    &quot;BiddingStrategy&quot; =&gt; &quot;BiddingStrategy&quot;,<br />    &quot;BiddingTransition&quot; =&gt; &quot;BiddingTransition&quot;,<br />    &quot;BiddingTransitionError&quot; =&gt; &quot;BiddingTransitionError&quot;,<br />    &quot;BillingSummary&quot; =&gt; &quot;BillingSummary&quot;,<br />    &quot;Budget&quot; =&gt; &quot;Budget&quot;,<br />    &quot;BudgetError&quot; =&gt; &quot;BudgetError&quot;,<br />    &quot;BudgetOptimizer&quot; =&gt; &quot;BudgetOptimizer&quot;,<br />    &quot;BudgetOptimizerAdGroupBids&quot; =&gt; &quot;BudgetOptimizerAdGroupBids&quot;,<br />    &quot;BudgetOptimizerAdGroupCriterionBids&quot; =&gt; &quot;BudgetOptimizerAdGroupCriterionBids&quot;,<br />    &quot;BulkMutateJob&quot; =&gt; &quot;BulkMutateJob&quot;,<br />    &quot;Job&quot; =&gt; &quot;Job&quot;,<br />    &quot;BulkMutateJobError&quot; =&gt; &quot;BulkMutateJobError&quot;,<br />    &quot;BulkMutateJobEvent&quot; =&gt; &quot;BulkMutateJobEvent&quot;,<br />    &quot;JobEvent&quot; =&gt; &quot;JobEvent&quot;,<br />    &quot;BulkMutateJobPolicy&quot; =&gt; &quot;BulkMutateJobPolicy&quot;,<br />    &quot;BulkMutateJobSelector&quot; =&gt; &quot;BulkMutateJobSelector&quot;,<br />    &quot;JobSelector&quot; =&gt; &quot;JobSelector&quot;,<br />    &quot;BulkMutateJobStats&quot; =&gt; &quot;BulkMutateJobStats&quot;,<br />    &quot;JobStats&quot; =&gt; &quot;JobStats&quot;,<br />    &quot;BulkMutateRequest&quot; =&gt; &quot;BulkMutateRequest&quot;,<br />    &quot;BulkMutateResult&quot; =&gt; &quot;BulkMutateResult&quot;,<br />    &quot;Campaign&quot; =&gt; &quot;Campaign&quot;,<br />    &quot;CampaignAdExtension&quot; =&gt; &quot;CampaignAdExtension&quot;,<br />    &quot;CampaignAdExtensionError&quot; =&gt; &quot;CampaignAdExtensionError&quot;,<br />    &quot;CampaignAdExtensionOperation&quot; =&gt; &quot;CampaignAdExtensionOperation&quot;,<br />    &quot;CampaignAdExtensionStats&quot; =&gt; &quot;CampaignAdExtensionStats&quot;,<br />    &quot;CampaignCriterion&quot; =&gt; &quot;CampaignCriterion&quot;,<br />    &quot;CampaignCriterionError&quot; =&gt; &quot;CampaignCriterionError&quot;,<br />    &quot;CampaignCriterionLimitExceeded&quot; =&gt; &quot;CampaignCriterionLimitExceeded&quot;,<br />    &quot;CampaignCriterionOperation&quot; =&gt; &quot;CampaignCriterionOperation&quot;,<br />    &quot;CampaignError&quot; =&gt; &quot;CampaignError&quot;,<br />    &quot;CampaignOperation&quot; =&gt; &quot;CampaignOperation&quot;,<br />    &quot;CampaignStats&quot; =&gt; &quot;CampaignStats&quot;,<br />    &quot;CampaignTargetOperation&quot; =&gt; &quot;CampaignTargetOperation&quot;,<br />    &quot;Carrier&quot; =&gt; &quot;Carrier&quot;,<br />    &quot;ClientTermsError&quot; =&gt; &quot;ClientTermsError&quot;,<br />    &quot;ComparableValue&quot; =&gt; &quot;ComparableValue&quot;,<br />    &quot;ContentLabel&quot; =&gt; &quot;ContentLabel&quot;,<br />    &quot;ConversionOptimizer&quot; =&gt; &quot;ConversionOptimizer&quot;,<br />    &quot;ConversionOptimizerAdGroupBids&quot; =&gt; &quot;ConversionOptimizerAdGroupBids&quot;,<br />    &quot;ConversionOptimizerAdGroupCriterionBids&quot; =&gt; &quot;ConversionOptimizerAdGroupCriterionBids&quot;,<br />    &quot;ConversionOptimizerBiddingTransition&quot; =&gt; &quot;ConversionOptimizerBiddingTransition&quot;,<br />    &quot;ConversionOptimizerEligibility&quot; =&gt; &quot;ConversionOptimizerEligibility&quot;,<br />    &quot;CriterionError&quot; =&gt; &quot;CriterionError&quot;,<br />    &quot;CriterionPolicyError&quot; =&gt; &quot;CriterionPolicyError&quot;,<br />    &quot;PolicyViolationError&quot; =&gt; &quot;PolicyViolationError&quot;,<br />    &quot;DatabaseError&quot; =&gt; &quot;DatabaseError&quot;,<br />    &quot;DateError&quot; =&gt; &quot;DateError&quot;,<br />    &quot;DeprecatedAd&quot; =&gt; &quot;DeprecatedAd&quot;,<br />    &quot;Dimensions&quot; =&gt; &quot;Dimensions&quot;,<br />    &quot;DistinctError&quot; =&gt; &quot;DistinctError&quot;,<br />    &quot;DoubleValue&quot; =&gt; &quot;DoubleValue&quot;,<br />    &quot;NumberValue&quot; =&gt; &quot;NumberValue&quot;,<br />    &quot;EntityAccessDenied&quot; =&gt; &quot;EntityAccessDenied&quot;,<br />    &quot;EntityId&quot; =&gt; &quot;EntityId&quot;,<br />    &quot;EntityNotFound&quot; =&gt; &quot;EntityNotFound&quot;,<br />    &quot;ExemptionRequest&quot; =&gt; &quot;ExemptionRequest&quot;,<br />    &quot;FailureResult&quot; =&gt; &quot;FailureResult&quot;,<br />    &quot;FrequencyCap&quot; =&gt; &quot;FrequencyCap&quot;,<br />    &quot;Gender&quot; =&gt; &quot;Gender&quot;,<br />    &quot;GeoPoint&quot; =&gt; &quot;GeoPoint&quot;,<br />    &quot;GeoTargetTypeSetting&quot; =&gt; &quot;GeoTargetTypeSetting&quot;,<br />    &quot;Setting&quot; =&gt; &quot;Setting&quot;,<br />    &quot;IdError&quot; =&gt; &quot;IdError&quot;,<br />    &quot;Image&quot; =&gt; &quot;Image&quot;,<br />    &quot;ImageAd&quot; =&gt; &quot;ImageAd&quot;,<br />    &quot;ImageError&quot; =&gt; &quot;ImageError&quot;,<br />    &quot;InteractionBid&quot; =&gt; &quot;InteractionBid&quot;,<br />    &quot;InternalApiError&quot; =&gt; &quot;InternalApiError&quot;,<br />    &quot;JobError&quot; =&gt; &quot;JobError&quot;,<br />    &quot;JobOperation&quot; =&gt; &quot;JobOperation&quot;,<br />    &quot;Keyword&quot; =&gt; &quot;Keyword&quot;,<br />    &quot;KeywordMatchSetting&quot; =&gt; &quot;KeywordMatchSetting&quot;,<br />    &quot;Language&quot; =&gt; &quot;Language&quot;,<br />    &quot;Location&quot; =&gt; &quot;Location&quot;,<br />    &quot;LocationExtension&quot; =&gt; &quot;LocationExtension&quot;,<br />    &quot;LocationOverrideInfo&quot; =&gt; &quot;LocationOverrideInfo&quot;,<br />    &quot;LocationSyncExtension&quot; =&gt; &quot;LocationSyncExtension&quot;,<br />    &quot;LongValue&quot; =&gt; &quot;LongValue&quot;,<br />    &quot;LostResult&quot; =&gt; &quot;LostResult&quot;,<br />    &quot;ManualCPC&quot; =&gt; &quot;ManualCPC&quot;,<br />    &quot;ManualCPCAdGroupBids&quot; =&gt; &quot;ManualCPCAdGroupBids&quot;,<br />    &quot;ManualCPCAdGroupCriterionBids&quot; =&gt; &quot;ManualCPCAdGroupCriterionBids&quot;,<br />    &quot;ManualCPCAdGroupCriterionExperimentBidMultiplier&quot; =&gt; &quot;ManualCPCAdGroupCriterionExperimentBidMultiplier&quot;,<br />    &quot;ManualCPCAdGroupExperimentBidMultipliers&quot; =&gt; &quot;ManualCPCAdGroupExperimentBidMultipliers&quot;,<br />    &quot;ManualCPM&quot; =&gt; &quot;ManualCPM&quot;,<br />    &quot;ManualCPMAdGroupBids&quot; =&gt; &quot;ManualCPMAdGroupBids&quot;,<br />    &quot;ManualCPMAdGroupCriterionBids&quot; =&gt; &quot;ManualCPMAdGroupCriterionBids&quot;,<br />    &quot;ManualCPMAdGroupExperimentBidMultipliers&quot; =&gt; &quot;ManualCPMAdGroupExperimentBidMultipliers&quot;,<br />    &quot;MediaError&quot; =&gt; &quot;MediaError&quot;,<br />    &quot;Media_Size_DimensionsMapEntry&quot; =&gt; &quot;Media_Size_DimensionsMapEntry&quot;,<br />    &quot;Media_Size_StringMapEntry&quot; =&gt; &quot;Media_Size_StringMapEntry&quot;,<br />    &quot;MobileAd&quot; =&gt; &quot;MobileAd&quot;,<br />    &quot;MobileExtension&quot; =&gt; &quot;MobileExtension&quot;,<br />    &quot;MobileImageAd&quot; =&gt; &quot;MobileImageAd&quot;,<br />    &quot;Money&quot; =&gt; &quot;Money&quot;,<br />    &quot;NegativeAdGroupCriterion&quot; =&gt; &quot;NegativeAdGroupCriterion&quot;,<br />    &quot;NegativeCampaignCriterion&quot; =&gt; &quot;NegativeCampaignCriterion&quot;,<br />    &quot;NetworkSetting&quot; =&gt; &quot;NetworkSetting&quot;,<br />    &quot;NewEntityCreationError&quot; =&gt; &quot;NewEntityCreationError&quot;,<br />    &quot;NotEmptyError&quot; =&gt; &quot;NotEmptyError&quot;,<br />    &quot;NotWhitelistedError&quot; =&gt; &quot;NotWhitelistedError&quot;,<br />    &quot;NullError&quot; =&gt; &quot;NullError&quot;,<br />    &quot;OAuthInfo&quot; =&gt; &quot;OAuthInfo&quot;,<br />    &quot;Operand&quot; =&gt; &quot;Operand&quot;,<br />    &quot;OperatingSystemVersion&quot; =&gt; &quot;OperatingSystemVersion&quot;,<br />    &quot;OperationAccessDenied&quot; =&gt; &quot;OperationAccessDenied&quot;,<br />    &quot;OperationStream&quot; =&gt; &quot;OperationStream&quot;,<br />    &quot;OperationStreamResult&quot; =&gt; &quot;OperationStreamResult&quot;,<br />    &quot;OperatorError&quot; =&gt; &quot;OperatorError&quot;,<br />    &quot;OverrideInfo&quot; =&gt; &quot;OverrideInfo&quot;,<br />    &quot;PagingError&quot; =&gt; &quot;PagingError&quot;,<br />    &quot;PercentCPA&quot; =&gt; &quot;PercentCPA&quot;,<br />    &quot;PercentCPAAdGroupBids&quot; =&gt; &quot;PercentCPAAdGroupBids&quot;,<br />    &quot;PercentCPAAdGroupCriterionBids&quot; =&gt; &quot;PercentCPAAdGroupCriterionBids&quot;,<br />    &quot;PhoneInteractionBid&quot; =&gt; &quot;PhoneInteractionBid&quot;,<br />    &quot;PlaceHolder&quot; =&gt; &quot;PlaceHolder&quot;,<br />    &quot;Placement&quot; =&gt; &quot;Placement&quot;,<br />    &quot;Platform&quot; =&gt; &quot;Platform&quot;,<br />    &quot;PolicyViolationError.Part&quot; =&gt; &quot;PolicyViolationErrorPart&quot;,<br />    &quot;PolicyViolationKey&quot; =&gt; &quot;PolicyViolationKey&quot;,<br />    &quot;Polygon&quot; =&gt; &quot;Polygon&quot;,<br />    &quot;Product&quot; =&gt; &quot;Product&quot;,<br />    &quot;ProductAd&quot; =&gt; &quot;ProductAd&quot;,<br />    &quot;ProductCondition&quot; =&gt; &quot;ProductCondition&quot;,<br />    &quot;ProductConditionAndGroup&quot; =&gt; &quot;ProductConditionAndGroup&quot;,<br />    &quot;ProductConditionOperand&quot; =&gt; &quot;ProductConditionOperand&quot;,<br />    &quot;ProductExtension&quot; =&gt; &quot;ProductExtension&quot;,<br />    &quot;Proximity&quot; =&gt; &quot;Proximity&quot;,<br />    &quot;QualityInfo&quot; =&gt; &quot;QualityInfo&quot;,<br />    &quot;QuotaCheckError&quot; =&gt; &quot;QuotaCheckError&quot;,<br />    &quot;QuotaError&quot; =&gt; &quot;QuotaError&quot;,<br />    &quot;RangeError&quot; =&gt; &quot;RangeError&quot;,<br />    &quot;RateExceededError&quot; =&gt; &quot;RateExceededError&quot;,<br />    &quot;ReadOnlyError&quot; =&gt; &quot;ReadOnlyError&quot;,<br />    &quot;RealTimeBiddingSetting&quot; =&gt; &quot;RealTimeBiddingSetting&quot;,<br />    &quot;RegionCodeError&quot; =&gt; &quot;RegionCodeError&quot;,<br />    &quot;RejectedError&quot; =&gt; &quot;RejectedError&quot;,<br />    &quot;RequestError&quot; =&gt; &quot;RequestError&quot;,<br />    &quot;RequiredError&quot; =&gt; &quot;RequiredError&quot;,<br />    &quot;ReturnValueResult&quot; =&gt; &quot;ReturnValueResult&quot;,<br />    &quot;RichMediaAd&quot; =&gt; &quot;RichMediaAd&quot;,<br />    &quot;SelectorError&quot; =&gt; &quot;SelectorError&quot;,<br />    &quot;SettingError&quot; =&gt; &quot;SettingError&quot;,<br />    &quot;Sitelink&quot; =&gt; &quot;Sitelink&quot;,<br />    &quot;SitelinksExtension&quot; =&gt; &quot;SitelinksExtension&quot;,<br />    &quot;SizeLimitError&quot; =&gt; &quot;SizeLimitError&quot;,<br />    &quot;SoapResponseHeader&quot; =&gt; &quot;SoapResponseHeader&quot;,<br />    &quot;StatsQueryError&quot; =&gt; &quot;StatsQueryError&quot;,<br />    &quot;StringLengthError&quot; =&gt; &quot;StringLengthError&quot;,<br />    &quot;TargetError&quot; =&gt; &quot;TargetError&quot;,<br />    &quot;TempAdUnionId&quot; =&gt; &quot;TempAdUnionId&quot;,<br />    &quot;TemplateAd&quot; =&gt; &quot;TemplateAd&quot;,<br />    &quot;TemplateElement&quot; =&gt; &quot;TemplateElement&quot;,<br />    &quot;TemplateElementField&quot; =&gt; &quot;TemplateElementField&quot;,<br />    &quot;TextAd&quot; =&gt; &quot;TextAd&quot;,<br />    &quot;ThirdPartyRedirectAd&quot; =&gt; &quot;ThirdPartyRedirectAd&quot;,<br />    &quot;UnprocessedResult&quot; =&gt; &quot;UnprocessedResult&quot;,<br />    &quot;CriterionUserInterest&quot; =&gt; &quot;CriterionUserInterest&quot;,<br />    &quot;CriterionUserList&quot; =&gt; &quot;CriterionUserList&quot;,<br />    &quot;Vertical&quot; =&gt; &quot;Vertical&quot;,<br />    &quot;Video&quot; =&gt; &quot;Video&quot;,<br />    &quot;Ad.ApprovalStatus&quot; =&gt; &quot;AdApprovalStatus&quot;,<br />    &quot;AdError.Reason&quot; =&gt; &quot;AdErrorReason&quot;,<br />    &quot;AdExtensionError.Reason&quot; =&gt; &quot;AdExtensionErrorReason&quot;,<br />    &quot;AdExtensionOverride.ApprovalStatus&quot; =&gt; &quot;AdExtensionOverrideApprovalStatus&quot;,<br />    &quot;AdExtensionOverride.Status&quot; =&gt; &quot;AdExtensionOverrideStatus&quot;,<br />    &quot;AdExtensionOverrideError.Reason&quot; =&gt; &quot;AdExtensionOverrideErrorReason&quot;,<br />    &quot;AdGroup.Status&quot; =&gt; &quot;AdGroupStatus&quot;,<br />    &quot;AdGroupAd.Status&quot; =&gt; &quot;AdGroupAdStatus&quot;,<br />    &quot;AdGroupAdError.Reason&quot; =&gt; &quot;AdGroupAdErrorReason&quot;,<br />    &quot;AdGroupCriterionError.Reason&quot; =&gt; &quot;AdGroupCriterionErrorReason&quot;,<br />    &quot;AdGroupCriterionLimitExceeded.CriteriaLimitType&quot; =&gt; &quot;AdGroupCriterionLimitExceededCriteriaLimitType&quot;,<br />    &quot;AdGroupServiceError.Reason&quot; =&gt; &quot;AdGroupServiceErrorReason&quot;,<br />    &quot;AdServingOptimizationStatus&quot; =&gt; &quot;AdServingOptimizationStatus&quot;,<br />    &quot;AgeRange.AgeRangeType&quot; =&gt; &quot;AgeRangeAgeRangeType&quot;,<br />    &quot;ApprovalStatus&quot; =&gt; &quot;ApprovalStatus&quot;,<br />    &quot;AuthenticationError.Reason&quot; =&gt; &quot;AuthenticationErrorReason&quot;,<br />    &quot;AuthorizationError.Reason&quot; =&gt; &quot;AuthorizationErrorReason&quot;,<br />    &quot;BasicJobStatus&quot; =&gt; &quot;BasicJobStatus&quot;,<br />    &quot;BetaError.Reason&quot; =&gt; &quot;BetaErrorReason&quot;,<br />    &quot;BidSource&quot; =&gt; &quot;BidSource&quot;,<br />    &quot;BiddingError.Reason&quot; =&gt; &quot;BiddingErrorReason&quot;,<br />    &quot;BiddingTransitionError.Reason&quot; =&gt; &quot;BiddingTransitionErrorReason&quot;,<br />    &quot;Budget.BudgetDeliveryMethod&quot; =&gt; &quot;BudgetBudgetDeliveryMethod&quot;,<br />    &quot;Budget.BudgetPeriod&quot; =&gt; &quot;BudgetBudgetPeriod&quot;,<br />    &quot;BudgetError.Reason&quot; =&gt; &quot;BudgetErrorReason&quot;,<br />    &quot;BulkMutateJobError.Reason&quot; =&gt; &quot;BulkMutateJobErrorReason&quot;,<br />    &quot;CampaignAdExtension.ApprovalStatus&quot; =&gt; &quot;CampaignAdExtensionApprovalStatus&quot;,<br />    &quot;CampaignAdExtension.Status&quot; =&gt; &quot;CampaignAdExtensionStatus&quot;,<br />    &quot;CampaignAdExtensionError.Reason&quot; =&gt; &quot;CampaignAdExtensionErrorReason&quot;,<br />    &quot;CampaignCriterionError.Reason&quot; =&gt; &quot;CampaignCriterionErrorReason&quot;,<br />    &quot;CampaignCriterionLimitExceeded.CriteriaLimitType&quot; =&gt; &quot;CampaignCriterionLimitExceededCriteriaLimitType&quot;,<br />    &quot;CampaignError.Reason&quot; =&gt; &quot;CampaignErrorReason&quot;,<br />    &quot;CampaignStatus&quot; =&gt; &quot;CampaignStatus&quot;,<br />    &quot;ClientTermsError.Reason&quot; =&gt; &quot;ClientTermsErrorReason&quot;,<br />    &quot;ContentLabelType&quot; =&gt; &quot;ContentLabelType&quot;,<br />    &quot;ConversionDeduplicationMode&quot; =&gt; &quot;ConversionDeduplicationMode&quot;,<br />    &quot;ConversionOptimizerBidType&quot; =&gt; &quot;ConversionOptimizerBidType&quot;,<br />    &quot;ConversionOptimizerEligibility.RejectionReason&quot; =&gt; &quot;ConversionOptimizerEligibilityRejectionReason&quot;,<br />    &quot;Criterion.Type&quot; =&gt; &quot;CriterionType&quot;,<br />    &quot;CriterionError.Reason&quot; =&gt; &quot;CriterionErrorReason&quot;,<br />    &quot;CriterionUse&quot; =&gt; &quot;CriterionUse&quot;,<br />    &quot;DatabaseError.Reason&quot; =&gt; &quot;DatabaseErrorReason&quot;,<br />    &quot;DateError.Reason&quot; =&gt; &quot;DateErrorReason&quot;,<br />    &quot;DayOfWeek&quot; =&gt; &quot;DayOfWeek&quot;,<br />    &quot;DeprecatedAd.Type&quot; =&gt; &quot;DeprecatedAdType&quot;,<br />    &quot;DistinctError.Reason&quot; =&gt; &quot;DistinctErrorReason&quot;,<br />    &quot;EntityAccessDenied.Reason&quot; =&gt; &quot;EntityAccessDeniedReason&quot;,<br />    &quot;EntityCountLimitExceeded.Reason&quot; =&gt; &quot;EntityCountLimitExceededReason&quot;,<br />    &quot;EntityId.Type&quot; =&gt; &quot;EntityIdType&quot;,<br />    &quot;EntityNotFound.Reason&quot; =&gt; &quot;EntityNotFoundReason&quot;,<br />    &quot;ExperimentDataStatus&quot; =&gt; &quot;ExperimentDataStatus&quot;,<br />    &quot;ExperimentDeltaStatus&quot; =&gt; &quot;ExperimentDeltaStatus&quot;,<br />    &quot;Gender.GenderType&quot; =&gt; &quot;GenderGenderType&quot;,<br />    &quot;GeoTargetTypeSetting.NegativeGeoTargetType&quot; =&gt; &quot;GeoTargetTypeSettingNegativeGeoTargetType&quot;,<br />    &quot;GeoTargetTypeSetting.PositiveGeoTargetType&quot; =&gt; &quot;GeoTargetTypeSettingPositiveGeoTargetType&quot;,<br />    &quot;IdError.Reason&quot; =&gt; &quot;IdErrorReason&quot;,<br />    &quot;ImageError.Reason&quot; =&gt; &quot;ImageErrorReason&quot;,<br />    &quot;InteractionBid.BidStatus&quot; =&gt; &quot;InteractionBidBidStatus&quot;,<br />    &quot;InternalApiError.Reason&quot; =&gt; &quot;InternalApiErrorReason&quot;,<br />    &quot;JobError.Reason&quot; =&gt; &quot;JobErrorReason&quot;,<br />    &quot;KeywordMatchType&quot; =&gt; &quot;KeywordMatchType&quot;,<br />    &quot;Level&quot; =&gt; &quot;Level&quot;,<br />    &quot;LocationExtension.Source&quot; =&gt; &quot;LocationExtensionSource&quot;,<br />    &quot;LocationOverrideInfo.RadiusUnits&quot; =&gt; &quot;LocationOverrideInfoRadiusUnits&quot;,<br />    &quot;MarkupLanguageType&quot; =&gt; &quot;MarkupLanguageType&quot;,<br />    &quot;Media.MediaType&quot; =&gt; &quot;MediaMediaType&quot;,<br />    &quot;Media.MimeType&quot; =&gt; &quot;MediaMimeType&quot;,<br />    &quot;Media.Size&quot; =&gt; &quot;MediaSize&quot;,<br />    &quot;MediaError.Reason&quot; =&gt; &quot;MediaErrorReason&quot;,<br />    &quot;MinuteOfHour&quot; =&gt; &quot;MinuteOfHour&quot;,<br />    &quot;MultiplierSource&quot; =&gt; &quot;MultiplierSource&quot;,<br />    &quot;NewEntityCreationError.Reason&quot; =&gt; &quot;NewEntityCreationErrorReason&quot;,<br />    &quot;NotEmptyError.Reason&quot; =&gt; &quot;NotEmptyErrorReason&quot;,<br />    &quot;NotWhitelistedError.Reason&quot; =&gt; &quot;NotWhitelistedErrorReason&quot;,<br />    &quot;NullError.Reason&quot; =&gt; &quot;NullErrorReason&quot;,<br />    &quot;OperationAccessDenied.Reason&quot; =&gt; &quot;OperationAccessDeniedReason&quot;,<br />    &quot;Operator&quot; =&gt; &quot;Operator&quot;,<br />    &quot;OperatorError.Reason&quot; =&gt; &quot;OperatorErrorReason&quot;,<br />    &quot;PagingError.Reason&quot; =&gt; &quot;PagingErrorReason&quot;,<br />    &quot;PolicyViolationError.Reason&quot; =&gt; &quot;PolicyViolationErrorReason&quot;,<br />    &quot;PricingModel&quot; =&gt; &quot;PricingModel&quot;,<br />    &quot;Proximity.DistanceUnits&quot; =&gt; &quot;ProximityDistanceUnits&quot;,<br />    &quot;QuotaCheckError.Reason&quot; =&gt; &quot;QuotaCheckErrorReason&quot;,<br />    &quot;QuotaError.Reason&quot; =&gt; &quot;QuotaErrorReason&quot;,<br />    &quot;RangeError.Reason&quot; =&gt; &quot;RangeErrorReason&quot;,<br />    &quot;RateExceededError.Reason&quot; =&gt; &quot;RateExceededErrorReason&quot;,<br />    &quot;ReadOnlyError.Reason&quot; =&gt; &quot;ReadOnlyErrorReason&quot;,<br />    &quot;RegionCodeError.Reason&quot; =&gt; &quot;RegionCodeErrorReason&quot;,<br />    &quot;RejectedError.Reason&quot; =&gt; &quot;RejectedErrorReason&quot;,<br />    &quot;RequestError.Reason&quot; =&gt; &quot;RequestErrorReason&quot;,<br />    &quot;RequiredError.Reason&quot; =&gt; &quot;RequiredErrorReason&quot;,<br />    &quot;SelectorError.Reason&quot; =&gt; &quot;SelectorErrorReason&quot;,<br />    &quot;ServingStatus&quot; =&gt; &quot;ServingStatus&quot;,<br />    &quot;SettingError.Reason&quot; =&gt; &quot;SettingErrorReason&quot;,<br />    &quot;SizeLimitError.Reason&quot; =&gt; &quot;SizeLimitErrorReason&quot;,<br />    &quot;Stats.Network&quot; =&gt; &quot;StatsNetwork&quot;,<br />    &quot;StatsQueryError.Reason&quot; =&gt; &quot;StatsQueryErrorReason&quot;,<br />    &quot;StringLengthError.Reason&quot; =&gt; &quot;StringLengthErrorReason&quot;,<br />    &quot;SystemServingStatus&quot; =&gt; &quot;SystemServingStatus&quot;,<br />    &quot;TargetError.Reason&quot; =&gt; &quot;TargetErrorReason&quot;,<br />    &quot;TemplateElementField.Type&quot; =&gt; &quot;TemplateElementFieldType&quot;,<br />    &quot;ThirdPartyRedirectAd.ExpandingDirection&quot; =&gt; &quot;ThirdPartyRedirectAdExpandingDirection&quot;,<br />    &quot;TimeUnit&quot; =&gt; &quot;TimeUnit&quot;,<br />    &quot;CriterionUserList.MembershipStatus&quot; =&gt; &quot;CriterionUserListMembershipStatus&quot;,<br />    &quot;UserStatus&quot; =&gt; &quot;UserStatus&quot;,<br />    &quot;VideoType&quot; =&gt; &quot;VideoType&quot;,<br />  )</span>			(line <span class="line-number">14941</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Default class map for wsdl=&gt;php</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$endpoint" id="$endpoint"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$endpoint</span>
+			 = <span class="var-default"> &quot;https://adwords.google.com/api/adwords/job/v201109_1/BulkMutateJobService&quot;</span>			(line <span class="line-number">15275</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The endpoint of the service</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$headers">AdsSoapClient::$headers</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastHeaders">AdsSoapClient::$lastHeaders</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastRequest">AdsSoapClient::$lastRequest</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastResponse">AdsSoapClient::$lastResponse</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastSoapFault">AdsSoapClient::$lastSoapFault</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$options">AdsSoapClient::$options</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceName">AdsSoapClient::$serviceName</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceNamespace">AdsSoapClient::$serviceNamespace</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$user">AdsSoapClient::$user</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">15282</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor using wsdl location and options array</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">BulkMutateJobService</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span> = <span class="var-default">null</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$wsdl</span><span class="var-description">: WSDL location for this service</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: Options for the SoapClient</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#method__construct">AdWordsSoapClient::__construct()</a></dt>
+						<dd>Constructor for the AdWords API SOAP client.</dd>
+					</dl>
+			
+	</div>
+<a name="methodget" id="get"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">get</span> (line <span class="line-number">15299</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">&lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;</p>
+<p class="description"><p>Returns a list of bulk mutate jobs.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of bulk mutate jobs meeting the {@code selector} criteria.</li>
+				<li><span class="field">throws:</span> ApiException if problems occurred while fetching the jobs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">List</span>
+		<span class="method-name">
+			get
+		</span>
+					(<span class="var-type">selector</span>&nbsp;<span class="var-name">$selector</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">selector</span>
+				<span class="var-name">$selector</span><span class="var-description">: Specifies which jobs to return.  If the selector is empty, all jobs are returned.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodmutate" id="mutate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">mutate</span> (line <span class="line-number">15330</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">&lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;</p>
+<p class="description"><p>Adds or updates a bulk mutate job.</p><p>&lt;p&gt;Use the &amp;laquo;ADD&amp;raquo; operator to submit a new job, and the  &amp;laquo;SET&amp;raquo; operator to add additional  {@linkplain BulkMutateRequest request parts} to an existing job.  The &amp;laquo;DELETE&amp;raquo; operator is not supported.  From v201008 and later, use the &amp;laquo;REMOVE&amp;raquo; operator to  cancel a job. Only jobs that still have pending additions of request  parts may be canceled.&lt;/p&gt;</p><p>&lt;p class=&quot;note&quot;&gt;<strong>Note:</strong> In the current implementation, the check for  duplicate job keys is only &quot;best effort&quot;, and may not prevent jobs with  the same keys from being accepted if they are submitted around the same  instant.&lt;/p&gt;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> added or updated bulk mutate job.</li>
+				<li><span class="field">throws:</span> ApiException if problems occurred while creating or updating jobs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">The</span>
+		<span class="method-name">
+			mutate
+		</span>
+					(<span class="var-type">operation</span>&nbsp;<span class="var-name">$operation</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">operation</span>
+				<span class="var-name">$operation</span><span class="var-description">: The operation to perform.</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html">AdWordsSoapClient</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#method__construct">AdWordsSoapClient::__construct()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodGenerateRequestInfoMessage">AdWordsSoapClient::GenerateRequestInfoMessage()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodGenerateSoapHeader">AdWordsSoapClient::GenerateSoapHeader()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodGetEffectiveUser">AdWordsSoapClient::GetEffectiveUser()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodGetLastOperations">AdWordsSoapClient::GetLastOperations()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodGetLastOperators">AdWordsSoapClient::GetLastOperators()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodGetLastUnits">AdWordsSoapClient::GetLastUnits()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#methodRemoveSensitiveInfo">AdWordsSoapClient::RemoveSensitiveInfo()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/Lib/AdWordsSoapClient.html#method__doRequest">AdWordsSoapClient::__doRequest()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__construct">AdsSoapClient::__construct()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodCreate">AdsSoapClient::Create()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateRequestInfoMessage">AdsSoapClient::GenerateRequestInfoMessage()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateSoapHeader">AdsSoapClient::GenerateSoapHeader()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetEmail">AdsSoapClient::GetEmail()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderNames">AdsSoapClient::GetHeaderNames()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderValue">AdsSoapClient::GetHeaderValue()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastFaultMessage">AdsSoapClient::GetLastFaultMessage()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastMethodName">AdsSoapClient::GetLastMethodName()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastRequestDom">AdsSoapClient::GetLastRequestDom()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastRequestId">AdsSoapClient::GetLastRequestId()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastResponseDom">AdsSoapClient::GetLastResponseDom()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastResponseTime">AdsSoapClient::GetLastResponseTime()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServiceName">AdsSoapClient::GetServiceName()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetTypemaps">AdsSoapClient::GetTypemaps()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodIsFault">AdsSoapClient::IsFault()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodPrepareRequest">AdsSoapClient::PrepareRequest()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodSetHeaderValue">AdsSoapClient::SetHeaderValue()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodTypemapLongFromXml">AdsSoapClient::TypemapLongFromXml()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodTypemapLongToXml">AdsSoapClient::TypemapLongToXml()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__doRequest">AdsSoapClient::__doRequest()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__soapCall">AdsSoapClient::__soapCall()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname">SoapClient (Internal Class)</span></p>
+					<blockquote>
+													<span class="method-name">constructor SoapClient ( $wsdl, [$options = ] )</span><br>
+													<span class="method-name">__call ( $function_name, $arguments )</span><br>
+													<span class="method-name">__doRequest ( $request, $location, $action, $version, [$one_way = ] )</span><br>
+													<span class="method-name">__getFunctions (  )</span><br>
+													<span class="method-name">__getLastRequest (  )</span><br>
+													<span class="method-name">__getLastRequestHeaders (  )</span><br>
+													<span class="method-name">__getLastResponse (  )</span><br>
+													<span class="method-name">__getLastResponseHeaders (  )</span><br>
+													<span class="method-name">__getTypes (  )</span><br>
+													<span class="method-name">__setCookie ( $name, [$value = ] )</span><br>
+													<span class="method-name">__setLocation ( [$new_location = ] )</span><br>
+													<span class="method-name">__setSoapHeaders ( $soapheaders )</span><br>
+													<span class="method-name">__soapCall ( $function_name, $arguments, [$options = ], [$input_headers = ], [&$output_headers = ] )</span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

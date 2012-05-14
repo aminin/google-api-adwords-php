@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class AdExtensionOverrideStats</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class AdExtensionOverrideStats</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Represents stats specific to AdExtensionOverrides.</p>
+		<p class="notes">
+			Located in <a class="field" href="_Ads---AdWords---v201109_1---AdExtensionOverrideService.php.html">/Ads/AdWords/v201109_1/AdExtensionOverrideService.php</a> (line <span class="field">2511</span>)
+		</p>
+		
+				
+		<pre><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html">Stats</a>
+   |
+   --AdExtensionOverrideStats</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																												
+												<div class="method-definition">
+											<span class="method-result">AdExtensionOverrideStats</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$startDate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$endDate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$network</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$clicks</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$impressions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$cost</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$averagePosition</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$averageCpc</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$averageCpm</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$ctr</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$conversions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$conversionRate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$costPerConversion</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$conversionsManyPerClick</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$conversionRateManyPerClick</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$costPerConversionManyPerClick</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$viewThroughConversions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$totalConvValue</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$valuePerConv</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$valuePerConvManyPerClick</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$invalidClicks</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$invalidClickRate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numCalls</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numMissedCalls</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numReceivedCalls</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$callDurationSecs</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$avgCallDurationSecs</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numOfflineImpressions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numOfflineInteractions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$offlineInteractionRate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$avgCostForOfflineInteraction</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$offlineInteractionCost</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$StatsType</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getNamespace" title="details" class="method-name">getNamespace</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getXsiTypeName" title="details" class="method-name">getXsiTypeName</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html">Stats</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$averageCpc">Stats::$averageCpc</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$averageCpm">Stats::$averageCpm</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$averagePosition">Stats::$averagePosition</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$avgCallDurationSecs">Stats::$avgCallDurationSecs</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$avgCostForOfflineInteraction">Stats::$avgCostForOfflineInteraction</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$callDurationSecs">Stats::$callDurationSecs</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$clicks">Stats::$clicks</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$conversionRate">Stats::$conversionRate</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$conversionRateManyPerClick">Stats::$conversionRateManyPerClick</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$conversions">Stats::$conversions</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$conversionsManyPerClick">Stats::$conversionsManyPerClick</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$cost">Stats::$cost</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$costPerConversion">Stats::$costPerConversion</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$costPerConversionManyPerClick">Stats::$costPerConversionManyPerClick</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$ctr">Stats::$ctr</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$endDate">Stats::$endDate</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$impressions">Stats::$impressions</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$invalidClickRate">Stats::$invalidClickRate</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$invalidClicks">Stats::$invalidClicks</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$network">Stats::$network</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$numCalls">Stats::$numCalls</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$numMissedCalls">Stats::$numMissedCalls</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$numOfflineImpressions">Stats::$numOfflineImpressions</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$numOfflineInteractions">Stats::$numOfflineInteractions</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$numReceivedCalls">Stats::$numReceivedCalls</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$offlineInteractionCost">Stats::$offlineInteractionCost</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$offlineInteractionRate">Stats::$offlineInteractionRate</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$startDate">Stats::$startDate</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$StatsType">Stats::$StatsType</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$totalConvValue">Stats::$totalConvValue</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$valuePerConv">Stats::$valuePerConv</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$valuePerConvManyPerClick">Stats::$valuePerConvManyPerClick</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#var$viewThroughConversions">Stats::$viewThroughConversions</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">2528</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">AdExtensionOverrideStats</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$startDate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$endDate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$network</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$clicks</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$impressions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$cost</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$averagePosition</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$averageCpc</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$averageCpm</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$ctr</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$conversions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$conversionRate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$costPerConversion</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$conversionsManyPerClick</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$conversionRateManyPerClick</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$costPerConversionManyPerClick</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$viewThroughConversions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$totalConvValue</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$valuePerConv</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$valuePerConvManyPerClick</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$invalidClicks</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$invalidClickRate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numCalls</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numMissedCalls</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numReceivedCalls</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$callDurationSecs</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$avgCallDurationSecs</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numOfflineImpressions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$numOfflineInteractions</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$offlineInteractionRate</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$avgCostForOfflineInteraction</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$offlineInteractionCost</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$StatsType</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$startDate</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$endDate</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$network</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$clicks</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$impressions</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$cost</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$averagePosition</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$averageCpc</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$averageCpm</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$ctr</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$conversions</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$conversionRate</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$costPerConversion</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$conversionsManyPerClick</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$conversionRateManyPerClick</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$costPerConversionManyPerClick</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$viewThroughConversions</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$totalConvValue</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$valuePerConv</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$valuePerConvManyPerClick</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$invalidClicks</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$invalidClickRate</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$numCalls</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$numMissedCalls</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$numReceivedCalls</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$callDurationSecs</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$avgCallDurationSecs</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$numOfflineImpressions</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$numOfflineInteractions</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$offlineInteractionRate</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$avgCostForOfflineInteraction</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$offlineInteractionCost</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$StatsType</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#method__construct">Stats::__construct()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetNamespace" id="getNamespace"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNamespace</span> (line <span class="line-number">2516</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the namesapce of this class</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> namespace of this class</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getNamespace
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#methodgetNamespace">Stats::getNamespace()</a></dt>
+						<dd>Gets the namesapce of this class</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetXsiTypeName" id="getXsiTypeName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">2524</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the xsi:type name of this class</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> xsi:type name of this class</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getXsiTypeName
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#methodgetXsiTypeName">Stats::getXsiTypeName()</a></dt>
+						<dd>Gets the xsi:type name of this class</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html">Stats</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#method__construct">Stats::__construct()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#methodgetNamespace">Stats::getNamespace()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#methodgetParameterMap">Stats::getParameterMap()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#methodgetXsiTypeName">Stats::getXsiTypeName()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#method__get">Stats::__get()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsAdWords/v201109_1/Stats.html#method__set">Stats::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

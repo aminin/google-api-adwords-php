@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class OAuth2Handler</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class OAuth2Handler</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|											<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">An abstract class for Google OAuth2 flow.</p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Ads---Common---Util---OAuth2Handler.php.html">/Ads/Common/Util/OAuth2Handler.php</a> (line <span class="field">38</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+								|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsCommon/Util/SimpleOAuth2Handler.html">SimpleOAuth2Handler</a></td>
+					<td>
+											A simple OAuth 2.0 handler.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+												<div class="var-title">
+					static <span class="var-type">mixed</span>
+					<a href="#$DEFAULT_REDIRECT_URI" title="details" class="var-name">$DEFAULT_REDIRECT_URI</a>
+				</div>
+																							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																				
+												<div class="method-definition">
+											<span class="method-result">OAuth2Handler</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#CanRefreshAccessToken" title="details" class="method-name">CanRefreshAccessToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#FormatCredentialsForHeader" title="details" class="method-name">FormatCredentialsForHeader</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$credentials</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#FormatCredentialsForUrl" title="details" class="method-name">FormatCredentialsForUrl</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$credentials</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetAccessEndpoint" title="details" class="method-name">GetAccessEndpoint</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#GetAccessToken" title="details" class="method-name">GetAccessToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$redirectUri</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetAuthorizationUrl" title="details" class="method-name">GetAuthorizationUrl</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$scope</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$redirectUri</span> = <span class="var-default">NULL</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$offline</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetAuthorizeEndpoint" title="details" class="method-name">GetAuthorizeEndpoint</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#IsAccessTokenValid" title="details" class="method-name">IsAccessTokenValid</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#RefreshAccessToken" title="details" class="method-name">RefreshAccessToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$DEFAULT_REDIRECT_URI" id="$DEFAULT_REDIRECT_URI"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">mixed</span>
+			<span class="var-name">$DEFAULT_REDIRECT_URI</span>
+			 = <span class="var-default"> 'urn:ietf:wg:oauth:2.0:oob'</span>			(line <span class="line-number">39</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">52</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">OAuth2Handler</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server</span><span class="var-description">: the auth server to make OAuth2 request against</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsCommon/Util/SimpleOAuth2Handler.html#method__construct">SimpleOAuth2Handler::__construct()</a>
+								: Constructor.
+							</li>
+				</ul>
+	</div>
+<a name="methodCanRefreshAccessToken" id="CanRefreshAccessToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">CanRefreshAccessToken</span> (line <span class="line-number">131</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines if the access token can be refreshed.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the credentials can be refreshed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			CanRefreshAccessToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$credentials</span><span class="var-description">: the credentials</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodFormatCredentialsForHeader" id="FormatCredentialsForHeader"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">FormatCredentialsForHeader</span> (line <span class="line-number">164</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats OAuth2 credentials for use in an HTTP header.</p>
+<p class="description"><p>For example: Bearer token</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the credentials formatted for use in an HTTP header</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			FormatCredentialsForHeader
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$credentials</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$credentials</span><span class="var-description">: the OAuth2 credentials</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodFormatCredentialsForUrl" id="FormatCredentialsForUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">FormatCredentialsForUrl</span> (line <span class="line-number">150</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Formats OAuth2 credentials for use in a URL.</p>
+<p class="description"><p>For example: access_token=token.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the credentials formatted for use in a URL</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			FormatCredentialsForUrl
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$credentials</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$credentials</span><span class="var-description">: the OAuth2 credentials</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodGetAccessEndpoint" id="GetAccessEndpoint"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetAccessEndpoint</span> (line <span class="line-number">188</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the access endpoint using the given server and parameters.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the access endpoint</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetAccessEndpoint
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span><span class="var-description">: the parameters to include in the endpoint</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodGetAccessToken" id="GetAccessToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetAccessToken</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the access token for an authorized request token.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the credentials passed in plus access_token, expires_in,      timestamp and optionally refresh_token if offline mode was requested</li>
+				<li><span class="field">see:</span> handlingtheresponse</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			GetAccessToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$redirectUri</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$credentials</span><span class="var-description">: the credentials, including client_id and      client_secret</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$code</span><span class="var-description">: the authorization code returned in the response</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$redirectUri</span><span class="var-description">: optional callback URL</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsCommon/Util/SimpleOAuth2Handler.html#methodGetAccessToken">SimpleOAuth2Handler::GetAccessToken()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodGetAuthorizationUrl" id="GetAuthorizationUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetAuthorizationUrl</span> (line <span class="line-number">68</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the authorization URL to redirect to.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> an authorization URL to redirect the user to</li>
+				<li><span class="field">see:</span> formingtheurl</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetAuthorizationUrl
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$scope</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$redirectUri</span> = <span class="var-default">NULL</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$offline</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$credentials</span><span class="var-description">: the credentials, including client_id</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$scope</span><span class="var-description">: the scope of the application to authorize</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$redirectUri</span><span class="var-description">: optional callback URL</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$offline</span><span class="var-description">: whether or not to request offline access (aka a      refresh token), false by default</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span><span class="var-description">: optional array of additional parameters to include      in the URL</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodGetAuthorizeEndpoint" id="GetAuthorizeEndpoint"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetAuthorizeEndpoint</span> (line <span class="line-number">179</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the authorization endpoint using the given server and parameters.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the authorization endpoint</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetAuthorizeEndpoint
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span><span class="var-description">: the parameters to include in the endpoint</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodIsAccessTokenValid" id="IsAccessTokenValid"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">IsAccessTokenValid</span> (line <span class="line-number">113</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines if the access token is still valid. If expiry information isn't  available then this function will assume it is.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the access token is valid or if expiring      information isn't available</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			IsAccessTokenValid
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$credentials</span><span class="var-description">: the credentials, including access_token,      timestamp and expires_in</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodRefreshAccessToken" id="RefreshAccessToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">RefreshAccessToken</span> (line <span class="line-number">142</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Refreshes the access token.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the credentials</li>
+				<li><span class="field">see:</span> offline</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			RefreshAccessToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$credentials</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$credentials</span><span class="var-description">: the credentials, including the client_id,      client_secret, refresh_token</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsCommon/Util/SimpleOAuth2Handler.html#methodRefreshAccessToken">SimpleOAuth2Handler::RefreshAccessToken()</a>
+							</li>
+				</ul>
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
