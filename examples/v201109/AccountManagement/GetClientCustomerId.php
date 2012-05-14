@@ -5,6 +5,7 @@
  * IDs and store them for future use.
  *
  * Tags: InfoService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *

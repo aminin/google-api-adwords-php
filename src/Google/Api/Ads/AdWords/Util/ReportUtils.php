@@ -48,7 +48,8 @@ class ReportUtils {
    * Regular expression used to detect errors messages in a response.
    * @access private
    */
-  private static $ERROR_MESSAGE_REGEX = '/^!!![^|]*\|\|\|([^|]*)\|\|\|([^?]*)\?\?\?/';
+  private static $ERROR_MESSAGE_REGEX =
+      '/^!!![^|]*\|\|\|([^|]*)\|\|\|([^?]*)\?\?\?/';
 
   /**
    * The format of the report download URL, for use with sprintf.

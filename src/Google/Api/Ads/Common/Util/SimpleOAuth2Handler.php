@@ -49,7 +49,8 @@ class SimpleOAuth2Handler extends OAuth2Handler {
   /**
    * @see OAuth2Hanlder::GetAccessToken()
    */
-  public function GetAccessToken(array $credentials, $code, $redirectUri = NULL) {
+  public function GetAccessToken(array $credentials, $code,
+      $redirectUri = NULL) {
     if (empty($credentials['client_id'])) {
       throw new OAuth2Exception('client_id required.');
     }
