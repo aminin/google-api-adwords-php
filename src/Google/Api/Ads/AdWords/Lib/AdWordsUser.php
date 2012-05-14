@@ -44,7 +44,7 @@ require_once 'AdWordsConstants.php';
  * @subpackage Lib
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = '3.0.3';
+  private static $LIB_VERSION = '3.1.0';
   private static $LIB_NAME = 'AwApi';
 
   /**
