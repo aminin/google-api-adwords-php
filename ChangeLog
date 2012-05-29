@@ -1,3 +1,6 @@
+Head:
+- Fixed call to missing method in OAuthHandler (Issue #74).
+
 3.1.0:
 - Added support, examples, and tests for v201109_1.
 - Added support for OAuth2.
