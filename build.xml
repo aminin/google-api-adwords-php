@@ -132,11 +132,12 @@
     <phpunit haltonfailure="false" printsummary="true">
       <batchtest>
         <fileset dir="${tests.dir}">
-          <include name="Google/Api/Ads/AdWords/v201109/*Test.php"/>
-          <include name="examples/v201109/*Test.php"/>
+          <include name="Google/Api/Ads/AdWords/v201109_1/*Test.php"/>
+          <include name="examples/v201109_1/*Test.php"/>
         </fileset>
       </batchtest>
-      <formatter type="xml" todir="report" outfile="test_results_v201109.xml"/>
+      <formatter type="xml" todir="report"
+          outfile="test_results_v201109_1.xml"/>
     </phpunit>
   </target>
 
@@ -148,11 +149,43 @@
     <phpunit haltonfailure="false" printsummary="true">
       <batchtest>
         <fileset dir="${tests.dir}">
-          <include name="adx-examples/v201109/*Test.php"/>
+          <include name="adx-examples/v201109_1/*Test.php"/>
         </fileset>
       </batchtest>
       <formatter type="xml" todir="report"
-          outfile="test_results_adx_v201109.xml"/>
+          outfile="test_results_adx_v201109_1.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: run tests for v201206                                       -->
+  <!-- =================================================================== -->
+  <target name="test-v201206" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="Google/Api/Ads/AdWords/v201206/*Test.php"/>
+          <include name="examples/v201206/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report" outfile="test_results_v201206.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: run tests for AdX v201206                                   -->
+  <!-- =================================================================== -->
+  <target name="test-adx-v201206" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="adx-examples/v201206/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report"
+          outfile="test_results_adx_v201206.xml"/>
     </phpunit>
   </target>
 
@@ -180,7 +213,7 @@
         destdir="${docs.dir}"
         sourcecode="no"
         output="HTML:frames:default">
-      <fileset dir="${src.dir}">
+      <fileset dir="${src.dir}" expandsymboliclinks="true">
         <include name="**/*.php" />
       </fileset>
       <projdocfileset dir=".">
@@ -221,7 +254,7 @@
     <property name="package.dir" value="${build.dir}/${prefix}"/>
     <mkdir dir="${package.dir}"/>
     <copy todir="${package.dir}/${prefix}">
-      <fileset dir="${project.basedir}">
+      <fileset dir="${project.basedir}" expandsymboliclinks="true">
         <include name="docs/**"/>
         <include name="examples/**"/>
         <include name="logs/README"/>
@@ -253,7 +286,7 @@
     <property name="package.dir" value="${build.dir}/${prefix}"/>
     <mkdir dir="${package.dir}"/>
     <copy todir="${package.dir}/${prefix}">
-      <fileset dir="${project.basedir}">
+      <fileset dir="${project.basedir}" expandsymboliclinks="true">
         <include name="build_lib/**"/>
         <include name="docs/**"/>
         <include name="examples/**"/>
@@ -290,7 +323,7 @@
     <property name="package.dir" value="${build.dir}/${prefix}"/>
     <mkdir dir="${package.dir}"/>
     <copy todir="${package.dir}/${prefix}">
-      <fileset dir="${project.basedir}">
+      <fileset dir="${project.basedir}" expandsymboliclinks="true">
         <include name="docs/**"/>
         <include name="examples/**"/>
         <include name="logs/README"/>
@@ -328,7 +361,7 @@
     <property name="package.dir" value="${build.dir}/${prefix}"/>
     <mkdir dir="${package.dir}"/>
     <copy todir="${package.dir}/${prefix}">
-      <fileset dir="${project.basedir}">
+      <fileset dir="${project.basedir}" expandsymboliclinks="true">
         <include name="build_lib/**"/>
         <include name="docs/**"/>
         <include name="examples/**"/>

@@ -44,14 +44,14 @@ require_once 'AdWordsConstants.php';
  * @subpackage Lib
  */
 class AdWordsUser extends AdsUser {
-  private static $LIB_VERSION = '3.1.0';
+  private static $LIB_VERSION = '3.1.1';
   private static $LIB_NAME = 'AwApi';
 
   /**
    * The default version that is loaded if the settings INI cannot be loaded.
    * @var string default version of the API
    */
-  private static $DEFAULT_VERSION = 'v201109_1';
+  private static $DEFAULT_VERSION = 'v201206';
 
   /**
    * The default server that is loaded if the settings INI cannot be loaded.

@@ -97,6 +97,30 @@ class ReportUtils {
   }
 
   /**
+   * Downloads a report with AWQL. If the path parameter is specified it will be
+   * downloaded to the file at that path, otherwise it will be downloaded to
+   * memory and be returned as a string.
+   * @param string $reportQuery the query to use for the report
+   * @param string $path an optional path of the file to download the report to
+   * @param AdWordsUser $user the user to retrieve report with
+   * @param string $reportFormat: the report format to request
+   * @param array $options the option to use when downloading the report:
+   *     {string} server: the server to make the request to. If <var>NULL</var>,
+   *         then the default server will be used
+   *     {string} version: the version to make the request against. If
+   *         <var>NULL</var>, then the default version will be used
+   * @return mixed if path isn't specified the contents of the report,
+   *     otherwise the size in bytes of the downloaded report
+   */
+  public static function DownloadReportWithAwql($reportQuery, $path = NULL,
+      AdWordsUser $user, $reportFormat, array $options = NULL) {
+    $url = self::GetUrl($user, $options);
+    $headers = self::GetHeaders($user, $url, $options);
+    $params = self::GetQueryParams($reportQuery, $reportFormat);
+    return self::DownloadReportFromUrl($url, $headers, $params, $path);
+  }
+
+  /**
    * Downloads a report using the URL provided.
    * @param string $url the URL to make the request to
    * @param array $headers the headers to use in the request
@@ -210,6 +234,21 @@ class ReportUtils {
           . $reportDefinition);
     }
     return $params;
+  }
+
+  /**
+   * Generates the parameters to use for the download request with AWQL.
+   * @param string $reportQuery the report query, as string
+   * @param string $reportFormat the format to request report in, as string
+   * @return array the parameters
+   */
+  private static function GetQueryParams($reportQuery, $reportFormat) {
+    if (!is_string($reportQuery) or !is_string($reportFormat)) {
+      throw new ReportDownloadException(
+          'Invalid parameter supplied, string is expected'
+      );
+    }
+    return array('__rdquery' => $reportQuery, '__fmt' => $reportFormat);
   }
 
   /**
