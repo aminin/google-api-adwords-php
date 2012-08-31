@@ -25,7 +25,7 @@
 <p class="short-description">A {@code BulkMutateJob} is essentially a mixed collection of mutate</p>
 <p class="description"><p>operations from the following AdWords API campaign management services:  <ul><li><a href="../../GoogleApiAdsAdWords/v201109/CampaignService.html">CampaignService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/CampaignTargetService.html">CampaignTargetService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/CampaignCriterionService.html">CampaignCriterionService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/AdGroupService.html">AdGroupService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/AdGroupAdService.html">AdGroupAdService</a></li><li><a href="../../GoogleApiAdsAdWords/v201109/AdGroupCriterionService.html">AdGroupCriterionService</a></li></ul></p><p>&lt;p&gt;The mutate operations in a job's request are constructed in exactly the  same way as they are for synchronous calls to these services.&lt;/p&gt;</p><p>&lt;p&gt;The mutate operations are grouped by their scoping entity in the  AdWords customer tree. Currently, mutate operations can be grouped either  by the customer or by their parent campaign. However, they cannot be  grouped both ways - some by customer and others by campaigns - in the same  job.&lt;/p&gt;</p><p>&lt;p class=&quot;note&quot;&gt;<strong>Note:</strong> A job may have no more than 500,000 mutate  operations in total, and no more than 10 different scoping campaigns.&lt;/p&gt;</p><p>&lt;p&gt;The mutate operations must be packaged into containers called  {@code Operation Streams}, each tagged with the ID of the scoping entity of  its operations.&lt;/p&gt;</p><p>&lt;p&gt;To facilitate the building of very large bulk mutate jobs, the operation  streams of a job can be submitted using multiple request parts. A job is  queued for processing as soon as it can be determined that all of its  request parts have been received.&lt;/p&gt;</p><p>&lt;p class=&quot;note&quot;&gt;<strong>Note:</strong> A job may have no more than 100 request parts.  Each part may have no more than 25 operation streams and no more than 10,000  operations in total.&lt;/p&gt;</p></p>
 		<p class="notes">
-			Located in <a class="field" href="_Ads---AdWords---v201109---BulkMutateJobService.php.html">/Ads/AdWords/v201109/BulkMutateJobService.php</a> (line <span class="field">13512</span>)
+			Located in <a class="field" href="_adwords---src---Google---Api---Ads---AdWords---v201109---BulkMutateJobService.php.html">/adwords/src/Google/Api/Ads/AdWords/v201109/BulkMutateJobService.php</a> (line <span class="field">13512</span>)
 		</p>
 		
 				
@@ -132,7 +132,7 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$history" id="$history"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -153,7 +153,7 @@
 
 </div>
 <a name="var$id" id="$id"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -174,7 +174,7 @@
 
 </div>
 <a name="var$numRequestParts" id="$numRequestParts"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -195,7 +195,7 @@
 
 </div>
 <a name="var$numRequestPartsReceived" id="$numRequestPartsReceived"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -216,7 +216,7 @@
 
 </div>
 <a name="var$policy" id="$policy"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -237,7 +237,7 @@
 
 </div>
 <a name="var$request" id="$request"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -258,7 +258,7 @@
 
 </div>
 <a name="var$result" id="$result"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -279,7 +279,7 @@
 
 </div>
 <a name="var$status" id="$status"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -336,7 +336,7 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">Constructor __construct</span> (line <span class="line-number">13577</span>)
@@ -405,7 +405,7 @@
 			
 	</div>
 <a name="methodgetNamespace" id="getNamespace"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">getNamespace</span> (line <span class="line-number">13565</span>)
@@ -436,7 +436,7 @@
 			
 	</div>
 <a name="methodgetXsiTypeName" id="getXsiTypeName"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">13573</span>)

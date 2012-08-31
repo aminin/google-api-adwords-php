@@ -1,9 +1,5 @@
 <?php
 /**
- * Unit tests for SoapRequestXmlFixer.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
@@ -26,22 +22,19 @@
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
  */
-
 error_reporting(E_STRICT | E_ALL);
 
 $path = dirname(__FILE__) . '/../../../../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
-require_once 'PHPUnit/Framework.php';
 require_once 'Google/Api/Ads/Common/Util/SoapRequestXmlFixer.php';
 require_once 'Google/Api/Ads/Common/Util/XmlUtils.php';
 
 /**
- * Unit tests for SoapRequestXmlFixer.
- *
- * @author eric.koleda@google.com
+ * Unit tests for {@link SoapRequestXmlFixer}.
  */
 class SoapRequestXmlFixerTest extends PHPUnit_Framework_TestCase {
+
   /**
    * Tests adding XSI types.
    */

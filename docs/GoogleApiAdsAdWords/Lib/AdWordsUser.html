@@ -23,7 +23,7 @@
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">User class for the AdWords API to create SOAP clients to the available API  services.</p>
 		<p class="notes">
-			Located in <a class="field" href="_Ads---AdWords---Lib---AdWordsUser.php.html">/Ads/AdWords/Lib/AdWordsUser.php</a> (line <span class="field">46</span>)
+			Located in <a class="field" href="_adwords---src---Google---Api---Ads---AdWords---Lib---AdWordsUser.php.html">/adwords/src/Google/Api/Ads/AdWords/Lib/AdWordsUser.php</a> (line <span class="field">47</span>)
 		</p>
 		
 				
@@ -46,11 +46,11 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																												
+																																																																																																																																																																																																																																				
 												<div class="method-definition">
 											<span class="method-result">AdWordsUser</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											([<span class="var-type">string</span>&nbsp;<span class="var-name">$authenticationIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$developerToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$applicationToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$userAgent</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$clientId</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$settingsIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$authToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$oauthInfo</span> = <span class="var-default">NULL</span>])
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$authenticationIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$developerToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$applicationToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$userAgent</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$clientId</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$settingsIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$authToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$oauthInfo</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$oauth2Info</span> = <span class="var-default">NULL</span>])
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
@@ -68,8 +68,8 @@
 										()
 									</div>
 																<div class="method-definition">
-											<span class="method-result">string</span>
-										<a href="#GetClientLibraryIdentifier" title="details" class="method-name">GetClientLibraryIdentifier</a>
+											<span class="method-result">void</span>
+										<a href="#GetClientLibraryNameAndVersion" title="details" class="method-name">GetClientLibraryNameAndVersion</a>
 										()
 									</div>
 																<div class="method-definition">
@@ -105,6 +105,11 @@
 																<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#GetUserAgent" title="details" class="method-name">GetUserAgent</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#GetUserAgentHeaderName" title="details" class="method-name">GetUserAgentHeaderName</a>
 										()
 									</div>
 																<div class="method-definition">
@@ -154,11 +159,6 @@
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
-										<a href="#SetClientLibraryUserAgent" title="details" class="method-name">SetClientLibraryUserAgent</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$userAgent</span>)
-									</div>
-																<div class="method-definition">
-											<span class="method-result">void</span>
 										<a href="#SetDeveloperToken" title="details" class="method-name">SetDeveloperToken</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$developerToken</span>)
 									</div>
@@ -171,6 +171,11 @@
 											<span class="method-result">void</span>
 										<a href="#SetPassword" title="details" class="method-name">SetPassword</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetUserAgent" title="details" class="method-name">SetUserAgent</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$userAgent</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
@@ -202,7 +207,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">103</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">109</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -217,7 +222,7 @@
 		<span class="method-name">
 			__construct
 		</span>
-					([<span class="var-type">string</span>&nbsp;<span class="var-name">$authenticationIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$developerToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$applicationToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$userAgent</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$clientId</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$settingsIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$authToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$oauthInfo</span> = <span class="var-default">NULL</span>])
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$authenticationIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$developerToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$applicationToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$userAgent</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$clientId</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$settingsIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$authToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$oauthInfo</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$oauth2Info</span> = <span class="var-default">NULL</span>])
 			</div>
 	
 			<ul class="parameters">
@@ -251,6 +256,9 @@
 					<li>
 				<span class="var-type">array</span>
 				<span class="var-name">$oauthInfo</span><span class="var-description">: the OAuth information to use for requests</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$oauth2Info</span>			</li>
 				</ul>
 		
 			<hr class="separator" />
@@ -265,7 +273,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetApplicationToken</span> (line <span class="line-number">304</span>)
+		<span class="method-title">GetApplicationToken</span> (line <span class="line-number">312</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -290,7 +298,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetAuthToken</span> (line <span class="line-number">268</span>)
+		<span class="method-title">GetAuthToken</span> (line <span class="line-number">276</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -315,7 +323,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetClientId</span> (line <span class="line-number">321</span>)
+		<span class="method-title">GetClientId</span> (line <span class="line-number">329</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -336,24 +344,23 @@
 		
 			
 	</div>
-<a name="methodGetClientLibraryIdentifier" id="GetClientLibraryIdentifier"><!-- --></a>
+<a name="methodGetClientLibraryNameAndVersion" id="GetClientLibraryNameAndVersion"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetClientLibraryIdentifier</span> (line <span class="line-number">400</span>)
+		<span class="method-title">GetClientLibraryNameAndVersion</span> (line <span class="line-number">380</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Gets the client library identifier used for user-agent fields.</p>
 	<ul class="tags">
-				<li><span class="field">return:</span> a unique client library identifier</li>
+				<li><span class="field">see:</span> <a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryNameAndVersion">AdsUser::GetClientLibraryNameAndVersion()</a></li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">string</span>
+		<span class="method-result">void</span>
 		<span class="method-name">
-			GetClientLibraryIdentifier
+			GetClientLibraryNameAndVersion
 		</span>
 				()
 			</div>
@@ -362,8 +369,8 @@
 			<hr class="separator" />
 		<div class="notes">Redefinition of:</div>
 		<dl>
-			<dt><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryIdentifier">AdsUser::GetClientLibraryIdentifier()</a></dt>
-						<dd>Gets the client library identifier used for user-agent fields.</dd>
+			<dt><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryNameAndVersion">AdsUser::GetClientLibraryNameAndVersion()</a></dt>
+						<dd>Gets the name and version of this client library.</dd>
 					</dl>
 			
 	</div>
@@ -371,7 +378,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetDeveloperToken</span> (line <span class="line-number">288</span>)
+		<span class="method-title">GetDeveloperToken</span> (line <span class="line-number">296</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -396,7 +403,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetEmail</span> (line <span class="line-number">368</span>)
+		<span class="method-title">GetEmail</span> (line <span class="line-number">388</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -421,7 +428,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetOAuth2Scope</span> (line <span class="line-number">452</span>)
+		<span class="method-title">GetOAuth2Scope</span> (line <span class="line-number">464</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -456,7 +463,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetOAuthScope</span> (line <span class="line-number">441</span>)
+		<span class="method-title">GetOAuthScope</span> (line <span class="line-number">453</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -491,7 +498,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetPassword</span> (line <span class="line-number">384</span>)
+		<span class="method-title">GetPassword</span> (line <span class="line-number">404</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -516,7 +523,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetService</span> (line <span class="line-number">212</span>)
+		<span class="method-title">GetService</span> (line <span class="line-number">220</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -561,13 +568,13 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetUserAgent</span> (line <span class="line-number">350</span>)
+		<span class="method-title">GetUserAgent</span> (line <span class="line-number">358</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Gets the user agent for this library.</p>
+<p class="short-description">Gets the raw user agent for this user.</p>
 	<ul class="tags">
-				<li><span class="field">return:</span> the user agent</li>
+				<li><span class="field">return:</span> The raw user agent.</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -582,11 +589,41 @@
 		
 			
 	</div>
-<a name="methodInitLogs" id="InitLogs"><!-- --></a>
+<a name="methodGetUserAgentHeaderName" id="GetUserAgentHeaderName"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">InitLogs</span> (line <span class="line-number">163</span>)
+		<span class="method-title">GetUserAgentHeaderName</span> (line <span class="line-number">373</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetUserAgentHeaderName">AdsUser::GetUserAgentHeaderName()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			GetUserAgentHeaderName
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetUserAgentHeaderName">AdsUser::GetUserAgentHeaderName()</a></dt>
+						<dd>Gets the appropriate user agent header name for the API this client library  is targeting.</dd>
+					</dl>
+			
+	</div>
+<a name="methodInitLogs" id="InitLogs"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">InitLogs</span> (line <span class="line-number">171</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -613,10 +650,10 @@
 			
 	</div>
 <a name="methodLoadService" id="LoadService"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">LoadService</span> (line <span class="line-number">239</span>)
+		<span class="method-title">LoadService</span> (line <span class="line-number">247</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -645,10 +682,10 @@
 			
 	</div>
 <a name="methodLogAll" id="LogAll"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">LogAll</span> (line <span class="line-number">192</span>)
+		<span class="method-title">LogAll</span> (line <span class="line-number">200</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -675,10 +712,10 @@
 			
 	</div>
 <a name="methodLogDefaults" id="LogDefaults"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">LogDefaults</span> (line <span class="line-number">174</span>)
+		<span class="method-title">LogDefaults</span> (line <span class="line-number">182</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -705,10 +742,10 @@
 			
 	</div>
 <a name="methodLogErrors" id="LogErrors"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">LogErrors</span> (line <span class="line-number">183</span>)
+		<span class="method-title">LogErrors</span> (line <span class="line-number">191</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -735,10 +772,10 @@
 			
 	</div>
 <a name="methodRegenerateAuthToken" id="RegenerateAuthToken"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">RegenerateAuthToken</span> (line <span class="line-number">253</span>)
+		<span class="method-title">RegenerateAuthToken</span> (line <span class="line-number">261</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -765,10 +802,10 @@
 			
 	</div>
 <a name="methodSetApplicationToken" id="SetApplicationToken"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetApplicationToken</span> (line <span class="line-number">312</span>)
+		<span class="method-title">SetApplicationToken</span> (line <span class="line-number">320</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -794,10 +831,10 @@
 			
 	</div>
 <a name="methodSetAuthToken" id="SetAuthToken"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetAuthToken</span> (line <span class="line-number">280</span>)
+		<span class="method-title">SetAuthToken</span> (line <span class="line-number">288</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -823,10 +860,10 @@
 			
 	</div>
 <a name="methodSetClientId" id="SetClientId"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetClientId</span> (line <span class="line-number">335</span>)
+		<span class="method-title">SetClientId</span> (line <span class="line-number">343</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -851,40 +888,11 @@
 		
 			
 	</div>
-<a name="methodSetClientLibraryUserAgent" id="SetClientLibraryUserAgent"><!-- --></a>
-<div class="oddrow">
-	
-	<div class="method-header">
-		<span class="method-title">SetClientLibraryUserAgent</span> (line <span class="line-number">359</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Sets the user agent for this library.</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result">void</span>
-		<span class="method-name">
-			SetClientLibraryUserAgent
-		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$userAgent</span>)
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$userAgent</span><span class="var-description">: the user agent. Will be prepended      with the library name and version.</span>			</li>
-				</ul>
-		
-			
-	</div>
 <a name="methodSetDeveloperToken" id="SetDeveloperToken"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetDeveloperToken</span> (line <span class="line-number">296</span>)
+		<span class="method-title">SetDeveloperToken</span> (line <span class="line-number">304</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -913,7 +921,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetEmail</span> (line <span class="line-number">376</span>)
+		<span class="method-title">SetEmail</span> (line <span class="line-number">396</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -942,7 +950,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetPassword</span> (line <span class="line-number">392</span>)
+		<span class="method-title">SetPassword</span> (line <span class="line-number">412</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -967,11 +975,40 @@
 		
 			
 	</div>
-<a name="methodValidateUser" id="ValidateUser"><!-- --></a>
+<a name="methodSetUserAgent" id="SetUserAgent"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">ValidateUser</span> (line <span class="line-number">408</span>)
+		<span class="method-title">SetUserAgent</span> (line <span class="line-number">366</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the raw user agent for this user.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetUserAgent
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$userAgent</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$userAgent</span><span class="var-description">: The raw user agent.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodValidateUser" id="ValidateUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ValidateUser</span> (line <span class="line-number">420</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -993,10 +1030,10 @@
 			
 	</div>
 <a name="method__call" id="__call"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__call</span> (line <span class="line-number">463</span>)
+		<span class="method-title">__call</span> (line <span class="line-number">475</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1034,7 +1071,8 @@
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodCanRefreshOAuth2AccessToken">AdsUser::CanRefreshOAuth2AccessToken()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthServer">AdsUser::GetAuthServer()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthVarValue">AdsUser::GetAuthVarValue()</a></span><br>
-													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryIdentifier">AdsUser::GetClientLibraryIdentifier()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryNameAndVersion">AdsUser::GetClientLibraryNameAndVersion()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryUserAgent">AdsUser::GetClientLibraryUserAgent()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultServer">AdsUser::GetDefaultServer()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultVersion">AdsUser::GetDefaultVersion()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderNames">AdsUser::GetHeaderNames()</a></span><br>
@@ -1051,6 +1089,7 @@
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthScope">AdsUser::GetOAuthScope()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetServiceSoapClient">AdsUser::GetServiceSoapClient()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetSoapCompressionLevel">AdsUser::GetSoapCompressionLevel()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetUserAgentHeaderName">AdsUser::GetUserAgentHeaderName()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetWsdlCacheType">AdsUser::GetWsdlCacheType()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodInitLogs">AdsUser::InitLogs()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodIsOAuth2AccessTokenValid">AdsUser::IsOAuth2AccessTokenValid()</a></span><br>
@@ -1061,6 +1100,7 @@
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLogErrors">AdsUser::LogErrors()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodRefreshOAuth2AccessToken">AdsUser::RefreshOAuth2AccessToken()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodRequestOAuthToken">AdsUser::RequestOAuthToken()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetClientLibraryUserAgent">AdsUser::SetClientLibraryUserAgent()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetDefaultServer">AdsUser::SetDefaultServer()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetDefaultVersion">AdsUser::SetDefaultVersion()</a></span><br>
 													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetHeaderValue">AdsUser::SetHeaderValue()</a></span><br>

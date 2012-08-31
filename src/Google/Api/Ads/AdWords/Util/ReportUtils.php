@@ -1,9 +1,5 @@
 <?php
 /**
- * A collection of utility methods for working with reports.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,10 +20,9 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
- * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
-/** Required classes. **/
 require_once dirname(__FILE__) . '/../Lib/AdWordsUser.php';
 require_once dirname(__FILE__) . '/../../Common/Util/CurlUtils.php';
 require_once dirname(__FILE__) . '/../../Common/Util/Logger.php';
@@ -35,10 +30,9 @@ require_once dirname(__FILE__) . '/../../Common/Util/XmlUtils.php';
 
 /**
  * A collection of utility methods for working with reports.
- * @package GoogleApiAdsAdWords
- * @subpackage Util
  */
 class ReportUtils {
+
   /**
    * The log name to use when logging requests.
    */
@@ -131,34 +125,40 @@ class ReportUtils {
    */
   private static function DownloadReportFromUrl($url, $headers, $params,
       $path = NULL) {
+    /* 
+     * This method should not be static and instantiation of this class should
+     * be allowed so we can "inject" CurlUtils, but would break too many things
+     * that rely on this method being static.
+     */
+    $curlUtils = new CurlUtils();
+    $ch = $curlUtils->CreateSession($downloadUrl);
 
-    $ch = CurlUtils::CreateSession($url);
-    curl_setopt($ch, CURLOPT_POST, TRUE);
-    curl_setopt($ch, CURLINFO_HEADER_OUT, TRUE);
+    $curlUtils->SetOpt($ch, CURLOPT_POST, TRUE);
+    $curlUtils->SetOpt($ch, CURLINFO_HEADER_OUT, TRUE);
 
     $flatHeaders = array();
     foreach($headers as $name => $value) {
       $flatHeaders[] = sprintf('%s: %s', $name, $value);
     }
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $flatHeaders);
+    $curlUtils->SetOpt($ch, CURLOPT_HTTPHEADER, $flatHeaders);
 
     if (isset($params)) {
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+      $curlUtils->SetOpt($ch, CURLOPT_POSTFIELDS, $params);
     }
 
     if (isset($path)) {
       $file = fopen($path, 'w');
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, FALSE);
-      curl_setopt($ch, CURLOPT_FILE, $file);
+      $curlUtils->SetOpt($ch, CURLOPT_RETURNTRANSFER, FALSE);
+      $curlUtils->SetOpt($ch, CURLOPT_FILE, $file);
     }
 
-    $response = curl_exec($ch);
-    $error = curl_error($ch);
-    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $downloadSize = curl_getinfo($ch, CURLINFO_SIZE_DOWNLOAD);
-    $request = curl_getinfo($ch, CURLINFO_HEADER_OUT);
+    $response = $curlUtils->Exec($ch);
+    $error = $curlUtils->Error($ch);
+    $code = $curlUtils->GetInfo($ch, CURLINFO_HTTP_CODE);
+    $downloadSize = $curlUtils->GetInfo($ch, CURLINFO_SIZE_DOWNLOAD);
+    $request = $curlUtils->GetInfo($ch, CURLINFO_HEADER_OUT);
 
-    curl_close($ch);
+    $curlUtils->Close($ch);
     if (isset($file)) {
       fclose($file);
     }

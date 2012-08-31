@@ -26,7 +26,8 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
- * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  * @see        AdsUser
  */
 
@@ -44,6 +45,10 @@ require_once 'AdWordsConstants.php';
  * @subpackage Lib
  */
 class AdWordsUser extends AdsUser {
+
+  // TODO(api.vtsao): Eventually make all header names constants.
+  private static $USER_AGENT_HEADER_NAME = 'userAgent';
+
   private static $LIB_VERSION = '3.1.1';
   private static $LIB_NAME = 'AwApi';
 
@@ -61,6 +66,7 @@ class AdWordsUser extends AdsUser {
 
   private $email;
   private $password;
+  private $userAgent;
 
   /**
    * The AdWordsUser constructor.
@@ -103,7 +109,7 @@ class AdWordsUser extends AdsUser {
   public function __construct($authenticationIniPath = NULL, $email = NULL,
       $password = NULL, $developerToken = NULL, $applicationToken = NULL,
       $userAgent = NULL, $clientId = NULL, $settingsIniPath = NULL,
-      $authToken = NULL, $oauthInfo = NULL) {
+      $authToken = NULL, $oauthInfo = NULL, $oauth2Info = NULL) {
     parent::__construct();
 
     if (isset($authenticationIniPath)) {
@@ -121,7 +127,8 @@ class AdWordsUser extends AdsUser {
         $authenticationIni);
     $applicationToken = $this->GetAuthVarValue($applicationToken,
         'applicationToken', $authenticationIni);
-    $userAgent = $this->GetAuthVarValue($userAgent, 'userAgent',
+    $userAgent = $this->GetAuthVarValue($userAgent,
+        AdWordsUser::$USER_AGENT_HEADER_NAME,
         $authenticationIni);
     $clientId = $this->GetAuthVarValue($clientId, 'clientId',
         $authenticationIni);
@@ -133,7 +140,7 @@ class AdWordsUser extends AdsUser {
         $authenticationIni);
     $oauthInfo = $this->GetAuthVarValue($oauthInfo, 'OAUTH',
         $authenticationIni);
-    $oauth2Info = $this->GetAuthVarValue($oauthInfo, 'OAUTH2',
+    $oauth2Info = $this->GetAuthVarValue($oauth2Info, 'OAUTH2',
         $authenticationIni);
 
     $this->SetEmail($email);
@@ -141,6 +148,7 @@ class AdWordsUser extends AdsUser {
     $this->SetAuthToken($authToken);
     $this->SetOAuthInfo($oauthInfo);
     $this->SetOAuth2Info($oauth2Info);
+    $this->SetUserAgent($userAgent);
     $this->SetClientLibraryUserAgent($userAgent);
     $this->SetClientId($clientId);
     $this->SetDeveloperToken($developerToken);
@@ -255,7 +263,7 @@ class AdWordsUser extends AdsUser {
       $server = $this->GetAuthServer();
     }
     $authTokenClient = new AuthToken($this->email, $this->password, 'adwords',
-        $this->GetUserAgent(), 'GOOGLE', $server);
+        $this->GetClientLibraryUserAgent(), 'GOOGLE', $server);
     $authToken = $authTokenClient->GetAuthToken();
     $this->SetAuthToken($authToken);
     return $authToken;
@@ -344,21 +352,33 @@ class AdWordsUser extends AdsUser {
   }
 
   /**
-   * Gets the user agent for this library.
-   * @return string the user agent
+   * Gets the raw user agent for this user.
+   * @return string The raw user agent.
    */
   public function GetUserAgent() {
-    return $this->GetHeaderValue('userAgent');
+    return $this->userAgent;
   }
 
   /**
-   * Sets the user agent for this library.
-   * @param string $userAgent the user agent. Will be prepended
-   *     with the library name and version.
+   * Sets the raw user agent for this user.
+   * @param string $userAgent The raw user agent.
    */
-  public function SetClientLibraryUserAgent($userAgent) {
-    $this->SetHeaderValue('userAgent', AdWordsUser::$LIB_NAME . '-PHP-'.
-        AdWordsUser::$LIB_VERSION . '-' . $userAgent);
+  public function SetUserAgent($userAgent) {
+    $this->userAgent = $userAgent;
+  }
+
+  /**
+   * @see AdsUser::GetUserAgentHeaderName()
+   */
+  public function GetUserAgentHeaderName() {
+    return AdWordsUser::$USER_AGENT_HEADER_NAME;
+  }
+
+  /**
+   * @see AdsUser::GetClientLibraryNameAndVersion()
+   */
+  public function GetClientLibraryNameAndVersion() {
+    return array(AdWordsUser::$LIB_NAME, AdWordsUser::$LIB_VERSION);
   }
 
   /**
@@ -391,14 +411,6 @@ class AdWordsUser extends AdsUser {
    */
   public function SetPassword($password) {
     $this->password = $password;
-  }
-
-  /**
-   * Gets the client library identifier used for user-agent fields.
-   * @return string a unique client library identifier
-   */
-  public function GetClientLibraryIdentifier() {
-    return $this->GetUserAgent();
   }
 
   /**

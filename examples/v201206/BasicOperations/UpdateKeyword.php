@@ -29,14 +29,8 @@
  * @author     Eric Koleda <eric.koleda@google.com>
  */
 
-error_reporting(E_STRICT | E_ALL);
-
-// Add the library to the include path. This is not neccessary if you've already
-// done so in your php.ini file.
-$path = dirname(__FILE__) . '/../../../src';
-set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+// Include the initialization file
+require_once dirname(dirname(__FILE__)) . '/init.php';
 
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
@@ -51,7 +45,7 @@ $criterionId = 'INSERT_KEYWORD_CRITERION_ID_HERE';
 function UpdateKeywordExample(AdWordsUser $user, $adGroupId, $criterionId) {
   // Get the service, which loads the required classes.
   $adGroupCriterionService =
-      $user->GetService('AdGroupCriterionService', 'v201206');
+      $user->GetService('AdGroupCriterionService', ADWORDS_VERSION);
 
   // Create criterion using an existing ID. Use the base class Criterion
   // instead of Keyword to avoid having to set keyword-specific fields.

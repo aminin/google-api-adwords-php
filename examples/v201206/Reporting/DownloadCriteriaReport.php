@@ -25,15 +25,10 @@
  * @author     Eric Koleda <eric.koleda@google.com>
  */
 
-error_reporting(E_STRICT | E_ALL);
+// Include the initialization file
+require_once dirname(dirname(__FILE__)) . '/init.php';
 
-// Add the library to the include path. This is not neccessary if you've already
-// done so in your php.ini file.
-$path = dirname(__FILE__) . '/../../../src';
-set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
+require_once UTIL_PATH . '/ReportUtils.php';
 
 /**
  * Runs the example.
@@ -42,7 +37,7 @@ require_once 'Google/Api/Ads/AdWords/Util/ReportUtils.php';
  */
 function DownloadCriteriaReportExample(AdWordsUser $user, $filePath) {
   // Load the service, so that the required classes are available.
-  $user->LoadService('ReportDefinitionService', 'v201206');
+  $user->LoadService('ReportDefinitionService', ADWORDS_VERSION);
 
   // Create selector.
   $selector = new Selector();
@@ -64,7 +59,7 @@ function DownloadCriteriaReportExample(AdWordsUser $user, $filePath) {
   $reportDefinition->includeZeroImpressions = FALSE;
 
   // Set additional options.
-  $options = array('version' => 'v201206', 'returnMoneyInMicros' => TRUE);
+  $options = array('version' => ADWORDS_VERSION, 'returnMoneyInMicros' => TRUE);
 
   // Download report.
   ReportUtils::DownloadReport($reportDefinition, $filePath, $user, $options);

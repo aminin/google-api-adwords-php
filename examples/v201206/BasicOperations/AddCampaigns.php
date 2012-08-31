@@ -1,4 +1,4 @@
-<?php
+  <?php
 /**
  * This example adds campaigns.
  *
@@ -28,14 +28,8 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
-error_reporting(E_STRICT | E_ALL);
-
-// Add the library to the include path. This is not neccessary if you've already
-// done so in your php.ini file.
-$path = dirname(__FILE__) . '/../../../src';
-set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+// Include the initialization file
+require_once dirname(dirname(__FILE__)) . '/init.php';
 
 /**
  * Runs the example.
@@ -43,7 +37,7 @@ require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
  */
 function AddCampaignsExample(AdWordsUser $user) {
   // Get the service, which loads the required classes.
-  $campaignService = $user->GetService('CampaignService', 'v201206');
+  $campaignService = $user->GetService('CampaignService', ADWORDS_VERSION);
 
   $numCampaigns = 2;
   $operations = array();
@@ -89,7 +83,7 @@ function AddCampaignsExample(AdWordsUser $user) {
     // If not set this setting is enabled by default on ADD operations.
     $targetRestrictSetting = new TargetRestrictSetting();
     $targetRestrictSetting->useAdGroup = TRUE;
-    $campaign->settings[] = $targetRestrictSetting
+    $campaign->settings[] = $targetRestrictSetting;
 
     // Set advanced location targeting settings (optional).
     $geoTargetTypeSetting = new GeoTargetTypeSetting();

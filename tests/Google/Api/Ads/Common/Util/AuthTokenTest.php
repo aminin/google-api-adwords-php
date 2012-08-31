@@ -1,9 +1,5 @@
 <?php
 /**
- * Unit tests for AuthToken.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
@@ -25,112 +21,91 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
 error_reporting(E_STRICT | E_ALL);
 
 $path = dirname(__FILE__) . '/../../../../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
-require_once 'PHPUnit/Framework.php';
 require_once 'Google/Api/Ads/Common/Util/AuthToken.php';
 
 /**
- * Unit tests for AuthToken.
- *
- * @author eric.koleda@google.com
+ * Unit tests for {@link AuthToken}.
  */
 class AuthTokenTest extends PHPUnit_Framework_TestCase {
-  private static $SERVICE = 'adwords';
-  private static $SOURCE = 'Ads PHP Client Library Unit Tests';
 
-  private $email = NULL;
-  private $password = NULL;
-  private $server = NULL;
+  const SOURCE = 'Ads PHP Client Library Unit Tests';
+  const EMAIL = 'noreply@google.com';
+  const PASSWORD = 'password';
+  const SERVICE = 'gam';
 
-  /**
-   * Sets up the test.
-   */
-  public function setup() {
-    $authIniPath =
-        dirname(__FILE__) . '/../../../../../../test_data/test_auth.ini';
-    $settingsIniPath =
-        dirname(__FILE__) . '/../../../../../../test_data/test_settings.ini';
-    $authIni = parse_ini_file($authIniPath, TRUE);
-    $settingsIni = parse_ini_file($settingsIniPath, TRUE);
-    $this->assertNotNull($authIni, 'The file test_auth.ini was not found.');
-    $this->assertNotNull($settingsIni,
-        'The file test_settings.ini was not found.');
-    $this->assertTrue(isset($authIni['email']),
-        'The email field was not found in test_auth.ini.');
-    $this->assertTrue(isset($authIni['password']),
-        'The password field was not found in test_auth.ini.');
-    $this->email = $authIni['email'];
-    $this->password = $authIni['password'];
-    if (array_key_exists('AUTH', $settingsIni) &&
-        array_key_exists('AUTH_SERVER', $settingsIni['AUTH'])) {
-      $this->server = $settingsIni['AUTH']['AUTH_SERVER'];
-    }
+  protected $curlUtilsMock;
+  protected $authToken;
+
+  protected function setUp() {
+    $this->curlUtilsMock = $this->getMockBuilder('CurlUtils')
+                                ->setMethods(array('CreateSession', 'Init',
+                                    'SetOpt', 'Exec', 'GetInfo', 'Error',
+                                    'Close'))
+                                ->getMock();
+
+    $this->authToken = new AuthToken(self::EMAIL,
+        self::PASSWORD, self::SERVICE,
+        self::SOURCE, NULL, NULL, NULL, NULL, $this->curlUtilsMock);
+  }
+
+  private function setCurlUtilsMethodsExpects($response, $httpCode, $error) {
+    $this->curlUtilsMock->expects($this->any())
+                        ->method('Exec')
+                        ->will($this->returnValue($response));
+    $this->curlUtilsMock->expects($this->any())
+                        ->method('GetInfo')
+                        ->will($this->returnValue($httpCode));
+    $this->curlUtilsMock->expects($this->any())
+                        ->method('Error')
+                        ->will($this->returnValue($error));
   }
 
   /**
-   * Tests getting an authToken.
-   * @dataProvider ServiceProvider
    * @covers AuthToken::GetAuthToken
    */
-  public function testGetAuthToken($service) {
-    $authToken = new AuthToken($this->email, $this->password, $service,
-        AuthTokenTest::$SOURCE, NULL, $this->server);
-    $result = $authToken->GetAuthToken();
-    $this->assertNotNull($authToken->GetAuthToken());
+  public function testGetAuthToken_returnsValidToken() {
+    $this->setCurlUtilsMethodsExpects(sprintf("%s\n%s\n%s", 'SID=DFP',
+        'LSID=DFPDFP', 'Auth=DFPDFPDFP'), 200, FALSE);
+
+    $result = $this->authToken->GetAuthToken();
+    $this->assertNotNull($result);
+    $this->assertEquals('DFPDFPDFP', $result);
   }
 
   /**
-   * Provides services that authTokens are retrieved for.
-   * @return array an array of arrays of services
-   */
-  public function ServiceProvider() {
-    $data = array();
-
-    // AdWords
-    $data[] = array('adwords');
-    // DFP
-    $data[] = array('gam');
-
-    return $data;
-  }
-
-  /**
-   * Tests using invalid credentials to get an authToken.
    * @covers AuthToken::GetAuthToken
    * @expectedException AuthTokenException
    */
-  public function testBadCredentials() {
-    $authToken = new AuthToken($this->email, 'foo', AuthTokenTest::$SERVICE,
-        AuthTokenTest::$SOURCE);
-    $result = $authToken->GetAuthToken();
+  public function testGetAuthToken_withBadAuthentication() {
+    $this->setCurlUtilsMethodsExpects('Error=BadAuthentication', 403, FALSE);
+    $result = $this->authToken->GetAuthToken();
   }
 
   /**
-   * Tests using a invalid server to get an authToken.
    * @covers AuthToken::GetAuthToken
    * @expectedException AuthTokenException
    */
-  public function testBadServer() {
-    $authToken = new AuthToken($this->email, $this->password,
-        AuthTokenTest::$SERVICE, AuthTokenTest::$SOURCE, NULL,
-        'https://foo.google.com');
-    $result = $authToken->GetAuthToken();
+  public function testGetAuthToken_withInvalidServer() {
+    $this->setCurlUtilsMethodsExpects(FALSE, 0,
+        "Couldn't resolve host 'foo.google.com'");
+    $result = $this->authToken->GetAuthToken();
   }
 
   /**
-   * Tests using a invalid service to get an authToken.
    * @covers AuthToken::GetAuthToken
    * @expectedException AuthTokenException
    */
-  public function testBadService() {
-    $authToken = new AuthToken($this->email, $this->password,
-        'foo', AuthTokenTest::$SOURCE);
-    $result = $authToken->GetAuthToken();
+  public function testGetAuthToken_withInvalidService() {
+    $this->setCurlUtilsMethodsExpects(sprintf("%s\n%s", 'Error=Unknown',
+        'Url=https://www.google.com/accounts/ErrorMsg?service=foo&id=unknown&ti'
+        . 'meStmp=1343855615&secTok=DFPDFPDFP'), 403, FALSE);
+    $result = $this->authToken->GetAuthToken();
   }
 }

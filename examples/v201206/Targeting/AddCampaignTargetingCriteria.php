@@ -28,14 +28,8 @@
  * @author     Eric Koleda <eric.koleda@google.com>
  */
 
-error_reporting(E_STRICT | E_ALL);
-
-// Add the library to the include path. This is not neccessary if you've already
-// done so in your php.ini file.
-$path = dirname(__FILE__) . '/../../../src';
-set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+// Include the initialization file
+require_once dirname(dirname(__FILE__)) . '/init.php';
 
 // Enter parameters required by the code example.
 $campaignId = 'INSERT_CAMPAIGN_ID_HERE';
@@ -48,7 +42,7 @@ $campaignId = 'INSERT_CAMPAIGN_ID_HERE';
 function AddCampaignTargetingCriteriaExample(AdWordsUser $user, $campaignId) {
   // Get the service, which loads the required classes.
   $campaignCriterionService =
-      $user->GetService('CampaignCriterionService', 'v201206');
+      $user->GetService('CampaignCriterionService', ADWORDS_VERSION);
 
   $campaignCriteria = array();
 
@@ -56,30 +50,30 @@ function AddCampaignTargetingCriteriaExample(AdWordsUser $user, $campaignId) {
   // with the LocationCriterionService.
   $california = new Location();
   $california->id = 21137;
-  $campaignCriteria[] = new CampaignCriterion($campaignId, $california);
+  $campaignCriteria[] = new CampaignCriterion($campaignId, null, $california);
 
   $mexico = new Location();
   $mexico->id = 2484;
-  $campaignCriteria[] = new CampaignCriterion($campaignId, $mexico);
+  $campaignCriteria[] = new CampaignCriterion($campaignId, null, $mexico);
 
   // Create languages. The IDs can be found in the documentation or retrieved
   // with the ConstantDataService.
   $english = new Language();
   $english->id = 1000;
-  $campaignCriteria[] = new CampaignCriterion($campaignId, $english);
+  $campaignCriteria[] = new CampaignCriterion($campaignId, null, $english);
 
   $spanish = new Language();
   $spanish->id = 1003;
-  $campaignCriteria[] = new CampaignCriterion($campaignId, $spanish);
+  $campaignCriteria[] = new CampaignCriterion($campaignId, null, $spanish);
 
   // Create platforms. The IDs can be found in the documentation.
   $mobile = new Platform();
   $mobile->id = 30001;
-  $campaignCriteria[] = new CampaignCriterion($campaignId, $mobile);
+  $campaignCriteria[] = new CampaignCriterion($campaignId, null, $mobile);
 
   $tablets = new Platform();
   $tablets->id = 30002;
-  $campaignCriteria[] = new CampaignCriterion($campaignId, $tablets);
+  $campaignCriteria[] = new CampaignCriterion($campaignId, null, $tablets);
 
   // Create operations.
   $operations = array();

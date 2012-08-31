@@ -1,9 +1,5 @@
 <?php
 /**
- * User class for all API modules using the Ads API.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,9 +22,8 @@
  *             Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
-/** Required classes. **/
 require_once dirname(__FILE__) . '/../Util/Logger.php';
 require_once dirname(__FILE__) . '/../Util/PeclOAuthHandler.php';
 require_once dirname(__FILE__) . '/../Util/AndySmithOAuthHandler.php';
@@ -38,10 +33,9 @@ require_once 'ValidationException.php';
 
 /**
  * User class for all API modules using the Ads API.
- * @package GoogleApiAdsCommon
- * @subpackage Lib
  */
 abstract class AdsUser {
+
   private $requestHeaderElements;
   private $defaultServer;
   private $defaultVersion;
@@ -52,6 +46,7 @@ abstract class AdsUser {
   private $authServer;
   private $oauthInfo;
   private $oauthHandler;
+  private $oauth2Info;
   private $oauth2Handler;
 
   /**
@@ -455,10 +450,67 @@ abstract class AdsUser {
   }
 
   /**
-   * Gets the client library identifier used for user-agent fields.
-   * @return string a unique client library identifier
+   * Gets the appropriate user agent header name for the API this client library
+   * is targeting.
+   * @return string The user agent header name.
    */
-  abstract public function GetClientLibraryIdentifier();
+  abstract protected function GetUserAgentHeaderName();
+
+  /**
+   * Gets the name and version of this client library.
+   * @return array An array containing the name and version of this client
+   *     library, e.g.: ['DfpApi-PHP', '2.13.0'].
+   */
+  abstract protected function GetClientLibraryNameAndVersion();
+
+  /**
+   * Gets common PHP user agent parts for ads client libraries such as PHP
+   * version, operating system, browser, or if compression is being used or not.
+   * @return array An array of arrays with each inner array representing a user
+   *     agent parts, e.g.: ['php', '5.3.2'] or ['php', '5.4.0'].
+   */
+  private function GetCommonClientLibraryUserAgentParts() {
+    return array(array('php', PHP_VERSION));
+  }
+
+  /**
+   * Gets the user agent string that identifies this library for this user.
+   * @return string A user agent string.
+   */
+  public function GetClientLibraryUserAgent() {
+    return $this->GetHeaderValue($this->GetUserAgentHeaderName());
+  }
+
+  /**
+   * Gets all the user agent parts that identify this client library.
+   * @return array An array of all the user agent parts that identify this
+   *     client library where each user agent part has been joined by a '/'
+   *     (forward slash).
+   */
+  private function GetAllClientLibraryUserAgentParts() {
+    $allUserAgentParts[] = implode('/',
+        $this->GetClientLibraryNameAndVersion());
+
+    foreach ($this->GetCommonClientLibraryUserAgentParts() as $userAgentPart) {
+      $allUserAgentParts[] = implode('/', $userAgentPart);
+    }
+
+    return $allUserAgentParts;
+  }
+
+  /**
+   * Sets the user agent string that identifies this library for this user.
+   *
+   * TODO(vtsao): The current contract requires that subclasses call this method
+   * in their constructor.
+   *
+   * @param $applicationName The application name that will appear in this
+   *     header.
+   */
+  public function SetClientLibraryUserAgent($applicationName) {
+    $this->SetHeaderValue($this->GetUserAgentHeaderName(), sprintf("%s (%s)", $applicationName,
+        implode(', ', $this->GetAllClientLibraryUserAgentParts())));
+  }
 
   /**
    * Requests a new OAuth token.

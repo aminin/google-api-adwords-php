@@ -18,12 +18,17 @@
 					<span class="disabled">Description</span> |
 															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
 						
-					</div>
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Client used to retrieve an authentication token for the supplied credentials  with the client login API.</p>
+<p class="short-description">Client used to retrieve authentication tokens from the Client Login API.</p>
+	<ul class="tags">
+				<li><span class="field">link:</span> <a href="http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html">http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html</a></li>
+			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Ads---Common---Util---AuthToken.php.html">/Ads/Common/Util/AuthToken.php</a> (line <span class="field">43</span>)
+			Located in <a class="field" href="_common---src---Google---Api---Ads---Common---Util---AuthToken.php.html">/common/src/Google/Api/Ads/Common/Util/AuthToken.php</a> (line <span class="field">34</span>)
 		</p>
 		
 				
@@ -33,6 +38,31 @@
 </div>
 
 
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#DEFAULT_ACCOUNT_TYPE" title="details" class="const-name">DEFAULT_ACCOUNT_TYPE</a> = 					<span class="var-type"> 'GOOGLE'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#DEFAULT_SERVER" title="details" class="const-name">DEFAULT_SERVER</a> = 					<span class="var-type"> 'https://www.google.com'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
 
 
 	<a name="sec-method-summary"></a>
@@ -40,7 +70,9 @@
 		<div class="info-box-title">Method Summary</span></div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
@@ -48,7 +80,7 @@
 												<div class="method-definition">
 											<span class="method-result">AuthToken</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$service</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$source</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$accountType</span> = <span class="var-default">'GOOGLE'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$captchaToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$captchaResponse</span> = <span class="var-default">NULL</span>])
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$service</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$source</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$accountType</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$captchaToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$captchaResponse</span> = <span class="var-default">NULL</span>], [<span class="var-type"><a href="../../GoogleApiAdsCommon/Util/CurlUtils.html">CurlUtils</a></span>&nbsp;<span class="var-name">$curlUtils</span> = <span class="var-default">NULL</span>])
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
@@ -70,7 +102,9 @@
 		<div class="info-box-title">Methods</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
 						
 		</div>
 		<div class="info-box-body">
@@ -80,18 +114,18 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">65</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">72</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Constructor for the authentication token.</p>
+<p class="short-description">Creates a new instance of this authentication token utility class.</p>
 	
 	<div class="method-signature">
 		<span class="method-result">AuthToken</span>
 		<span class="method-name">
 			__construct
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$service</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$source</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$accountType</span> = <span class="var-default">'GOOGLE'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$captchaToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$captchaResponse</span> = <span class="var-default">NULL</span>])
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$service</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$source</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$accountType</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$captchaToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$captchaResponse</span> = <span class="var-default">NULL</span>], [<span class="var-type"><a href="../../GoogleApiAdsCommon/Util/CurlUtils.html">CurlUtils</a></span>&nbsp;<span class="var-name">$curlUtils</span> = <span class="var-default">NULL</span>])
 			</div>
 	
 			<ul class="parameters">
@@ -109,10 +143,13 @@
 				<span class="var-name">$source</span><span class="var-description">: the source name</span>			</li>
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$accountType</span><span class="var-description">: the account type. Defaults to GOOGLE</span>			</li>
+				<span class="var-name">$accountType</span><span class="var-description">: the account type, defaults to 'GOOGLE'</span>			</li>
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$server</span><span class="var-description">: the server to make the request to. Defaults to      https://www.google.com</span>			</li>
+				<span class="var-name">$server</span><span class="var-description">: the server to make the request to, defaults      to 'https://www.google.com'</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../GoogleApiAdsCommon/Util/CurlUtils.html">CurlUtils</a></span>
+				<span class="var-name">$curlUtils</span><span class="var-description">: an instance of CurlUtils</span>			</li>
 					<li>
 				<span class="var-type">string</span>
 				<span class="var-name">$captchaToken</span><span class="var-description">: captchaToken the token return with a CAPTCHA challenge</span>			</li>
@@ -127,7 +164,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetAuthToken</span> (line <span class="line-number">83</span>)
+		<span class="method-title">GetAuthToken</span> (line <span class="line-number">93</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -153,7 +190,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetServer</span> (line <span class="line-number">160</span>)
+		<span class="method-title">GetServer</span> (line <span class="line-number">170</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -178,6 +215,56 @@
 		</div>
 	</div>
 
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constDEFAULT_ACCOUNT_TYPE" id="DEFAULT_ACCOUNT_TYPE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">DEFAULT_ACCOUNT_TYPE</span>
+			 = <span class="const-default"> 'GOOGLE'</span>
+			(line <span class="line-number">40</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The default account type for authentication requests.</p>
+	
+	
+</div>
+<a name="constDEFAULT_SERVER" id="DEFAULT_SERVER"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">DEFAULT_SERVER</span>
+			 = <span class="const-default"> 'https://www.google.com'</span>
+			(line <span class="line-number">46</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The default server to make authentication requests to.</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
 
 	<p class="notes" id="credit">
 		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>

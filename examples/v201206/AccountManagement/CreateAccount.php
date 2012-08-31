@@ -32,14 +32,8 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
-error_reporting(E_STRICT | E_ALL);
-
-// Add the library to the include path. This is not neccessary if you've already
-// done so in your php.ini file.
-$path = dirname(__FILE__) . '/../../../src';
-set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+// Include the initialization file
+require_once dirname(dirname(__FILE__)) . '/init.php';
 
 /**
  * Runs the example.
@@ -48,7 +42,7 @@ require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
 function CreateAccountExample(AdWordsUser $user) {
   // Get the service, which loads the required classes.
   $managedCustomerService =
-      $user->GetService('ManagedCustomerService', 'v201206');
+      $user->GetService('ManagedCustomerService', ADWORDS_VERSION);
 
   // Create customer.
   $customer = new ManagedCustomer();

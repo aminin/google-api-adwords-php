@@ -1,0 +1,2681 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page MutateJobService.php</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/adwords/src/Google/Api/Ads/AdWords/v201109/MutateJobService.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-classes">Classes</a>
+			|							<a href="#sec-includes">Includes</a>
+												</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Contains all client objects for the MutateJobService service.</p>
+<p class="description"><p>PHP version 5</p><p>Copyright 2011, Google Inc. All Rights Reserved.</p><p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);  you may not use this file except in compliance with the License.  You may obtain a copy of the License at</p><p>http://www.apache.org/licenses/LICENSE-2.0</p><p>Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and  limitations under the License.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Eric Koleda &lt;<a href="mailto:eric.koleda@google.com">eric.koleda@google.com</a>&gt;</li>
+				<li><span class="field">copyright:</span> 2011, Google Inc. All Rights Reserved.</li>
+				<li><span class="field">license:</span> <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License,
+             Version 2.0</a></li>
+			</ul>
+		
+			</div>
+</div>
+		
+	<a name="sec-classes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Classes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Classes</span>
+			|							<a href="#sec-includes">Includes</a>
+																		</div>
+		<div class="info-box-body">	
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The base class of all ad types. To update basic ad fields,  you can construct an {@code Ad} object (instead of  the ad's concrete type) with the appropriate fields set.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Base class for AdExtension objects. An AdExtension is an extension to  an existing ad or metadata that will process into an extension.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an ad level ad extension override. An ad extension override  specifies the ad extension that must be used if the ad is served with  any ad extension data.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an ad group.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an ad in an ad group.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Data associated with an advertiser experiment for an AdGroupAd
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents bids at the adgroup level, which could be of different subtypes based on  campaign's bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a criterion in an ad group, used with AdGroupCriterionService.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents criterion level bids.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Bid multiplier used to modify the bid of a criterion while running  an experiment.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Bid multiplier used to modify the bid of an adgroup while running  an experiment.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Data associated with an advertiser experiment for this adgroup.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an id indicating a grouping of Ads under some heuristic.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Structure to specify an address location.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The API error base class that provides details about an error that occurred while processing a service request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Interface that has a reason return an associated service error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Base class for exceptions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors returned when Authentication failed.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors encountered when trying to authorize a user.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a bid of a certain amount.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a multiplier to modify a bid. The final value after  modification is represented by the multiplied bid value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A biddable (positive) criterion in an adgroup.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Data associated with an advertiser experiment for this <a href="../../GoogleApiAdsAdWords/v201109/BiddableAdGroupCriterion.html">BiddableAdGroupCriterion</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents bidding errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A campaign's bidding strategy, such as manual CPC, manual CPM, budget optimizer, etc.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Used to switch a campaign's bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Bidding transition errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the billing summary of the job that provides the overall cost of  the job's operations, i.e., for the work done <em>by</em> the job. This  therefore excludes the cost of operating on the job itself - setting up the  job, polling for its status, retrieving the result, etc.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Budgets are used for managing the amount of money spent on AdWords.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all the error codes being used by the common budget domain package.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											In budget optimizer, Google automatically places bids for the user  based on their daily/monthly budget.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Adgroup level bids used in budget optimizer bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											AdGroupCriterion level bids used in budget optimizer bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Bulk mutate job handling errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A basic job policy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A request part of a <a href="../../GoogleApiAdsAdWords/v201109/BulkMutateJob.html">BulkMutateJob</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a result part of a <a href="../../GoogleApiAdsAdWords/v201109/BulkMutateJob.html">BulkMutateJob</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Data representing an AdWords campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a campaign level ad extension. A campaign ad extension specifies  a campaign and an ad extension which can extend any ad under that campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											CampaignAdExtension errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a campaign level criterion (either keyword or placement).
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Base error class for Campaign Criterion Service.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Base error class for Campaign Service.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Error due to user not accepting the AdWords terms of service.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Comparable types for constructing ranges with.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Conversion optimizer bidding strategy. For more information, visit the  &lt;a href=&quot;http://www.google.com/adwords/conversionoptimizer/index.html&quot;  &gt;Conversion Optimizer site&lt;/a&gt;.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Adgroup level bids used in conversion optimizer bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											AdGroupCriterion level bids used in conversion optimizer bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Used to switch a campaign's bidding strategy to conversion optimizer.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Eligibility data for Campaign to transition to Conversion Optimizer
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a criterion (such as a keyword, placement, or vertical).
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Error class used for reporting criteria related errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors that are thrown due to a database access problem.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors associated with invalid dates and date ranges.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a deprecated ad.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a simple height-width dimension.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors related to distinct ids or content.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Reports permission problems trying to access an entity.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Signals that an entity count limit was exceeded for some level.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A qualified long-valued identity that can identify different types of  AdWords entities such as campaigns and ad-groups.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An id did not correspond to an entity, or it referred to an entity which does not belong to the  customer.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A request to be exempted from a <a href="../../GoogleApiAdsAdWords/v201109/PolicyViolationError.html">PolicyViolationError</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A frequency cap is the maximum number of times an ad (or some set of ads) can  be shown to a user over a particular time period.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a Gender criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Specifies a geo location with the supplied latitude/longitude.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors associated with the ids.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an ImageAd.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Error class for errors associated with parsing image data.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates that a server-side error has occured. {@code InternalApiError}s  are generally not the result of an invalid request or message sent by the  client.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an asynchronous macro unit of work.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Job handling errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An event defined by a status change of a job.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/JobResult.html">JobResult</a>
+					</td>
+					<td>
+											Represents the result data of a job. This contains both the results of  successfully processed operations as well as errors returned by failed  operations.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											For selecting jobs whose information will be returned from a get method call of a job service.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Job-handling statistics.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a keyword.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a Language criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents Location criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Location based ad extension.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents override info for ad level LocationExtension overrides.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Local business center(LBC) sync extension that ties a LBC account with a campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Manual click based bidding where user pays per click. For more  information, see the article  &lt;a href=&quot;http://adwords.google.com/support/aw/bin/answer.py?answer=159957&quot;  &gt;What is Enhanced CPC?&lt;/a&gt;.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Adgroup level bids used in manual CPC bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Data representing a criterion level cost-per-click bid.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											AdGroupCriterion level bid multiplier used in manual CPC bidding strategies.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Adgroup level bid multipliers used in manual CPC bidding strategies.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Manual impression based bidding where user pays per thousand impressions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Adgroup level bids used in manual CPM bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Data representing a criterion-level CPM bid.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Adgroup level bid multipliers used in manual CPM bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents some kind of media.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Error class for media related errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											This represents an entry in a map with a key of type Size  and value of type Dimensions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											This represents an entry in a map with a key of type Size  and value of type String.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a mobile ad.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											&lt;p&gt;
+ Represents a phone extension. This type of ad extension attaches a phone number  to a text ad, which lets customers call the advertiser directly from the ad.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a mobile image ad.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a money amount.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A negative criterion in an adgroup.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A negative campaign criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Network settings for a Campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Error associated with creation of new entities using  com.google.ads.api.services.common.id.TempIds.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors corresponding with violation of a NOT EMPTY check.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates that the customer is not whitelisted for accessing the API.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors associated with violation of a NOT NULL check.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Number value types for constructing number valued ranges.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A marker interface for entities that can be operated upon in mutate  operations.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a Operating System Version Criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											This represents an operation that includes an operator and an operand  specified type.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Operation not permitted due to the invoked service's access policy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the result of an individual mutate operation.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A stream of AdWords API mutate operations that must be performed serially.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The result of processing an <a href="../../GoogleApiAdsAdWords/v201109/OperationStream.html">OperationStream</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors due to the use of unsupported operations.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents additional override info with which to augment the override  extension.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Error codes for pagination.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Percentage CPA based bidding where user pays a percent of conversions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											AdGroup level bids used in percent CPA bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Criterion-level Percent cost-per-conversion(acquisition) bid for Product criteria type.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A place holder for a result which is not available.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A placement used for modifying bids for sites when targeting the content  network.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents Platform criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents violations of a single policy by some text in a field.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Points to a substring within an ad field or criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Key of the violation. The key is used for referring to a violation when  filing an exemption request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a Polygon Criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Product targeting criteria, represents a filter for products in the  product feed that is defined by the advertiser. The criteria is used to  determine the products in a Merchant Center account to be used with the  ProductAds in the AdGroup. This criteria is available only to some advertisers.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a product ad (known as a &lt;a href=
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Conditions to filter the products defined in product feed for targeting.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Groups a list of product conditions to be evaluated together as an AND condition  (ie. true if all conditions are true, false otherwise).
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Attribute for the product condition.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Metadata to be used for retrieving offers from Google Base.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a Proximity Criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Container for criterion quality information.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Encapsulates the errors thrown during developer quota checks.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors that are thrown if a quota limit is exceeded.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all errors associated with the Range constraint.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Signals that a call failed because a measured rate exceeded.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors from attempting to write to read-only fields.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all errors associated with the @RegionCode constraints.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The error reason represented by an enum.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Encapsulates the generic errors thrown when there's an error with user  request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors due to missing required field.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a success result of processing a mutate operation that returned  a value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Data associated with a rich media ad.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents possible error codes for <a href="../../GoogleApiAdsAdWords/v201109/Selector.html">Selector</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Base type for AdWords campaign settings.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates a problem with campaign settings.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/SimpleMutateJob.html">SimpleMutateJob</a>
+					</td>
+					<td>
+											A mutation job, which was submitted using  mutate, and will execute asynchronously  sometime after submission.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/SimpleMutateResult.html">SimpleMutateResult</a>
+					</td>
+					<td>
+											The results of a simple mutation job.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Class to represent a single sitelink
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Class to represent a set of sitelinks and their order of preference.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates that the number of entries in the request or response exceeds the system limit.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Defines the required and optional elements within the header of a SOAP request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Defines the elements within the header of a SOAP response.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Statistics about an ad or criterion within an ad group or campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents possible error codes when querying for stats.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all errors associated with the @ContentsString constraint.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Target abstract class.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all the error codes being used by the common targeting package.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Targets list abstract class (a list of a given type of targets along with their campaign ID).
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the temporary id for an ad union id, which the user can specify.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a &lt;a href=
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an element in a template. Each template element is composed  of a list of fields (actual value data).
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a field in a template element.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a TextAd.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Data associated with rich media extension attributes.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates that the mutate operation was not processed. This could result  if the job was aborted by the back-end workflow because the developer's API  quota was exceeded or if the job encountered some severe workflow system  failure.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											User Interest - represents a particular interest based vertical to be targeted.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											UserList - represents a user list that is defined by the advertiser to be targeted.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Use verticals to target or exclude placements in the Google Display Network  based on the category into which the placement falls (for example, &quot;Pets &amp;amp;  Animals/Pets/Dogs&quot;).
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Encapsulates a Video media identified by a MediaId
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the possible approval statuses.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Account has been deleted
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Approval status for the AdExtensionOverride
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Status of the AdExtensionOverride
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Cannot override an ad that is already overriden with an adextension
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Status of this ad group.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The current status of an Ad.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The entity type that exceeded the limit.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the adgroup service error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Ad serving status of campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											&lt;span class=&quot;constraint Rejected&quot;&gt;Used for return value only. An enumeration could not be processed, typically due to incompatibility with your WSDL version.&lt;/span&gt;
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Approval status for the criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The single reason for the authentication failure.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the database error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A basic set of job statuses.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicate where a criterion's bid came from: criterion or the adgroup it  belongs to.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Reason for bidding error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Reason for bidding transition error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Budget delivery methods.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Budget periods.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the budget error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the bulk mutate job handling error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Approval status of the CampaignAdExtension.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Status of the CampaignAdExtension.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Cannot operate on an adextensions under the wrong campaign
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Campaign status.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Enums for the various reasons an error can be thrown as a result of  ClientTerms violation.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Content label type.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Conversion deduplication mode for conversion optimizer, that is  number of clicks that get at least one conversion  or total number of conversions per click.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Bid type for the conversion optimizer bidding strategy.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Campaign is not active
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The types of criteria.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Concrete type of criterion is required for ADD and SET operations.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The way a criterion is used - biddable or negative.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the database error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Days of the week.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Video ad.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the validation error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											User did not have read access.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Limits at various levels of the account.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Type of entity identity.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The specified id refered to an entity which either doesn't exist or is not accessible to the  customer. e.g. campaign belongs to another customer.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Status of the experimental change associated with an entity.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Status of an entity denoting its type of experimental change in a campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The various signals a negative location target may use.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The various signals a positive location target may use.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The image is not valid.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The single reason for the internal API error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the job handling error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Match type of a keyword. i.e. the way we match a keyword string with  search queries.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The level on which the cap is to be applied.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											From manual entry in adwords frontend
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Radius units
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Markup languages to use for mobile ads.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Media types
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Mime types
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Sizes for retrieving the original media
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Minutes in an hour.  Currently only 0, 15, 30, and 45 are supported
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Denotes whether the bid multiplier is derived from the adgroup
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Do not set the id field while creating new entities.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the validation error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The single reason for the whitelist error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the validation error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the operation access error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											This represents an operator that may be presented to an adsapi service.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the validation error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for errors when using pagination.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Campaign's pricing model indicates whether it is a pay per clicks,  pay per impressions, or play per conversions campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The radius distance is expressed in either kilometers or miles.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Enums for all the reasons an error can be thrown to the user during  billing quota checks.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the quota error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The single reason for the quota error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reason for the rate exceeded error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the validation error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Error reason is unknown.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Campaign serving status.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the setting error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for Ad Scheduling errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Ad network.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for errors when querying for stats.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Reported by system to reflect the criterion's serving status.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Possible field types of template element fields.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Unit of time the cap is defined at.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Membership status of the user list.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Specified by user to pause or unpause a criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											VideoType enum values that are permitted for video filterable  creative attribute IDs.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/MutateJobServiceGet.html">MutateJobServiceGet</a>
+					</td>
+					<td>
+											&lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/MutateJobServiceGetResponse.html">MutateJobServiceGetResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/getResult.html">getResult</a>
+					</td>
+					<td>
+											&lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/getResultResponse.html">getResultResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/MutateJobServiceMutate.html">MutateJobServiceMutate</a>
+					</td>
+					<td>
+											&lt;span class=&quot;constraint ContentsNotNull&quot;&gt;This field must not contain {@code null} elements.&lt;/span&gt;  &lt;span class=&quot;constraint NotEmpty&quot;&gt;This field must contain at least one element.&lt;/span&gt;  &lt;span class=&quot;constraint Required&quot;&gt;This field is required and should not be {@code null}.&lt;/span&gt;
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/MutateJobServiceMutateResponse.html">MutateJobServiceMutateResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Base error class for Ad Service.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											AdExtension errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											AdExtensionOverride errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											AdExtensionOverride service operation.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents stats specific to AdExtensionOverrides.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates too many ads were added/enabled under the specified adgroup.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Error information for AdGroupAdService.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											AdGroupAd service operations.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Base error class for Ad Group Criterion Service.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Signals that too many criteria were added to some ad group.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Operation (add, remove and set) on adgroup criteria.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											AdGroup operations for adding/updating/removing adgroups.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents possible error codes in AdGroupService.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Immutable structure to hold an ad schedule target.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											List of ad schedule targets.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents stats specific to Ads.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an Age Range criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Exception class for holding a list of service errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Encapsulates an Audio media identified by a MediaId.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a failure result for a mutate operation that was applied in a  transactional batch. It does not imply that the corresponding operation  for this result itself caused the failure. To determine that, please see  the <a href="../../GoogleApiAdsAdWords/v201109/FailureResult.html">FailureResult</a> provided for the first operation of the batch.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A {@code BulkMutateJob} is essentially a mixed collection of mutate
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An event defined by a status change of a bulk mutate job.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Specifies additional criteria for selecting bulk mutate jobs.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Bulk mutate job-handling statistics.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											CampaignAdExtension service operation.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents stats specific to CampaignAdExtensions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Error to indicate that too many negative criteria added to some campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Generic operation (add, remove and set) for campaign criteria.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An operation on an AdWords campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents stats specific to Campaigns.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Sets a list of targets on a specified campaign.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a Carrier Criterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Content Label for category exclusion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Contains the policy violations for a single BiddableAdGroupCriterion.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Number value type for constructing double valued ranges.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a failure result for an individual mutate operation.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a collection of settings related to ads geotargeting.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Raw image data.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Number value type for constructing long valued ranges.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the result of processing an individual mutate operation that however failed to get durably saved despite the service's best efforts.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Settings for Real-Time Bidding, a feature only available for campaigns  targeting the Ad Exchange network.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsAdWords/v201109/MutateJobService.html">MutateJobService</a>
+					</td>
+					<td>
+											MutateJobService
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-includes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Includes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-classes">Classes</a>
+				|						<span class="disabled">Includes</span>
+														</div>
+		<div class="info-box-body">	
+			<a name="_dirname(__FILE__)_/__/Lib/AdWordsSoapClient_php"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name">dirname(__FILE__)."/../Lib/AdWordsSoapClient.php"</span>)
+			(line <span class="line-number">31</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Required classes. *</p>
+	
+</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

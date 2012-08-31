@@ -1,9 +1,5 @@
 <?php
 /**
- * Unit tests for OAuth2Handler.
- *
- * PHP version 5
- *
  * Copyright 2012, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
@@ -25,22 +21,20 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
 error_reporting(E_STRICT | E_ALL);
 
 $path = dirname(__FILE__) . '/../../../../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
-require_once 'PHPUnit/Framework.php';
 require_once 'Google/Api/Ads/Common/Util/OAuth2Handler.php';
 
 /**
- * Unit tests for OAuth2Handler.
- *
- * @author eric.koleda@google.com
+ * Unit tests for {@link OAuth2Handler}.
  */
 class OAuth2HandlerTest extends PHPUnit_Framework_TestCase {
+
   private $oauth2Handler;
 
   public function setup() {
@@ -144,6 +138,7 @@ class OAuth2HandlerTest extends PHPUnit_Framework_TestCase {
   }
 
   public function testIsAccessTokenValid_Expired() {
+    date_default_timezone_set('America/New_York');
     $credentials = array(
         'access_token' => 'TEST_ACCESS_TOKEN',
         'expires_in' => '3600',

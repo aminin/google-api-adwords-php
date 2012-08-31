@@ -27,14 +27,8 @@
  * @author     Eric Koleda <api.ekoleda@gmail.com>
  */
 
-error_reporting(E_STRICT | E_ALL);
-
-// Add the library to the include path. This is not neccessary if you've already
-// done so in your php.ini file.
-$path = dirname(__FILE__) . '/../../../src';
-set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+// Include the initialization file
+require_once dirname(dirname(__FILE__)) . '/init.php';
 
 /**
  * Gets a string representation for a location.
@@ -52,7 +46,7 @@ function GetLocationString($location) {
 function LookupLocationExample(AdWordsUser $user) {
   // Get the service, which loads the required classes.
   $locationCriterionService =
-      $user->GetService('LocationCriterionService', 'v201206');
+      $user->GetService('LocationCriterionService', ADWORDS_VERSION);
 
   // Location names to look up.
   $locationNames = array('Paris', 'Quebec', 'Spain', 'Deutschland');

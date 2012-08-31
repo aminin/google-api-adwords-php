@@ -29,14 +29,8 @@
  * @author     Eric Koleda <eric.koleda@google.com>
  */
 
-error_reporting(E_STRICT | E_ALL);
-
-// Add the library to the include path. This is not neccessary if you've already
-// done so in your php.ini file.
-$path = dirname(__FILE__) . '/../../../src';
-set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+// Include the initialization file
+require_once dirname(dirname(__FILE__)) . '/init.php';
 
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_ADGROUP_ID_HERE';
@@ -49,7 +43,7 @@ $adGroupId = 'INSERT_ADGROUP_ID_HERE';
  */
 function GetKeywordBidSimulationsExample(AdWordsUser $user, $adGroupId) {
   // Get the service, which loads the required classes.
-  $dataService = $user->GetService('DataService', 'v201206');
+  $dataService = $user->GetService('DataService', ADWORDS_VERSION);
 
   // Create selector.
   $selector = new Selector();

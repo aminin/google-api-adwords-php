@@ -29,15 +29,8 @@
  * @author     Eric Koleda <eric.koleda@google.com>
  */
 
-error_reporting(E_STRICT | E_ALL);
-
-// Add the library to the include path. This is not neccessary if you've already
-// done so in your php.ini file.
-$path = dirname(__FILE__) . '/../../../src';
-set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
-require_once 'Google/Api/Ads/Common/Util/ErrorUtils.php';
+// Include the initialization file
+require_once dirname(dirname(__FILE__)) . '/init.php';
 
 // Enter parameters required by the code example.
 $adGroupId = 'INSERT_AD_GROUP_ID_HERE';
@@ -52,7 +45,7 @@ function ValidateTextAdExample(AdWordsUser $user, $adGroupId) {
   // Get the service, which loads the required classes. Passing true for the
   // parameter $validateOnly will ensure that ads aren't created.
   $adGroupAdValidationService =
-      $user->GetService('AdGroupAdService', 'v201206', NULL, NULL, TRUE);
+      $user->GetService('AdGroupAdService', ADWORDS_VERSION, NULL, NULL, TRUE);
 
   // Create invalid text ad.
   $textAd = new TextAd();

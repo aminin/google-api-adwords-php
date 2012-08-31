@@ -1,9 +1,5 @@
 <?php
 /**
- * Unit tests for AdsSoapClient.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
@@ -25,22 +21,20 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
 error_reporting(E_STRICT | E_ALL);
 
 $path = dirname(__FILE__) . '/../../../../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
-require_once 'PHPUnit/Framework.php';
 require_once 'Google/Api/Ads/Common/Lib/AdsSoapClient.php';
 
 /**
- * Unit tests for AdsSoapClient.
- *
- * @author eric.koleda@google.com
+ * Unit tests for {@link AdsSoapClient}.
  */
 class AdsSoapClientTest extends PHPUnit_Framework_TestCase {
+
   /**
    * Tests deserializing a long field value.
    * @covers AdsSoapClient::TypemapLongFromXml

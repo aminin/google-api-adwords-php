@@ -30,14 +30,8 @@
  * @author     Eric Koleda <eric.koleda@google.com>
  */
 
-error_reporting(E_STRICT | E_ALL);
-
-// Add the library to the include path. This is not neccessary if you've already
-// done so in your php.ini file.
-$path = dirname(__FILE__) . '/../../../src';
-set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-require_once 'Google/Api/Ads/AdWords/Lib/AdWordsUser.php';
+// Include the initialization file
+require_once dirname(dirname(__FILE__)) . '/init.php';
 
 // Enter parameters required by the code example.
 $campaignId = 'INSERT_CAMPAIGN_ID_HERE';
@@ -49,9 +43,9 @@ $campaignId = 'INSERT_CAMPAIGN_ID_HERE';
  */
 function AddLocationExtensionExample(AdWordsUser $user, $campaignId) {
   // Get the services, which loads the required classes.
-  $geoLocationService = $user->GetService('GeoLocationService', 'v201206');
+  $geoLocationService = $user->GetService('GeoLocationService', ADWORDS_VERSION);
   $campaignAdExtensionService =
-      $user->GetService('CampaignAdExtensionService', 'v201206');
+      $user->GetService('CampaignAdExtensionService', ADWORDS_VERSION);
 
   // Create address.
   $address = new Address();
