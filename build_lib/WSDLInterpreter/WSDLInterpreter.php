@@ -610,8 +610,9 @@ class WSDLInterpreter
       $constructor .= " = NULL";
     }
     $constructor .= ") {\n";
-    $constructor .= "    "."if(get_parent_class('"
-        .$class->getAttribute("validatedName")."')) parent::__construct();"."\n";
+    if ($extends->length > 0) {
+        $constructor .= "    parent::__construct();"."\n";
+    }
     foreach($params as $param) {
       $constructor .= "    " . '$this->' . $param . " = $" . $param . ";\n";
     }
@@ -772,21 +773,26 @@ class WSDLInterpreter
    */
   public function savePHP($outputDirectory)
   {
-    if (sizeof($this->_servicePHPSources) == 0) {
+    if (!count($this->_servicePHPSources)) {
       throw new WSDLInterpreterException("No services loaded");
     }
-    $require = '/** Required classes. **/'."\n";
-    $require .= 'require_once ' . $this->_soapClientClassPath . ';' . "\n\n";
+    $require = sprintf(
+        "/** Required classes. **/\nrequire_once %s;\n\n",
+        $this->_soapClientClassPath
+    );
     $classSource = join("\n\n", $this->_classPHPSources);
     $outputFiles = array();
     foreach ($this->_servicePHPSources as $serviceName => $serviceCode) {
-      $filename = $outputDirectory."/".$serviceName.".php";
-      if (file_put_contents($filename,
-                    "<?php\n".$this->_getFileHeader()."\n".$require.$classSource."\n\n".$serviceCode."\n\n?>")) {
-      $outputFiles[] = $filename;
-                    }
+      $filename = sprintf('%s/%s.php', $outputDirectory, $serviceName);
+      $success = file_put_contents($filename, sprintf(
+          "<?php\n%s\n%s%s\n\n%s",
+          $this->_getFileHeader(), $require, $classSource, $serviceCode
+      ));
+      if ($success) {
+        $outputFiles[] = $filename;
+      }
     }
-    if (sizeof($outputFiles) == 0) {
+    if (!count($outputFiles)) {
       throw new WSDLInterpreterException("Error writing PHP source files.");
     }
     return $outputFiles;

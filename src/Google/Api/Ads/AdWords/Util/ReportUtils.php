@@ -131,7 +131,7 @@ class ReportUtils {
      * that rely on this method being static.
      */
     $curlUtils = new CurlUtils();
-    $ch = $curlUtils->CreateSession($downloadUrl);
+    $ch = $curlUtils->CreateSession($url);
 
     $curlUtils->SetOpt($ch, CURLOPT_POST, TRUE);
     $curlUtils->SetOpt($ch, CURLINFO_HEADER_OUT, TRUE);
@@ -173,9 +173,17 @@ class ReportUtils {
       } else {
         $snippet = substr($response, 0, self::$SNIPPET_LENGTH);
       }
-
       // Create exception.
-      if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
+      $error = self::ParseApiErrorXml($snippet);
+      if ($error) {
+        $errorMessage = "Report download failed. Underlying errors are \n";
+        foreach ($error->ApiError as $apiError) {
+          $errorMessage .= sprintf("Type = '%s', Trigger = '%s', FieldPath = " .
+             "'%s'. ", $apiError->type, $apiError->trigger,
+              $apiError->fieldPath);
+        }
+        $exception = new ReportDownloadException($errorMessage, $code);        
+      } else if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
         $exception = new ReportDownloadException($matches[2], $code);
       } else if (!empty($error)) {
         $exception = new ReportDownloadException($error);
@@ -196,6 +204,31 @@ class ReportUtils {
     }
   }
 
+  /**
+   * Tries to parse the error response xml from the AdWords API server as an
+   * object. This method is used in parsing all error responses when API
+   * version >= v201209, and in other versions when apiMode header is mentioned
+   * in the request headers. 
+   *
+   * @param String $responseXml the error response xml
+   * @return Object the parsed error object, or null if the response cannot
+   * be parsed.
+   */
+  private static function ParseApiErrorXml($responseXml) {
+    $retval = null;
+    try {
+      $doc = XmlUtils::GetDomFromXml($responseXml);
+      $retval = XmlUtils::ConvertDocumentToObject($doc);
+      if (!is_array($retval->ApiError)) {
+        $retval->ApiError = array($retval->ApiError);
+      }
+    } catch (Exception $e) {
+      // There was a parse exception and hence this response cannot be
+      // interpreted as an xml.
+    }
+    return $retval;
+  }
+  
   /**
    * Generates the URL to use for the download request.
    * @param AdWordsUser $user the AdWordsUser to make the request for

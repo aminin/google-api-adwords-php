@@ -223,15 +223,21 @@
 										</td>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201206/CustomerService.html">CustomerService</a></td>
+					<td style="padding-right: 2em"></td>
 					<td>
 											CustomerService
 										</td>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201206/ManagedCustomerService.html">ManagedCustomerService</a></td>
+					<td style="padding-right: 2em"></td>
 					<td>
 											ManagedCustomerService
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsAdWords/v201209/BudgetService.html">BudgetService</a></td>
+					<td>
+											BudgetService
 										</td>
 				</tr>
 							</table>
@@ -257,7 +263,7 @@
 												<div class="method-definition">
 											<span class="method-result">AdWordsSoapClient</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceNamespace</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type">AdsUser</span>&nbsp;<span class="var-name">$user</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceNamespace</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
@@ -373,7 +379,7 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">Constructor __construct</span> (line <span class="line-number">50</span>)
@@ -390,7 +396,7 @@
 		<span class="method-name">
 			__construct
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceNamespace</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type">AdsUser</span>&nbsp;<span class="var-name">$user</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$serviceNamespace</span>)
 			</div>
 	
 			<ul class="parameters">
@@ -541,10 +547,14 @@
 				<a href="../../GoogleApiAdsAdWords/v201206/ManagedCustomerService.html#method__construct">ManagedCustomerService::__construct()</a>
 								: Constructor using wsdl location and options array
 							</li>
+					<li>
+				<a href="../../GoogleApiAdsAdWords/v201209/BudgetService.html#method__construct">BudgetService::__construct()</a>
+								: Constructor using wsdl location and options array
+							</li>
 				</ul>
 	</div>
 <a name="methodGenerateRequestInfoMessage" id="GenerateRequestInfoMessage"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">GenerateRequestInfoMessage</span> (line <span class="line-number">212</span>)
@@ -576,7 +586,7 @@
 			
 	</div>
 <a name="methodGenerateSoapHeader" id="GenerateSoapHeader"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">GenerateSoapHeader</span> (line <span class="line-number">93</span>)
@@ -607,7 +617,7 @@
 			
 	</div>
 <a name="methodGetEffectiveUser" id="GetEffectiveUser"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">GetEffectiveUser</span> (line <span class="line-number">118</span>)
@@ -632,7 +642,7 @@
 			
 	</div>
 <a name="methodGetLastOperations" id="GetLastOperations"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">GetLastOperations</span> (line <span class="line-number">163</span>)
@@ -657,7 +667,7 @@
 			
 	</div>
 <a name="methodGetLastOperators" id="GetLastOperators"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">GetLastOperators</span> (line <span class="line-number">129</span>)
@@ -682,7 +692,7 @@
 			
 	</div>
 <a name="methodGetLastUnits" id="GetLastUnits"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">GetLastUnits</span> (line <span class="line-number">180</span>)
@@ -707,7 +717,7 @@
 			
 	</div>
 <a name="methodRemoveSensitiveInfo" id="RemoveSensitiveInfo"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">RemoveSensitiveInfo</span> (line <span class="line-number">108</span>)
@@ -743,7 +753,7 @@
 			
 	</div>
 <a name="method__doRequest" id="__doRequest"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">__doRequest</span> (line <span class="line-number">66</span>)
@@ -826,7 +836,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
 	</p>
 	</div></body>
 </html>
