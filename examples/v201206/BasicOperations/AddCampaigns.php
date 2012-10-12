@@ -58,6 +58,11 @@ function AddCampaignsExample(AdWordsUser $user) {
     $biddingStrategy->enhancedCpcEnabled = TRUE;
     $campaign->biddingStrategy = $biddingStrategy;
 
+    // Set keyword matching setting (required).
+    $keywordMatchSetting = new KeywordMatchSetting();
+    $keywordMatchSetting->optIn = TRUE;
+    $campaign->settings[] = $keywordMatchSetting;
+
     // Set network targeting (recommended).
     $networkSetting = new NetworkSetting();
     $networkSetting->targetGoogleSearch = TRUE;
@@ -90,11 +95,6 @@ function AddCampaignsExample(AdWordsUser $user) {
     $geoTargetTypeSetting->positiveGeoTargetType = 'DONT_CARE';
     $geoTargetTypeSetting->negativeGeoTargetType = 'DONT_CARE';
     $campaign->settings[] = $geoTargetTypeSetting;
-
-    // Set keyword matching setting (optional).
-    $keywordMatchSetting = new KeywordMatchSetting();
-    $keywordMatchSetting->optIn = TRUE;
-    $campaign->settings[] = $keywordMatchSetting;
 
     // Create operation.
     $operation = new CampaignOperation();

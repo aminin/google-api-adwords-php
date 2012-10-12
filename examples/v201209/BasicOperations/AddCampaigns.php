@@ -38,26 +38,26 @@ require_once dirname(dirname(__FILE__)) . '/init.php';
 function AddCampaignsExample(AdWordsUser $user) {
   // Get the BudgetService, which loads the required classes.
   $budgetService = $user->GetService('BudgetService', ADWORDS_VERSION);
-  
+
   // Create the shared budget (required).
   $budget = new Budget();
   $budget->name = 'Interplanetary Cruise Budget #' . uniqid();
   $budget->period = 'DAILY';
   $budget->amount = new Money(50000000);
   $budget->deliveryMethod = 'STANDARD';
-  
+
   $operations = array();
-  
+
   // Create operation.
   $operation = new BudgetOperation();
   $operation->operand = $budget;
   $operation->operator = 'ADD';
   $operations[] = $operation;
-    
+
    // Make the mutate request.
   $result = $budgetService->mutate($operations);
   $budget = $result->value[0];
-  
+
   // Get the CampaignService, which loads the required classes.
   $campaignService = $user->GetService('CampaignService', ADWORDS_VERSION);
 
@@ -76,6 +76,11 @@ function AddCampaignsExample(AdWordsUser $user) {
     $biddingStrategy = new ManualCPC();
     $biddingStrategy->enhancedCpcEnabled = TRUE;
     $campaign->biddingStrategy = $biddingStrategy;
+
+    // Set keyword matching setting (required).
+    $keywordMatchSetting = new KeywordMatchSetting();
+    $keywordMatchSetting->optIn = TRUE;
+    $campaign->settings[] = $keywordMatchSetting;
 
     // Set network targeting (recommended).
     $networkSetting = new NetworkSetting();
@@ -109,11 +114,6 @@ function AddCampaignsExample(AdWordsUser $user) {
     $geoTargetTypeSetting->positiveGeoTargetType = 'DONT_CARE';
     $geoTargetTypeSetting->negativeGeoTargetType = 'DONT_CARE';
     $campaign->settings[] = $geoTargetTypeSetting;
-
-    // Set keyword matching setting (optional).
-    $keywordMatchSetting = new KeywordMatchSetting();
-    $keywordMatchSetting->optIn = TRUE;
-    $campaign->settings[] = $keywordMatchSetting;
 
     // Create operation.
     $operation = new CampaignOperation();

@@ -1,3 +1,6 @@
+3.2.1:
+- Updated comments on required/optional params for CampaignService (Issue #79).
+
 3.2.0:
 - Added support and examples for v201209.
 - Added support in ReportUtils for apiMode error messages.
