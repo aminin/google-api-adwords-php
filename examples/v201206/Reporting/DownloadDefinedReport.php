@@ -30,7 +30,7 @@
 // Include the initialization file
 require_once dirname(dirname(__FILE__)) . '/init.php';
 
-require_once UTIL_PATH . '/ReportUtils.php';
+require_once AW_UTIL_PATH . '/ReportUtils.php';
 
 // Enter parameters required by the code example.
 $reportDefinitionId = 'INSERT_REPORT_DEFINITION_ID_HERE';

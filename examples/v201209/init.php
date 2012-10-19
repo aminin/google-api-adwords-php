@@ -33,6 +33,7 @@ error_reporting(E_STRICT | E_ALL);
 define('SRC_PATH', dirname(__FILE__) . '/../../src/');
 define('LIB_PATH', 'Google/Api/Ads/AdWords/Lib');
 define('UTIL_PATH', 'Google/Api/Ads/Common/Util');
+define('AW_UTIL_PATH', 'Google/Api/Ads/AdWords/Util');
 
 define('ADWORDS_VERSION', 'v201209');
 

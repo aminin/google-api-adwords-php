@@ -28,7 +28,7 @@
 // Include the initialization file
 require_once dirname(dirname(__FILE__)) . '/init.php';
 
-require_once UTIL_PATH . '/ReportUtils.php';
+require_once AW_UTIL_PATH . '/ReportUtils.php';
 
 /**
  * Runs the example.

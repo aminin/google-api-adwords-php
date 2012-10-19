@@ -1,3 +1,6 @@
+3.2.2:
+- Fix incorrect use of UTIL_PATH in Reporting, added new constant AW_UTIL_PATH
+
 3.2.1:
 - Updated comments on required/optional params for CampaignService (Issue #79).
 
