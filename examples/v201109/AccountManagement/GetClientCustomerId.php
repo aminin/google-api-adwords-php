@@ -5,6 +5,7 @@
  * IDs and store them for future use.
  *
  * Tags: InfoService.get
+ * Restriction: adwords-only
  *
  * PHP version 5
  *
@@ -57,8 +58,10 @@ function GetClientCustomerIdExample(AdWordsUser $user, $clientEmail) {
   $selector->clientEmails = array($clientEmail);
   $selector->includeSubAccounts = TRUE;
   $selector->apiUsageType = 'UNIT_COUNT_FOR_CLIENTS';
-  // The date used doesn't matter, so use today.
-  $selector->dateRange = new DateRange(date('Ymd'), date('Ymd'));
+  // The date used doesn't matter, but it's best to use yesterday to avoid
+  // timezone issues.
+  $yesterday = date('Ymd', strtotime('-1 day'));
+  $selector->dateRange = new DateRange($yesterday, $yesterday);
 
   // Make the get request.
   $info = $infoService->get($selector);

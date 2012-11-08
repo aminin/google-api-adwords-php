@@ -125,6 +125,38 @@
   </target>
 
   <!-- =================================================================== -->
+  <!-- Target: run tests for v201109_1                                     -->
+  <!-- =================================================================== -->
+  <target name="test-v201109_1" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="Google/Api/Ads/AdWords/v201109/*Test.php"/>
+          <include name="examples/v201109/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report" outfile="test_results_v201109.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Target: run tests for AdX v201109_1                                 -->
+  <!-- =================================================================== -->
+  <target name="test-adx-v201109_1" depends="init">
+    <mkdir dir="report" />
+    <phpunit haltonfailure="false" printsummary="true">
+      <batchtest>
+        <fileset dir="${tests.dir}">
+          <include name="adx-examples/v201109/*Test.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report"
+          outfile="test_results_adx_v201109.xml"/>
+    </phpunit>
+  </target>
+
+  <!-- =================================================================== -->
   <!-- Target: run tests for core library                                  -->
   <!-- =================================================================== -->
   <target name="test-core" depends="init">

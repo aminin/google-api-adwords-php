@@ -66,6 +66,19 @@ class MapUtilsTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
+   * Test getting map entries from a map, using a named map entries class.
+   * @covers MapUtils::GetMapEntries
+   */
+  public function testGetMapEntries_NamedEntries() {
+    $map = array('foo' => 'bar');
+    $result = MapUtils::GetMapEntries($map, 'TestMapEntry');
+    $this->assertEquals(1, sizeof($result));
+    $this->assertTrue($result[0] instanceof TestMapEntry);
+    $this->assertEquals('foo', $result[0]->key);
+    $this->assertEquals('bar', $result[0]->value);
+  }
+
+  /**
    * Test determining if an array is a map.
    * @param array $value the array to evaluate
    * @param bool $expected the expected result of IsMap()
@@ -167,4 +180,12 @@ class MapUtilsTest extends PHPUnit_Framework_TestCase {
    * @param string $c the third paremter (optional)
    */
   public function SampleMethod($a, $b, $c = NULL) {}
+}
+
+/**
+ * Class for testing map entries.
+ */
+class TestMapEntry {
+  public $key;
+  public $value;
 }

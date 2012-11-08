@@ -48,7 +48,8 @@ class ReportUtils {
    * Regular expression used to detect errors messages in a response.
    * @access private
    */
-  private static $ERROR_MESSAGE_REGEX = '/^!!![^|]*\|\|\|([^|]*)\|\|\|([^?]*)\?\?\?/';
+  private static $ERROR_MESSAGE_REGEX =
+      '/^!!![^|]*\|\|\|([^|]*)\|\|\|([^?]*)\?\?\?/';
 
   /**
    * The format of the report download URL, for use with sprintf.
@@ -228,6 +229,14 @@ class ReportUtils {
           $user->GetOAuthInfo(), $url, 'POST');
       $headers['Authorization'] = 'OAuth '
           . $user->GetOAuthHandler()->FormatParametersForHeader($oauthParams);
+    } elseif ($user->GetOAuth2Info()) {
+      if (!$user->IsOAuth2AccessTokenValid() &&
+          $user->CanRefreshOAuth2AccessToken()) {
+        $user->RefreshOAuth2AccessToken();
+      }
+      $oauth2Header = $user->GetOAuth2Handler()->FormatCredentialsForHeader(
+          $user->GetOAuth2Info());
+      $headers['Authorization'] = $oauth2Header;
     } else {
       $headers['Authorization']= 'GoogleLogin auth=' . $user->GetAuthToken();
     }

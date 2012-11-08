@@ -54,8 +54,8 @@ class AdWordsSoapClient extends AdsSoapClient {
   }
 
   /**
-   * Overrides the method __doRequest().  When OAuth authentication is used
-   * the URL has OAuth parameters added.
+   * Overrides the method __doRequest().  When OAuth or OAuth2 authentication is
+   * used the URL parameters added.
    * @param string $request the request XML
    * @param string $location the URL to request
    * @param string $action the SOAP action
@@ -66,12 +66,21 @@ class AdWordsSoapClient extends AdsSoapClient {
   function __doRequest($request , $location , $action , $version,
       $one_way = 0) {
     $oAuthInfo = $this->user->GetOAuthInfo();
-    if ($oAuthInfo != NULL) {
+    $oAuth2Info = $this->user->GetOAuth2Info();
+    if (isset($oAuthInfo)) {
       $oauthParameters =
           $this->user->GetOAuthHandler()->GetSignedRequestParameters(
               $oAuthInfo, $location);
       $location .= '?' . $this->user->GetOAuthHandler()->FormatParametersForUrl(
           $oauthParameters);
+    } elseif (isset($oAuth2Info)) {
+      if (!$this->user->IsOAuth2AccessTokenValid() &&
+          $this->user->CanRefreshOAuth2AccessToken()) {
+        $oAuth2Info = $this->user->RefreshOAuth2AccessToken();
+      }
+      $oauth2Parameters =
+          $this->user->GetOAuth2Handler()->FormatCredentialsForUrl($oAuth2Info);
+      $location .= '?' . $oauth2Parameters;
     }
     return parent::__doRequest($request, $location, $action, $version);
   }
