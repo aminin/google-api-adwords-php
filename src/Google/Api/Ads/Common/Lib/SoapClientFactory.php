@@ -45,6 +45,7 @@ abstract class SoapClientFactory {
   private $headerOverrides;
 
   private static $SERVER_REGEX = '/^\w*:\/\/[^\/]*/';
+  protected static $COMPRESSION_KIND;
 
   /**
    * The constructor called by any sub-class.
@@ -107,7 +108,7 @@ abstract class SoapClientFactory {
     // Compression settings.
     if ($this->GetAdsUser()->IsSoapCompressionEnabled()) {
       $options['compression'] = SOAP_COMPRESSION_ACCEPT |
-          SOAP_COMPRESSION_GZIP |
+          self::GetCompressionKind() |
           $this->GetAdsUser()->GetSoapCompressionLevel();
       // The User-Agent HTTP header must contain the string 'gzip'.
       $options['user_agent'] = 'PHP-SOAP/'. phpversion() . ', gzip';
@@ -208,5 +209,23 @@ abstract class SoapClientFactory {
    */
   public function GetProductName() {
     return $this->productName;
+  }
+
+  /**
+   * Get the compression flag
+   * @return int Get the compression flag value
+   */
+  protected static function GetCompressionKind() {
+    if (!isset(self::$COMPRESSION_KIND)) {
+      if (version_compare(PHP_VERSION, '5.4.0', '>=') 
+        && version_compare(PHP_VERSION, '5.4.4', '<')
+      ) {
+        self::$COMPRESSION_KIND = SOAP_COMPRESSION_DEFLATE;
+      } else {
+        self::$COMPRESSION_KIND = SOAP_COMPRESSION_GZIP;
+      }
+    }
+
+    return self::$COMPRESSION_KIND;
   }
 }
