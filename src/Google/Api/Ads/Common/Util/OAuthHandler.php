@@ -72,7 +72,7 @@ abstract class OAuthHandler {
     $endpoint = $this->GetAuthorizeEndpoint($server, NULL);
 
     $params = array('oauth_token' => $credentials['oauth_token']);
-    return $this->AddParamsToUrl($endpoint, $params);
+    return UrlUtils::AddParamsToUrl($endpoint, $params);
   }
 
   /**

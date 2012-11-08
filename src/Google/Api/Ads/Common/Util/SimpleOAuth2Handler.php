@@ -1,9 +1,5 @@
 <?php
 /**
- * A simple OAuth 2.0 handler.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,25 +21,27 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
- * @link       http://oauth.googlecode.com/svn/code/php/OAuth.php
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
-/** Required classes. **/
 require_once 'OAuth2Handler.php';
 require_once 'CurlUtils.php';
 
 /**
  * A simple OAuth 2.0 handler.
- * @package GoogleApiAdsCommon
- * @subpackage Util
+ * @link http://oauth.googlecode.com/svn/code/php/OAuth.php
  */
 class SimpleOAuth2Handler extends OAuth2Handler {
+
+  private $curlUtils;
+
   /**
-   * Constructor.
+   * Creates a new instance of this OAuth handler.
    * @param string $server the auth server to make OAuth2 request against
+   * @param CurlUtils $curlUtils an instance of CurlUtils
    */
-  public function __construct($server = NULL) {
+  public function __construct($server = NULL, $curlUtils = NULL) {
     parent::__construct($server);
+    $this->curlUtils = is_null($curlUtils) ? new CurlUtils() : $curlUtils;
   }
 
   /**
@@ -104,12 +102,12 @@ class SimpleOAuth2Handler extends OAuth2Handler {
    * @return OAuthToken the returned token
    */
   protected function MakeRequest($url, $params) {
-    $ch = CurlUtils::CreateSession($url);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-    $response = curl_exec($ch);
-    $error = curl_error($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+    $ch = $this->curlUtils->CreateSession($url);
+    $this->curlUtils->SetOpt($ch, CURLOPT_POSTFIELDS, $params);
+    $response = $this->curlUtils->Exec($ch);
+    $error = $this->curlUtils->Error($ch);
+    $httpCode = $this->curlUtils->GetInfo($ch, CURLINFO_HTTP_CODE);
+    $this->curlUtils->Close($ch);
 
     if (!empty($error)) {
       throw new OAuth2Exception($error, $httpCode);

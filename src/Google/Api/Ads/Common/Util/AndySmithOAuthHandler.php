@@ -1,10 +1,5 @@
 <?php
 /**
- * An OAuth handler that uses the a popular OAuth implementation written by
- * Andy Smith.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,24 +21,27 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
- * @link       http://oauth.googlecode.com/svn/code/php/OAuth.php
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
-/** Required classes. **/
 require_once 'OAuthHandler.php';
 require_once 'CurlUtils.php';
 
 /**
  * An OAuth hanlder that uses the a popular OAuth implementation written by
  * Andy Smith.
- * @package GoogleApiAdsCommon
- * @subpackage Util
+ * @link http://oauth.googlecode.com/svn/code/php/OAuth.php
  */
 class AndySmithOAuthHandler extends OAuthHandler {
+
+  private $curlUtils;
+
   /**
-   * Constructor.
+   * Creates a new instance of this OAuth handler.
+   * @param CurlUtils $curlUtils an instance of CurlUtils
    */
-  public function __construct() {}
+  public function __construct($curlUtils = NULL) {
+    $this->curlUtils = is_null($curlUtils) ? new CurlUtils() : $curlUtils;
+  }
 
   private function DoRequireOnce() {
     // Require the file at runtime because it conflicts with the OAuth PECL.
@@ -131,11 +129,11 @@ class AndySmithOAuthHandler extends OAuthHandler {
    * @return OAuthToken the returned token
    */
   private function GetTokenFromUrl($url) {
-    $ch = CurlUtils::CreateSession($url);
-    $response = curl_exec($ch);
-    $error = curl_error($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+    $ch = $this->curlUtils->CreateSession($url);
+    $response = $this->curlUtils->Exec($ch);
+    $error = $this->curlUtils->Error($ch);
+    $httpCode = $this->curlUtils->GetInfo($ch, CURLINFO_HTTP_CODE);
+    $this->curlUtils->Close($ch);
 
     if (!empty($error)) {
       throw new OAuthException($error, $httpCode);

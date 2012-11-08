@@ -1,9 +1,5 @@
 <?php
 /**
- * Unit tests for AdsUser.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
@@ -25,22 +21,20 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
 error_reporting(E_STRICT | E_ALL);
 
 $path = dirname(__FILE__) . '/../../../../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
-require_once 'PHPUnit/Framework.php';
 require_once 'Google/Api/Ads/Common/Lib/AdsUser.php';
 
 /**
- * Unit tests for AdsUser.
- *
- * @author eric.koleda@google.com
+ * Unit tests for {@link AdsUser}.
  */
 class AdsUserTest extends PHPUnit_Framework_TestCase {
+
   const DEFAULT_VERSION = 'v1';
   const DEFAULT_SERVER = 'https://ads.google.com';
   const DEFAULT_LOGS_DIR = '/var/log/default';
@@ -319,13 +313,13 @@ class AdsUserTest extends PHPUnit_Framework_TestCase {
    */
   public function testLoadSettings_Auth() {
     $server = 'http://localhost';
-    $oAuthHanderlClass = 'AndySmithOAuthHandler';
+    $oAuthHandlerClass = 'AndySmithOAuthHandler';
     $oAuth2HandlerClass = 'SimpleOAuth2Handler';
     $settings = array(
         'AUTH' => array(
             'AUTH_SERVER' => $server,
-            'OAUTH_HANDLER_CLASS' => $oAuthHanderlClass,
-            'OAUTH2_HANDLER_CLASS' => $oAuth2HanderlClass,
+            'OAUTH_HANDLER_CLASS' => $oAuthHandlerClass,
+            'OAUTH2_HANDLER_CLASS' => $oAuth2HandlerClass,
         ),
     );
     $settingsFilePath = $this->createTempSettingsFile($settings);
@@ -334,9 +328,9 @@ class AdsUserTest extends PHPUnit_Framework_TestCase {
         self::DEFAULT_SERVER, self::DEFAULT_LOGS_DIR,
         $this->logsRelativePathBase);
     $this->assertEquals($server, $user->GetAuthServer());
-    $this->assertEquals($oAuthHanderlClass,
+    $this->assertEquals($oAuthHandlerClass,
         get_class($user->GetOAuthHandler()));
-    $this->assertEquals($oAuth2HanderlClass,
+    $this->assertEquals($oAuth2HandlerClass,
         get_class($user->GetOAuth2Handler()));
   }
 
@@ -353,13 +347,13 @@ class AdsUserTest extends PHPUnit_Framework_TestCase {
     $user->LoadSettings($settingsFilePath, self::DEFAULT_VERSION,
         self::DEFAULT_SERVER, self::DEFAULT_LOGS_DIR,
         $this->logsRelativePathBase);
-    $this->assertEquals('https://www.google.com', $user->GetAuthServer());
+    $this->assertEquals('https://accounts.google.com', $user->GetAuthServer());
     $extensions = get_loaded_extensions();
     if (in_array('OAuth', $extensions)) {
       $this->assertEquals('PeclOAuthHandler',
           get_class($user->GetOAuthHandler()));
     } else {
-      $this->assertEquals('AndySmithOAuthHanlder',
+      $this->assertEquals('AndySmithOAuthHandler',
           get_class($user->GetOAuthHandler()));
     }
     $this->assertEquals('SimpleOAuth2Handler',
@@ -395,6 +389,16 @@ class AdsUserTest extends PHPUnit_Framework_TestCase {
   }
 
   /**
+   * Tests that the user agent header is properly set for this client library.
+   * @covers AdsUser::GetClientLibraryUserAgent
+   */
+  public function testGetClientLibraryUserAgent() {
+    $user = new TestAdsUser();
+    $this->assertEquals('GoogleTestPhp (DfpApi-PHP/2.13.0, php/' . PHP_VERSION . ')',
+        $user->GetClientLibraryUserAgent());
+  }
+
+  /**
    * Creates a temporary settings file from the array of settings provided.
    * @param array $settings the settings to use
    * @return string the path to the temp file
@@ -420,13 +424,47 @@ class AdsUserTest extends PHPUnit_Framework_TestCase {
  * A test class that extends AdsUser.
  */
 class TestAdsUser extends AdsUser {
+
+  const USER_AGENT_HEADER_NAME = 'applicationName';
+
+  const LIB_VERSION = '2.13.0';
+  const LIB_NAME = "DfpApi-PHP";
+
+  const APPLICATION_NAME = 'GoogleTestPhp';
+
+  /**
+   * Creates a new instance of this test subclass.
+   */
   public function __construct() {
     parent::__construct();
+    $this->SetClientLibraryUserAgent(self::APPLICATION_NAME);
   }
-  public function GetClientLibraryIdentifier() {
-    return 'test';
+
+  /**
+   * @see AdsUser::GetUserAgentHeaderName()
+   */
+  public function GetUserAgentHeaderName() {
+    return self::USER_AGENT_HEADER_NAME;
   }
+
+  /**
+   * @see AdsUser::GetClientLibraryNameAndVersion()
+   */
+  public function GetClientLibraryNameAndVersion() {
+    return array(self::LIB_NAME, self::LIB_VERSION);
+  }
+
+  /**
+   * @see AdsUser::GetOAuthScope()
+   */
   public function GetOAuthScope($server = NULL) {
-    return 'test';
+    return '';
+  }
+
+  /**
+   * @see AdsUser::GetOAuth2Scope()
+   */
+  public function GetOAuth2Scope($server = NULL) {
+    return '';
   }
 }

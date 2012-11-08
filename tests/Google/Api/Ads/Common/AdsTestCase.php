@@ -1,9 +1,5 @@
 <?php
 /**
- * Test case base class.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
@@ -25,18 +21,15 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
 error_reporting(E_STRICT | E_ALL);
-
-require_once 'PHPUnit/Framework.php';
 
 /**
  * Test case base class.
- *
- * @author eric.koleda@google.com
  */
-class AdsTestCase extends PHPUnit_Framework_TestCase {
+abstract class AdsTestCase extends PHPUnit_Framework_TestCase {
+
   /**
    * Asserts that two objects are equal, excluding certain fields.
    * @param object $expected the expected object

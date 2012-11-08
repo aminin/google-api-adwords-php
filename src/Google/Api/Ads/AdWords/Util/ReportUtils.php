@@ -1,9 +1,5 @@
 <?php
 /**
- * A collection of utility methods for working with reports.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,10 +20,9 @@
  * @copyright  2011, Google Inc. All Rights Reserved.
  * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
  *             Version 2.0
- * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
-/** Required classes. **/
 require_once dirname(__FILE__) . '/../Lib/AdWordsUser.php';
 require_once dirname(__FILE__) . '/../../Common/Util/CurlUtils.php';
 require_once dirname(__FILE__) . '/../../Common/Util/Logger.php';
@@ -35,10 +30,9 @@ require_once dirname(__FILE__) . '/../../Common/Util/XmlUtils.php';
 
 /**
  * A collection of utility methods for working with reports.
- * @package GoogleApiAdsAdWords
- * @subpackage Util
  */
 class ReportUtils {
+
   /**
    * The log name to use when logging requests.
    */
@@ -97,6 +91,30 @@ class ReportUtils {
   }
 
   /**
+   * Downloads a report with AWQL. If the path parameter is specified it will be
+   * downloaded to the file at that path, otherwise it will be downloaded to
+   * memory and be returned as a string.
+   * @param string $reportQuery the query to use for the report
+   * @param string $path an optional path of the file to download the report to
+   * @param AdWordsUser $user the user to retrieve report with
+   * @param string $reportFormat: the report format to request
+   * @param array $options the option to use when downloading the report:
+   *     {string} server: the server to make the request to. If <var>NULL</var>,
+   *         then the default server will be used
+   *     {string} version: the version to make the request against. If
+   *         <var>NULL</var>, then the default version will be used
+   * @return mixed if path isn't specified the contents of the report,
+   *     otherwise the size in bytes of the downloaded report
+   */
+  public static function DownloadReportWithAwql($reportQuery, $path = NULL,
+      AdWordsUser $user, $reportFormat, array $options = NULL) {
+    $url = self::GetUrl($user, $options);
+    $headers = self::GetHeaders($user, $url, $options);
+    $params = self::GetQueryParams($reportQuery, $reportFormat);
+    return self::DownloadReportFromUrl($url, $headers, $params, $path);
+  }
+
+  /**
    * Downloads a report using the URL provided.
    * @param string $url the URL to make the request to
    * @param array $headers the headers to use in the request
@@ -107,34 +125,40 @@ class ReportUtils {
    */
   private static function DownloadReportFromUrl($url, $headers, $params,
       $path = NULL) {
+    /* 
+     * This method should not be static and instantiation of this class should
+     * be allowed so we can "inject" CurlUtils, but would break too many things
+     * that rely on this method being static.
+     */
+    $curlUtils = new CurlUtils();
+    $ch = $curlUtils->CreateSession($url);
 
-    $ch = CurlUtils::CreateSession($url);
-    curl_setopt($ch, CURLOPT_POST, TRUE);
-    curl_setopt($ch, CURLINFO_HEADER_OUT, TRUE);
+    $curlUtils->SetOpt($ch, CURLOPT_POST, TRUE);
+    $curlUtils->SetOpt($ch, CURLINFO_HEADER_OUT, TRUE);
 
     $flatHeaders = array();
     foreach($headers as $name => $value) {
       $flatHeaders[] = sprintf('%s: %s', $name, $value);
     }
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $flatHeaders);
+    $curlUtils->SetOpt($ch, CURLOPT_HTTPHEADER, $flatHeaders);
 
     if (isset($params)) {
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+      $curlUtils->SetOpt($ch, CURLOPT_POSTFIELDS, $params);
     }
 
     if (isset($path)) {
       $file = fopen($path, 'w');
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, FALSE);
-      curl_setopt($ch, CURLOPT_FILE, $file);
+      $curlUtils->SetOpt($ch, CURLOPT_RETURNTRANSFER, FALSE);
+      $curlUtils->SetOpt($ch, CURLOPT_FILE, $file);
     }
 
-    $response = curl_exec($ch);
-    $error = curl_error($ch);
-    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $downloadSize = curl_getinfo($ch, CURLINFO_SIZE_DOWNLOAD);
-    $request = curl_getinfo($ch, CURLINFO_HEADER_OUT);
+    $response = $curlUtils->Exec($ch);
+    $error = $curlUtils->Error($ch);
+    $code = $curlUtils->GetInfo($ch, CURLINFO_HTTP_CODE);
+    $downloadSize = $curlUtils->GetInfo($ch, CURLINFO_SIZE_DOWNLOAD);
+    $request = $curlUtils->GetInfo($ch, CURLINFO_HEADER_OUT);
 
-    curl_close($ch);
+    $curlUtils->Close($ch);
     if (isset($file)) {
       fclose($file);
     }
@@ -149,9 +173,17 @@ class ReportUtils {
       } else {
         $snippet = substr($response, 0, self::$SNIPPET_LENGTH);
       }
-
       // Create exception.
-      if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
+      $error = self::ParseApiErrorXml($snippet);
+      if ($error) {
+        $errorMessage = "Report download failed. Underlying errors are \n";
+        foreach ($error->ApiError as $apiError) {
+          $errorMessage .= sprintf("Type = '%s', Trigger = '%s', FieldPath = " .
+             "'%s'. ", $apiError->type, $apiError->trigger,
+              $apiError->fieldPath);
+        }
+        $exception = new ReportDownloadException($errorMessage, $code);        
+      } else if (preg_match(self::$ERROR_MESSAGE_REGEX, $snippet, $matches)) {
         $exception = new ReportDownloadException($matches[2], $code);
       } else if (!empty($error)) {
         $exception = new ReportDownloadException($error);
@@ -172,6 +204,31 @@ class ReportUtils {
     }
   }
 
+  /**
+   * Tries to parse the error response xml from the AdWords API server as an
+   * object. This method is used in parsing all error responses when API
+   * version >= v201209, and in other versions when apiMode header is mentioned
+   * in the request headers. 
+   *
+   * @param String $responseXml the error response xml
+   * @return Object the parsed error object, or null if the response cannot
+   * be parsed.
+   */
+  private static function ParseApiErrorXml($responseXml) {
+    $retval = null;
+    try {
+      $doc = XmlUtils::GetDomFromXml($responseXml);
+      $retval = XmlUtils::ConvertDocumentToObject($doc);
+      if (!is_array($retval->ApiError)) {
+        $retval->ApiError = array($retval->ApiError);
+      }
+    } catch (Exception $e) {
+      // There was a parse exception and hence this response cannot be
+      // interpreted as an xml.
+    }
+    return $retval;
+  }
+  
   /**
    * Generates the URL to use for the download request.
    * @param AdWordsUser $user the AdWordsUser to make the request for
@@ -210,6 +267,21 @@ class ReportUtils {
           . $reportDefinition);
     }
     return $params;
+  }
+
+  /**
+   * Generates the parameters to use for the download request with AWQL.
+   * @param string $reportQuery the report query, as string
+   * @param string $reportFormat the format to request report in, as string
+   * @return array the parameters
+   */
+  private static function GetQueryParams($reportQuery, $reportFormat) {
+    if (!is_string($reportQuery) or !is_string($reportFormat)) {
+      throw new ReportDownloadException(
+          'Invalid parameter supplied, string is expected'
+      );
+    }
+    return array('__rdquery' => $reportQuery, '__fmt' => $reportFormat);
   }
 
   /**

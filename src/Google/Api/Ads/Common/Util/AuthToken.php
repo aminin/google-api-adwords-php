@@ -1,11 +1,5 @@
 <?php
 /**
- * Client used to retrieve authentication tokens from the Client Login API.
- *
- * {@link http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html}
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,19 +22,29 @@
  *             Version 2.0
  * @author     Adam Rogal <api.arogal@gmail.com>
  * @author     Eric Koleda <eric.koleda@google.com>
+ * @author     Vincent Tsao <api.vtsao@gmail.com>
  */
-
-/** Required classes. **/
 require_once 'AuthTokenException.php';
 require_once 'CurlUtils.php';
 
 /**
- * Client used to retrieve an authentication token for the supplied credentials
- * with the client login API.
- * @package GoogleApiAdsCommon
- * @subpackage Util
+ * Client used to retrieve authentication tokens from the Client Login API.
+ * @link http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html
  */
 class AuthToken {
+
+  /**
+   * The default account type for authentication requests.
+   * @var string
+   */
+  const DEFAULT_ACCOUNT_TYPE = 'GOOGLE';
+
+  /**
+   * The default server to make authentication requests to.
+   * @var string
+   */
+  const DEFAULT_SERVER = 'https://www.google.com';
+
   private $email;
   private $password;
   private $accountType;
@@ -50,29 +54,35 @@ class AuthToken {
   private $captchaToken;
   private $captchaResponse;
 
+  private $curlUtils;
+
   /**
-   * Constructor for the authentication token.
+   * Creates a new instance of this authentication token utility class.
    * @param string $email the email of the user
    * @param string $password the password of the user
    * @param string $service the service name
    * @param string $source the source name
-   * @param string $accountType the account type. Defaults to GOOGLE
-   * @param string $server the server to make the request to. Defaults to
-   *     https://www.google.com
+   * @param string $accountType the account type, defaults to 'GOOGLE'
+   * @param string $server the server to make the request to, defaults
+   *     to 'https://www.google.com'
    * @param string captchaToken the token return with a CAPTCHA challenge
    * @param string captchaResponse the response to a CAPTCHA challenge
+   * @param CurlUtils $curlUtils an instance of CurlUtils
    */
   function __construct($email, $password, $service, $source,
-      $accountType = 'GOOGLE', $server = NULL, $captchaToken = NULL,
-      $captchaResponse = NULL) {
+      $accountType = NULL, $server = NULL, $captchaToken = NULL,
+      $captchaResponse = NULL, $curlUtils = NULL) {
     $this->email = $email;
     $this->password = $password;
-    $this->accountType = $accountType;
+    $this->accountType = is_null($accountType)
+        ? self::DEFAULT_ACCOUNT_TYPE : $accountType;
     $this->service = $service;
     $this->source = $source;
-    $this->server = isset($server) ? $server : 'https://www.google.com';
+    $this->server = is_null($server) ? self::DEFAULT_SERVER : $server;
     $this->captchaToken = $captchaToken;
     $this->captchaResponse = $captchaResponse;
+
+    $this->curlUtils = is_null($curlUtils) ? new CurlUtils() : $curlUtils;
   }
 
   /**
@@ -105,7 +115,6 @@ class AuthToken {
    * Makes the client login request and stores the result.
    * @return string the response from the ClientLogin API
    * @throws AuthTokenException if an error occurs during authentication
-   * @access private
    */
   private function Login() {
     $postUrl = $this->server . '/accounts/ClientLogin';
@@ -119,19 +128,21 @@ class AuthToken {
         'logincaptcha' => $this->captchaResponse
     ), NULL, '&');
 
-    $ch = CurlUtils::CreateSession($postUrl);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postVars);
+    $ch = $this->curlUtils->CreateSession($postUrl);
+    $this->curlUtils->SetOpt($ch, CURLOPT_POST, 1);
+    $this->curlUtils->SetOpt($ch, CURLOPT_POSTFIELDS, $postVars);
 
-    $response = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $error = curl_error($ch);
-    curl_close($ch);
+    $response = $this->curlUtils->Exec($ch);
+    $httpCode = $this->curlUtils->GetInfo($ch, CURLINFO_HTTP_CODE);
+    $error = $this->curlUtils->Error($ch);
+    $this->curlUtils->Close($ch);
+
     if (!empty($error)) {
       throw new AuthTokenException($error);
     } else if ($httpCode != 200 && $httpCode != 403) {
       throw new AuthTokenException($httpCode);
     }
+
     return $response;
   }
 
@@ -139,7 +150,6 @@ class AuthToken {
    * Parses the response into a map of field name to value.
    * @param string $response the response from the ClientLogin API
    * @return array a map of field name to value
-   * @access private
    */
   private function ParseResponse($response) {
     $result = array();

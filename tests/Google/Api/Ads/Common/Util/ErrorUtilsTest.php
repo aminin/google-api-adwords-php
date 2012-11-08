@@ -1,9 +1,5 @@
 <?php
 /**
- * Unit tests for ErrorUtils.
- *
- * PHP version 5
- *
  * Copyright 2011, Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
@@ -26,21 +22,18 @@
  *             Version 2.0
  * @author     Eric Koleda <eric.koleda@google.com>
  */
-
 error_reporting(E_STRICT | E_ALL);
 
 $path = dirname(__FILE__) . '/../../../../../../src';
 set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
-require_once 'PHPUnit/Framework.php';
 require_once 'Google/Api/Ads/Common/Util/ErrorUtils.php';
 
 /**
- * Unit tests for ErrorUtils.
- *
- * @author eric.koleda@google.com
+ * Unit tests for {@link ErrorUtils}.
  */
 class ErrorUtilsTest extends PHPUnit_Framework_TestCase {
+
   /**
    * Test getting the API errors from a SOAP fault.
    * @param SoapFault $fault the SOAP fault to get errors from
